@@ -1,0 +1,7 @@
+echo [32m»» making the debug-Version ...[31m
+copy sc_options/scoptions.dbg.68060-881	scoptions
+delete >NIL: #?.o #?.lnk
+
+bumpbuild
+
+sc

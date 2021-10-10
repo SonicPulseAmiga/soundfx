@@ -1,0 +1,20 @@
+echo [32m»» making the 68060-881-Version ...[31m
+copy //sfx-module/options/scoptions.dbg.68060-881 scoptions
+
+echo >>scoptions "PROGRAMNAME=" NOLINE
+list >>scoptions #?.c LFORMAT="%M.sfxmod" FILES
+
+echo >>scoptions "LIBRARYVERSION=" NOLINE
+sc:c/grep >temp -q "#define PRJ_VERSION" project.h
+sc:c/sed >NIL: temp "#define PRJ_VERSION" ""
+sc:c/sed >NIL: temp "	" ""
+type >>scoptions temp 
+
+echo >>scoptions "LIBRARYREVISION=" NOLINE
+sc:c/grep >temp -q "#define PRJ_REVISION" project.h
+sc:c/sed >NIL: temp "#define PRJ_REVISION" ""
+sc:c/sed >NIL: temp "	" ""
+type >>scoptions temp
+
+delete >NIL: temp #?.o #?.lnk #?.sfxmod #?.tmp
+sc

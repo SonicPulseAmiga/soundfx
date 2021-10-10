@@ -1,0 +1,4 @@
+Loader CDDA gives error 641 on prefs, and 1651 on load,
+both saying "can't create context". Prefs crashed the program a couple of times.
+I don't think it would work any way with this old NEC Intersec i have.
+I can open those windows of the same CDDA loader in 3.82.1.

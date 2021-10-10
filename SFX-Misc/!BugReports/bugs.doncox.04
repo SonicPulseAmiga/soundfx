@@ -1,0 +1,55 @@
+From - Fri Jun  8 11:55:13 2001
+Received: from thlhp.rz.htwk-leipzig.de (thlhp [141.57.1.1])
+	by imn.htwk-leipzig.de (8.9.1/8.9.1) with ESMTP id PAA07300
+	for <kost@imn.htwk-leipzig.de>; Tue, 5 Jun 2001 15:55:54 +0200 (MET DST)
+Received: from ns0.enterprise.net (ns0.enterprise.net [213.137.2.163])
+	by thlhp.rz.htwk-leipzig.de (8.8.8/8.8.8) with ESMTP id PAA54624
+	for <kost@imn.htwk-leipzig.de>; Tue, 5 Jun 2001 15:56:23 +0200
+Received: from enterprise.net (cmax05-010.enterprise.net [212.161.115.10])
+	by ns0.enterprise.net (8.10.2+Sun/8.10.2) with SMTP id f55Dmko12489
+	for <kost@imn.htwk-leipzig.de>; Tue, 5 Jun 2001 14:48:47 +0100 (BST)
+From: Don Cox <doncox@enterprise.net>
+To: Stefan Kost <kost@imn.htwk-leipzig.de>
+Date: Tue, 05 Jun 2001 13:41:37 +0000
+Message-ID: <yam8556.1886.158093472@smtp.enterprise.net>
+In-Reply-To: <3B1CD086.71DDA1CD@imn.htwk-leipzig.de>
+X-Mailer: YAM 2.2 [040] AmigaOS E-Mail Client (c) 1995-2000 by Marcel Beck  http://www.yam.ch
+Subject: Re: Review
+MIME-Version: 1.0
+Content-Type: text/plain
+Content-Length: 854
+Status:   
+X-Mozilla-Status: 8011
+X-Mozilla-Status2: 00000000
+X-UIDL: 361df5b500003495
+
+On 05-Jun-01, Stefan Kost wrote:
+> Hi Don,
+>> 
+>> Hello Stefan
+>> 
+>> One thing I can't find is "Zoom to selected range".
+>> 
+>> Is this command missing?
+>> 
+>> When I zoom in using the magnifier icon +, the selected-range
+>> rectangle disappears.
+> It works this way. If you click on zoom in (magnifying glass with '+')
+> it check if there is a marked range. if not it zoom into center by 2,
+> if yes it zooms that range (and un-marks it). Most people don't want
+> the marked range anymore then.
+
+OK, that makes sense now. Perhaps a "Zoom to marked range" menu item
+would be good?
+
+I found the vanishing of the rectangle confusing, probably because in
+Samplitude it stays visible. I like to zoom to range and then out again
+to show a bit more than the range.
+
+This is a matter of personal preference, really.
+
+Regards
+-- 
+Don Cox
+doncox@enterprise.net
+

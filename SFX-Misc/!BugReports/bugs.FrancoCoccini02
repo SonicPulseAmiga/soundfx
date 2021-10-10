@@ -1,0 +1,68 @@
+From - Tue Aug 13 08:13:08 2002
+X-UIDL: 361df5b500005d44
+X-Mozilla-Status: 0011
+X-Mozilla-Status2: 00000000
+Received: from mail.tiscali.it (mail-6.tiscali.it [195.130.225.152])
+	by imn.htwk-leipzig.de (8.9.1/8.9.1) with ESMTP id SAA08528
+	for <kost@imn.htwk-leipzig.de>; Mon, 12 Aug 2002 18:32:33 +0200 (MET DST)
+Received: from tiscalinet.it (62.10.6.221) by mail.tiscali.it (6.5.026)
+        id 3D5215220011EDF2 for kost@imn.htwk-leipzig.de; Mon, 12 Aug 2002 18:32:05 +0200
+From: Franco Coccini <cieffeeditingvideo@tiscalinet.it>
+To: Stefan Kost <kost@imn.htwk-leipzig.de>
+Date: Mon, 12 Aug 2002 18:29:56 -0400
+Message-ID: <yam8989.2805.125156624@smtp.tiscalinet.it>
+In-Reply-To: <3D5756B5.7040507@imn.htwk-leipzig.de>
+X-Mailer: YAM 2.3p1 [040] AmigaOS E-Mail Client (c) 2000-2001 by YAM Open Source Team - http://www.yam.ch/
+X-SenderInfo: 1; phone="339 4051338"; dob=30071957
+Subject: Re: IMPORTANT: New problem with SFX 4.2.109 and 4.2.116
+MIME-Version: 1.0
+Content-Transfer-Encoding: binary
+Content-Type: text/plain; charset=iso-8859-2
+Content-Length: 1084
+Status:  O
+
+Ciao  Stefan
+
+>> SFX PlayAHI c267: 
+>> Execution of AHI/GetAudioAttrs. (playbuffer too large) FAILED!
+
+I've found a way to play a sample.
+
+I've changed the frequency, in SFX AHI player: now with Repulse 16 bit stereo _48000 hz_, it works
+:-))))
+
+The other frequencies gives that messages:
+
+at 11025=playbuffer too large  32768/8192
+
+at 16000=xxxxxxxxxxx             22579/8192
+
+at 22050= xxxxxxxxxxxx          16384/8192
+
+at 32000= xxxxxxxxxxxxx         11289/8192
+
+at 44100= xxxxxxxxxxxx           8192/8192
+
+I hope that this help.
+
+Ciao
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+                                                              BITPLANE 
+                                              The new italian Amiga magazine
+                                                      http://www.bitplane.it
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+Coccini Franco
+
+mailto: cieffeeditingvideo@tiscalinet.it
+http://web.interpuntonet.it/AVATELECINE
+          
+A4000/040- 28mhz- 24 fast + 2 chip
+OS 3.9-TbcPlus- Genlock Electrocraft
+Genesis+AmiTCP 4.3-CV64-Picasso96
+Repulse Gold 
+
+

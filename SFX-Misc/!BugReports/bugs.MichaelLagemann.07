@@ -1,0 +1,116 @@
+From - Thu Aug  2 15:15:02 2001
+Received: from brama.imn.htwk-leipzig.de (brama [141.57.8.39])
+	by imn.htwk-leipzig.de (8.9.1/8.9.1) with ESMTP id VAA05688
+	for <kost@imn.htwk-leipzig.de>; Fri, 27 Jul 2001 21:03:38 +0200 (MET DST)
+Received: by brama.imn.htwk-leipzig.de (8.9.1/8.9.1) id UAA00877
+	for soundfx-list; Fri, 27 Jul 2001 20:41:26 +0200 (MET DST)
+Received: from mail.gmx.net (pop.gmx.net [194.221.183.20])
+	by brama.imn.htwk-leipzig.de (8.9.1/8.9.1) with SMTP id UAA00873
+	for <soundfx@brama.imn.htwk-leipzig.de>; Fri, 27 Jul 2001 20:41:23 +0200 (MET DST)
+Received: (qmail 9436 invoked by uid 0); 27 Jul 2001 19:04:11 -0000
+Received: from b867c.pppool.de (HELO gmx.net) (213.7.134.124)
+  by mail.gmx.net (mail06) with SMTP; 27 Jul 2001 19:04:11 -0000
+X-Authentication-Warning: brama.imn.htwk-leipzig.de: majordomo set sender to owner-soundfx@brama.imn.htwk-leipzig.de using -f
+From: Michael - <Wurstwassr@gmx.net>
+To: soundfx@brama.imn.htwk-leipzig.de
+Date: Fri, 27 Jul 2001 21:07:54 +0100
+Message-ID: <yam8608.2739.1147368208@mail.gmx.net>
+In-Reply-To: <3B615220.60906585@imn.htwk-leipzig.de>
+X-Mailer: YAM 2.3 [060] AmigaOS E-Mail Client (c) 1995-2000 by Marcel Beck  http://www.yam.ch/
+Subject: Re2: More points
+MIME-Version: 1.0
+Content-Transfer-Encoding: binary
+Sender: owner-soundfx@brama.imn.htwk-leipzig.de
+Precedence: bulk
+Reply-To: soundfx@brama.imn.htwk-leipzig.de
+Content-Type: text/plain; charset=iso-8859-1
+Content-Length: 4026
+Status:   
+X-Mozilla-Status: 8001
+X-Mozilla-Status2: 00000000
+X-UIDL: 361df5b500003639
+
+On 27-Jul-01, Stefan Kost wrote:
+
+*1*--------------------------------------------------------------------------------------------
+
+>> 1."Flush all delete"-new option flushing all samples -and- deleting their
+>>  source files from HD, combined with a "saved one childfile at least for
+>>  each source?"-check before deleting the source.
+>
+> ???
+> "Flush all" removes all samples (and of course deletes the files in
+> vmem-space).
+
+  Yes.
+  But, theoretically it could, via a second menu entry "flush all-delete",
+  delete source sample files on the HD.
+  Optionally being able to do this on a directory of 150 source files, so
+  each already processed file gets cleared up, that was what I thought of.
+  This would save effort. For example not not having to, X times, switch
+  screen to Dopus and search for the source file, delete it and switch back,
+  when using two directories. And it would speed up working.
+  Thinking about the topic...one project menu entry "flush all open-delete)",
+  one "flush all open", and one "save all boxified" would be nice :).
+  Maybe all of this sounds strange, but that's the way I would process
+  large heaps of source files into different named results.
+
+
+> I don't remeber from where the sample has been loaded, so I can delte
+> the source.
+
+  Yes, naturally it is that way now.
+
+> Ofcourse I can remeber the path and pass it over to subsequent results,
+> so that when you save a result, it offers the path from where you have
+> loaded it at first. When using ops like mix, it would only pass the path
+> of the first sample.
+
+  Hm, that would interfere with SFX 4.2 using two directories for loading and
+  saving, wouldn't it?. I personally prefer to use just two directories, one
+  "in" and one "out". Most of the directory handling is done via Opus.
+
+*2*-------------------------------------------------------------------------------------------------
+
+>> 2.Sample naming: I really can find no use in SFX using sample names taken
+>>  from old processing sessions, when loading samples. Too often I can't
+>>  identify loaded samples and neither find the source file to "oversave"
+>>  it with the new one.
+>
+> Nameing work this way:
+>
+
+  Yes, I saw how it works, and got the hang of it at a sufficient level imho.
+  The problem is not that I don't understand how it works, but just that the
+  way it works...sucks. ;)
+
+> I check wheter there is some name stored inside,
+  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  Right, that's it, the name annotation at the end of the file. What for?
+  It's just hindering the work here.
+  1.I load a sample first time ever, "wasted-by-clipping fart from dumbonet 22khz 8bit.wav".
+  2.After processing I rename it on saving to "Fart 24(.aifc)".
+  3.I reload it next session, and voila, "wasted-by-clipping fart from dumbonet
+    22khz 8bit.003", or something like that pops up.
+
+  What did I give it a specific name on HD then, if it's disregarded. Am I using Winbloat?
+  And what's the use in now having to memorize the HD name now, and with more loaded files
+  even more names? And if I should fail at that, I can't replace the source file, if
+  I want to, I can't delete the source file, and I may have wasted time and effort and have
+  to repeat processing of that file. Because I don't know if the replacement is finished
+  and saved yet, and which of the windows the replacement is.
+
+  And with batch processing "Fart 1.aifc" to "Fart 35.aifc", I would get 35 files named
+  "foouurt from dumbonet.001.wav", fiiirt from dumbonet.04.wav", "blast from dumbonet.03.wav".
+  Which of these would be "Fart 12.wav"? I recently did it manually then...lots of files,
+  several operators.
+  Stefan, do you understand now why I don't want this annotation thing? I just can't work
+  with that.
+
+  Kind regards,
+
+  Michael
+
+___________________________________________________________________________
+SoundFX Mailinglist                       soundfx@brama.imn.htwk-leipzig.de
+Subscribe/Unsubscribe/Help              majordomo@brama.imn.htwk-leipzig.de

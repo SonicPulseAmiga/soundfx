@@ -1,0 +1,145 @@
+Return-Path: <kost@imn.htwk-leipzig.de>
+Received: from mail.imn.htwk-leipzig.de (david.imn.htwk-leipzig.de [141.57.9.1])
+	by server1.wecotec.de (8.12.10/8.12.10) with ESMTP id j0QH5bhv005939
+	for <ensonic@sonicpulse.de>; Wed, 26 Jan 2005 18:05:39 +0100
+Received: from imn.htwk-leipzig.de (krishna [141.57.8.37])
+	by mail.imn.htwk-leipzig.de (Postfix) with ESMTP id 9C6292137F
+	for <ensonic@sonicpulse.de>; Wed, 26 Jan 2005 18:05:37 +0100 (MET)
+Message-ID: <41F7CD88.6050300@imn.htwk-leipzig.de>
+Date: Wed, 26 Jan 2005 18:04:08 +0100
+From: Stefan Kost <kost@imn.htwk-leipzig.de>
+Organization: HTWK Leipzig
+User-Agent: Mozilla/5.0 (X11; U; SunOS sun4u; en-US; rv:1.6) Gecko/20040206
+X-Accept-Language: en-us, en, de
+MIME-Version: 1.0
+To: Stefan Kost <ensonic@sonicpulse.de>
+Subject: [Fwd: AIFC-files]
+X-Enigmail-Version: 0.83.2.0
+X-Enigmail-Supports: pgp-inline, pgp-mime
+Content-Type: multipart/mixed;
+ boundary="------------070808070400090309060308"
+X-Virus-Scan: smtp-vilter
+X-SMTP-Vilter-Version: 1.1.4
+X-SMTP-Vilter-Backend: vilter-clamd
+X-SMTP-Vilter-Status: clean
+X-Spam-Checker-Version: SpamAssassin 2.64 (2004-01-11) on server1.wecotec.de
+X-Spam-Status: No, hits=0.0 required=7.2 tests=none autolearn=ham version=2.64
+X-Spam-Level: 
+
+This is a multi-part message in MIME format.
+--------------070808070400090309060308
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+http://epydoc.sourceforge.net/stdlib/public/aifc-module.html
+http://astronomy.swin.edu.au/~pbourke/dataformats/aiff/
+-- 
+      \|/            Stefan Kost
+     <@ @>           private            business
++-oOO-(_)-OOo------------------------------------------------------ - - -  -   -
+|       __  Address  Simildenstr. 5     HTWK Leipzig, Fb IMN, Postfach 301166
+|      ///           04277 Leipzig      04251 Leipzig
+| __  ///            Germany            Germany
+| \\\///    Phone    +49341 2253538     +49341 30766101
+|  \__/     EMail    st_kost_at_gmx.net kost_at_imn.htwk-leipzig.de
+|           WWW      www.sonicpulse.de  www.imn.htwk-leipzig.de/~kost/about.html
+===-=-=--=---=---------------------------------- - - -  -    -
+
+--------------070808070400090309060308
+Content-Type: message/rfc822;
+ name="AIFC-files"
+Content-Transfer-Encoding: 8bit
+Content-Disposition: inline;
+ filename="AIFC-files"
+
+Return-Path: <alfred.j.faust@gmx.de>
+Received: from mail.gmx.net (pop.gmx.de [213.165.64.20])
+	by server1.wecotec.de (8.12.10/8.12.10) with SMTP id iAABsePL028375
+	for <webmaster@sonicpulse.de>; Wed, 10 Nov 2004 12:54:40 +0100
+Received: (qmail 9775 invoked by uid 65534); 10 Nov 2004 11:54:38 -0000
+Received: from p50888796.dip0.t-ipconnect.de (EHLO ALFRED) (80.136.135.150)
+  by mail.gmx.net (mp020) with SMTP; 10 Nov 2004 12:54:38 +0100
+X-Authenticated: #2031639
+Message-ID: <000301c4c71c$3772d220$0101a8c0@ALFRED>
+Reply-To: "Alfa" <alfred.j.faust@gmx.de>
+From: "Alfa" <alfred.j.faust@gmx.de>
+To: <webmaster@sonicpulse.de>
+Subject: AIFC-files
+Date: Wed, 10 Nov 2004 12:55:42 +0100
+MIME-Version: 1.0
+Content-Type: text/plain;
+	charset="iso-8859-1"
+Content-Transfer-Encoding: 8bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 6.00.2800.1437
+X-MimeOLE: Produced By Microsoft MimeOLE V6.00.2800.1441
+X-Virus-Scan: smtp-vilter
+X-SMTP-Vilter-Version: 1.1.4
+X-SMTP-Vilter-Backend: vilter-clamd
+X-SMTP-Vilter-Status: clean
+X-Spam-Checker-Version: SpamAssassin 2.64 (2004-01-11) on server1.wecotec.de
+X-Spam-Status: No, hits=0.0 required=7.2 tests=none autolearn=ham version=2.64
+X-Spam-Level: 
+
+Hallo Stefan,
+vor einiger Zeit habe ich Dich schon mal wegen der AIFC-files was gefragt.
+Nun nochmal, etwas konkreter:
+
+Ich bin gerade dabei sowas wie einen Softwaresynthesizer für BarsnPipes MOS
+zu machen.
+Für die Samples brauche ich dazu die Loopmarken im File.
+Nun habe ich gesehen, daß nur der Saver für AIFC-files in SoundFX die
+Loop-Marker speichert.
+Also habe ich mich darauf festgelegt. Ist ja auch eine sehr schöne Sache mit
+SFX zu arbeiten.
+Nur habe ich da ein kleines Problem:
+
+Im MARK-chunk stehen ja die Namen der Marker. Die sollten nach den
+Richtlinien im Pascal-Stil gespeichert sein.
+(1.Byte gibt an wieviele Bytes folgen (also maximal 256))
+Der SoundFX-AIFC-Saver speichert die Namen aber im C-Stil (0-terminiert).
+Damit kriege ich nun Probleme hier beim Auslesen.
+
+Der SoundFX-Loader moniert, daß die im AIFC-Format gespeicherten Files
+irgend einen Fehler haben, und ich das ganze erneut abspeichern soll. Aber
+er liest die Positionen der Loop-Marken korrekt aus.
+Wie hast Du das gelöst ? Genau diese Positionen brauche ich.
+
+Wenn Du mir da eine Hilfe geben könntest, wäre ich sehr dankbar.
+
+Mit freundl.Gruß
+Alfred
+URL: www.alfred-j-faust.de
+mail: alfred.j.faust@gmx.de
+--------------------------------------------------------------
+Member of the team of furtherdevelopment
+of the great Multimedia-MIDI-Sequencer
+BarsnPipes
+
+
+
+--------------070808070400090309060308
+Content-Type: text/x-vcard; charset=utf8;
+ name="kost.vcf"
+Content-Transfer-Encoding: 7bit
+Content-Disposition: attachment;
+ filename="kost.vcf"
+
+begin:vcard
+fn:Stefan Kost
+n:Kost;Stefan
+org:HTWK Leipzig;FB. IMN
+adr:;;Postfach 301166;Leipzig;;04251;Germany
+email;internet:kost@imn.htwk-leipzig.de
+title:Dipl. Informatiker
+tel;work:+49341 30766440
+tel;home:+49341 2253538
+tel;cell:+49178 3183742
+x-mozilla-html:FALSE
+url:http://www.imn.htwk-leipzig.de/~kost/about.html
+version:2.1
+end:vcard
+
+
+--------------070808070400090309060308--

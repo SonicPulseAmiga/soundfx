@@ -1,0 +1,9 @@
+- Der CD-Direkt Loader klappt bei mir immer noch nicht. Das könnte
+  allerdings auch bei mir liegen (keine Ahnung, wieso...).
+  Ich arbeite mit einem Philips CD-3600 Brenner und einem uralten
+  Toshiba (2x) CD-Rom. Bei beiden Geräten hängt sich der Loader
+  schon beim Einlesen des Index der CD auf.
+  Ganz selten klappt das Index-Lesen schon mal, dann bekomme ich
+  einen ´SCSI Mismatch-Error´ von meiner PPC-Karte und nix geht mehr.
+  Andere Programme (z.B. Opty-CD Player, Second Spin, etc.) laufen
+  dagenen einwandfrei.

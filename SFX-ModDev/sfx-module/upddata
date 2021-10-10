@@ -1,0 +1,8 @@
+echo [32m»» updating includes & library ...
+
+fd2pragma.old sfx_mod_lib.fd pragmas/sfx_mod_pragmas.h
+
+copy pragmas/#?.h include:pragmas
+copy clib/#?.h include:clib
+copy libraries/#?.h include:libraries
+copy proto/#?.h include:proto

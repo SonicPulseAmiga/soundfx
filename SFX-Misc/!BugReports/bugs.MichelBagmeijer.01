@@ -1,0 +1,154 @@
+BugReport SFX V4.00
+
+Hi Stefan. This is another bugreport from DMX
+I found a lot of bugs, more or less. These are not all of them. Just the ones I could find myself.
+There might be a few bugs squashed already in a new version, but I can't check that myself for now.
+Also included is a new version of Nederlands.ct.
+To make a new cat file, remove all the NEW & CHANGE items.
+I haven't done everything, but quite a lot.
+Mail me if have any questions. E-Address below...
+
+
+Samples that I use to make this report. I case you want to check it yourself.
+- Korg/Trinity/Acjustikk1
+- .minimoog/MBS_07.Wav
+
+Bugs:
+
+CDDA-Direct.guide:
+Due to a very stupid bug in amigaguide this file can't be loaded. The comment is: can't open database.
+I found the bug! It's because there's 1 return to little. Put it after (the last) @endnode. Now everything
+works correctly again.
+
+SFX:
+! When Snoopdos3 (V3.4) is running, SFX doesn't start up.
+  # I am using SnoopDos 3.0 RC (11.9.94) and it works fine #
+
+? CDDA loading isn't working. When I select the questionmark, it's busy forever.
+  If I select the map, it might work.
+  Usually when snoopdos (V1.7) is on, starting after SFX.
+  # What map ?, what do you mean by 'map'? 
+
+* Loading an MPEG file isn't very successful either.
+  The pitch is too high & the file isn't loaded all the way, even if the virt. mem is on.
+
+? The Chorus-Phaser/EQ-FFT/MultiDelay/Synthesize-Add window is TOO BIG.
+  Even with a screenmode of 1280*512 it goes off screen, bigtime.
+  # What font ?#
+
+! If there are no samples loaded, starting Synthesize-FM crashes, saying something 'bout odd data & Guru 80000003.
+  Strangely everything works fine when a sample is loaded before Synt.-FM is started.
+  # works here #
+
+
+- SFX can't be quitted if there are still windows open. This is the disadvantage of a modular system!
+  SFX doesn't/can't see 'crashed' operators.
+  A solution is:
+  ¹) Let SFX close every window it sees and then quit
+  ²) Don't let SFX quit. Let the user close the windows & screen him/herself.
+  After that let SFX try it again. 
+  This is what I do (with SysInspector) if something happens.
+  SFX should run fine if tried again.....
+
+* Trying Pitchshift with the VOCAL settings crashed the operator (DEADEND).
+  The error is in the pitchshift factor, which is "+4 st".
+  If you put any other number there, like 1.0,2.0,4.0 or so, than everything works fine :)
+
+* ConvertChannel: With this operator there's no checking on how many channels a sample really has.
+  You can basically select anything you like.
+  # An operator does not necessarily has to care about channels - #
+  # all formats can be converted on the fly #
+
+- Selecting Default or Reset is not working. Looks like it selects 'current' instead of 'default'.
+
+- The Selection on the right hand side doesn't always load the settings correctly.
+
+- Set dates set in (some of) the 2IDs-files are saying 1980 !!! Ex. © ..... 1993-1980 ;)
+
+- Saving a sample to the Clipboard doesn't work to well either. All rubbish comes out.
+
+* MAJOR BUG: If you put Anno to NIL, 0, Zero or so, then with 16SV,8SVX,AIFF,AIFC
+  you can't save a sample anymore.
+  Requester says: iff-xxxx_s.c 4xx  Can't write data !
+
+- MAUD/WAV PCM24 & 32 save are broken. Only a (small) part is saved.
+
+- SND-AU PCM24, 32, IEEE32 & 64 save are broken. Only a (small) part is saved.
+
+- There is a loss of data at the end of the sample, when saving with 8SVX PCM32.
+  This is not happening with 8,16 or 24.
+
+- The Universal-Loader doesn't see SND-AU / VOC samples.
+
+* When the length of the input in the Anno-Box, is an odd number, an extra space is added.
+  Is this a bug, or does the length of this string always has to be an even number ?
+  # was there due to restriction for IFF-files #
+
+- Is VOC 8:3 broken too ?
+
+- DeNoise-FFT good/preview quality files don't work. With them the output is just noise.
+
+- Redesign the EQ-FFT 'sliders' & give them another pen-color. The default color is hardly visible.
+  With redesigning I mean that there's a 0-line in the center of the Y-axis (if I'm right).
+  Then make the sliders go from -200 to +200, instead of 0 to 400.
+  This is also the case with the Synth.-Add 'sliders'.
+
+- Please LOCK the EQ-FFT-3D settings if given by the user.
+
+- MAJOR BUG: The 8 & 14 bit drivers don't play from the beginning.
+  They start playing at around 5-60% of the sample, depended on the samplelength.
+
+- Saving to MPEG (8hz) doesn't work either. The Guru (8000000B) displays himself again.
+  This message is shown: LIB-SAVT.C 822: Can't open file !
+
+- Hall/2ids_hallextrem doesn't work. ie. 'Can't allocate memory' -> Hall.c 792.
+  Here the diff setting is too low !?!
+
+! On the curve setting window, return doesn't close the window.
+
+- The resample are a bit off, you know ? The resample-factor shouldn't be saved if a New SRat is given in.
+  That why the ...to xxK filters can't do there
+  jobs very well. Because the Samp.Factor makes the new SRat. But the Old SRat could be anything.
+
+* SampleSplit: SplitPos keeps resetting itself to 50%
+- Splits doesn't seems to work very well. If you put in 3, than you might get 2 or 4.
+- SplitPos text is on the left out of the window.
+
+- Shorten doesn't work at all.
+
+- SurroundEnc.: RearFilt text is on the left out of the window.
+
+- SurroundEnc.: Set Mode to Invert & Rearfilt Num to 8. Now SFX crashes bigtime. You don't have to set Mode to invert, but on my machine it makes
+  the crash a bit bigger.
+
+! ZeroPass: The fadeout number just disappears, empty....
+
+
+
+Ideas:
+
+- It would be nice if there were PPC-Plugins.
+- What about an option that leaves the operator-window open & just starts the operator. Now when you don't like the outcome, you just change it without
+  having to open the operator-window again. This can save a lot of time. + Playing the sample while the window is open, ofcourse.
+- Keep the operator-selection in the middle. You might want to select an effect from the top. It's not good when you have to scroll up&down all the time :-|
+  Especially when you want an effect which 1 or 2 above the effect just chosen. This happens to me a lot of times, believe me.
+- Put the filters together and make a cycle-button for selecting them.
+- Give some info on how people can make their own modules.
+
+
+Michel 'DMX' Bagmeijer
+Meeuwenlaan 281 HS
+1022 AJ Amsterdam
+Nederland
++31/20/6325713
+303dmx@hetnet.nl
+
+A1200 BlizzPPC+SCSI 603 240 & '060 50Mhz.
+64 MB RAM.
+17.4 GB HD.
+Double HD-Drive (KCS).
+Ultraplex 40x CD-Rom.
+ZIP 100
+
+--------------BD7B3B4F8D1E7859AE6C6DA6--
+

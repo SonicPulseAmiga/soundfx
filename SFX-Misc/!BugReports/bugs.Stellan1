@@ -1,0 +1,38 @@
+hi,
+
+Another test with Record (MUForce MuMyGuradianAngle sashimi running).
+Using SoundFX 4.2.136 (18.9.2) 16bit for 68040/FPU.
+ahi.device 4.180. paula.audio 4.27 (28.09.01).
+
+First I have to say, that recording works very well with following exceptio=
+ns:
+
+I choosed paula:8bit mono or stereo (I got always a stereo sample, why?).
+22050 Hz
+If the mixing frequenz is greater than 44,1kHz my amiga completley freezes.
+Mixing frequency between 24000Hz -37800Hz got grapy sound quality. The grea=
+ter
+the frequenz, than more "clicks" (see example 8svx sample) I got.
+
+Here is the enforcer hit I got if I close the "Record Window" (record a 1 h=
+our
+test 8svx). I got it only once.
+
+17-Jul-03   13:29:29
+BYTE WRITE to  00FBF186        data=3D6E         PC: 0176DF78
+----> 0176DF78 - "DEVS:ahi/melody1200.audio"  Hunk 0000 Offset 00000288
+----> 00FBF164 - "ROM - ramlib 40.2 (5.3.93)"  Hunk 0000 Offset 000000E0
+----> 00F81A32 - "ROM - exec 40.10 (15.7.93)"  Hunk 0000 Offset 00001978
+----> 00FBF1D8 - "ROM - ramlib 40.2 (5.3.93)"  Hunk 0000 Offset 00000154
+----> 013E479C - "C:PatchControl"  Hunk 0001 Offset 00000794
+----> 00FBF164 - "ROM - ramlib 40.2 (5.3.93)"  Hunk 0000 Offset 000000E0
+----> 00FBF192 - "ROM - ramlib 40.2 (5.3.93)"  Hunk 0000 Offset 0000010E
+Name: "SoundFX"=20=20
+
+Btw. is it normal that the Levelmeter in the "Record Window" freezes after =
+record has started ?                        =
+=20
+
+
+ps:by creating the attachement in the bugracker I got following message: Co=
+uldn't find where to save the file!

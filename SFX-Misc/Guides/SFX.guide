@@ -1,0 +1,1285 @@
+@database SFX
+@remark $VER: SFX.guide 3.82 (28.09.99) © by Stefan Kost 1994-1999
+@remark AmigaGuide-OnLine-Hilfe für SoundFX
+
+@master sfx.guide
+@index sfx-index.guide/index
+
+@node main "Inhalt"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+
+            ####                           #      #####   #   #
+           # ::::  ###   #   #  ####    ####:     #:::::   # # :
+            ###   #:::#  #:  #: #:::#  # ::#:     ###       # :
+             ::#  #:  #: #:  #: #:  #: #:  #:     #:::     # #
+           #### :  ### :  ####: #:  #:  ####:     #:      # : #
+            ::::    :::    ::::  :   :   ::::      :       :   :
+
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+
+                            @{ub}V 3.8x By Stefan Kost@{b}
+
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+@{ub}
+@{b}0 Einführung@{ub}
+	@{" 0.1 Was ist SoundFX ?                 " link Charpter0.1 }
+	@{" 0.2 Wo läuft SoundFX ?                " link Charpter0.2 }
+	@{" 0.3 Copyright                         " link Charpter0.3 }
+	@{" 0.4 Registration / Author             " link Registration }
+
+@{b}1 Bedienung@{ub}
+	@{" 1. 1 Allgemeines                      " link Charpter1.1 }
+	@{" 1. 2 Menü                             " link Menu }
+	@{" 1. 3 Listenfenster                    " link sfx-guilistwin.guide/main }
+		@{" 1.3.1 Operatorfenster                 " link sfx-guilistwin.guide/OperatorWin }
+		@{" 1.3.2 Rexxoperatorfenstr              " link sfx-guilistwin.guide/RXOperatorWin }
+		@{" 1.3.3 Loaderfenster                   " link sfx-guilistwin.guide/LoaderWin }
+		@{" 1.3.4 Saverfenster                    " link sfx-guilistwin.guide/SaverWin }
+		@{" 1.3.5 Playerfenster                   " link sfx-guilistwin.guide/PlayerWin }
+		@{" 1.3.6 Pufferfenster                   " link sfx-guilistwin.guide/BufferWin }
+	@{" 1. 4 Werkzeugfenster                  " link sfx-guitoolwin.guide/main }
+		@{" 1.4.1 Zoomfenster                     " link sfx-guitoolwin.guide/ZoomWin }
+		@{" 1.4.2 Editfenster                     " link sfx-guitoolwin.guide/EditWin }
+		@{" 1.4.3 Bereichsfenster                 " link sfx-guitoolwin.guide/RangeWin }
+	@{" 1. 5 Samplefenster                    " link SampleWin }
+	@{" 1. 6 Statusfenster                    " link StatusWin }
+	@{" 1. 7 Informationsfenster              " link InfoWin }
+	@{" 1. 8 Sampleoptionsfenster             " link OptionsWin }
+	@{" 1. 9 Quellenauswahlfenster            " link SourceWin }
+	@{" 1.10 Periodenauswahlfenster           " link PeriodWin }
+	@{" 1.11 Fensterfunktionsfenster          " link WFktSelWin }
+	@{" 1.12 Modulatorfenster                 " link sfx-guimodwin.guide/main }
+		@{" 1.12.1 Kurve                          " link sfx-guimodwin.guide/ModWinCurve }
+		@{" 1.12.2 Zyklus                         " link sfx-guimodwin.guide/ModWinCycle }
+		@{" 1.12.3 Vektor                         " link sfx-guimodwin.guide/ModWinVector }
+		@{" 1.12.3 Benutzerdefiniert              " link sfx-guimodwin.guide/ModWinUser }
+	@{" 1.13 Einstellungen                    " link sfx-guiprefswin.guide/main }
+		@{" 1.13.1 GUI Einstellungen              " link sfx-guiprefswin.guide/PrefsGUIWin }
+		@{" 1.13.2 Samplepuffereinstellungen      " link sfx-guiprefswin.guide/PrefsSmpWin }
+		@{" 1.13.3 Virt. Speicher Einstellungen   " link sfx-guiprefswin.guide/PrefsVMemWin }
+		@{" 1.13.4 verschiedene Einstellungen     " link sfx-guiprefswin.guide/PrefsMiscWin }
+
+@{b}2 Module@{ub}
+	@{" 2.1 Operatoren                        " link operators-index.guide/main }
+	@{" 2.2 Loader                            " link loaders-index.guide/main }
+	@{" 2.3 Player                            " link players-index.guide/main }
+	@{" 2.4 Rexx                              " link rexx-index.guide/main }
+	@{" 2.5 Saver                             " link savers-index.guide/main }
+
+@{b}3 Arexx-Implementierung@{ub}
+	@{" 3.1 Einführung                        " link sfx-arexx.guide/Charpter3.1 }
+	@{" 3.2 Funktionen & Kommandos            " link sfx-arexx.guide/Charpter3.2 }
+	@{" 3.3 Globale Operatorparameter         " link sfx-arexx.guide/Charpter3.3 }
+
+@{b}4 Fehlermeldungen und Abfragen@{ub}
+	@{" 4.1 Fehlermeldungen                   " link sfx-messages.guide/Messages }
+		@{" 4.1.1 Allgemeine Meldungen            " link sfx-messages.guide/Message1 }
+		@{" 4.1.2 Dateizugriffsfehler             " link sfx-messages.guide/Message2 }
+		@{" 4.1.3 Resourcefehler                  " link sfx-messages.guide/Message3 }
+		@{" 4.1.4 Formatfehler                    " link sfx-messages.guide/Message4 }
+	@{" 4.2 Abfragen                          " link sfx-messages.guide/Questions }
+		@{" 4.2.1 Allgemeine Abfragen             " link sfx-messages.guide/Question1 }
+		@{" 4.2.2 Sicherheitsabfragen             " link sfx-messages.guide/Question2 }
+
+@{b}5 Workshop@{ub}
+	@{" 5.0 Workshop                          " link sfx-workshop.guide/main  }
+	@{" 5.1 Generierung von Percussionsounds  " link sfx-workshop.guide/Workshop1 }
+	@{" 5.2 Generierung von Synthesizersounds " link sfx-workshop.guide/Workshop2 }
+	@{" 5.3 Generierung von Effektsounds      " link sfx-workshop.guide/Workshop3 }
+	@{" 5.4 komplexe Effekte                  " link sfx-workshop.guide/Workshop4 }
+	@{" 5.5 Samplebearbeitung                 " link sfx-workshop.guide/Workshop5 }
+
+@{b}6 Anhang@{ub}
+	@{" 6.1 Aussichten                        " link Future }
+	@{" 6.2 Danksagung                        " link Thanks }
+	@{" 6.3 Glossar                           " link sfx-glossar.guide/main }
+	@{" 6.4 Probleme                          " link Problems }
+	@{" 6.5 Bugs & Bugreports                 " link Bugs }
+	@{" 6.6 History                           " link History }
+	@{" 6.7 Werbung                           " link Commercial }
+	@{" 6.8 Index                             " link sfx-index.guide/index }
+	@{" 6.9 Tastaturbelegung                  " link Keymap }
+@endnode
+
+---------------------------------------------------------------------------------------------------
+
+@node Charpter0.1 "0.1 Was ist SoundFX ?"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+0.1 Was ist SoundFX ?
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+SoundFX (folgend "SFX") ist ein Editor für digitalisierte Audiodaten (Samples).
+SFX ist modular aufgebaut und besitzt eine komfortable grafische Benutzerober-
+fläche. Mit SFX lassen sich Samples mit digitalen Effekten (welche einzigartig
+auf dem Amiga sind) versehen und nachbearbeiten.
+Folgend nun eine Übersicht der Features des Programms :
+
+	* mehr als 50 @{" Operatoren " link operators-index.guide/main } mit vielen Parametern und Modulations-
+	  möglichkeiten wie z.B.:
+		* Soundsynthesefunktionen
+			* AM-Synthese (Amplitudenmodulation)
+			* CS-Synthese (Compositesynthese=Additative und Sub-
+			  traktive Soundsynthese)
+		* 3D-Cube-Parametermodulation (Mix, Equalize)
+		* Effekte wie Hall, Echo, Delay, Chorus/Phaser, Morph, Pitch-
+		  shift, ...
+		* Operatoren wie Resample, ZeroPass (FadeIn/FadeOut), Middle,
+		  Amplify, Mix, DeNoise, ConvertChannels ...
+		* 2D/3D-Spectrumanalyse
+		* sehr gute Filter und Booster - resonanzfähig !!!
+		* viele, viele Modulationsmöglichkeiten
+			* sogar Lautstärke und Frequenzverfolgung
+		* mehr als 100 Presets werden  mitgeliefert
+	* interne Signalauflösung von 32/16bit
+		* 32bit/Fließkomma während der Effektberechnung
+		* 16bit im Samplepuffer (für Sounddaten völlig ausreichend)
+	* hervorragende @{" Playroutinen " link players-index.guide/main }
+		*  8 bit Standart Player
+		* 14 bit Cascade Player (ohne zusätzliche Hardware)
+		* 14 bit kallibrierter Cascade Player (ohne zusätzliche Hard-
+		  ware)
+		* AHI-Player für Soundkarten
+		* Player spielen 16bit Samples direkt aus dem Fastram ab und
+		  verbrauchen max 16 kByte Chipram während des Abspielens
+	* Konvertierung verschiedener Soundsampleformate
+		* IFF-8SVX/16SV/AIFF/AIFC/MAUD,RAW,RIFF-WAV,VOC,SND-AU,...
+		* mit Kompressionsunterstützung
+	* arbeitet nun auch mit Samples, größer als der verfügbare Arbeitsspeicher
+	* arbeitet in Mono, Stereo und Quadro !!!
+	* Operatoren sind non-destructive, d.h. das Ausgangssample wird nicht
+	  überschrieben oder gelöscht 
+	* umfangreiche Schnittfunktionen zur destruktiven Bearbeitung
+	* Freihandeditierung
+	* flexible Bildschirmdarstellung
+		* beliebig viele Samplepuffer (nur vom System (RAM) begrenzt)
+		* jedes Sample hat eigenes Fenster, mit beliebiger Position und
+		  Größe
+		* stufenlos variables Zooming (auch <1.0)
+		* jetzt auch Y-Zoom !!
+		* und Lineale mit konfigurierbaren Einheiten
+	* AmigaGuide-OnLine-Hilfe
+		* durch drücken der "HELP"-Taste in jedem Fenster
+		* Asynchron (das Hilfe Fenster kann geöffnet bleiben)
+	* Clippord Unterstützung mit allen 256 Einträgen
+	* DataType Unterstützung (Loader)
+	* @{" ARexx-Port " link sfx-arexx.guide/Charpter3.1 }
+		* mit vielen Befehlen und Funktionen (z.Z. ca. 90)
+		* mit mehreren Beispielen
+	* ARexx-Scripts können direkt von SoundFX aus gestartet werden
+	* systemkonforme-grafische-Benutzeroberfläche
+	* Font- und Screensensitiv
+	* modulares Konzept, d.h. beliebig viele
+		* @{" Player         " link players-index.guide/main   }	(z.Z.  4)
+		* @{" Loader         " link loaders-index.guide/main   }	(z.Z. 17)
+		* @{" Saver          " link savers-index.guide/main    }	(z.Z. 13)
+		* @{" Operators      " link operators-index.guide/main }	(z.Z. 56)
+		* @{" ArexxOperators " link rexx-index.guide/main      }	(mehrere scripts mitgeliefert)
+
+In der @{" unregistrierten Version " link Registration } können Sie ihre Samples nicht abspeichern und
+den ARexx-Port nicht benutzen !
+@endnode
+
+@node Charpter0.2 "0.2 Wo läuft SoundFX ?"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+0.2 Wo läuft SoundFX ?
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Das Programm läuft auf allen Amigarechnern mit der Betriebssystemversion>=3.0.
+Da die Berechnung mancher Effekte sehr rechenaufwendig und die Benutzerober-
+fläche sehr anspruchsvoll ist, wird eine Turbokarte empfohlen. Außerdem kann
+durch die 16/32-bit Verarbeitung ein recht hoher Speicherbedarf entstehen.
+Weiterhin hilft eine Grafikkarte nicht den Überblick zu verlieren.
+@endnode
+
+@node Charpter0.3 "0.3 Copyright"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+0.3 Copyright
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Programm	: SoundFX
+		  sfxsupport.library
+		  _loaders/*.{sfxmod|modinfo}
+		  _operators/*.{sfxmod|modinfo}
+		  _players/*.{sfxmod|modinfo}
+		  _rexx/*.{sfxmod|modinfo}
+		  _savers/*.{sfxmod|modinfo}
+Dokumentation	: guides/*.guide
+		  _loaders/*.guide
+		  _operators/*.guide
+		  _players/*.guide
+		  _rexx/*.guide
+		  _savers/*.guide
+Daten		: envelopes/*.*
+		  workshop/*.*
+Installscripts	: Install-SFX*
+Keyfile		: keyfiles/sfx.key
+(C) Copyright 1993-1998 Stefan Kost. All Rights Reserved.
+
+Es werden keine Garantien für die vollständige Funktion der Software gegeben.
+Weiterhin wird keine Haftung für Schäden übernommen die durch die unsachgemäße
+Benutzung der Software entsteht.
+Falls Sie einen Fehler in der Software gefunden haben, dann schreiben Sie mir
+bitte eine genaue Beschreibung desselben. Ich bin bemüht diese schnellstens
+zu entfernen.
+
+Die Software ist, bis auf das Keyfile, frei kopierbar - es ist sogar erwünscht
+diese zu verbreiten, solange dafür keine Gebühren größer 5.-DM verlangt werden.
+Wenn das Programm in Programmsammlungen aufgenommen werden soll, so kontak-
+tieren Sie mich bitte vorher.
+
+Die Demo-Version darf ohne vorherige Anfrage auf folgenden Serien / CD`s veröf-
+fentlicht werden.:
+	Aminet CD
+	Fred Fish CD
+	Saar PD-Serie
+	Time PD-Serie
+	Amiga-Magazin PD/CD
+	AmigaPlus CD's
+
+Ich rate auf keinen Fall eine gecrackte Version zu benutzen, da diese warschein-
+lich sehr oft abstürzen wird und möglicherweise Ihre Festplatte beschädigt !
+
+amigaguide.library
+(C) Copyright 1992 Commodore-Amiga, Inc.  All Rights Reserved.
+Reproduced and distributed under license from Commodore.
+
+Amigaguide software is provided "as-is" and subject to change. No warranties
+are made. All use is at your own risk. No liability or responsibility is assu-
+med.
+@endnode
+
+@node Registration "0.4 Registration"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+0.4 Registration
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Wie gesagt, in der Demoversion können Sie keine Samples abspeichern und keinen
+ArexxPort benutzen.
+Wenn Sie Ihnen also die Demoversion gefällt, können Sie sich bei mir registrie-
+ren lassen. Die Sharewaregebühr beträgt NUR :
+
+				DM	US$	£
+@{b}-------------------------------------------------------------------@{ub}
+Standard			 40	 30	 20
+Aminet 12 (-50%)		 20	 15	 10
+SymphonieAcademic		150	 83	  -	siehe unten
+SymphoniePro			580	323	  -	siehe unten
+Delfina	(-50%)			 20	 15	 10
+
+CD mit aktueller Version	 10	  7	  5
+
+(Selbstverständlich können Sie mir auch mehr bezahlen :-) .)
+Senden Sie mir ihre Daten, wie Name, Vorname, Anschrift zu. Danach bekommen
+Sie eine Diskette mit einem persönlichen Keyfile zugesendet. Wenn gewünscht,
+bekommen sie auch eine CD mit der aktuellen Programmversion.
+
+Das Keyfile ermöglicht Ihnen alle Funktionen des Programms zu nutzen. Im
+Keyfile sind Ihre Daten gespeichert und deshalb dürfen Sie es nicht weiter-
+geben. Neuere Versionen des Programmes erkennen das Keyfile selbstverständ-
+lich (Es wird KEINE Upgrade-Gebühr verlangt !).
+
+Die Zahlung erfolgt 
+	* in bar 
+	* durch Überweisung auf das untenstehende Konto.
+	* per Nachnahme
+		* + 6,50 DM Deutschland
+		* +16,00 DM Ausland (noch nicht möglich)
+
+Stefan Kost
+Zwenkauer Straße 24
+04277 Leipzig
+Germany
+
+1822direkt (Frankfurter Sparkasse)
+BLZ: 5005 02 01
+KTO: 1251049344
+
+Wenn irgendwelche Frage bestehen :
+
+e-mail : kost\@imn.htwk-leipzig.de
+phone  : +49 (0)341 3910484
+irc    : manchmal #amigager / #amiga / #chillout
+         nickname : ensonic
+
+Schaut doch mal auf meine Homepage :
+	http://www.imn.htwk-leipzig.de/~kost
+Dort sind meine Programme zu finden und man kann sich die neueste Version
+gleich ziehen.
+
+Bundle mit Symphonie
+--------------------
+
+Symphonie Academic  & SoundFX	 83 USD / 150 DM
+Symphonie Pro & SoundFX		323 USD / 580 DM
+
+Diese sind erhältlch bei :
+
+RealTime Software
+
+Patrick Meng
+Rosenfeldweg 4
+6048 Horw
+Switzerland
+
+Phone     : +41 41 340 6948 (Info, Development ...)
+NEW EMAIL : Patrick_Meng\@augs1.augs.use.ch
+@endnode
+
+---------------------------------------------------------------------------------------------------
+
+@node Charpter1.1 "1.1 Allgemeines"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+1.1 Allgemeines
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Starten Sie SoundFX durch Doppelklicken auf das SoundFX-Icon. Danach wird ein
+kleines Fenster angezeigt, welches Sie informiert was gerade gemacht wird. Wenn
+der Ladevorgang beendet ist, erscheint der SFX Bildschirm. Auf diesem finden
+sämtliche Programmaktionen statt. Dieser Bildschirm ist ein Public-Screen, d.h.
+auch andere Programme können auf diesem ihre Fenster öffnen. Der PublicScreen-
+Name lautet "SFX-PubScreen". In jedem Fenster kann durch Druck auf die "Help"-
+Taste die Online-Hilfe aktiviert werden.
+
+Beim erstmaligen Starten dauert es etwas länger, da hier Indexguides erstellt
+werden und Datenbankfiles erstellt werden (falls Sie noch nicht existieren).
+@endnode
+
+@node Menu "1.2 Menü"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+1.2 Menü
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Das Menü von SoundFX ist von jedem Fenster aus erreichbar.
+
+Project
+	Flush All	Entfernt alle Samples nach einer Sicherheitsabfrage
+	Load		Laden eines Samples
+	Save		Speichern eines Samples
+
+	Execute		Starten des aktuellen Operators
+	Execute Rexx	Starten des aktuellen Rexx-Scriptes
+
+	Play All	Abspielen des gesamten Samples
+	Play Rng	Abspielen des ausgewählten Bereiches
+	Stop		Stoppen des Abspielvorganges
+
+	@{" Info " link InfoWin }		Aufruf des Informationsfensters
+
+	Quit		Beenden nach einer Sicherheitsabfrage.
+Edit
+	Analog zum @{" Editfenster " link sfx-guitoolwin.guide/EditWin }
+
+Zoom
+	Analog zum @{" Zoomfenster " link sfx-guitoolwin.guide/ZoomWin }
+
+Windows
+	Dient dem Öffnen/Schließen der jeweiligen Fenster.
+
+CleanUp
+	Diese Funktionen verschieben Fenster so, das sie vollständig sichtbar
+	sind, ohne ander Fenster zu überdecken.
+	Current		ordne aktuelles Fenster
+	All		ordne alle Fenster
+	All normal	ordne alle Fenster und bring sie auf normale Größe
+	All zoomed	ordne alle Fenster und bring sie auf kleine Größe
+
+Help
+	Zum Aufrufen des gewählten Themas der Amigaguide-Online-Hilfe
+
+Prefs
+	@{" GUI            " link sfx-guiprefswin.guide/PrefsGUIWin  }	Voreinstellungen für das GUI
+	@{" Sample         " link sfx-guiprefswin.guide/PrefsSmpWin  }	Voreinstellungen für den Samplepuffer
+	@{" Virtual Memory " link sfx-guiprefswin.guide/PrefsVMemWin }	Voreinstellungen für den Virtuellen Speicher
+	@{" Miscellaneous  " link sfx-guiprefswin.guide/PrefsMiscWin }	verschiedene Voreinstellungen
+
+	Load	Läd die zuletzt gespeicherten Einstellungen
+	Save	Speichert die Einstellungen (inklusive der Positionen und des
+		Status (geöffnet/geschlossen) der SFX-Fenster (nicht der Sam-
+		plefenster.)
+	Reset	(macht noch nichts)
+@endnode
+
+@node SampleWin "1.5 Samplefenster"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+1.5 Samplefenster
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Das Fenster :
+Falls ein Sample geladen oder erzeugt wurde, so sieht man dieses in einem eige-
+nen Fenster. Die Änderung von Position und die Größe des Fensters ist über die
+dafür vorgesehenen Gadgets möglich. Um die Länge und die Aussteuerung des Samp-
+les besser abschätzen zu können werden mehrere Hilfslinien eingezeichnet. Es
+können weitere Hilfslinien eingezeichnet werden, um die maximale, durchschnit-
+tliche und reale (akkustische) Amplitude anzuzeigen.
+Falls ein Loop angeschaltet ist und Start- und Längenwerte gesetzt sind, werden
+diese als vertikale Linien mit Boxen an den oberen Enden eingezeichnet. Wenn
+ein Bereich markiert ist, sehen Sie dies in Form eines hervorgehobenen Rechtek-
+kes. In der Titelleiste eines Samplefensters wird der Name, die Samplingrate
+und die Länge des Puffers angezeigt. Während des Abspielens eines Samples sehen
+Sie dort die Abspielposition.
+
+          @{b}------------------------------------------------------------@{ub}
+
+Aktionen im Fenster :
+Wenn man die Maus umherbewegt, wird der Mauszeiger seine Gestalt ändern um die
+möglichen Aktionen anzuzeigen.
+Die Looplinien können durch Anklicken der Box und Bewegen der Maus bei gedrük-
+kter linker Maustaste verschoben werden.
+Wenn Sie außerhalb der Loop-Boxen und markierter Bereiche in das Samplefenster
+klicken und bei gedrückter linker Maustaste die Maus bewegen, wird ein Bereich
+markiert. Wenn Sie in einen markierten Bereich klicken (nicht am Rand), können
+Sie diesen herumschieben, solange sie die Maustaste gedrückt halten. Wenn Sie
+in den Bereich auf die Ränder klicken, können Sie den Bereich in die entspre-
+chende Richtung verändern. Hier ein 'Bild' um das etwas zu verdeutlichen (wobei
+die Form des Mauszeigers dies schon verdeutlichen sollte) :
+
+	+-+---------+-+
+	|1|    2    |3|		1 linken und oberen Rand verändern
+	+-+---------+-+		2 oberen Rand verändern
+	| |         | |		3 rechten und oberen Rand verändern
+	| |         | |		4 linken Rand verändern
+	|4|    5    |6|		5 herumbewegen
+	| |         | |		6 rechten Rand verändern
+	| |         | |		7 linken und unteren Rand verändern
+	+-+---------+-+		8 unteren Rand verändern
+	|7|    8    |9|		9 rechten und unteren Rand verändern
+	+-+---------+-+
+
+Dieser Bereich kann nun geschnitten oder vergrößert werden. Falls ein Bereich
+vergrößert wurde, so kann man den Ausschnitt mit den Scrollbalken verschieben.
+Dieser wird auch während des Verschiebens ständig neugezeichnet.
+Während dem Verschieben von Looppointern, dem Markieren von Bereichen und dem
+Ändern des Ausschnittes werden im @{" Bereichsfenster " link sfx-guitoolwin.guide/RangeWin } Information über Start-,
+Endpunkte und Länge angezeigt.
+Wenn Sie das Sample größer als 1:1 vergrößert haben und im Bereichsfenster
+"Trace" angewählt wurde können Sie mit der Maus (linke Taste) in das Sample
+fenster zeichnen und somit diverse Fehler (Knackser) manuell beseitigen. Die
+Darstellung wird erst erneuert wenn Sie die Maustaste loslassen.
+
+          @{b}------------------------------------------------------------@{ub}
+
+Verschiedenes (technisch):
+Da SFX nicht nur mit einem Fenster mit fester Position und Größe arbeitet (wie
+viele andere ältere Programme) und zudem noch mehreren Extralinien zur besseren
+Orientierung einzeichnet, kommt es besonders bei größeren Fenstern zu einem
+langsameren Bildschirmaufbau als bei anderen Programmen (als ob man die Ge-
+schwindigkeit eines DTP-Programms mit der eines Texteditors vergleiche).
+
+Ab Version 3.01 verfügt SFX über ein neues Fenterhandling. Sie können jetzt so-
+viele Sample laden, wie sie wollen bzw. Speicher haben. Ab Version 3.36 werden
+die Puffer in einer dynamischen Liste verwaltet. Damit ist auch die letzte
+Schranke gefallen.
+
+(Falls Sie jetzt verwundert sind - die Beschränkung der gleichzeitig offenen
+Fenster ergibt sich normalerwiese aus folgenden Grund :
+	- jedes Fenster das Aktionen verarbeiten soll benötigt einen Userport
+	- jeder Port benötigt ein Signalbit
+	- jeder Task  (ein laufendes Programm) hat nur 32 Signalbits
+	- 16 Signalbits sind reserviert
+	- ergo max 16 offene Fenster
+Doch wie man hier sieht läßt sich diese Grenze überschreiten. =8-)
+)
+
+Ab Version 3.4 besitzt SFX die Fähigkeit auch in Y-Richtung zu vergrößern.
+Außerdem sind die Scroller jetzt direkt in den Windowrahmen eingebettet und
+mit Pfeilen versehen.
+@endnode
+
+@node StatusWin "1.6 Statusfenster"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+1.6 Statusfenster
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+In diesem Fenster wird der Fortgang der Operationen angezeigt. Dies geschiet
+über einen Statusbalken mit inneliegender Prozentanzeige. Die Operation kann
+jederzeit mit einem Klick auf "Stop", dem Drücken der Tasten "S","s","ESC" oder
+einem Klick auf das "Close"-Gadget des Fensters abgebrochen werden. In der Ti-
+telleiste des Fensters wird noch einmal angezeigt, was überhaupt gemacht wird.
+@endnode
+
+@node InfoWin "1.7 Informationsfenster"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+1.7 Informationsfenster
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Info gibt, wie der Name schon sagt, nützliche Informationen zum Programm aus,
+wie zum Beispiel :
+
+Programmname, Versionsnummer, Autor
+Pufferliste		Hier sehen Sie eine Liste der Puffer im Speicher. Wenn
+			Sie einen solchen Eintrag anklicken werden in den dar-
+			unterliegenden Feldern Informationen wie z.B. Länge,
+			Rate, Note, Spieldauer, Name usw. zum Puffer angezeigt.
+Speicherübersicht	Hier wird der noch im System verfügbare Speicher und
+			der von den SFX-Puffern und ihren Strukturen verbrauch-
+			te Speicher angezeigt.
+Registrationsinfo.	Ihre Registrationsnr. und Ihr Name.(Wenn dort ein
+			Name steht, dann hoffentlich Ihrer !!! ). 
+@endnode
+
+@node OptionsWin "1.8 Sampleoptionsfenster"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+1.8 Sampleoptionsfenster
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+In diesem Fenster lassen sich pufferspezifische Einstellungen setzen und ver-
+ändern. Dazu stehen folgende Schalter zur Verfügung :
+
+Drawmode	Über dieses Cycle-Gadget kann man auswählen, wie das Sample ge-
+		zeichnet werden soll. Es sehen folgende Modi zur Verfügung :
+			1. Lines
+			2. Dots
+			3. DotAbs
+			4. Filled
+			5. FilledAbs
+			6. FilledHQ (sehr exaktes aber langsames zeichnen)
+Loop On/Off	Mit diesem Schalter kann der Loop an- und ausgeschaltet werden.
+Storage		Hiermit können Sie einstellen, ob das Sample im Speicher ge-
+		halten wird oder auf die Festplatte ausgelagert werden soll.
+		SoundFX entscheidet dies normalerweise automatisch. Sie können
+		dies aber nutzen, wenn sie ein Sample für eine Weile nicht be-
+		nötigen, den Speicher aber für ander Samples brauchen.
+Channel		Auswahl des Kanals, der im Fenster dargestellt werden soll.
+		Über die einzelnen Buttons können die entsprechenden Kanäle an-
+		und ausgeschalten werden. In die nachfolgenden Operationen wer-
+		den nur selektierte Kanäle einbezogen.
+RasterX/Y	Mit diesem Checkboxen können Sie das Zeichnen des Rasters aus-
+		schalten.
+AxisX/Y		Und mit diesen können Sie die Achsen abschalten. Damit vergrös-
+		sern Sie den Zeichenbereich für die Wellenform.
+UnitX/Y		Mit diesen Gadgets können Sie die Einheiten für jede Achse aus-
+		wählen. Diese wird auch vom " Bereichsfenster " link sfx-guitoolwin.guide/RangeWin } benutzt.
+MaxLines	Die MaxLines zeigen die maximale Aussteuerung eines Samples an.
+RMSLines	Diese Linien zeigen die wirkliche akustische Lautstärke. Die
+		Berechnung dieser und auch der nächsten, kann etwas dauern (bei
+		längern Samples).
+AvgLines	Und diese zeigen die durchschnittliche Lautstärke an.		
+QuickDraw	Wenn dies an ist, wird während des Scrollens das Raster und die
+		#?Lines weggelassen.
+SLen		Hier können Sie die Länge des Samples ändern. Dies ist notwen-
+		dig wenn Sie ein kurzes Sample geladen haben, und darauf z.B.
+		ein 'Echo' berechnen wollen. Tragen Sie hier einfach einen
+		größeren Wert ein und schließen Sie die Eingabe mit Enter ab.
+		SFX hängt jetzt einen Leerbereich an das Sample an. Jetzt haben
+		Sie genug Platz für das Effektsignal.
+SPer		Es gibt folgende drei Möglichkeiten die Abspielrate zu ändern.
+		PopUp-Button :	Hiermit gelangen Sie in das
+				@{" Periodenauswahlfenster " link PeriodWin }. Die ausgewählten
+				Werte werden dann in den nebenstehenden	Gadgets
+				eingetragen.
+		Raten Gadget :	Hier können Sie die Rate dierekt eingeben. Je
+				größer der Wert, desto höher wird das Sample
+				abgespielt. Normale Abspielwerte liegen zwi-
+				schen 8000 und 48000. Nach erfolgter Eingaben
+				wird die entsprechende Note im nebenstehenden
+				Gadget eingetragen. Falls für die eingegebene
+				Periode keine Note existiert wird "---" ange-
+				zeigt.
+		Noten Gadget :	Hier können Sie die Note dierekt eingeben.
+				Diese muß folgendes Format haben.
+				1. Zeichen :	C,D,E,F,G,A,H
+						Ton
+				2. Zeichen :	- weiße Tasten
+						# schwarze Tasten
+				3. Zeichen :	0-7 Octave
+				Beispiele   :	C#3,E-0,H-7
+				Der zugehörige Periodenwert wird danach im
+				nebenstehenden Gadget eingetragen.
+		Wenn Sie die Rate des Puffers ändern, der gerade abgespielt
+		wird, hören Sie die neue Rate sofort.
+
+Weiterhin können Sie die Texte die mit dem Sample in einigen Formaten gespei-
+chert werden ändern.
+
+Mit "Okay" wird das Fenster geschlossen und mit "Reset" werden die Standart-
+einstellungen wiederhergestellt.
+@endnode
+
+@node SourceWin "1.9 Quellenauswahlfenster"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+1.9 Quellenauswahlfenster
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Hier kann man aus einer Liste der vorhandenen Einträge einen auswählen. Dieses
+Fenster wird durch einen Klick auf das PopUp-Symbol aufgerufen. Der ausge-
+wählte Eintrag wird danach in dem Feld neben dem PopUp-Symbol dargestellt.
+Die Auswahl kann mit einem Doppelklick oder mit "Okay" erfolgen.
+@endnode
+
+@node PeriodWin "1.10 Periodenauswahlfenster"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+1.10 Periodenauswahlfenster
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+In diesem Fenster können Sie die @{" Samplingrate " link sfx-glossar.guide/samplingrate} auswählen. Folgenden Möglich-
+keiten stehen ihnen zur Verfügung.
+Mausauswahl     :	Klicken Sie dazu einfach die gewünschte Note an. Deren
+			Rate und deren Note werden in den unteren Gadgets ange-
+			zeigt.
+Tastaturauswahl :	Wählen Sie mit F1-F5 die Oktave aus. Mit den folgenden
+			Tasten wählen Sie die Töne aus :
+					 s d   g h j
+					y x c v b n m
+
+Unter der Keyboardgrafik wird in 3 Feldern die ausgewählte Rate, Note und Fre-
+quenz angezeigt. Mit dem darunterliegenden Cycle-Gadget können Sie außerdem aus
+den gebräuchlichsten Raten auswählen.
+
+	 8000 Hz	Soundkarten (typisch für SND-AU Samples)
+	11025 Hz	Soundkarten (typisch bei alten Samples)
+	22050 Hz	Soundkarten (typische Frequenz bei vielen Samples)
+	28867 Hz	max. Abspielrate des Paulachips im normalen Modus
+	32000 Hz	Consumer DAT`s und Sampler
+	44100 Hz	CD-Player
+	48000 Hz	DAT-Recorder/Player
+	57734 Hz	max. Abspielrate des Paulachips im Productivity-Modus
+
+Mit dem CycleGadget PlayMode können Sie einstellen, ob während der Ratenauswahl
+das Sample abgespielt werden soll oder nicht. Wenn Sie also PlayMode=PlayAll
+einstellen und dann in der Keyboardleiste herumklicken, hören Sie den Ton in
+der entsprechenden Tonhöhe sofort. Dies funktioniert natürlich nur wenn Sie die
+Rate eines bereits vorhandenen Puffers einstellen (bei der Tonhöhenauswahl für
+die Operatoren Noise/Resample/Synthesize_Add ist ja noch nichts berechnet wor-
+den).
+
+Durch einen Klick auf Okay werden die Werte übernommen.
+@endnode
+
+@node WFktSelWin "1.11 Fensterfunktionsfenster"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+1.11 Fensterfunktionsfenster
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+In diesem Fenster kann man eine Fensterfunktion auswählen und eventuell einen
+Parameter ändern. Dabei werden die Funktionen graphisch dargestellt.
+Die Auswahl einer Fensterfunktion stellt immer einen Kompromiß dar. Hier ein
+Beispiel für FIR-Filter :
+	Rectangle
+		+ hoche Flankensteilheit
+		- schlechte Dämpfung
+	Hamming
+		- schlechte Flankensteilheit
+		+ hohe Dämpfung
+Durch mehrmalige Anwendung eines Filters werden jedoch beide Merkmale besser.
+@endnode
+
+---------------------------------------------------------------------------------------------------
+
+@node Future "6.1 Aussichten"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+6.1 Aussichten
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Folgende Funktionen und Features sind geplant bzw. in Arbeit :
+	* neue Loader / Saver (SDS-SCSI,SDS-direkt, SMP ...)
+	  - schickt mir Beschreibungen und Beispiele
+	* neue Operatoren
+		* Surround-Decoder
+		* Wavetable-Mixer, -Synthesizer
+	* Verbesserungen Oberfläche / Bedienung
+		* YRange-Knöpfe
+		* direkte Preset-Auswahl
+	* Lokalisation (kompletter)
+	* vielleicht Macroeffekte
+
+!!! Bitte senden sie keine Wünsche, die hier schon erwähnt sind !!!
+
+Für Anregungen, Kritik, Ideen, Informationen (Effekte,Soundformate), Wünsche,
+usw. bin ich jederzeit dankbar (allerdings bitte nicht vergessen - ich bin nur
+EIN MENSCH und keine Maschine ;-) und meine Zeit ist leider auch beschränkt.
+@endnode
+
+@node Thanks "6.2 Danksagung"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+6.2 Danksagung
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Ich danke allen die mir das Schreiben dieses Programmes ermöglichten oder mir
+irgendwie dabei halfen.
+Besonderen Dank an
+
+	Programming:
+		Markus "maw" Weichselbaum
+		Martin Blom (ahi)
+		Christian Buchner (cybersound)
+		Christoph Feck (scrollerwindow)
+		Patrick Meng (Symphonie)
+		Ronny Schütz (clipboard, listview hooks, ...)
+		Steven Krüger (SAS C/C++)
+
+	Guides:
+		Anthony 'AiRoN' Oetzmann
+		Michael Gollmick
+		Michel 'DMX' Bagmeijer
+
+	Übersetzungen:
+		Jonas Hultén (schwedisch)
+		Marcin Orlowski (polnisch)
+		Tony Pascoal (französisch)
+		Marc Holm (dänisch)
+		Luca Danelon (italienisch)
+		Thijs van der Vossen (niederländisch)
+
+	Betatesting & Ideen ...:
+		Patrick Schlick
+		Bodo Schreiber
+		Frank Busse
+		Michel 'DMX' Bagmeijer
+		Guiliano Pochini
+@endnode
+
+@node Problems "6.4 Problems"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+6.4 Problems
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Leider kann ich das Programm kaum auf Rechnern mit Kickstart 3.0 testen. Es
+ist durchaus möglich, daß sich dadurch Probleme ergeben.
+
+Neue Versionen von SFX erkennen selbst, wenn sich die Preferences geändert ha-
+ben und erweitern diese automatisch. Falls Sie bisher eine alte Version hatten
+und die neue beim Start abstürzt oder Probleme bereitet, dann löschen Sie ein-
+fach mal die Prefs :
+	delete ENV:sfx.prefs
+	delete ENVARC:sfx.prefs.
+Ab Version 3.80 heißt die Datei "sfx.cfg". Wenn irgendwelche Einstellungen sich
+merkwürdig verhalten, kann man die .cfg-Datei zur Not auch von Hand editieren.
+
+Falls einige Loader/Saver/Player/Operatoren nicht erkannt werden (also nicht in
+den Listen auftauchen), überprüfen Sie ob zu dem Modul <.sfxmod> eine <.guide>
+und eine <.modinfo> Datei existiert.
+Wenn das Modul nur in der OnLine-Hilfe nicht erscheint, löschen Sie die ent-
+sprechende Indexdatei im guides-Verzeichnis (bei den Loadern also
+Loader-Index.guide).
+
+Wenn SFX startet und nach einer Weile abbricht, versuchen Sie mit SnoopDos her-
+auszufinden, was eventuell fehlt.
+
+Verwenden Sie zur Installation bitte die neueste Version des Installers, da
+einige ältere Versionen scheinbar einige Files woandershin kopieren. Nachfol-
+gend habe ich eine Verzeichnisbaum angefügt. So sollte Ihr SFX-Verzeichnis
+nach der Installation aussehen :
+
+	SFX
+	|--Catalogs
+	|  `--<gewählte Sprache>
+        |     `--SoundFX.catalog
+        |--Data
+        |  |--cp (ConvertPrefs - konvertiert sfx.prefs nach sfx.cfg)
+        |  `--SFX-Titel.rawbrush
+	|
+	|--(Fonts)-----------------------------(Diese Dateien können in FONTS:
+	|  |--Trinomic                          sein, hängt von ihrer Auswahl
+	|  |  `--6                              während der Installation ab)
+	|  |--TrinomicSign
+	|  |  |--6
+	|  |  |--8
+	|  |  |--12
+	|  |  `--16
+	|  |--Trinomic,font                    
+	|  `--TrinomicSign.font
+	|
+	|--Libs
+	|  `--sfxsupport.library
+	|
+	|--Guides
+	|  |--(Loader-index.guide)-------------+(werden von SFX beim ersten
+	|  |--Loader.guide		       | Start angelegt)
+	|  |--(Operators-index.guide)----------|
+	|  |--Operators.guide                  |
+	|  |--(Player-index.guide)-------------|
+	|  |--Player.guide                     |
+	|  |--(Rexx-index.guide)---------------|
+	|  |--Rexx.guide                       |
+	|  |--(Saver-index.guide)--------------'
+	|  |--Saver.guide
+	|  |--SFX-Arexx.guide
+	|  |--SFX-Fehlermeldungen.guide
+	|  |--SFX-Glossar.guide
+	|  |--SFX-GUIListWin.guide
+	|  |--SFX-GUIModWin.guide
+	|  |--SFX-GUIPrefsWin.guide
+	|  |--SFX-GUIToolWin.guide
+	|  |--SFX-Index.guide
+	|  |--SFX-Workshop.guide
+	|  |--SFX.guide
+	|  `--SFX.guide.info
+	|
+	|--(Workshop)--------------------------(werden demnächst separat
+	|  |--Complex_Effects                   erhältlich sein)
+	|  |  |--Chord.raw
+	|  |  `--Ghost_Echo.RAW
+	|  |
+	|  |--Effects
+	|  |  |--zoom-stereo1.8SVX
+	|  |  |--zoom1.raw
+	|  |  |--zoom2.raw
+	|  |  `--zoom3.raw
+	|  |
+	|  `--Percussion
+	|     |--Basedrum1.SRAW16
+	|     |--Basedrum2.SRAW16
+	|     |--Basedrum3.SRAW16
+	|     |--HiHat1.raw
+	|     |--HiHat2.raw
+	|     |--Snaredrum1.raw
+	|     |--Snaredrum2.raw
+	|     `--Snaredrum3.raw
+	|
+	|--_loaders
+	|  |--*_L.sfxmod
+	|  |--*.guide
+	|  `--*.modinfo
+	|
+	|--_operators
+	|  |--*.sfxmod
+	|  |--*.guide
+	|  `--*.modinfo
+	|
+	|--_player
+	|  |--*.sfxmod
+	|  |--*.guide
+	|  `--*.modinfo
+	|
+	|--_rexx
+	|  |--*.rexx
+	|  |--*.guide
+	|  `--*.modinfo
+	|
+	|--_savers
+	|  |--*_S.sfxmod
+	|  |--*.guide
+	|  `--*.modinfo
+	|
+	|--(Loaders.db)------------------------+(werden von SFX beim ersten
+	|--(Operators.db)----------------------| Start angelegt)
+	|--(Players.db)------------------------|
+	|--(Rexx.db)---------------------------|
+	|--(Savers.db)-------------------------'
+	|--Bestellformular.txt
+	|--Bestellformular.txt.info
+	|--Guides.info
+	|--LiesMich.zuerst
+	|--SoundFX
+	`--SoundFX.info
+
+@endnode
+
+@node Bugs "6.5 Bugs & Bugreports"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+6.5 Bugs & Bugreports
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+SFX wurde auf folgenden Rechnerkonfigurationen getestet
+
+	+-------+-------+-------+---------+---------------------------------------+
+	| Typ	| RAM	| Kick	| CPU/FPU | Comment                               |
+	+-------+-------+-------+---------+---------------------------------------+
+	|	|	|	|	  |                                       |
+	| A2000	|35Mb	| 3.1	| 060/int | PicassoII-GFXBoard,Prelude-SoundBoard |
+	| A2000	|11Mb	| 3.1	| 030/882 | PicassoII-GFXBoard                    |
+	| A1200 |18Mb   | 3.1   | 030/882 | -                                     |
+	| A2000	|33Mb	| 3.1	| 060/int | PicassoIV-GFXBoard                    |
+	| A3000	|34Mb	| 3.1	| 060/int | Merlin-GFXBoard                       |
+	| A4000	|12Mb	| 3.1	| 040/--- | CyberVision64-GFXBoard                |
+	+-------+-------+-------+---------+---------------------------------------+
+
+Wenn das Programm (teilweise) nicht funktioniert, dann verfahren Sie bitte wie folgt :
+
+	- nehmen Sie Kontakt mit mir auf (E-Mail/Telefon/Brief)
+	- nennen Sie mir :
+		- ihre Rechnerkonfiguration (incl. Betriebssystemversion !!)
+		- welche SFX-Version und welche SFX-CPUversion Sie benutzen
+		- wo der Fehler auftritt (je genauer diese Beschreibung ist,
+		  desto leichter kann ich den Fehler beheben)
+		- ihre Adresse/Telefonnummer für Rückfragen
+
+Wie gesagt, ich bin bemüht das Programm so gut wie möglich zu machen und Sie
+können mir dabei helfen.
+Ich antworte auf jede email, kann aber nicht alle Briefe beantworten (Ich lese
+alle Briefe und versuche die berichteten bugs zu eliminieren).
+@endnode
+
+@node History "6.6 History"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+6.6 History
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+V 0.0	01.03.1994
+Idee
+
+V 1.2	01.05.1994
+- 1. Version - noch sehr unflexibel (nur 2 Puffer)
+- wenige und unausgereifte FX
+
+V 2.0	25.06.1994
+- etwas verbesserte Benutzerführung (10 Puffer)
+- mehr Effekte
+- arbeitet in 16bit
+
+V 3.0	20.02.1995
+- völlig neu programmierte Oberfläche (fontsensitiv/screenmodesensitiv)
+- beliebig viele Puffer (vom Fenstersystem beschränkt)
+- mehr FX/Player/Loader/Saver
+- viele FX zusammengefaßt
+- ARexx-Port
+
+V 3.1	23.06.1995
+- neues Windowsystem - jetzt wirklich sehr viele Fenster möglich
+- Erweiterung des ARexx-Ports
+- neue Playroutinen 14bit,Interruptplayer,Playpos.balken
+
+V 3.2	01.08.1995
+- Equalize / Equalizer-ZPlane / Vocoder funktionieren jetzt wieder richtig
+- verbesserter PitchShift
+- Samplemorphing !!!
+- verbessertes GUI (mehr asynchrone Fenster, flexiblere Benutzung)
+- Listenfenster sind sizesensitiv
+- Menüs
+- Screen ist Public
+
+V 3.2x	25.09.1995 - 13.12.1995
+- Bugfixes
+- schnelleres GUI
+- kleinere Programmdatei (mehr als 5% gespart)
+- neue ARexx-Befehle
+- neue Laderoutine
+
+V 3.3x  14.12.1995
+- Bugfixes
+- 1. Schritt zur Modularisierung
+  Guides aufgespalten, dynamic Nodelists
+- neue Installscripts
+- Booster -> Filter (negativen Effektanteil benutzen)
+
+- Vebesserte Anzeige von Start,Ende,Länge von Loops,Ranges,Zooms
+- Loader/Saver für IFF-Maud-Samples (Macrosystems)
+- AIFF/AIFC Loader/Saver aufgeteilt
+- GUI wird neuinitialisiert, wenn der Screenmodus oder der Font geändert wurde
+- es können auch nicht-proportionale Fonts benutzt werden
+- Fehler in Fontsensitivity und im GUI sind behoben wurden
+- Bugs in FFT-basierenden Operatoren behoben (AnalyseSpect,Equalize,Morph)
+- FFT verbessert - sie können verschiedene Fensterfunktionen zur Verbesserung
+  des Resultates benutzen
+- AnalyseSpect2D3D benutzt jetzt den SFX-PubScreen
+- mehr Parameter und bessere (flexiblere) Skalierung in AnalyseSpect2D/3D
+
+- 14bit Kallibrierter Player
+- AnalyseData-Operator
+- Loader- and Saver-Module sind überarbeitet wurden
+  jezt mit verbesserter Kompressionsunterstützung
+- Bildschirmrefresh verbessert
+
+- DeNoise Operator eingebaut
+- Vocode funktioniert gut
+- Trace verbessert
+- Samplepuffereinstellungen eweitert und können gespeichert werden.
+- Installerscripts wurden verbessert
+- Zugriff auf Hilfedateien  auch per Workbench möglich (Icons hinzugefügt)
+- Players sind jetzt mehr als 2 mal schneller
+  SFX kann ein quadro sample mit 48000 Hz mit 14bit-kallibriert auf meinem
+  Rechner (A2000 68030+68882 50Mz) abspielen
+- Optimiert : Programm ist jetzt schneller kuerzer und läuft stabiler
+  Mein C-compiler gibt aus : no errors, no warnings, no user suppressed warnings
+- User0/1/2-Modulationsmodi sind jetzt schneller
+- ??_ZPlane erweitert
+
+- neuer Hall-Algorhitmus
+- verbessertes Farbenhandling auf Screens mit vielen Farben - folgende Elemente
+  sind besser zu sehen :
+	die Prozent-Anzeige im Status-Fenster
+	die Slider in Equalize und Synthesize_Add
+	die Hüllkurve in ADSR_Envelope
+	der markierte Bereich
+- Bugs im Guidesystem behoben
+- Layout von Listen- und Samplefenstern verbessert (keine Probleme mehr mit
+  Programmen wie z.B. UrouHack)
+- Doppelklickfehler behoben
+- verbesserter DeCrackle Operator
+- 48 neue ARexx Befehle
+- einige Speicherlecks gefunden und behoben
+- Hilfemenu
+- ARexxOp. Window eingebaut
+- bessere Blockierung nicht aktiver Fenster
+- Neuer Algorithmus zur Namensgenerierung für Samplepuffer vermeidet doppelte
+  Namen
+- automatisches Updaten der Indexguides
+- neue Arexx-Beispiele
+- asynchrone Hilfe
+- Resample,OctaveUp,OctaveDown korregieren die Loopposition
+- Bug beim Abrechen von Berechnungen von Multichannelsamples korregiert
+- Samplespeicher wird jetzt vorher gelöscht
+- Bug bei Puffer visual/hidden behoben
+- Einige Enforcer-Hits behiben und einen seltsamen gefunden (aber kann ihn
+  nicht beheben, da er ZWISCHEN zwei Sourcecodezeilen auftritt ??)
+- Synthesize_Add ist geändert wurden
+- einige Deadlocks behoben
+- AHI-Player eingebaut
+- Intuition-overhead verringert
+- Bug bei Info entfernt
+- Exit -> Quit (Hotkey-Konflikt)
+- RastPort-Handling überarbeitet
+- Scrolling des Samples erheblich beschleunigt
+- ADSR-Envelope verbessert
+- GUI verbessert; Probleme mit Fonts behoben; Fontsensitivität verbessert
+- Filter umbenannt
+- dynamisches Scrolling (Ranges)
+- ASL-Screenmoderequester in den Prefs
+- erste Funktionen in die sfxsupport.library ausgelagert
+
+- Menu in prefs
+- Pufferhandling überarbeitet - jetzt wirklich unendlichviele Samples und da-
+  durch auch schneller
+- Effekte eingespart
+	Invert		-> Amplify mit Factor=-100
+	OctaveDown	-> Resample mit Factor=0.5
+	OctaveUp	-> Resample mit Factor=2.0
+- 4 neue Filter eingebaut
+- Bug in Colorhandling bei Analyse-Spect3D behoben
+- neue ARexx-Befehle
+- ARexx-Scripts nochmals überarbeitet + weitere Beispiele
+- weitere Funktionen in der sfxsupport.library
+- Glossar erweitert
+- automatisches Fensteraufräumen
+- Startup-Fenster
+- neuer DeNoiser (FIR)
+- [lange Programmierpause : weil HD mit kaputtem RDB]
+- ARexx-Scripte im Workshop
+- AHI-Prefs werden gespeichert (vorübergehende Lösung)
+- mit SAS 6.57 neucompiliert
+- verbesserte Installationsscripte
+
+V 3.4x  03.05.1997
+
+- bugfixes
+- jetzt sind alle FX externe Module
+- die FX können jetzt asynchron laufen
+- alle FX haben ein Menü
+- alle FX können ihre Einstellungen speichern und laden (Presets)
+- die FX Einstellungen bleiben solange erhalten, wie der Rechner an ist
+- SFX unterstützt jetzt echte Einheiten (db,hz,semitones,cents,prozent,promille,factor,
+  millisekunden,sekunden,minuten,stunden,...)
+- Y-Zoom
+- neues fensterlayout für Samplefenster (Rollbalken, Pfeile)
+- schneller (synthesize_add +3x, filter-fit +4x)
+- ahi-player repariert
+
+- einige Speicherlecks behoben, aufgespührt wurdens sie mit meinen debug-tools,
+  welche demnaechst auch im Aminet erhaeltlich sein werden
+- alle loader und saver sind jetzt extern
+- neue Hilfsroutinen machen das schreiben neuer loader und saver zum Kinder-
+  spiel und verschwenden keinen Speicher mehr wie zuvor
+- die loader und saver benutzen jetzt die AsyncIO.library für schnelle Disk EA
+- einige neue loader und saver, andere erweitert
+- neue Kompressionsverfahren werden unterstützt (ALAW) und andere repariert
+- neues Interpolationsverfahren (si-Interpolation)
+- einige weiter player Probleme behoben
+- neue Farbpalette für Samplefenster
+
+- bugfixes (EnforcerHit - wenn Screen oder Font in den Prefs geändert wurde)
+- neuer fx (FilterFIRMutate), loader & saver (Clipboard), und neues Packver-
+  fahren (ALaw-Inv, µLaw-Inv)
+- stack wird nun von sfx kontrolliert
+
+V 3.5x  12.10.1997
+
+- bugfixes
+- Vorbereitung auf virtuellen Speicher
+- Fonts müssen nicht mehr nach FONTS: kopiert werden
+- Appicon Unterstützung
+- Clippboard Unterstützung
+- seltsamer Absturz beim Starten behoben, trat auf wenn amigaguide.libary nicht
+  im ram war
+- raw-Typenerkennung verbessert
+- datatypes loader
+
+V 3.6x  19.11.1997
+
+- bugfixes
+- Bildschirmfarben sind jetzt 8/32 bit (anstatt 4 bit)
+- Prefs aufgeteilt
+- Editfunktionen neugeschrieben für VirtualMemory System
+- Filter (FIR) verbessert
+- Window-Funktionen (für #?-FIR#? und #?-FFT) repariert
+- Windowfunktionen können in einem eigenen Requester ausgewählt werden
+- neues Modulationssystem
+- Operatoren sind kürzer
+- Hauptguide aufgespalten
+- FTT ist schneller
+- AREXX-Parameter des neuen Modulationssystems sind flexibler
+- Clipboard-Requester verbessert (Tabellen Listview + Prop.Font Unterstützung)
+- neue Datenauslagerungsroutienen
+- neue Einheitengruppen (relative Zeit, Phase)
+- einige Operatoren verbessert (Resample, Synthesize_Add, MultiDelay, Equalize-
+  FFT, Vocode-FFT, Morph-FFT, ...)
+- neue Source Projektverwaltung (damit keinen falschen cpu/fpu versionen
+  möglich, versionsnummer konsistenter, ...)
+- Lautstärke und Frequenzverfolgung im Modulator 'User'
+- verbessertes Installationsskript
+- neue Iconsätze
+- mehr Presets
+
+V 3.7x 04.08.1998
+
+- Sampleoptions erweitert
+- GUI, Sampleprefs erweitert
+- Lineale für Samplefenster
+- verbesserte Markierungmöglichkeiten
+- Cross-Hair in Samplefenstern
+- verbesserte Positionsanzeige (rangewindow)
+- Operatoren beschleunigt & verbessert
+- Clap & Clear -> AmplifySplit
+- neue Operatoren	Convolve
+- neue Saver	 	Studio16
+- alle Module funktionieren mit virtuellem Speicher
+- ARexxport ist schneller (binary keyword search, automatic preparse)
+- nochmal verbessertes Installskript
+
+V3.8x 01.01.1999
+
+- bugfixes
+- bessere Farbstiftverwaltung
+- neues prefs Dateiformat (bessere Kompatibilität)
+- neue Operatoren (Synthesize_FM)
+- neue Loader (MPEG)
+- verbesserte loader (datatype-loader unterstützt sounddt v41)
+- neue RexxScripte (zum Projektaustausch)
+- sich verändernde Mauszeiger
+- verbesserte Statusleise (unterstützt mehrere Durchläufe)
+- Curve Modulator kann jetzt mit der Maus eingestellt werden
+- Vector Modulator besitzt mehr Punkte und hat Hilfslinien
+- verbesserte Sampleanzeige
+- neue ARexx-Befehle
+- viele neue Presets
+
+- neu Prefs-Option : SrcSel-Modus
+- Presetliste am rechten Operatorrand
+- noch mehr Presets
+- Verbesserungen : Pitchshift, Vocode-FFT
+
+- neue Operatoren (SampleJoin, SampleSplit)
+- neuer Loader (CDDA-Direct)
+- verbesserte Saver (MPEG unterstützt Pegase)
+- verbesserte Fehlermeldungen und Abfragen
+@endnode
+
+@node Commercial "6.7 Werbung"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+6.7 Werbung
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Folgende meiner Programme sind ebenfalls erhältlich :
+
++-----------------+-----------------------------------------------------------+
+| Programm        | Kurzbeschreibung                                          |
++-----------------+-----------------------------------------------------------+
+| FractalUniverse | AmiNet:gfx/fract/fu?_??.lha                               |
+|                 | * mehr als 50 Formeln                                     |
+|                 | * ein RICHTIGER Formelinterpreter, mit über 100 scripts   |
+|                 | * Dithering -> 256 Farben auch auf einem OCS/ECS-Amiga    |
+|                 | * mächtiger Farbpaletteneditor                            |
+|                 | * und was man halt üblicherweise in solchen Programmen    |
+|                 |   an findet                                               |
++-----------------+-----------------------------------------------------------+
+| CacheControl    | AmiNet:util/wb/cc?_??.lha                                 |
+|                 | * kleines Tool mit fontsensitiver Oberfläche als Prefs-   |
+|                 |   programm für Prozessorflags.                            |
++-----------------+-----------------------------------------------------------+
+| VSort           | AmiNet:dev/misc/vsort.lha                                 |
+|                 | * stellt 8 Sortierverfahren grafisch dar                  |
+|                 | * sieht ganz interessant aus                              |
++-----------------+-----------------------------------------------------------+
+| LED             | AmiNet:mus/misc/led?_??.lha                               |
+|                 | * Miniprogi zum Lesen/Setzen/Toggeln der PowerLED und     |
+|                 |  damit des Hardwarefilters.                               |
++-----------------+-----------------------------------------------------------+
+| EdWin           | AmiNet:util/batch/edwin?_??.lha                           |
+|                 | * MiniShelltool zum ändern der Position und der Größe des |
+|                 |   aktuellen Shellfensters.                                |
+|                 | * ganz nützlich in Batchdateien                           |
++-----------------+-----------------------------------------------------------+
+| HiScan          | AmiNet:mus/misc/hiscan?_??.lha                            |
+|                 | * aktiviert Sampleplaybackraten >28000 Hz                 |
+|                 | * Nur für Leute mit Multiscanmonitor + Grafikkarte        |
++-----------------+-----------------------------------------------------------+
+| Multicolour     | AmiNet:dev/misc/multicolour?_?.lha                        |
+|                 | * simuliert sehr viele Farben (ECS 4096/AGA ca. 650000)   |
+|                 | * incl. Demos, Source, Docs                               |
++-----------------+-----------------------------------------------------------+
+| Ag2Txt          | Aminet:doc/hyper/ag2txt?_??.lha                           |
+|                 | * wandelt Amigaguide-Dateien in normalen ASCII-Text       |
+|                 | * zusätliche Parameter ( für Links/Nodes)                 |
++-----------------+-----------------------------------------------------------+
+@endnode
+
+@node Keymap "6.9 Tastaturbelegung"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+6.9 Tastaturbelegung
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Folgend beschriebene Tastaturbefehle sind in SFX von nahezu allen Fenstern aus
+nutzbar :
+
++--------+--------------------------------------+
+| Taste  | Funktion                             |
++--------+--------------------------------------+
+| p      | alles abspielen                      |
+| P      | Bereich abspielen                    |
+| Space  | Wiedergabe beenden                   |
+| e/E    | Operator starten                     |
+| l/L    | Sample laden                         |
+| s/S    | Sample speichern                     |
+| <      | Samplebereich horizontal vergrößern  |
+| >      | Samplebereich horizontal verkleinern |
+| CTRL < | Samplebereich vertikal vergrößern    |
+| CTRL > | Samplebereich vertikal verkleinern   |
+| +      | nächstes Sample aktivieren           |
+| -      | letztes Sample aktivieren            |
+| Tab    | Bereichsmodus durchschalten          |
+| Del    | alle Samples löschen                 |
+| Help   | On-Line-Hilfe aufrufen               |
++--------+--------------------------------------+
+@endnode

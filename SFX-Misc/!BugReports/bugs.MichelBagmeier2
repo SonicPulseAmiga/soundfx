@@ -1,0 +1,184 @@
+From - Thu Sep 12 12:54:09 2002
+X-UIDL: 361df5b50000619a
+X-Mozilla-Status: 0000
+X-Mozilla-Status2: 10000000
+Received: from hetnet.nl (net047s.hetnet.nl [194.151.104.151])
+	by imn.htwk-leipzig.de (8.9.1/8.9.1) with ESMTP id MAA12140
+	for <kost@imn.htwk-leipzig.de>; Thu, 12 Sep 2002 12:42:54 +0200 (MET DST)
+Received: from hetnet.nl ([194.151.104.207]) by hetnet.nl  with Microsoft SMTPSVC(5.5.1877.757.75);
+	 Thu, 12 Sep 2002 12:44:26 +0200
+Received: from mail pickup service by hetnet.nl with Microsoft SMTPSVC;
+	 Thu, 12 Sep 2002 12:40:40 +0200
+From: 303dmx@hetnet.nl
+Content-Class: urn:content-classes:message
+To: "Stefan Kost" <kost@imn.htwk-leipzig.de>
+Subject: sfx4.2 bugs
+Date: Thu, 12 Sep 2002 12:40:39 +0200
+Message-ID: <02dd01c25a48$d6420030$cf6897c2@hetnet.nl>
+MIME-Version: 1.0
+X-Mailer: Microsoft CDO for Windows 2000
+Thread-Index: AcJaSNZCnT92fsY4EdaUwQBQi2b9YQ==
+X-MimeOLE: Produced By Microsoft MimeOLE V5.50.4522.1200
+Content-Type: multipart/mixed;
+	boundary="----=_NextPart_000_02DE_01C25A59.99CAD030"
+Content-Length: 6919
+Status:  O
+
+This is a multi-part message in MIME format.
+
+------=_NextPart_000_02DE_01C25A59.99CAD030
+Content-Type: text/plain;
+	charset="us-ascii"
+Content-Transfer-Encoding: 7bit
+
+
+Hi Stefan.
+
+I found some bugs in SFX. Included.
+
+Greetz from Amsterdam
+Michel 'DMX' Bagmeijer
+
+
+
+
+
+
+
+------=_NextPart_000_02DE_01C25A59.99CAD030
+Content-Type: text/plain;
+	name="bugsSFX.txt"
+Content-Transfer-Encoding: quoted-printable
+Content-Disposition: attachment;
+	filename="bugsSFX.txt"
+
+BugReport SFX V4.2.127=0A=
+=0A=
+SFX:=0A=
+=0A=
+=B7 If you wanna change the loader/saver path with the requester, you =
+can't. When selecting ok, the dir isn't set.=0A=
+=B7 With Synth-FM. If you pick a Freq. from the 'other' button, instead =
+of the 'keyboard', the Freq. *will* be set to 0 HZ.=0A=
+  And everytime you open the Synth-FM window again, the operator button =
+is set to '1' each time.=0A=
+=B7 ConvertChannel: With this operator there's no checking on how many =
+channels a sample really has. You can basically select anything you like.=0A=
+=B7 The Universal-Loader doesn't see all the SND-AU (only PCM 8) / VOC =
+samples right.=0A=
+=B7 The 8 & 14 bit drivers still don't play from the beginning. They =
+start playing at around 5-25% of the sample.=0A=
+=B7 Saving to MPEG (8hz) doesn't work. An empty file is created and =
+"LIB-SAVT.C 915: Can't open file !" is shown.=0A=
+=B7 SampleSplit: If you set splitpos to < 0% then this operator will =
+crash. This is really strange. Sometime ago I've mailed you about a =
+crash with this operator when doing > 100% :))=0A=
+  And the text "splitpos" is on the left out of the window.=0A=
+=B7 In Equalize-FFT-3D I'm missing an amp. option. And when I wanna load =
+in a Freq-Curves file, I get a crash. Guru 80000003. Strangely if you =
+select a=0A=
+  preset file, the same file that can't be loaded, will load.=0A=
+=B7 In the batchprocessor, when I'm adding a preset and changing the =
+name, either the program crashes or RAM will give me a nasty error. If I =
+just=0A=
+  renaming something, it's fine. Deleting a preset file give some weird =
+signs in the batch window. And the menu isn't shown. Or didn't you add =
+this ?=0A=
+=B7 Loading a 8SVX or 16SV *EDPCM 16:5* file, I get a requester saying =
+the sample hasn't been saved correctly. When I click 'Okay' the sample =
+seems ok to me.=0A=
+  I also had this problem when I tried to load a 60 min. file (with =
+virt. mem.) that I saved with 8SVX - 16bit. When playing it, the left =
+channel was ok, but the right one wasn't.=0A=
+=B7 SurroundEnc.: The "R" of RearFilt text, on the left is still out of =
+the window.=0A=
+=B7 One very annoying thing is that samples can be selected (by SFX) =
+while they're hidden. So everytime you wanna open an operator window, a =
+wrong (not active) sample *could* be selected.=0A=
+=B7=A0If there's no name in the sample chunks (like wav's), SFX just =
+gives the sample the name "noname". If you have a bunch of them, this is =
+confusing (noname, noname00, noname01, etc..)=0A=
+  Why not give it the filename ? This will also make saving a lot =
+easier, as you don't have to remember the original name anymore.=0A=
+=B7 In the Synthesize-Add window, if you select another preset file, the =
+wave isn't updated until you open the window again.=0A=
+=B7 In the orderforms change DM to Euro. I know I hate euro's too, but =
+... ;)=0A=
+=B7 There's something annoying about SFX I think you should know. When =
+loading a large sample (with virt. mem. and a slow drive). The sample is =
+loaded first and *then* the window=0A=
+  is opened and the sample is scanned -again- 'coz it needs to know =
+where it should put which line (in the window). Can't this be done the =
+first time ?=0A=
+=B7 And there's an annoying update of the sample window if you put it =
+too high or low. Then SFX takes control over the window, puts it =
+somewhere and updates it. But when moving the=0A=
+  window to the left or right the samplewindow isn't updated. Why I tell =
+you this is that if you're working on a large sample (see above) you =
+have to wait a very long time. And I=0A=
+  don't want to put so much effort in updating, but just concentrate on =
+processing (working on) the sample.=0A=
+=B7 And if you're still working on that looong sample & wanna grab =
+something, there's no way to abort the process.=0A=
+=B7 If you record a sample, it would be great to save it directly to a =
+normal format, like AHIRecord does.=0A=
+=B7 If you press 'p' 2 or 3 times fast after each other, SFX crashes.=0A=
+=B7 Zoom 1:1 doesn't zoom the selected range, but zooms to the beginning =
+of the sample.=0A=
+=B7 And after doing this 'zoom out full' doesn't work anymore. To get it =
+working again, go a bit to the right with the arrows or the slider. Now =
+it works again.=0A=
+=B7 Why did you rename loop on to forward ? You can't go backwards =
+anyway .....=0A=
+=B7 This HD access drives me really nuts, you know. Hope you can do =
+something about it.=0A=
+=B7 If yer in the batch processor window, there's no way to control the =
+loader/saver settings. Hope you can improve this, so you can use it with =
+some more accuracy.=0A=
+=B7 In the cycle gadget/mod window there's some text which says 'oszi'. =
+Well in english it should be 'oscillator' or 'osci'.=0A=
+=B7 If you select fold/misc/amp. The next time you open the window, the =
+button is *not* selected anymore.=0A=
+=B7 In the mix3d operator window, if you select 2IDsmix1 file, the cube =
+is drawn wrong. It's higher than it should be.=0A=
+=B7 You use identify.library? Why i'm asking is that the kickversion =
+with this library under V3.9 BB2 is broken. If I look at the=0A=
+  about window, SFX identifies the kickversion as 'V10825.16890'.=0A=
+=B7 When are the docs finished? Even some text (without pictures) is =
+better then nothing at all!=0A=
+=0A=
+=0A=
+=0A=
+=0A=
+=0A=
+=0A=
+Michel 'DMX' Bagmeijer a.k.a. -D.J. Azid-=0A=
+303dmx@hetnet.nl=0A=
+=0A=
+=0A=
+=0A=
+System:  Amiga 1200=0A=
+CPU:     68060/50 MHz (Rev 1), FPU=3D68060/50 MHz, MMU=3D68060=0A=
+PowerPC: 603e/240 MHz (running WarpOS)=0A=
+Chipset: AGA (RAMSEY None, GARY None, CHUNKY None) VBR=3D0x760136E8=0A=
+Agnus:   Alice 8374 Rev. 3-4 (Mode: PAL)=0A=
+Denise:  Lisa 8364 (Rev: 0)=0A=
+AmigaOS: 3.9 (V45.57, BoingBag N/A, SetPatch V44.38)=0A=
+         Exec V45.20   Workbench V45.3=0A=
+Support: GraphicOS: AmigaOS, AudioOS: AHI, TCP/IP: None=0A=
+Clock:   Power 50 Hz, VBlank 50 Hz, E-Clock 709379 Hz=0A=
+RAM:     Motherboard 32 bit, 80 ns, Double CAS, 4x Bandwidth=0A=
+=0A=
+Memory:      CHIP    FAST   TOTAL ROM =3D 512.0KB SLOW =3D 0=0A=
+    PLAIN   2.0MB   64.0MB  66.0MB=0A=
+  VIRTUAL     0        0       0=0A=
+    TOTAL   2.0MB   64.0MB  66.0MB=0A=
+=0A=
+Nr ID      Address  Size Manufacturer         Product=0A=
+-------------------------------------------------------------------------=
+---=0A=
+ 1 2140.6E 00F00C38 128K Phase 5              Blizzard PPC accelerator =
+SCSI host adapter=0A=
+
+------=_NextPart_000_02DE_01C25A59.99CAD030--
+

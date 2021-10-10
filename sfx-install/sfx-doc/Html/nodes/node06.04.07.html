@@ -1,0 +1,121 @@
+<html>
+	<head><title>SoundFX : 6.4.7 Operatoren : Amplitude, Dynamics</title></head>
+	<body bgcolor="#EEEEEE" leftmargin="5" rightmargin="5" topmargin="5" text="#000000" link="#2040FF" vlink="#0020E0" alink="#FFFFFF">
+	<a name="#000"></a>
+	<table border="0" width="100%" cellpadding="3" cellspacing="1" bgcolor="#000000"><tr bgcolor="#FFFFFF"><td>
+		<table border="0" width="100%" cellpadding="0" cellspacing="0"><tr>
+			<td align="left"><font size="-1">
+		[<a href="node__.__.__.html">SoundFX</a>]
+			[<a href="node06.__.__.html">Anhang</a>]
+				[<a href="node06.04.__.html">FAQ</a>]
+			</font></td>
+			<td align="right" valign="center">
+				<a href="node06.04.06.html">
+				<img src="../_img/a_le.gif" width="13" height="13" border="0" alt="[prev]"></a>
+				<img src="../_img/space.gif" width="2">
+				<a href="node06.04.08.html">
+				<img src="../_img/a_ri.gif" width="13" height="13" border="0" alt="[next]"></a>
+			</td>
+		</tr></table>
+	</td></tr></table>
+	<br>
+		<!-- Contents -->
+	<a name="#001"></a>
+		<table border="0" width="100%" cellpadding="3" cellspacing="1" bgcolor="#000000">
+	<tr bgcolor="#DDDDDD"><td>
+		<table border="0" width="100%" cellpadding="0" cellspacing="0"><tr>
+			<td align="left">
+				<b>6.4.7 Operatoren : Amplitude</b>
+			</td>
+			<td align="right">
+				<a href="#000">
+				<img src="../_img/a_up.gif" width="13" height="13" border="0" alt="[up]"></a>
+				<img src="../_img/space.gif" width="2">
+				<a href="#002">
+				<img src="../_img/a_do.gif" width="13" height="13" border="0" alt="[down]"></a>
+			</td>
+		</tr></table>
+	</td></tr>
+			<tr bgcolor="#FFFFFF"><td>
+				<table border="0" cellpadding="5" cellspacing="0"><tr><td>
+					<p align="justify">
+						<b>F:</b> Ich möchte mit wenigen Schritten eine Hüllkurven-erkennung durchführen (z.B. als ARexx Script).
+								  Wie kann ich ein Sample gleichrichten (also den negativen Teil nach oben spiegeln) - Natürlich
+								  nicht nur in der Anzeige sondern in den Sampledaten. Dann würde ich das Signal mit einem
+								  Tiefpass filtern - welche Cut-Off Frequenz soll ich da nehmen.<br>
+						<b>A:</b> Der erste Teil ist ganz einfach. nehmen Sie <a href="node02.01.06/AmplifySplit.html">AmplifySplit</a>. Da können sie den oberen und unteren
+								  Teil getrennt verstärken. Somit sollten sie also "1.0" für den oberen Teil und "-1.0" für den
+								  unteren Teil verwenden, um einfach den unteren Bereich zu invertieren. Dann wenden sie einen
+								  Tiefpass mit einer CutOff-Frequenz von ungefähr "150 hz" an.<br>
+								  Eine andere Variante ist es das Signal mit einer verzögerten Version von sich selbst zu mixen
+								  (wählen sie ein Delay von "25 ms" im <a href="node02.01.06/Mix.html">Mix</a> Operator).<br>
+								  Die <a href="node02.01.06/AmplifySplit.html">AmplifySplit</a> und LPF Kombination funktioniert jedoch einfach prima.
+								  Am Besten sie verwenden dazu einen <a href="node02.01.06/Filter-StateVariable.html">Filter-StateVariable</a> (Cut-Off
+								  zwischen "50" und "200 Hz" und Resonance=1). Mit diesen Werten bekommen sie schöne sanfte Hüllkurven, die
+								  sich prima zum Modulieren von anderen Effekten eignen.<br><br>
+						<b>F:</b> Die Hüllkurve die ich nun habe, liegt komplett im oberen Bereich des Samples. Ich benötige
+								  sie aber über den kompletten Bereich.<br>
+						<b>A:</b> Sie können den <a href="node02.01.06/Slide.html">Slide</a> Operator verwenden um sie um "50%" nach unten zu verschieben und dann
+								  den <a href="node02.01.06/Amplify.html">Amplify</a> Operator um sie auf "200 %" zu verstärklen. Wenn Sie dies dann in <b>SoundFX</b> zur
+								  Modulation verwenden, nehmen sie den Modulationsmodus "abs".<br>
+								  Wesentlich einfacher geht es, wenn sie sich die Hüllkurven von <b>SoundFX</b> automatisch erzeugen lassen.
+								  Wussten Sie schon das das geht ? Wählen sie das "Blend-Shape=User", rufen dann die
+								  Einstellungen auf, wählen dort das Quellsample (von dem Sie die Hüllkurve übernehmen wollen)
+								  und aktivieren den "ModulationsTyp=AmpEnv" (AmplitudeEnvelope".<br><br>
+						<b>F:</b> Wo liegt der Schwellwert, über welchen <b>SoundFX</b> im Operator <a href="node02.01.06/Dynamic.html">Dynamic</a> entscheided, was leise
+								  und was laute Samples sind? Kann Dieser gesetzt werden? <br>
+						<b>A:</b> In älteren SoundFX Versionen hieß dieser Operator "CompressorExpander". Ein solcher Effekt
+								  benötigt einen Schwellwert zur Bearbeitung. Ich habe diesen Operator in <b>SoundFX</b> als <a href="node02.01.06/Dynamic.html">Dynamic</a>
+								  umbenannt, da er anders funktioniert. Die Ergebnisse sind allerdings ähnlich.<br>
+								  Sie können einen Faktor für den lautesten und einen für den leisesten Samplewert einstellen.
+								  Für dazwischenliegende Werte interpoliert der Effekt den Faktor linear.<br><br>
+						<b>F:</b> Wenn ich einen negativen Faktor für leise Samples angebe, werden diese dann bei 0 bleiben oder
+								  schlagen sie auf die andere Seite um.<br>
+						<b>A:</b> <b>SoundFX</b> wird ihnen niemals einen Parameter abweisen, blo&szlig; weil er ungewöhlich ist. Desshalb
+								  können sie auch soviele unterschiedliche Effekte mit ein und dem selben Operator erzeugen.<br>
+								  Wenn sie nun einen negativen Wert für leise Samples eingeben, werden leise Sounds invertiert
+								  und die interpolation wird zu den (möglicherweise) positiven Werten für laute Sample überblenden.<br><br>
+						<b>F:</b> Als ich letztes Wochenende CDs gemixt habe, ist mir aufgefallen, das einige Titel leiser als
+								  Andere sind. Kann <b>SoundFX</b> diese auf volle Lautstärke bringen? Genauer gesagt, kann es die leisen Titel
+								  lauter machen und die Lauten eventuell etwas leiser.<br>
+						<b>A:</b> Sie alle laut zu machen ist ganz einfach. Nehmen sie den <a href="node02.01.06/Amplify.html">Amplify</a> Operator dafür. Einfach auf
+								  MaxVol klicken, dann berechnet <b>SoundFX</b> Ihnen die optimale Verstärkung. Wenn sie gleich in
+								  einem Rutsch mehrere Dateien bearbeiten wollen, nutzen sie doch die Stapelverarbeitung :<ol>
+								    <li>Loader : Universal</li>
+								    <li>Operator : Amplify, Preset : MaxVol</li>
+								    <li>Saver : e.g. IFF-AIFC</li>
+								  </ol>Dann auf Start klicken und noch das Quellverzeichnis mit den Dateien sowie das Zielverzeichnis
+								  auswählen.<br>
+								  Wenn jedoch alle Datei schon die maximale Lautstärke haben wird es etwas komplizierter.#
+								  Sie müssten <a href="node02.01.06/Analyse-Data.html">Analyse-Data</a> verwenden und für jeden Titel die "RMS-Lautstärke" aufschreiben.
+								  Dann könnten sie die lauten Titel leiser machen (mit <a href="node02.01.06/Amplify.html">Amplify</a>) oder den <a href="node02.01.06/Dynamic.html">Dynamic</a> Operator
+								  verwenden um die leisen Titel zu komprimieren (z.B. laute Werte=1.0 und leise Werte=1.5).<br>
+					</p>
+				</td></tr></table>
+			</td></tr>
+		</table>
+		<br>
+	<a name="#002"></a>
+	<table border="0" width="100%" cellpadding="3" cellspacing="1" bgcolor="#000000"><tr bgcolor="#FFFFFF"><td>
+		<table border="0" width="100%" cellpadding="0" cellspacing="0"><tr>
+			<td align="left"><font size="-1">
+		[<a href="node__.__.__.html">SoundFX</a>]
+			[<a href="node06.__.__.html">Anhang</a>]
+				[<a href="node06.04.__.html">FAQ</a>]
+			</font></td>
+			<td align="right" valign="center">
+				<a href="node06.04.06.html">
+				<img src="../_img/a_le.gif" width="13" height="13" border="0" alt="[prev]"></a>
+				<img src="../_img/space.gif" width="2">
+				<a href="node06.04.08.html">
+				<img src="../_img/a_ri.gif" width="13" height="13" border="0" alt="[next]"></a>
+			</td>
+		</tr></table>
+	</td></tr></table>
+	<br>
+	<table border="0" width="100%" cellpadding="3" cellspacing="1" bgcolor="#000000"><tr bgcolor="#FFFFFF"><td align="center"><font size="-1">
+		&copy; by <a href="mailto:soundfx@sonicpulse.de">Stefan Kost</a> 1993-2004
+		<a href="http://www.sonicpulse.de" target="_new">www.sonicpulse.de</a>
+	</font></td></tr></table>
+	</body>
+</html>

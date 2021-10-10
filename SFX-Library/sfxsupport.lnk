@@ -1,0 +1,16 @@
+FROM LIB:libent.o LIB:libinit.o "src/lib-amiga.o"+"src/bshape-curve.o"+"src/bshape-cycle.o"+"src/bshape-none.o"+"src/bshape-user.o"+"src/bshape-vector.o"+"src/bshape.o"+"src/asyncio.o"+"src/bshapegui-curve.o"+"src/bshapegui-cycle.o"+"src/bshapegui-none.o"+"src/bshapegui-user.o"+"src/bshapegui-vector.o"+"src/errormsg.o"+"src/fft.o"+"src/fxobj-cfgsel.o"+"src/fxobj-inter.o"+"src/fxobj-mod.o"+"src/fxobj-src.o"+"src/fxobj-wfkt.o"+"src/fxtools.o"+"src/fxtools-cfg.o"+"src/fxtools-gui.o"+"src/guiext.o"+"src/help.o"+"src/interpol.o"+"src/loat.o"+"src/locale.o"+"src/mem.o"+"src/misc.o"+"src/msg.o"+"src/mwin.o"+"src/packt.o"+"src/prowin.o"+"src/rbuf.o"+"src/req-interpol.o"+"src/req-lstentry.o"+"src/req-period.o"+"src/req-wfkt.o"+"src/savt.o"+"src/sound-mem.o"+"src/sound.o"+"src/stringt.o"+"src/vm.o"
+TO "sfxsupport.library"
+LIB LIB:debugtools881.lib LIB:debug.lib LIB:stormamiga_060.lib LIB:scm881.lib
+    LIB:sc.lib LIB:amiga.lib
+ADDSYM
+SMALLCODE
+BATCH
+VERBOSE
+NOICONS
+DEFINE @__chkabort=@__dummy
+LIBVERSION 4
+LIBREVISION 3
+LIBPREFIX _LIB
+LIBFD sfxsupport_lib.fd
+
+DEFINE __XCEXIT=_stub

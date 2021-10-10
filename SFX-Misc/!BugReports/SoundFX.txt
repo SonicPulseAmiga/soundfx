@@ -1,0 +1,30 @@
+BUGS
+======================================================================
+* Panorama-4Ch
+	- Unterschiedliche Boxenaufstellungen (Musik/Video-Mode)
+* SurroundEncoder
+	- PhaseShift (sicherstellen das NUM ungerade ist)
+* Saver funktionieren nicht
+* Doku
+	- ConvertChannel (einrücken)
+	- SFX einmal starten, dann PDF bauen!
+* Presets
+	- Compressor/Expander
+* DrawMode
+	- DotsHQ (alle Werte als Punkte)
+
+
+FUTURE
+======================================================================
+* SFX Effects als
+	- Pakete
+		- Effects I,II,III
+		- Synth
+	- API
+		- Direct X
+		- VST
+		- Premiere
+		- Ulead (keine AudioFX)
+		- SonicFoundry Vegas
+		- AIST (www.aist.de)
+		- MainActor

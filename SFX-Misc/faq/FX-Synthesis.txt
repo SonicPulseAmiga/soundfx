@@ -1,0 +1,8 @@
+<<<<<<<<<< Synthesis, FM, >>>>>>>>>>
+
+01 aug 00
+Q:
+> Do we get to be able to program some FM sounds?
+A:
+* FM-Synth : yes, it can do everything a yamaha DX-7 can do plus something more
+here and there

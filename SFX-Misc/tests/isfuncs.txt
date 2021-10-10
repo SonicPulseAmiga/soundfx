@@ -1,0 +1,257 @@
+      alnum alpha ascii cntrl digit graph lower print punct space upper xdigit
+  0                 x     x                                                   
+  1                 x     x                                                   
+  2                 x     x                                                   
+  3                 x     x                                                   
+  4                 x     x                                                   
+  5                 x     x                                                   
+  6                 x     x                                                   
+  7                 x     x                                                   
+  8                 x     x                                                   
+  9                 x     x                                   x               
+ 10                 x     x                                   x               
+ 11                 x     x                                   x               
+ 12                 x     x                                   x               
+ 13                 x     x                                   x               
+ 14                 x     x                                                   
+ 15                 x     x                                                   
+ 16                 x     x                                                   
+ 17                 x     x                                                   
+ 18                 x     x                                                   
+ 19                 x     x                                                   
+ 20                 x     x                                                   
+ 21                 x     x                                                   
+ 22                 x     x                                                   
+ 23                 x     x                                                   
+ 24                 x     x                                                   
+ 25                 x     x                                                   
+ 26                 x     x                                                   
+ 27                 x     x                                                   
+ 28                 x     x                                                   
+ 29                 x     x                                                   
+ 30                 x     x                                                   
+ 31                 x     x                                                   
+ 32                 x                             x           x               
+ 33 !               x                 x           x     x                     
+ 34 "               x                 x           x     x                     
+ 35 #               x                 x           x     x                     
+ 36 $               x                 x           x     x                     
+ 37 %               x                 x           x     x                     
+ 38 &               x                 x           x     x                     
+ 39 '               x                 x           x     x                     
+ 40 (               x                 x           x     x                     
+ 41 )               x                 x           x     x                     
+ 42 *               x                 x           x     x                     
+ 43 +               x                 x           x     x                     
+ 44 ,               x                 x           x     x                     
+ 45 -               x                 x           x     x                     
+ 46 .               x                 x           x     x                     
+ 47 /               x                 x           x     x                     
+ 48 0   x           x           x     x           x                       x   
+ 49 1   x           x           x     x           x                       x   
+ 50 2   x           x           x     x           x                       x   
+ 51 3   x           x           x     x           x                       x   
+ 52 4   x           x           x     x           x                       x   
+ 53 5   x           x           x     x           x                       x   
+ 54 6   x           x           x     x           x                       x   
+ 55 7   x           x           x     x           x                       x   
+ 56 8   x           x           x     x           x                       x   
+ 57 9   x           x           x     x           x                       x   
+ 58 :               x                 x           x     x                     
+ 59 ;               x                 x           x     x                     
+ 60 <               x                 x           x     x                     
+ 61 =               x                 x           x     x                     
+ 62 >               x                 x           x     x                     
+ 63 ?               x                 x           x     x                     
+ 64 @               x                 x           x     x                     
+ 65 A   x     x     x                 x           x                 x     x   
+ 66 B   x     x     x                 x           x                 x     x   
+ 67 C   x     x     x                 x           x                 x     x   
+ 68 D   x     x     x                 x           x                 x     x   
+ 69 E   x     x     x                 x           x                 x     x   
+ 70 F   x     x     x                 x           x                 x     x   
+ 71 G   x     x     x                 x           x                 x         
+ 72 H   x     x     x                 x           x                 x         
+ 73 I   x     x     x                 x           x                 x         
+ 74 J   x     x     x                 x           x                 x         
+ 75 K   x     x     x                 x           x                 x         
+ 76 L   x     x     x                 x           x                 x         
+ 77 M   x     x     x                 x           x                 x         
+ 78 N   x     x     x                 x           x                 x         
+ 79 O   x     x     x                 x           x                 x         
+ 80 P   x     x     x                 x           x                 x         
+ 81 Q   x     x     x                 x           x                 x         
+ 82 R   x     x     x                 x           x                 x         
+ 83 S   x     x     x                 x           x                 x         
+ 84 T   x     x     x                 x           x                 x         
+ 85 U   x     x     x                 x           x                 x         
+ 86 V   x     x     x                 x           x                 x         
+ 87 W   x     x     x                 x           x                 x         
+ 88 X   x     x     x                 x           x                 x         
+ 89 Y   x     x     x                 x           x                 x         
+ 90 Z   x     x     x                 x           x                 x         
+ 91 [               x                 x           x     x                     
+ 92 \               x                 x           x     x                     
+ 93 ]               x                 x           x     x                     
+ 94 ^               x                 x           x     x                     
+ 95 _               x                 x           x     x                     
+ 96 `               x                 x           x     x                     
+ 97 a   x     x     x                 x     x     x                       x   
+ 98 b   x     x     x                 x     x     x                       x   
+ 99 c   x     x     x                 x     x     x                       x   
+100 d   x     x     x                 x     x     x                       x   
+101 e   x     x     x                 x     x     x                       x   
+102 f   x     x     x                 x     x     x                       x   
+103 g   x     x     x                 x     x     x                           
+104 h   x     x     x                 x     x     x                           
+105 i   x     x     x                 x     x     x                           
+106 j   x     x     x                 x     x     x                           
+107 k   x     x     x                 x     x     x                           
+108 l   x     x     x                 x     x     x                           
+109 m   x     x     x                 x     x     x                           
+110 n   x     x     x                 x     x     x                           
+111 o   x     x     x                 x     x     x                           
+112 p   x     x     x                 x     x     x                           
+113 q   x     x     x                 x     x     x                           
+114 r   x     x     x                 x     x     x                           
+115 s   x     x     x                 x     x     x                           
+116 t   x     x     x                 x     x     x                           
+117 u   x     x     x                 x     x     x                           
+118 v   x     x     x                 x     x     x                           
+119 w   x     x     x                 x     x     x                           
+120 x   x     x     x                 x     x     x                           
+121 y   x     x     x                 x     x     x                           
+122 z   x     x     x                 x     x     x                           
+123 {               x                 x           x     x                     
+124 |               x                 x           x     x                     
+125 }               x                 x           x     x                     
+126 ~               x                 x           x     x                     
+127                x     x                                                   
+128 Ä                                                                         
+129 Å                                                                         
+130 Ç                                                                         
+131 É                                                                         
+132 Ñ                                                                         
+133 Ö                                                                         
+134 Ü                                                                         
+135 á                                                                         
+136 à                                                                         
+137 â                                                                         
+138 ä                                                                         
+139 ã                                                                         
+140 å                                                                         
+141 ç                                                                         
+142 é                                                                         
+143 è                                                                         
+144 ê                                                                         
+145 ë                                                                         
+146 í                                                                         
+147 ì                                                                         
+148 î                                                                         
+149 ï                                                                         
+150 ñ                                                                         
+151 ó                                                                         
+152 ò                                                                         
+153 ô                                                                         
+154 ö                                                                         
+155 õ                                                                         
+156 ú                                                                         
+157 ù                                                                         
+158 û                                                                         
+159 ü                                                                         
+160 †                                                                         
+161 °                                                                         
+162 ¢                                                                         
+163 £                                                                         
+164 §                                                                         
+165 •                                                                         
+166 ¶                                                                         
+167 ß                                                                         
+168 ®                                                                         
+169 ©                                                                         
+170 ™                                                                         
+171 ´                                                                         
+172 ¨                                                                         
+173 ≠                                                                         
+174 Æ                                                                         
+175 Ø                                                                         
+176 ∞                                                                         
+177 ±                                                                         
+178 ≤                                                                         
+179 ≥                                                                         
+180 ¥                                                                         
+181 µ                                                                         
+182 ∂                                                                         
+183 ∑                                                                         
+184 ∏                                                                         
+185 π                                                                         
+186 ∫                                                                         
+187 ª                                                                         
+188 º                                                                         
+189 Ω                                                                         
+190 æ                                                                         
+191 ø                                                                         
+192 ¿                                                                         
+193 ¡                                                                         
+194 ¬                                                                         
+195 √                                                                         
+196 ƒ                                                                         
+197 ≈                                                                         
+198 ∆                                                                         
+199 «                                                                         
+200 »                                                                         
+201 …                                                                         
+202                                                                           
+203 À                                                                         
+204 Ã                                                                         
+205 Õ                                                                         
+206 Œ                                                                         
+207 œ                                                                         
+208 –                                                                         
+209 —                                                                         
+210 “                                                                         
+211 ”                                                                         
+212 ‘                                                                         
+213 ’                                                                         
+214 ÷                                                                         
+215 ◊                                                                         
+216 ÿ                                                                         
+217 Ÿ                                                                         
+218 ⁄                                                                         
+219 €                                                                         
+220 ‹                                                                         
+221 ›                                                                         
+222 ﬁ                                                                         
+223 ﬂ                                                                         
+224 ‡                                                                         
+225 ·                                                                         
+226 ‚                                                                         
+227 „                                                                         
+228 ‰                                                                         
+229 Â                                                                         
+230 Ê                                                                         
+231 Á                                                                         
+232 Ë                                                                         
+233 È                                                                         
+234 Í                                                                         
+235 Î                                                                         
+236 Ï                                                                         
+237 Ì                                                                         
+238 Ó                                                                         
+239 Ô                                                                         
+240                                                                          
+241 Ò                                                                         
+242 Ú                                                                         
+243 Û                                                                         
+244 Ù                                                                         
+245 ı                                                                         
+246 ˆ                                                                         
+247 ˜                                                                         
+248 ¯                                                                         
+249 ˘                                                                         
+250 ˙                                                                         
+251 ˚                                                                         
+252 ¸                                                                         
+253 ˝                                                                         
+254 ˛                                                                         
+255 ˇ                                                                         

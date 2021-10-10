@@ -1,0 +1,43 @@
+[VERSION]
+$VER: tips.catalog 0.5 (14.02.2002)
+[ANNOTATION]
+By Dan Jedlicka
+[LANGUAGE]
+english
+
+#000:33
+#001:Tip Of The Day
+#002:OK
+#003:You can easily open\nthe selected operator's\nwindow by pressing 'r'.
+#004:Although SoundFX can handle\na lot of sample formats,\nit is recommended that\nyou save your samples\nin RIFF-WAV or AIFF formats.\nThese represent the music\nindustry standards.
+#005:Time-consuming, repetitive tasks\ncan be made easier by\nthe use of the Batch Processor.
+#006:The Help menu gives you\ndirect access to the\nSoundFX WWW homepage:\n\nwww.sonicpulse.de
+#007:Cut, copy & paste operations\ncan be quickly performed using\nthe standard Amiga shortcuts:\n\nAmiga-X, Amiga-C, Amiga-V.
+#008:Best performance can be achieved\nwith a 68060 processor\nor under emulation (WinUAE,\nAmithlon, AmigaXL) on the PC.
+#009:SoundFX is a complex\npiece of software.\nRead the manual to get\nmost of it! And also:\n\nDon't be afraid to experiment!
+#010:With most operators,\nyour favourite parameter\nsettings can be saved\nas presets for future use.
+#011:Too many sample windows\non the screen?\nHide the samples you are\nnot using at the moment!\n\nTo do this:\n- click on the 'hide' gadget\nin the window title bar, or\n- press the 'box' button\nin the toolbar, or\n- use the context menu.
+#012:SoundFX can effectively make\nuse of a three-button mouse.
+#013:A number of sample options\ncan be changed quickly\nvia the context menu.\n\nConfigure the display of this\nmenu in Prefs/Miscellaneous.
+#014:Equipping your Amiga with\nan SCSI or EIDE controller\n(such as Buddha or FastATA)\nwill speed up disc access.\nHandling of large samples\nor the use of virtual memory\nwill be considerably faster.
+#015:The real thing comes when\nrunning SoundFX in 1024x768\nor a higher resolution mode.
+#016:The use of operators\nis non-destructive!\n\nAll samples are stored\nin separate buffers\nso you can get back\nto the original if the\nresult doesn't meet\nyour expectations.
+#017:Although SoundFX supports\nAmigaOS 3.0 and 3.1,\nthese systems are now\nconsidered obsolete. You\nshould consider upgrading\nto a newer version\n(AmigaOS 3.5 or 3.9).\nYou can obtain a copy from\nyour local Amiga dealer.
+#018:The non-FPU versions of SFX\nare, more or less, meant for\nevaluation purposes only.\nThose who want to use the\nprogram as an effective tool\nwill find it necessary to have\na math-coprocessor (FPU).
+#019:Bored with these tips?\n\nSwitch them off\nin the Help menu.
+#020:Your samples can be set\nto their optimum volume\nusing the Amplify operator\n(click 'MaxVol' and 'Start').
+#021:Unwanted 50/60Hz hum\ncan effectively be removed\nusing the appropriate presets\nof the Delay operator.
+#022:A lot of useful information\nregarding sound processing\ncan be found on the Web.
+#023:Report any bugs you find\nto the author. You can do it\ndirectly from within the\nprogram: use the Help menu.
+#024:Exchange your experience and\nideas with other users!\n\nJoin the SoundFX mailing-list at\ngroups.yahoo.com/group/soundfx-users/
+#025:The latest version of the program\ncan be downloaded from SoundFX\nhomepage: see the Help menu.
+#026:All work and no play\nmakes Jack a dull boy!
+#027:SoundFX functionality can be\nconsiderably extended by\nusing the ARexx interface.
+#028:You can range the whole\nsample by pressing Amiga-A.
+#029:Ranges can be deselected\nusing the Amiga-H shortcut.
+#030:Going through cycle gadgets\nwill be faster and easier\nif you install CycleToMenu\nby Federico Giannici.\n\nDownload this commodity\nfrom Aminet and install it\nin your WBStartup drawer.
+#031:SoundFX: The sky's the limit!
+#032:Operator parameters accept\nvalues in a great number of units.\nYou can specify volume in\ndecibels or as a percentage,\nboth absolute and relative.\nDuration values can be given in\ntime units, video frames, or as\na number of samples.\nWhatever your needs are.
+#033:The SoundFX package offers:\n\n- digital sound processing\n- digital sound analysis\n- software synthesis\n- multiformat export/import\n\nYou can add effects to your\nsamples, analyze sound data,\ngenerate your own sounds\nand load/save samples in\na variety of file formats.
+#034:This program may be slow\non some configurations.\n\nPlease be patient.\n\nYou'll be old and slow\nyourself one day!
+#035:Loader and saver defaults\ncan be re-configured to\nyour preferred values.\n\nUse the menu and save your\nsettings as 'default.cfg'.

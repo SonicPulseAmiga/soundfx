@@ -1,0 +1,176 @@
+<html>
+	<head><title>SoundFX : 2.2.1 RAW_L</title></head>
+	<body bgcolor="#EEEEEE" leftmargin="5" rightmargin="5" topmargin="5" text="#000000" link="#2040FF" vlink="#0020E0" alink="#FFFFFF">
+	<a name="#000"></a>
+	<table border="0" width="100%" cellpadding="3" cellspacing="1" bgcolor="#000000"><tr bgcolor="#FFFFFF"><td>
+		<table border="0" width="100%" cellpadding="0" cellspacing="0"><tr>
+			<td align="left"><font size="-1">
+		[<a href="../node__.__.__.html">SoundFX</a>]
+			[<a href="../node02.__.__.html">Module</a>]
+				[<a href="../node02.02.__.html">Loader</a>]
+			</font></td>
+			<td align="right" valign="center">
+				<a href="../node02.02.01/Maestro_L.html">
+				<img src="../../_img/a_le.gif" width="13" height="13" border="0" alt="[prev]"></a>
+				<img src="../../_img/space.gif" width="2">
+				<a href="../node02.02.01/RIFF-WAV_L.html">
+				<img src="../../_img/a_ri.gif" width="13" height="13" border="0" alt="[next]"></a>
+			</td>
+		</tr></table>
+	</td></tr></table>
+	<br>
+		<!-- Contents -->
+	<a name="#001"></a>
+<table border="0" width="100%" cellpadding="3" cellspacing="1" bgcolor="#000000">
+	<tr bgcolor="#DDDDDD"><td>
+		<table border="0" width="100%" cellpadding="0" cellspacing="0"><tr>
+			<td align="left">
+				<b>RAW_L</b>
+			</td>
+			<td align="right">
+				<a href="#000">
+				<img src="../../_img/a_up.gif" width="13" height="13" border="0" alt="[up]"></a>
+				<img src="../../_img/space.gif" width="2">
+				<a href="#002">
+				<img src="../../_img/a_do.gif" width="13" height="13" border="0" alt="[down]"></a>
+			</td>
+		</tr></table>
+	</td></tr>
+	<tr bgcolor="#FFFFFF"><td>
+		<table border="0" width="100%" cellpadding="5" cellspacing="0"><tr><td>
+Läd RAW Samples.
+<table border="0" cellspacing="1" cellpadding="2" width="100%>
+<tr bgcolor="#BBBBBB"><td>Loops      </td><td>nein</td></tr>
+<tr bgcolor="#AAAAAA"><td>Kanäle     </td><td>ja (mono/stereo/quadro)</td></tr>
+<tr bgcolor="#BBBBBB"><td>Kompression</td><td>ja (PCM-8,PCM-16,PCM-24,PCM-32,A-LAW,µ-LAW)</td></tr>
+</table>
+RAW-Sample haben eigentlich gar kein Format. Hier werden nur die "rohen"
+Sounddaten abgespeichert. Das hat den Vorteil, daß dieses Format sehr einfach
+zu handhaben ist, aber auch den Nachteil, daß keinerlei zusätzliche Daten wie
+Samplingrate, Loops, Bitauflösung usw. gespeichert werden können. <b>SoundFX</b>
+versucht daher zumindestens die Bitauflösung, den Vorzeichentyp und das
+Endianformat (16 bit) zu erkennen.<br>
+Als neues Feature ab V 3.70 können, sie den RAW-Loader nun selbst programmieren.
+Wenn Sie also z.B. oft mit Daten von Audio-CD's arbeiten, nennen Sie diese Dateien
+beispielsweise "<name>.cdda". Um den Loader zu programmieren, stellen Sie im
+RAW-Loader auf der linken Seite alle Parameter wie folgt ein ein :
+<table border="0">
+<tr><td>Type</td><td>=PCM16</td></tr>
+<tr><td>Endian</td><td>=no</td></tr>
+<tr><td>Sign</td><td>=signed</td></tr>
+<tr><td>Channel</td><td>=mono/stereo interleaved</td></tr>
+<tr><td>SRate</td><td>=44100</td></tr>
+<tr><td>Offs</td><td>=0</td></tr>
+</table>
+und speichern dies unter "cdda.cfg". Jetzt erstellen Sie mit Add einen
+neuen Typ auf der rechten Seite (dazu muß CheckFileTypes an sein) und
+tragen bei "extension/header" ".cdda" ein. Dann clicken Sie auf das
+PopUp-Symbol und wählen die "cdda.cfg" aus. Jedes mal wenn eine Datei
+auf ".cdda" endet, wird nun die "cdda.cfg" verwendet.<br>
+Wenn Sie nicht die Fileendung, sondern den Inhalt testen möchten, verwenden
+Sie statt einem "." als erstes Zeichen ein "#" (Bsp. "#ALAW").
+		</td></tr></table>
+	</td></tr>
+</table>
+<br>
+	<a name="#002"></a>
+<table border="0" width="100%" cellpadding="3" cellspacing="1" bgcolor="#000000">
+	<tr bgcolor="#DDDDDD"><td>
+		<table border="0" width="100%" cellpadding="0" cellspacing="0"><tr>
+			<td align="left">
+				<b>Parameter</b>
+			</td>
+			<td align="right">
+				<a href="#001">
+				<img src="../../_img/a_up.gif" width="13" height="13" border="0" alt="[up]"></a>
+				<img src="../../_img/space.gif" width="2">
+				<a href="#003">
+				<img src="../../_img/a_do.gif" width="13" height="13" border="0" alt="[down]"></a>
+			</td>
+		</tr></table>
+	</td></tr>
+	<tr bgcolor="#FFFFFF"><td>
+		<table border="0" width="100%" cellpadding="5" cellspacing="0"><tr><td>
+<table border="0" cellspacing="1" cellpadding="2" width="100%"><tr bgcolor="#BBBBBB"><td align="right" valign="top"><nobr>Type</nobr></td><td align="left">Art der Kompression
+<ul>
+<li>PCM8 : ungepackt 8bit</li>
+<li>PCM16 : ungepackt 16bit</li>
+<li>PCM24 : ungepackt 24bit</li>
+<li>PCM32 : ungepackt 32bit</li>
+<li>µ-Law : µ-Law (14:8) gepackt 14bit</li>
+<li>µ-Law Inv : µ-Law (14:8) gepackt 14bit, mit gespiegelten Bits (ISDN-Master)</li>
+<li>A-Law : A-Law (14:8) gepackt 14bit</li>
+<li>A-Law Inv : A-Law (14:8) gepackt 14bit, mit gespiegelten Bits (ISDN-Master)</li>
+</td></tr>
+<tr bgcolor="#AAAAAA"><td align="right" valign="top"><nobr>Endian</nobr></td><td align="left"></ul>
+ob eine Endiankonvertierung durchgeführt werden soll. Intel-Prozessor basierte
+Systeme speichern 16bit Wörter umgekehrt und diese Option  korregiert das.
+</td></tr>
+<tr bgcolor="#BBBBBB"><td align="right" valign="top"><nobr>Sign</nobr></td><td align="left">ob das Sample als vorzeichenbehaftetes oder nicht-vorzeichenbehaftetes geladen werden soll
+<ul>
+<li>signed : Amiga, Sgi</li>
+<li>unsigned : Mac, Atari, PC</li>
+</td></tr>
+<tr bgcolor="#AAAAAA"><td align="right" valign="top"><nobr>Channel</nobr></td><td align="left"></ul>
+wieviele Kanäle geladen werden sollen und wie sie aufgebaut sind.
+</td></tr>
+<tr bgcolor="#BBBBBB"><td align="right" valign="top"><nobr>SRate</nobr></td><td align="left">welche Samplingrate soll eingetragen werden.
+</td></tr>
+<tr bgcolor="#AAAAAA"><td align="right" valign="top"><nobr>Offs</nobr></td><td align="left">Wieviele Bytes am Anfang Übersrungen werden sollen (um einen Kopfblock bekannter Länge zu überspringen).
+</td></tr>
+<tr bgcolor="#BBBBBB"><td align="right" valign="top"><nobr>Check File Type</nobr></td><td align="left">Ob der Loader die Fileextension überprüfen bzw. die Daten statistisch auf
+ihr Format untersuchen und die Ladeparameter dementspechend anpassen soll.
+</td></tr>
+</table>
+		</td></tr></table>
+	</td></tr>
+</table>
+<br>
+	<a name="#003"></a>
+<table border="0" width="100%" cellpadding="3" cellspacing="1" bgcolor="#000000">
+	<tr bgcolor="#DDDDDD"><td>
+		<table border="0" width="100%" cellpadding="0" cellspacing="0"><tr>
+			<td align="left">
+				<b>Hinweise</b>
+			</td>
+			<td align="right">
+				<a href="#002">
+				<img src="../../_img/a_up.gif" width="13" height="13" border="0" alt="[up]"></a>
+				<img src="../../_img/space.gif" width="2">
+				<a href="#004">
+				<img src="../../_img/a_do.gif" width="13" height="13" border="0" alt="[down]"></a>
+			</td>
+		</tr></table>
+	</td></tr>
+	<tr bgcolor="#FFFFFF"><td>
+		<table border="0" width="100%" cellpadding="5" cellspacing="0"><tr><td>
+Der off-Parameter dient <b>nicht</b> zum vorspringen im Sample, auch wenn das funktioniert.
+Bei 16bit Samples muß man dann aber sicherstellen, das man nur eine gerade Anzahl an Bytes vorspringt.
+		</td></tr></table>
+	</td></tr>
+</table>
+<br>
+	<a name="#004"></a>
+	<table border="0" width="100%" cellpadding="3" cellspacing="1" bgcolor="#000000"><tr bgcolor="#FFFFFF"><td>
+		<table border="0" width="100%" cellpadding="0" cellspacing="0"><tr>
+			<td align="left"><font size="-1">
+		[<a href="../node__.__.__.html">SoundFX</a>]
+			[<a href="../node02.__.__.html">Module</a>]
+				[<a href="../node02.02.__.html">Loader</a>]
+			</font></td>
+			<td align="right" valign="center">
+				<a href="../node02.02.01/Maestro_L.html">
+				<img src="../../_img/a_le.gif" width="13" height="13" border="0" alt="[prev]"></a>
+				<img src="../../_img/space.gif" width="2">
+				<a href="../node02.02.01/RIFF-WAV_L.html">
+				<img src="../../_img/a_ri.gif" width="13" height="13" border="0" alt="[next]"></a>
+			</td>
+		</tr></table>
+	</td></tr></table>
+	<br>
+	<table border="0" width="100%" cellpadding="3" cellspacing="1" bgcolor="#000000"><tr bgcolor="#FFFFFF"><td align="center"><font size="-1">
+		&copy; by <a href="mailto:soundfx@sonicpulse.de">Stefan Kost</a> 1993-2004
+		<a href="http://www.sonicpulse.de" target="_new">www.sonicpulse.de</a>
+	</font></td></tr></table>
+	</body>
+</html>

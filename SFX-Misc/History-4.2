@@ -1,0 +1,74 @@
+o adapt fx for streaming
+o cleanups
+	o removed obsolete library functions
+	o unique ressource prefixes
+		o all operator processes start with 'SFX_'
+		o the pubscreen is now 'SFX_PubScreen'
+		o the arexx port is now 'SFX_AREXX'
+	o arexx
+		o rexx-operators are now called directly (not via ShellCmd anymore)
+		o rexx-macros have automatically the correct host set, when called from sfx
+		o SelLoader/Saver/Operator commands return old setting
+	o lots of code refactorising
+		o split sfx-Main
+			o SFX-GUI
+			o SFX-GUIMenu
+			o SFX-GUIKeys
+		o more New#?/Del#? Pairs
+			o anstatt GenWindow -> NewWindowFkt, DelWindowFkt
+			o anstatt InitFFT -> NewFFTTabs, DelFFTTabs
+		o cleanup of memory management
+			o removed MyAllocMem/MyFreeMem (now easier to track memory problems)
+			o removed memory usage counting (was incomplete anyway)
+			o replace AllocMem,FreeMem with AllocVec,FreeVec
+			o ReAllocMem -> ReAllocVec
+		o cleanup in sfxsupport.library (replaced and removed obsolete functions)
+		o split lib-buft.c into
+			o libsound.c
+			o libsound-mem.c
+o ProWin
+	o fix ProWin -> resfail
+	o ProWin gets not activated anymore
+o bugfixes (see bugtracker + many many more)
+o menu
+	o enable/disable
+	o rearrange
+		o Help is last
+		o Help/About
+		o split module-menu
+	o new
+		o project
+			o new
+			o flush (all/hidden/shown)
+			o record
+		o utilities (swapendian/swapsign/interleave/deinterleave)
+		o prefs
+			o use/save
+			o restore used/restore saved/defaults
+o separate Load/Save paths
+o docs updated/enhanced (more translations)
+	o FAQ
+	o links to loader/saver
+	o ps and pdf
+	o Batchproc window (01.05.09) & Batchpro prowin (01.05.10)
+	o close-window means cancel
+o AHI
+	o initially uses AHI_DEFAULT_ID
+o save ranges (like in fx : all/window/range)
+o no mouse-cross when using MagicMenu over a sample-window
+o iconify,popup for sample-windows
+o contextmenu-icon for sample-windows
+o saver SDS-File : added params(midi-channel, sample-number)
+o context-menu
+	o Hide
+	o localized ctx menu
+o sfx now set proper shell-return code
+o sfx checks for shell-invokation ('?')
+o total rewrite of sample loading/saving helpers (much more error robust)
+o enhanced FX
+	o multiselection in loading presets of Equalize-3D
+	o progress-bar in Amplify/AmplifySplit for MaxVol
+	o progress-bar in Detune (length-detection) + more intelligence
+o more fault-tolerant Loaders
+o more information in sample-window-title (channels + storage)
+

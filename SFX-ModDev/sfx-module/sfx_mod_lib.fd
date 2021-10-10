@@ -1,0 +1,21 @@
+*
+* sfx_mod.library
+*
+##base _SFX_ModBase
+##bias 30
+##public
+*
+* Initialisation
+*
+ClientDataInit(RunTime_)(a0)
+ClientDataDone()()
+*
+* Modulroutienen
+*
+Interface()()
+Process(callmd,si,fn)(d0,a0/a1)
+HandleARexxCmd(param,ret)(a0/a1)
+*
+*
+*
+##end

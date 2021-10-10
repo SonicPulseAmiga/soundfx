@@ -1,0 +1,4 @@
+echo [32m»» making the 68030-Version ...[31m
+copy sc_options/scoptions.68030 scoptions
+delete sfx.68030.gst
+sc allincludes.c

@@ -1,0 +1,50 @@
+Translators
+--------------------------------------------------------------------------------
+
+Czech
+	Lukas Hadek <lukas.hadek@vslib.cz>
+	Daniel Jedlicka <dan.jedlicka@seznam.cz>
+	Ondrej Zima <ondrej.zima@checkit.cz> (ATO)
+
+Dansk
+
+
+Español
+	Javier de las Rivas <javierdlr@jazzfree.com> (ATO)
+
+French
+	Pascal Walers <sillycat@ping.be>
+	Xavier Bodenand <xbody@free.fr> (ATO)
+
+Greek
+
+
+Hrvatski
+
+
+Italiano
+
+
+Magyar
+	Dósa Márton (dm_@freemail.hu)
+
+Netherlands
+	Michel Bagmeijer <303dmx@hetnet.nl>
+
+Norsk
+	Helge Syre <helgsyre@online.no>
+
+Polski
+	Bartlomiej Dramczyk <voyager@ornak.waw.pdi.net> (ATO)
+
+Portuguese
+	Raul Silva <luarsilva@mail.telepac.pt> (ATO)
+
+Slovensko
+	Uros Bogataj <urosb@technologist.com>,<uros.bogataj@amiga-klub.si> (ATO)
+
+Suomi
+	Janne Peraaho <jake@rieska.oulu.fi>
+
+Svenska
+

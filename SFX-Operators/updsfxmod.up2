@@ -1,0 +1,19 @@
+.key PATH/A,NAME/A
+.bra {
+.ket }
+
+; $VER: UpdSfxMod.Up2 1.0 (11.03.03)
+
+echo {PATH}{NAME}
+;mv {PATH}{NAME}/project.h {PATH}{NAME}/src/project.h 
+;mv {PATH}{NAME}/{NAME}.c {PATH}{NAME}/src/{NAME}.c
+;rm {PATH}{NAME}/build#? updlib #?~ #?.o #?.sfxmod #?.lnk
+;rm {PATH}{NAME}/updlib {PATH}{NAME}/#?~ {PATH}{NAME}/#?.o {PATH}{NAME}/#?.sfxmod {PATH}{NAME}/#?.lnk
+;rm {PATH}{NAME}/#?.refs {PATH}{NAME}/#?.p
+;copy {PATH}{NAME}/src/{NAME}.c {PATH}{NAME}/src/lib-soundfx.c
+copy {PATH}_TEMPLATES/src/fx.c {PATH}{NAME}/src/{NAME}.c
+copy {PATH}_TEMPLATES/src/fx.h {PATH}{NAME}/src/{NAME}.h
+sc:c/sed {PATH}{NAME}/src/{NAME}.c "XXXX" {NAME}
+sc:c/sed {PATH}{NAME}/src/{NAME}.h "XXXX" {NAME}
+sc:c/sed {PATH}{NAME}/src/{NAME}.c "YYYY" `sh -c "echo {NAME} | tr a-z A-Z"`
+sc:c/sed {PATH}{NAME}/src/{NAME}.h "YYYY" `sh -c "echo {NAME} | tr a-z A-Z"`

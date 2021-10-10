@@ -1,0 +1,87 @@
+From - Mon Mar 11 16:49:09 2002
+X-UIDL: 361df5b5000043d6
+X-Mozilla-Status: 0001
+X-Mozilla-Status2: 00000000
+Received: from n30.groups.yahoo.com (n30.groups.yahoo.com [216.115.96.80])
+	by imn.htwk-leipzig.de (8.9.1/8.9.1) with SMTP id CAA14809
+	for <kost@imn.htwk-leipzig.de>; Mon, 11 Mar 2002 02:04:37 +0100 (MET)
+Received: from [216.115.97.189] by n30.groups.yahoo.com with NNFMP; 11 Mar 2002 01:08:30 -0000
+Received: (EGP: unknown); 11 Mar 2002 01:06:08 -0000
+Received: (qmail 63303 invoked from network); 11 Mar 2002 01:04:39 -0000
+Received: from unknown (216.115.97.172)
+  by m3.grp.snv.yahoo.com with QMQP; 11 Mar 2002 01:04:39 -0000
+Received: from unknown (HELO n6.groups.yahoo.com) (216.115.96.56)
+  by mta2.grp.snv.yahoo.com with SMTP; 11 Mar 2002 01:04:39 -0000
+Received: from [216.115.96.145] by n6.groups.yahoo.com with NNFMP; 11 Mar 2002 01:03:49 -0000
+X-eGroups-Return: sentto-3879093-134-1015808768-kost=imn.htwk-leipzig.de@returns.groups.yahoo.com
+X-Sender: woodenflutes@yahoo.ca
+X-Apparently-To: soundfx-users@yahoogroups.com
+To: soundfx-users@yahoogroups.com
+Message-ID: <a6g6m9+gh3f@eGroups.com>
+User-Agent: eGroups-EW/0.82
+X-Mailer: Yahoo Groups Message Poster
+From: "woodenflutes" <woodenflutes@yahoo.ca>
+X-Originating-IP: 216.209.139.155
+X-Yahoo-Profile: woodenflutes
+MIME-Version: 1.0
+Mailing-List: list soundfx-users@yahoogroups.com; contact soundfx-users-owner@yahoogroups.com
+Delivered-To: mailing list soundfx-users@yahoogroups.com
+Precedence: bulk
+List-Unsubscribe: <mailto:soundfx-users-unsubscribe@yahoogroups.com>
+Date: Sun, 10 Mar 2002 17:55:21 -0000
+Subject: [soundfx-users] Major Headaches
+Reply-To: soundfx-users@yahoogroups.com
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Length: 1682
+Status:   
+
+Hi, I went to use SoundFX today to pitch shift some files....only to 
+find it would not load ANYTHING properly.  I use the latest public 
+full release....4.0, I think.
+
+When I load an audio file, of ANY size, only the first few seconds of 
+the waveform load....the full duration is there, but the last three 
+quarters of the waveform is blank...i.e. zero volume.  Occassionaly 
+when loading some audio files Sound FX freezes the Amiga completely.  
+It loads the audio file, opens a window to display the waveform, and 
+freezes before drawing the waveform.
+
+I have tried:
+
+- shutting off virtual memory,
+- using the 'manual' loaders instead of the universal loader
+- trying every type of audio file and format imaginable
+- changing my AHI settings,
+- using native Paula audio
+- disabling my soundcard,
+- disabling my WBstartup programmes
+- disabling all patches in my startup sequence
+- re-installing from the orignal SoundFX archive
+- loading sounds from different drives
+- changing buffer size in the Virtual Mem Prefs.
+ 
+I would like to try one of the newer betas, but cannot find the 
+location to download them....I have searched this e-mail group, to no 
+avail for a file or a working ftp address.
+
+Brent
+
+
+
+------------------------ Yahoo! Groups Sponsor ---------------------~-->
+Tiny Wireless Camera under $80!
+Order Now! FREE VCR Commander!
+Click Here - Only 1 Day Left!
+http://us.click.yahoo.com/nuyOHD/7.PDAA/yigFAA/mjFolB/TM
+---------------------------------------------------------------------~->
+
+To unsubscribe from this group, send an email to:
+soundfx-users-unsubscribe@yahoogroups.com
+
+ 
+
+Your use of Yahoo! Groups is subject to http://docs.yahoo.com/info/terms/ 
+
+
+

@@ -1,0 +1,53 @@
+Hi André !
+----------
+
+Hier eine kurze 'Doku' zum Amplify-Operator.
+
+Alle Operatoren sind shared libraries (die bei jedem Aufruf ein neues near-data
+Segment anlegen) die folgende Routinen besitzen.
+
+int __asm __UserLibInit(REG(a6) struct Library *SFX_FXBase);		/* Initialisation and Destruction */
+void __asm __UserLibCleanup(REG(a6) struct Library *SFX_FXBase);
+
+	Die üblichen Library Init und Free Routinen.
+
+void __asm LIBClientDataInit(REG(a0) RTime *RunTime_);				/* DataInitialisation */
+
+	Hierüber erhält der Operator zugriff auf einen globale Datenstuktur (shared
+	memory) des Hauptprogramms und der Supportlibrary. Wenn sich alle Betei-
+	ligten an die Regeln halten, funktioniert das prima. In dieser Struktur
+	sind u.a. Daten wie die akt. Config, GUI-tabellen usw. enthalten.
+	Außerdem werden die zuletzt benutzten Presetdaten gelesen.
+
+UBYTE __asm LIBInterface(void);										/* Modulroutienen */
+
+	Diese Routine stellt ein Fenster zum Einstellen der Parameter dar.
+
+UBYTE __asm LIBProcess(REG(d0) UBYTE callmd,REG(a0) SInfo *si,REG(a1) char *fn);
+
+	Diese Routine beinhaltet die eigentliche Rechnerei. Das dürfte die einzige
+	Routine sein, die du verändern muestest.
+	Wenn callmd==CM_REXX ist würde der Operator per AREXX gestartet. In diesem
+	Falle sind einige initialisierungen notwendig, die sonst schon in der
+	Interface Routine vorgnommen wurden währen.
+	Weitere Kommentare findest du im Sourcecode.
+
+	Bytes2Samples ist nur ein macro.
+	SARead und SSAWrite würde sich auch auf PPC portieren lassen. Ich könnte die
+	Supportlibrary weiter aufspalten und den VMem-Teil komplett rausnehmen, dann
+	könnte man den in eine PPC-Variante packen.
+	Die Modulatoren könnten auch rausgezogen werden, die rechnen sowiso nur.
+
+	Man müsste dann vor der Segmentschleife die 'sfxsupport2.library' (Arbeitstitel)
+	öffnen (die entweder als 68k oder als PPC vorliegt).
+
+void  __asm LIBSetDefaults(void);
+
+	Diese Routine setzt das aktuelle preset auf die Defaultwerte.
+
+void __asm LIBHandleARexxCmd(REG(a0) char *params,REG(a1) char *ret);
+
+	Hiermit werden die Arexxbefehle abgearbeitet. SoundFX ist der zentrale
+	AREXX-Port. Alle Befehle die nicht direkt verarbeitet werden können, werden
+	in der hierarchie weitergesendet.
+

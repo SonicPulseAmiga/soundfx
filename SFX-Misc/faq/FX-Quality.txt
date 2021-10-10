@@ -1,0 +1,100 @@
+<<<<<<<<<< DeHum, DeCrackle, DeNoise >>>>>>>>>>
+
+02 oct 00
+Q:
+> I have a speech sample and want to remove the 50 Hz hum frequency. Which
+> filter should I use and which parameters?
+A:
+This is an easy one. Try it, even though it sounds odd. Use the
+Delay-FX. There should be a preset 'DeHummer_50Hz'.
+What it does is : it resonates on 50 Hz and suppresses the resonation.
+Works just wonderful. If there is a remaining hum, just apply it twice
+(or even more often, which is selden required though) .
+
+Q:
+>[removing hum]
+A:
+[see <<filters>>]
+
+18 nov 00
+Q:
+> Has anyone experience with Decrackle of records?
+> I've experimented with Decrackle with
+> Dif. 200 %, Amp. 200 % and Adjust 95 %
+> good results on bigger crackles.
+> But I can't find good parameters for Filter-FIRLowPass or
+> FIRDeNoise to eleminate the permanent silent crackels.
+> Has anyone good parameters for me for Stereo, 16bit Data with 44,1 kHz
+> Samplingrate? It's an old record with Italien opera-choirs.
+A: (Don Cox)
+I don't believe it is possible to get good results by trying to remove
+crackles from LP automatically. There are many peak wave forms which are
+part of the music but have very similar characteristics to clicks.
+-
+In particular, filters acting in the frequency domain are NOT the way to
+go. A click is an impulse signal and therefore contains all frequencies.
+Removing the high frequencies just spreads it out.
+-
+You need software which looks for particular shapes in the wave form
+which are typical of clicks. I don't know of any on the Amiga. I made a
+test routine a couple of years ago as an experiment, but I am not a C or
+assembly programmer, so I did it in ARexx. This of course is much too
+slow for anything other than tests on a few seconds of audio.
+-
+The best program I've found is Wave Repair for the PC. This is a
+shareware program. It finds the clicks (of various sizes and shapes),
+and you can then remove them either singly (safest) or automatically (if
+you don't mind losing some music). It is well thought out.
+-
+There is no easy way.
+
+20 jul 01
+Q:
+> How can I cut the old vinyl noises from (for example) an mp3 ?
+> I have one, that is full of this old noise, because it
+> comes from a vinil.
+> Is there an operator to eliminate them like in some pc sound programs ?
+A:
+Generally I recomment the following approach. After recording apply :
+1. Middle -> removes the dynamic offset, important for crack/noise-detection
+2. DeNoise-FIR
+3. DeCrackle
+-
+I have a new Decrackle-Algorithm in mind. Hopefully it will made it into
+next version.
+
+Q:
+> [Decrackling in general:]
+A: Quoted by Don Cox from http://homepages.nildram.co.uk/~abcomp/lp-cdr.htm
+-
+1. Get a noise fingerprint from the WAV file to be 
+decrackled. In other words, find a section that contains 
+only noise and light crackle, but no
+music. 
+-
+2. Use the noise fingerprint to do a noise reduction 
+over the whole file, but keeping just the noise (rather 
+than the music minus the noise). You
+need to do a fairly brutal noise reduction (eg. 100% in 
+CoolEdit). What you end up with is the noise, the light 
+crackle, and a bit of the music. 
+-
+3. Save the noise that's just been isolated, either in a file 
+or a clipboard. 
+-
+4. Run a declick operation over the noise. Be fairly 
+aggressive, so as to find all the crackle. You now 
+have the noise minus the crackle. 
+-
+5. Mix-paste the noise that you saved in step 3 
+over the result of the declick, but invert the saved 
+noise that you're pasting. This causes the
+noise to cancel out, leaving just the crackle, but inverted. 
+-
+6. Now mix-paste that inverted crackle back into 
+the original file. Because the crackle is inverted, 
+it cancels the crackle in the original file. 
+-
+It really does work rather well, but remember that 
+it only works for background light crackle; it doesn't 
+deal with big pops and clicks. 

@@ -1,0 +1,85 @@
+From - Tue Aug  1 15:20:55 2000
+Received: from brama.imn.htwk-leipzig.de (brama [141.57.8.39])
+	by imn.htwk-leipzig.de (8.9.1/8.9.1) with ESMTP id PAA26974
+	for <kost@imn.htwk-leipzig.de>; Tue, 1 Aug 2000 15:08:04 +0200 (MET DST)
+Received: by brama.imn.htwk-leipzig.de (8.9.1/8.9.1) id PAA19821
+	for soundfx-list; Tue, 1 Aug 2000 15:03:02 +0200 (MET DST)
+Received: from aragorn.ics.muni.cz (aragorn.ics.muni.cz [147.251.4.33])
+	by brama.imn.htwk-leipzig.de (8.9.1/8.9.1) with ESMTP id PAA19817
+	for <soundfx@brama.imn.htwk-leipzig.de>; Tue, 1 Aug 2000 15:02:59 +0200 (MET DST)
+Received: from lvt.phil.muni.cz (root@lvt.phil.muni.cz [147.251.96.1])
+	by aragorn.ics.muni.cz (8.8.5/8.8.5) with ESMTP id PAA11683
+	for <soundfx@brama.imn.htwk-leipzig.de>; Tue, 1 Aug 2000 15:11:12 +0200 (MET DST)
+Received: from localhost (jedlicka@localhost)
+	by lvt.phil.muni.cz (8.9.3/8.8.5) with ESMTP id PAA03678
+	for <soundfx@brama.imn.htwk-leipzig.de>; Tue, 1 Aug 2000 15:11:11 +0200
+X-Authentication-Warning: brama.imn.htwk-leipzig.de: majordomo set sender to owner-soundfx@brama.imn.htwk-leipzig.de using -f
+Date: Tue, 1 Aug 2000 15:11:11 +0200 (CEST)
+From: Daniel Jedlicka <jedlicka@phil.muni.cz>
+To: soundfx@brama.imn.htwk-leipzig.de
+Subject: Re: another status and collected answers
+In-Reply-To: <39868242.56FA62D@imn.htwk-leipzig.de>
+Message-ID: <Pine.LNX.4.10.10008011428240.2297-100000@lvt.phil.muni.cz>
+MIME-Version: 1.0
+Sender: owner-soundfx@brama.imn.htwk-leipzig.de
+Precedence: bulk
+Reply-To: soundfx@brama.imn.htwk-leipzig.de
+Content-Type: TEXT/PLAIN; charset=US-ASCII
+Content-Length: 1873
+Status:   
+X-Mozilla-Status: 8013
+X-Mozilla-Status2: 00000000
+X-UIDL: 361df5b5000027a6
+
+
+Hello everyone!
+
+> * I'll do undo/redo for cut/copy/paste-stuff someday.
+
+Perfect, thanks a lot! Not just for this one, but for all the improvements
+you have mentioned in the status report.
+
+
+> * select all is an easy one, I'll do it tonight (incl. the shortcut
+> R-AMIGA+A)
+
+Superb. And please, could you implement it, too, as a menu command (in the
+Edit menu) or a button in the toolbar?
+
+
+Question:
+Stefan, you have mentioned that a range can get unmarked from a menu.
+Which menu command does this? I can't find any...
+
+
+Bug-report:
+I really hate being the bad guy who floods the poor author with bugreports
+(I know Stefan has a full-time job}, but nevertheless, I have another one 
+;)
+
+1. The Shorten operator does not work, no matter what parameters I set.
+It starts and DOES the calculations, but then it doesn't open any window
+with the result. Strange.
+
+2. The ZeroPass operator is buggy, in two ways:
+a/ It does not remember the current FadeOut parameter. When I ZeroPass
+something (setting both FadeIn and FadeOut to some values) and then bring
+up the operator again, the FadeIn parameter stays the same as in the last
+operation, but the whole FadeOut gadget becomes cleared.
+
+b/ The operator works, but when Enforcer is running, hits are reported
+(illegal LONG-reads) and the operation won't finish; I have to reset my
+computer.
+
+I'd like you people here to check this on your machines. I use an 040/fpu
+version of SFX.
+
+Thanks for your comments regarding Undo and SelectAll. But what do you
+think about the Del key? I'm used to use it for Cut operations, just like
+SoundForge, CoolEdit, and also word-processors have it...
+
+Daniel
+
+___________________________________________________________________________
+SoundFX Mailinglist                       soundfx@brama.imn.htwk-leipzig.de
+Subscribe/Unsubscribe/Help              majordomo@brama.imn.htwk-leipzig.de

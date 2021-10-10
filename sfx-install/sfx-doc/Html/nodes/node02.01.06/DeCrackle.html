@@ -1,0 +1,144 @@
+<html>
+	<head><title>SoundFX : 2.1.6 DeCrackle</title></head>
+	<body bgcolor="#EEEEEE" leftmargin="5" rightmargin="5" topmargin="5" text="#000000" link="#2040FF" vlink="#0020E0" alink="#FFFFFF">
+	<a name="#000"></a>
+	<table border="0" width="100%" cellpadding="3" cellspacing="1" bgcolor="#000000"><tr bgcolor="#FFFFFF"><td>
+		<table border="0" width="100%" cellpadding="0" cellspacing="0"><tr>
+			<td align="left"><font size="-1">
+		[<a href="../node__.__.__.html">SoundFX</a>]
+			[<a href="../node02.__.__.html">Module</a>]
+				[<a href="../node02.01.__.html">Operatoren</a>]
+			</font></td>
+			<td align="right" valign="center">
+				<a href="../node02.01.06/CrossTalk.html">
+				<img src="../../_img/a_le.gif" width="13" height="13" border="0" alt="[prev]"></a>
+				<img src="../../_img/space.gif" width="2">
+				<a href="../node02.01.06/DeNoise-FFT.html">
+				<img src="../../_img/a_ri.gif" width="13" height="13" border="0" alt="[next]"></a>
+			</td>
+		</tr></table>
+	</td></tr></table>
+	<br>
+		<!-- Contents -->
+	<a name="#001"></a>
+<table border="0" width="100%" cellpadding="3" cellspacing="1" bgcolor="#000000">
+	<tr bgcolor="#DDDDDD"><td>
+		<table border="0" width="100%" cellpadding="0" cellspacing="0"><tr>
+			<td align="left">
+				<b>DeCrackle</b>
+			</td>
+			<td align="right">
+				<a href="#000">
+				<img src="../../_img/a_up.gif" width="13" height="13" border="0" alt="[up]"></a>
+				<img src="../../_img/space.gif" width="2">
+				<a href="#002">
+				<img src="../../_img/a_do.gif" width="13" height="13" border="0" alt="[down]"></a>
+			</td>
+		</tr></table>
+	</td></tr>
+	<tr bgcolor="#FFFFFF"><td>
+		<table border="0" width="100%" cellpadding="5" cellspacing="0"><tr><td>
+Dämpft starke Pegelsprüge (Knackser)
+		</td></tr></table>
+	</td></tr>
+</table>
+<br>
+	<a name="#002"></a>
+<table border="0" width="100%" cellpadding="3" cellspacing="1" bgcolor="#000000">
+	<tr bgcolor="#DDDDDD"><td>
+		<table border="0" width="100%" cellpadding="0" cellspacing="0"><tr>
+			<td align="left">
+				<b>Parameter</b>
+			</td>
+			<td align="right">
+				<a href="#001">
+				<img src="../../_img/a_up.gif" width="13" height="13" border="0" alt="[up]"></a>
+				<img src="../../_img/space.gif" width="2">
+				<a href="#003">
+				<img src="../../_img/a_do.gif" width="13" height="13" border="0" alt="[down]"></a>
+			</td>
+		</tr></table>
+	</td></tr>
+	<tr bgcolor="#FFFFFF"><td>
+		<table border="0" width="100%" cellpadding="5" cellspacing="0"><tr><td>
+<table border="0" cellspacing="1" cellpadding="2" width="100%"><tr bgcolor="#BBBBBB"><td align="right" valign="top"><nobr>Dif.</nobr></td><td align="left">Pegelsprungschwellwert. Sobald ein Pegelsprung gegenüber den durchschnitlichen Pegelsprungwerten in der aktuellen
+Umgebung soviel über diesem Wert liegt, wird er gedämpft.
+</td></tr>
+<tr bgcolor="#AAAAAA"><td align="right" valign="top"><nobr>Amp.</nobr></td><td align="left">Amplitudenschwellwert. Sobald die aktuelle Amplitude gegenüber der Durchschnittsamplitude der aktuellen
+Umgebung soviel über diesem Wert liegt, wird er gedämpft.
+</td></tr>
+<tr bgcolor="#BBBBBB"><td align="right" valign="top"><nobr>Adjust</nobr></td><td align="left">Wie stark der Knackser gedämpft werden soll. 100 % entspricht der totalen Auslöschung.
+</td></tr>
+<tr bgcolor="#AAAAAA"><td align="right" valign="top"><nobr>Size</nobr></td><td align="left">The maximale Länge die ein Störsignal haben darf um als Knackser eingestuft zu werden.
+Knackser sind normalerweise sehr kurz. Dieser Parameter dient dazu Knackser
+von percusiven Klängen zu unterscheiden.
+</td></tr>
+<tr bgcolor="#BBBBBB"><td align="right" valign="top"><nobr>Test</nobr></td><td align="left">Startet den Operator ohne das Sample zu verändern und zeigt die Ergebnisse der Knackseranalyse an.
+</td></tr>
+<tr bgcolor="#AAAAAA"><td align="right" valign="top"><nobr>Stat.</nobr></td><td align="left">Die Menge der gefundenen Knackser (absolut und in Prozent relativ zur Länge) für jeden Kanal des Samples.
+</td></tr>
+</table>
+		</td></tr></table>
+	</td></tr>
+</table>
+<br>
+	<a name="#003"></a>
+<table border="0" width="100%" cellpadding="3" cellspacing="1" bgcolor="#000000">
+	<tr bgcolor="#DDDDDD"><td>
+		<table border="0" width="100%" cellpadding="0" cellspacing="0"><tr>
+			<td align="left">
+				<b>Hinweise</b>
+			</td>
+			<td align="right">
+				<a href="#002">
+				<img src="../../_img/a_up.gif" width="13" height="13" border="0" alt="[up]"></a>
+				<img src="../../_img/space.gif" width="2">
+				<a href="#004">
+				<img src="../../_img/a_do.gif" width="13" height="13" border="0" alt="[down]"></a>
+			</td>
+		</tr></table>
+	</td></tr>
+	<tr bgcolor="#FFFFFF"><td>
+		<table border="0" width="100%" cellpadding="5" cellspacing="0"><tr><td>
+Dieser Operator entfernt bzw. dämpft Knackstellen in Samples.
+Diese treten z.B. auf wenn man von einer Schallplatte sampelt
+oder mal einen R/W-Fehler auf einem Datenträger hatte.<br>
+Bevor man diesen Operator nutzt empfiehlt es sich, erst den
+<a href="Middle.html">Middle</a> Operator, gefolgt vom
+<a href="ZeroPass.html">ZeroPass</a> Operator und abschließend den
+<a href="Amplify.html">Amplify</a> Operator mit der MaxVol Funktion
+anzuwenden, um das Sample vorzubereiten.
+Wenn die Ergebnisse dieses Operators dumpf klingen und die Anschläge fehlen,
+dann erhöhen sie die Dif. und Amp. Werte, so das weniger Signale als
+Knackser interpretiert werden. Wenn offensichtliche Knackser nicht entfernt werden,
+vergrößern sie einen Solchen und betrachten sie die Länge. Stellen sie den
+Size Parameter neu ein.
+Sie können die Test Funktion benutzen um die Ergebnisse abzustimmen.
+		</td></tr></table>
+	</td></tr>
+</table>
+<br>
+	<a name="#004"></a>
+	<table border="0" width="100%" cellpadding="3" cellspacing="1" bgcolor="#000000"><tr bgcolor="#FFFFFF"><td>
+		<table border="0" width="100%" cellpadding="0" cellspacing="0"><tr>
+			<td align="left"><font size="-1">
+		[<a href="../node__.__.__.html">SoundFX</a>]
+			[<a href="../node02.__.__.html">Module</a>]
+				[<a href="../node02.01.__.html">Operatoren</a>]
+			</font></td>
+			<td align="right" valign="center">
+				<a href="../node02.01.06/CrossTalk.html">
+				<img src="../../_img/a_le.gif" width="13" height="13" border="0" alt="[prev]"></a>
+				<img src="../../_img/space.gif" width="2">
+				<a href="../node02.01.06/DeNoise-FFT.html">
+				<img src="../../_img/a_ri.gif" width="13" height="13" border="0" alt="[next]"></a>
+			</td>
+		</tr></table>
+	</td></tr></table>
+	<br>
+	<table border="0" width="100%" cellpadding="3" cellspacing="1" bgcolor="#000000"><tr bgcolor="#FFFFFF"><td align="center"><font size="-1">
+		&copy; by <a href="mailto:soundfx@sonicpulse.de">Stefan Kost</a> 1993-2004
+		<a href="http://www.sonicpulse.de" target="_new">www.sonicpulse.de</a>
+	</font></td></tr></table>
+	</body>
+</html>

@@ -1,0 +1,84 @@
+X-UIDL: 3f8791b30000eaa6
+X-Mozilla-Status: 0001
+X-Mozilla-Status2: 00000000
+Received: from n8.grp.scd.yahoo.com (n8.grp.scd.yahoo.com [66.218.66.92])
+	by imn.htwk-leipzig.de (8.9.1/8.9.1) with SMTP id RAA06813
+	for <kost@imn.htwk-leipzig.de>; Mon, 13 Oct 2003 17:12:24 +0200 (MET DST)
+Received: from [66.218.67.195] by n8.grp.scd.yahoo.com with NNFMP; 13 Oct 2003 15:11:47 -0000
+Received: (qmail 14944 invoked from network); 13 Oct 2003 15:11:45 -0000
+Received: from unknown (66.218.66.218)
+  by m2.grp.scd.yahoo.com with QMQP; 13 Oct 2003 15:11:45 -0000
+Received: from unknown (HELO VL-MO-MR005.ip.videotron.ca) (24.201.245.36)
+  by mta3.grp.scd.yahoo.com with SMTP; 13 Oct 2003 15:11:45 -0000
+Received: from relais.videotron.ca ([24.200.134.26])
+ by VL-MO-MR005.ip.videotron.ca
+ (iPlanet Messaging Server 5.2 HotFix 1.16 (built May 14 2003))
+ with SMTP id <0HMP00LEFBJKY0@VL-MO-MR005.ip.videotron.ca> for
+ soundfx-users@yahoogroups.com; Mon, 13 Oct 2003 11:11:45 -0400 (EDT)
+X-eGroups-Return: sentto-3879093-1196-1066057907-kost=imn.htwk-leipzig.de@returns.groups.yahoo.com
+X-Sender: pierregiroux@videotron.ca
+X-Apparently-To: soundfx-users@yahoogroups.com
+In-reply-to: <3F8A974D.2070007@imn.htwk-leipzig.de>
+To: soundfx-users@yahoogroups.com
+Message-id: <yam9416.2606.159238488@relais.videotron.ca>
+X-Mailer: YAM 2.4p1 [060] AmigaOS E-mail Client (c) 2000-2003 by YAM Open
+ Source Team - http://www.yam.ch/
+From: Pierre Giroux <pierregiroux@videotron.ca>
+X-Yahoo-Profile: powertowerca
+MIME-Version: 1.0
+Mailing-List: list soundfx-users@yahoogroups.com; contact soundfx-users-owner@yahoogroups.com
+Delivered-To: mailing list soundfx-users@yahoogroups.com
+Precedence: bulk
+List-Unsubscribe: <mailto:soundfx-users-unsubscribe@yahoogroups.com>
+Date: Mon, 13 Oct 2003 11:13:52 -0400
+Subject: [soundfx-users] Re: Wave file corrupted
+Reply-To: soundfx-users@yahoogroups.com
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=ISO-8859-1
+Content-Length: 1250
+Status:  O
+
+Salut Stefan,
+
+Le 13/10/2003, Stefan Kost a écrit:
+
+
+> Have 1 understood right, that you have
+> 1.) loaded a file into SFX and it has been loaded without an error
+> 2.) erased a part in the end
+> 3.) saved it back to disk in WAV format
+> 4.) loaded that back into SFX and getting the error shown above?
+
+Exactly, you perfectly understand the problem I have.  And I can reproduce
+the error again each time I do that.
+
+It seems that something is not updated or saved correctly.
+
+I did some test with AIFF format and same problem, first I thought it was a
+problem with the Virtual Mem but even with Virtual Mem desabled the problem
+occured each time.
+
+Thank you.
+
+Bye!
+-- 
+Pierre Giroux
+
+
+
+------------------------ Yahoo! Groups Sponsor ---------------------~-->
+Buy Ink Cartridges or Refill Kits for your HP, Epson, Canon or Lexmark
+Printer at MyInks.com. Free s/h on orders $50 or more to the US & Canada.
+http://www.c1tracking.com/l.asp?cid=5511
+http://us.click.yahoo.com/mOAaAA/3exGAA/qnsNAA/mjFolB/TM
+---------------------------------------------------------------------~->
+
+To unsubscribe from this group, send an email to:
+soundfx-users-unsubscribe@yahoogroups.com
+
+ 
+
+Your use of Yahoo! Groups is subject to http://docs.yahoo.com/info/terms/ 
+
+
+

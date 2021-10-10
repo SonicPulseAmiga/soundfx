@@ -1,0 +1,56 @@
+From - Tue Sep 22 14:07:45 1998
+Return-Path: <doncox@enterprise.net>
+Received: from dns1.enterprise.net by imn.htwk-leipzig.de (SMI-8.6/SMI-SVR4)
+	id XAA27857; Mon, 25 May 1998 23:46:59 +0200
+Received: from enterprise.net (nobody@max05-050.enterprise.net [194.72.198.50])
+	by dns1.enterprise.net (8.8.5/8.8.5) with SMTP id WAA05633
+	for <kost@imn.htwk-leipzig.de>; Mon, 25 May 1998 22:46:11 +0100 (BST)
+From: Don Cox <doncox@enterprise.net>
+To: kost@imn.htwk-leipzig.de
+Date: Mon, 25 May 1998 18:22:20 +0000
+Message-ID: <yam7449.1037.144844272@smtp.enterprise.net>
+X-Mailer: YAM 2.0.0 Preview4 [020] - Amiga Mailer by Marcel Beck - http://www.yam.ch
+Subject: SFX
+MIME-Version: 1.0
+Content-Type: text/plain
+Content-Length: 1311
+Status:   
+X-Mozilla-Status: 8003
+
+Hi Stefan!
+
+I just finished processing a lot of samples.
+Most of the samples were saved as WAV files from Sound Forge (PC
+program).
+SFX put up an error message for about half of them, saying the
+RIFF-WAV header was corrupt. Then they loaded in OK. So if you want to
+look at some of these files, let me know and I can mail them to you.
+
+I also had several crashes. I am working with an A2000 with 68040, 64
+Megs fast RAM, CybergraphX in 800x600 display. The crashes seem to
+happen when there are several buffers open. One came after I did
+"Flush All", but this command did not give a crash again.
+
+Requests: 
+1. Please could the names of new buffers relate to the one they come
+from. So if you process "Trumpet" it should give something like
+"Trumpet_01". "Trumpet_01" should give "Trumpet_02", etc. I know this
+needs a bit of intelligent coding- you will have to check that the
+name isn't in use.
+
+2. Amplify -> Max Vol was very useful with these samples. Could we get
+the max vol for each channel separately? Sometimes L is much lower
+than R, or vice versa.
+
+3. How do you make a new, empty buffer to paste into?
+
+4. Can you split a stereo sample into two separate mono samples, and
+later recombine them?
+
+
+Thanks for all your work. This is a very good program.
+Kind regards
+-- 
+Don Cox
+doncox@enterprise.net
+

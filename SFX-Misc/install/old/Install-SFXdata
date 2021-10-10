@@ -1,0 +1,375 @@
+; Install-SFXdata Start -------------------------------------------------------------------------------------
+;
+; $VER: Install-SFXdata (02.12.1995)
+;
+; SoundFX data  Installscript
+; (C) Copyright 1993-1995 Stefan Kost. All Rights Reserved.
+;
+; -----------------------------------------------------------------------------------------------------------
+
+; setze sprachenabhängige Texte -----------------------------------------------------------------------------
+
+(IF (= @LANGUAGE "english")
+(
+	(SET #bad-kick			"SoundFX requires at least Kickstart 3.0 !")
+	(SET #welcome-messy	
+		(CAT				"\n\nWelcome to the installation of SoundFX !"
+							"This scripts will copy all the files you need to run "
+							"SoundFX to your harddisk.\n"
+							"If you install SoundFX over an already installed version, "
+							"I will clear the following directorys first !\n"
+							"_loaders,_operators,_players,_savers,eqshps,synths"
+		)
+	)
+	(SET #choose-dest		"Please choose a destination directory !\nA drawer called SFX will be automatically generated !")
+	(SET #choose-dest-help	"Here you can choose the place on your HD, were the data for SFX should be installed")
+	(SET #dest-require		"\n\nPlease be shure, that you have on your HD at least 2.0 Mb free !")
+	(SET #delete-oldfiles	"deleting old files ...")
+	(SET #copy-fonts		"copying fonts ...")
+	(SET #copy-libs			"copying librarys ...")
+	(SET #copy-envelopes	"copying envelopes ...")
+	(SET #copy-moddata		"copying module data ...")
+	(SET #copy-workshop		"copying workshopfiles ...")
+	(SET #copy-icons		"copying icons ...")
+	(SET #copy-gfx			"copying gfx ...")
+	(SET #copy-help			"The respective files will copied to your HD.")
+	(SET #choose-icon		"Please choose the the icon you want to install\n The 4 colour version is made for standart wb-colors and the 8 colour version is made for magic-wb !")
+	(SET #choose-icon-help	"If your wb-screen has more than 4 colours than choose the 8 colour version.\n This one looks nicer.")
+	(SET #exit-messy		"\n\nSFXdata is successfuly installed.\nPlease read the guide, to learn how to work with the program.\n")
+))
+(IF (= @LANGUAGE "deutsch")
+(
+	(SET #bad-kick			"SoundFX benötigt mindestens Kickstart 3.0 !")
+	(SET #welcome-messy
+		(CAT			 	"\n\nWillkommen zur Installation von SoundFX !\n"
+							"Dieses script wird alle Dateien, die Sie zum Benutzen von "
+							"SoundFX brauchen, auf Ihre Festplatte kopieren.\n"
+							"Wenn Sie SoundFX über eine bereits installierte Version "
+							"kopieren, werde ich vorher folgende Verzeichnisse leeren !\n"
+							"_loaders,_operators,_players,_savers,eqshps,synths"
+		)
+	)
+	(SET #choose-dest		"Bitte Zielverzeichnis aussuchen !\nEin Verzeichnis mit dem Namen SFX wird angelegt !")
+	(SET #choose-dest-help	"Hier können Sie auswählen, wohin Sie die Daten für das Programm installeren möchten")
+	(SET #dest-require		"\n\nBitte stellen Sie sicher, daß auf der Zielpartition\n 2.0 Mb-Speicher frei ist !")
+	(SET #delete-oldfiles	"lösche alte Dateien ...")
+	(SET #copy-fonts		"kopiere Fonts ...")
+	(SET #copy-libs			"kopiere Librarys ...")
+	(SET #copy-envelopes	"kopiere Envelopes ...")
+	(SET #copy-presets		"kopiere presets ...")
+	(SET #copy-workshop		"kopiere Workshopdateien ...")
+	(SET #copy-gfx			"kopiere gfx ...")
+	(SET #copy-help			"Die entsprechenden Dateien werden gerade auf ihre Festplatte kopiert.")
+	(SET #choose-icon		"Bitte wählen Sie das Icon aus, das Sie installieren möchten !\n Die 4-farbige Variante ist für die Standart-WB und die 8-farbige für MagicWB !")
+	(SET #choose-icon-help	"Wenn Sie mehr als 4 Farben auf der WB haben, dann wählen Sie die 8-farbige Version.\n Diese sieht schöner aus.")
+	(SET #exit-messy		"\n\nSFXdata konnte erfolgreich installiert werden.\nBitte lesen Sie das Guide, um zu erfahren wie das Programm bedient wird.\n")
+))
+
+; check kick version ----------------------------------------------------------------------------------------
+
+(IF (< (/ (GETVERSION) 65536) 39)
+	(ABORT #bad-kick)
+)
+
+; los geht`s ------------------------------------------------------------------------------------------------
+
+(COMPLETE 0)
+(MESSAGE #welcome-messy)
+
+; mal sehn was für Drives da sind ---------------------------------------------------------------------------
+
+(IF (= (EXISTS "music:" (NOREQ)) 2)
+	(SET @DEFAULT-DEST "music:")
+)
+(IF (= (EXISTS "sound:" (NOREQ)) 2)
+	(SET @DEFAULT-DEST "sound:")
+)
+(IF (= (EXISTS "audio:" (NOREQ)) 2)
+	(SET @DEFAULT-DEST "audio:")
+)
+
+; vielleicht hat er es ja auch schon mal installiert --------------------------------------------------------
+
+(SET lastdest (GETENV "SFXPATH"))			; cleanup old envvar
+(IF (> (STRLEN lastdest) 0)
+(
+	(RUN "MAKEDIR ENV:Installer")
+	(RUN "MAKEDIR ENV:Installer/Programs")
+	(RUN "COPY ENV:SFXPath ENV:Installer/Programs/SFXPath")
+	(RUN "MAKEDIR ENVARC:Installer")
+	(RUN "MAKEDIR ENVARC:Installer/Programs")
+	(RUN "COPY ENV:Installer/Programs/SFXPath ENVARC:Installer/Programs/SFXPath")
+	(RUN "DELETE ENV:SFXPath ENVARC:SFXPath")
+)
+)
+
+(SET lastdest (GETENV "Installer/Programs/SFXPath"))		; check if env-var exists
+(IF (= (STRLEN lastdest) 0)
+(
+	(SET @DEFAULT-DEST											; no, use default
+		(ASKDIR
+			(PROMPT #choose-dest)
+			(HELP #choose-dest-help)
+			(DEFAULT @DEFAULT-DEST)
+		)
+	)
+	(MESSAGE #dest-require)
+)
+(
+	(SET @DEFAULT-DEST											; yes
+		(ASKDIR
+			(PROMPT #choose-dest)
+			(HELP #choose-dest-help)
+			(DEFAULT lastdest)
+		)
+	)
+)
+)
+
+(RUN (CAT "SETENV Installer/Programs/SFXPath " @DEFAULT-DEST))
+(RUN "MAKEDIR ENVARC:Installer")
+(RUN "MAKEDIR ENVARC:Installer/Programs")
+(RUN "COPY ENV:Installer/Programs/SFXPath ENVARC:Installer/Programs/SFXPath")
+
+; falls nicht vorhanden, Verzeichnis anlegen ----------------------------------------------------------------
+(COMPLETE 5)
+(SET @DEFAULT-DEST (TACKON @DEFAULT-DEST "SFX"))
+(SET sfx-dest @DEFAULT-DEST)
+(IF (= (EXISTS sfx-dest) 0)
+	(MAKEDIR sfx-dest (INFOS))
+)
+
+; Fonts kopieren --------------------------------------------------------------------------------------------
+(COMPLETE 10)
+(SET sfxsub-dest (TACKON sfx-dest "fonts"))
+(IF (= (EXISTS sfxsub-dest) 0)
+	(MAKEDIR sfxsub-dest)
+)
+(COMPLETE 12)
+(COPYFILES
+	(PROMPT #copy-fonts)
+	(HELP #copy-help)
+	(SOURCE "Fonts/")
+	(DEST sfxsub-dest)
+	(ALL)
+)
+
+; Libs kopieren ---------------------------------------------------------------------------------------------
+(COMPLETE 15)
+(COPYLIB
+	(PROMPT #copy-libs)
+	(HELP #copy-help)
+	(SOURCE "Libs/amigaguide.library")
+	(DEST "LIBS:")
+)
+(COPYLIB
+	(PROMPT #copy-libs)
+	(HELP #copy-help)
+	(SOURCE "Libs/asyncIO.library")
+	(DEST "LIBS:")
+)
+
+; Envelopes -------------------------------------------------------------------------------------------------
+(COMPLETE 50)
+(SET sfxsub-dest (TACKON sfx-dest "Envelopes"))
+(IF (= (EXISTS sfxsub-dest) 0)
+	(MAKEDIR sfxsub-dest)
+)
+(COMPLETE 52)
+(COPYFILES
+	(PROMPT #copy-envelopes)
+	(HELP #copy-help)
+	(SOURCE "Envelopes/")
+	(DEST sfxsub-dest)
+	(ALL)
+)
+
+; Module Data (.modinfo, .presets ) -------------------------------------------------------------------------
+(COMPLETE 60)
+(COPYFILES
+	(PROMPT #copy-presets)
+	(HELP #copy-help)
+	(SOURCE "")
+	(PATTERN "_#?")
+	(DEST sfx-dest)
+)
+
+; Workshop-Scripte ------------------------------------------------------------------------------------------
+(COMPLETE 70)
+(SET sfxsub-dest (TACKON sfx-dest "Workshop"))
+(IF (= (EXISTS sfxsub-dest) 0)
+	(MAKEDIR sfxsub-dest)
+)
+(COMPLETE 72)
+(COPYFILES
+	(PROMPT #copy-workshop)
+	(HELP #copy-help)
+	(SOURCE "Workshop/")
+	(DEST sfxsub-dest)
+	(ALL)
+)
+
+; Delete Old Files ------------------------------------------------------------------------------------------
+
+(COMPLETE 80)
+(SET sfxsub-dest (TACKON sfx-dest "Synths"))
+(IF (= (EXISTS sfxsub-dest) 1)
+	(RUN (CAT "DELETE " sfxsub-dest " ALL QUIET FORCE"))
+)
+(COMPLETE 85)
+(SET sfxsub-dest (TACKON sfx-dest "EqShps"))
+(IF (= (EXISTS sfxsub-dest) 1)
+	(RUN (CAT "DELETE " sfxsub-dest " ALL QUIET FORCE"))
+)
+
+
+; Icon ------------------------------------------------------------------------------------------------------
+(COMPLETE 90)
+(SET icon
+	(ASKCHOICE
+		(PROMPT #choose-icon)
+		(HELP #choose-icon-help)
+		(CHOICES
+			"4 colours"
+			"8 colours"
+		)
+		(DEFAULT 0)
+	)
+)
+(COMPLETE 92)
+(SET sfxsub-dest (TACKON sfx-dest "Guides"))
+(IF (= icon 0)
+(
+	(COPYFILES
+		(PROMPT #copy-icons)
+		(HELP #copy-help)
+		(SOURCE "icons_4col/SoundFX.info")
+		(DEST sfx-dest)
+	)
+	(COPYFILES
+		(PROMPT #copy-icons)
+		(HELP #copy-help)
+		(SOURCE "icons_4col/Guides.info")
+		(DEST sfx-dest)
+	)
+	(COPYFILES
+		(PROMPT #copy-icons)
+		(HELP #copy-help)
+		(SOURCE "icons_4col/SFX.guide.info")
+		(DEST sfxsub-dest)
+	)
+	(IF (= @LANGUAGE "english")
+	(
+		(COPYFILES
+			(PROMPT #copy-icons)
+			(HELP #copy-help)
+			(SOURCE "icons_4col/Form.info")
+			(DEST sfx-dest)
+			(NEWNAME "Orderform.txt.info")
+		)
+	)
+	(
+		(COPYFILES
+			(PROMPT #copy-icons)
+			(HELP #copy-help)
+			(SOURCE "icons_8col/Form.info")
+			(DEST sfx-dest)
+			(NEWNAME "Orderform.txt.info")
+		)
+	))
+))
+(IF (= icon 1)
+(
+	(COPYFILES
+		(PROMPT #copy-icons)
+		(HELP #copy-help)
+		(SOURCE "icons_8col/SoundFX.info")
+		(DEST sfx-dest)
+	)
+	(COPYFILES
+		(PROMPT #copy-icons)
+		(HELP #copy-help)
+		(SOURCE "icons_8col/Guides.info")
+		(DEST sfx-dest)
+	)
+	(COPYFILES
+		(PROMPT #copy-icons)
+		(HELP #copy-help)
+		(SOURCE "icons_8col/SFX.guide.info")
+		(DEST sfxsub-dest)
+	)
+	(IF (= @LANGUAGE "english")
+	(
+		(COPYFILES
+			(PROMPT #copy-icons)
+			(HELP #copy-help)
+			(SOURCE "icons_4col/Form.info")
+			(DEST sfx-dest)
+			(NEWNAME "Bestellformular.txt.info")
+		)
+	)
+	(
+		(COPYFILES
+			(PROMPT #copy-icons)
+			(HELP #copy-help)
+			(SOURCE "icons_8col/Form.info")
+			(DEST sfx-dest)
+			(NEWNAME "Bestellformular.txt.info")
+		)
+	))
+))
+
+(IF (< (/ (GETVERSION) 65536) 37)
+(
+	(TOOLTYPE
+		(DEST (TACKON sfx-dest "Guides/SFX.guide"))
+		(SETDEFAULTTOOL "AmigaGuide")
+	)
+	(IF (= @LANGUAGE "english")
+	(
+		(TOOLTYPE
+			(DEST (TACKON sfx-dest "Orderform.txt"))
+			(SETDEFAULTTOOL "AmigaGuide")
+		)
+	)
+	(
+		(TOOLTYPE
+			(DEST (TACKON sfx-dest "Bestellformular.txt"))
+			(SETDEFAULTTOOL "AmigaGuide")
+		)
+	))
+)
+(
+	(TOOLTYPE
+		(DEST (TACKON sfx-dest "Guides/SFX.guide"))
+		(SETDEFAULTTOOL "MultiView")
+	)
+	(IF (= @LANGUAGE "english")
+	(
+		(TOOLTYPE
+			(DEST (TACKON sfx-dest "Orderform.txt"))
+			(SETDEFAULTTOOL "MultiView")
+		)
+	)
+	(
+		(TOOLTYPE
+			(DEST (TACKON sfx-dest "Bestellformular.txt"))
+			(SETDEFAULTTOOL "MultiView")
+		)
+	))
+))
+
+; GFX -------------------------------------------------------------------------------------------------------
+(COMPLETE 97)
+(COPYFILES
+	(PROMPT #copy-gfx)
+	(HELP #copy-help)
+	(SOURCE "SFX-Titel.rawbrush")
+	(DEST sfx-dest)
+	(ALL)
+)
+
+; Fertig ----------------------------------------------------------------------------------------------------
+(COMPLETE 100)
+(EXIT #exit-messy)
+; Install-SFXdata Ende --------------------------------------------------------------------------------------

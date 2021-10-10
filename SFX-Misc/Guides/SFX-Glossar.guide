@@ -1,0 +1,433 @@
+@database SFX-Glossar
+
+@remark $VER: SFX-Glossar.guide © by Stefan Kost 1994-1997 (09.03.97)
+@remark AmigaGuide-OnLine-Hilfe für SoundFX
+
+@master sfx-glossar.guide
+@index sfx-index.guide/index
+
+@node main "Glossar"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+5.3 Glossar
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+An dieser Stelle werden einige Bergriffe erklärt, die während der Arbeit mit
+dem Programm häufig auftreten.
+
+	@{" Bitauflösung              " link Bitauflösung }
+	@{" Dynamik                   " link Dynamic }
+	@{" Filter                    " link Filter }
+	@{" Fourier-Transformation    " link FourierTransformation }
+	@{" Hüllkurve                 " link Envelope }
+	@{" Kanäle                    " link Channels }
+	@{" Loop                      " link Loop }
+	@{" Modulation                " link Modulation }
+	@{" Obertöne                  " link Obertöne }
+	@{" Quantisierung             " link Quantisierung }
+	@{" Sample                    " link Sample }
+	@{" Samplingrate              " link Samplingrate }
+	@{" Übersteuerung             " link Overdrive }
+	@{" Wellenformen              " link Wellenformen }
+
+Wenn Sie an dieser Stelle weiter Begriffe erklärt haben möchten, so schreiben
+Sie mir das bitte.
+@endnode
+
+@node Bitauflösung "Bitauflösung"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Bitauflösung
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Die Bitauflösung gibt, an mit welcher Genauigkeit die analogen Audiodaten ge-
+wandelt wurden. Je höher die Bitrate, desto geringer die Wandlungsfehler
+(Quantisierungsfehler) und desto autentischer das @{" Sample " link Sample}. Gebräuchliche Bit-
+auflösungen sind 8-,12- und 16-bit. Folgend eine kleine Aufstellung der Bit-
+raten und des entsprechenden Wandlerbereiches.
+@{code}
+	+------+---------------+
+	| @{b}Bits@{ub} | @{b}Bereich@{ub}       |
+	+------+---------------+
+	|   8  |   -128..  127 |
+	|  12  |  -2048.. 2047 |
+	|  14  |  -8192.. 8191 |
+	|  16  | -32768..32767 |
+	+------+---------------+
+
+Man sieht deutlich, schon die Hinzunahme eines Bits, ergibt einen gewaltige
+Erweiterung des Wertebereiches und damit eine enorm erhöhte Qualität.
+Die Amiga-Audiohardware unterstützt normalerweise nur die Wiedergabe von maxi-
+mal 8-bit.
+Durch einen Trick lassen sich aber auch so ca. 12-bit bzw. 14-bit erreichen.
+Der entscheidende Nachteil des 12-Dynamic Verfahrens ist, daß sich die maximale
+@{" Samplingrate " link Samplingrate } halbiert. Es empfiehlt sich also die 14-bit Variante zu
+benutzen, da diese keinerlei Einschränkungen besitzt und außerdem besser
+klingt.
+Um den Unterschied zu höhren verfahren Sie wie folgt :
+- laden sie ein 16-bit Sample (bei einem 8-bit Sample klingen beide Player lo-
+  gischerweise gleich). Verwenden Sie ein Sample mit einer schönen Ausklang-
+  phase (z.B. Snaredrum).
+- spielen sie das Sample bei großer Lautstärke mit beiden Playern ab.
+
+Ganz schöner Unterschied, gelle !
+@endnode
+
+@node Dynamic "Dynamik"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Dynamik
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Samples können unterschiedlich laut klingen, trotz daß beide optimal ausge-
+steuert sind. Das liegt an der unterschiedlichen Dynamik der Sounds. So klingt
+ein Rechtecksound lauter als ein Sinus mit gleicher Lautstärke.
+Wenn man die Beträge der Samplewerte einer Periode zusammenrechnet und durch
+die Anzahl der Werte teilt, bekommt man eine relative Lautstärke. Diese gibt
+an, wie laut ein Sound tatsächlich ist.
+@endnode
+
+@node Filter "Filter"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Filter
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Filter sind Operatoren die von einem Klang bestimmte Frequenzen selektieren und
+diese unterdrücken. Das Gegenteil eines Filters ist ein Booster. Dieser ver-
+stärkt die ausgewählten Frequenzen. In SFX ist beides in einem Operator kombi-
+niert; mit positivem Effektanteil wird gefiltert und mit negativem 'geboostet'.
+Es gibt verschiedene Arten von Filtern die nachfolgend beschrieben werden.
+
+Der Name der Filtermodule in SFX setzt sich aus zwei Teilen zusammen, dem
+Filterverfahren und dem zu bearbeitenden Frequenzbereich.
+
+Filterverfahren :
+
+	+------+--------------------------------------------------------------+
+	| @{b}Name@{ub} | @{b}Beschreibung@{ub}                                                 |
+	+------+--------------------------------------------------------------+
+	| CRS  | @{b}Cr@{ub}oss@{b}S@{ub}ection - Mittelwertfilter                              |
+	|      | Dies sind die einfachsten, aber leider auch am schwersten    |
+	|      | einstellbaren Filter.                                        |
+	+------+--------------------------------------------------------------+
+	| FIR  | @{b}F@{ub}inite @{b}I@{ub}mpulse @{b}R@{ub}esponse - Endliche Impuls Antwort            |
+	+------+--------------------------------------------------------------+
+	| IRR  | @{b}I@{ub}nfinite @{b}I@{ub}mpulse @{b}R@{ub}esponse - Unendliche Impuls Antwort        |
+	|      | Leider schwer in Echtzeit realisierbar.                      |
+	+------+--------------------------------------------------------------+
+	| BISQ | @{b}BiSq@{ub}uad - Kombination aus FIR und IRR                        |
+	+------+--------------------------------------------------------------+
+
+Filtertypen
+Bitte wundern Sie sich nicht, warum die Filter bei mir anders heißen, ich gebe
+an welche Frequenzbereiche bearbeitet (gefiltert/geboostet) werden, die anderen
+benennen sie nach den Frequenzen die unverändert gelassen werden.
+
+Hi	(TiefPass (LowPass))
+
+	______           1.0
+	      \\
+	       \\
+                \\_______ 0.0
+
+Low	(HochPass (HiPass))
+
+	          _______ 1.0
+	         /
+	        /
+        _______/          0.0
+
+Band	(Notchfilter)
+
+	______   ______ 1.0
+	      \\ /
+	      | |
+	      \\_/       0.0
+
+Notch	(BandPass)
+
+	     ___        1.0
+	    /   \\
+	    |   |
+	____/   \\______ 0.0
+
+@endnode
+
+@node FourierTransformation "Fourier-Transformation"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Fourier-Transformation
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Die Fourier-Transformations ist ein Verfahren, bei der ein @{" Sample " link Sample} in seine
+zeitabhängigen Frequenzbestandteile zerlegt wird. Aufgrund dieser Daten sind
+die vielfältigsten Manipulationen, wie zum Beispiel Equalizer,Vocode usw. mög-
+lich. In SFX wird eine FFT (FastFourierTransformation) verwendet.
+@endnode
+
+@node Envelope "Hüllkurve"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Hüllkurve
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Eine Hüllkurve (engl. Envelope) ist ein Werteverlauf mit einem minimalen Pegel
+von 0.0 und einem maximalen Pegel von 1.0. Eine solche Kurve dient der 
+@{" Modulation " link Modulation} von Parametern. Nachfolgend ein Beispiel :
+
+Hüllkurve :
+		___________________ 1.0
+		   /\\___
+		  /     \\_______
+		 /              \\
+		/________________\\_ 0.0
+		|  |     |     |  |
+	       Attack    Sustain
+		    Decay     Relase
+
+Wenn man z.B. von einer solchen Kurve die Lautstärke eines Sample modulieren
+läßt, dann wird diese anfangs lauter, erreicht ihr Maximum und fällt dann
+langsam wieder ab.
+
+@endnode
+
+@node Channels "Kanäle"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Kanäle
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Ein Sound kann aus mehreren Kanälen bestehen. Nachfolgend werde ich einige Va-
+rianten beschreiben :
+
+	+----------+----------------------------------------------------------+
+	| @{b}Name@{ub}     | @{b}Beschreibung@{ub}                                             |
+	+----------+----------------------------------------------------------+
+	| Mono     | Benutzt nur aus einem Kanal; Tritt am häufigsten auf.    |
+	+----------+----------------------------------------------------------+
+	| Stereo   | Besteht aus zwei Kanälen (links,rechts), die einzeln ge- |
+	|          | speichert werden.                                        |
+	+----------+----------------------------------------------------------+
+	| Quattro  | Besteht aus vier Kanälen (vorne links,rechts, hinten     |
+	|          | links,rechts), die einzeln gespeichert werden. Um diese  |
+	|          | Sounds richtig wiederzugeben, ist eine spezielle Anlage  |
+	|          | notwendig.                                               |
+	+----------+----------------------------------------------------------+
+	| Pseudo-  | Besteht aus drei/vier Kanälen (3: vorne links,rechts,    |
+	| Quattro  | hinten mitte; 4: vorne links,rechts, hinten links,       |
+	|          | rechts), die als Stereosample gespeichert werden.        |
+	|          | Während der Wiedergabe wird ein Decoder benötigt, der    |
+	|          | das Stereosignal in drei/vier Kanäle aufspaltet. Dies    |
+	|          | ist allerdings auch schon mit einer entsprechenden Ver-  |
+	|          | schaltung der Lautsprecher möglich.                      |
+	+----------+----------------------------------------------------------+
+	| Dolby-   | Besteht aus vier/fünf Kanälen (4: vorne links,mitte,     |
+	| Surround | rechts, hinten mitte; 5: vorne links,mitte,rechts,       |
+	|          | hinten links,rechts) die als Stereosample gespeichert    |
+	|          | werden. Während der Wiedergabe wird ein Decoder benö-    |
+	|          | tigt, der das Stereosignal in vier/fünf Kanäle aufspal-  |
+	|          | tet. Dies ist allerdings auch schon mit einer entspre-   |
+	|          | chenden Verschaltung der Lautsprecher möglich. Wesent-   |
+	|          | lich bessere Ergebnisse erhält man jedoch mit einem De-  |
+	|          | coder.                                                   |
+	+----------+----------------------------------------------------------+
+@endnode
+
+@node Loop "Loop"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Loop
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Loop heißt Schleife. Loops dienen der Wiederholung eines Teilstückes aus einem
+@{" Sample " link Sample}. Dies benutzt man z.B. in der Ausklangphase eines Intruments um den
+Ton länger zu halten.
+Die Start- und Endpunkte eines Loops sollten auf einem Nulldurchgang liegen,
+da es sonst zu Knack-geräuschen kommt. Im @{" Bereichsfenster " link SFX-ToolWin.guide/RangeWin } finden Sie die
+notwendigen Operatornen.
+@endnode
+
+@node Modulation "Modulation"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Modulation
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Als Modulation, bezeichnet man einen Vorgang bei dem ein Parameter variiert
+wird. Dies kann z.B. zyklisch durch eine Sinusschwingung oder auch durch eine
+@{" Hüllkurve " link Envelope} geschehen. In Synthesizer findet man häufig sogenannte LFO`s (Low-
+FrequenzOszillator). Diese dienen oft als Modulationsquelle, d.h. sie erzeugen
+ein langsam schwingendes Signal, welches einen anderen Parameter (z.B. die Ton-
+höhe) ändert. Eine Hüllkurve wird z.B. zur Formung des Lautstärkeverlaufes be-
+nutzt.
+Bsp.:
+	Meine Modulationsquelle ist ein Dreiecksschwingung mit einem Ergebnis-
+	bereich zwischen 0.0 und 1.0.:
+
+	1.0
+	         /\\
+        ________/__\\_____....
+            \\  /    \\  /
+	0.0  \\/      \\/
+
+	Von diesem Modulator lasse ich die Lautstärke meines Klanges im Be-
+	reich von 80-100% ändern. D.h. wenn der Modulatior 0.0 zurückgibt be-
+	trägt meine Lautstärke 80% , bei 0.5 => 90% und bei 1.0 => 100%.
+@endnode
+
+@node Obertöne "Obertöne"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Obertöne
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Jeder Klang besteht aus mehreren sich überlagernden Schwingungen. Diese
+Schwingungen werden Obertöne genannt. Die @{" Basiswellenformen " link Wellenformen} (außer dem Rau-
+schen) setzen sich nur aus Vielfachen der Grundschwingung (harmonische) zu-
+sammen.
+@endnode
+
+@node Quantisierung "Quantisierung"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Quantisierung
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Als Quantisierung bezeichnet man das Pressen von analogen Signalen in ein
+digitales Raster. Bei einer @{" Bitauflösung " link Bitauflösung} von 8 bit hat man also 256 Raster-
+stufen.
+Bei dieser Wandlung entsteht ein Fehler - die Differenz zwischen dem tatsäch-
+lichen Wert und dem gewandelten Wert. Dieser Fehler äußert sich im Quantisie-
+rungsrauschen. Wenn Sie ein 16bit-Sample in SFX-laden und dieses mit 8bit und
+mit 14bit abspielen, werden Sie den Unterschied hören.
+@endnode
+
+@node Sample "Sample"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Sample
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Als Sample bezeichnet man digital aufgezeichnete Audiodaten. Aufgenommen wer-
+den Sie mit einem Sampler (in den verschiedensten Ausführunge erhältlich; von
+50,- bis 10000,- DM) und den Vorgang bezeichnet man als Sampling.
+Damit der Computer Tonsignale bearbeiten kann, muß dieses erfaßt werden und im
+Speicher abgelegt werden. Dazu wird das Signal möglichst oft abgetastet und
+der erhaltene Wert in digitale Darstellung gewandelt. Die Rate mit der abge-
+tastet wird, heißt @{" Samplingrate " link Samplingrate} und die Genauigkeit der Wandlung ent-
+spricht der @{" Bitauflösung " link Bitauflösung} des Samples. Für beide Werte gilt die Faustregel -
+je höher, desto besser das Ergebnis, desto größer aber auch der Speicherver-
+brauch.
+@endnode
+
+@node Samplingrate "Samplingrate"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Samplingrate
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Die Samplingrate gibt an, wie oft das analoge Audiosignal abgetastet wird. Der
+Quotient Samplingrate/2 gibt de höchste Frequenz an, die in den Sampledaten
+erfaßt wird. Da der Mensch maximal bis ca. 20 kHz hört, sind Sampling über 40
+kHz selten notwendig (und Speicherplatzverschwendung). Folgend sind noch ein
+paar typische Samplingraten aufgeführt.
+
+	 8000 Hz	Soundkarten (typisch für SND-AU Samples)
+	11025 Hz	Soundkarten (typisch bei alten Samples)
+	22050 Hz	Soundkarten (typische Frequenz bei vielen Samples)
+	28867 Hz	max. Abspielrate des Paulachips im normalen Modus
+	32000 Hz	Consumer DAT`s und Sampler
+	44100 Hz	CD-Player
+	48000 Hz	DAT-Recorder/Player
+	57734 Hz	max. Abspielrate des Paulachips im Productivity-Modus
+
+Die Amiga-Audiohardware unterstüzt eine Samplingfrequenz bis ca. 28kHz unter
+normalen Bildschirmmodi und bis ca. 56kHz unter Bildschirmmodi mit verdoppelte
+DMA-Rate z.B. "Productivity" (Aktivieren Sie eine solche Auflösung nur dann,
+wenn Ihr Monitor das auch aushält.).
+@endnode
+
+@node Overdrive "Übersteuerung"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Übersteuerung
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Wenn Sie einen Klang zu stark verstärken, geraten die Pegelspitzen des Klangs
+über den Wandlerbereich hinaus. Dadurch wird der Klang "verstümmelt", da neue
+Obertöne hinzukommen.
+Bsp.:
+vorher :
+	  /\\        /\\
+	 /  \\      /  \\
+	/    \\    /    \\    /
+	      \\  /      \\  /
+	       \\/        \\/
+
+nachher : __        __
+	 /  \\      /  \\
+	/    \\    /    \\    /
+	      \\__/      \\__/
+@endnode
+
+@node Wellenformen "Wellenformen"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Wellenformen
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Folgende Wellenformen gehören zu den Basisklängen.
+
+Sinus :	  __        __
+	 /  \\      /  \\
+	|    |    |    |    |
+              \\__/      \\__/
+	Dumpfer Klang, enthält nur eine @{" Obertonschwingung " link Obertöne}.
+
+Sägezahn :
+	|\\    |\\    |\\
+	| \\   | \\   | \\
+	|  \\  |  \\  |  \\
+	    \\ |   \\ |
+	     \\|    \\|
+	Scharfer Klang, mit vielen @{" Obertönen " link Obertöne}.
+
+Dreieck :
+	  /\\        /\\
+	 /  \\      /  \\
+	/    \\    /    \\    /
+	      \\  /      \\  /
+	       \\/        \\/
+	Etwas schärfer als eine Sinusschwingung, wenig @{" Obertöne " link Obertöne}.
+
+Rechteck :
+	______    ______
+	|    |    |    |
+	|    |    |    |    |
+	     |____|    |____|
+	Relativ scharfer Klang, mit vielen @{" Obertönen " link Obertöne}.
+
+Rauschen :
+	/    \\  -   _
+	 |        |
+	    \\ |    -
+	   |   - /  |
+	  _     |
+	Ebend ein rauschender Klang, mit nahezu allen @{" Obertönen " link Obertöne}.
+@endnode

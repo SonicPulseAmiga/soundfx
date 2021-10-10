@@ -1,0 +1,224 @@
+; Install-SFXbin Start --------------------------------------------------------------------------------------
+;
+; $VER: Install-SFXbin (02.12.1995)
+;
+; SoundFX bin Installscript
+; (C) Copyright 1993-1995 Stefan Kost. All Rights Reserved.
+;
+; -----------------------------------------------------------------------------------------------------------
+
+; setze sprachenabhängige Texte -----------------------------------------------------------------------------
+
+(IF (= @LANGUAGE "english")
+(
+	(SET #bad-kick			"SoundFX requires at least Kickstart 3.0 !")
+	(SET #welcome-messy	
+		(CAT				"\n\nWelcome to the installation of SoundFX !"
+							"This scripts will copy all the files you need to run "
+							"SoundFX to your harddisk.\n"
+							"If you install SoundFX over an already installed version, "
+							"I will clear the following directorys first !\n"
+							"_loaders,_operators,_players,_savers,eqshps,synths"
+		)
+	)
+	(SET #choose-dest		"Please choose a destination directory !\nA drawer called SFX will be automatically generated if net present yet !")
+	(SET #choose-dest-help	"Here you can choose the place on your HD, were SFX should be installed")
+	(SET #dest-require		"\n\nPlease be shure, that you have on your HD at least 2.0 Mb free !")
+	(SET #delete-oldfiles	"deleting old files ...")
+	(SET #copy-loader		"copying loadermodules ...")
+	(SET #copy-operators	"copying operatormodules ...")
+	(SET #copy-player		"copying playermodules ...")
+	(SET #copy-saver		"copying savermodules ...")
+	(SET #copy-executable	"copying executable ...")
+	(SET #copy-help			"The respective files will copied to your HD.")
+	(SET #exit-messy		"\n\nSFX is successfuly installed.\nPlease read the guide, to learn how to work with the program.\n")
+))
+(IF (= @LANGUAGE "deutsch")
+(
+	(SET #bad-kick			"SoundFX benötigt mindestens Kickstart 3.0 !")
+	(SET #welcome-messy
+		(CAT			 	"\n\nWillkommen zur Installation von SoundFX !\n"
+							"Dieses script wird alle Dateien, die Sie zum Benutzen von "
+							"SoundFX brauchen, auf Ihre Festplatte kopieren.\n"
+							"Wenn Sie SoundFX über eine bereits installierte Version "
+							"kopieren, werde ich vorher folgende Verzeichnisse leeren !\n"
+							"_loaders,_operators,_players,_savers,eqshps,synths"
+		)
+	)
+	(SET #choose-dest		"Bitte Zielverzeichnis aussuchen !\nEin Verzeichnis mit dem Namen SFX wird angelegt !")
+	(SET #choose-dest-help	"Hier können Sie auswählen, wohin Sie das Programm installeren möchten")
+	(SET #dest-require		"\n\nBitte stellen Sie sicher, daß auf der Zielpartition\n 2.0 Mb-Speicher frei ist !")
+	(SET #delete-oldfiles	"lösche alte Dateien ...")
+	(SET #copy-loader		"kopiere Loader-Module ...")
+	(SET #copy-operators	"kopiere Operator-Module ...")
+	(SET #copy-player		"kopiere Player-Module ...")
+	(SET #copy-saver		"kopiere Saver-Module ...")
+	(SET #copy-executable	"kopiere Executable ...")
+	(SET #copy-help			"Die entsprechenden Dateien werden gerade auf ihre Festplatte kopiert.")
+	(SET #exit-messy		"\n\nSFX konnte erfolgreich installiert werden.\nBitte lesen Sie das Guide, um zu erfahren wie das Programm bedient wird.\n")
+))
+
+; check kick version ----------------------------------------------------------------------------------------
+
+(IF (< (/ (GETVERSION) 65536) 39)
+	(ABORT #bad-kick)
+)
+
+; los geht`s ------------------------------------------------------------------------------------------------
+
+(COMPLETE 0)
+(MESSAGE #welcome-messy)
+
+; mal sehn was für Drives da sind ---------------------------------------------------------------------------
+
+(IF (= (EXISTS "music:" (NOREQ)) 2)
+	(SET @DEFAULT-DEST "music:")
+)
+(IF (= (EXISTS "sound:" (NOREQ)) 2)
+	(SET @DEFAULT-DEST "sound:")
+)
+(IF (= (EXISTS "audio:" (NOREQ)) 2)
+	(SET @DEFAULT-DEST "audio:")
+)
+
+; vielleicht hat er es ja auch schon mal installiert --------------------------------------------------------
+
+(SET lastdest (GETENV "SFXPATH"))			; cleanup old envvar
+(IF (> (STRLEN lastdest) 0)
+(
+	(RUN "MAKEDIR ENV:Installer")
+	(RUN "MAKEDIR ENV:Installer/Programs")
+	(RUN "COPY ENV:SFXPath ENV:Installer/Programs/SFXPath")
+	(RUN "MAKEDIR ENVARC:Installer")
+	(RUN "MAKEDIR ENVARC:Installer/Programs")
+	(RUN "COPY ENV:Installer/Programs/SFXPath ENVARC:Installer/Programs/SFXPath")
+	(RUN "DELETE ENV:SFXPath ENVARC:SFXPath")
+)
+)
+
+(SET lastdest (GETENV "Installer/Programs/SFXPath"))		; check if env-var exists
+(IF (= (STRLEN lastdest) 0)
+(
+	(SET @DEFAULT-DEST											; no, use default
+		(ASKDIR
+			(PROMPT #choose-dest)
+			(HELP #choose-dest-help)
+			(DEFAULT @DEFAULT-DEST)
+		)
+	)
+	(MESSAGE #dest-require)
+)
+(
+	(SET @DEFAULT-DEST											; yes
+		(ASKDIR
+			(PROMPT #choose-dest)
+			(HELP #choose-dest-help)
+			(DEFAULT lastdest)
+		)
+	)
+)
+)
+
+(RUN (CAT "SETENV Installer/Programs/SFXPath " @DEFAULT-DEST))
+(RUN "MAKEDIR ENVARC:Installer")
+(RUN "MAKEDIR ENVARC:Installer/Programs")
+(RUN "COPY ENV:Installer/Programs/SFXPath ENVARC:Installer/Programs/SFXPath")
+
+; falls nicht vorhanden, Verzeichnis anlegen ----------------------------------------------------------------
+(COMPLETE 5)
+(SET @DEFAULT-DEST (TACKON @DEFAULT-DEST "SFX"))
+(SET sfx-dest @DEFAULT-DEST)
+(IF (= (EXISTS sfx-dest) 0)
+	(MAKEDIR sfx-dest (INFOS))
+)
+
+; Loader ----------------------------------------------------------------------------------------------------
+(COMPLETE 10)
+(SET sfxsub-dest (TACKON sfx-dest "_loaders"))
+(IF (= (EXISTS sfxsub-dest) 0)
+	(MAKEDIR sfxsub-dest)
+	(RUN (CAT "DELETE " sfxsub-dest/#? " ALL QUIET FORCE"))
+)
+(COMPLETE 12)
+(COPYFILES
+	(PROMPT #copy-loader)
+	(HELP #copy-help)
+	(SOURCE "_loaders/")
+	(DEST sfxsub-dest)
+	(ALL)
+)
+
+; Operators -------------------------------------------------------------------------------------------------
+(COMPLETE 25)
+(SET sfxsub-dest (TACKON sfx-dest "_operators"))
+(IF (= (EXISTS sfxsub-dest) 0)
+	(MAKEDIR sfxsub-dest)
+	(RUN (CAT "DELETE " sfxsub-dest/#? " ALL QUIET FORCE"))
+)
+(COMPLETE 27)
+(COPYFILES
+	(PROMPT #copy-operators)
+	(HELP #copy-help)
+	(SOURCE "_operators/")
+	(DEST sfxsub-dest)
+	(ALL)
+)
+
+; Player ----------------------------------------------------------------------------------------------------
+(COMPLETE 50)
+(SET sfxsub-dest (TACKON sfx-dest "_players"))
+(IF (= (EXISTS sfxsub-dest) 0)
+	(MAKEDIR sfxsub-dest)
+	(RUN (CAT "DELETE " sfxsub-dest/#? " ALL QUIET FORCE"))
+)
+(COMPLETE 52)
+(COPYFILES
+	(PROMPT #copy-player)
+	(HELP #copy-help)
+	(SOURCE "_players/")
+	(DEST sfxsub-dest)
+	(ALL)
+)
+
+; Saver -----------------------------------------------------------------------------------------------------
+(COMPLETE 60)
+(SET sfxsub-dest (TACKON sfx-dest "_savers"))
+(IF (= (EXISTS sfxsub-dest) 0)
+	(MAKEDIR sfxsub-dest)
+	(RUN (CAT "DELETE " sfxsub-dest/#? " ALL QUIET FORCE"))
+)
+(COMPLETE 62)
+(COPYFILES
+	(PROMPT #copy-saver)
+	(HELP #copy-help)
+	(SOURCE "_savers/")
+	(DEST sfxsub-dest)
+	(ALL)
+)
+
+; SFX -------------------------------------------------------------------------------------------------------
+(COMPLETE 70)
+(COPYFILES
+	(PROMPT #copy-executable)
+	(HELP #copy-help)
+	(SOURCE "sfx")
+	(DEST sfx-dest)
+	(NEWNAME "SoundFX")
+)
+(COMPLETE 90)
+(SET sfxsub-dest (TACKON sfx-dest "libs"))
+(IF (= (EXISTS sfxsub-dest) 0)
+	(MAKEDIR sfxsub-dest)
+)
+(COMPLETE 95)
+(COPYFILES
+	(PROMPT #copy-executable)
+	(HELP #copy-help)
+	(SOURCE "sfxsupport.library")
+	(DEST sfxsub-dest)
+)
+
+; Fertig ----------------------------------------------------------------------------------------------------
+(COMPLETE 100)
+(EXIT #exit-messy)
+; Install-SFXbin Ende ---------------------------------------------------------------------------------------

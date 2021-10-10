@@ -1,0 +1,338 @@
+From - Fri Jul 27 13:28:54 2001
+Received: from brama.imn.htwk-leipzig.de (brama [141.57.8.39])
+	by imn.htwk-leipzig.de (8.9.1/8.9.1) with ESMTP id MAA10703
+	for <kost@imn.htwk-leipzig.de>; Tue, 24 Jul 2001 12:46:19 +0200 (MET DST)
+Received: by brama.imn.htwk-leipzig.de (8.9.1/8.9.1) id MAA15575
+	for soundfx-list; Tue, 24 Jul 2001 12:23:48 +0200 (MET DST)
+Received: from mailgate3.cinetic.de (mailgate3.cinetic.de [212.227.116.80])
+	by brama.imn.htwk-leipzig.de (8.9.1/8.9.1) with ESMTP id MAA15571
+	for <soundfx@brama.imn.htwk-leipzig.de>; Tue, 24 Jul 2001 12:23:42 +0200 (MET DST)
+Received: from smtp.web.de (smtp01.web.de [194.45.170.210])
+	by mailgate3.cinetic.de (8.11.2/8.11.2/SuSE Linux 8.11.0-0.4) with SMTP id f6OAklg06066
+	for <soundfx@brama.imn.htwk-leipzig.de>; Tue, 24 Jul 2001 12:46:47 +0200
+Received: from web.de by smtp.web.de with smtp
+	(freemail 4.2.2.2 #11) id m15Ozi7-007oK7C; Tue, 24 Jul 2001 12:46 +0200
+X-Authentication-Warning: brama.imn.htwk-leipzig.de: majordomo set sender to owner-soundfx@brama.imn.htwk-leipzig.de using -f
+From: Michael - <Ieh-meyl@web.de>
+To: soundfx@brama.imn.htwk-leipzig.de
+Date: Tue, 24 Jul 2001 12:51:39 +0100
+Message-ID: <yam8605.1994.1163800504@smtp.web.de>
+X-Mailer: YAM 2.3 [060] AmigaOS E-Mail Client (c) 1995-2000 by Marcel Beck  http://www.yam.ch/
+Subject: Various points
+MIME-Version: 1.0
+Content-Transfer-Encoding: binary
+Sender: owner-soundfx@brama.imn.htwk-leipzig.de
+Precedence: bulk
+Reply-To: soundfx@brama.imn.htwk-leipzig.de
+Content-Type: text/plain; charset=iso-8859-1
+Content-Length: 19151
+Status:   
+X-Mozilla-Status: 8005
+X-Mozilla-Status2: 00000000
+X-UIDL: 361df5b500003620
+
+Hi,
+various points regarding SFX 4.1 060, bugs and wishes.
+Since some of you may have a hint about something, I put it here.
+
+
+1.Playing via Paula c14bit and "boxifying" the window blocks the Programs
+  surface/interface until reset.
+
+2.Playing a sample from boxified state gives mutool chipmem hits on
+  060 AGA. Those hits are listed at the end of this text.
+
+3."Cleanup" and windows sizing needs some improvement.
+  Like "deboxifying all" and same time using a preset sorting variant.
+  Like "sorting all samples on screen horizontally at full width/half width,
+  or 1-3 columns, screenfilling precomputed window height.
+  Boxifying all sample windows. And more variants maybe.
+
+4.Option for sample loading into boxified state. Instead of opening 30
+  downslowing windows.
+
+5.SFX keeping memory of one loading and one saving directory, offering use
+  of two separates directories.
+
+6.Deboxifying does not restore full window size here. It's some pixels less
+  in width and height each time one deboxifies.
+
+7.Problem with Samples that can't be closed due to being "still in use",
+  though being not. Happens without any operator windows open, seems to be some
+  operator thing.
+
+8.Batchprocessing of all currently loaded samples.
+
+
+ That's it so far. All bugalike things mentioned apply to a
+ A1200, Blizz1260, AGA, 80mb, OS 3.9.  SFX 4.1, 060, 14bitc.
+
+ Cheers,
+ Michael
+
+
+
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ Below the "boxified playing" hits a list of all current patches in
+ the system, as reported by Saferpatches.
+
+
+Mu out on boxified playing:
+
+LONG WRITE to  00000020        data=4480A368   PC: 00FE5F08
+USP : 446AD634 SR: 0000  (U0)(-)(-)  TCB: 44699DD0
+Data: FFFFFFFF 4480A368 FFFFFFFF 00008000 00000032 000000A9 00400000 00000000
+Addr: 00000000 4480A368 00000000 447277D4 445C6728 4448C9D4 44032F24 441C922C
+Stck: 00000032 FFFFFFFF 00FCF820 00000000 4480A368 FFFFFFFF 444E09C0 FFFFFFFF
+Stck: 4448C9EC 00000000 44682CB4 448062B8 441BE000 448062B8 4467FEB8 44659A2C
+----> 00FE5F08 - "ROM - intuition 40.85 (5.5.93)"  Hunk 0000 Offset 00016A6C
+----> 00FCF820 - "ROM - intuition 40.85 (5.5.93)"  Hunk 0000 Offset 00000384
+----> 444E09C0 - "MultiCX"  Hunk 0000 Offset 00003990
+----> 44682CB4 - "SoundFX"  Hunk 0000 Offset 0002B9BC
+----> 4467FEB8 - "SoundFX"  Hunk 0000 Offset 00028BC0
+----> 44659A2C - "SoundFX"  Hunk 0000 Offset 00002734
+PC-8: 00FCFDA2 4CDF0404 4E7548E7 2020246F 000C222F 0010242F 001470FF B0816712
+PC *: 25410020 357CFFFF 00CE2F0A 6100FBF8 588F70FF B082672E 206A007C B5E80028
+00fe5ee6 :  4eb9 00fc fda2             jsr $fcfda2
+00fe5eec :  4cdf 0404                  movem.l (a7)+,d2/a2
+00fe5ef0 :  4e75                       rts
+00fe5ef2 :  48e7 2020                  movem.l d2/a2,-(a7)
+00fe5ef6 :  246f 000c                  movea.l $c(a7),a2
+00fe5efa :  222f 0010                  move.l $10(a7),d1
+00fe5efe :  242f 0014                  move.l $14(a7),d2
+00fe5f02 :  70ff                       moveq.l #-$1,d0
+00fe5f04 :  b081                       cmp.l d1,d0
+00fe5f06 :  6712                       beq.s $fe5f1a
+00fe5f08 : *2541 0020                  move.l d1,$20(a2)
+00fe5f0c :  357c ffff 00ce             move.w #-$1,$ce(a2)
+00fe5f12 :  2f0a                       move.l a2,-(a7)
+00fe5f14 :  6100 fbf8                  bsr $fe5b0e
+00fe5f18 :  588f                       addq.l #$4,a7
+00fe5f1a :  70ff                       moveq.l #-$1,d0
+00fe5f1c :  b082                       cmp.l d2,d0
+00fe5f1e :  672e                       beq.s $fe5f4e
+00fe5f20 :  206a 007c                  movea.l $7c(a2),a0
+00fe5f24 :  b5e8 0028                  cmpa.l $28(a0),a2
+Name: "SoundFX"  
+
+
+WORD WRITE to  000000CE        data=FFFF       PC: 00FE5F0C
+USP : 446AD634 SR: 0008  (U0)(-)(-)  TCB: 44699DD0
+Data: FFFFFFFF 4480A368 FFFFFFFF 00008000 00000032 000000A9 00400000 00000000
+Addr: 00000000 4480A368 00000000 447277D4 445C6728 4448C9D4 44032F24 441C922C
+Stck: 00000032 FFFFFFFF 00FCF820 00000000 4480A368 FFFFFFFF 444E09C0 FFFFFFFF
+Stck: 4448C9EC 00000000 44682CB4 448062B8 441BE000 448062B8 4467FEB8 44659A2C
+----> 00FE5F0C - "ROM - intuition 40.85 (5.5.93)"  Hunk 0000 Offset 00016A70
+----> 00FCF820 - "ROM - intuition 40.85 (5.5.93)"  Hunk 0000 Offset 00000384
+----> 444E09C0 - "MultiCX"  Hunk 0000 Offset 00003990
+----> 44682CB4 - "SoundFX"  Hunk 0000 Offset 0002B9BC
+----> 4467FEB8 - "SoundFX"  Hunk 0000 Offset 00028BC0
+----> 44659A2C - "SoundFX"  Hunk 0000 Offset 00002734
+PC-8: 4CDF0404 4E7548E7 2020246F 000C222F 0010242F 001470FF B0816712 25410020
+PC *: 357CFFFF 00CE2F0A 6100FBF8 588F70FF B082672E 206A007C B5E80028 66242542
+00fe5eec :  4cdf 0404                  movem.l (a7)+,d2/a2
+00fe5ef0 :  4e75                       rts
+00fe5ef2 :  48e7 2020                  movem.l d2/a2,-(a7)
+00fe5ef6 :  246f 000c                  movea.l $c(a7),a2
+00fe5efa :  222f 0010                  move.l $10(a7),d1
+00fe5efe :  242f 0014                  move.l $14(a7),d2
+00fe5f02 :  70ff                       moveq.l #-$1,d0
+00fe5f04 :  b081                       cmp.l d1,d0
+00fe5f06 :  6712                       beq.s $fe5f1a
+00fe5f08 :  2541 0020                  move.l d1,$20(a2)
+00fe5f0c : *357c ffff 00ce             move.w #-$1,$ce(a2)
+00fe5f12 :  2f0a                       move.l a2,-(a7)
+00fe5f14 :  6100 fbf8                  bsr $fe5b0e
+00fe5f18 :  588f                       addq.l #$4,a7
+00fe5f1a :  70ff                       moveq.l #-$1,d0
+00fe5f1c :  b082                       cmp.l d2,d0
+00fe5f1e :  672e                       beq.s $fe5f4e
+00fe5f20 :  206a 007c                  movea.l $7c(a2),a0
+00fe5f24 :  b5e8 0028                  cmpa.l $28(a0),a2
+00fe5f28 :  6624                       bne.s $fe5f4e
+00fe5f2a :  2542 0068                  move.l d2,$68(a2)
+Name: "SoundFX"  
+
+
+BYTE READ from 00000037                        PC: 00FE5B16
+USP : 446AD620 SR: 0004  (U0)(-)(-)  TCB: 44699DD0
+Data: FFFFFFFF 4480A368 FFFFFFFF 00008000 00000032 000000A9 00400000 00000000
+Addr: 00000000 4480A368 00000000 447277D4 445C6728 4448C9D4 44032F24 441C9228
+Stck: FFFFFFFF 00000000 447277D4 00FE5F18 00000000 00000032 FFFFFFFF 00FCF820
+Stck: 00000000 4480A368 FFFFFFFF 444E09C0 FFFFFFFF 4448C9EC 00000000 44682CB4
+----> 00FE5B16 - "ROM - intuition 40.85 (5.5.93)"  Hunk 0000 Offset 0001667A
+----> 00FE5F18 - "ROM - intuition 40.85 (5.5.93)"  Hunk 0000 Offset 00016A7C
+----> 00FCF820 - "ROM - intuition 40.85 (5.5.93)"  Hunk 0000 Offset 00000384
+----> 444E09C0 - "MultiCX"  Hunk 0000 Offset 00003990
+----> 44682CB4 - "SoundFX"  Hunk 0000 Offset 0002B9BC
+PC-8: 0CEC2F02 4EB900FD 1CF24FEF 003C4CED 0C04FFEC 4E5D4E75 48E72030 246F0010
+PC *: 4A2A0037 66046000 00D0206A 002E4868 00E04EB9 00FDF45A 4EB900FC FD844AAA
+00fe5af2 :  4eb9 00fe 0cec             jsr $fe0cec
+00fe5af8 :  2f02                       move.l d2,-(a7)
+00fe5afa :  4eb9 00fd 1cf2             jsr $fd1cf2
+00fe5b00 :  4fef 003c                  lea.l $3c(a7),a7
+00fe5b04 :  4ced 0c04 ffec             movem.l -$14(a5),d2/a2-a3
+00fe5b0a :  4e5d                       unlk a5
+00fe5b0c :  4e75                       rts
+00fe5b0e :  48e7 2030                  movem.l d2/a2-a3,-(a7)
+00fe5b12 :  246f 0010                  movea.l $10(a7),a2
+00fe5b16 : *4a2a 0037                  tst.b $37(a2)
+00fe5b1a :  6604                       bne.s $fe5b20
+00fe5b1c :  6000 00d0                  bra $fe5bee
+00fe5b20 :  206a 002e                  movea.l $2e(a2),a0
+00fe5b24 :  4868 00e0                  pea.l $e0(a0)
+00fe5b28 :  4eb9 00fd f45a             jsr $fdf45a
+00fe5b2e :  4eb9 00fc fd84             jsr $fcfd84
+00fe5b34 :  4aaa 003a                  tst.l $3a(a2)
+Name: "SoundFX"
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Saferpatches showpatches out:
+
+SaferpatchesShowPatch
+Library        Entry State    New Func Function Name        Patching Command
+--------------------------------------------------------------------------------
+clipboard      -0012 Active   451D9B1E                      GoldED              
+clipboard      -001E Active   451D9B0A                      GoldED              
+audio          -0012 Active   4487BF46                      « IPrefs »          
+audio          -001E Active   4487BF0C                      « IPrefs »          
+               -0012 Active   446A4636                      Play16              
+               -001E Active   446A45FC                      Play16              
+gadtools       -0012 Active   4448C894                      MultiCX             
+gadtools       -001E Active   4448C914                      MultiCX             
+workbench      -005A Active   445268AC                      rawbinfo            
+mathieeesingbas -001E Active   443EB3BC                      mathieeesingbas-Patch
+mathieeesingbas -0024 Active   443EB3D0                      mathieeesingbas-Patch
+mathieeesingbas -002A Active   443EB3E4                      mathieeesingbas-Patch
+mathieeesingbas -0030 Active   443EB41C                      mathieeesingbas-Patch
+mathieeesingbas -0036 Active   443EB42C                      mathieeesingbas-Patch
+mathieeesingbas -003C Active   443EB434                      mathieeesingbas-Patch
+mathieeesingbas -0042 Active   443EB43C                      mathieeesingbas-Patch
+mathieeesingbas -0048 Active   443EB454                      mathieeesingbas-Patch
+mathieeesingbas -004E Active   443EB46C                      mathieeesingbas-Patch
+mathieeesingbas -0054 Active   443EB484                      mathieeesingbas-Patch
+mathieeesingbas -005A Active   443EB49C                      mathieeesingbas-Patch
+mathieeesingbas -0060 Active   443EB4D4                      mathieeesingbas-Patch
+icon           -0078 Active   443F4B4C                      DefIcons            
+icon           -0084 Active   443F44FC                      DefIcons            
+utility        -00A2 Active   4433E626                      « IPrefs »          
+utility        -00A8 Active   4433E628                      « IPrefs »          
+utility        -00AE Active   4433E5F2                      « IPrefs »          
+utility        -00B4 Active   4433E60C                      « IPrefs »          
+layers         -0024 Active   44321B1A                      MCP                 
+layers         -003C Active   44321A5C                      MCP                 
+layers         -0042 Active   44321A86                      MCP                 
+layers         -00B4 Active   44321ABC                      MCP                 
+layers         -00BA Active   44321B44                      MCP                 
+intuition      -0012 Active   4448C894                      MultiCX             
+intuition      -0042 Active   44CEB4A6                      ramlib              
+intuition      -0042 Active   444E3484                      ALoad               
+intuition      -0048 Active   4448C98C                      MultiCX             
+intuition      -0048 Active   44475914                      Executive           
+intuition      -004E Active   4448C9A0                      MultiCX             
+intuition      -004E Active   444E3744                      ALoad               
+intuition      -004E Active   443E09BE                      « IPrefs »          
+intuition      -005A Active   4448C982                      MultiCX             
+intuition      -0060 Active   4448C978                      MultiCX             
+intuition      -0060 Active   443DEF20                      « IPrefs »          
+intuition      -0096 Active   4448C996                      MultiCX             
+intuition      -00C6 Active   4448C8B0                      MultiCX             
+intuition      -00C6 Active   441BEA14                      NewMode             
+intuition      -00CC Active   4448C8CE                      MultiCX             
+intuition      -00CC Active   444758B2                      Executive           
+intuition      -00CC Active   4431B64E                      MCP                 
+intuition      -00D2 Active   4448C90A                      MultiCX             
+intuition      -00D2 Active   444E3784                      ALoad               
+intuition      -00F6 Active   4448C932                      MultiCX             
+intuition      -00FC Active   4448C928                      MultiCX             
+intuition      -0108 Active   4448C8E2                      MultiCX             
+intuition      -0114 Active   4448C8F6                      MultiCX             
+intuition      -0114 Active   4431D214                      MCP                 
+intuition      -0156 Active   4448C91E                      MultiCX             
+intuition      -01FE Active   4448C900                      MultiCX             
+intuition      -0222 Active   4448C8C4                      MultiCX             
+intuition      -0228 Active   444E3694                      ALoad               
+intuition      -024C Active   4448C8EC                      MultiCX             
+intuition      -024C Active   4431AE3E                      MCP                 
+intuition      -025E Active   4448C8D8                      MultiCX             
+intuition      -025E Active   444758E2                      Executive           
+intuition      -025E Active   443F4E98                      DefIcons            
+intuition      -025E Active   4431B6B8                      MCP                 
+intuition      -0264 Active   4448C8BA                      MultiCX             
+intuition      -0264 Active   441BEA1A                      NewMode             
+intuition      -0264 Active   443E093A                      « IPrefs »          
+intuition      -0264 Active   442FEFB4                      FBlit               
+intuition      -0312 Active   4448C93C                      MultiCX             
+graphics       -001E Active   442FCAFA                      FBlit               
+graphics       -0024 Active   442FD99E                      FBlit               
+graphics       -003C Active   48F7C920                      ftext               
+graphics       -0060 Active   442FEAE0                      FBlit               
+graphics       -0084 Active   442FF1D4                      FBlit               
+graphics       -00D2 Active   441C538C                      setpatchmrgcop      
+graphics       -00EA Active   442FE88E                      FBlit               
+graphics       -00F6 Active   442FEC30                      FBlit               
+graphics       -0108 Active   442FF330                      FBlit               
+graphics       -012C Active   442FD7B0                      FBlit               
+graphics       -0138 Active   442FDBCE                      FBlit               
+graphics       -014A Active   442FE228                      FBlit               
+graphics       -02A6 Active   442FDE3E                      FBlit               
+graphics       -0306 Active   48F7E59C                      BlazeWCP            
+graphics       -0312 Active   48F7E5C4                      BlazeWCP            
+graphics       -0396 Active   442FE3E6                      FBlit               
+graphics       -0420 Active   48F7E5E8                      BlazeWCP            
+exec           -0036 Active   444757A4                      Executive           
+exec           -006C Removed  447F84F6                      muforce             
+exec           -00BA Removed  44826ABC                      Muguardianangel     
+exec           -00C0 Removed  44826B1E                      Muguardianangel     
+exec           -00C6 Removed  44825F58                      Muguardianangel     
+exec           -00C6 Removed  441C9B96                      PoolMem.supervisor  
+exec           -00CC Removed  4482640C                      Muguardianangel     
+exec           -00CC Removed  441C9722                      PoolMem.supervisor  
+exec           -00D2 Removed  448261FE                      Muguardianangel     
+exec           -00D2 Active   44632FB0                      ramlib              
+exec           -00D2 Removed  441C9F42                      PoolMem.supervisor  
+exec           -00D8 Removed  44826576                      Muguardianangel     
+exec           -00D8 Removed  441C9FDC                      PoolMem.supervisor  
+exec           -011A Removed  447F838E                      muforce             
+exec           -011A Active   44475722                      Executive           
+exec           -0120 Active   44475746                      Executive           
+exec           -012C Active   4447576A                      Executive           
+exec           -01C8 Active   4448C946                      MultiCX             
+exec           -01CE Active   4448C950                      MultiCX             
+exec           -020A Active   4433E646                      « IPrefs »          
+exec           -0264 Active   441C3D5C                      MuFastzero          
+exec           -0270 Active   441C5080                      cmq060              
+exec           -0276 Active   441C51B0                      cmq060              
+exec           -02AC Removed  44825F18                      Muguardianangel     
+exec           -02AC Removed  441C9D9C                      PoolMem.supervisor  
+exec           -02B2 Removed  448261EA                      Muguardianangel     
+exec           -02B8 Removed  44826662                      Muguardianangel     
+exec           -02BE Removed  44826718                      Muguardianangel     
+exec           -02C4 Removed  44826786                      Muguardianangel     
+exec           -02CA Removed  4482691E                      Muguardianangel     
+exec           -02D6 Active   4448C96E                      MultiCX             
+dos            -0012 Active   4448C894                      MultiCX             
+dos            -0054 Active   4448C964                      MultiCX             
+dos            -0054 Active   44319B1C                      MCP                 
+dos            -0066 Active   443F4A36                      DefIcons            
+dos            -006C Active   443F4AD4                      DefIcons            
+dos            -0096 Active   443F7F78                      xfdPatch            
+dos            -0096 Active   441C1FBE                      segtracker          
+dos            -009C Active   441C1FDA                      segtracker          
+dos            -00F0 Active   443F4C9A                      DefIcons            
+dos            -02CA Active   4448C95A                      MultiCX             
+dos            -02E8 Active   4433E6A2                      « IPrefs »          
+dos            -02EE Active   4433E6B0                      « IPrefs »          
+dos            -0300 Active   443F7F82                      xfdPatch            
+dos            -0300 Active   441C1FD4                      segtracker          
+dos            -03D2 Active   4433E5D0                      « IPrefs »          
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+___________________________________________________________________________
+SoundFX Mailinglist                       soundfx@brama.imn.htwk-leipzig.de
+Subscribe/Unsubscribe/Help              majordomo@brama.imn.htwk-leipzig.de

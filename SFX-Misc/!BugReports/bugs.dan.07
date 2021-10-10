@@ -1,0 +1,117 @@
+Hello again!
+
+This is the outcome of my first afternoon with SoundFX 4.2 Beta
+Release 2.
+
+
+1. Saving in the demo
+
+Stefan, have you realized that you CAN SAVE SAMPLES IN THE
+DEMOVERSION?!!!
+Anybody without a keyfile is now able to save his work! The toolbar
+Save is inactive in the demo as it should be, but the Project menu
+allows saving without any restriction! (This bug was present already
+in the first 4.2 beta). I recommend removing the beta from the FTP as
+soon as possible!
+
+==> fixed
+
+2. Inaccurate size setting
+
+In Prefs/Sample you can set the default preferences for your samples.
+Among others you can specify the sample-window size. But the values
+you enter DO NOT correspond to the real window size that will be
+used!
+
+Switch to the "absolute" mode and enter the window size in pixels.
+You'll see that your windows are bigger than this. Switch to the
+"relative" mode and enter "500" for both XSize and YSize. You'll see
+that the window size is definitely NOT 50% of the screen size.
+
+==> it the inner size of the window which it is related to.
+
+BTW, wouldn't it be more "human" to specify the size in per cent
+instead of per thousand? Let's be more user-friendly here.
+
+==> hmm, when toggling between both setting sfx is converting it,
+    with % the value does change noticable when switch back and forth
+
+It also seems to me that the size values for windows in the zoomed
+state are ignored. Regardless of what I enter, the zoomed window size
+is always the same.
+
+==> fixed
+
+
+3. Default paths for samples
+
+I think that the way SoundFX handles default sample-paths is
+completely insane. What's the point of setting default paths when
+every loaded/saved sample changes this setting? For example, I have
+an assign SAMPLES: on my HD where I normally store all my samples (in
+various directories). Therefore I want to set SAMPLES: as my default
+load/save path in SFX. But sometimes it is necessary to load/save
+from/to a different path, eg. from a CD or to a ZIP disk. In this
+case SFX overrides my settings with the new paths, and if I happen to
+save the prefs (eg. after changing something in the GUI), the new -
+UNWANTED! - settings are stored with the config, and I have to
+restore them again in the Sample prefs.
+
+I believe that DEFAULT paths should be set and changed only by the
+user. I have never seen a program where the user's defaults are
+overridden this way. Just look at how this is done in OctaMED (menu
+Settings/Miscellaneous/Default Directories).
+
+==> fixed
+
+4. Misspellings
+
+Project/Information:
+Your copyright is outdated (says 1993-2000).
+
+Project/Batch Processor:
+"Modul" should be replaced with "module".
+
+Prefs/Sample:
+Size mode "absolut" should be "absolute".
+Unit Y cycle-item "dezibel" should be "decibel".
+Safe Check cycle-item "ever" should be "always".
+
+==> fixed
+
+5. Possible hang-up with MaxVol
+
+See my comment on the mailing-list.
+
+==> fixed
+
+6. Invalid dir
+
+At startup you try loading "titlebar.image" from LIBS:Classes/Images.
+This way you'll never load it - the correct path is LIBS:Images/. If
+the user (like me) does not have Classes/Images/titlebar.image in his
+SoundFX PROGDIR:, the sample-windows will not have the iconify
+gadget.
+
+
+7. Strange preset behaviour
+
+The operator presets:
+Filter-StateVariable - BeatFX1, BeatFX2, BeatFX3, Sweep
+
+Synthesize-Add - LaserShot
+
+==> works here
+
+still produce a zero waveform, both under WinUAE and AmigaXL. Really
+strange.
+
+That's all for today, I'll do more testing at the weekend.
+
+Regards,
+DAN
+
+
+______________________________________________________________________
+Jake bude pocasi? http://pocasi.seznam.cz
+

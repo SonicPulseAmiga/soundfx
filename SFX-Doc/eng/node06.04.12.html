@@ -1,0 +1,119 @@
+<html>
+	<head><title>SoundFX : 6.4.12 Operators : Tuning</title></head>
+	<body bgcolor="#EEEEEE" leftmargin="5" rightmargin="5" topmargin="5" text="#000000" link="#2040FF" vlink="#0020E0" alink="#FFFFFF">
+	<a name="#000"></a>
+	<table border="0" width="100%" cellpadding="3" cellspacing="1" bgcolor="#000000"><tr bgcolor="#FFFFFF"><td>
+		<table border="0" width="100%" cellpadding="0" cellspacing="0"><tr>
+			<td align="left"><font size="-1">
+		[<a href="node__.__.__.html">SoundFX</a>]
+			[<a href="node06.__.__.html">Appendix</a>]
+				[<a href="node06.04.__.html">FAQ</a>]
+			</font></td>
+			<td align="right" valign="center">
+				<a href="node06.04.11.html">
+				<img src="../_img/a_le.gif" width="13" height="13" border="0" alt="[prev]"></a>
+				<img src="../_img/space.gif" width="2">
+				<a href="node06.05.__.html">
+				<img src="../_img/a_ri.gif" width="13" height="13" border="0" alt="[next]"></a>
+			</td>
+		</tr></table>
+	</td></tr></table>
+	<br>
+		<!-- Contents -->
+	<a name="#001"></a>
+		<table border="0" width="100%" cellpadding="3" cellspacing="1" bgcolor="#000000">
+	<tr bgcolor="#DDDDDD"><td>
+		<table border="0" width="100%" cellpadding="0" cellspacing="0"><tr>
+			<td align="left">
+				<b>6.4.12 Operators : Tuning</b>
+			</td>
+			<td align="right">
+				<a href="#000">
+				<img src="../_img/a_up.gif" width="13" height="13" border="0" alt="[up]"></a>
+				<img src="../_img/space.gif" width="2">
+				<a href="#002">
+				<img src="../_img/a_do.gif" width="13" height="13" border="0" alt="[down]"></a>
+			</td>
+		</tr></table>
+	</td></tr>
+			<tr bgcolor="#FFFFFF"><td>
+				<table border="0" cellpadding="5" cellspacing="0"><tr><td>
+					<p align="justify">
+						<b>Q:</b> What is the difference between Detune, PitchShift and
+								  Resample in the sense that all 3 could change the pitch
+								  of a sound?<br>
+						<b>A:</b> Detune and Resample are quite similar. They both
+								  just output incoming samples at a different speed, thus
+								  they change the length of the sample along with the 
+								  pitch.<br>
+								  The difference is that Resample is doing this with a
+								  constant rate (e.g. output 3 values for each two incoming
+								  ones), while Detune can do this with a varying factor.
+								  Additionally Resample offers a few gimmicks to
+								  cure diseases which can be caused by doing this namely aliasing. 
+								  Therefore an example : think of a wave containing<br>
+								  +-+-+-+-<br>
+								  where + means maximum positive amplitude and - means
+								  maximum negative amplitude.
+								  Now you down sample it by factor two (skipping every
+								  second value) and you would get<br>
+								  ++++<br>
+								  The high frequency has canceled itself or more
+								  precise even became a dc-offset. And it gets worser if you
+								  down-sample by fractional factors (e.g. 1.5). Then you
+								  would get something like<br>
+								  +--+-<br>
+								  There is a very easy way to see and hear the effect.
+								  Use Synthesize-Add and generate a sine-sweep from
+								  1000 Hz to e.g. 100000 Hz but choose a sampling rate
+								  of e.g. 44100 Hz. The result should be something like
+								  puuuuuiiiiiiieeeee ;-) But it will be something like
+								  puuuuiiiiieeeeeiiieeeeuuueeeeiii.<br>
+								  Use Analyse-Spect-2D to visualize it and you will
+								  understand.<br><br>
+								  Practically you would use Resample if you have a
+								  sampled recorded e.g. at 22050 Hz and you want to use
+								  it in a software which requires samples recorded at
+								  44100 Hz, as Resample changes the sample so that it
+								  sounds the same when played back at 44100 Hz instead
+								  of 22500 Hz.<br>
+								  In contrast, with Detune you can do things like
+								  simulating the effect of a power-outage or alien voices.<br><br>
+								  Now about Pitchshift. Its speciality is that it changes
+								  the pitch without changing the length, by using a lot
+								  of magic (intelligently repeating or skipping small
+								  fragments of the sample).
+								  There is another related effect which will appear in <b>SoundFX</b>
+								  sooner or later (I wish sooner). It is called Timestretch
+								  and it makes a sample longer or shorter without changing
+								  the pitch. Basically this is a PitchShift followed by
+								  a resample (thus can be simulated in <b>SoundFX</b> already).<br>
+					</p>
+				</td></tr></table>
+			</td></tr>
+		</table>
+		<br>
+	<a name="#002"></a>
+	<table border="0" width="100%" cellpadding="3" cellspacing="1" bgcolor="#000000"><tr bgcolor="#FFFFFF"><td>
+		<table border="0" width="100%" cellpadding="0" cellspacing="0"><tr>
+			<td align="left"><font size="-1">
+		[<a href="node__.__.__.html">SoundFX</a>]
+			[<a href="node06.__.__.html">Appendix</a>]
+				[<a href="node06.04.__.html">FAQ</a>]
+			</font></td>
+			<td align="right" valign="center">
+				<a href="node06.04.11.html">
+				<img src="../_img/a_le.gif" width="13" height="13" border="0" alt="[prev]"></a>
+				<img src="../_img/space.gif" width="2">
+				<a href="node06.05.__.html">
+				<img src="../_img/a_ri.gif" width="13" height="13" border="0" alt="[next]"></a>
+			</td>
+		</tr></table>
+	</td></tr></table>
+	<br>
+	<table border="0" width="100%" cellpadding="3" cellspacing="1" bgcolor="#000000"><tr bgcolor="#FFFFFF"><td align="center"><font size="-1">
+		&copy; by <a href="mailto:soundfx@sonicpulse.de">Stefan Kost</a> 1993-2004
+		<a href="http://www.sonicpulse.de" target="_new">www.sonicpulse.de</a>
+	</font></td></tr></table>
+	</body>
+</html>

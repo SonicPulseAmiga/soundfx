@@ -1,0 +1,104 @@
+Subject:
+[soundfx-users] Re: New SoundFX release
+From:
+"trixie_vct" <jedlicka@phil.muni.cz>
+Date:
+Thu, 15 Aug 2002 08:25:07 -0000
+To:
+soundfx-users@yahoogroups.com
+X-UIDL:
+361df5b500005dda
+X-Mozilla-Status:
+0005
+X-Mozilla-Status2:
+00000000
+Received:
+from n26.grp.scd.yahoo.com (n26.grp.scd.yahoo.com [66.218.66.82]) by imn.htwk-leipzig.de (8.9.1/8.9.1) with SMTP id KAA27355 for <kost@imn.htwk-leipzig.de>; Thu, 15 Aug 2002 10:25:39 +0200 (MET DST)
+Received:
+from [66.218.67.193] by n26.grp.scd.yahoo.com with NNFMP; 15 Aug 2002 08:25:09 -0000
+Received:
+(EGP: mail-8_0_7_4); 15 Aug 2002 08:25:08 -0000
+Received:
+(qmail 54866 invoked from network); 15 Aug 2002 08:25:08 -0000
+Received:
+from unknown (66.218.66.216) by m11.grp.scd.yahoo.com with QMQP; 15 Aug 2002 08:25:08 -0000
+Received:
+from unknown (HELO n10.grp.scd.yahoo.com) (66.218.66.65) by mta1.grp.scd.yahoo.com with SMTP; 15 Aug 2002 08:25:07 -0000
+Received:
+from [66.218.67.159] by n10.grp.scd.yahoo.com with NNFMP; 15 Aug 2002 08:25:07 -0000
+X-eGroups-Return:
+sentto-3879093-460-1029399908-kost=imn.htwk-leipzig.de@returns.groups.yahoo.com
+X-Sender:
+jedlicka@phil.muni.cz
+X-Apparently-To:
+soundfx-users@yahoogroups.com
+Message-ID:
+<ajfoh3+46cp@eGroups.com>
+In-Reply-To:
+<3D5B5398.4070701@imn.htwk-leipzig.de>
+User-Agent:
+eGroups-EW/0.82
+X-Mailer:
+Yahoo Groups Message Poster
+X-Originating-IP:
+62.245.96.12
+X-Yahoo-Profile:
+trixie_vct
+MIME-Version:
+1.0
+Mailing-List:
+list soundfx-users@yahoogroups.com; contact soundfx-users-owner@yahoogroups.com
+Delivered-To:
+mailing list soundfx-users@yahoogroups.com
+Precedence:
+bulk
+List-Unsubscribe:
+<mailto:soundfx-users-unsubscribe@yahoogroups.com>
+Reply-To:
+soundfx-users@yahoogroups.com
+Content-Transfer-Encoding:
+7bit
+Content-Type:
+text/plain; charset=US-ASCII
+Content-Length:
+928
+Status:
+O
+
+Hello Stefan!
+
+
+> Then I'll fix the installation (add the missing file Dan
+> has reported.
+
+
+The fix should address the wrong port calls in Pan.rexx and 
+Notepad.rexx scripts, as well as the missing .modinfo files in _rexx 
+dir.
+
+Bug #63 (posted by cieffeeditingvideo@tiscalinet.it) is caused by a 
+change in the Info.rexx script, starting from SFX 4.2beta5. The 
+script tries to run "_rexx/INFO_EXE", which is not present in the 
+installation.
+
+Are you going to have a look at the Equalize-3Band bug as well?
+
+Regards,
+DAN
+
+
+
+------------------------ Yahoo! Groups Sponsor ---------------------~-->
+4 DVDs Free +s&p Join Now
+http://us.click.yahoo.com/pt6YBB/NXiEAA/RN.GAA/mjFolB/TM
+---------------------------------------------------------------------~->
+
+To unsubscribe from this group, send an email to:
+soundfx-users-unsubscribe@yahoogroups.com
+
+ 
+
+Your use of Yahoo! Groups is subject to http://docs.yahoo.com/info/terms/ 
+
+
+

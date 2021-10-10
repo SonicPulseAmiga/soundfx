@@ -1,0 +1,128 @@
+Hello Stefan!
+
+I did a stupid thing. I re-installed my emulator filedisk
+in order to get a clean installation of 0S3.9 (and I created two more
+with OS3.1 and 3.5, for SoundFX testing). I backed-up my fonts,
+libraries... but I forgot one important directory - DEVS:Keyfiles.
+Sorry to bother, but would it be possible to generate a new SFX
+keyfile for me? ;-) My reg.nr. was 1300 or so as I remember. Thanks,
+hope it's not a big problem!
+
+Now a few comments on your last mail.
+
+Thanks for fixing the reported bugs. (You'll find another report,
+hopefully not a long one, at the end.)
+
+
+> >4. Analyse-Spect2D, "too many crosses"
+Now I see how it works! Thanks for explanation.
+
+
+> I've renamed the czech local to reflect this and I will updaod the
+> translation archives soon, so that the translators can prepare the > v4.2 release. It would be great if you would want to update the
+> czech one.
+I will, no problem.
+
+
+> I would like to add the tips catalog to the archive.
+This would be a little bit more tricky. I'll explain how ShowTip
+handles the catalog. String #0 contains the total number of
+tip-strings in the catalog - it is actually a string of digits that
+ShowTip converts via atoi(). This number specifies the range of
+strings ShowTips can choose from, via rand(). Strings #1 and #2 are
+reserved for the Title and Gadget text of the requester. Thus, tip
+messages start from catalog string #3.
+
+Including the tips.catalog in soundfx.catalog would be possible but I
+think having it separate is more practical. I really wouldn't mix the
+two things together. Both you and I can add new catalog strings
+freely, without having to rewrite ShowTip each time you change
+something in the main catalog.
+But of course I'll send you the catalog source so that you can
+include your tips.
+
+
+> About the last version of ShowTip. What do you use for the requests ? Can you make the "Ok" button default, so it can be invoked by pressing Enter ?
+Well, I doubt that. I use the requester.class for displaying the
+messages. I've chosen this class because the requesters look good and
+are displayed centered on the screen. But the class seems to be
+unfinished in some parts, and I'm afraid that keyboard shortcuts for
+buttons are among the unfinished features. I've told Haage&Partner
+about this but it seems they have other things to do. I might try
+other solutions: Intuition or reqtools.library. In fact, I may
+include all three solutions in ShowTip and let the user choose the
+one he prefers... What do you think?
+
+
+> I had a look at the config stuff as well. I will include infos
+> about AHI as well and further bug the author to even include
+> version infos related to audio/graphic subsystem.
+Sure, do any changes that are necessary. My code was just an example
+of how it could be done, I don't claim any copyrights for it. :-)
+Good to hear that you like identify.library.
+
+Now the promised report #4.
+
+---
+
+1. ChannelJoin
+
+This time I have spotted a nasty bug in the ChannelJoin operator. Try
+this: load a mono sample, select ChannelJoin and join the sample with
+itself. No problems, are there? Now perform an Edit operation on the
+original mono sample - for example, cut out a portion. Then join this
+sample with itself just like you did before. See the bug?
+
+Perform some more operations on the original sample: Paste, Zero,
+Erase... With the exception of Copy and Grab, all Edit operations
+cause ChannelJoin to distort the lower part of the resulting stereo
+sample.
+
+Operations performed via operators (like Shorten, ZeroPass etc.) do
+not cause this problem.
+
+===> fixed
+
+2. No room for reverberation
+SoundFX produces quality delay and reverb effects. Unfortunately, the
+effects do not add any room for reverberation at the end of the
+sample. The result sounds quite unnatural: the sample ends "too
+soon", before the reverberation fades out smoothly.
+
+There are basically three ways to make it better:
+
+a/ The operator calculates how much extra room the reverberation
+needs at the end, and adds this room automatically. Thus, the
+resulting sample is longer than the original. This is how most DSP
+programs do it, but in SoundFX there would be a slight problem: you
+wouldn't be able to ChannelJoin the original and the result into a
+stereo sample because of the length difference.
+
+b/ The operator offers a parameter by which the user can specify how
+much workspace (in seconds, bytes...) should be added at the end of
+the sample.
+
+c/ Do it just like good old AudioMaster does it: put an "Add
+Workspace" item to the Edit menu. Selecting this item would open a
+requester window where the user can select the length of the
+workspace. After clicking "OK" the active sample gets the specified
+extra zero bytes at the end.
+
+Personally, I vote for alternative c/ as it is the easiest to
+implement and still quite practical. Alternative b/ would mean
+rewriting the operators as well as their GUI.
+
+===> no bug
+
+---
+
+This is all for today. I'll have a look at the ShowTip requesters
+during the weekend.
+
+Regards,
+Dan
+
+______________________________________________________________________
+Kdy¾ Neumannová fini¹uje a vy sedíte v práci,
+http://zoh.tiscali.cz je tu jediným kliknutím!
+

@@ -1,0 +1,49 @@
+Message(strNoID,"AHI : ERROR_NO_FREE_STORE",0l,0l);
+Message(strNoID,"AHI : ERROR_NO_MORE_ENTRIES",0l,0l);
+Message(errAccessFile,sfxmsg,"SFX-Sav.c",114+(RunTime.keynr^351));      // to make it not too obvious
+Message(errAccessFile,sfxmsg,__FILE__,114+(RunTime.keynr^279));     // to make it not too obvious
+Message(errAccessFile,sfxmsg,__FILE__,114+(RunTime.keynr^351));     // to make it not too obvious
+Message(strNoID,id_string,0l,0l);
+Message(errCloseSample,0l,0l,0l);
+Message(errAccessFile,sfxmsg,__FILE__,114+(RunTime.keynr^279));     // to make it not too obvious
+Message(errAccessFile,sfxmsg,__FILE__,87+(RunTime.keynr^465));      // to make it not too obvious
+Message(msgUnregVersionEnd,NULL,NULL,0l);
+Message(msgUnregVersionStart,NULL,NULL,0l);
+Message(strNoID,fmt_string,0l,0l);
+Message(msgDemoNoSave,0l,0l,0l);
+Message(msgDemoNoSave,0l,0l,0l);
+Message(msgDemoNoARexx,0l,0l,0l);
+Message(msgInstIncomplete,NULL,NULL,0l);
+Message(NULL,"Can't create popupmenu",__FILE__,__LINE__);
+Message(errAccessFile,sfxmsg,__FILE__,__LINE__);
+Message(errAddAppIcon,NULL,__FILE__,__LINE__);
+Message(errAddSampleBuffer,0l,__FILE__,__LINE__);
+Message(errAddSampleBuffer,NULL,__FILE__,__LINE__);
+Message(errAllocateAudio,0l,__FILE__,__LINE__);
+Message(errAllocateAudio,NULL,__FILE__,__LINE__);
+Message(errAllocateAudioRequest,0l,__FILE__,__LINE__);
+Message(errAllocateFileRequest,NULL,__FILE__,__LINE__);
+Message(errAllocateFontRequest,NULL,__FILE__,__LINE__);
+Message(errAllocateMemory,0l,__FILE__,__LINE__);
+Message(errAllocateMemory,NULL,__FILE__,__LINE__);
+Message(errAllocateScrmdRequest,NULL,__FILE__,__LINE__);
+Message(errAllocateSignal,0l,__FILE__,__LINE__);
+Message(errCreateContext,0l,__FILE__,__LINE__);
+Message(errCreateGadgets,0l,__FILE__,__LINE__);
+Message(errCreateMenus,NULL,__FILE__,__LINE__);
+Message(errCreatePort,NULL,__FILE__,__LINE__);
+Message(errEmptyClip,NULL,__FILE__,__LINE__);
+Message(errFail,sfxmsg,__FILE__,__LINE__);
+Message(errGetVisualInfo,NULL,__FILE__,__LINE__);
+Message(errLayoutMenus,NULL,__FILE__,__LINE__);
+Message(errMakeScreenPublic,NULL,__FILE__,__LINE__);
+Message(errNoAHI,0l,__FILE__,__LINE__);
+Message(errNoAHI,NULL,__FILE__,__LINE__);
+Message(errOpenFile,sfxmsg,__FILE__,__LINE__);
+Message(errOpenScreen,NULL,__FILE__,__LINE__);
+Message(errOpenWindow,0l,__FILE__,__LINE__);
+Message(errOpenWindow,NULL,__FILE__,__LINE__);
+Message(errReadData,0l,__FILE__,__LINE__);
+Message(errVisitorWindows,NULL,__FILE__,__LINE__);
+Message(strNoID,"Can't create ARexx message !",__FILE__,__LINE__);
+Message(strNoID,"No ARexx available !\nStart RexxMast in s:user-startup.",__FILE__,__LINE__);

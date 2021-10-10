@@ -1,0 +1,30 @@
+Bugs/UnfinishedFeatures in SoundFX
+----------------------------------
+
+	* sfxlibrary/lib-units.c 205
+		* Frequenz nach Key, es fehlt noch Umrechnung
+	* Virtual-Memory (VM_DEVICE)
+		* ZeroSearch
+		* Trace & Zeichenen
+	* Speicherleck with CfgIO
+		* size=12 Bytes
+	* sample length && compression (FDPCM,EDPCM)
+	* docu analyse-spect-2d
+	* display saving warning
+		* always    : if saving samples is not possible (quadro in iff-maud)
+		* definable : if losses data like, loop, samples/sampling rate in TX16W
+	* better reuse prowin for :
+		SFX-Savers (is currently not possible, because prowin gets handled by WriteData)
+			Studio16
+			Voc
+	* sfx-record needs reset in cmd-bar !!!!!!!!!!!!!!!!!!!!!!!!!!
+		-> reset the current recording
+	* Enabled/Disable Delays : Multidelay (switching presets)
+	* Use dosibrary/AllocaDosObject for
+		struct RDArgs *rda=(struct RDArgs *)AllocDosObject(DOS_RDARGS, NULL)
+		FreeDosObject(DOS_RDARGS, myrda);
+
+		struct FileInfoBlock *fib=AllocDosObject(DOS_FIB, NULL)
+		FreeDosObject(DOS_FIB, fib);
+
+		what about InfoData, see dos.library/Info()

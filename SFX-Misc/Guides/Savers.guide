@@ -1,0 +1,18 @@
+@database SFX
+
+@remark $VER: Saver.guide © by Stefan Kost 1994-1997 (09.03.97)
+@remark AmigaGuide-OnLine-Hilfe für SoundFX
+
+@master /guides/sfx.guide
+@index /guides/sfx-index.guide/index
+
+@node main "Saver : Allgemeines"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Saver : Allgemeines
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+-
+
+@endnode

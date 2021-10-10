@@ -1,0 +1,169 @@
+@database SFX-GUIListWin.guide
+
+@remark $VER: SFX-GUIListWin.guide © by Stefan Kost 1994-1997 (09.03.97)
+@remark AmigaGuide-OnLine-Hilfe für SoundFX
+
+@master SFX-GUIListWin.guide
+@index sfx-index.guide/index
+
+@node main "1.3 Listenfenster"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+1.3 Listenfenster
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+	@{" 1.3.1 Operatorfenster    " link OperatorWin }
+	@{" 1.3.2 Rexxoperatorfenstr " link RXOperatorWin }
+	@{" 1.3.3 Loaderfenster      " link LoaderWin }
+	@{" 1.3.4 Saverfenster       " link SaverWin }
+	@{" 1.3.5 Playerfenster      " link PlayerWin }
+	@{" 1.3.6 Pufferfenster      " link BufferWin }
+@endnode
+
+@node OperatorWin "1.3.1 Operatorfenster"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+1.3.1 Operatorfenster
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+In diesem Fenster sehen Sie eine Liste der verschiedenen Operatoren die Ihnen
+zur Auswahl stehen.
+
+Execute	Die Berechnung des neuen Samples erfolgt dann mit "Execute", "E" oder
+	mit einem Doppelklick auf den Listeneintrag.
+	Der Operator öffnet dann ein Fenster, in dem Sie die Parameter ändern
+	können. Diese bleiben, solange der Rechner läuft, erhalten. Mit einem
+	Klick auf den "Go"-Schalter wird die Generierung gestartet. Mit einem
+	Klick auf das Close-Gadget des Fensters kann die Bearbeitung unterbun-
+	den werden. Der Fortgang der Berechnung wird mit einem Statusbalken und
+	einer Prozentanzeige dargestellt. Die Berechnug kann mit dem Close-Gad-
+	get oder dem "Stop"-Schalter abgebrochen werden. Für das neue Sample
+	wird ein neues @{" Samplefenster " link sfx.guide/SampleWin } angelegt. Wenn die Generierung beendet
+	ist, wird dieses zum aktuellen und Sie sehen das Ergebnis.
+
+Module	Liste der zur Verfügung stehenden Operatoren. Selektieren erfolgt durch
+	anklicken oder durch verschieben mit den Cursor-Tasten (hoch/runter).
+
+Die Operatoren versteht man am besten, indem man sie mit variierenden Parame-
+tern ausprobiert. Also der Fantasie freien Lauf lassen - es kann ja nichts ka-
+putt gehen (Das Ausgangssample ist ja noch vorhanden). Und wenn das Resultat
+seltsam klingt nicht verzagen - nicht jeder Effekt mit jedem Parameterset, gibt
+bei jedem Sample gute Resultate.
+@endnode
+
+@node RXOperatorWin "1.3.2 Rexxoperatorfenster"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+1.3.2 Rexxoperatorfenster
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+In diesem Fenster sehen Sie eine Liste der installierten ARexx-Scripts.
+
+Execute	Das angewählte Scripts wird gestartet.
+
+Module	Liste der zur Verfügung stehenden Scripts. Selektieren erfolgt durch
+	anklicken oder durch verschieben mit den Cursor-Tasten (hoch/runter).
+@endnode
+
+@node LoaderWin "1.3.3 Loaderfenster"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+1.3.3 Loaderfenster
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Dieses Fenster dient der Auswahl des Lademodules und des Ladens selber.
+Selektieren erfolgt durch anklicken oder durch verschieben mit den Cursor-
+Tasten (hoch/runter).
+
+Load	Nach einem Klick auf "Load" erscheint ein Filerequester in dem Sie ein
+	oder mehrere Samples auswählen können. Falls dies 8-Bit Sample sind, so
+	werden sie automatisch auf 16-Bit heraufgerechnet.
+	Für das neue Sample wird ein neues @{" Samplefenster " link sfx.guide/SampleWin } angelegt.
+Prefs	In den Prefs-Fenstern können Sie für einige Loader Voreinstellungen
+	setzen, wie das zu ladende Sample behandelt werden soll. Dies ist ins-
+	besonders notwendig, wenn das Sampleformat nur wenige oder gar keine
+	Formatinformationen enthält.
+	Mit "Okay" verlassen Sie das Einstellungsfenster, mit "Load" können Sie
+	direkt ein Sample laden und mit "Reset" können Sie die Werte auf die
+	Standarteinstellungen zurücksetzen.
+@endnode
+
+@node SaverWin "1.3.4 Saverfenster"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+1.3.4 Saverfenster
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Dieses Fenster dient der Auswahl des Speichermodules und des Speicherns selber.
+Selektieren erfolgt durch anklicken oder durch verschieben mit den Cursor-
+Tasten (hoch/runter).
+
+Save	Nach einem Klick auf "Save" erscheint ein Filerequester in dem Sie aus-
+	wählen können, wohin und unter welchem Namen das Sample gespeichert
+	werden soll. SoundFX gibt ihnen beim Speichern automatisch einen Na-
+	mensvorschlag an. Dieser besteht aus dem Namen des Puffers und einer
+	Endung, die sich nach dem gewählten Savermodul richtet. Diesen Namen
+	können Sie selbstverständlich ändern. Ich empfehle Ihnen allerdings,
+	die Erweiterung beizubehalten, da SFX die Samples so besser, einfacher
+	und schneller unterscheiden kann.
+	Die 16-Bit Sounddaten werden bei einem 8-Bit Format automatisch runter-
+	gerechnet.
+Prefs	In den Prefs-Fenstern können Sie für einige Saver Voreinstellungen set-
+	zen, wie das zu speichernde Sample behandelt werden soll.
+	Mit "Okay" verlassen Sie das Einstellungsfenster, mit "Save" können Sie
+	direkt ein Sample speichern und mit "Reset" können Sie die Werte auf
+	die Standarteinstellungen zurücksetzen.
+@endnode
+
+@node PlayerWin "1.3.5 Playerfenster"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+1.3.5 Playerfenster
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Dieses Fenster dient der Auswahl des Abspielmodules und des Abspielens selber.
+Selektieren erfolgt durch anklicken oder durch verschieben mit den Cursor-
+Tasten (hoch/runter).
+
+Play All (linker gefüllter Button)
+	Spielt das komplette Sample ab.Falls "Loop on" ausgewählt ist und ein
+	Loopbereich gesetzt ist, wird der entsprechende Teil fortlaufend
+	wiederholt.
+	Play All kann auch über 'p' aufgerufen werden.
+Play Rng (rechter leerer Button)
+	Spielt den aktuellen Bereich bzw. den sichtbaren Bereich des Samples ab.
+	Loops werden hier nicht mitgespielt.
+	Play Range/Window  kann auch über 'P' aufgerufen werden.
+Stop	Stoppt den Abspielvorgang. Kann auch mit der Taste 'Space' geschehen.
+Prefs	In den Prefs-Fenstern können Sie für einige Player Voreinstellungen set-
+	zen, wie das Sample abgespielt werden soll.
+	Mit "Okay" verlassen Sie das Einstellungsfenster und mit "Reset" können
+	Sie die Werte auf die Standarteinstellungen zurücksetzen.
+
+Siehe auch : @{" Samplingrate " link sfx-glossar.guide/Samplingrate } und @{" Bitauflösung " link sfx-glossar.guide/Bitauflösung }.
+@endnode
+
+@node BufferWin "1.4.6 Pufferfenster"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+1.4.6 Pufferfenster
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+In diesem Fenster sehen Sie alle Puffer, welche im Speicher sind.
+ 
+Name	Der Name des Puffers ist in dem Stringgadget unter der Liste änderbar.
+Prefs	Damit wird das @{" Sampleoptionsfenster " link sfx.guide/OptionsWin } aufgerufen.
+Visual	Mit diesem Cycle-Gadget können Sie Samplefenster verstecken und wierder
+	anzeigen. Falls Sie also mal keinen Platz mehr auf ihren Bildschirm ha-
+	ben, so wählen Sie einfach einen Puffer aus, den Sie momentan nicht be-
+	nötigen und wählen Visual-Schalter an bzw. klicken doppelt aus den Ein-
+	trag in der Liste. Eine erneute Anwahl läßt das Fenster an altem Ort
+	wieder erscheinen.
+@endnode

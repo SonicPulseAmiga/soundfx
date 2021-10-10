@@ -1,0 +1,113 @@
+X-UIDL: 3f8791b30000f47f
+X-Mozilla-Status: 0003
+X-Mozilla-Status2: 00000000
+Received: from n40.grp.scd.yahoo.com (n40.grp.scd.yahoo.com [66.218.66.108])
+	by imn.htwk-leipzig.de (8.12.9/8.12.9) with SMTP id hA4I9ekV002490
+	for <kost@imn.htwk-leipzig.de>; Tue, 4 Nov 2003 19:09:41 +0100 (MET)
+X-eGroups-Return: sentto-3879093-1303-1067969380-kost=imn.htwk-leipzig.de@returns.groups.yahoo.com
+Received: from [66.218.67.201] by n40.grp.scd.yahoo.com with NNFMP; 04 Nov 2003 18:09:42 -0000
+X-Sender: blakkhar@online.de
+X-Apparently-To: soundfx-users@yahoogroups.com
+Received: (qmail 52867 invoked from network); 4 Nov 2003 18:09:36 -0000
+Received: from unknown (66.218.66.216)
+  by m9.grp.scd.yahoo.com with QMQP; 4 Nov 2003 18:09:36 -0000
+Received: from unknown (HELO moutvdom.kundenserver.de) (212.227.126.249)
+  by mta1.grp.scd.yahoo.com with SMTP; 4 Nov 2003 18:09:38 -0000
+Received: from [212.227.126.224] (helo=mrvdomng.kundenserver.de)
+	by moutvdom.kundenserver.de with esmtp (Exim 3.35 #1)
+	id 1AH5cM-0003O1-00
+	for soundfx-users@yahoogroups.com; Tue, 04 Nov 2003 19:09:26 +0100
+Received: from [193.158.181.249] (helo=194.25.2.129)
+	by mrvdomng.kundenserver.de with smtp (Exim 3.35 #1)
+	id 1AH5cL-0000Rc-00
+	for soundfx-users@yahoogroups.com; Tue, 04 Nov 2003 19:09:25 +0100
+To: soundfx-users@yahoogroups.com
+Message-ID: <yam9438.2261.27406336@smtp.nwn.de>
+In-Reply-To: <yam9437.1629.156485344@relais.videotron.ca>
+X-Mailer: YAM 2.5-dev [020] AmigaOS E-mail Client (c) 2000-2003 by YAM Open Source Team - http://www.yam.ch/
+From: Stellan <blakkhar@nwn.de>
+MIME-Version: 1.0
+Mailing-List: list soundfx-users@yahoogroups.com; contact soundfx-users-owner@yahoogroups.com
+Delivered-To: mailing list soundfx-users@yahoogroups.com
+Precedence: bulk
+List-Unsubscribe: <mailto:soundfx-users-unsubscribe@yahoogroups.com>
+Date: Tue, 04 Nov 2003 19:08:45 +0100
+Subject: [soundfx-users] Loader/Saver-Path, LogPath (now bug confirmed) !
+Reply-To: soundfx-users@yahoogroups.com
+Content-Type: text/plain; charset=ISO-8859-1
+Content-Transfer-Encoding: 8bit
+X-MIME-Autoconverted: from quoted-printable to 8bit by imn.htwk-leipzig.de id hA4I9ekV002490
+Content-Length: 2756
+Status:  O
+
+Hello Pierre
+
+Am 03.11.03 schrieb Pierre Giroux:
+> The problem I have with the Path saving is not when I boot from the CD.
+
+> When I changed the Path in the preference window there is no change, the
+> Path remain at progdir:, nothing to do with saving since the change is not
+> done at all.
+
+> I found the cause of the problem... I'm using reqtools.library, don't know
+> if theres is something wrong with it or only in the way SoundFX is looking
+> for the result of my choice.
+
+I tried it again and something has changed now....
+
+Hey, you found bugs :-) Now I can confirm it and extend the bug. Seems to be
+an ugly bug, because it appears only "sometimes". After first start with SFX
+and than choose a different Loader/Saver-Path the bug happens.
+After checked some other SFX-Requester (choose LogPath gives also hits), I
+noticed that the enforcer-hit with Loader/SaverPath was gone. The "goal" is if
+you choose or changed? the VMem SwapPath and go to Loader/Saver-Path, it works
+(no hit). Except the LogPath makes allways a hit.
+
+I`m using reqtools 39.3 (15.11.2001), too (I think the most do).
+
+
+ps: At the moment I`ve found three more bugs plus some old ones (hope to added
+it to bugtracker soon).
+
+pps: Stefan: I remember you planed a Test-Script, what about it? I ask,
+because it is extrem time expensive to test all SFX-Operators. I never check
+much Operators (only a few I use and some which reported problems). The Script
+can help much, or not?
+
+
+-- 
+ ____/\ _______ ____      _________ ________
+ \  //.\     //   //______\\ .___ \\  ____//_____
+  \//   \   //   //.    // \\   /  \\ \\   __. //_________
+  //_____\ //\  /______//___\\ /___//__\\ /   //        //
+  ¯ \\ z!o\/  \/       ¯     \/    ¯    \/___//        //
+     \\                                      ¯        //
+     //         mailto:blakkhar@nwn.de                \\
+     \\        http://www.thescene.de.vu              //
+      \\      http://www.chscene.ch/moods/           //
+       \\                                           //
+ _______\\_ ___________    _________ ____/\_____   //
+ \\  ____//_\\_______//____\\ .___ \\  .// \  //  //
+  \\ \\   __. //\\ ._¯   // \\   /  \\_// __\ \\__/
+  //__\\ /   //__\\ /___//___\\ /___////_______\\
+  ¯    \/___//    \/    ¯     \/z!o ¯ ¯         ¯
+            ¯
+
+
+------------------------ Yahoo! Groups Sponsor ---------------------~-->
+Rent DVDs Online - Over 14,500 titles.
+No Late Fees & Free Shipping.
+Try Netflix for FREE!
+http://us.click.yahoo.com/xlw.sC/XP.FAA/3jkFAA/mjFolB/TM
+---------------------------------------------------------------------~->
+
+To unsubscribe from this group, send an email to:
+soundfx-users-unsubscribe@yahoogroups.com
+
+ 
+
+Your use of Yahoo! Groups is subject to http://docs.yahoo.com/info/terms/ 
+
+
+
+

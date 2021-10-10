@@ -1,0 +1,43 @@
+Hello Stefan Kost, on date 27-Aug-03 14:28:50 you wrote:
+
+ SK> I have attached some source fragments to show what I am doing.
+
+ SK> First, it seems that we need to rename the defines for POPUPIMAGE in
+ SK> "images/titlebar.h" from visual-prefs. This is neccesary to compile a
+ SK> version which works with OS4.X and OS 3.X. I wouldsuggest prefixing with
+ SK> "VP_".
+
+Or "TBI_"   Please use the attached header file and include it *after*
+"intuition/imageclass.h"...
+
+ SK> Then I think I have to getthe images from "sysiclass" for OS4 instead of
+ SK> "tbiclass". right?
+
+Yes, while the rest of your NewObject() call should be ok as it is now.
+
+ SK> for the titlebar-gadgets I previously only specified "GA_TopBorder,TRUE".
+ SK> Now there I've added "GA_Titlebar, TRUE" as well (uhm, it's not in the
+ SK> attached source, but I did it at home)
+
+The correct procedure to add a custom titlebar gadget to a window is:
+
+- Create the sysiclass image passing just the screen's DrawInfo to
+  NewObject(), do *not* specify the sizes with IA_Width/IA_Height,
+  nor the position with IA_Left/IA_Top; this way the image will get
+  automatically the correct position and size.
+
+- Create the buttongclass gadget with the image as GA_Image, and
+  pass { GA_Titlebar, TRUE } among its tags; this way the gadget
+  will be automatically positioned (and sized) in the titlebar.
+
+If you need, I can send you a small example source doing just that...
+
+ SK> PS.: when I get it all working, I would volunter to prepare a small
+ SK> 'porting from visual-prefs to os4' text file, which we could put into
+ SK> the examples or intuition docs. what do you think?
+
+Sounds great, thanks 
+
+Kind regards,
+                                   Massimo Tantignone (tanti@intercom.it)
+                                     [http://www.intercom.it/~amigaws]

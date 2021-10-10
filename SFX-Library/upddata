@@ -1,0 +1,10 @@
+echo [32m»» updating includes & library ...
+
+fd2pragma.old sfxsupport_lib.fd include/pragmas/sfxsupport_pragmas.h
+
+copy include/pragmas/sfxsupport_pragmas.h include:pragmas
+copy include/clib/sfxsupport_protos.h include:clib
+copy include/libraries/sfx#?.h include:libraries
+copy include/proto/sfxsupport.h include:proto
+
+copy sfxsupport.library /sfx/libs

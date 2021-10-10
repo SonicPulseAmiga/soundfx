@@ -1,0 +1,24 @@
+a) version erhöhen
+b) build.release in allen Source-verzeichnissen
+c) updcat1/2 in sfx-main/Catalogs
+d) update der Readme-Dateien in den sfx-doc Verzeichnissen
+e) run tests
+	* sfx/tests
+	* start sfx
+		* without key / with old key / with new key
+		* without prefs / with prefs
+		* without dbfiles / with dbfiles
+f)
+for beta    : sfx.update, sfx.pack.lzx
+for release : sfx.update, sfx.readme, sfx.pack.lzx, sfx.pack.lha
+
+
+	Step	a)	b)	c)	d)	e)	f)	Datum (YYYY-MM-DD)
+Version
+4.3-b1		x	x	x	x	-	x	?
+4.3-b2		-	x	x	x	-	x	?
+4.3-b3		-	x	x	x	-	x	?
+4.3-b4		-	x	x	x	-	x	?
+4.3-b5		-	x	x	x	x	x	2003-06-06
+4.3-b6		-	x	x	x	-	x	2004-03-15
+4.3			-	x	x	x	-	x	2004-03-26

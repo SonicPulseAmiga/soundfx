@@ -1,0 +1,260 @@
+From - Thu Aug  2 15:11:41 2001
+Received: from thlhp.rz.htwk-leipzig.de (thlhp [141.57.1.1])
+	by imn.htwk-leipzig.de (8.9.1/8.9.1) with ESMTP id LAA19815
+	for <kost@imn.htwk-leipzig.de>; Sun, 29 Jul 2001 11:17:12 +0200 (MET DST)
+Received: from mailgate3.cinetic.de (mailgate3.cinetic.de [212.227.116.80])
+	by thlhp.rz.htwk-leipzig.de (8.8.8/8.8.8) with ESMTP id LAA12772
+	for <kost@imn.htwk-leipzig.de>; Sun, 29 Jul 2001 11:18:22 +0200
+Received: from smtp.web.de (smtp01.web.de [194.45.170.210])
+	by mailgate3.cinetic.de (8.11.2/8.11.2/SuSE Linux 8.11.0-0.4) with SMTP id f6T8bm625433
+	for <kost@imn.htwk-leipzig.de>; Sun, 29 Jul 2001 10:37:48 +0200
+Received: from web.de by smtp.web.de with smtp
+	(freemail 4.2.2.2 #11) id m15Qm54-007oMjC; Sun, 29 Jul 2001 10:37 +0200
+From: Michael - <Ieh-meyl@web.de>
+To: Stefan Kost <kost@imn.htwk-leipzig.de>
+Date: Sun, 29 Jul 2001 10:42:45 +0100
+Message-ID: <yam8610.2259.1150321280@smtp.web.de>
+In-Reply-To: <3B57FD3A.470479BE@imn.htwk-leipzig.de>
+X-Mailer: YAM 2.3 [060] AmigaOS E-Mail Client (c) 1995-2000 by Marcel Beck  http://www.yam.ch/
+Subject: SFX Bugreport
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=iso-8859-1
+Content-Length: 12696
+Status:   
+X-Mozilla-Status: 8001
+X-Mozilla-Status2: 00000000
+X-UIDL: 361df5b50000363e
+
+Hallo Stefan,
+hier gibt es einen Absturz wenn man im "denoise fir"-Operatorfenster zwei
+Voreinstellungen nacheinander löscht. Andere Operatoren testete ich darauf
+nicht.
+Verwendet: SFX 4.1 060, 060 AGA, OS 3.9.
+Mit Mutools ergibt es die unten stehende Ausgabe, die sich endlos wiederholt.
+
+Grüzn,
+Michael
+
+
+8.MP3:system/Mutools> startmuforce 
+
+MuForce 40.27 by Thomas Richter, Copyright © 1998-2000,
+based on the Enforcer by Michael Sinz, Copyright © 1992-1998
+All Rights Reserved.
+
+Contact: thor@math.tu-berlin.de         Enforcer@sinz.org
+
+MuForce is installed.
+
+
+LONG WRITE to  00000004        data=449017D0   PC: 00F81702
+USP : 448FE050 SR: 0000  (U0)(-)(-)  TCB: 448F98E8
+Data: 00000006 00000001 00000000 00006A96 2C57A5F3 000A6497 00000001 C0000000
+Addr: 00000000 449017D0 448FE2E8 448FE594 446D824C 448FE2E4 00005100 441C922C
+Stck: 446BA834 00000004 00006A96 2C57A5F3 448FE594 4490B584 44907442 448FF5B8
+Stck: 446D821C 00000001 ABADF00D 00006A96 4490B584 448FE594 446D821C 448FE128
+----> 00F81702 - "ROM - exec 44.1 (24.1.2001)"  Hunk 0000 Offset 0000164C
+----> 446BA834 - "progdir:libs/sfxsupport.library"  Hunk 0000 Offset 0000179C
+PC-8: 20280004 21490004 C18848D1 01012089 4E752F2E FF78522E 01272059 22512288
+PC *: 21490004 4E752250 20116708 2080C189 23480004 4E752268 00082029 0004670A
+00f816e2 :  2028 0004                  move.l $4(a0),d0
+00f816e6 :  2149 0004                  move.l a1,$4(a0)
+00f816ea :  c188                       exg.l d0,a0
+00f816ec :  48d1 0101                  movem.l d0/a0,(a1)
+00f816f0 :  2089                       move.l a1,(a0)
+00f816f2 :  4e75                       rts
+00f816f4 :  2f2e ff78                  move.l -$88(a6),-(a7)
+00f816f8 :  522e 0127                  addq.b #$1,$127(a6)
+00f816fc :  2059                       movea.l (a1)+,a0
+00f816fe :  2251                       movea.l (a1),a1
+00f81700 :  2288                       move.l a0,(a1)
+00f81702 : *2149 0004                  move.l a1,$4(a0)
+00f81706 :  4e75                       rts
+00f81708 :  2250                       movea.l (a0),a1
+00f8170a :  2011                       move.l (a1),d0
+00f8170c :  6708                       beq.s $f81716
+00f8170e :  2080                       move.l d0,(a0)
+00f81710 :  c189                       exg.l d0,a1
+00f81712 :  2348 0004                  move.l a0,$4(a1)
+00f81716 :  4e75                       rts
+00f81718 :  2268 0008                  movea.l $8(a0),a1
+00f8171c :  2029 0004                  move.l $4(a1),d0
+00f81720 :  670a                       beq.s $f8172c
+Name: "DeNoise-FIR.0"  
+
+
+LONG READ from 00000000                        PC: 446BA4DA
+USP : 448FE00C SR: 0001  (U0)(-)(-)  TCB: 448F98E8
+Data: 00000001 ABADF00D 00000000 00006A96 2C57A5F3 000A6497 00000001 C0000000
+Addr: 448FE2E4 E2F4448F 448FE594 00000000 446D824C 448FE2E4 446D821C 441C9228
+Stck: 448FE594 448FE594 446D824C 448FE2E4 446D821C 448FE594 448FE2E4 4490B584
+Stck: 448FE594 446D821C 446D824C 00000006 446BA880 448FE2E8 448FE190 446D45DE
+----> 446BA4DA - "progdir:libs/sfxsupport.library"  Hunk 0000 Offset 00001442
+----> 446BA880 - "progdir:libs/sfxsupport.library"  Hunk 0000 Offset 000017E8
+----> 446D45DE - "progdir:libs/sfxsupport.library"  Hunk 0002 Offset 00000106
+PC-8: 015C264F 4EAEFFD6 4FEF000C 4CDF0C00 2C6F0024 605E42AF 002C226D 000E6006
+PC *: 265352AF 002CB7C9 66F641F2 0C002448 2F4A0028 2A6F0018 48E70030 42A72F2F
+446ba4ba :  015c                       bchg.l d0,(a4)+
+446ba4bc :  264f                       movea.l a7,a3
+446ba4be :  4eae ffd6                  jsr -$2a(a6)
+446ba4c2 :  4fef 000c                  lea.l $c(a7),a7
+446ba4c6 :  4cdf 0c00                  movem.l (a7)+,a2-a3
+446ba4ca :  2c6f 0024                  movea.l $24(a7),a6
+446ba4ce :  605e                       bra.s $446ba52e
+446ba4d0 :  42af 002c                  clr.l $2c(a7)
+446ba4d4 :  226d 000e                  movea.l $e(a5),a1
+446ba4d8 :  6006                       bra.s $446ba4e0
+446ba4da : *2653                       movea.l (a3),a3
+446ba4dc :  52af 002c                  addq.l #$1,$2c(a7)
+446ba4e0 :  b7c9                       cmpa.l a1,a3
+446ba4e2 :  66f6                       bne.s $446ba4da
+446ba4e4 :  41f2 0c00                  lea.l $0(a2,d0.l*4),a0 ;extended opcode
+446ba4e8 :  2448                       movea.l a0,a2
+446ba4ea :  2f4a 0028                  move.l a2,$28(a7)
+446ba4ee :  2a6f 0018                  movea.l $18(a7),a5
+446ba4f2 :  48e7 0030                  movem.l a2-a3,-(a7)
+446ba4f6 :  42a7                       clr.l -(a7)
+446ba4f8 :  2f2f 0038                  move.l $38(a7),-(a7)
+Name: "DeNoise-FIR.0"  
+
+
+LONG READ from 00000000                        PC: 446BA4DA
+USP : 448FE00C SR: 0001  (U0)(-)(-)  TCB: 448F98E8
+Data: 00000001 ABADF00D 00000000 00006A96 2C57A5F3 000A6497 00000001 C0000000
+Addr: 448FE2E4 E2F4448F 448FE594 00000000 446D824C 448FE2E4 446D821C 441C9228
+Stck: 448FE594 448FE594 446D824C 448FE2E4 446D821C 448FE594 448FE2E4 4490B584
+Stck: 448FE594 446D821C 446D824C 00000007 446BA880 448FE2E8 448FE190 446D45DE
+----> 446BA4DA - "progdir:libs/sfxsupport.library"  Hunk 0000 Offset 00001442
+----> 446BA880 - "progdir:libs/sfxsupport.library"  Hunk 0000 Offset 000017E8
+----> 446D45DE - "progdir:libs/sfxsupport.library"  Hunk 0002 Offset 00000106
+PC-8: 015C264F 4EAEFFD6 4FEF000C 4CDF0C00 2C6F0024 605E42AF 002C226D 000E6006
+PC *: 265352AF 002CB7C9 66F641F2 0C002448 2F4A0028 2A6F0018 48E70030 42A72F2F
+446ba4ba :  015c                       bchg.l d0,(a4)+
+446ba4bc :  264f                       movea.l a7,a3
+446ba4be :  4eae ffd6                  jsr -$2a(a6)
+446ba4c2 :  4fef 000c                  lea.l $c(a7),a7
+446ba4c6 :  4cdf 0c00                  movem.l (a7)+,a2-a3
+446ba4ca :  2c6f 0024                  movea.l $24(a7),a6
+446ba4ce :  605e                       bra.s $446ba52e
+446ba4d0 :  42af 002c                  clr.l $2c(a7)
+446ba4d4 :  226d 000e                  movea.l $e(a5),a1
+446ba4d8 :  6006                       bra.s $446ba4e0
+446ba4da : *2653                       movea.l (a3),a3
+446ba4dc :  52af 002c                  addq.l #$1,$2c(a7)
+446ba4e0 :  b7c9                       cmpa.l a1,a3
+446ba4e2 :  66f6                       bne.s $446ba4da
+446ba4e4 :  41f2 0c00                  lea.l $0(a2,d0.l*4),a0 ;extended opcode
+446ba4e8 :  2448                       movea.l a0,a2
+446ba4ea :  2f4a 0028                  move.l a2,$28(a7)
+446ba4ee :  2a6f 0018                  movea.l $18(a7),a5
+446ba4f2 :  48e7 0030                  movem.l a2-a3,-(a7)
+446ba4f6 :  42a7                       clr.l -(a7)
+446ba4f8 :  2f2f 0038                  move.l $38(a7),-(a7)
+Name: "DeNoise-FIR.0"  
+
+
+LONG READ from 00000000                        PC: 446BA4DA
+USP : 448FE00C SR: 0001  (U0)(-)(-)  TCB: 448F98E8
+Data: 00000001 ABADF00D 00000000 00006A96 2C57A5F3 000A6497 00000001 C0000000
+Addr: 448FE2E4 E2F4448F 448FE594 00000000 446D824C 448FE2E4 446D821C 441C9228
+Stck: 448FE594 448FE594 446D824C 448FE2E4 446D821C 448FE594 448FE2E4 4490B584
+Stck: 448FE594 446D821C 446D824C 00000008 446BA880 448FE2E8 448FE190 446D45DE
+----> 446BA4DA - "progdir:libs/sfxsupport.library"  Hunk 0000 Offset 00001442
+----> 446BA880 - "progdir:libs/sfxsupport.library"  Hunk 0000 Offset 000017E8
+----> 446D45DE - "progdir:libs/sfxsupport.library"  Hunk 0002 Offset 00000106
+PC-8: 015C264F 4EAEFFD6 4FEF000C 4CDF0C00 2C6F0024 605E42AF 002C226D 000E6006
+PC *: 265352AF 002CB7C9 66F641F2 0C002448 2F4A0028 2A6F0018 48E70030 42A72F2F
+446ba4ba :  015c                       bchg.l d0,(a4)+
+446ba4bc :  264f                       movea.l a7,a3
+446ba4be :  4eae ffd6                  jsr -$2a(a6)
+446ba4c2 :  4fef 000c                  lea.l $c(a7),a7
+446ba4c6 :  4cdf 0c00                  movem.l (a7)+,a2-a3
+446ba4ca :  2c6f 0024                  movea.l $24(a7),a6
+446ba4ce :  605e                       bra.s $446ba52e
+446ba4d0 :  42af 002c                  clr.l $2c(a7)
+446ba4d4 :  226d 000e                  movea.l $e(a5),a1
+446ba4d8 :  6006                       bra.s $446ba4e0
+446ba4da : *2653                       movea.l (a3),a3
+446ba4dc :  52af 002c                  addq.l #$1,$2c(a7)
+446ba4e0 :  b7c9                       cmpa.l a1,a3
+446ba4e2 :  66f6                       bne.s $446ba4da
+446ba4e4 :  41f2 0c00                  lea.l $0(a2,d0.l*4),a0 ;extended opcode
+446ba4e8 :  2448                       movea.l a0,a2
+446ba4ea :  2f4a 0028                  move.l a2,$28(a7)
+446ba4ee :  2a6f 0018                  movea.l $18(a7),a5
+446ba4f2 :  48e7 0030                  movem.l a2-a3,-(a7)
+446ba4f6 :  42a7                       clr.l -(a7)
+446ba4f8 :  2f2f 0038                  move.l $38(a7),-(a7)
+Name: "DeNoise-FIR.0"  
+
+
+LONG READ from 00000000                        PC: 446BA4DA
+USP : 448FE00C SR: 0001  (U0)(-)(-)  TCB: 448F98E8
+Data: 00000001 ABADF00D 00000000 00006A96 2C57A5F3 000A6497 00000001 C0000000
+Addr: 448FE2E4 E2F4448F 448FE594 00000000 446D824C 448FE2E4 446D821C 441C9228
+Stck: 448FE594 448FE594 446D824C 448FE2E4 446D821C 448FE594 448FE2E4 4490B584
+Stck: 448FE594 446D821C 446D824C 00000009 446BA880 448FE2E8 448FE190 446D45DE
+----> 446BA4DA - "progdir:libs/sfxsupport.library"  Hunk 0000 Offset 00001442
+----> 446BA880 - "progdir:libs/sfxsupport.library"  Hunk 0000 Offset 000017E8
+----> 446D45DE - "progdir:libs/sfxsupport.library"  Hunk 0002 Offset 00000106
+PC-8: 015C264F 4EAEFFD6 4FEF000C 4CDF0C00 2C6F0024 605E42AF 002C226D 000E6006
+PC *: 265352AF 002CB7C9 66F641F2 0C002448 2F4A0028 2A6F0018 48E70030 42A72F2F
+446ba4ba :  015c                       bchg.l d0,(a4)+
+446ba4bc :  264f                       movea.l a7,a3
+446ba4be :  4eae ffd6                  jsr -$2a(a6)
+446ba4c2 :  4fef 000c                  lea.l $c(a7),a7
+446ba4c6 :  4cdf 0c00                  movem.l (a7)+,a2-a3
+446ba4ca :  2c6f 0024                  movea.l $24(a7),a6
+446ba4ce :  605e                       bra.s $446ba52e
+446ba4d0 :  42af 002c                  clr.l $2c(a7)
+446ba4d4 :  226d 000e                  movea.l $e(a5),a1
+446ba4d8 :  6006                       bra.s $446ba4e0
+446ba4da : *2653                       movea.l (a3),a3
+446ba4dc :  52af 002c                  addq.l #$1,$2c(a7)
+446ba4e0 :  b7c9                       cmpa.l a1,a3
+446ba4e2 :  66f6                       bne.s $446ba4da
+446ba4e4 :  41f2 0c00                  lea.l $0(a2,d0.l*4),a0 ;extended opcode
+446ba4e8 :  2448                       movea.l a0,a2
+446ba4ea :  2f4a 0028                  move.l a2,$28(a7)
+446ba4ee :  2a6f 0018                  movea.l $18(a7),a5
+446ba4f2 :  48e7 0030                  movem.l a2-a3,-(a7)
+446ba4f6 :  42a7                       clr.l -(a7)
+446ba4f8 :  2f2f 0038                  move.l $38(a7),-(a7)
+Name: "DeNoise-FIR.0"  
+
+
+LONG READ from 00000000                        PC: 446BA4DA
+USP : 448FE00C SR: 0001  (U0)(-)(-)  TCB: 448F98E8
+Data: 00000001 ABADF00D 00000000 00006A96 2C57A5F3 000A6497 00000001 C0000000
+Addr: 448FE2E4 E2F4448F 448FE594 00000000 446D824C 448FE2E4 446D821C 441C9228
+Stck: 448FE594 448FE594 446D824C 448FE2E4 446D821C 448FE594 448FE2E4 4490B584
+Stck: 448FE594 446D821C 446D824C 0000000A 446BA880 448FE2E8 448FE190 446D45DE
+----> 446BA4DA - "progdir:libs/sfxsupport.library"  Hunk 0000 Offset 00001442
+----> 446BA880 - "progdir:libs/sfxsupport.library"  Hunk 0000 Offset 000017E8
+----> 446D45DE - "progdir:libs/sfxsupport.library"  Hunk 0002 Offset 00000106
+PC-8: 015C264F 4EAEFFD6 4FEF000C 4CDF0C00 2C6F0024 605E42AF 002C226D 000E6006
+PC *: 265352AF 002CB7C9 66F641F2 0C002448 2F4A0028 2A6F0018 48E70030 42A72F2F
+446ba4ba :  015c                       bchg.l d0,(a4)+
+446ba4bc :  264f                       movea.l a7,a3
+446ba4be :  4eae ffd6                  jsr -$2a(a6)
+446ba4c2 :  4fef 000c                  lea.l $c(a7),a7
+446ba4c6 :  4cdf 0c00                  movem.l (a7)+,a2-a3
+446ba4ca :  2c6f 0024                  movea.l $24(a7),a6
+446ba4ce :  605e                       bra.s $446ba52e
+446ba4d0 :  42af 002c                  clr.l $2c(a7)
+446ba4d4 :  226d 000e                  movea.l $e(a5),a1
+446ba4d8 :  6006                       bra.s $446ba4e0
+446ba4da : *2653                       movea.l (a3),a3
+446ba4dc :  52af 002c                  addq.l #$1,$2c(a7)
+446ba4e0 :  b7c9                       cmpa.l a1,a3
+446ba4e2 :  66f6                       bne.s $446ba4da
+446ba4e4 :  41f2 0c00                  lea.l $0(a2,d0.l*4),a0 ;extended opcode
+446ba4e8 :  2448                       movea.l a0,a2
+446ba4ea :  2f4a 0028                  move.l a2,$28(a7)
+446ba4ee :  2a6f 0018                  movea.l $18(a7),a5
+446ba4f2 :  48e7 0030                  movem.l a2-a3,-(a7)
+446ba4f6 :  42a7                       clr.l -(a7)
+446ba4f8 :  2f2f 0038                  move.l $38(a7),-(a7)
+Name: "DeNoise-FIR.0"  
+

@@ -1,0 +1,2 @@
+- Der Resample-OP klappt bei mir gar nicht mehr. Er erzeugt immer
+  ein leeres Sample (Nullinie). Sie Samplelänge bleibt aber erhalten.

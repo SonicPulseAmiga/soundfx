@@ -1,0 +1,11 @@
+this is not bug but strange behavior of sample hiding:
+    1. i've sample called sample
+    2. hide it: [sample]
+    3. some effect: [sample]00
+    4. the box-button in gui shows that sample is hidden but the window is
+	   still on the screen 
+when working with  un/hidden samples for some time, the engine gets more and
+more confused and I'll end up with names like [[[sample]00]0]00 which can be
+either hidden or unhidden. Setting up some special ATTRIBUTE for this is more
+efficient I think. Hidden samples can be marked with some special symbol but
+NOT as part of the name. Maybe something like filename attributes?

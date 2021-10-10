@@ -1,0 +1,17 @@
+FROM LIB:libent.o LIB:libinitr.o "Room.o"
+TO "Room.sfxmod"
+LIB LIB:debug.lib LIB:scm881.lib
+    LIB:sc.lib LIB:amiga.lib
+ADDSYM
+SMALLCODE
+SMALLDATA
+BATCH
+VERBOSE
+NOICONS
+DEFINE @__chkabort=@__dummy
+LIBVERSION 1
+LIBREVISION 00
+LIBPREFIX _LIB
+LIBFD //sfx-module/sfx_mod_lib.fd
+
+DEFINE __XCEXIT=_stub

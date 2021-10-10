@@ -1,0 +1,112 @@
+Hello Stefan
+
+Am 15.07.03 schrieb Stefan Kost:
+> problem is that some bugs are hard to locate and so instead of doing nothing
+> I try to ehance the code (e.g. with better error handling etc.).
+
+> Anyway good news. This weekend I fixed two cruical vmem bugs and located a
+> third one, which I will hopefully be able to fix this afternoon. And the
+> open-issues in the tracker has dropped again.
+
+Good news :-)
+
+I have some bugs found here on my system by playing with SFX. I hope somebody
+can confirm this.
+
+First I got a hits by starting SFX (please tell my if I should put them in
+bug-tracker):
+
+
+15-Jul-03   16:16:58
+BYTE READ from 00000000                        PC: 0129D5FC
+USP : 017B4540 SR: 0000  (U0)(-)(-)  TCB: 017A0F90
+Data: 00FF0000 000000FF 00000009 00000000 00000000 00000000 00000010 00000010
+----> 00FF0000 - "ROM - wb 40.5 (24.5.93)"  Hunk 0000 Offset 0000163C
+Addr: 0180C4FA 00000000 015EDC56 0180C244 015D1780 01298934 01080C90 013E7DAC
+Stck: 0180C4FA 0129D058 00000100 0180C4FA 0129CA1C 015EDC8E 000000D2 0129B81A
+Stck: 000000D2 00000000 00000000 00000000 00000010 00000010 0180A04C 0180A16C
+Stck: 015D1780 0180A1C4 01298934 0176AD9E 00482243 00000000 00000000 00000000
+----> 015EDC8E - "Music:Misc/SFX/SoundFX"  Hunk 0003 Offset 00003D0E
+----> 015D1780 - "Music:Misc/SFX/SoundFX"  Hunk 0004 Offset 00000000
+----> 0176AD9E - "Music:Misc/SFX/SoundFX"  Hunk 0000 Offset 00003ACE
+PC-8: 61E29480 650AD5C0 14DB57CA FFFC4222 4CDF0C04 4E752F08 5380651C 32004840
+PC *: 10D957C9 FFFC57C8 FFF86704 600A4218 51C9FFFC 51C8FFF8 201F4E75 48E72020
+Name: "SoundFX"  
+
+
+15-Jul-03   16:16:58
+BYTE READ from 00000000                        PC: 0129D5FC
+USP : 017B4540 SR: 0000  (U0)(-)(-)  TCB: 017A0F90
+Data: 00FF0000 000000FF 00000009 00000000 00000000 00000000 00000010 00000010
+----> 00FF0000 - "ROM - wb 40.5 (24.5.93)"  Hunk 0000 Offset 0000163C
+Addr: 0180C3FA 00000000 015EDC56 0180C244 015D1780 01298934 01080C90 013E7DAC
+Stck: 0180C3FA 0129D058 00000100 0180C3FA 0129CA1C 015EDC96 000000D2 0129B81A
+Stck: 000000D2 00000000 00000000 00000000 00000010 00000010 0180A04C 0180A16C
+Stck: 015D1780 0180A1C4 01298934 0176AD9E 00482243 00000000 00000000 00000000
+----> 015EDC96 - "Music:Misc/SFX/SoundFX"  Hunk 0003 Offset 00003D16
+----> 015D1780 - "Music:Misc/SFX/SoundFX"  Hunk 0004 Offset 00000000
+----> 0176AD9E - "Music:Misc/SFX/SoundFX"  Hunk 0000 Offset 00003ACE
+PC-8: 61E29480 650AD5C0 14DB57CA FFFC4222 4CDF0C04 4E752F08 5380651C 32004840
+PC *: 10D957C9 FFFC57C8 FFF86704 600A4218 51C9FFFC 51C8FFF8 201F4E75 48E72020
+Name: "SoundFX"  
+
+
+The second one is a continues (I don`t want to place all in this mail). Ok, I
+start DelayCalc.rexx and choosed Echo Type: "Triplet". Result is many hits.
+
+
+15-Jul-03   17:36:59
+LONG READ from 000000FF                        PC: 00FBD556
+USP : 01D0400E SR: 0000  (U0)(-)(-)  TCB: 01CDC0C0
+Data: 000000FF 00000004 8003000B 9C0B400D 00000000 00000000 0065C10B 01CFE23C
+Addr: 01D04012 000000FF 01D042A6 01D050CC 00FE86FC 01D04066 01080630 013E7DAC
+Stck: 00FBD59E 01D042CE 80030000 00FBDA76 01D00000 01D042A6 01D050CC 01D042A6
+Stck: 01D050CC 00000000 00FE849A 01D050CC 0109DE04 00FD38C0 01D050CC 00FE8694
+Stck: 01D042A6 01D050CC 01D050CC 01D0427E 0109F018 01D042A6 01CAC000 00FD3800
+----> 00FBD556 - "ROM - utility 40.1 (10.2.93)"  Hunk 0000 Offset 0000012A
+----> 00FBD59E - "ROM - utility 40.1 (10.2.93)"  Hunk 0000 Offset 00000172
+----> 00FBDA76 - "ROM - utility 40.1 (10.2.93)"  Hunk 0000 Offset 0000064A
+----> 01D00000 - "Music:Misc/SFX/_rexx/DelayCalc_EXE"  Hunk 0000 Offset 00001DC0
+----> 00FE849A - "ROM - intuition 40.85 (5.5.93)"  Hunk 0000 Offset 00018FFE
+----> 00FD38C0 - "ROM - intuition 40.85 (5.5.93)"  Hunk 0000 Offset 00004424
+----> 00FE8694 - "ROM - intuition 40.85 (5.5.93)"  Hunk 0000 Offset 000191F8
+----> 00FD3800 - "ROM - intuition 40.85 (5.5.93)"  Hunk 0000 Offset 00004364
+PC-8: 012652AE 002C202E 002C5328 01266C08 33FCC000 00DFF09A 4E752010 673C2240
+PC *: 22116B2C 6730B2BC 00000003 6222D201 4EFB1002 6020600A 600C2229 0004E781
+Name: "Background CLI"  CLI: "Music:Misc/SFX/_rexx/DelayCalc_EXE"  
+
+
+-- 
+ ____/\ _______ ____      _________ ________
+ \  //.\     //   //______\\ .___ \\  ____//_____
+  \//   \   //   //.    // \\   /  \\ \\   __. //_________
+  //_____\ //\  /______//___\\ /___//__\\ /   //        //
+  ¯ \\ z!o\/  \/       ¯     \/    ¯    \/___//        //
+     \\                                      ¯        //
+     //         mailto:blakkhar@nwn.de                \\
+     \\        http://www.thescene.de.vu              //
+      \\      http://www.chscene.ch/moods/           //
+       \\                                           //
+ _______\\_ ___________    _________ ____/\_____   //
+ \\  ____//_\\_______//____\\ .___ \\  .// \  //  //
+  \\ \\   __. //\\ ._¯   // \\   /  \\_// __\ \\__/
+  //__\\ /   //__\\ /___//___\\ /___////_______\\
+  ¯    \/___//    \/    ¯     \/z!o ¯ ¯         ¯
+            ¯
+
+
+------------------------ Yahoo! Groups Sponsor ---------------------~-->
+Free shipping on all inkjet cartridge & refill kit orders to US & Canada. Low prices up to 80% off. We have your brand: HP, Epson, Lexmark & more.
+http://www.c1tracking.com/l.asp?cid=5510
+http://us.click.yahoo.com/GHXcIA/n.WGAA/ySSFAA/mjFolB/TM
+---------------------------------------------------------------------~->
+
+To unsubscribe from this group, send an email to:
+soundfx-users-unsubscribe@yahoogroups.com
+
+ 
+
+Your use of Yahoo! Groups is subject to http://docs.yahoo.com/info/terms/ 
+
+
+

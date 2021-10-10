@@ -1,0 +1,16 @@
+     Hello again,
+     I have tested the new filters :
+
+     1. FIR-HIPASS = seems OK
+
+     2. FIR-LOPASS = Not OK : try to use it several times (2 or 3) with
+     different cutoffs and passes , it will crash after having calculated
+     the sample (not at the beginning)
+
+     3. BandStop = Doesn't do anything !!!
+
+     4. BandPass = works ok, but I have unfortunately tried with
+     cutoff1=0.0000 and it does something like folding the sample. And
+     after, the bug remains : if you change the cutoff1 to a value
+     different from 0, it will still fold the sample.
+ÿ

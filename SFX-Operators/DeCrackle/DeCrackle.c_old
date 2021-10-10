@@ -1,0 +1,594 @@
+/******************************************************************************
+** DeCrackle.c                                                               **
+**---------------------------------------------------------------------------**
+** SFX FX module : DeCrackle                                                 **
+**---------------------------------------------------------------------------**
+** Version : V 0.1                                                           **
+** Date    : 17.01.1997                                                      **
+** Author  : Stefan Kost                                                     **
+******************************************************************************/
+
+/*-- includes & defines -------------------------------------------------------------------------*/
+
+#include "libraries/sfx_mod.h"
+
+#define VERSION 1
+#define REVISION 20
+
+#define FXNAME "DeCrackle"
+#define FXVERS FXNAME" "NUM2STR(VERSION)"."NUM2STR(REVISION)" for SoundFX © by Stefan Kost 1993-1998"
+
+#include <debug/dt_decl.h>
+
+/* Gadget ID's */
+
+#define GADID_GO		0
+#define GADIX_GO		0
+
+#define GADID_SRC		(GADID_GO+1)
+#define GADIX_SRC		(GADIX_GO+1)
+
+#define GADID_DIF		(GADID_SRC+SRC_IDCT)
+#define GADIX_DIF		(GADIX_SRC+SRC_IXCT)
+
+#define GADID_AMP		(GADID_DIF+1)
+#define GADIX_AMP		(GADIX_DIF+1)
+
+#define GADID_ADJUST	(GADID_AMP+1)
+#define GADIX_ADJUST	(GADIX_AMP+1)
+
+/* Menu ID's */
+
+#define MENID_LOAD		 0
+#define MENID_SAVE		 1
+#define MENID_RESET		 2
+#define MENID_GO		 3
+#define MENID_HELP		 4
+#define MENID_ABOUT		 5
+#define MENID_QUIT		 6
+
+/*-- protos -------------------------------------------------------------------------------------*/
+
+/* Initialisation and Destruction */
+
+int __asm __UserLibInit(REG(a6) struct Library *SFX_FXBase);
+void __asm __UserLibCleanup(REG(a6) struct Library *SFX_FXBase);
+
+/* DataInitialisation */
+
+void __asm LIBClientDataInit(REG(a0) RTime *RunTime_);
+
+/* Modulroutienen */
+
+UBYTE __asm LIBInterface(void);
+UBYTE __asm LIBProcess(REG(d0) UBYTE callmd,REG(a0) SInfo *si,REG(a1) char *fn);
+void  __asm LIBSetDefaults(void);
+void __asm LIBHandleARexxCmd(REG(a0) char *params,REG(a1) char *ret);
+
+/* local stuff */
+
+void LoadSettings(char *fname);
+void SaveSettings(char *fname);
+void RecallSettings(void);
+void InitOperator(void);
+void DoneOperator(void);
+
+/* private Stuff */
+
+/*-- global variables ---------------------------------------------------------------------------*/
+
+struct
+{
+	Source			src;		/* Quelle */
+	char			dif[PARBUFLEN+1];
+	char			amp[PARBUFLEN+1];
+	char			adj[PARBUFLEN+1];
+} fxparam;
+
+PrefsData fxdesc[]=
+{
+	{ PD_SOURCE,		PDS_SOURCE,			&(fxparam.src)		},
+	{ PD_OTHER,			sizeof(fxparam)-
+						PDS_SOURCE,			&(fxparam.dif[0])	},
+	{ 0,				0l,					0l					}	
+};
+
+RTime 		*RunTime;
+
+/* Library-Basisaddrs. ------------------------------------------------------------------------------------*/
+
+extern struct ExecBase 		*SysBase;
+extern struct DosLibrary	*DOSBase;
+struct IntuitionBase		*IntuitionBase=0L;
+struct GfxBase	 			*GfxBase=0L;
+//struct Library			*AslBase=0L,*AmigaGuideBase=0L,*RexxSysBase=0L,*UtilityBase=0L;
+struct Library	 			*DiskfontBase=0L,*GadToolsBase=0L,*SFXSupportBase=0L;
+
+/*-- Initialisation and Destruction -------------------------------------------------------------*/
+
+int __saveds __asm __UserLibInit(REG(a6) struct Library *SFX_FXBase)
+{
+	int fail=0;
+
+//	if(!(AmigaGuideBase=OpenLibrary("amigaguide.library",34L))) fail=1;		/* Libraries */
+//	if(!fail && !(AslBase=OpenLibrary("asl.library",0L))) fail=1;
+	if(!fail && !(DiskfontBase=OpenLibrary("diskfont.library",37))) fail=1;
+	if(!fail && !(DOSBase=(struct DosLibrary *)OpenLibrary("dos.library",0L))) fail=1;
+	if(!fail && !(GadToolsBase=OpenLibrary("gadtools.library",37L))) fail=1;
+	if(!fail && !(GfxBase=(struct GfxBase *)OpenLibrary("graphics.library",37))) fail=1;
+	if(!fail && !(IntuitionBase=(struct IntuitionBase *)OpenLibrary("intuition.library",37))) fail=1;
+//	if(!fail && !(RexxSysBase=OpenLibrary("rexxsyslib.library",0L))) fail=1;
+	if(!fail && !(SFXSupportBase=OpenLibrary("progdir:libs/sfxsupport.library",0L))) fail=1;
+//	if(!fail && !(UtilityBase=OpenLibrary("utility.library",37))) fail=1;
+
+	return(fail);
+}
+
+void __saveds __asm __UserLibCleanup(REG(a6) struct Library *SFX_FXBase)
+{
+//	if(UtilityBase)		CloseLibrary(UtilityBase);
+	if(SFXSupportBase)	CloseLibrary(SFXSupportBase);
+//	if(RexxSysBase)		CloseLibrary(RexxSysBase);
+	if(IntuitionBase)	CloseLibrary((struct Library *)IntuitionBase);
+	if(GfxBase)			CloseLibrary((struct Library *)GfxBase);
+	if(GadToolsBase)	CloseLibrary(GadToolsBase);
+	if(DOSBase)			CloseLibrary((struct Library *)DOSBase);
+	if(DiskfontBase)	CloseLibrary(DiskfontBase);
+//	if(AslBase)			CloseLibrary(AslBase);
+//	if(AmigaGuideBase)	CloseLibrary(AmigaGuideBase);
+}
+
+/*-- DataInitialisation -------------------------------------------------------------------------*/
+
+void __saveds __asm LIBClientDataInit(REG(a0) RTime *RunTime_)
+{
+	FILE *prefs;
+
+	RunTime=RunTime_;
+	
+	RecallSettings();			// can't do that earlier, because RunTime is not initialized before
+
+	UnLock(CreateDir("progdir:_operators/"FXNAME));
+
+	if(prefs=fopen("env:sfx/operators/"FXNAME".prefs","rb"))
+	{
+		fclose(prefs);
+		LoadSettings("env:sfx/operators/"FXNAME".prefs");	/* Try to load last used settings */
+	}
+}
+
+/*-- Modulroutinen ------------------------------------------------------------------------------*/
+
+UBYTE __saveds __asm LIBInterface(void)
+{
+	struct NewGadget ng;
+	struct Window *fxWin;
+	struct Gadget *g;
+	struct Gadget *fxGList=0l;
+	struct Gadget *fxGadgets[GADIX_ADJUST+1];
+	struct MenuItem *item;
+	struct RastPort *fxrp;
+	struct IntuiMessage *imsg;
+	ULONG iclass;
+	APTR iadr;
+	USHORT icode;
+	ULONG gnr;
+	UBYTE quit=0,gh,enabled;
+	UWORD ys1=2;
+	UWORD ys2=ys1+1+RunTime->scy[FRAME_HEIGHT(1)];
+	UWORD ys3=ys2+1+RunTime->scy[FRAME_HEIGHT(2)];
+	UWORD winh=ys3+2+RunTime->scy[FRAME_HEIGHT(1)];
+	UWORD xs1=2;
+	UWORD winw=xs1+3+RunTime->scx[308];
+	UWORD xh;
+	struct TagItem wintags[]=
+	{
+		WA_Left,			0,
+		WA_Top,				0,
+		WA_InnerWidth,		0,
+		WA_InnerHeight,		0,
+		WA_IDCMP,			BUTTONIDCMP|IDCMP_VANILLAKEY|IDCMP_RAWKEY|IDCMP_CLOSEWINDOW|IDCMP_MENUPICK|IDCMP_ACTIVEWINDOW,
+		WA_Flags,			WFLG_SMART_REFRESH|WFLG_ACTIVATE|WFLG_DEPTHGADGET|WFLG_CLOSEGADGET|WFLG_DRAGBAR|WFLG_GIMMEZEROZERO|WFLG_NEWLOOKMENUS,
+		WA_Gadgets,			0l,
+		WA_Title,			(ULONG)FXNAME,
+		WA_ScreenTitle,		(ULONG)FXVERS,
+		WA_PubScreenName,	(ULONG)SFX_PUBSCRNAME,
+		WA_BlockPen,		1,
+		TAG_DONE
+	};
+
+	InitOperator();
+	enabled=(RunTime->aktsamples>0);
+
+	if(g=CreateContext(&fxGList))
+	{
+		ng.ng_LeftEdge		=xs1+RunTime->scx[104];
+		ng.ng_TopEdge		=ys3+RunTime->scy[2];
+		ng.ng_Width			=RunTime->scx[100];
+		ng.ng_Height		=RunTime->scy[11];
+		ng.ng_GadgetText	=GetString(menStart);
+		ng.ng_TextAttr		=RunTime->ScrFontB;
+		ng.ng_GadgetID		=GADID_GO;
+		ng.ng_Flags			=PLACETEXT_IN;
+		ng.ng_VisualInfo	=RunTime->VisualInfo;
+		g=CreateGadget(BUTTON_KIND,g,&ng,TAG_DONE);
+		fxGadgets[GADIX_GO]=g;
+
+		g=AddSource(&fxparam.src,fxGadgets,g,GADID_SRC,GADIX_SRC,xs1,ys1);
+
+		ng.ng_LeftEdge		=xs1+RunTime->scx[53];
+		ng.ng_TopEdge		=ys2+RunTime->scy[2];
+		ng.ng_Width			=RunTime->scx[60];
+		ng.ng_GadgetText	="Dif.";
+		ng.ng_TextAttr		=RunTime->ScrFont;
+		ng.ng_GadgetID		=GADID_DIF;
+		ng.ng_Flags			=PLACETEXT_LEFT;
+		g=CreateGadget(STRING_KIND,g,&ng,GTST_MaxChars,PARBUFLEN,GTST_String,fxparam.dif,TAG_DONE);
+		((struct StringInfo*)g->SpecialInfo)->Extension=RunTime->stringextend;
+		fxGadgets[GADIX_DIF]=g;
+
+		ng.ng_LeftEdge		=xs1+RunTime->scx[214];
+		ng.ng_GadgetText	="Adjust";
+		ng.ng_GadgetID		=GADID_ADJUST;
+		g=CreateGadget(STRING_KIND,g,&ng,GTST_MaxChars,PARBUFLEN,GTST_String,fxparam.adj,TAG_DONE);
+		((struct StringInfo*)g->SpecialInfo)->Extension=RunTime->stringextend;
+		fxGadgets[GADIX_ADJUST]=g;
+
+		ng.ng_LeftEdge		=xs1+RunTime->scx[53];
+		ng.ng_TopEdge		=ys2+RunTime->scy[14];
+		ng.ng_Width			=RunTime->scx[60];
+		ng.ng_GadgetText	="Amp.";
+		ng.ng_GadgetID		=GADID_AMP;
+		ng.ng_Flags			=PLACETEXT_LEFT;
+		g=CreateGadget(STRING_KIND,g,&ng,GTST_MaxChars,PARBUFLEN,GTST_String,fxparam.amp,TAG_DONE);
+		((struct StringInfo*)g->SpecialInfo)->Extension=RunTime->stringextend;
+		fxGadgets[GADIX_AMP]=g;
+
+		if(g)
+		{
+			wintags[0].ti_Data=(RunTime->xres-winw)>>1;
+			wintags[1].ti_Data=(RunTime->yres-winh)>>1;
+			wintags[2].ti_Data=winw;
+			wintags[3].ti_Data=winh;
+			wintags[6].ti_Data=(ULONG)fxGList;
+			if(fxWin=OpenWindowTagList(0l,wintags))
+			{
+				GT_RefreshWindow(fxWin,0l);
+				SetMenuStrip(fxWin,RunTime->FXMenu);
+				fxrp=fxWin->RPort;SetFont(fxrp,RunTime->scrfont);
+
+				SetAPen(fxrp,1);
+				RText(fxrp,xs1+RunTime->scx[29],ys1+RunTime->scy[TEXT_Y_POS(1)],"Src");
+
+				xh=RunTime->scx[308];
+				DrawGad(fxrp,xs1,ys1,xh,RunTime->scy[FRAME_HEIGHT(1)],0);		/* Source */
+				DrawGad(fxrp,xs1,ys2,xh,RunTime->scy[FRAME_HEIGHT(2)],0);		/* Par */
+				DrawGad(fxrp,xs1,ys3,xh,RunTime->scy[FRAME_HEIGHT(1)],0);		/* Go */
+
+				SetSource   (&fxparam.src,fxWin,fxGadgets,GADIX_SRC);
+
+				if(!enabled) GT_SetGadgetAttrs(fxGadgets[GADIX_GO],fxWin,0l,GA_Disabled,TRUE,TAG_DONE);
+
+				while(!quit)
+				{
+					WaitPort(fxWin->UserPort);
+					while(imsg=GT_GetIMsg(fxWin->UserPort))
+					{
+						iclass	=imsg->Class;
+						iadr	=imsg->IAddress;
+						icode	=imsg->Code;
+						GT_ReplyIMsg(imsg);
+						switch(iclass)
+						{
+							case IDCMP_ACTIVEWINDOW:
+								if(!enabled && RunTime->aktsamples)
+								{
+									enabled=1;
+									GT_SetGadgetAttrs(fxGadgets[GADIX_GO],fxWin,0l,GA_Disabled,FALSE,TAG_DONE);
+									fxparam.src.srcbuf=LockBuffer(RunTime->aktbuf);
+									fxparam.src.rmode=SetRngMode(fxparam.src.srcbuf);
+									SetSource   (&fxparam.src,fxWin,fxGadgets,GADIX_SRC);
+								}
+								else if(enabled && !RunTime->aktsamples)
+								{
+									enabled=0;
+									GT_SetGadgetAttrs(fxGadgets[GADIX_GO],fxWin,0l,GA_Disabled,TRUE,TAG_DONE);
+								}
+								break;
+							case IDCMP_GADGETUP:
+								gnr=(ULONG)(((struct Gadget *)iadr)->GadgetID);
+								gh=HandleSource(&fxparam.src,fxWin,fxGadgets,GADID_SRC,GADIX_SRC,gnr,icode);
+								if(!gh)
+								{
+									switch(gnr)
+									{
+										case GADID_GO:
+											SaveSettings("env:sfx/operators/"FXNAME".prefs");		/* Store actual settings */
+											quit=1;
+											break;
+										case GADID_DIF:
+											HandleParameter(fxparam.dif,fxWin,fxGadgets,GADIX_DIF);
+											break;
+										case GADID_AMP:
+											HandleParameter(fxparam.amp,fxWin,fxGadgets,GADIX_AMP);
+											break;
+										case GADID_ADJUST:
+											HandleParameter(fxparam.adj,fxWin,fxGadgets,GADIX_ADJUST);
+											break;
+									}
+								}
+								break;
+							case IDCMP_VANILLAKEY:
+								switch(icode)
+								{
+									case KEY_ENTER:
+									case KEY_RETURN:
+										SaveSettings("env:sfx/operators/"FXNAME".prefs");		/* Store actual settings */
+										quit=1;
+										break;
+									case KEY_ESC:
+										quit=2;
+										break;
+									case '?':
+										Message(strNoID,FXVERS,0l,0l);
+										break;
+								}
+								break;
+							case IDCMP_CLOSEWINDOW:
+								quit=2;
+								break;
+							case IDCMP_RAWKEY:
+								if(icode==0x5F) Help("/_operators/"FXNAME".guide/main",RunTime->fxoff,RunTime->anzfx);
+								break;
+							case IDCMP_MENUPICK:
+								while(icode!=MENUNULL)
+								{
+									if(item=ItemAddress(RunTime->FXMenu,icode))
+									{
+										switch((ULONG)MENU_USERDATA(item))
+										{
+											case MENID_LOAD:
+												DoneOperator();
+												LoadSettings(0l);
+												InitOperator();
+												SetSource   (&fxparam.src,fxWin,fxGadgets,GADIX_SRC);
+												GT_SetGadgetAttrs(fxGadgets[GADIX_DIF],fxWin,0l,GTST_String,fxparam.dif,TAG_DONE);
+												GT_SetGadgetAttrs(fxGadgets[GADIX_AMP],fxWin,0l,GTST_String,fxparam.amp,TAG_DONE);
+												GT_SetGadgetAttrs(fxGadgets[GADIX_ADJUST],fxWin,0l,GTST_String,fxparam.adj,TAG_DONE);
+												break;
+											case MENID_SAVE:
+												SaveSettings(0l);
+												break;
+											case MENID_RESET:
+												DoneOperator();
+												RecallSettings();
+												InitOperator();
+												SetSource   (&fxparam.src,fxWin,fxGadgets,GADIX_SRC);
+												GT_SetGadgetAttrs(fxGadgets[GADIX_DIF],fxWin,0l,GTST_String,fxparam.dif,TAG_DONE);
+												GT_SetGadgetAttrs(fxGadgets[GADIX_AMP],fxWin,0l,GTST_String,fxparam.amp,TAG_DONE);
+												GT_SetGadgetAttrs(fxGadgets[GADIX_ADJUST],fxWin,0l,GTST_String,fxparam.adj,TAG_DONE);
+												break;
+											case MENID_GO:
+												SaveSettings("env:sfx/operators/"FXNAME".prefs");		/* Store actual settings */
+												quit=1;
+												break;
+											case MENID_HELP:
+												Help("/_operators/"FXNAME".guide/main",RunTime->fxoff,RunTime->anzfx);
+												break;
+											case MENID_ABOUT:
+												Message(strNoID,FXVERS,0l,0l);
+												break;
+											case MENID_QUIT:
+												quit=2;
+												break;
+										}
+										icode=item->NextSelect;
+									}
+								}
+								break;
+						}
+					}
+				}
+				ClearMenuStrip(fxWin);
+				CloseWindow(fxWin);
+			}
+			else Message(errOpenWindow,0l,__FILE__,__LINE__);
+		}
+		else Message(errCreateGadgets,0l,__FILE__,__LINE__);
+		FreeGadgets(fxGList);
+	}
+	else Message(errCreateContext,0l,__FILE__,__LINE__);
+	if(quit!=1) DoneOperator();
+	return((UBYTE)(2-quit));
+}
+
+UBYTE __saveds __asm LIBProcess(REG(d0) UBYTE callmd,REG(a0) SInfo *si,REG(a1) char *fn)
+{
+	register ULONG i;
+	register UBYTE l;
+	register UWORD j;
+	PWInfo *pwi;
+	LONG val1,val2,adif,pos;
+	double amp,dif,damp,ddif;
+	double thresha1,threshd1,thresha2,threshd2;
+	ULONG seeklen;
+	LONG *difs=0l;
+	WORD *amps=0l;
+	UWORD ptr;
+	UBYTE seek;
+	double adj;
+	char title[80];
+	SInfo *dstbuf,*srcbuf;
+	ULONG rm_start,rm_len;
+	UBYTE ret=1;
+	char tstr[PARBUFLEN+1];
+	UBYTE resfail=0;
+
+	if(callmd==CM_REXX)
+	{
+		InitOperator();
+		UnlockBuffer(fxparam.src.srcbuf);
+		ret&=((fxparam.src.srcbuf=LockBuffer(GetBufferPtr(RunTime->srclist[0],-1)))!=0);
+		if(!ret)
+		{
+			DoneOperator();
+			return(ret);
+		}
+	}
+
+	srcbuf=fxparam.src.srcbuf;
+
+	ConvertParameter(tstr,fxparam.dif,UGRP_PROPOTION,PROP_FC);
+	threshd1=1.0+atof(tstr);threshd2=1.0-atof(tstr);
+
+	ConvertParameter(tstr,fxparam.amp,UGRP_PROPOTION,PROP_FC);
+	thresha1=1.0+atof(tstr);thresha2=1.0-atof(tstr);
+
+	ConvertParameter(tstr,fxparam.adj,UGRP_PROPOTION,PROP_FC);
+	adj=atof(tstr);
+
+	SetRngs(srcbuf,&rm_start,&rm_len,fxparam.src.rmode);
+
+	seeklen=(ULONG)(0.000725624*(double)srcbuf->srat);		// seeklen is 32 for srat=44100
+	
+	if(dstbuf=NewSample())
+	{
+		BufferFill(srcbuf,dstbuf);
+		if(!(AllocSampleMem(dstbuf,srcbuf->slen,(srcbuf->channels+1)))) resfail=1;
+		if(!resfail) if(!(difs=(LONG *)MyAllocMem((seeklen<<2),MEMF_ANY))) resfail=1;
+		if(!resfail) if(!(amps=(WORD *)MyAllocMem((seeklen<<1),MEMF_ANY))) resfail=1;
+		if(!resfail)
+		{
+			for(l=0;l<(srcbuf->channels+1);l++)
+			{
+				if(srcbuf->channelmask&(1<<l))
+				{
+					val2=(LONG)srcbuf->buf[l][rm_start];
+					seek=0;ptr=0;
+					for(j=0;j<seeklen;j++) difs[j]=amps[j]=0;
+					sprintf(title,GetString(msgProgress),FXNAME,l+1);
+					if(rm_start>0) memcpy(&dstbuf->buf[l][0],&srcbuf->buf[l][0],(rm_start<<1));
+					if(rm_start+rm_len<srcbuf->slen) memcpy(&dstbuf->buf[l][rm_start+rm_len],&srcbuf->buf[l][rm_start+rm_len],((srcbuf->slen-(rm_start+rm_len))<<1));
+					if(pwi=InitProWin(rm_len,title))
+					{
+						for(i=rm_start;i<rm_start+rm_len;i++)
+						{
+							if(RefreshProWin(pwi,i)) { i=rm_start+rm_len;l=4; }
+							else
+							{
+								val1=(LONG)srcbuf->buf[l][i];
+								adif=val2-val1;								/* akt. delta */
+								dif=amp=0.0;								/* avg. delta & amplitudes*/
+								pos=i-rm_start;
+								if(pos>(seeklen-1))
+								{
+									for(j=0;j<seeklen;j++) { dif+=(double)difs[j];amp+=(double)amps[j]; }	/* aufsummieren */
+									dif/=(double)seeklen;
+									amp/=(double)seeklen;
+								}
+								else										/* Process the beginning a little bit different */
+								{
+									if(pos>0)								/* because of div by 0 */
+									{
+										for(j=0;j<pos;j++) { dif+=(double)difs[j];amp+=(double)amps[j]; }	/* aufsummieren */
+										dif/=(double)pos;
+										amp/=(double)pos;
+									}
+								}
+								ddif=(double)labs(adif)/dif;
+								damp=(double)labs(val1)/amp;
+								if(!seek) if(ddif>=threshd1 || ddif<=threshd2 || damp>=thresha1 || damp<=thresha2) seek=1;
+								else      if(ddif< threshd1 && ddif> threshd2 && damp< thresha1 && damp> thresha2) seek=0;
+								if(seek)
+								{
+									if(adif>0) val1+=(LONG)(((double)adif+dif)*adj);
+									else       val1+=(LONG)(((double)adif-dif)*adj);
+								}
+								difs[ptr]=labs(val2-val1);						/* store akt values */
+								amps[ptr]=labs(val1);
+								ptr=(ptr+1)%seeklen;
+								val2=val1;
+								dstbuf->buf[l][i]=(LONG)val1;
+							}
+						}
+						RemoveProWin(pwi);
+					}
+				}
+				else memcpy(dstbuf->buf[l],srcbuf->buf[l],(srcbuf->slen<<1));
+			}
+			AddSample(dstbuf,0l);
+		}
+		else { RemSample(dstbuf);Message(errAllocateMemory,0l,__FILE__,__LINE__);ret=1; }
+		if(difs) MyFreeMem((ULONG *)difs,(seeklen<<2));
+		if(amps) MyFreeMem((ULONG *)amps,(seeklen<<1));
+	}
+	else { Message(errAddSampleBuffer,0l,__FILE__,__LINE__);ret=1; }
+	DoneOperator();
+	return(ret);
+}
+
+void __saveds __asm LIBSetDefaults(void)
+{
+	ConvertParameter(fxparam.dif,"80 %",UGRP_PROPOTION,PROP_PROZ);
+	ConvertParameter(fxparam.amp,"80 %",UGRP_PROPOTION,PROP_PROZ);
+	ConvertParameter(fxparam.adj,"95 %",UGRP_PROPOTION,PROP_PROZ);
+//	fxparam.src.srcbuf=0L;
+	fxparam.src.rmode=0;
+}
+
+void __saveds __asm LIBHandleARexxCmd(REG(a0) char *params,REG(a1) char *ret)
+{
+	UBYTE cf=0,pf;
+	char fn[256];
+
+	if(!stricmp(&params[0],"SetOperatorParam"))
+	{
+		cf=1;pf=0;
+		if(       !stricmp(&params[MaxParLen2],"Dif"))			{ strncpy(fxparam.dif,&params[MaxParLen3],PARBUFLEN);fxparam.dif[PARBUFLEN]=0;pf=1; }
+		if(!pf && !stricmp(&params[MaxParLen2],"Amp"))			{ strncpy(fxparam.amp,&params[MaxParLen3],PARBUFLEN);fxparam.amp[PARBUFLEN]=0;pf=1; }
+		if(!pf && !stricmp(&params[MaxParLen2],"Adjust"))		{ strncpy(fxparam.adj,&params[MaxParLen3],PARBUFLEN);fxparam.adj[PARBUFLEN]=0;pf=1; }
+		if(pf) SaveSettings("env:sfx/operators/"FXNAME".prefs");
+	}
+	if(!cf && !stricmp(&params[0],"GetOperatorParam"))
+	{
+		cf=1;pf=0;
+		if(       !stricmp(&params[MaxParLen2],"Dif"))			{ strncpy(ret,fxparam.dif,PARBUFLEN);ret[PARBUFLEN]=0;pf=1; }
+		if(!pf && !stricmp(&params[MaxParLen2],"Amp"))			{ strncpy(ret,fxparam.amp,PARBUFLEN);ret[PARBUFLEN]=0;pf=1; }
+		if(!pf && !stricmp(&params[MaxParLen2],"Adjust"))		{ strncpy(ret,fxparam.adj,PARBUFLEN);ret[PARBUFLEN]=0;/*pf=1;*/ }
+	}
+	if(!cf && !stricmp(&params[0],"SetOperatorPreset"))
+	{
+		DoneOperator();
+		if(!stricmp(&params[MaxParLen2],"default")) RecallSettings();
+		if( stricmp(&params[MaxParLen2],"current"))
+		{
+			sprintf(fn,FXNAME"/%s.prefs",&params[MaxParLen2]);
+			LoadSettings(fn);
+		}
+		InitOperator();
+	}
+}
+
+/*-- local Stuff --------------------------------------------------------------------------------*/
+
+void LoadSettings(char *fname) { LoadModSettings(fname,FXNAME,fxdesc,VERSION,REVISION); }
+void SaveSettings(char *fname) { SaveModSettings(fname,FXNAME,fxdesc,VERSION,REVISION); }
+
+void RecallSettings(void)
+{
+	FILE *prefs;
+
+	LIBSetDefaults();
+	if(prefs=fopen(FXNAME"/default.prefs","rb"))
+	{
+		fclose(prefs);
+		LoadSettings(FXNAME"/default.prefs");			/* Try to read saved defaults */
+	}
+}
+
+void InitOperator(void) { InitFXParams(fxdesc); }
+void DoneOperator(void) { DoneFXParams(fxdesc); }
+
+/*-- private Stuff ------------------------------------------------------------------------------*/
+
+/*-- EOF ----------------------------------------------------------------------------------------*/

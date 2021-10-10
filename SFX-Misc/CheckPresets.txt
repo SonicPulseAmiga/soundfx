@@ -1,0 +1,3 @@
+check presets : (sh)
+
+for file in */*.cfg; do echo "$file"; head -1 "$file"; done

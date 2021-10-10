@@ -1,0 +1,4 @@
+- Der IFF-AIFF Loader kann (schade) immer noch keine Samples über
+  den Scene-Handler laden. Im Gegensatz zu V3.82  stürzt der Compi
+  aber schon beim Anklicken des OK-Buttons im Filerequester ab.
+  Früher wurden SH-Samples bis 99% geladen, bevor er sich aufhing.

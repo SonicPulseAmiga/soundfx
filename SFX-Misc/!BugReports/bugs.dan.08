@@ -1,0 +1,82 @@
+Hello Stefan!
+
+I've been busy lately so I couldn't follow what's happenning on the
+mailing-list. I've downloaded the new beta just now, more testing at
+home.
+
+What I'm sending you is a bugreport concerning the PREVIOUS beta,
+i.e. the one from last weekend. Maybe you've spotted some of these
+bugs and fixed them already...
+
+Here it comes.
+
+---
+
+1. Problem in the Zoom menu
+Regardless of what is selected in the zoom-toolbar, the "1 pixel = 1
+sample" menu-item always zooms in the y-direction only.
+This bug was already in V4.1.
+
+==> fixed
+
+2. Panorama-4ch
+There is a bug in the Panorama-4ch operator. The operator actually
+produces a quadro sample, but it ends up with a "frozen"
+progress-requester. The title of the requester is trashed when you
+click on it (nonsense characters).
+The bug have been introduced in V4.2.
+
+==> fixed
+
+3. Surround Encoder
+The bug in the Surround Encoder seems to be even more serious. Any
+attempt to encode a quadro sample leads to a nice Guru.
+The bug have been introduced in V4.2.
+
+==> fixed
+
+4. Analyse-Spect2D
+When I analyse a sample and get the spectrum window, a cross should
+follow the mouse-pointer. However, in some positions of the pointer
+SFX draws too many crosses. Maybe this has some purpose but I simply
+don't get what it is...
+This bug was already in V4.1.
+
+==> no bug
+
+5. Clipboard Saving
+When saving to the clipboard as IFF-16SV, the progress-requester says
+"Loading" instead of "Saving". Saving as IFF-8SVX is OK in this
+respect.
+
+==> fixed
+
+6. Catalogs and orderforms
+The Czech catalog is obsolete. I have consulted this with a Czech ATO
+administrator, and he commented:
+- The catalog does not reflect the changes in the Czech AmigaOS
+localization introduced with OS3.5 (and available also for pre-3.5
+systems). The name of the language has officially changed from
+"cesky" to "czech".
+- The catalog does not observe the rules of translation published by
+ATO Czech on their homepage. Violations against the style guide as
+well as translation mistakes have been made.
+- ATO Czech therefore recommends removing this catalog from SFX
+distribution.
+
+I do not use the Czech localization of the OS, so I haven't noticed
+this before. If you want I can translate the catalog again, according
+to ATO rules. I am a translator by profession and some 170 strings
+are not too much work for me. Just send me the original strings and
+I'll do it.
+
+The Polish orderform distributed with beta 2 is not an orderform.
+
+---
+
+Have fun,
+Dan
+
+______________________________________________________________________
+Seznam Prace - Hledate praci nebo menite zamestnani? http://prace.seznam.cz
+

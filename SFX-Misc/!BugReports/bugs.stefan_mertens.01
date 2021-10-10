@@ -1,0 +1,173 @@
+From - Mon Mar 11 16:48:50 2002
+X-UIDL: 361df5b50000437d
+X-Mozilla-Status: 0001
+X-Mozilla-Status2: 10000000
+Received: from n30.groups.yahoo.com (n30.groups.yahoo.com [216.115.96.80])
+	by imn.htwk-leipzig.de (8.9.1/8.9.1) with SMTP id TAA07622
+	for <kost@imn.htwk-leipzig.de>; Fri, 8 Mar 2002 19:32:10 +0100 (MET)
+Received: from [216.115.97.191] by n30.groups.yahoo.com with NNFMP; 08 Mar 2002 18:36:00 -0000
+Received: (EGP: unknown); 8 Mar 2002 18:35:59 -0000
+Received: (qmail 72131 invoked from network); 8 Mar 2002 18:35:59 -0000
+Received: from unknown (216.115.97.171)
+  by m5.grp.snv.yahoo.com with QMQP; 8 Mar 2002 18:35:59 -0000
+Received: from unknown (HELO mout0.freenet.de) (194.97.50.131)
+  by mta3.grp.snv.yahoo.com with SMTP; 8 Mar 2002 18:35:59 -0000
+Received: from [194.97.50.135] (helo=mx2.freenet.de)
+	by mout0.freenet.de with esmtp (Exim 3.33 #3)
+	id 16jPDi-0005mK-00
+	for soundfx-users@yahoogroups.com; Fri, 08 Mar 2002 19:35:58 +0100
+Received: from a5a02.pppool.de ([213.6.90.2] helo=stefan1200.de)
+	by mx2.freenet.de with esmtp (Exim 3.33 #3)
+	id 16jPDg-0006NL-00
+	for soundfx-users@yahoogroups.com; Fri, 08 Mar 2002 19:35:56 +0100
+X-eGroups-Return: sentto-3879093-126-1015612560-kost=imn.htwk-leipzig.de@returns.groups.yahoo.com
+X-Sender: info@stefan1200.de
+X-Apparently-To: soundfx-users@yahoogroups.com
+To: soundfx-users@yahoogroups.com
+X-Mailer: SimpleMail 0.15 (AmigaOS) E-Mail Client (c) 2000-2002 by Hynek Schlawack and Sebastian Bauer
+In-Reply-To: <a6aqqe+rjus@eGroups.com>
+Message-Id: <E16jPDg-0006NL-00@mx2.freenet.de>
+From: Stefan Martens <info@stefan1200.de>
+X-Yahoo-Profile: stefan1200
+MIME-Version: 1.0
+Mailing-List: list soundfx-users@yahoogroups.com; contact soundfx-users-owner@yahoogroups.com
+Delivered-To: mailing list soundfx-users@yahoogroups.com
+Precedence: bulk
+List-Unsubscribe: <mailto:soundfx-users-unsubscribe@yahoogroups.com>
+Date: 08 Mar 2002 19:34:10 +0100
+Subject: [soundfx-users] After Copy/Cut&Paste Crash
+Reply-To: soundfx-users@yahoogroups.com
+Content-Type: multipart/mixed;
+ boundary="--==bound66ec8bb811f----"
+Content-Length: 7154
+Status:  O
+
+----==bound66ec8bb811f----
+Content-Type: text/plain; charset=ISO-8859-1
+Content-Transfer-Encoding: quoted-printable
+
+Hello,
+
+I've installed V4.2 Beta3 (downloaded yesterday; I think the newest) and I
+test the bug that already exists in V4.1 public. So I have loaded a big MP3
+file and I cut a small part of the sound file from the middle of the file.
+And after this I used the function Paste at beginning.
+Until now my system seems to be stable. But now I try to play the file (so =
+I
+click on the Play Button)...no one second later my screen was black until n=
+early
+20 seconds later my wb comes back ;) *g*
+
+At the attachment you found a small enforcer log...I hope this informations
+are enough to fix the bug.
+
+--=20
+Mit freundlichen Gr=FCssen
+
+Stefan Martens
+Stefan1200
+
+Meine E-Mail Adresse:   info@stefan1200.de
+FAX Nummer:                +49 (0) bald verf=FCgbar
+ICQ UIN:                        27349641 (derzeit nicht in Nutzung)
+MSN Messenger:           Stefan1200@hotmail.com (derzeit nicht in Nutzung)
+Yahoo Messenger:        Stefan1200 (derzeit nicht in Nutzung)
+Jabber:                         Stefan1200@charente.de (derzeit nicht in Nu=
+tzung)
+AIM Screenname:         Stefan1200Amiga
+Meine Homepage:           http://www.stefan1200.de
+IRC Chat Kanal:              http://amigafun.stefan1200.de
+
+Amiga Computer Freak
+2. Autor des Amiga Game Guides
+Founder vom #AmigaFun IRC Chat Kanal auf ie.altnet.org
+------------------------ Yahoo! Groups Sponsor ---------------------~-->
+Tiny Wireless Camera under $80!
+Order Now! FREE VCR Commander!
+Click Here - Only 1 Day Left!
+http://us.click.yahoo.com/nuyOHD/7.PDAA/yigFAA/mjFolB/TM
+---------------------------------------------------------------------~->
+
+To unsubscribe from this group, send an email to:
+soundfx-users-unsubscribe@yahoogroups.com
+
+=20
+
+Your use of Yahoo! Groups is subject to http://docs.yahoo.com/info/terms/=20
+
+
+----==bound66ec8bb811f----
+Content-Type: application/octet-stream
+Content-Disposition: attachment; filename=cg.log
+Content-transfer-encoding: base64
+
+CkFsZXJ0ICEhIEFsZXJ0IDAxMDAwMDBDICAgICBUQ0I6IDY2NUNFQzcwICAgICBVU1A6IDY2NUQx
+MjQwCkRhdGE6IDAwMDAwMDAwIDAwMDIwMDAxIDAwMDEwMDAwIDAwMEUzMEMwIDAwMDAwMDAwIDAw
+MDAwMDAwIDAzREJBM0U4IDAxMDAwMDBDCkFkZHI6IDY3M0ZGMjA4IDY2MDAwMDAwIDY2Mzk3QUFF
+IDY2NEY0QkU5IDY2MzkxOUY2IDY2M0EyRjc0IDAwMDAzRTcwIDY2NUQxMjQwClN0Y2s6IDAwRjgy
+MDRDIDAwMTkzRjcwIDAwMDBGRkZGIEZGRkY2Qzc0IDY2Mzk3QTA0IDY2NEY3OTk5IDY2NEY5MDUx
+IDAwRkU4OTRDClN0Y2s6IDAwMDBGRkZGIEZGRkZGRkZGIDAwMDAwMDAwIDAwMDAwMDAwIDAzREJB
+M0U4IDAwMTkzRjcwIDY2MTgwOEFDIEZGRkZGRkZGClN0Y2s6IDY2NEY0QkU0IDY2NEY0QkU5IDY2
+MzkxOUY2IDY2M0EyRjc0IDY2MDBDOUU0IDY2Mzk4Qzk2IDAwMDAwMDAwIDY2MTgwOEFDClN0Y2s6
+IEZGRkZGRkZGIDY2MTgwOEFDIEZGRkZGRkZGIDY2NEY0QkU0IDY2MDQ5RDJDIDY2Mzk4QkU4IDY2
+NEQyMzg4IDY2MDBDOUU0ClN0Y2s6IDY2QTJFQUJFIDAwMDAwMDAwIDY2MTgwOEFDIEZGRkZGRkZG
+IDAwMDAwMDAwIDAwMDAwMDAwIDAzREJBM0U4IDAwMTkzRjcwClN0Y2s6IDY2MTgwOEFDIEZGRkZG
+RkZGIDY2NEY0QkU0IDY2MDQ5RDJDIDY2QkVENUY4IDY2NEQyMzg4IDY2MDBDOUU0IDY2QkVBM0ZB
+ClN0Y2s6IDAwMDAwMDAwIDAwMDAwMDAwIDY2NEY0QkU0IDY2NUQxMzgwIDY2MDBDOUU0IDY2NEQy
+MjdDIDY2MTgyM0U0IDY2NEY0NjNDClN0Y2s6IDY2NEY0NjNDIDY2NEU0MTUyIDY2MTgwOEFDIEZG
+RkZGRkZGIDY2NEY0QkU0IDY2NEY0NjNDIDY2NERGOTFBIDY2MDQ5RDJDCi0tLS0+IDAwRjgyMDRD
+IC0gIlJPTSAtIGV4ZWMgNDAuMTAgKDE1LjcuOTMpIiBIdW5rIDAwMDAgT2Zmc2V0IDAwMDAxRjky
+Ci0tLS0+ICQwMGY4MjA0YzogTU9WRS5MICAgIChBNykrLEQ3Ci0tLS0+IDY2Mzk3QTA0IC0gIkM6
+TUNQIiBIdW5rIDAwMDEgT2Zmc2V0IDAwMDEyMTU0Ci0tLS0+ICQ2NjM5N2EwNDogTU9WRU0uTCAg
+IChBNykrLEEwLUExCi0tLS0+IDAwRkU4OTRDIC0gIlJPTSAtIGludHVpdGlvbiA0MC44NSAoNS41
+LjkzKSIgSHVuayAwMDAwIE9mZnNldCAwMDAxOTRCMAotLS0tPiAkMDBmZTg5NGM6IFNVQlEuVyAg
+ICAjJDMsJDcyNmIoQTcpCk5hbWU6ICJXb3JrYmVuY2giICAgQ0xJOiAiV29ya2JlbmNoIiAgCgpB
+bGVydCAhISBBbGVydCAwMTAwMDAwQyAgICAgVENCOiA2NjVDRUM3MCAgICAgVVNQOiA2NjVEMTI0
+MApEYXRhOiAwMDAwMDAwMCAwMDAyMDAwMSAwMDBERTE0OCAwMDFGMzk3OCAwMDAwMDAwMCAwMDAw
+MDAwMCAwM0VDQUNBMCAwMTAwMDAwQwpBZGRyOiA2Nzc5NjJDOCA2NjAwMDAwMCA2NjM5N0FBRSA2
+NjRGNEJFOSA2NjM5MTlGNiA2NjNBMkY3NCAwMDAwM0U3MCA2NjVEMTI0MApTdGNrOiAwMEY4MjA0
+QyAwMDBBOTdFOCAwMDAwRkZGRiBGRkZGNkM3NCA2NjM5N0EwNCA2NjRGNzk5OSA2NjRGOTA0RiAw
+MEZFODk0QwpTdGNrOiAwMDAwRkZGRiBGRkZGRkZGRiAwMDAwMDAwMCAwMDAwMDAwMCAwM0VDQUNB
+MCAwMDBBOTdFOCA2NjE4MDhBQyBGRkZGRkZGRgpTdGNrOiA2NjRGNEJFNCA2NjRGNEJFOSA2NjM5
+MTlGNiA2NjNBMkY3NCA2NjAwQzlFNCA2NjM5OEM5NiAwMDAwMDAwMCA2NjE4MDhBQwpTdGNrOiBG
+RkZGRkZGRiA2NjE4MDhBQyBGRkZGRkZGRiA2NjRGNEJFNCA2NjA0OUQyQyA2NjM5OEJFOCA2NjRE
+MjM4OCA2NjAwQzlFNApTdGNrOiA2NkEyRUFCRSAwMDAwMDAwMCA2NjE4MDhBQyBGRkZGRkZGRiAw
+MDAwMDAwMCAwMDAwMDAwMCAwM0VDQUNBMCAwMDBBOTdFOApTdGNrOiA2NjE4MDhBQyBGRkZGRkZG
+RiA2NjRGNEJFNCA2NjA0OUQyQyA2NkJFRDVGOCA2NjREMjM4OCA2NjAwQzlFNCA2NkJFQTNGQQpT
+dGNrOiAwMDAwMDAwMCAwMDAwMDAwMCA2NjRGNEJFNCA2NjVEMTM4MCA2NjAwQzlFNCA2NjREMjI3
+QyA2NjE4MjNFNCA2NjRGNDYzQwpTdGNrOiA2NjRGNDYzQyA2NjRFNDE1MiA2NjE4MDhBQyBGRkZG
+RkZGRiA2NjRGNEJFNCA2NjRGNDYzQyA2NjRERjkxQSA2NjA0OUQyQwotLS0tPiAwMEY4MjA0QyAt
+ICJST00gLSBleGVjIDQwLjEwICgxNS43LjkzKSIgSHVuayAwMDAwIE9mZnNldCAwMDAwMUY5Mgot
+LS0tPiAkMDBmODIwNGM6IE1PVkUuTCAgICAoQTcpKyxENwotLS0tPiA2NjM5N0EwNCAtICJDOk1D
+UCIgSHVuayAwMDAxIE9mZnNldCAwMDAxMjE1NAotLS0tPiAkNjYzOTdhMDQ6IE1PVkVNLkwgICAo
+QTcpKyxBMC1BMQotLS0tPiAwMEZFODk0QyAtICJST00gLSBpbnR1aXRpb24gNDAuODUgKDUuNS45
+MykiIEh1bmsgMDAwMCBPZmZzZXQgMDAwMTk0QjAKLS0tLT4gJDAwZmU4OTRjOiBTVUJRLlcgICAg
+IyQzLCQ3MjZiKEE3KQpOYW1lOiAiV29ya2JlbmNoIiAgIENMSTogIldvcmtiZW5jaCIgIAoKQWxl
+cnQgISEgQWxlcnQgMDEwMDAwMEMgICAgIFRDQjogNjY5OEFCNzggICAgIFVTUDogNjY5OUVCODAK
+RGF0YTogMDAwMDAwMDAgMDAwMjAwMDAgMDAwREUxNDggMDAxRjM5MjggRkZGRkZGN0YgRkZGRjAz
+RkIgMDAwMDAwMDAgMDEwMDAwMEMKQWRkcjogNjc3OTYyQzggNjYwMDAwMDAgNjY3RERERjQgNjY3
+RERERjQgNjY5RDk2OEMgNjY5REE4ODggMDAwMDNFNzAgNjY5OUVCODAKU3RjazogMDBGODIwNEMg
+MDAwNDAwMDAgMDAwMDAzRkIgRkZGRkZGN0YgNjZFMjdFRDggMDAwMDAwMDAgMDAwNDAwMDAgNjY5
+RDk2OEMKU3RjazogNjY3RERERjQgNjY5RDk2NUMgNjY5RDk2NUMgNjZFMjgxMTYgMDAwMDAzRkIg
+RkZGRkZGN0YgRkZGRkZGQkEgRkZGRkZGN0YKU3RjazogMDAwMDAzRkIgNjY5OUVDNDggNjY5Nzc2
+NDAgNjY5RDk2NUMgNjY5OUVDMUMgNjYxOTMxQjAgNjY5RDk2NUMgMDBGRThGOUEKU3RjazogNjYx
+OTMxQjAgNjZGQURBMzIgNjY5MDU2RTAgMDAwMDAwMDAgMDAwMDAwMDAgMDAwMDAwMDAgMDAwMDAw
+MDAgMDAwMDAwMDAKU3RjazogMDAwMDAwMDAgNjY4MkY5NDYgNjY5OEFCNzggNjY5NzdDNDggNjYw
+M0ExQjQgMDAwMEMwMDAgNjY3RERERjQgMDAwMDAyREIKU3RjazogMDAwMDAzRkIgMDA1MDZDNjEg
+NzkyMDNBMjAgMzEzMzM4MzAgMzMzOTM5MDAgNjY5MDU2RTAgMDAwMDAwMDAgMDAwMDAwMDAKU3Rj
+azogMDAwMDAwMDAgNjY3RERERjQgMDAwMDAwMDAgNjYyMDVDNEMgNjZGREY3QzYgNjY5OEFCNzgg
+MDAwMDAwMDAgNjYwM0ExQjQKU3RjazogNjZGQTg0OEEgNjY5NzdDNDggNjY4MkY5NDYgNjY4MkY5
+NDYgNjZGQTgyQjAgMDAwMDAwMDAgMDAwMDAwMDAgMDAwMDAwMDAKLS0tLT4gMDBGODIwNEMgLSAi
+Uk9NIC0gZXhlYyA0MC4xMCAoMTUuNy45MykiIEh1bmsgMDAwMCBPZmZzZXQgMDAwMDFGOTIKLS0t
+LT4gJDAwZjgyMDRjOiBNT1ZFLkwgICAgKEE3KSssRDcKLS0tLT4gMDAwNDAwMDAgLSAiU291bmRG
+WCIgSHVuayAwMDAxIE9mZnNldCAwMDAxMDMyMAotLS0tPiAkMDAwNDAwMDA6IE9SSS5CICAgICAj
+JDAwLEQwCi0tLS0+IDY2RTI3RUQ4IC0gInByb2dkaXI6bGlicy9zZnhzdXBwb3J0LmxpYnJhcnki
+IEh1bmsgMDAwMCBPZmZzZXQgMDAwMEVFRjgKLS0tLT4gJDY2ZTI3ZWQ4OiBNT1ZFUSAgICAgIyQw
+MCxEMQotLS0tPiAwMDA0MDAwMCAtICJTb3VuZEZYIiBIdW5rIDAwMDEgT2Zmc2V0IDAwMDEwMzIw
+Ci0tLS0+ICQwMDA0MDAwMDogT1JJLkIgICAgICMkMDAsRDAKLS0tLT4gNjZFMjgxMTYgLSAicHJv
+Z2RpcjpsaWJzL3NmeHN1cHBvcnQubGlicmFyeSIgSHVuayAwMDAwIE9mZnNldCAwMDAwRjEzNgot
+LS0tPiAkNjZlMjgxMTY6IE1PVkUuVyAgICAjJGZmZmYsQTAKTmFtZTogIlNvdW5kRlgiICAgCg==
+
+----==bound66ec8bb811f------
+
+

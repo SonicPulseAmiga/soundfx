@@ -1,0 +1,24 @@
+@database SFX
+
+@Remark (C) Copyright 1993-1996 Stefan Kost
+@Remark All Rights Reserved
+@Remark $VER: Players-Index.guide (--.--.--)
+@Remark AmigaGuide-OnLine-Hilfe für SoundFX
+
+@master /guides/sfx.guide
+@index /guides/sfx-index.guide/index
+
+@node main "Players-Index"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Players-Index
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+@{" General Information " link Players.guide/main }
+@{" AHI                 " link /_Players/AHI.guide/main }		Player for AHI-Soundsystem
+@{" Amiga-14bit         " link /_Players/Amiga-14bit.guide/main }		High-quality Player for Paula-Soundchip
+@{" Amiga-14cbit        " link /_Players/Amiga-14cbit.guide/main }		High-quality Player for Paula-Soundchip
+@{" Amiga-8bit          " link /_Players/Amiga-8bit.guide/main }		Standart Player for Paula-Soundchip
+
+@endnode

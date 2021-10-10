@@ -1,0 +1,62 @@
+(IF (= @LANGUAGE "dansk")
+(
+	(SET #bad-kick				"SoundFX kræver mindst Kickstart 3.0!")
+	(SET #bad-installer			"SoundFX kræver mindst en Installerversion >= 43.0!\nDen kan findes på Aminet under util/misc/Installer43.3.lha.")
+	(SET #welcome-messy1		"\n\nVelkommen til installationen af SoundFX!\nDette script vil kopiere alle de filer, der er nødvendige for at bruge SoundFX, til din hardisk.")
+;NEW
+	(SET #welcome-messy2		"This script will remember all your choices permanently.\nIf you run this script the next time in 'Novice' or 'Average' mode, it will assume all choces to be like the last time and proceed quietly. You will be only asked if there is a new choice required.\nIf you need to change any setting run the script in expert mode. This reasks you all questions, but reenters already your last choice.")
+;NEW
+	(SET #choose-dest			"Vælg destinationsmappen! En undermappe med navn SFX vil automatisk blive oprettet.\nDu skal være sikker på, at der er mindst 5.0-10.0 MB fri på din harddisk!")
+	(SET #choose-dest-help		"Her kan du vælge det sted på din harddisk, hvor du vil have SFX installeret.")
+	(SET #copy-loader			"kopierer load-modulerne ...")
+	(SET #copy-operators		"kopierer operatør-modulerne ...")
+	(SET #copy-player			"kopierer afspilnings-modulerne ...")
+	(SET #copy-rexx				"kopierer ARexx-scriptene ...")
+	(SET #copy-saver			"kopierer save-modulerne ...")
+	(SET #copy-executable		"kopierer executable ...")
+	(SET #copy-fonts			"kopierer fonte ...")
+	(SET #copy-libs				"kopierer biblioteker ...")
+	(SET #copy-envelopes		"kopierer envelopes ...")
+	(SET #copy-presets			"kopierer præindstillinger ...")
+	(SET #copy-workshop			"kopierer workshop-data ...")
+	(SET #copy-gfx				"kopierer grafik ...")
+	(SET #copy-text				"kopierer tekst ...")
+	(SET #copy-guides			"kopierer guides ...")
+	(SET #copy-keyfile			"kopierer keyfile ...")
+;NEW
+	(SET #copy-catalogs			"copying catalogs ...")
+;NEW
+	(SET #copy-help				"De respektive filer vil blive kopieret til din harddisk.")
+;NEW
+	(SET #copy-goodies			"Copy third-party stuff ...")
+	(SET #choose-binary			"Please choose the processor version to install!")
+	(SET #choose-binary-help	"Those versions are optimized for the combination of cpu and fpu.")
+	(SET #choose-language		"Please choose a language for the documentation!")
+	(SET #choose-language-help	"In which language would you like the documentation files to be installed?")
+	(SET #choose-docfiles		"Please choose which documentation files you would like to install additionally to the html-files!")
+	(SET #choose-docfiles-help	"The documentation comes as pdf/ps for printing as well. There are version formatted for a4 and for letter paper.")
+;NEW
+;CHANGE
+;	(SET #choose-icon			"Vælg det ikon du vil installere\n4-farve udgaven er til standard wb-farven, mens 8-farve udgaven er til Magic-WB!")
+;	(SET #choose-icon-help		"Hvis du har mere end fire farver på din WB, skal du vælge 8-farve ikonet.\nDen ser pænere ud.")
+	(SET #choose-icon			"Vælg det ikon du vil installere !")
+	(SET #choose-icon-help		"The standart version is for a 4 coulour wb.\nThe MagicWB and Iconographics versions require at least 8 colours.\nThe NewIcon versions require the newicon software.")
+;CHANGE
+	(SET #choose-keypath		"Vælg en mappe, som din keyfile skal installeres i.")
+	(SET #choose-fontpath		"Vælg en mappe, som fontene skal installeres i!")
+	(SET #choose-path-help		"Du kan vælge imellem alle disse mapper. SFX vil gennemsøge dem alle!")
+	(SET #choose-instmode		"SFX er allerede installeret! Hvordan skal jeg fortsætte?")
+	(SET #choose-instmode-help	"I backup-mode bliver den gamle SFX-mappe omdøbt til SFX_old.\nI opdaterings-mode vil allerede installerede filer blive overskrevet.")
+;NEW
+	(SET #copykey-fail			"Copying of the keyfile failed !")
+;NEW
+	(SET #exit-messy			"\n\nSFX er blevet succesfuldt installeret!\nLæs venligst guiden for at lære, hvordan man bruger programmet.")
+	(SET #orderform				"Orderform.dansk.txt")
+	(SET #catalog				"dansk")
+	(SET #readme				"ReadMe#?")
+;NEW
+	(SET #requires-identify		"SoundFX now can use the identify.library >=13.0, but it is not installed or too old.")
+	(SET #requires-openurl		"SoundFX now requires the openurl.library >=3.0, but it is not installed or too old.")
+	(SET #requires-popupmenu	"SoundFX now can use the popupmenu.library >=9.0, but it is not installed or too old.")
+;NEW
+))

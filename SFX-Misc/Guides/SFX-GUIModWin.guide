@@ -1,0 +1,106 @@
+@database SFX-GUIModWin
+
+@remark $VER: SFX-GUIModWin.guide © by Stefan Kost 1994-1997 (09.03.97)
+@remark AmigaGuide-OnLine-Hilfe für SoundFX
+
+@master SFX-GUIModWin.guide
+@index sfx-index.guide/index
+
+@node main "1.12 Modulatorfenster"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+1.12 Modulatorfenster
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Diese Fenster werden von den Operatoren aktiviert. In ihnen läßt sich fest-
+legen, wie ein Parameter moduliert (variiert) werden soll.
+
+	@{" 1.12.1 Kurve             " link ModWinCurve }
+	@{" 1.12.2 Zyklus            " link ModWinCycle }
+	@{" 1.12.3 Vektor            " link ModWinVector }
+	@{" 1.12.3 Benutzerdefiniert " link ModWinUser }
+@endnode
+
+@node ModWinCurve "1.12.1 Kurve"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+1.12.1 Kurve
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Dieser Modulator erzeugt einen gekrümmten Verlauf. Die Krümmung wird über den
+Parameter "Exponent" gesteuert und auch graphisch dargestellt.
+Nachfolgend einige Beispiele :
+
+Linear    (1) :	Gibt am zu Samplebeginn 0.0 und am Ende 1.0 zurück. Dazwischen
+		wird geradlinig = linear übergeblendet.
+SpeedUp  (>1) :	Ähnlich dem vorhergehenden, unterscheidet sich dies dadurch,
+		das es einen beschleunigten Verlauf erzeugt, das heißt - die
+		Werte ändern sich anfangs langsamer und gegen Ende schneller.
+SlowDown (<1) :	Analog zu SpeedUp liefert dies einen gebremsten Verlauf.
+@endnode
+
+@node ModWinCycle "1.12.2 Zyklus"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+1.12.2 Zyklus
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Dieser Modulator erzeugt eine Schwingung. Dabei läßt sich die Wellenform, Phase
+und Frequenz auswählen. Letzteres kann in verschiedenen Arten eingestellt
+werden.
+	Hz	: Frequenz in Hz
+	Time	: Dauer einer Periode in Zeiteinheiten oder Samples
+	Repeats	: Anzahl von Perioden (Zyklen)
+@endnode
+
+@node ModWinVector "1.12.3 Vektor"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+1.12.3 Vektor
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Dieser Modulator erzeugt max. 20 segmentige Hüllkurven.
+Mit '+' und '-' können Sie Punkte hinzufügen oder entfernen.
+Mit 'FlipX' und 'FlipY' können Sie die Kurve umklappen.
+In 'Nr' können Sie direkt einen Punkt anwählen, um ihn in den nächsten zwei
+Feldern zu positionieren. Sie können die Punkte natürlich auch mit der Maus
+verschieben.
+@endnode
+
+@node ModWinUser "1.12.4 Benutzerdefiniert"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+1.12.4 Benutzerdefiniert
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Dieser Modulator erlaubt es einen anderen Samplepuffer als Steuerungsquelle zu
+benutzen. Dabei gibts es folgende Typen :
+
+	Normal : Wenn die Amplitude des Modulationspuffers ihr negatives
+		 Maximum erreicht hat, entspricht das dem Wert 0.0 und beim po-
+		 sitiven Maximum wird 1.0 zurückgegeben.
+	Abs :	 Analog zu 'Normal' 0 wird hier mit dem absoluten Betrag des
+		 Samplepuffers gearbeitet. Somit ergibt ein Samplewert auf der
+		 Nulllinie einen Rückgabewert von 0 und eine Maximum (+ oder -)
+		 eine 1.
+	AmpEnv : Dieses Shape gibt die Lautstärkehüllkurve des modulierenden
+		 Samples zurück (Stellen Sie sich vor sie spannen einen Gummi-
+		 faden über das Sample).
+	FrqEnv : Dieses Shape gibt die Frequenzhüllkurve des modulierenden
+		 Samples zurück.
+
+Die Samplepuffer, die zur Modulation benuzt werden, können ja durchaus eine an-
+dere Länge als das Ergebnissample haben. Wie der Modulationspuffer bezüglich
+seiner Länge interpretiert wird, kann man wie folgt entscheiden :
+	Single	: Falls das Sample kürzer ist, wird der Rest mit Leerraum auf-
+		  gefüllt.
+	Repeat	: Falls das Sample kürzer ist, wird es so oft wiederholt, wie
+		  es benötigt wird.
+	Stretch	: Das Sample wird auf die benötigte Länge gedehnt oder ge-
+		  staucht.
+@endnode

@@ -1,0 +1,36 @@
+<<<<<<<<<< Delay, Multidelay, >>>>>>>>>>
+
+27 jul 00
+Q:
+> In Multidelay, what exactly is the difference between local and global
+> feedback?
+A:
+I'll try to do sort of graphics
+
+           +--------------------------+
+           |                          |
+           |              * fbglob +--+
+           v          +---------+  |  |
+source >---+---+---+--| Delay 1 |--+------+-----> result
+               |   ^  +---------+  |  |   |
+               |   +---------------+  |   |
+               |      * fblocal       |   |
+               |                      |   |
+               |          * fbglob +--+   |
+               |      +---------+  |  |   |
+               +---+--| Delay 2 |--+------+
+               |   ^  +---------+  |  |   |
+               |   +---------------+  |   |
+               |      * fblocal       |   |
+               :                      :   :
+               |          * fbglob +--+   |
+               |      +---------+  |      |
+               +---+--| Delay 8 |--+------+
+                   ^  +---------+  |    
+                   +---------------+    
+                      * fblocal         
+
+Hmm, words would have probably done better. So local feedback is a factor which
+determies how much of one delays output is feedback to it's input. global
+feedback is the factor which determies how much of one delays output is added to
+a sum which is feeback into all delay-inputs.

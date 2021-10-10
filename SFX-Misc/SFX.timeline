@@ -1,0 +1,237 @@
+Development-Timeline (more unsorted ideas are in SFX.ideas)
+-----------------------------------------------------------
+
+4.4 :
+	* Locale
+		* add translation for contextmenu-title (not "SampleOptions") ?
+	* Refactorising
+		* rename variables in fx
+		* ampf -> gain
+		* anz -> num (number)
+		* replace (done for Message(),return()
+			'=1' with '=TRUE'
+			'=0' with '=FALSE'
+			'=0l' with '=NULL'
+		* prefix all macros with 'SFX_'
+		* SInfo
+			* rename to 'SFX_Sound'
+			* split into
+				* SFX_SoundMeta
+				* SFX_SoundView
+		* prefix function with object names (oo-style)
+		* split SFX-WinSample.c::Test_SampleWin()
+	* Plugins
+		* Join Operators
+			* Filter-CRSHiPass,Filter-CRSHiPass -> Filter-CRSLowHiPass
+			* Filter-FIRHiPass,Filter-FIRHiPass -> Filter-FIRLowHiPass
+			* Filter-FIRBandPass,Filter-FIRBandStop -> Filter-FIRBandPassStop
+			* QuantizerHoriz,QuantizeVert -> Quantize
+				* in welcher Reihenfolge (QuantizerVert -> QuantizeHoriz -> Dry/Wet)
+	* MessageBus
+		* Listeners add their message ports and message-type masks to the BusMasterList
+		* Messages have a sender-id
+			* soundfx
+			* operators/amplify
+			* loaders/...
+		* Messages have a type
+			* PRIVATE = 0
+			* BUFFER_CHANGE
+				* CREATED
+				* CLOSED
+				* CHANGED
+			* BUFFER_ACTION
+				* PLAY_ALL
+				* PLAY_RANGE
+			* CONFIG_CHANGED
+		* replaces RunTime.changesamples mechanism
+		* take care of avoiding to send message from the same process to itself
+			* have BusMaster-Task
+			* send *all* messages to the BusMaster
+			* BusMaster creates a copy and replies
+			* BusMaster sends out the copy to all listeners with matching mask
+	* change sample naming
+		* filename goes to si.node->ln_Name
+		* name chunk goes to si->name
+		* initial name is NULL !
+		* what to do when saving and it still is NULL ?
+			* don't save this chunk
+			* copy si.node->ln_Name to it
+	* when AHI_INVALID_ID in play -> set to AHI_DEFAULT_ID and show message
+	* Statusbar
+		* embed progressbar ?
+			* e.g. for cut/cop/paste operations
+	* Sample-IO
+		* if sample is in virtual memory keep sample-files opened
+			=> faster drawing, faster playing, ...
+		* ! make sure we don't exceed number of open files !
+	* macros
+		* FXCore
+			define SFX_UnrollCoreCount 4
+			define SFX_UnrollCore(c) do { c;c;c;c } while(0);
+		* Datatypes
+			storage		: int8/16/...	=> SAMPLE_STOR
+			calculation	: float/double	=> SAMPLE_CALC
+	* ARexx
+		* rename FX-Parameters (like CfgIO)
+		* make exchange macros using named pipes
+	* rename Menu-IDs
+	* Mouse-events in Samplewindow -> Automata
+	* Prefs
+		* prefs-misc
+			* Start
+				Window Mode
+				Show Tips
+			* End
+				Ask Exit
+			* Behaviour
+				* Source Select, Context Button
+				* ContextMenu = { window-icon, window-icon+middle-mb, window-icon+right-mb }
+				* KeepRange ? (e.g. after zoom)
+		* prefs-sound
+			* playback/capture
+				* audio-driver + settings
+				* blocksize (show latency)
+			* (we can remove this the in record-window)
+		* externalize
+			* dos-notify of env:sfx.cfg / envarc:sfx.cfg
+			  see XPKTXT:SOURCE/RKM_Lib/Preferences/prefnotify.c
+	* Bugfixes
+		? horizontal window grow of 3 pixels with visualprefs
+	* better cut/copy/paste/... (lazy)
+		* cut/erase
+			* Bereich nach Markierung vorziehen und slen-marklen
+		* copy
+			* wie bisher
+		* paste
+			* wenn slen+marklen<memlen
+				* Bereich hinter Mark nach hinten schieben, Bereich einkopieren und slen+marklen
+			* sonst
+				* neu allokieren
+		* zero, overwrite
+			* wie bisher (richtig überschreiben)
+	* docs
+		* chapter about technology (tools, code statistics (can we use c-tags for it?), ...)
+		* use mini pictures for commands
+			* key : pressing a key
+			* mouse with the respective button highlighted : clicking with a mouse-button
+				* how to signal double click ?
+			* menu : selecting a menu-entry
+	* menu
+		* project
+			* Neu ... -> Neues Sample ...
+			* Laden ... -> Sample laden ...
+			* Speichern ... -> Sample speichern ...
+			* Session laden ...
+				* load config and then the files
+			* Session speichern ...
+				* save config with sections
+					* [session] : number of samples
+					* [<nr] : Path of Sample, Window Size/Position, Hidden/Visible, ...
+		* edit
+	        * undo/redo
+				* Liste mit Kommandos und Kommandodaten (pro Samplebuffer)
+					* Kommando (a la AREXX Cmd)
+						* e.g. "SetMarkStart 1500"
+		            * Kommandodaten
+			            * Sourcesample
+					    * Databackup (für Cut, Erase, Zero,...)
+				* jedes Sample hat eigenen Undo-Pointer und Redo-Pointer
+				* Funktion
+					* Wenn anderes Sample aktiviert wird Menu refreshen
+					* initial
+						Undo	UndoPtr		Redo	RedoPtr
+						-		0L			-		0L
+					* operation 1 ausführen
+						Undo	UndoPtr		Redo	RedoPtr
+						1:Cmd	->1			1:Cmd	0L
+					* operation 2 ausführen
+						Undo	UndoPtr		Redo	RedoPtr
+						1:Cmd				1:Cmd	0L
+						2:Cmd	->2			2:Cmd	0L
+					* undo
+						Undo	UndoPtr		Redo	RedoPtr
+						1:Cmd	->1			1:Cmd	0L
+						2:Cmd				2:Cmd	->2
+					* redo
+						Undo	UndoPtr		Redo	RedoPtr
+						1:Cmd				1:Cmd	0L
+						2:Cmd	->2			2:Cmd	0L
+					* undo/undo
+						Undo	UndoPtr		Redo	RedoPtr
+						1:Cmd				1:Cmd	->1
+						2:Cmd				2:Cmd
+			* Cut/Concat (unmarked)
+			* Exchange/Replace
+		* cleanup
+			- reposition current
+			- reposition all
+				- with normal size
+				- with small size
+				- in columns
+					.active: anz_samples>=1
+					.samples_per_column=anz_samples/columns
+					.sample_width=screen_width/columns
+					.sample_height=screen_height/samples_per_column
+					- 1
+						.active: anz_samples>=1
+					- 2
+						.active: anz_samples>=2
+					- 3
+						.active: anz_samples>=3
+				- in rows
+					.active: anz_samples>=1
+					- 1
+						.active: anz_samples>=1
+					- 2
+						.active: anz_samples>=2
+					- 3					
+						.active: anz_samples>=3
+	* change of length
+		* via sample options
+			* add a 2nd input field to length "delta length"
+			* add a cyle action={ add to begin, add to end, ...}
+			* add a button "change length"
+		* via toolbar/menu
+			* place a mark somewhere
+			* click to
+				* "extend from the begin"
+				  inserts silence of length markxs at the begin
+				* "extend at the end"
+				  inserts silence of length slen-markxe at the end
+	* batchprocessor
+		* edit Button after Preset-Selection in batchlist -> invokes loader/saver/operator
+	* make drawing of sample asynchronus
+		* every sample has pointer to draw-task
+		* DrawSample()
+			* check if there is still one such task and reset it if so
+			* else start new one
+	* configio.library
+		* change so that it adds the "$ V E R : " prefix to the string
+		* when renaming a preset the [ConfigIO]/version must be updated
+
+5.0 :
+	* better mod_vector (envelope)
+	* mod_varcycle
+	* sample-options:basenote, configurable default (e.g. C-3 @ 44100 Hz)
+	* prehear
+	* sample-windows
+	    * views
+		    * splitting a window into several ranges (horizontally)
+			* open details
+				* we would need several x-scroller+arrows then !
+		* timeline
+			* add a timeline {nowhere, above or below} the sample-gfx
+			* draw a cached version of the sample
+			* show current range on the timeline
+				* resizable
+				* moveable
+	* AHI Unterstützung für Units
+
+	* split sfxsupport.library
+		* gui tools
+		* dsp tools
+		* sfxsupport
+
+6.0 :
+	* sfx-core process (arexx, etc, ...)
+

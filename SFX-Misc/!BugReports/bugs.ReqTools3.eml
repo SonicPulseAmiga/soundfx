@@ -1,0 +1,77 @@
+X-UIDL: 3f8791b30000f45b
+X-Mozilla-Status: 0001
+X-Mozilla-Status2: 00000000
+Received: from n25.grp.scd.yahoo.com (n25.grp.scd.yahoo.com [66.218.66.81])
+	by imn.htwk-leipzig.de (8.12.9/8.12.9) with SMTP id hA4CdknQ002081
+	for <kost@imn.htwk-leipzig.de>; Tue, 4 Nov 2003 13:39:48 +0100 (MET)
+X-eGroups-Return: sentto-3879093-1302-1067949585-kost=imn.htwk-leipzig.de@returns.groups.yahoo.com
+Received: from [66.218.67.201] by n25.grp.scd.yahoo.com with NNFMP; 04 Nov 2003 12:39:47 -0000
+X-Sender: pierregiroux@videotron.ca
+X-Apparently-To: soundfx-users@yahoogroups.com
+Received: (qmail 76067 invoked from network); 4 Nov 2003 12:39:43 -0000
+Received: from unknown (66.218.66.217)
+  by m9.grp.scd.yahoo.com with QMQP; 4 Nov 2003 12:39:43 -0000
+Received: from unknown (HELO VL-MO-MR001.ip.videotron.ca) (24.201.245.36)
+  by mta2.grp.scd.yahoo.com with SMTP; 4 Nov 2003 12:39:45 -0000
+Received: from relais.videotron.ca ([24.200.134.26])
+ by VL-MO-MR001.ip.videotron.ca
+ (iPlanet Messaging Server 5.2 HotFix 1.16 (built May 14 2003))
+ with SMTP id <0HNT00CNMV5KTU@VL-MO-MR001.ip.videotron.ca> for
+ soundfx-users@yahoogroups.com; Tue, 04 Nov 2003 07:39:21 -0500 (EST)
+In-reply-to: <3FA64745.20904@imn.htwk-leipzig.de>
+To: soundfx-users@yahoogroups.com
+Message-id: <yam9438.1780.151219984@relais.videotron.ca>
+X-Mailer: YAM 2.4p1 [060] AmigaOS E-mail Client (c) 2000-2003 by YAM Open
+ Source Team - http://www.yam.ch/
+From: Pierre Giroux <pierregiroux@videotron.ca>
+X-Yahoo-Profile: powertowerca
+MIME-Version: 1.0
+Mailing-List: list soundfx-users@yahoogroups.com; contact soundfx-users-owner@yahoogroups.com
+Delivered-To: mailing list soundfx-users@yahoogroups.com
+Precedence: bulk
+List-Unsubscribe: <mailto:soundfx-users-unsubscribe@yahoogroups.com>
+Date: Tue, 04 Nov 2003 07:39:35 -0500
+Subject: [soundfx-users] Re: Loading Problem, cut problem, docs, misc
+Reply-To: soundfx-users@yahoogroups.com
+Content-Type: text/plain; charset=ISO-8859-1
+Content-Transfer-Encoding: 8bit
+Content-Length: 1123
+Status:  O
+
+Salut Stefan,
+
+Le 03/11/2003, Stefan Kost a écrit:
+
+
+>> Playing with the preference I notice that Sample Path for saving and
+>> loading does'nt work, it stays to "progdir:", I change the Paths manualy
+>> in the sfx.cfg file.
+> Can anyone verify that. Please add a issue to the bugtracker then. This
+> definitely needs to be fixed before the final comes out.
+
+Just try something this morning... when I change the Path name of the
+Virtual Memory it's working so there is something different in the way
+samples Path work with reqtools.
+
+Bye!
+-- 
+Pierre Giroux
+
+
+
+------------------------ Yahoo! Groups Sponsor ---------------------~-->
+Buy Ink Cartridges or Refill Kits for your HP, Epson, Canon or Lexmark
+Printer at MyInks.com. Free s/h on orders $50 or more to the US & Canada.
+http://www.c1tracking.com/l.asp?cid=5511
+http://us.click.yahoo.com/mOAaAA/3exGAA/qnsNAA/mjFolB/TM
+---------------------------------------------------------------------~->
+
+To unsubscribe from this group, send an email to:
+soundfx-users-unsubscribe@yahoogroups.com
+
+ 
+
+Your use of Yahoo! Groups is subject to http://docs.yahoo.com/info/terms/ 
+
+
+

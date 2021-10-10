@@ -1,0 +1,27 @@
+CDDA-Direct ideas
+-----------------
+
+* GUI-Preferences
+	* Device
+		* Listview contains all devices
+		* scsi-devices are black, others gray (use hook)
+	* Units
+		* Listview contains all unit-listing (use inquiries)
+		* cd-rom devices are black, others gray
+	* method
+		* vendor group 1 (sony , plextor)
+		* vendor griup 2 (toshiba)
+
+* GUI-Requester (anstatt Filereq)
+	* tracks
+		* track-listing (use read toc)
+		* audio-tracks are black, others gray
+	* track start
+		* string containing relative h:m:s
+		* slider 
+	* track stop
+		* string containing relative h:m:s
+		* slider 
+	* track length
+		* string containing h:m:s
+		* slider 

@@ -1,0 +1,52 @@
+ShowTip for SoundFX
+by Dan Jedlicka
+
+History
+
+0.1 (20 Jan 2002)
+- The idea & the first working version (for Stefan's eyes only).
+- Opens on "SFX-Pubscreen" only (provisional).
+- Fully localizable (stores the tips in a locale catalog).
+- Version 0.1 of the English catalog (30 entries).
+
+0.2 (22 Jan 2002)
+- The program now requires a commandline argument specifying the
+  name of the screen to open on. Thus, if SFX is already running
+  and the user starts another copy of the program, the tip-of-the-day
+  should appear on the correct screen.
+- Version 0.2 of the English catalog (minor corrections).
+
+0.3 (26 Jan 2002)
+- Implemented one more check on the catalog (= even safer now).
+- Stores five recently displayed tips in "PROGDIR:Data/Recent.tips".
+  This prevents displaying the same tips too often.
+- Version 0.3 of the English catalog (reflects the changes in SFX4.2).
+
+0.4 (27 Jan 2002)
+- Linked with the latest version of stormamiga_nc.lib (saved some bytes).
+- Added 2 more tips to the English catalog (V0.4)
+
+0.5 (29 Jan 2002)
+- Optimized the load/save routines and saved about 400 bytes :-)
+
+0.6 (13 Feb 2002)
+- Added Intuition EasyRequest support. Now, if the requester.class is not
+  found (as it would be the case on pre-OS3.5 systems), ShowTip
+  displays the tip message using a standard Intuition requester.
+
+1.0 (28 Mar 2002)
+- Added a call that activates SoundFX's screen after closing the requester.
+
+1.1 (20 Apr 2002)
+- Completely reworked. ShowTip doesn't use requester.class anymore,
+  a custom ReAction-based display engine is used instead.
+- Faster and better-looking.
+- The requester can now be closed by pressing ENTER.
+
+1.2 (21 Apr 2002)
+- The minimum class version lowered from 42 to 41 in order to allow the use
+  of ClassAct 2.0 distribution. (I assumed ClassAct 2.0 classes were at
+  least V42 but I was wrong).
+- Removed some forgotten debug code and saved about 2.5KB.
+- Optimized the requester image. (It wasn't really necessary to keep it in
+  256 colours so I saved it as a 16-colour image, thus making it smaller.)

@@ -1,0 +1,12 @@
+Testdata = Audio 60 sek
+vmemblk  = 65536
+
+			Delay							DelayNew
+			1		2		3		avg		1		2		3		avg
+3xNone		 2688	2682	2684			2406	2404	2404
+3xLinear	 3544	3546	3542			3402	3406	3404
+3xCurve		20736
+3xSaw
+3xSin
+3xSqr
+3xTri

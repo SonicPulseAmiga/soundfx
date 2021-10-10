@@ -1,0 +1,1099 @@
+## version $VER: SoundFX.ct 1.1 (18.04.2002)
+## language czech
+## codeset 0
+;
+;
+; Errors ======================================================================
+;
+;-- Resource errors -----------------------------------------------------------
+;
+;   Can't open file : %s ! [ Expects filename as parameter ]
+errOpenFile
+Nelze otevêít soubor %s!
+; Can't open file : %s !
+;   Can't open library : %s ! [ Expects libname as parameter ]
+errOpenLibrary
+Nelze otevêít knihovnu %s!
+; Can't open library : %s !
+;   Can't open screen !
+errOpenScreen
+Nelze otevêít obrazovku!
+; Can't open screen !
+;   Can't open window !
+errOpenWindow
+Nelze otevêít okno!
+; Can't open window !
+;   Can't allocate memory !
+errAllocateMemory
+Nelze alokovat pamëï!
+; Can't allocate memory !
+;   Can't allocate file request !
+errAllocateFileRequest
+Nelze otevêít souborový requester!
+; Can't allocate file request !
+;   Can't allocate font request !
+errAllocateFontRequest
+Nelze otevêít requester pro fonty!
+; Can't allocate font request !
+;   Can't allocate screenmode request !
+errAllocateScrmdRequest
+Nelze otevêít requester pro zobraz. módy!
+; Can't allocate screenmode request !
+;   Can't allocate audiomode request !
+errAllocateAudioRequest
+Nelze otevêít requester pro zvukové módy!
+; Can't allocate audiomode request !
+;   Can't allocate signal !
+errAllocateSignal
+Nelze alokovat signál!
+; Can't allocate signal !
+;   Can't create context !
+errCreateContext
+Nelze vytvoêit kontext!
+; Can't create context !
+;   Can't create gadgets !
+errCreateGadgets
+Nelze vytvoêit tlaçítka!
+; Can't create gadgets !
+;   Can't create menus !
+errCreateMenus
+Nelze vytvoêit menu!
+; Can't create menus !
+;   Can't layout menus !
+errLayoutMenus
+Nelze sestavit menu!
+; Can't layout menus !
+;   Can't create port !
+errCreatePort
+Nelze vytvoêit komunikaçní port!
+; Can't create port !
+;   Can't close screen - close visitor windows first !
+errVisitorWindows
+Nelze zavêít obrazovku! Nejdêíve\n\
+zavêete vîechna okna na obrazovce!
+; Can't close screen !\n\
+; Please close visitor-windows first !
+;   Can't make screen public !
+errMakeScreenPublic
+Nelze vytvoêit veêejnou obrazovku!
+; Can't make screen public !
+;   Can't close that sample yet, it's still in use !
+errCloseSample
+Tento sampl nelze zavêít, je stále pouùívaný!
+; Can't close that sample yet, it's still in use !
+;   Clip is empty !
+errEmptyClip
+Schránka je prázdná!
+; Clip is empty !
+;   Can't access %s ! [ Expects filename as parameter ]
+errAccessFile
+Nelze najít soubor %s!
+; Can't access %s !
+;   Can't add appicon !
+errAddAppIcon
+Nelze vytvoêit aplikaçní ikonu!
+; Can't add AppIcon !
+;   Can't add samplebuffer !
+errAddSampleBuffer
+Nelze pêidat zásobník pro sampl!
+; Can't add samplebuffer !
+;   Can't get visual info !
+errGetVisualInfo
+Nelze pêeçíst visual info!
+; Can't get visual info !
+;   Can't allocate audio hardware !
+errAllocateAudio
+Nelze alokovat zvukový hardware!
+; Can't allocate audio hardware !
+;   No AHI System or invalid AudioMode !
+errNoAHI
+Chybí AHI systém, nebo je nastaven chybný mód !
+; No AHI System or invalid AudioMode !
+;   Execution of %s failed ! [ Expects functioname as parameter ]
+errFail
+Chyba pêi spuîtëní %s!
+; Execution of %s failed !
+;   Can't get sample attributes ! (loaders/Datatype_L)
+errSampleAttributes
+Nelze zjistit atributy samplu!
+; Can't get sample attributes !
+;   Can't get sample object ! (loaders/Datatype_L)
+errSampleObject
+Sampl nelze naçíst!
+; Can't get sample object !
+;
+;-  FileIO --------------------------------------------------------------------
+;   Can't read data !
+errReadData
+Data nelze naçíst!
+; Can't read data !
+;   Can't write data !
+errWriteData
+Data nelze uloùit!
+; Can't write data !
+;   This isn't a %s file ! [ Expects filetype as parameter ]
+errWrongFiletype
+Toto není soubor typu %s!
+; This isn't a %s file !
+;   Can't read this %s file ! [ Expects filetype as parameter ]
+errUnsupportedSubtype
+Soubor typu %s není podporován!
+; Can't read this %s file !
+;   This is not the right data file !
+errWrongDatafile
+Neplatný datový soubor!
+; This is not the right data file !
+;   Sample has no sampling rate, SoundFX sets it to default !
+errNoSampleRate
+Sampl neobsahuje informaci o pêehrávací frekvenci,\n\
+proto SoundFX nastaví výchozí!
+; Sample has no sampling rate, SoundFX sets it to default !
+;   Can't save the whole wave !
+errSampleToLong
+Nelze uloùit celý sampl!
+; Can't save the whole wave !
+;   This sample isn't saved correctly !
+errDamagedFormat
+Sampl %s pravdëpodobnë nebyl uloùen správnë.\n\
+Uloùte ho znovu.
+; The sample %s has not been saved correctly !\n\
+; I advice you to save the sample again.
+;
+;-- Sampletype ----------------------------------------------------------------
+;   Source must be a mono sample !
+errSourceMono
+Zdrojem musí být monofonní sampl!
+; Source must be a mono sample !
+;   Source must be a stereo sample !
+errSourceStereo
+Zdrojem musí být stereofonní sampl!
+; Source must be a stereo sample !
+;   Source must be a quadro sample !
+errSourceQuadro
+Zdrojem musí být kvadrofonní sampl!
+; Source must be a quadro sample !
+;   Source must be a stereo or quadro sample !
+errSourceStereoQuadro
+Zdrojem musí být stereo- nebo kvadrofonní sampl!
+; Source must be a stereo or quadro sample !
+;
+;-- Beta ----------------------------------------------------------------------
+;   This function is not implemented yet !
+errNotImplemented
+Tato funkce jeîtë není implementována!
+; This function is not implemented yet !
+;   This operation doesn't supports device-samples yet !
+errNoVMemYet
+Pro tuto operaci nelze pouùít virtuální pamëï.
+; This operation doesn't supports device-samples yet !
+;
+; Messages ====================================================================
+;   This is an unregistered version ...
+msgUnregVersionStart
+Toto je neregistrovaná verze SoundFX! V demoverzi\n\
+nelze ukládat a není aktivní ARexxový port.\n\
+Podrobnëjîí informace najdete v dokumentaci.
+; This is an unregistered version of SoundFX !\n\
+; Saving of your work and using ARexx-Port is disabled !\n\
+; See guide for further informations !
+;   You have used an unregistered Version ...
+msgUnregVersionEnd
+Pouùíváte neregistrovanou verzi SoundFX!
+; You have used an unregistered version of SoundFX !
+;   Demo reminder - I've already told you that you can't save ...
+msgDemoNoSave
+Demoverze SoundFX neumoùñuje ukládat samply!
+; I have already told you that you can't save your samples in the demo-version !
+;   Demo reminder - I've already told you that you can't use rexx ...
+msgDemoNoARexx
+Demoverze SoundFX neumoùñuje pouùívat ARexxový port!
+; I have already told you that you can't use the arexx-port in the demo-version !
+;   Installation seems to be incomplete !
+msgInstIncomplete
+Instalace SoundFX nebyla pravdëpodobnë dokonçena\n\
+úspëînë. Pêi instalaci je têeba pouùít minimálnë\n\
+archívy sfx-bin_???, sfx-doc_??? a sfx-data_???.\n\
+Vynechání jednoho z nich mûùe zpûsobit problémy!
+; Installation seems to be incomplete !\n\
+; Please always install the sfx-bin_???, sfx-doc_??? and sfx-data archives.\n\
+; Leaving one out may lead to an instable installation !
+;   Setting player options ...
+msgSetPlayerOpts
+Moùnosti pêehrávaçe
+; Setting player options ...
+;   Setting global options ...
+msgSetDefaultGlobals
+Globální moùnosti
+; Setting global options ...
+;   Setting local texts ...
+msgSetLocalTexts
+Lokalizace...
+; Setting local texts ...
+;   Scanning operators ...
+msgScanOperators
+Vyhledávání operátorû ...
+; Scanning operators ...
+;   Scanning loaders ...
+msgScanLoaders
+Vyhledávání modulû pro naçítání...
+; Scanning loaders ...
+;   Scanning players ...
+msgScanPlayers
+Vyhledávání pêehrávaçû...
+; Scanning playerrs ...
+;   Scanning savers ...
+msgScanSavers
+Vyhledávání modulû pro ukládání...
+; Scanning savers ...
+;   Scanning rexxmacros ...
+msgScanRexxmacros
+Vyhledávání arexxových skriptû...
+; Scanning rexxmacross ...
+;   Building on-line-help contents ...
+msgBuildHelp
+Vytváêení on-line nápovëdy...
+; Building on-line-help contents ...
+;   Create ports ...
+msgCreatePorts
+Vytváêení portû...
+; Create ports ...
+;   Initialising GUI ...
+msgInitGUI
+Inicializace GUI...
+; Initialising GUI ...
+;   Working on %s[%d]
+msgProgress
+Zpracování %s [%d]
+; Working on %s[%d]
+;   Loading[%d]
+msgProgressLoad
+Naçítání samplu [%d]
+; Loading[%d]
+;   Saving[%d]
+msgProgressSave
+Ukládání samplu [%d]
+; Saving[%d]
+;	no channel selected
+msgNoChannelSelected
+Není vybrán ani jeden kanál.
+; no channel selected
+;
+;-- Requests ====================================================================
+;   File already exists !
+reqFileExists
+Tento soubor jiù existuje!
+; File already exists !\n\
+; What should I do ?
+;   Do you really want to quit ?
+reqReallyQuit
+Opravdu chcete SoundFX ukonçit?
+; Do you really want to quit ?
+;   SoundFX is already running !\nShould I start it again ?
+reqRunAgain
+SoundFX je uù spuîtën! Chcete spustit dalîí kopii?
+; SoundFX is already running !\nShould I start it again ?
+;   Do you really want to remove all samples ?
+reqRemoveAll
+Opravdu chcete odstranit vîechny samply?
+; Do you really want to remove all samples ?
+;   Do you really want to remove all hidden samples ?
+reqRemoveHidden
+Opravdu chcete odstranit vîechny skryté samply?
+; Do you really want to remove all hidden samples ?
+;   Do you really want to remove all shown samples ?
+reqRemoveShown
+Opravdu chcete odstranit vîechny zobrazené samply?
+; Do you really want to remove all shown samples ?
+;   Do you really want to close this sample ?
+reqCloseSample
+Opravdu chcete zavêít tento sampl?
+; Do you really want to close this sample ?
+;   Do you really want to delete this entry ?
+reqRemEntry
+Opravdu chcete smazat tuto poloùku?
+; Do you really want to delete this entry ?
+;
+; Strings =====================================================================
+;
+;-- Requestertitles -----------------------------------------------------------
+;   SoundFX-Message
+strSoundFXMessage
+SoundFX - informace
+; SoundFX-Message
+;   SoundFX-Request
+strSoundFXRequest
+SoundFX - ùádost
+; SoundFX-Request
+;   Load 
+strLoad
+Naçtení dat
+; Load
+;   Save as
+strSaveAs
+Uloùení dat
+; Save as
+;   Select a font
+strSelectFont
+Výbër fontu
+; Select a font
+;   Select a screenmode
+strSelectScrMd
+Výbër zobrazovacího módu
+; Select a screenmode
+;   Select an audiomode
+strSelectAudioMd
+Výbër zvukového módu
+; Select an audiomode
+;   Select a preset
+strSelectPreset
+Výbër nastavení
+; Select a preset
+;   Select the default sample path
+strSelectSmpPath
+Výbër výchozí cesty pro samply
+; Select the default sample path
+;   Select the path for virtual memory files
+strSelectVMemPath
+Výbër cesty pro soubory virtuální pamëti
+; Select the path for virtual memory files
+;   Select the logfile path
+strSelectLogPath
+Výbër cesty pro záznamové soubory
+; Select the logfile path
+;   Select a buffer
+strSelectBuffer
+Vyberte buffer
+; Select a buffer
+;   Select a frequency
+strSelectFrequency
+Vyberte frekvenci
+; Select a frequency
+;   Select a window function
+strSelectWinFunc
+Vyberte typ okna pro FFT
+; Select a window function
+;   Sample options
+strSmpOptions
+Nastavení samplu
+; Sample options
+;   Select an entry
+strSelectEntry
+Vyberte poùadovanou poloùku
+; Select an entry
+;
+;-- Requesterbuttons ----------------------------------------------------------
+;   Okay
+strOkay
+Ok
+; Okay
+;   Cancel
+strCancel
+Zruîit
+; Cancel
+;   Replace (for "File already exists !")
+strReplace
+Nahradit
+; Replace
+;   specify new name (for "File already exists !")
+strNewName
+Zadejte nový název
+; New Name
+;   Yes
+strYes
+Ano
+; Yes
+;   No
+strNo
+Ne
+; No
+;   Help
+strHelp
+Nápovëda
+; Help
+;
+;-- Windowtitles --------------------------------------------------------------
+;   Record
+strRecord
+Záznam
+; Record
+;   Playeroptions : %s
+strPlayerOptions
+Moùnosti pêehrávaçe: %s
+; Playeroptions : %s
+;
+;-- Misc ----------------------------------------------------------------------
+;   Ready
+strReady
+Pêipraven
+; Ready
+;
+; Menutexts ===================================================================
+;
+;-- SFX Mainmenu --------------------------------------------------------------
+;   Project
+menProject
+Projekt
+; Project
+;   New ...
+menPrjNew
+Nový...
+; New ...
+;   Load ...
+menPrjLoad
+Otevêít...
+; Load ...
+;   Save ...
+menPrjSave
+Uloùit jako...
+; Save ...
+;   Flush
+menPrjFlush
+Odstranit
+; Flush
+;   Flush All ...
+menPrjFlushAll
+vîechny samply...
+; Flush All ...
+;   Flush Hidden ...
+menPrjFlushHidden
+skryté samply...
+; Flush Hidden ...
+;   Flush Shown ...
+menPrjFlushShown
+zobrazené samply...
+; Flush Shown ...
+;   Run Operator ...
+menPrjRunOperator
+Spustit operátor...
+; Run Operator ...
+;   Run Rexx ...
+menPrjRunRexx
+Spustit ARexx operátor...
+; Run Rexx ...
+;   Play All
+menPrjPlayAll
+Pêehrát vîe
+; Play All
+;   Play Range
+menPrjPlayRange
+Pêehrát úsek
+; Play Range
+;   Stop
+menPrjStop
+Zastavit
+; Stop
+;   BatchProcessor
+menPrjBatchProc
+Dávkové zpracování...
+; Batch Processor ...
+;   Information
+menPrjInfo
+Informace...
+; Information ...
+;   Quit
+menPrjQuit
+Ukonçit
+; Quit ...
+;   Edit
+menEdit
+Úpravy
+; Edit
+;   Cut
+menEditCut
+Vystêihnout
+; Cut
+;   Cut to beginning
+menEditCutBeg
+Vystêihnout k zaçátku
+; Cut to beginning
+;   Cut to end
+menEditCutEnd
+Vystêihnout do konce
+; Cut to end
+;   Copy
+menEditCopy
+Kopírovat
+; Copy
+;   Copy to beginning
+menEditCopyBeg
+Kopírovat k zaçátku
+; Copy to beginning
+;   Copy to end
+menEditCopyEnd
+Kopírovat do konce
+; Copy to end
+;   Grab
+menEditGrab
+Vyjmout
+; Grab
+;   Grab to beginning
+menEditGrabBeg
+Vyjmout k zaçátku
+; Grab to beginning
+;   Grab to end
+menEditGrabEnd
+Vyjmout do konce
+; Grab to end
+;   Paste
+menEditPaste
+Vloùit
+; Paste
+;   Paste at beginning
+menEditPasteBeg
+Vloùit na zaçátek
+; Paste at beginning
+;   Paste at end
+menEditPasteEnd
+Vloùit na konec
+; Paste at end
+;   Erase
+menEditErase
+Vymazat
+; Erase
+;   Erase to beginning
+menEditEraseBeg
+Vymazat k zaçátku
+; Erase to beginning
+;   Erase to end
+menEditEraseEnd
+Vymazat do konce
+; Erase to end
+;   Zero
+menEditZero
+Vynulovat
+; Zero
+;   Zero to beginning
+menEditZeroBeg
+Vynulovat na zaçátek
+; Zero to beginning
+;   Zero to end
+menEditZeroEnd
+Vynulovat do konce
+; Zero to end
+;   Overwrite
+menEditOverwrite
+Pêepsat
+; Overwrite
+;   Overwrite at beginning
+menEditOverwriteBeg
+Pêepsat k zaçátku
+; Overwrite at beginning
+;   Exchange mark and clip
+menEditExchangeMarkAndClip
+Prohodit úsek a schránku
+; Exchange mark and clip
+;   Replace mark by clip
+menEditReplaceMarkByClip
+Nahradit úsek schránkou
+; Replace mark by clip
+;   Range
+menRange
+Úsek
+; Range
+;   RangeMark2Loop
+menRangeMark2Loop
+Nastavit smyçku podle úseku
+; set loop like mark
+;   RangeLoop2Mark
+menRangeLoop2Mark
+Nastavit úsek podle smyçky
+; set mark like loop
+;   RangeZoom2Loop
+menRangeZoom2Loop
+Nastavit smyçku podle lupy
+; set loop like zoom
+;   RangeZoom2Mark
+menRangeZoom2Mark
+Nastavit úsek podle lupy
+; set mark like zoom
+;   RangeMarkOff
+menRangeMarkOff
+Zruîit oznaçení
+; switch mark off
+;   RangeMarkAll
+menRangeMarkAll
+Oznaçit vîe
+; mark all
+;   Zoom
+menZoom
+Lupa
+; Zoom
+;   Zoom in
+menZoomIn
+Zvëtîit
+; Zoom in
+;   Zoom out
+menZoomOut
+Zmenîit
+; Zoom out
+;   1 Pixel = 1 Sample
+menZoomPixel
+1 bod odpovídá 1 vzorku
+; 1 Pixel = 1 Sample
+;   Zoom all way out
+menZoomFull
+Zobrazit vîe
+; Zoom all way out
+;   Cleanup
+menCleanup
+Okna
+; Cleanup
+;   current
+menClCur
+Srovnat aktuální
+; current
+;   all
+menClAll
+Srovnat vîechna
+; all
+;   all normal
+menClAllNorm
+Srovnat do výchozí velikosti
+; all normal
+;   all zoomed
+menClAllZoom
+Srovnat a zvëtîit
+; all zoomed
+;   Help
+menHelp
+Nápovëda
+; Help
+;   Contents ...
+menHelpContents
+Obsah
+; Contents ...
+;   Index ...
+menHelpIndex
+Rejstêík
+; Index ...
+;   Workshop ...
+menHelpWorkshop
+Témata
+; Workshop ...
+;   http://www.sonicpulse.de
+menHelpOnline
+http://www.sonicpulse.de
+; http://www.sonicpulse.de
+;   mailto:soundfx@sonicpulse.de
+menHelpMail
+mailto:soundfx@sonicpulse.de
+; mailto:soundfx@sonicpulse.de
+;	Show tips on startup
+menHelpShowTips
+Zobrazovat pêi spuîtëní tipy
+; Show tips on startup
+;   Prefs
+menPrefs
+Nastavení
+; Prefs
+;   GUI ...
+menPrefsGUI
+Uùivatelské rozhraní...
+; GUI ...
+;   Sample ...
+menPrefsSample
+Samply...
+; Sample ...
+;   Virtual memory ...
+menPrefsVMem
+Virtuální pamëï...
+; Virtual memory ...
+;   Miscellaneous ...
+menPrefsMisc
+Ostatní...
+; Miscellaneous ...
+;   Use
+menPrefsUse
+Pouùít
+; Use
+;   Save
+menPrefsSave
+Uloùit
+; Save
+;   Load
+menPrefsLoad
+Naçíst
+; Load
+;   Restore used
+menPrefsRestoreUsed
+Obnovit pêedchozí
+; Load last used
+;   Restore saved
+menPrefsRestoreSaved
+Naposledy uloùené
+; Load last saved
+;   Reset to defaults
+menPrefsDefault
+Základní stav
+; Reset to defaults
+;	Utilities
+menUtilities
+Utility
+; Utilities
+;	Swap byte order
+menUtSwapEnd
+Prohodit poêadí bajtû
+; Swap byte order
+;	Swap sign
+menUtSwapSign
+Prohodit znaménko
+; Swap sign
+;	Interleave
+menUtInterleave
+Proloùit kanály
+; Interleave channels
+;	DeInterleave
+menUtDeInterleave
+Zruîit proloùení kanálû
+; De-interleave channels
+;
+;-- SFX FXmenu ----------------------------------------------------------------
+;   Start
+menStart
+Spustit
+; Start
+;   About ...
+menAbout
+O programu...
+; About ...
+;
+;-- SFX ContextMenu -----------------------------------------------------------
+;	Drawmode
+menCtxDrawMode
+Mód vykreslování
+; Drawmode
+;	Loop
+menCtxLoop
+Smyçka
+; Loop
+;	Channels
+menCtxChannels
+Kanály
+; Channels
+;	Hide
+menCtxHide
+Skrýt
+; Hide
+; Toolbartexts ================================================================
+;
+;-- Loader --------------------------------------------------------------------
+;   choose loader ...
+tbbLoaderChoice
+Vyberte modul pro naçítání
+; choose loader ...
+;   loader options ...
+tbbLoaderOptions
+Moùnosti modulu pro naçítání
+; loader options ...
+;   load file ...
+tbbLoadFile
+Vyberte soubor
+; load file ...
+;
+;-- Saver ---------------------------------------------------------------------
+;   choose saverer ...
+tbbSaverChoice
+Vyberte modul pro ukládání
+; choose saver ...
+;   saver options ...
+tbbSaverOptions
+Moùnosti modulu pro ukládání
+; saver options ...
+;   save file ...
+tbbSaveFile
+Uloùte soubor
+; save file ...
+;
+;-- Operator ------------------------------------------------------------------
+;   choose operator ...
+tbbOperatorChoice
+Vyberte operátor
+; choose operator ...
+;   run operator ...
+tbbRunOperator
+Vyberte operátor
+; run operator ...
+;
+;-- Arexx macro ---------------------------------------------------------------
+;   choose arexx macro ...
+tbbArexxMacroChoice
+Vyberte ARexxový skript
+; choose arexx macro ...
+;   run arexx macro
+tbbRunArexxMacro
+Vyberte ARexxový skript
+; run arexx macro
+;
+;-- Audio IO ------------------------------------------------------------------
+;   choose player ...
+tbbPlayerChoice
+Vyberte pêehrávaç
+; choose audio module ...
+;   player options ...
+tbbPlayerOptions
+Moùnosti pêehrávaçe
+; audio module options ...
+;   play all
+tbbPlayAll
+Pêehrát vîe
+; play all
+;   play range
+tbbPlayRange
+Pêehrát úsek
+; play range
+;   stop playing
+tbbStopPlaying
+Zastavit
+; stop playing
+;   record ...
+tbbRecord
+Spustit záznam
+; record ...
+;
+;-- Buffer --------------------------------------------------------------------
+;   choose buffer ...
+tbbBufferChoice
+Vyberte sampl
+; choose sample ...
+;   buffer options ...
+tbbBufferOptions
+Moùnosti samplu
+; sample options ...
+;   hide/show buffer
+tbbHideShow
+Zobrazit/skrýt sampl
+; hide/show sample
+;
+;-- Edit ----------------------------------------------------------------------
+;   variations for cuting an area
+tbbCutMen
+Moùnosti vystêiùení úseku
+; variations for cuting an area
+;   variations for copying an area
+tbbCopyMen
+Moùnosti zkopírování úseku
+; variations for copying an area
+;   variations for pasting an area
+tbbPasteMen
+Moùnosti vloùení úseku
+; variations for pasting an area
+;   variations for erasing an area
+tbbEraseMen
+Moùnosti vymazání úseku
+; variations for erasing an area
+;   variations for grabbing an area
+tbbGrabMen
+Moùnosti vyjmutí úseku
+; variations for grabbing an area
+;   variations for zeroing an area
+tbbZeroMen
+Moùnosti vynulování úseku
+; variations for zeroing an area
+;   variations for overwriting an area
+tbbOverwrMen
+Moùnosti pêepsání úseku
+; variations for overwriting an area
+;
+;-- Zoom ----------------------------------------------------------------------
+;   zoom mode
+tbbZoomMode
+Mód lupy
+; zoom mode
+;   zoom in
+tbbZoomIn
+Pêiblíùit
+; zoom in
+;   zoom out
+tbbZoomOut
+Vzdálit
+; zoom out
+;   zoom 1:1
+tbbZoomEq
+Nastavit 1:1
+; zoom 1:1
+;   zoom out full
+tbbZoomOutFull
+Vzdálit úplnë
+; zoom out full
+;
+;-- Range ---------------------------------------------------------------------
+;   range mode
+tbbRangeMode
+Mód výbëru úseku
+; range mode
+;   lock range length
+tbbLockLength
+Zamknout délku úseku
+; lock range length
+;   left & down / right & up
+tbbChBegEnd
+Vlevo a dolû / vpravo a nahoru
+; left & down / right & up
+;   move to beginning
+tbbMoveBeg
+Pêesunout na zaçátek
+; move to beginning
+;   move left fast
+tbbMoveLeftF
+Pêesunout rychle vlevo
+; move left fast
+;   move left slow
+tbbMoveLeftS
+Pêesunout pomalu vlevo
+; move left slow
+;   move to next left zero-crossing
+tbbMoveLeftN
+Pêesunout vlevo na dalîí prûchod nulou
+; move to next left zero-crossing
+;   move to next right zero-crossing
+tbbMoveRightN
+Pêesunout vpravo na dalîí prûchod nulou
+; move to next right zero-crossing
+;   move right slow
+tbbMoveRightS
+Pêesunout pomalu vpravo
+; move right slow
+;   move right fast
+tbbMoveRightF
+Pêesunout rychle vpravo
+; move right fast
+;   move to end
+tbbMoveEnd
+Pêesunout na konec
+; move to end
+;   move to top
+tbbMoveTop
+Pêesunout na maximum
+; move to top
+;   move up fast
+tbbMoveUpF
+Pêesunout rychle nahoru
+; move up fast
+;   move up slow
+tbbMoveUpS
+Pêesunout pomalu nahoru
+; move up slow
+;   move to upper peak
+tbbMoveUpP
+Pêesunout na nejbliùîí vyîîí îpiçku
+; move to upper peak
+;   move to lower peak
+tbbMoveDownP
+Pêesunout na nejbliùîí niùîí îpiçku
+; move to lower peak
+;   move down slow
+tbbMoveDownS
+Pêesunout pomalu dolû
+; move down slow
+;   move down fast
+tbbMoveDownF
+Pêesunout rychle dolû
+; move to down fast
+;   move to bottom
+tbbMoveBottom
+Pêesunout na minimum
+; move to end
+;
+; Dropdowntexts ===============================================================
+;
+;-- Cut -----------------------------------------------------------------------
+;   cut area
+tbbCut
+Úsek k vystêihnutí
+; cut area
+;   cut to beginning
+tbbCutB
+Vystêihnout k zaçátku
+; cut to beginning
+;   cut to end
+tbbCutE
+Vystêihnout do konce
+; cut to end
+;
+;-- Copy ----------------------------------------------------------------------
+;   copy area
+tbbCopy
+Úsek ke zkopírování
+; copy area
+;   copy to beginning
+tbbCopyB
+Kopírovat k zaçátku
+; copy to beginning
+;   copy to end
+tbbCopyE
+Kopírovat do konce
+; copy to end
+;
+;-- Paste ----------------------------------------------------------------------
+;   paste area
+tbbPaste
+Úsek ke vloùení
+; paste area
+;   paste at beginning
+tbbPasteB
+Vloùit k zaçátku
+; paste at beginning
+;   paste at end
+tbbPasteE
+Vloùit do konce
+; paste at end
+;
+;-- Erase ----------------------------------------------------------------------
+;   erase area
+tbbErase
+Úsek k vymazání
+; erase area
+;   erase to beginning
+tbbEraseB
+Vymazat k zaçátku
+; erase to beginning
+;   erase to end
+tbbEraseE
+Vymazat do konce
+; erase to end
+;
+;-- Grab ----------------------------------------------------------------------
+;   grab area
+tbbGrab
+Úsek k vyjmutí
+; grab area
+;   grab to beginning
+tbbGrabB
+Vyjmout k zaçátku
+; grab to beginning
+;   grab to end
+tbbGrabE
+Vyjmout do konce
+; grab to end
+;
+;-- Zero ----------------------------------------------------------------------
+;   zero area
+tbbZero
+Úsek k vynulování
+; zero area
+;   zero to beginning
+tbbZeroB
+Vynulovat k zaçátku
+; zero to beginning
+;   zero to end
+tbbZeroE
+Vynulovat do konce
+; zero to end
+;
+;-- OverWr --------------------------------------------------------------------
+;   overwrite area
+tbbOverwr
+Pêepsat úsek
+; overwrite area
+;   overwrite at beginning
+tbbOverwrB
+Pêepsat k zaçátku
+; overwrite at beginning
+;
+; URLs ========================================================================
+; http://www.sonicpulse.de/eng/p_sfx.html
+urlHome
+http://www.sonicpulse.de/eng/p_sfx.html
+; http://www.sonicpulse.de/eng/p_sfx.html
+;
+;-- EOF -----------------------------------------------------------------------

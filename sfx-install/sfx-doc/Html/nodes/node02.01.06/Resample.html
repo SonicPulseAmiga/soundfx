@@ -1,0 +1,139 @@
+<html>
+	<head><title>SoundFX : 2.1.6 Resample</title></head>
+	<body bgcolor="#EEEEEE" leftmargin="5" rightmargin="5" topmargin="5" text="#000000" link="#2040FF" vlink="#0020E0" alink="#FFFFFF">
+	<a name="#000"></a>
+	<table border="0" width="100%" cellpadding="3" cellspacing="1" bgcolor="#000000"><tr bgcolor="#FFFFFF"><td>
+		<table border="0" width="100%" cellpadding="0" cellspacing="0"><tr>
+			<td align="left"><font size="-1">
+		[<a href="../node__.__.__.html">SoundFX</a>]
+			[<a href="../node02.__.__.html">Module</a>]
+				[<a href="../node02.01.__.html">Operatoren</a>]
+			</font></td>
+			<td align="right" valign="center">
+				<a href="../node02.01.06/QuantizeVert.html">
+				<img src="../../_img/a_le.gif" width="13" height="13" border="0" alt="[prev]"></a>
+				<img src="../../_img/space.gif" width="2">
+				<a href="../node02.01.06/Reverse.html">
+				<img src="../../_img/a_ri.gif" width="13" height="13" border="0" alt="[next]"></a>
+			</td>
+		</tr></table>
+	</td></tr></table>
+	<br>
+		<!-- Contents -->
+	<a name="#001"></a>
+<table border="0" width="100%" cellpadding="3" cellspacing="1" bgcolor="#000000">
+	<tr bgcolor="#DDDDDD"><td>
+		<table border="0" width="100%" cellpadding="0" cellspacing="0"><tr>
+			<td align="left">
+				<b>Resample</b>
+			</td>
+			<td align="right">
+				<a href="#000">
+				<img src="../../_img/a_up.gif" width="13" height="13" border="0" alt="[up]"></a>
+				<img src="../../_img/space.gif" width="2">
+				<a href="#002">
+				<img src="../../_img/a_do.gif" width="13" height="13" border="0" alt="[down]"></a>
+			</td>
+		</tr></table>
+	</td></tr>
+	<tr bgcolor="#FFFFFF"><td>
+		<table border="0" width="100%" cellpadding="5" cellspacing="0"><tr><td>
+Ändert <a href="../node06.03.00.Samplingrate.html">Samplingrate</a> und Samplelänge bei gleichbleibendem Klang.
+		</td></tr></table>
+	</td></tr>
+</table>
+<br>
+	<a name="#002"></a>
+<table border="0" width="100%" cellpadding="3" cellspacing="1" bgcolor="#000000">
+	<tr bgcolor="#DDDDDD"><td>
+		<table border="0" width="100%" cellpadding="0" cellspacing="0"><tr>
+			<td align="left">
+				<b>Parameter</b>
+			</td>
+			<td align="right">
+				<a href="#001">
+				<img src="../../_img/a_up.gif" width="13" height="13" border="0" alt="[up]"></a>
+				<img src="../../_img/space.gif" width="2">
+				<a href="#003">
+				<img src="../../_img/a_do.gif" width="13" height="13" border="0" alt="[down]"></a>
+			</td>
+		</tr></table>
+	</td></tr>
+	<tr bgcolor="#FFFFFF"><td>
+		<table border="0" width="100%" cellpadding="5" cellspacing="0"><tr><td>
+<table border="0" cellspacing="1" cellpadding="2" width="100%"><tr bgcolor="#BBBBBB"><td align="right" valign="top"><nobr>SLen old</nobr></td><td align="left">alte Samplelänge
+</td></tr>
+<tr bgcolor="#AAAAAA"><td align="right" valign="top"><nobr>SLen new</nobr></td><td align="left">neue Samplelänge. Der Faktor und die neue Rate werden berechnet und eingetragen.
+</td></tr>
+<tr bgcolor="#BBBBBB"><td align="right" valign="top"><nobr>SRat old</nobr></td><td align="left">alte Samplingrate
+</td></tr>
+<tr bgcolor="#AAAAAA"><td align="right" valign="top"><nobr>SRat new</nobr></td><td align="left">neue Samplingrate. Der Faktor und die neue Länge werden berechnet und eingetragen.
+</td></tr>
+<tr bgcolor="#BBBBBB"><td align="right" valign="top"><nobr>Factor</nobr></td><td align="left">Der Änderungsfaktor für Rate und Länge. Ein Faktor gleich 1.0 ändert nix.
+</td></tr>
+<tr bgcolor="#AAAAAA"><td align="right" valign="top"><nobr>Lock</nobr></td><td align="left">Bestimmt welcher Parameter festgehalten wird. Wenn man z.B. mehrere Samples mit
+unterschiedlichen Raten auf ein Rate bringen möchte, wählt man "SRat" aus.
+</td></tr>
+<tr bgcolor="#BBBBBB"><td align="right" valign="top"><nobr>Interpolation (<a href="../node03.02.02.html">I1</a>)</nobr></td><td align="left">wie sollen (sanfte) Zwischenwerte berechnet werden
+</td></tr>
+<tr bgcolor="#AAAAAA"><td align="right" valign="top"><nobr>Aliasing Filter</nobr></td><td align="left">Wenn aktiviert, wird das Sample erst gefinltert und dann resampled. Dies ist wichtig
+wenn die Samplingrate niedriger wird.
+</td></tr>
+</table>
+		</td></tr></table>
+	</td></tr>
+</table>
+<br>
+	<a name="#003"></a>
+<table border="0" width="100%" cellpadding="3" cellspacing="1" bgcolor="#000000">
+	<tr bgcolor="#DDDDDD"><td>
+		<table border="0" width="100%" cellpadding="0" cellspacing="0"><tr>
+			<td align="left">
+				<b>Hinweise</b>
+			</td>
+			<td align="right">
+				<a href="#002">
+				<img src="../../_img/a_up.gif" width="13" height="13" border="0" alt="[up]"></a>
+				<img src="../../_img/space.gif" width="2">
+				<a href="#004">
+				<img src="../../_img/a_do.gif" width="13" height="13" border="0" alt="[down]"></a>
+			</td>
+		</tr></table>
+	</td></tr>
+	<tr bgcolor="#FFFFFF"><td>
+		<table border="0" width="100%" cellpadding="5" cellspacing="0"><tr><td>
+Wenn man einen Klang digitalisiert hat und dieser im Musikprogramm verstimmt klingt,
+kann man dies hier korregieren. Dazu stellt man die Rate ein bei der man z.B.
+ein "C" hört, jetzt ruft man Resample auf und stellt die Rate für das "C" ein
+(z.B. C-3 -> 16780). Danach hört man bei dieser Rate das "C".<br>
+Hiermit kann man auch Wellenformen, die zum Modulieren eines Parameters verwendet
+werden sollen, optimal in ihrer Länge anpassen. Dabei sollte man Interpolation
+einschalten, damit die Wellenform erhalten bleibt und nicht eckig wird.
+		</td></tr></table>
+	</td></tr>
+</table>
+<br>
+	<a name="#004"></a>
+	<table border="0" width="100%" cellpadding="3" cellspacing="1" bgcolor="#000000"><tr bgcolor="#FFFFFF"><td>
+		<table border="0" width="100%" cellpadding="0" cellspacing="0"><tr>
+			<td align="left"><font size="-1">
+		[<a href="../node__.__.__.html">SoundFX</a>]
+			[<a href="../node02.__.__.html">Module</a>]
+				[<a href="../node02.01.__.html">Operatoren</a>]
+			</font></td>
+			<td align="right" valign="center">
+				<a href="../node02.01.06/QuantizeVert.html">
+				<img src="../../_img/a_le.gif" width="13" height="13" border="0" alt="[prev]"></a>
+				<img src="../../_img/space.gif" width="2">
+				<a href="../node02.01.06/Reverse.html">
+				<img src="../../_img/a_ri.gif" width="13" height="13" border="0" alt="[next]"></a>
+			</td>
+		</tr></table>
+	</td></tr></table>
+	<br>
+	<table border="0" width="100%" cellpadding="3" cellspacing="1" bgcolor="#000000"><tr bgcolor="#FFFFFF"><td align="center"><font size="-1">
+		&copy; by <a href="mailto:soundfx@sonicpulse.de">Stefan Kost</a> 1993-2004
+		<a href="http://www.sonicpulse.de" target="_new">www.sonicpulse.de</a>
+	</font></td></tr></table>
+	</body>
+</html>

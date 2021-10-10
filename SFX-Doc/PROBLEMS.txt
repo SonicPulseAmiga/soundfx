@@ -1,0 +1,12 @@
+check software for all file related errors
+	make sure there is alwas a message shown
+	improve these to always include the filename
+	split "cannot open file <XYZ>" into
+		"cannot open file <XYZ> for reading"
+		"cannot open file <XYZ> for writing"
+can we collect message?
+	subtask either deposit messages as reasons for parent tasks failures
+	e.g. when saving a file
+		"Saving the file failed, because
+			the file <XYZ> could not be opened for writing, because
+			the disk is write-protected"

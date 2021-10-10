@@ -1,0 +1,214 @@
+Return-Path: <kost@imn.htwk-leipzig.de>
+Received: from smtp.hora-obscura.de ([unix socket])
+	 by imap.hora-obscura.de (Cyrus v2.2.10) with LMTPA;
+	 Wed, 29 Jun 2005 12:52:16 +0200
+X-Sieve: CMU Sieve 2.2
+Received: from localhost (localhost [127.0.0.1])
+	by smtp.hora-obscura.de (Postfix) with ESMTP id 25D1A39C166
+	for <ensonic@hora-obscura.de>; Wed, 29 Jun 2005 12:52:16 +0200 (CEST)
+Received: from smtp.hora-obscura.de ([127.0.0.1])
+ by localhost (smtp.hora-obscura.de [127.0.0.1]) (amavisd-new, port 10024)
+ with LMTP id 21758-06-3 for <ensonic@hora-obscura.de>;
+ Wed, 29 Jun 2005 12:51:57 +0200 (CEST)
+Received: from mail.imn.htwk-leipzig.de (david.imn.htwk-leipzig.de [141.57.9.1])
+	by smtp.hora-obscura.de (Postfix) with ESMTP id E571739C165
+	for <ensonic@hora-obscura.de>; Wed, 29 Jun 2005 12:51:11 +0200 (CEST)
+Received: from imn.htwk-leipzig.de (krishna [141.57.8.37])
+	by mail.imn.htwk-leipzig.de (Postfix) with ESMTP id 370B721387
+	for <ensonic@hora-obscura.de>; Wed, 29 Jun 2005 12:51:01 +0200 (MEST)
+Message-ID: <42C27C86.6070505@imn.htwk-leipzig.de>
+Date: Wed, 29 Jun 2005 12:48:38 +0200
+From: Stefan Kost <kost@imn.htwk-leipzig.de>
+Organization: HTWK Leipzig
+User-Agent: Mozilla/5.0 (X11; U; SunOS sun4u; en-US; rv:1.6) Gecko/20040206
+X-Accept-Language: en-us, en, de
+MIME-Version: 1.0
+To: Stefan Kost <ensonic@hora-obscura.de>
+Subject: [Fwd: [soundfx-users] mp3 loading (OS4)]
+X-Enigmail-Version: 0.83.2.0
+X-Enigmail-Supports: pgp-inline, pgp-mime
+Content-Type: multipart/mixed;
+ boundary="------------080305090607090703080201"
+X-Virus-Scanned: amavisd-new at hora-obscura.de
+X-Spam-Status: No, hits=0 tagged_above=0 required=2 tests=
+X-Spam-Level: 
+
+This is a multi-part message in MIME format.
+--------------080305090607090703080201
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+
+-- 
+      \|/            Stefan Kost
+     <@ @>           private            business
++-oOO-(_)-OOo------------------------------------------------------ - - -  -   -
+|       __  Address  Simildenstr. 5     HTWK Leipzig, Fb IMN, Postfach 301166
+|      ///           04277 Leipzig      04251 Leipzig
+| __  ///            Germany            Germany
+| \\\///    Phone    +49341 2253538     +49341 30766101
+|  \__/     EMail    st_kost_at_gmx.net kost_at_imn.htwk-leipzig.de
+|           WWW      www.sonicpulse.de  www.imn.htwk-leipzig.de/~kost/about.html
+===-=-=--=---=---------------------------------- - - -  -    -
+
+--------------080305090607090703080201
+Content-Type: message/rfc822;
+ name="[soundfx-users] mp3 loading (OS4)"
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline;
+ filename="[soundfx-users] mp3 loading (OS4)"
+
+Return-Path: <sentto-3879093-1733-1119555779-kost=imn.htwk-leipzig.de@returns.groups.yahoo.com>
+X-Original-To: kost@imn.htwk-leipzig.de
+Delivered-To: kost@imn.htwk-leipzig.de
+Received: from n9.bulk.dcn.yahoo.com (n9.bulk.dcn.yahoo.com [216.155.201.62])
+	by mail.imn.htwk-leipzig.de (Postfix) with SMTP id 909AC21387
+	for <kost@imn.htwk-leipzig.de>; Thu, 23 Jun 2005 21:43:02 +0200 (MEST)
+Comment: DomainKeys? See http://antispam.yahoo.com/domainkeys
+DomainKey-Signature: a=rsa-sha1; q=dns; c=nofws; s=lima; d=yahoogroups.com;
+	b=JjQ/sGCo35Ol6pqdFQT1aB9V1Hmk/VDQDHQd35UWk256D5BKSUUiubeA0URUURh1aXY85T+T2vbyBFAaQvWPFcI69F13d/0nPrF9lFq8l24ehR+btc9fLtjKzMKEm/0p;
+Received: from [216.155.201.64] by n9.bulk.dcn.yahoo.com with NNFMP; 23 Jun 2005 19:43:01 -0000
+Received: from [66.218.69.2] by mailer1.bulk.dcn.yahoo.com with NNFMP; 23 Jun 2005 19:43:01 -0000
+Received: from [66.218.66.29] by mailer2.bulk.scd.yahoo.com with NNFMP; 23 Jun 2005 19:43:00 -0000
+X-Yahoo-Newman-Property: groups-email
+X-Sender: chris.young@unsatisfactorysoftware.co.uk
+X-Apparently-To: soundfx-users@yahoogroups.com
+Received: (qmail 98136 invoked from network); 23 Jun 2005 19:42:57 -0000
+Received: from unknown (66.218.66.216)
+  by m23.grp.scd.yahoo.com with QMQP; 23 Jun 2005 19:42:57 -0000
+Received: from unknown (HELO anchor-post-33.mail.demon.net) (194.217.242.91)
+  by mta1.grp.scd.yahoo.com with SMTP; 23 Jun 2005 19:42:57 -0000
+Received: from jumpy.demon.co.uk ([80.176.86.110] helo=192.168.2.11)
+	by anchor-post-33.mail.demon.net with esmtp (Exim 4.42)
+	id 1DlXaH-000NeG-Cn
+	for soundfx-users@yahoogroups.com; Thu, 23 Jun 2005 19:41:58 +0000
+Organization: Unsatisfactory Software
+Message-Id: <OUT-42BB1E94.MD-1.4.17.ng@yoursinclair.co.uk>
+In-Reply-To: <062320051810.944.42BAFB14000BC2AA000003B022007510909D0E03080C9B0E0599@comcast.net>
+To: soundfx-users@yahoogroups.com
+X-Mailer: MicroDot-II/Amiga 1.4.17 [#00013D85] - http://www.vapor.com/
+X-Originating-IP: 194.217.242.91
+X-eGroups-Msg-Info: 1:12:0
+From: "Chris Young" <chris.young@unsatisfactorysoftware.co.uk>
+X-Yahoo-Profile: unsatisfactory
+Sender: soundfx-users@yahoogroups.com
+MIME-Version: 1.0
+Mailing-List: list soundfx-users@yahoogroups.com; contact soundfx-users-owner@yahoogroups.com
+Delivered-To: mailing list soundfx-users@yahoogroups.com
+List-Id: <soundfx-users.yahoogroups.com>
+Precedence: bulk
+List-Unsubscribe: <mailto:soundfx-users-unsubscribe@yahoogroups.com>
+Date: 23 Jun 2005 20:41:56 +0100
+Subject: [soundfx-users] mp3 loading (OS4)
+Reply-To: soundfx-users@yahoogroups.com
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+
+New OS4 Update3 crashlog in case it helps find the problem.
+
+
+Crash log for task "SoundFX"
+Generated by GrimReaper 51.10
+Crash occured in module kernel at address 0x014569D4
+Type of crash: DSI exception
+
+Register dump:
+GPR:
+   0: 00012860 02B51FFC 25050750 029EA720 01862ED8 10000000 029EA720 029EA250 
+   8: 14A62E68 00004A18 000842BA 00000000 0000000A 00000040 00000004 00000001 
+  16: 00000000 029EA724 00000000 0144C808 52057050 14A62E68 029EA740 00000008 
+  24: 00000000 014569CC 00000AE8 0000000F 10040430 00000000 01836270 00000000 
+
+
+FPR:
+   0:              NaN                0                0                0 
+   4:                0                0                0                0 
+   8:                0                0                0                0 
+  12:          1.70732                0                0                0 
+  16:                0                0                0                0 
+  20:                0                0                0                0 
+  24:                0                0                0                0 
+  28:                0                0                0                0 
+
+
+SPRs:
+           Machine State (msr) : 0x0000F030
+                Condition (cr) : 0x24022084
+      Instruction Pointer (ip) : 0x014569D4
+       Xtended Exception (xer) : 0x20000000
+                   Count (ctr) : 0x014569CC
+                     Link (lr) : 0x0144C808
+            DSI Status (dsisr) : 0x08000000
+            Data Address (dar) : 0x00000040
+
+
+
+680x0:
+DATA: 00000040 000001F4 0000002A 00000005 00000001 FFFFFFFF 00000000 00000000 
+ADDR: 00000040 02B52084 00000040 14A633AC 02A15B36 02B52094 02A15B06 02B51FFC 
+FPU0:               12      2.45571e+06                0                0 
+FPU4:                0                0                0                0 
+
+
+
+Symbol info:
+Instruction pointer 0x014569D4 belongs to module "kernel" (HUNK)
+
+Stack trace:
+    native kernel module kernel+0x569d4
+
+68k Stack trace:
+    14a62e66 (68k IP) - "progdir:_loaders/MPEG_L.sfxmod" Hunk 0000 Offset 00001c5e (SegList: 5298481)
+    14a633ac - "progdir:_loaders/MPEG_L.sfxmod" Hunk 0000 Offset 000021a4 (SegList: 5298481)
+    01862fc4 - "Kickstart/kernel" Hunk 0001 Offset 00062fc0
+    01862fc0 - "Kickstart/kernel" Hunk 0001 Offset 00062fbc
+    0186fef8 - "Kickstart/dos.library.kmod" Hunk 0001 Offset 00007af4
+    14a64286 - "progdir:_loaders/MPEG_L.sfxmod" Hunk 0000 Offset 0000307e (SegList: 5298481)
+    14a633ac - "progdir:_loaders/MPEG_L.sfxmod" Hunk 0000 Offset 000021a4 (SegList: 5298481)
+    14a633d8 - "progdir:_loaders/MPEG_L.sfxmod" Hunk 0000 Offset 000021d0 (SegList: 5298481)
+    14a62616 - "progdir:_loaders/MPEG_L.sfxmod" Hunk 0000 Offset 0000140e (SegList: 5298481)
+    15337540 - "SoundFX" Hunk 0004 Offset 00000000 (SegList: 5094001)
+    13cfb110 - "progdir:libs/sfxsupport.library" Hunk 0000 Offset 0001b108 (SegList: 4f38001)
+
+
+ 
+Yahoo! Groups Links
+
+<*> To visit your group on the web, go to:
+    http://groups.yahoo.com/group/soundfx-users/
+
+<*> To unsubscribe from this group, send an email to:
+    soundfx-users-unsubscribe@yahoogroups.com
+
+<*> Your use of Yahoo! Groups is subject to:
+    http://docs.yahoo.com/info/terms/
+ 
+
+
+
+
+
+--------------080305090607090703080201
+Content-Type: text/x-vcard; charset=utf8;
+ name="kost.vcf"
+Content-Transfer-Encoding: 7bit
+Content-Disposition: attachment;
+ filename="kost.vcf"
+
+begin:vcard
+fn:Stefan Kost
+n:Kost;Stefan
+org:HTWK Leipzig;FB. IMN
+adr:;;Postfach 301166;Leipzig;;04251;Germany
+email;internet:kost@imn.htwk-leipzig.de
+title:Dipl. Informatiker
+tel;work:+49341 30766440
+tel;home:+49341 2253538
+tel;cell:+49178 3183742
+x-mozilla-html:FALSE
+url:http://www.imn.htwk-leipzig.de/~kost/about.html
+version:2.1
+end:vcard
+
+
+--------------080305090607090703080201--

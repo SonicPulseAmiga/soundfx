@@ -1,0 +1,141 @@
+<html>
+	<head><title>SoundFX : 2.1.6 TimeStretch</title></head>
+	<body bgcolor="#EEEEEE" leftmargin="5" rightmargin="5" topmargin="5" text="#000000" link="#2040FF" vlink="#0020E0" alink="#FFFFFF">
+	<a name="#000"></a>
+	<table border="0" width="100%" cellpadding="3" cellspacing="1" bgcolor="#000000"><tr bgcolor="#FFFFFF"><td>
+		<table border="0" width="100%" cellpadding="0" cellspacing="0"><tr>
+			<td align="left"><font size="-1">
+		[<a href="../node__.__.__.html">SoundFX</a>]
+			[<a href="../node02.__.__.html">Module</a>]
+				[<a href="../node02.01.__.html">Operatoren</a>]
+			</font></td>
+			<td align="right" valign="center">
+				<a href="../node02.01.06/Synthesize-FM.html">
+				<img src="../../_img/a_le.gif" width="13" height="13" border="0" alt="[prev]"></a>
+				<img src="../../_img/space.gif" width="2">
+				<a href="../node02.01.06/Vocode-FFT.html">
+				<img src="../../_img/a_ri.gif" width="13" height="13" border="0" alt="[next]"></a>
+			</td>
+		</tr></table>
+	</td></tr></table>
+	<br>
+		<!-- Contents -->
+	<a name="#001"></a>
+<table border="0" width="100%" cellpadding="3" cellspacing="1" bgcolor="#000000">
+	<tr bgcolor="#DDDDDD"><td>
+		<table border="0" width="100%" cellpadding="0" cellspacing="0"><tr>
+			<td align="left">
+				<b>TimeStretch</b>
+			</td>
+			<td align="right">
+				<a href="#000">
+				<img src="../../_img/a_up.gif" width="13" height="13" border="0" alt="[up]"></a>
+				<img src="../../_img/space.gif" width="2">
+				<a href="#002">
+				<img src="../../_img/a_do.gif" width="13" height="13" border="0" alt="[down]"></a>
+			</td>
+		</tr></table>
+	</td></tr>
+	<tr bgcolor="#FFFFFF"><td>
+		<table border="0" width="100%" cellpadding="5" cellspacing="0"><tr><td>
+Ändert die Länge eines Samples, ohne das seine Tonhöhe höher oder tiefer wird.
+		</td></tr></table>
+	</td></tr>
+</table>
+<br>
+	<a name="#002"></a>
+<table border="0" width="100%" cellpadding="3" cellspacing="1" bgcolor="#000000">
+	<tr bgcolor="#DDDDDD"><td>
+		<table border="0" width="100%" cellpadding="0" cellspacing="0"><tr>
+			<td align="left">
+				<b>Parameter</b>
+			</td>
+			<td align="right">
+				<a href="#001">
+				<img src="../../_img/a_up.gif" width="13" height="13" border="0" alt="[up]"></a>
+				<img src="../../_img/space.gif" width="2">
+				<a href="#003">
+				<img src="../../_img/a_do.gif" width="13" height="13" border="0" alt="[down]"></a>
+			</td>
+		</tr></table>
+	</td></tr>
+	<tr bgcolor="#FFFFFF"><td>
+		<table border="0" width="100%" cellpadding="5" cellspacing="0"><tr><td>
+<table border="0" cellspacing="1" cellpadding="2" width="100%"><tr bgcolor="#BBBBBB"><td align="right" valign="top"><nobr>TimeStretch Factor (<a href="../node03.02.01.html">P1</a>)</nobr></td><td align="left">Faktor für die Längenänderung
+</td></tr>
+<tr bgcolor="#AAAAAA"><td align="right" valign="top"><nobr>Window</nobr></td><td align="left">Fensterbereich; gute Ergebnisse erhält man mit Werten von 5 bis 100 ms
+</td></tr>
+<tr bgcolor="#BBBBBB"><td align="right" valign="top"><nobr>Smooth</nobr></td><td align="left">Über wieviel Prozent des Fensterbereiches übergeblendet werden soll;
+üblicherweise zweischen 25 % und 50 %
+</td></tr>
+</table>
+		</td></tr></table>
+	</td></tr>
+</table>
+<br>
+	<a name="#003"></a>
+<table border="0" width="100%" cellpadding="3" cellspacing="1" bgcolor="#000000">
+	<tr bgcolor="#DDDDDD"><td>
+		<table border="0" width="100%" cellpadding="0" cellspacing="0"><tr>
+			<td align="left">
+				<b>Hinweise</b>
+			</td>
+			<td align="right">
+				<a href="#002">
+				<img src="../../_img/a_up.gif" width="13" height="13" border="0" alt="[up]"></a>
+				<img src="../../_img/space.gif" width="2">
+				<a href="#004">
+				<img src="../../_img/a_do.gif" width="13" height="13" border="0" alt="[down]"></a>
+			</td>
+		</tr></table>
+	</td></tr>
+	<tr bgcolor="#FFFFFF"><td>
+		<table border="0" width="100%" cellpadding="5" cellspacing="0"><tr><td>
+Bevor ich etwas speziellere Tips gebe, möchte ich allgemein beschreiben, wie dies
+alles funktioniert. Wenn sie einen Sound höher stimmen möchten, können Sie dies
+erreichen indem sie den Klang schneller abspielen und damit die Wellenform stauchen
+(auf der Zeitachse). Leider wird der Sound dadurch kürzer. Um dies zu kompensieren,
+wird <b>SoundFX</b> kleine Stückchen des Sounds wiederholen um das Sample zu strecken.
+Dabei muß <b>SoundFX</b> aufpassen, daß die Stückchen möglichst nahtlos zusammenpassen.
+Der WinSize Parameter gibt an wie weit <b>SoundFX</b> maximal nach einem guten Übergang
+sucht. Die Größe hängt jedoch vom zu beabeitenden Material ab. Ich empfehle kleinere
+Werte (30-50 ms) für perkussive Samples (dies verhindert, daß man die Anschläge
+mehrfach hört) und längere Werte (100-200 ms) für Synth/Pad/String-Sounds
+(um ein mögliches Leiern zu vermeiden).<br>
+Wenn man eine Sinuswelle als <a href="../noed06.03.00.Modulation.html">Modulator</a>
+nimmt eine geringe Verstimmung (+/- 10 ct) einstellt, erhält man einen Vibratoeffekt.<br>
+Falls man synthetische Wellenformen mit konstanter Periode bearbeiten möchte, sollte
+man die Periode bei WinSize eintragen. Dadurch erhält man sehr saubere Pitchshifts.<br>
+Der Faktor sollte nicht größer als 4.0 genommen werden. Bei solch hohen Faktoren wird
+das Sample schnell unsauber (liegt in der Funktionsweise des Pitchshifters begründet).
+Synthetische Wellenformen lassen sich alledings nahezu beliebig "pitchshiften".<br>
+Wenn das resultierende Sample Knackser aufweist, ändern sie den WinSize-Parameter
+etwas und/oder erhöhen sie smooth.<br>
+		</td></tr></table>
+	</td></tr>
+</table>
+<br>
+	<a name="#004"></a>
+	<table border="0" width="100%" cellpadding="3" cellspacing="1" bgcolor="#000000"><tr bgcolor="#FFFFFF"><td>
+		<table border="0" width="100%" cellpadding="0" cellspacing="0"><tr>
+			<td align="left"><font size="-1">
+		[<a href="../node__.__.__.html">SoundFX</a>]
+			[<a href="../node02.__.__.html">Module</a>]
+				[<a href="../node02.01.__.html">Operatoren</a>]
+			</font></td>
+			<td align="right" valign="center">
+				<a href="../node02.01.06/Synthesize-FM.html">
+				<img src="../../_img/a_le.gif" width="13" height="13" border="0" alt="[prev]"></a>
+				<img src="../../_img/space.gif" width="2">
+				<a href="../node02.01.06/Vocode-FFT.html">
+				<img src="../../_img/a_ri.gif" width="13" height="13" border="0" alt="[next]"></a>
+			</td>
+		</tr></table>
+	</td></tr></table>
+	<br>
+	<table border="0" width="100%" cellpadding="3" cellspacing="1" bgcolor="#000000"><tr bgcolor="#FFFFFF"><td align="center"><font size="-1">
+		&copy; by <a href="mailto:soundfx@sonicpulse.de">Stefan Kost</a> 1993-2004
+		<a href="http://www.sonicpulse.de" target="_new">www.sonicpulse.de</a>
+	</font></td></tr></table>
+	</body>
+</html>

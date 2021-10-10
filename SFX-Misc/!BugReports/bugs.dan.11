@@ -1,0 +1,51 @@
+From - Fri Feb 15 11:16:09 2002
+X-UIDL: 361df5b500004099
+X-Mozilla-Status: 0001
+X-Mozilla-Status2: 00000000
+Received: from email.seznam.cz (omx.seznam.cz [195.119.180.41])
+	by imn.htwk-leipzig.de (8.9.1/8.9.1) with SMTP id KAA27200
+	for <kost@imn.htwk-leipzig.de>; Fri, 15 Feb 2002 10:35:02 +0100 (MET)
+Received: (qmail 80263 invoked by uid 0); 15 Feb 2002 09:38:33 -0000
+Received: from [147.251.6.18] by email.seznam.cz with HTTP;
+	Fri, 15 Feb 2002 10:38:32 +0100 (CET)
+Date: Fri, 15 Feb 2002 10:38:32 +0100 (CET)
+From: =?iso-8859-2?Q?Daniel=20Jedlicka?= <dan.jedlicka@seznam.cz>
+Reply-To: =?iso-8859-2?Q?Daniel=20Jedlicka?= <dan.jedlicka@seznam.cz>
+Subject: =?iso-8859-2?Q?Forgot=20to=20tell=20you=2E=2E=2E?=
+Mime-Version: 1.0
+Message-Id: <6705.12903-3776-1324735406-1013765912@seznam.cz>
+To: =?iso-8859-2?Q?Stefan=20Kost?= <kost@imn.htwk-leipzig.de>
+Content-Transfer-Encoding: 8bit
+X-MIME-Autoconverted: from quoted-printable to 8bit by imn.htwk-leipzig.de id KAA27200
+Content-Type: text/plain; charset=ISO-8859-2
+Content-Length: 1200
+Status:  O
+
+Hello again!
+
+I forgot to mention that I was sending you also the source .ctx file
+for the ShowTip catalog. You'll find it in the ShowTip.lha archive in
+Catalogs/English. As of today I've collected 33 tips. Feel free to
+add some more.
+
+I spent another late night with SFX and here come the results:
+
+My last report regarding the "Can't close sample" bug was not 100%
+accurate. The problem is actually not connected with saving but with
+opening the save filerequester via saver Prefs (by pressing "Start").
+Thus, you don't get the bug when saving from the toolbar button, but
+you do get it when saving from the menu or from saver Prefs.
+
+Another problem is connected with changing sample-length in Sample
+Options. When I enter a number in the integer-gadget, the length of
+the sample changes appropriately - unless I have done an Edit
+operation on the sample (like Cut or Zero) before. Changing the
+length of an EDITED sample always produces a zero waveform.
+
+Enjoy the weekend,
+DAN
+
+______________________________________________________________________
+Jsi muz? Jsi spokojen se svym sexualnim zivotem nebo chces zvysit svou
+sexualni vykonnost. Ted mas sanci. Chyt ji hned. http://www.zdravimuze.cz 
+

@@ -1,0 +1,247 @@
+
+SCSI Operation Codes ** Numeric Sorted Listing
+SCSI Operation Codes
+Numeric Sorted Listing
+as of  2/17/99
+Operation Codes by Group
+Group 0 - Six-byte commands (00 to 1F)
+Group 1 - Ten-byte commands (20 to 3F)
+Group 2 - Ten-byte commands (40 to 5F)
+Group 3 - reserved
+Group 4 - Sixteen-byte commands (80 to 9F)
+Group 5 - Twelve-byte commands (A0 to BF)
+Group 6 - vendor specific
+Group 7 - vendor specific
+Complete Operation Codes Listing
+    DTLPWRSOMCAEBK
+00  MMMMMMMMMMMMMM  TEST UNIT READY
+01   M              REWIND
+01  Z V ZZ ZO    O  REZERO UNIT
+02  VVVVVV  V
+03  MMMMMMMMMMMM M  REQUEST SENSE
+04  M    O O        FORMAT UNIT
+04   O              FORMAT MEDIUM
+04    O             FORMAT
+05  VMVVVV  V       READ BLOCK LIMITS
+06  VVVVVV  V
+07  OVV O  OV       REASSIGN BLOCKS
+07          O       INITIALIZE ELEMENT STATUS
+08  OMV OO OV       READ(06)
+08     O            RECEIVE
+08           M      GET MESSAGE(06)
+    DTLPWRSOMCAEBK
+09  VVVVVV  V
+0A  OM  O  OV       WRITE(06)
+0A     M            SEND(06)
+0A           M      SEND MESSAGE(06)
+0A    M             PRINT
+0B  Z   ZO ZV       SEEK(06)
+0B    O             SLEW AND PRINT
+0C  VVVVVV  V
+0D  VVVVVV  V
+0E  VVVVVV  V
+0F  VOVVVV  V       READ REVERSE
+10  VM VVV          WRITE FILEMARKS
+10    O O           SYNCHRONIZE BUFFER
+11  VMVVVV          SPACE
+12  MMMMMMMMMMMMMM  INQUIRY
+    DTLPWRSOMCAEBK
+13  VOVVVV          VERIFY(06)
+14  VOOVVV          RECOVER BUFFERED DATA
+15  OMO OOOOOOOO O  MODE SELECT(06)
+16  MMMOMOMM  OO O  RESERVE(06)
+16          M       RESERVE ELEMENT(06)
+17  MMMOMOMM  OO O  RELEASE(06)
+17          M       RELEASE ELEMENT(06)
+18  OOOOOOOO     O  COPY
+19  VMVVVV          ERASE
+1A  OMO OOOOOOOO O  MODE SENSE(06)
+1B  O   OM O  O MO  STOP START UNIT
+1B   O              LOAD UNLOAD
+1B        O         SCAN
+1B    O             STOP PRINT
+1C  OOOOOOOOOOOM O  RECEIVE DIAGNOSTIC RESULTS
+    DTLPWRSOMCAEBK
+1D  MMMMMMMMMMOM M  SEND DIAGNOSTIC
+1E  OO  OM OO    O  PREVENT ALLOW MEDIUM REMOVAL
+1F
+top - bottom
+    DTLPWRSOMCAEBK
+20  V   VV V
+21  V   VV V
+22  V   VV V
+23  V   V  V
+23       O          READ FORMAT CAPACITIES
+24  V   VVM         SET WINDOW
+25  M   MM M        READ CAPACITY
+25               M  READ CARD CAPACITY
+25        O         GET WINDOW
+26  V   VV
+27  V   VV
+28  M   MMMM    MM  READ(10)
+28           O      GET MESSAGE(10)
+29  V   VV O        READ GENERATION
+2A  M   MM M    MO  WRITE(10)
+    DTLPWRSOMCAEBK
+2A        O         SEND(10)
+2A           O      SEND MESSAGE(10)
+2B  O   OM O     O  SEEK(10)
+2B   O              LOCATE
+2B          O       POSITION TO ELEMENT
+2C  V    O O        ERASE(10)
+2D  V   O  O        READ UPDATED BLOCK
+2E  O   OO O    MO  WRITE AND VERIFY(10)
+2F  O   OO O        VERIFY(10)
+30  Z   ZZ Z        SEARCH DATA HIGH(10)
+31  Z   ZZ Z        SEARCH DATA EQUAL(10)
+31        O         OBJECT POSITION
+32  Z   ZZ Z        SEARCH DATA LOW(10)
+33  O   OO O        SET LIMITS(10)
+34  O   OO O     O  PRE-FETCH
+    DTLPWRSOMCAEBK
+34   O              READ POSITION
+34        O         GET DATA BUFFER STATUS
+35  O   OM O    MO  SYNCHRONIZE CACHE
+36  O   OO O     O  LOCK UNLOCK CACHE
+37  O      O        READ DEFECT DATA(10)
+38      O  O     O  MEDIUM SCAN
+39  OOOOOOOO     O  COMPARE
+3A  OOOOOOOO     O  COPY AND VERIFY
+3B  OOOOOOOOOOOOMO  WRITE BUFFER
+3C  OOOOOOOOOOO  O  READ BUFFER
+3D      O  O        UPDATE BLOCK
+3E  O   OO O        READ LONG
+3F  O   O  O        WRITE LONG
+top - bottom
+    DTLPWRSOMCAEBK
+40  ZZZZZZZZZZ   Z  CHANGE DEFINITION
+41  O               WRITE SAME
+42       M          READ SUB-CHANNEL
+43       M          READ TOC/PMA/ATIP
+44   M              REPORT DENSITY SUPPORT
+44       M          READ HEADER
+45       O          PLAY AUDIO(10)
+46       O          GET CONFIGURATION
+47       O          PLAY AUDIO MSF
+48       Z          PLAY AUDIO TRACK INDEX
+49       Z          PLAY TRACK RELATIVE(10)
+4A       O          GET EVENT STATUS NOTIFICATION
+4B       O          PAUSE/RESUME
+4C  OOOOOOOOOOO  O  LOG SELECT
+4D  OOOOOOOOOOO  O  LOG SENSE
+    DTLPWRSOMCAEBK
+4E       O          STOP PLAY/SCAN
+4F
+50  O               XDWRITE(10)
+51  O               XPWRITE(10)
+51       M          READ DISC INFORMATION
+52  O               XDREAD(10)
+52       M          READ TRACK INFORMATION
+53       M          RESERVE TRACK
+54       O          SEND OPC INFORMATION
+55  OOO OOOOOOOOMO  MODE SELECT(10)
+56  MMMOMMMM  OO    RESERVE(10)
+56          M       RESERVE ELEMENT(10)
+57  MMMOMMMM  OO    RELEASE(10)
+57          M       RELEASE ELEMENT(10)
+58       O          REPAIR TRACK
+    DTLPWRSOMCAEBK
+59       O          READ MASTER CUE
+5A  OOO OOOOOOOOMO  MODE SENSE(10)
+5B       M          CLOSE TRACK/SESSION
+5C       O          READ BUFFER CAPACITY
+5D       O          SEND CUE SHEET
+5E  OOOOOOOOO OO    PERSISTENT RESERVE IN
+5F  OOOOOOOOO OO    PERSISTENT RESERVE OUT
+top - bottom
+    DTLPWRSOMCAEBK
+80  O               XDWRITE EXTENDED(16)
+81  O               REBUILD(16)
+82  O               REGENERATE(16)
+83
+84
+85
+86
+87
+88
+89
+8A
+8B
+8C
+8D
+8E
+    DTLPWRSOMCAEBK
+8F
+90                  [usage proposed by SCSI Socket Services project]
+91                  [usage proposed by SCSI Socket Services project]
+92                  [usage proposed by SCSI Socket Services project]
+93                  [usage proposed by SCSI Socket Services project]
+94                  [usage proposed by SCSI Socket Services project]
+95                  [usage proposed by SCSI Socket Services project]
+96                  [usage proposed by SCSI Socket Services project]
+97                  [usage proposed by SCSI Socket Services project]
+98
+99
+9A
+9B
+9C
+9D
+    DTLPWRSOMCAEBK
+9E
+9F
+top - bottom
+    DTLPWRSOMCAEBK
+A0  OOOOOOOOOOM     REPORT LUNS
+A1       O          BLANK
+A2       O          SEND EVENT
+A3  OOO O  OOOMO    MAINTENANCE (IN)
+A3       O          SEND KEY
+A4  OOO O  OOOOO    MAINTENANCE (OUT)
+A4       O          REPORT KEY
+A5   O      M       MOVE MEDIUM
+A5       O          PLAY AUDIO(12)
+A6          O       EXCHANGE MEDIUM
+A6       O          LOAD/UNLOAD C/DVD
+A7  OO  O  OO       MOVE MEDIUM ATTACHED
+A7       O          SET READ AHEAD
+A8      OM O        READ(12)
+A8           O      GET MESSAGE(12)
+    DTLPWRSOMCAEBK
+A9       Z          PLAY TRACK RELATIVE(12)
+AA      O  O        WRITE(12)
+AA           O      SEND MESSAGE(12)
+AB
+AC         O        ERASE(12)
+AC       O          GET PERFORMANCE
+AD         O        READ DVD STRUCTURE
+AE      O  O        WRITE AND VERIFY(12)
+AF      OZ O        VERIFY(12)
+B0      ZZ Z        SEARCH DATA HIGH(12)
+B1      ZZ Z        SEARCH DATA EQUAL(12)
+B2      ZZ Z        SEARCH DATA LOW(12)
+B3      OO O        SET LIMITS(12)
+B4  OO  OZ OO       READ ELEMENT STATUS ATTACHED
+B5          O       REQUEST VOLUME ELEMENT ADDRESS
+    DTLPWRSOMCAEBK
+B6          O       SEND VOLUME TAG
+B6       O          SET STREAMING
+B7         O        READ DEFECT DATA(12)
+B8   O   Z  M       READ ELEMENT STATUS
+B9       M          READ CD MSF
+BA  OO  O  OO MO    REDUNDANCY GROUP (IN)
+BA       O          SCAN
+BB  OO  O  OO OO    REDUNDANCY GROUP (OUT)
+BB       O          SET CD-ROM SPEED
+BC  OO  O  OO MO    SPARE (IN)
+BC       O          PLAY CD
+BD  OO  O  OO OO    SPARE (OUT)
+BD       M          MECHANISM STATUS
+BE  OO  O  OO MO    VOLUME SET (IN)
+BE       O          READ CD
+    DTLPWRSOMCAEBK
+BF  OO  O  OO OO    VOLUME SET (OUT)
+BF       O          SEND DVD STRUCTURE
+top - bottom
+Return to the SCSI Common Codes & Values page
+Return to the T10 Home Page
+

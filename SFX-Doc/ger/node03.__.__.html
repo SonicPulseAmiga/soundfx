@@ -1,0 +1,115 @@
+<!-- NEW PAGE -->
+<html>
+	<head><title>SoundFX : 3 Die ARexx Schnittstelle</title></head>
+	<body bgcolor="#EEEEEE" leftmargin="5" rightmargin="5" topmargin="5" text="#000000" link="#2040FF" vlink="#0020E0" alink="#FFFFFF">
+	<a name="#000"></a>
+	<table border="0" width="100%" cellpadding="3" cellspacing="1" bgcolor="#000000"><tr bgcolor="#FFFFFF"><td>
+		<table border="0" width="100%" cellpadding="0" cellspacing="0"><tr>
+			<td align="left"><font size="-1">
+		[<a href="node__.__.__.html">SoundFX</a>]
+			</font></td>
+			<td align="right" valign="center">
+				<a href="node02.05.02.html">
+				<img src="../_img/a_le.gif" width="13" height="13" border="0" alt="[prev]"></a>
+				<img src="../_img/space.gif" width="2">
+				<a href="node03.01.__.html">
+				<img src="../_img/a_ri.gif" width="13" height="13" border="0" alt="[next]"></a>
+			</td>
+		</tr></table>
+	</td></tr></table>
+	<br>
+		<!-- Contents -->
+	<a name="#001"></a>
+		<table border="0" width="100%" cellpadding="3" cellspacing="1" bgcolor="#000000">
+	<tr bgcolor="#DDDDDD"><td>
+		<table border="0" width="100%" cellpadding="0" cellspacing="0"><tr>
+			<td align="left">
+				<b>3 Die ARexx Schnittstelle</b>
+			</td>
+			<td align="right">
+				<a href="#000">
+				<img src="../_img/a_up.gif" width="13" height="13" border="0" alt="[up]"></a>
+				<img src="../_img/space.gif" width="2">
+				<a href="#002">
+				<img src="../_img/a_do.gif" width="13" height="13" border="0" alt="[down]"></a>
+			</td>
+		</tr></table>
+	</td></tr>
+			<tr bgcolor="#FFFFFF"><td>
+				<table border="0" cellpadding="5" cellspacing="0"><tr><td>
+					<p align="justify">Der ARexx-Port von <b>SoundFX</b> heißt "REXX_SFX". Über
+					diesen können sie den Funktionsumfang von <b>SoundFX</b> erheblich erweitern.
+					So ist es z.B. möglich <b>SoundFX</b> fernzusteuern oder Sample mit anderen Programmen auszutauschen.
+					Sie können sogar eigenen Effekte in ARexx programmieren.<br>
+					<b>Wichtig:</b> seit Version 3.70 besitzen alle Befehle, den Prefix "SFX_" um
+					Namenskollisieonen zu vermeiden.
+					</p>
+					<p align="justify">
+					Schauen Sie sich die Skripte, die mit Ihrer __SFXInstallation mitgeliefert werden an.
+					Dise finden sie im &quot;_rexx&quot; Verzeichnis.<br>
+					Wenn sie eigenen Skripte schreiben, empfehle ich Ihnen diese mit folgendem Code zu beginnen,
+					damit der Arexx-Port korrekt gesetzt wird:
+<pre>
+IF (LEFT(ADDRESS(), 8) ~= "SFX_REXX") THEN DO	/* not started by SoundFX ? */
+	PARSE ARG opts
+	sfxport=WORD(opts,1)
+	IF SHOW("Ports",sfxport) THEN DO
+		ADDRESS VALUE sfxport
+	END
+	ELSE DO
+		IF ~SHOW("Ports","SFX_REXX") THEN EXIT 10
+    	ADDRESS 'SFX_REXX'
+	END
+END
+</pre>
+					</p>
+				</td></tr></table>
+			</td></tr>
+		</table>
+		<br>
+	<a name="#002"></a>
+		<table border="0" width="100%" cellpadding="3" cellspacing="1" bgcolor="#000000">
+	<tr bgcolor="#DDDDDD"><td>
+		<table border="0" width="100%" cellpadding="0" cellspacing="0"><tr>
+			<td align="left">
+				<b>Inhalt</b>
+			</td>
+			<td align="right">
+				<a href="#001">
+				<img src="../_img/a_up.gif" width="13" height="13" border="0" alt="[up]"></a>
+				<img src="../_img/space.gif" width="2">
+				<a href="#003">
+				<img src="../_img/a_do.gif" width="13" height="13" border="0" alt="[down]"></a>
+			</td>
+		</tr></table>
+	</td></tr>
+			<tr bgcolor="#FFFFFF"><td>
+				<table border="0" cellpadding="4" cellspacing="0"><tr><td><table border="0" cellpadding="0">
+					<tr><td>   3.1  </td><td><img src="../_img/space.gif" height="0" width="20"><a href="node03.01.__.html">Funktionen</a></td></tr>
+					<tr><td>   3.2  </td><td><img src="../_img/space.gif" height="0" width="20"><a href="node03.02.__.html">Namensgebung der Parameter der Operatoren</a></td></tr>
+				</table></td></tr></table>
+			</td></tr>
+		</table>
+		<br>
+	<a name="#003"></a>
+	<table border="0" width="100%" cellpadding="3" cellspacing="1" bgcolor="#000000"><tr bgcolor="#FFFFFF"><td>
+		<table border="0" width="100%" cellpadding="0" cellspacing="0"><tr>
+			<td align="left"><font size="-1">
+		[<a href="node__.__.__.html">SoundFX</a>]
+			</font></td>
+			<td align="right" valign="center">
+				<a href="node02.05.02.html">
+				<img src="../_img/a_le.gif" width="13" height="13" border="0" alt="[prev]"></a>
+				<img src="../_img/space.gif" width="2">
+				<a href="node03.01.__.html">
+				<img src="../_img/a_ri.gif" width="13" height="13" border="0" alt="[next]"></a>
+			</td>
+		</tr></table>
+	</td></tr></table>
+	<br>
+	<table border="0" width="100%" cellpadding="3" cellspacing="1" bgcolor="#000000"><tr bgcolor="#FFFFFF"><td align="center"><font size="-1">
+		&copy; by <a href="mailto:soundfx@sonicpulse.de">Stefan Kost</a> 1993-2004
+		<a href="http://www.sonicpulse.de" target="_new">www.sonicpulse.de</a>
+	</font></td></tr></table>
+	</body>
+</html>

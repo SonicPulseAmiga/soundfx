@@ -1,0 +1,43 @@
+; rebuild and update installer script
+;
+;
+delete >NIL: Install-SFX QUIET
+touch Install-SFX
+pipe list Install-SFX.#? FILES SORT=NAME LFORMAT="type %s >>Install-SFX" | execute in:
+;
+delete >NIL: misc:install/sfx-bin_00/Install.#?.info QUIET
+delete >NIL: misc:install/sfx-bin_20/Install.#?.info QUIET
+delete >NIL: misc:install/sfx-bin_30/Install.#?.info QUIET
+delete >NIL: misc:install/sfx-bin_20m/Install.#?.info QUIET
+delete >NIL: misc:install/sfx-bin_30m/Install.#?.info QUIET
+delete >NIL: misc:install/sfx-bin_40m/Install.#?.info QUIET
+delete >NIL: misc:install/sfx-bin_60m/Install.#?.info QUIET
+delete >NIL: misc:install/sfx-data/Install.#?.info QUIET
+delete >NIL: misc:install/sfx-doc_eng/Install.#?.info QUIET
+delete >NIL: misc:install/sfx-doc_ger/Install.#?.info QUIET
+delete >NIL: data:sfx-install/Install.#?.info QUIET
+;
+copy >NIL: FROM Install-SFX puttag gettag Install.#?.info TO misc:install/sfx-bin_00/
+copy >NIL: FROM Install-SFX puttag gettag Install.#?.info TO misc:install/sfx-bin_20/
+copy >NIL: FROM Install-SFX puttag gettag Install.#?.info TO misc:install/sfx-bin_30/
+copy >NIL: FROM Install-SFX puttag gettag Install.#?.info TO misc:install/sfx-bin_20m/
+copy >NIL: FROM Install-SFX puttag gettag Install.#?.info TO misc:install/sfx-bin_30m/
+copy >NIL: FROM Install-SFX puttag gettag Install.#?.info TO misc:install/sfx-bin_40m/
+copy >NIL: FROM Install-SFX puttag gettag Install.#?.info TO misc:install/sfx-bin_60m/
+copy >NIL: FROM Install-SFX puttag gettag Install.#?.info TO misc:install/sfx-data/
+copy >NIL: FROM Install-SFX puttag gettag Install.#?.info TO misc:install/sfx-doc_eng/
+copy >NIL: FROM Install-SFX puttag gettag Install.#?.info TO misc:install/sfx-doc_ger/
+copy >NIL: FROM Install-SFX puttag gettag Install.#?.info TO data:sfx-install/
+copy >NIL: FROM Install-SFX.#? TO misc:install/sfx-trans/Installer/
+delete >NIL: misc:install/sfx-trans/Installer/Install-SFX.a QUIET
+delete >NIL: misc:install/sfx-trans/Installer/Install-SFX.z QUIET
+;
+filenote >NIL: Install-SFX.#? ""
+foreach NAME fn IN `grep -l -E ";(NEW|CHANGE)" Install-SFX.#?` COM "filenote $fn *"not up-to-date*""
+;
+echo "*NThese texts need updates :"
+grep -l -E ";(NEW|CHANGE)" Install-SFX.#?
+echo NOLINE " = "
+pipe grep -l -E ";(NEW|CHANGE)" Install-SFX.#? | wc -l | gg:bin/sed "s/\ *//g"
+;
+User{1400}:Dev/InstallerNG/c/InstallerNG.020 Install-SFX

@@ -1,0 +1,137 @@
+<html>
+	<head><title>SoundFX : 2.1.6 Dynamic</title></head>
+	<body bgcolor="#EEEEEE" leftmargin="5" rightmargin="5" topmargin="5" text="#000000" link="#2040FF" vlink="#0020E0" alink="#FFFFFF">
+	<a name="#000"></a>
+	<table border="0" width="100%" cellpadding="3" cellspacing="1" bgcolor="#000000"><tr bgcolor="#FFFFFF"><td>
+		<table border="0" width="100%" cellpadding="0" cellspacing="0"><tr>
+			<td align="left"><font size="-1">
+		[<a href="../node__.__.__.html">SoundFX</a>]
+			[<a href="../node02.__.__.html">Modules</a>]
+				[<a href="../node02.01.__.html">Operators</a>]
+			</font></td>
+			<td align="right" valign="center">
+				<a href="../node02.01.06/Duplicate.html">
+				<img src="../../_img/a_le.gif" width="13" height="13" border="0" alt="[prev]"></a>
+				<img src="../../_img/space.gif" width="2">
+				<a href="../node02.01.06/Echo.html">
+				<img src="../../_img/a_ri.gif" width="13" height="13" border="0" alt="[next]"></a>
+			</td>
+		</tr></table>
+	</td></tr></table>
+	<br>
+		<!-- Contents -->
+	<a name="#001"></a>
+<table border="0" width="100%" cellpadding="3" cellspacing="1" bgcolor="#000000">
+	<tr bgcolor="#DDDDDD"><td>
+		<table border="0" width="100%" cellpadding="0" cellspacing="0"><tr>
+			<td align="left">
+				<b>Dynamic</b>
+			</td>
+			<td align="right">
+				<a href="#000">
+				<img src="../../_img/a_up.gif" width="13" height="13" border="0" alt="[up]"></a>
+				<img src="../../_img/space.gif" width="2">
+				<a href="#002">
+				<img src="../../_img/a_do.gif" width="13" height="13" border="0" alt="[down]"></a>
+			</td>
+		</tr></table>
+	</td></tr>
+	<tr bgcolor="#FFFFFF"><td>
+		<table border="0" width="100%" cellpadding="5" cellspacing="0"><tr><td>
+Amplifies or deamplifies the volume of a sample depending on its amplitude.
+Provides complex changes of the <a href="../node06.03.00.Dynamic.html">dynamics</a> of the sample.
+		</td></tr></table>
+	</td></tr>
+</table>
+<br>
+	<a name="#002"></a>
+<table border="0" width="100%" cellpadding="3" cellspacing="1" bgcolor="#000000">
+	<tr bgcolor="#DDDDDD"><td>
+		<table border="0" width="100%" cellpadding="0" cellspacing="0"><tr>
+			<td align="left">
+				<b>Parameter</b>
+			</td>
+			<td align="right">
+				<a href="#001">
+				<img src="../../_img/a_up.gif" width="13" height="13" border="0" alt="[up]"></a>
+				<img src="../../_img/space.gif" width="2">
+				<a href="#003">
+				<img src="../../_img/a_do.gif" width="13" height="13" border="0" alt="[down]"></a>
+			</td>
+		</tr></table>
+	</td></tr>
+	<tr bgcolor="#FFFFFF"><td>
+		<table border="0" width="100%" cellpadding="5" cellspacing="0"><tr><td>
+<table border="0" cellspacing="1" cellpadding="2" width="100%"><tr bgcolor="#BBBBBB"><td align="right" valign="top"><nobr>Effect (<a href="../node03.02.01.html">P1</a>)</nobr></td><td align="left">how much the operator effects the outcome
+</td></tr>
+<tr bgcolor="#AAAAAA"><td align="right" valign="top"><nobr>Ratio loud (<a href="../node03.02.01.html">P2</a>)</nobr></td><td align="left">amplitude-change of loud signals
+</td></tr>
+<tr bgcolor="#BBBBBB"><td align="right" valign="top"><nobr>Ratio quiet (<a href="../node03.02.01.html">P3</a>)</nobr></td><td align="left">amplitude-change of quiet signals
+</td></tr>
+<tr bgcolor="#AAAAAA"><td align="right" valign="top"><nobr>Threshold (<a href="../node03.02.01.html">P4</a>)</nobr></td><td align="left">determines the break point between the quiet and loud ratio - whenever the signals
+amplitude exceeds the threshold the loud ratio will be applied otherwise the quiet
+ratio will be used.
+</td></tr>
+<tr bgcolor="#BBBBBB"><td align="right" valign="top"><nobr>Knee</nobr></td><td align="left">the are two variant, one is edgy and the other fades smoothly
+</td></tr>
+<tr bgcolor="#AAAAAA"><td align="right" valign="top"><nobr>Characteristics</nobr></td><td align="left">These graphs show the effect of the settings. Read it a a translation table - the volume
+of the source sample denotes the x postion, then the curve can be used to find the
+respective y postion which denotes the output volume. 
+</td></tr>
+</table>
+		</td></tr></table>
+	</td></tr>
+</table>
+<br>
+	<a name="#003"></a>
+<table border="0" width="100%" cellpadding="3" cellspacing="1" bgcolor="#000000">
+	<tr bgcolor="#DDDDDD"><td>
+		<table border="0" width="100%" cellpadding="0" cellspacing="0"><tr>
+			<td align="left">
+				<b>Notes</b>
+			</td>
+			<td align="right">
+				<a href="#002">
+				<img src="../../_img/a_up.gif" width="13" height="13" border="0" alt="[up]"></a>
+				<img src="../../_img/space.gif" width="2">
+				<a href="#004">
+				<img src="../../_img/a_do.gif" width="13" height="13" border="0" alt="[down]"></a>
+			</td>
+		</tr></table>
+	</td></tr>
+	<tr bgcolor="#FFFFFF"><td>
+		<table border="0" width="100%" cellpadding="5" cellspacing="0"><tr><td>
+Here are a few examples:<ul>
+<li>Compressor: squeezes the sample together:)<br>Ratio loud &lt;100 %, Ratio quiet &gt;100 %</li>
+<li>Expander: expands the sample<br>Ratio loud &gt;100, Ratio quiet &lt;100 %</li>
+<li>Limiter: amplifies the quiet parts of the sample<br>Ratio loud =100, Ratio quiet &gt;100 %</li>
+<li>Delimiter: amplifies the loud parts of the sample<br>Ratio loud &gt;100, Ratio quiet =100 %</li>
+</ul>
+		</td></tr></table>
+	</td></tr>
+</table>
+<br>
+	<a name="#004"></a>
+	<table border="0" width="100%" cellpadding="3" cellspacing="1" bgcolor="#000000"><tr bgcolor="#FFFFFF"><td>
+		<table border="0" width="100%" cellpadding="0" cellspacing="0"><tr>
+			<td align="left"><font size="-1">
+		[<a href="../node__.__.__.html">SoundFX</a>]
+			[<a href="../node02.__.__.html">Modules</a>]
+				[<a href="../node02.01.__.html">Operators</a>]
+			</font></td>
+			<td align="right" valign="center">
+				<a href="../node02.01.06/Duplicate.html">
+				<img src="../../_img/a_le.gif" width="13" height="13" border="0" alt="[prev]"></a>
+				<img src="../../_img/space.gif" width="2">
+				<a href="../node02.01.06/Echo.html">
+				<img src="../../_img/a_ri.gif" width="13" height="13" border="0" alt="[next]"></a>
+			</td>
+		</tr></table>
+	</td></tr></table>
+	<br>
+	<table border="0" width="100%" cellpadding="3" cellspacing="1" bgcolor="#000000"><tr bgcolor="#FFFFFF"><td align="center"><font size="-1">
+		&copy; by <a href="mailto:soundfx@sonicpulse.de">Stefan Kost</a> 1993-2004
+		<a href="http://www.sonicpulse.de" target="_new">www.sonicpulse.de</a>
+	</font></td></tr></table>
+	</body>
+</html>

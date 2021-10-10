@@ -1,0 +1,71 @@
+<<<<<<<<<< Interface, cut-paste, edit, inner workings,>>>>>>>>>>
+
+27 jul 00
+Q:
+> How can i make a sample window forget a range i marked, without 
+> cutting or copying or anything?
+A:
+In the new version you can select it from a menu. Further you will be able to
+select ranges on the ruler (these are then always full width/height).
+Q:
+> I am very much intrigued as to why we have control over the vertical
+> component of ranges? Can we grab only peaks of samples?
+A:
+This is currently only for zooming.
+
+Q:
+> Having a keyboard shortcut for starting an operator would be nice (not e for
+> execute, but something to start the calculation)
+A:
+there is one. press 'Enter'.
+
+01 aug 00
+A:
+* select all is a easy one, I'll do it tonight (incl. the shortcut R-AMIGA+A)
+
+01 aug 00
+Q:
+> about the Del key? I'm used to use it for Cut operations, just like
+> SoundForge, CoolEdit, and also word-processors have it...
+A:
+I think the best would be to make all short-cut user definable - meanwhile I
+will make 'Del' a second shortcut for 'Cut'
+
+01 aug 00
+Q:
+> If you have a 600 Meg file that you want to process
+> in SFX, but not room for a second (or third, or fourth) 600 Meg file,
+> how do you handle it?  The method of making a new sample every time you
+> apply an effect works well for short samples, but it is a problem for
+> whole recordings.
+A:
+If there is no romm in memory, sfx tries to get it onto hd and
+if there is no room, the operation fails. I have to store it somewhere. If you
+have some ideas, they're welcome. Just to mention it I already thought about
+reusing the space of the source. This works with most fx, but not with all and
+is hard to handle.
+
+07 aug 00
+Q:
+> Opening some program windows causes bad refreshing of
+> sample-windows when they are resized. If you open eg. a loader
+> prefswindow, and then attempt to resize a sample-window,
+> its contents is not properly refreshed. The refresh is
+> completed only after you have closed the loader prefswindow.
+> 
+> Operator windows DO NOT cause this! The refreshing is performed
+> without any problems when an operator window is open.
+A:
+The operators are started as separate tasks. Most other windows are not, there
+more like requests. As I don't run them assynchrounously, all events you cause
+for othere windows are queued until you close the blocking window.
+-
+I don't know if it is worth the work, to make them all asynchrounous.
+
+17 oct 00
+Q:
+> Will the new batch facility allow me to convert them all to WAV in one
+> go, recursively going through the drawers?
+A:
+yes, as this is exactly what it is for.
+

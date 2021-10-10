@@ -1,0 +1,11 @@
+.bra {
+.ket }
+
+; $VER MakeLinks 1.0 (07.06.98)
+
+echo [32m»» remaking all module-links ...[31m
+
+List >t:q{$$$$} ~(_#?) DIRS LFORMAT "delete _SourceLinks/%s.c QUIET"
+List >>t:q{$$$$} ~(_#?) DIRS LFORMAT "makelink TO %s%s/%s%s.c FROM _SourceLinks/%s.c"
+Execute t:q{$$$$}
+Delete >NIL: t:q{$$$$}

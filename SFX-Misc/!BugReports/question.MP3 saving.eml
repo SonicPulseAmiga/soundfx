@@ -1,0 +1,89 @@
+Return-Path: <kost@imn.htwk-leipzig.de>
+Received: from smtp.hora-obscura.de ([unix socket])
+	 by imap.hora-obscura.de (Cyrus v2.2.10) with LMTPA;
+	 Wed, 29 Jun 2005 12:55:52 +0200
+X-Sieve: CMU Sieve 2.2
+Received: from localhost (localhost [127.0.0.1])
+	by smtp.hora-obscura.de (Postfix) with ESMTP id 6BC0339C166
+	for <ensonic@sonicpulse.de>; Wed, 29 Jun 2005 12:55:52 +0200 (CEST)
+Received: from smtp.hora-obscura.de ([127.0.0.1])
+ by localhost (smtp.hora-obscura.de [127.0.0.1]) (amavisd-new, port 10024)
+ with LMTP id 22101-07-3 for <ensonic@sonicpulse.de>;
+ Wed, 29 Jun 2005 12:55:33 +0200 (CEST)
+Received: from mail.imn.htwk-leipzig.de (david.imn.htwk-leipzig.de [141.57.9.1])
+	by smtp.hora-obscura.de (Postfix) with ESMTP id 7D72A39C165
+	for <ensonic@sonicpulse.de>; Wed, 29 Jun 2005 12:55:18 +0200 (CEST)
+Received: from imn.htwk-leipzig.de (krishna [141.57.8.37])
+	by mail.imn.htwk-leipzig.de (Postfix) with ESMTP id 21AE921387;
+	Wed, 29 Jun 2005 12:55:08 +0200 (MEST)
+Message-ID: <42C27D7D.8090407@imn.htwk-leipzig.de>
+Date: Wed, 29 Jun 2005 12:52:45 +0200
+From: Stefan Kost <kost@imn.htwk-leipzig.de>
+Organization: HTWK Leipzig
+User-Agent: Mozilla/5.0 (X11; U; SunOS sun4u; en-US; rv:1.6) Gecko/20040206
+X-Accept-Language: en-us, en, de
+MIME-Version: 1.0
+To: soundfx-users@yahoogroups.com
+Subject: MP3 saving
+X-Enigmail-Version: 0.83.2.0
+X-Enigmail-Supports: pgp-inline, pgp-mime
+Content-Type: multipart/mixed;
+ boundary="------------010702070907070309050506"
+X-Virus-Scanned: amavisd-new at hora-obscura.de
+X-Spam-Status: No, hits=0 tagged_above=0 required=2 tests=
+X-Spam-Level: 
+
+This is a multi-part message in MIME format.
+--------------010702070907070309050506
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+hi hi,
+
+can everybody who has problems with mp3 saving do the following:
+
+1.) which engine have you tried (lame, pegase,...)
+2.) which version are they
+3.) what is the help output ruuning the engine stand-alone from a shell
+4.) which pipe device have you used
+
+The commandline options of lame have changed in the past and I suspect this is
+the cause of the problems some of you experience.
+
+Stefan
+-- 
+      \|/            Stefan Kost
+     <@ @>           private            business
++-oOO-(_)-OOo------------------------------------------------------ - - -  -   -
+|       __  Address  Simildenstr. 5     HTWK Leipzig, Fb IMN, Postfach 301166
+|      ///           04277 Leipzig      04251 Leipzig
+| __  ///            Germany            Germany
+| \\\///    Phone    +49341 2253538     +49341 30766101
+|  \__/     EMail    st_kost_at_gmx.net kost_at_imn.htwk-leipzig.de
+|           WWW      www.sonicpulse.de  www.imn.htwk-leipzig.de/~kost/about.html
+===-=-=--=---=---------------------------------- - - -  -    -
+
+--------------010702070907070309050506
+Content-Type: text/x-vcard; charset=utf8;
+ name="kost.vcf"
+Content-Transfer-Encoding: 7bit
+Content-Disposition: attachment;
+ filename="kost.vcf"
+
+begin:vcard
+fn:Stefan Kost
+n:Kost;Stefan
+org:HTWK Leipzig;FB. IMN
+adr:;;Postfach 301166;Leipzig;;04251;Germany
+email;internet:kost@imn.htwk-leipzig.de
+title:Dipl. Informatiker
+tel;work:+49341 30766440
+tel;home:+49341 2253538
+tel;cell:+49178 3183742
+x-mozilla-html:FALSE
+url:http://www.imn.htwk-leipzig.de/~kost/about.html
+version:2.1
+end:vcard
+
+
+--------------010702070907070309050506--

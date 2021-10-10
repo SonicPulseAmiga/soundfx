@@ -1,0 +1,66 @@
+From - Fri Jun  8 12:55:20 2001
+Received: from thlhp.rz.htwk-leipzig.de (thlhp [141.57.1.1])
+	by imn.htwk-leipzig.de (8.9.1/8.9.1) with ESMTP id RAA03536
+	for <kost@imn.htwk-leipzig.de>; Wed, 6 Jun 2001 17:03:03 +0200 (MET DST)
+Received: from ns0.enterprise.net (ns0.enterprise.net [213.137.2.163])
+	by thlhp.rz.htwk-leipzig.de (8.8.8/8.8.8) with ESMTP id RAA33346
+	for <kost@imn.htwk-leipzig.de>; Wed, 6 Jun 2001 17:03:30 +0200
+Received: from enterprise.net (cmax09-095.enterprise.net [212.161.116.95])
+	by ns0.enterprise.net (8.10.2+Sun/8.10.2) with SMTP id f56Etmo23911
+	for <kost@imn.htwk-leipzig.de>; Wed, 6 Jun 2001 15:55:49 +0100 (BST)
+From: Don Cox <doncox@enterprise.net>
+To: Stefan Kost <kost@imn.htwk-leipzig.de>
+Date: Wed, 06 Jun 2001 15:51:57 +0000
+Message-ID: <yam8557.2850.161798272@smtp.enterprise.net>
+In-Reply-To: <3B1CD086.71DDA1CD@imn.htwk-leipzig.de>
+X-Mailer: YAM 2.2 [040] AmigaOS E-Mail Client (c) 1995-2000 by Marcel Beck  http://www.yam.ch
+Subject: Re: Review
+MIME-Version: 1.0
+Content-Type: text/plain
+Content-Length: 1228
+Status:   
+X-Mozilla-Status: 8013
+X-Mozilla-Status2: 00000000
+X-UIDL: 361df5b5000034a9
+
+Hello Stefan
+
+The review is all done and sent off. The only thing I criticised really
+was the design of the toolbar icons.  For example, a picture of 2 pieces
+of paper doesn't suggest making a new sample window from the selected
+region, does it?
+
+Also, the padlock looks almost exactly the same locked and unlocked. The
+white outline makes it hard to see.
+
+
+
+Suggestions:
+A project -> New facility, giving a blank sample (user specifies length,
+sample rate, depth) suitable for pasting into.
+
+A Cancel button in each operator window. Of course you can just close
+the window, but that is not so good ergonomically.
+
+In the Amplify operator, it would be nice if  you could draw the sample in the
+vector editing window.  (That would help in other operators too.)  Of
+course in a different colour from the vectors.
+
+In the Additive synth, the Overtone (not Obertone !) sliders are
+invisible. Triangles?
+
+
+
+It seems most of the bugs are in the virtual memory code.  When I
+(deliberately) tried to load a sample bigger than the disk space, I got
+lots of "recoverable" alerts and then a crash.
+
+
+I had forgotten how low the price is.  The user gets a hell of a lot of
+program for the money.
+
+Regards
+-- 
+Don Cox
+doncox@enterprise.net
+

@@ -1,0 +1,24 @@
+smfind "\[PARBUFLEN" `list dirs ~_#? LFORMAT "%s/#?.c"`
+
+list >t:batch dirs ~_#? LFORMAT "splat -o *"char title\[80\]*" *"ProWinTitle title*" %s/%n.c"
+
+; all modules
+list >t:batch dirs ~_#? LFORMAT "splat -o \*"progdir: PROGDIR\*" %s/%n.c"
+list >t:batch dirs ~_#? LFORMAT "splat -o \*"env:sfx/ ENVDIR\*" %s/%n.c"
+list >t:batch dirs ~_#? LFORMAT "splat -o *"1993-2000*" *"1993-2002*" %s/project.h"
+
+; Operators
+list >t:batch dirs ~_#? LFORMAT "splat -o *"LoadFXParams*" *"LoadSettings*" %s/%n.c"
+list >t:batch dirs ~_#? LFORMAT "splat -o *"SaveFXParams*" *"SaveSettings*" %s/%n.c"
+list >t:batch dirs ~_#? LFORMAT "splat -o *"DefaultFXParams*" *"SetDefaultSettings*" %s/%n.c"
+list >t:batch dirs ~_#? LFORMAT "splat -o *"RecallLastFXParams*" *"RecallLastSettings*" %s/%n.c"
+list >t:batch dirs ~_#? LFORMAT "splat -o *"SFXMod_ClientDataInit_Operator*" *"SFXMod_ClientDataInit(***"operators***")*" %s/%n.c"
+list >t:batch dirs ~_#? LFORMAT "splat -o *"SFXMod_ClientDataDone_Operator*" *"SFXMod_ClientDataDone*" %s/%n.c"
+
+list >t:batch dirs ~_#? LFORMAT "splat -o *"(***"operators***")*" *"*" %s/%n.c"
+list >t:batch dirs ~_#? LFORMAT "splat -o *"(***"operators***",HELPBASENAME_OP)*" *"*" %s/%n.c"
+
+
+; Loader & Saver
+list >t:batch dirs ~_#? LFORMAT "splat -o *"SetDefaults*" *"SetDefaultSettings*" %s/%n.c"
+list >t:batch dirs ~_#? LFORMAT "splat -o *"RecallDefSettings*" *"RecallDefaultSettings*" %s/%n.c"

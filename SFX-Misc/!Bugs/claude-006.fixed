@@ -1,0 +1,8 @@
+>> For now, can comeone explain if i can change the band assignements in Equaliser?
+>> The first band goes up to 648 hz and the last to 44100 hz, that makes no sense.
+
+> The current equalizer is based on the fft. This algorithm splits the
+> frequency-space into fixed ranges.
+> The overall area covered is 0 Hz to samplingfreq/2.
+
+But if it does up to samplingfreq/2, why is the last band from 43421 to 44100? That's on a studio16 sample. On 8 bit samples it goes up to 10000 or so.

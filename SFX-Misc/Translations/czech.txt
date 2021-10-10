@@ -1,0 +1,115 @@
+Subject:
+Re: sfx 4.2
+From:
+Daniel Jedlicka <dan.jedlicka@seznam.cz>
+Date:
+Wed, 31 Jul 2002 09:12:42 +0200 (CEST)
+To:
+Stefan Kost <kost@imn.htwk-leipzig.de>
+X-UIDL:
+361df5b500005b93
+X-Mozilla-Status:
+0011
+X-Mozilla-Status2:
+10000000
+Received:
+from email.seznam.cz (omx.seznam.cz [212.80.76.41]) by imn.htwk-leipzig.de (8.9.1/8.9.1) with SMTP id JAA25334 for <kost@imn.htwk-leipzig.de>; Wed, 31 Jul 2002 09:13:14 +0200 (MET DST)
+Received:
+(qmail 82694 invoked by uid 0); 31 Jul 2002 07:12:44 -0000
+Received:
+from [62.245.96.12] by email.seznam.cz with HTTP; Wed, 31 Jul 2002 09:12:42 +0200 (CEST)
+In-Reply-To:
+<yam8976.571.148528984@mail.imn.htwk-leipzig.de>
+Content-Transfer-Encoding:
+8bit
+Reply-To:
+Daniel Jedlicka <dan.jedlicka@seznam.cz>
+MIME-Version:
+1.0
+Message-ID:
+<9124.765-24969-1313872921-1028099562@seznam.cz>
+Content-Type:
+multipart/mixed;boundary="MessagePart:10280957171796442530"
+Content-Length:
+5745
+Status:
+O
+
+Hello!
+
+
+> finally I've got sfx-4.2 ready
+
+
+Good to hear that!
+
+
+
+> I would like to ask you if you can translate the new entries in the
+> installer text file
+
+
+Here they are... see attachment.
+
+Regards,
+DAN
+
+______________________________________________________________________
+Reklama:
+E-mail zdarma na cely zivot: http://email.seznam.cz
+
+
+
+(IF (= @LANGUAGE "czech")
+(
+	(SET #bad-kick				"SoundFX vyùaduje Kickstart 3.0 nebo vyîîí!")
+	(SET #bad-installer			"SoundFX vyùaduje installer 43.0 nebo vyîîí!\nNaleznete jej na Aminetu v adresáêi util/misc/Installer43.3.lha.")
+	(SET #welcome-messy1		"\n\nVítejte pêi instalaci programu SoundFX!\nTento skript zkopíruje vîechny soubory nutné ke spuîtëní na váî harddisk.")
+	(SET #welcome-messy2		"Tento skript si zapamatuje vîechna vaîe nastavení.\nAù ho znovu spustíte v reùimu 'Novice' nebo 'Average', provede vîechna nastavení hladce sám. Budete pouze dotázán, zda chcete pêidat nová nastavení.\nPokud potêebujete provést nová nastavení spusïte skript v reùimu Expert. Budete znovu dotázán pêi vîech nastaveních, ale také bude zmënën váî poslední skript.")
+	(SET #choose-dest			"Vyberte prosím cílový adresáê!\nAdresáê s názvem SoundFX zde bude vytvoêen automaticky!\nUjistëte se, ùe máte na svém harddisku nejménë 5 aù 10 MB volného prostoru!")
+	(SET #choose-dest-help		"Zde si mûùete zvolit místo na svém harddisku, kam bude SFX nainstalován")
+	(SET #copy-loader			"kopírování naçítacích modulû...")
+	(SET #copy-operators		"kopírování operátorû...")
+	(SET #copy-player			"kopírování pêehrávaçû...")
+	(SET #copy-rexx				"kopírování ARrexxových skriptû...")
+	(SET #copy-saver			"kopírování ukládacích modulû...")
+	(SET #copy-executable		"kopírování programû...")
+	(SET #copy-fonts			"kopírování fontû...")
+	(SET #copy-libs				"kopírování knihoven...")
+	(SET #copy-envelopes		"kopírování obálek...")
+	(SET #copy-presets			"kopírování pêednastavení...")
+	(SET #copy-workshop			"kopírování ukázkových souborû...")
+	(SET #copy-icons			"kopírování ikon...")
+	(SET #copy-gfx				"kopírování grafiky...")
+	(SET #copy-text				"kopírování textû...")
+	(SET #copy-guides			"kopírování nápovëdy...")
+	(SET #copy-keyfile			"kopírování klíçe...")
+	(SET #copy-catalogs			"kopírování lokalizaçních katalogû...")
+	(SET #copy-help				"Pêísluîné soubory budou zkopírovány na harddisk.")
+;NEW
+	(SET #copy-goodies			"kopírování doplñkových souçástí...")
+;NEW
+	(SET #choose-binary			"Vyberte prosím odpovídající typ procesoru!")
+	(SET #choose-binary-help	"SoundFX existuje v mnoha verzích optimalizovaných pro rûzné procesory.")
+	(SET #choose-language		"Vyberte prosím odpovídající pêeklad dokumentace!")
+;NEW
+	(SET #choose-language-help	"Jazyk dokumentace, která má být nainstalována.")
+	(SET #choose-docfiles		"Vyberte prosím, v jakém formátu má být nainstalována dokumentace (vedle formátu HTML)!")
+	(SET #choose-docfiles-help	"Dokumentace je dodávána také ve formátu PDF a PS. K dispozici je verze ve formátu A4 a Letter.")
+;NEW
+	(SET #choose-icon			"Vyberte prosím sadu ikon, kterou chcete nainstalovat!")
+	(SET #choose-icon-help		"Standardní verze je pro 4barevný Workbench.\nSady pro MagicWB a Iconographics vyùadují nejménë 8 barev.\nVerze pro NewIcon vyùaduje software Newicons.")
+	(SET #choose-keypath		"Vyberte prosím adresáê, kam má být naistalován klíç!")
+	(SET #choose-fontpath		"Vyberte prosím adresáê, kam mají být nainstalovány fonty!")
+	(SET #choose-path-help		"Vybrat lze jakékoli z tëchto míst, SFX prohledá vîechna.")
+	(SET #choose-instmode		"SFX je jiù pravdëpodobnë nainstalován! Co dál?")
+	(SET #choose-instmode-help	"V módu zálohování (Backup) bude starý adresáê SFX pêejmenován na SFX_old.\nV módu aktualizace (Update) budou vîechny dêíve nainstalované soubory pêepsány.")
+	(SET #copykey-fail			"Chyba pêi kopírování klíçe!")
+	(SET #exit-messy			"\n\nSFX byl úspëînë nainstalován.\nPêeçtëte si prosím dokumentaci, zjistíte, jak s programem efektivnë pracovat.")
+	(SET #orderform				"Orderform.czech.txt")
+	(SET #catalog				"czech")
+	(SET #readme				"Çtëte#?")
+	(SET #requires-identify		"SoundFX pouùívá knihovnu identify.library >=13.0 nebo vyîîí, ale ta buð chybí, nebo je pêíliî stará.")
+	(SET #requires-openurl		"SoundFX vyùaduje knihovnu openurl.library >=3.0 nebo vyîîí, ale ta buð chybí, nebo je pêíliî stará.")
+	(SET #requires-popupmenu	"SoundFX pouùívá knihovnu popupmenu.library >=9.0 nebo vyîîí, ale ta buð chybí, nebo je pêíliî stará.")
+))

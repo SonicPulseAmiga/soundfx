@@ -1,0 +1,2 @@
+pipe list DIRS ALL LFORMAT="protect %p%s/build#? +s" | execute in:
+pipe list DIRS ALL LFORMAT="protect %p%s/upd#? +s" | execute in:

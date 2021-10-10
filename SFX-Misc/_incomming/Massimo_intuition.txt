@@ -1,0 +1,38 @@
+Hello Stefan Kost, on date 28-Aug-03 12:49:13 you wrote:
+
+ SK> I've done more testing. I now understand that I need to repeat all GUI
+ SK> prefs step for my custom screen. I've done that. Now the
+ SK> window-embedded-scrollers have the proper color.
+
+Great   It should also be possible to simply load the main gui.prefs
+file and re-save it for your screen, without having to configure every
+setting again by hand...
+
+ SK> New problems found :
+ SK> I use pen 0 (gray) for the screenbar. The is shown correctly in the pan
+ SK> setting of gui prefs. nevertheless, my screen-bar is white. adding a
+ SK> gradient to the bar work, but still is basicaly white.
+
+Hmm... did you try setting "Use GUI pens" to "Always" in the Screens
+editor (for your custom screen)? Otherwise the user-defined pens may
+still get overridden by those specified by the application.
+
+ SK> I have setted up gradient in the widnow border. when I use this on
+ SK> my public screen, the window title is printed with background (not
+ SK> transparent). additionally it looks like the window-close button is
+ SK> not shaded. I'll send a screenshot privately if you like.
+
+Thanks, I'd like to see this as I never heard of it before...
+
+Which Intuition version are you using? On which kind of screenmode?
+
+ SK> The problem with thetitlebar images persists. I'll do more testing
+ SK> about it.
+
+See also my other reply...
+
+Kind regards,
+                                   Massimo Tantignone (tanti@intercom.it)
+                                     [http://www.intercom.it/~amigaws]
+
+

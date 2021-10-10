@@ -1,0 +1,16 @@
+FROM LIB:libent.o LIB:libinitr.o "Hall2.o"
+TO "Hall2.sfxmod"
+LIB LIB:debugtools881.lib LIB:debug.lib LIB:scm060fd.lib LIB:scm881.lib
+    LIB:sc.lib LIB:amiga.lib
+ADDSYM
+SMALLCODE
+BATCH
+QUIET
+NOICONS
+DEFINE @__chkabort=@__dummy
+LIBVERSION 4
+LIBREVISION 1
+LIBPREFIX _LIB
+LIBFD //sfx-module/sfx_mod_lib.fd
+
+DEFINE __XCEXIT=_stub

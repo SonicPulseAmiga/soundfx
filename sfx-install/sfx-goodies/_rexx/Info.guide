@@ -1,0 +1,111 @@
+@database SFX
+
+@remark $VER: SFX-Sample-Info.guide V 1.77 (14.06.1999 by FALCON)
+@remark AmigaGuide-OnLine-Hilfe für Sound-FX
+
+@master /guides/sfx.guide
+@index /guides/sfx-index.guide/index
+
+@node main "Rexx : Info"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Info
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+  Funktion  :     Gibt einige Informationen zum aktuellen Sample aus:
+
+                  - Buffer-ID des aktuellen Samples.
+                  - Name des aktuellen Samples (Buffers).
+                  - Buffer-Länge in Bytes.
+                  - Sample-Länge in Bytes (Diese Angabe kann je nach verwendetem
+                    Datenformat - IFF, AIFF, u.s.w. - bis zu 500 Bytes abweichen).
+                  - Sample-Rate in Hertz.
+                  - Anzahl der benutzten Audiokanäle (1, 2 oder 4).
+                  - Kanal-Status (welche Kanäle sind aktiv, welche inaktiv ?).
+                  - Spielzeit in Minuten:Sekunden:Millisekunden oder (bei kurzen Samples)
+                    in Sekunden:Millisekunden.
+                    Der Millisekunden-Wert wird auf 2 Kommastellen gerundet.
+                  - Außerdem wird noch der verbleibende freie RAM ausgegeben (in Bytes).
+                  - Library-Version.
+                  - Keyfile-Version (soweit vorhanden).
+
+Installation:     Kopieren Sie einfach alle Dateien ins Verzeichnis ´_REXX´ Ihrer
+                  Sound-FX Installation.
+                  Außerdem muß die Pfadangabe in der Datei ´INFO.REXX´ entsprechend Ihrer
+                  Sound-FX Installation. Wenn Sie also z.B. Ihr Sound-FX auf der Festplatte
+                  ´DH4:´ im Verzeichnis ´SOUND/SFX´ installiert haben, dann sollte dieser
+                  Eintrag folgendermaßen aussehen:
+
+                  ADDRESS COMMAND 'DH4:SOUND/SFX/_REXX/INFO.REXX´
+
+                  Diese Maßnahme ist nötig, damit Sound-FX per Arexx auch EXE-Dateien
+                  ausführen kann.
+
+    Hinweise:     - Benötigt UNBEDINGT die ´REXXREQTOOLS.LIBRARY´ (ist NICHT im Archiv
+                    enthalten, kann aber z.B. aus dem Aminet oder von meiner Homepage
+                    ´http://home.wtal.de/elasticimages´ heruntergeladen werden).
+
+   Benutzung:     Sample laden und einfach das Programm per Doppelklick im REXX-Fenster starten.
+
+ Rechtliches:     SFX Sample-Info ist FREEWARE. Sie dürfen das Programm beliebig kopieren und
+                  weitergeben, jedoch verbleiben sämtliche Rechte beim Autor.
+                  Es dürfen KEINERLEI VERÄNDERUNGEN an den im Archiv enthaltenen Dateien
+                  (mit Ausnahme der Datei ´INFO.REXX´) vorgenommen werden.
+                  Es ist erlaubt, das Programm auf PD- und CD-Serien (z.B. Fish, AmigaPLus, etc.)
+                  zu veröffentlichen.
+                  Bitte senden Sie in einem solchen Fall dem Autor unter: thunderchils@wtal.de
+                  eine kurze E-Mail zu.
+                  Dem Autor von SoundFX (Stefan Kost) ist es erlaubt, alle von mir erschienenen
+                  Programme auf einer Sammel-CD zu veröffentlichen.
+
+     History:     V1.01: 1. veröffentlichte Programmversion.
+
+                  V1.70: Update zu V1.01.
+                         - Benötigt SFX ab Version 3.70, da sich die Arexx-Befehle geändert haben.
+
+                  V1.71: Update zu V1.71.
+                         - Es wird nun auch sie tatsächliche Sample-Länge in Bytes berechnet (siehe
+                           Hinweis unter ´Funktion´).
+
+                  V1.72: Update / Bugfix zu Version 1.71.
+                         - Ab jetzt ist das Programm ein ausführbares Programm, da in letzter Zeit
+                           vermehrt Cracks und Fakes meiner Arexx-Programme aufgetaucht sind.
+                         - Wenn kein Sample im Speicher war, gab´s ´ne Arexx-Fehlermeldung.
+
+                  V1.73: Update / Bugfix zu Version 1.72.
+                         - Bug in der Berechnung des freien Rams behoben.
+                         - Spielzeitberechnung nochmals korrigiert.
+
+                  V1.74: Update / Bugfix zu Version 1.73.
+                         - Zusätzlich zur Angabe der Sample-Kanäle (Momo, Stereo oder Quattro)
+                           wird jetzt noch der Status der einzelnen Kanäle mit ausgegeben.
+                           Eine Anzeige von: Kanäle: 4 (EIN AUS EIN AUS) bedeutet z.B., daß
+                           Sie ein Quattro Sample haben, bei dem der 2. und 4. Kanal deaktiviert
+                           sind.
+                           Deaktivierte Kanäle werden bei Berechnungen nicht berücksichtigt.
+                         - Ab jetzt wird die SFX-Version geprüft, da ab V3.70 vor jedem Arexx-
+                           Befehl ´SFX_´ stehen muß.
+                         - Sollte die ´rexxreqtools.library´ nicht gefunden werden und SoundFX
+                           nicht laufen (Arexx-Port nicht vorhanden), so wird die entsprechende
+                           Fehlermeldung in einem Shell-Fenster auf der Workbench ausgegeben.
+
+                  V1.75: Update / Bugfix zu Version 1.74.
+                         - Der Programmcode wurde optimiert, was sich in einer etwas schnelleren
+                           Berechnung der Sample-Informationen bemerkbar macht.
+                         - Bei größeren Mono-Samples (> 1 Minute) wurde der Minuten-Wert nicht
+                           immer korrekt berechnet (es wurde eine Minute dazuaddiert ?!?).
+                         - Soweit vorhanden, wird ab jetzt auch die Version des Keyfiles
+                           angezeigt.
+                         - Schönheitskorrektur: Der Button ´Weiter´ wurde in ´Schließen´ umbenannt.
+
+                  V1.76: Update zu Version 1.75.
+                         - Ab jetzt wird auch der Sample-, bzw. Buffername angezeigt.
+
+
+                  V1.77: Update / Bugfix zu Version 1.76.
+                         - Fehler in der Zeitberechnung behoben (bei Samples mit glatter Zeit -
+                           z.B. 2:03:00 - wurde 2:04:00 ausgegeben).
+                         - Gibt ab jetzt auch die SFX-Version aus.
+
+@endnode

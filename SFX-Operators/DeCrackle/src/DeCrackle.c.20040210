@@ -1,0 +1,292 @@
+/****h* DeCrackle/DeCrackle.c [4.3] *
+*
+*  NAME
+*    DeCrackle.c
+*  COPYRIGHT
+*    $VER: DeCrackle.c 4.3 (05.02.04) © by Stefan Kost 1998-2004
+*  FUNCTION
+*    DeCrackle core file
+*  AUTHOR
+*    Stefan Kost			sk		kost@imn.htwk-leipzig.de
+*  CREATION DATE
+*    11.Mar.2003
+*  MODIFICATION HISTORY
+*    05.Feb.2004	V 4.3	most recent version
+*							A: dry-run
+*    11.Mar.2003	V 4.2	most recent version
+*    11.Mar.2003	V 4.2	initial version
+*  NOTES
+*
+*******
+*/
+/****u* _operators/DeCrackle *
+*  Function.eng
+*    Dampens strong leveljumps (crackles)
+*  Funktion.ger
+*    Dämpft starke Pegelsprüge (Knackser)
+*  Parameter.eng
+*    Dif.
+*      Leveljump-threshold. If the detected leveljump lays this much above
+*      the average leveljumps in current area, it will dampened.
+*    Amp.
+*      Amplitude-threshold. If the current amplitudes lays this much above
+*      the average amplitudes in current area, it will dampened.
+*    Adjust
+*      How strong should the crack be dampened. 100 % means fully cancelation.
+*    Test
+*      Starts the operator without modifying the sample and shows the results of the crackle-analysis.
+*    Crackles
+*      The amount of crackles detected (absolut and relative to the length) for each channel of the sample.
+*  Parameter.ger
+*    Dif.
+*      Pegelsprungschwellwert. Sobald ein Pegelsprung gegenüber den durchschnitlichen Pegelsprungwerten in der aktuellen
+*      Umgebung soviel über diesem Wert liegt, wird er gedämpft.
+*    Amp.
+*      Amplitudenschwellwert. Sobald die aktuelle Amplitude gegenüber der Durchschnittsamplitude der aktuellen
+*      Umgebung soviel über diesem Wert liegt, wird er gedämpft.
+*    Adjust
+*      Wie stark der Knackser gedämpft werden soll. 100 % entspricht der totalen Auslöschung.
+*    Test
+*      Startet den Operator ohne das Sample zu verändern und zeigt die Ergebnisse der Knackseranalyse an.
+*    Crackles
+*      Die Menge der gefundenen Knackser (absolut und in Prozent relativ zur Länge) für jeden Kanal des Samples.
+*  Notes.eng
+*    This operator detects cracks in samples and makes them quieter.
+*    Such cracks are contained in samples recorded from a longplayer
+*    or can be caused by r/w-errors on a disk.<br>
+*    Before using this operator, it is recommended to apply the
+*    <a href="Middle.html">Middle</a> operator, followed by the
+*    <a href="ZeroPass.html">ZeroPass</a> operator and finally the
+*    <a href="Amplify.html">Amplify</a> operator with the MaxVol function,
+*    to prepare the sample.<br>
+*    If the result obtained by this operator sounds damp and misses attacks,
+*    then raise the Dif. and Amp. values, so that fewer signals are
+*    interpreted as crackles. You can use the Test function to tune the results.
+*  Hinweise.ger
+*    Dieser Operator entfernt bzw. dämpft Knackstellen in Samples.
+*    Diese treten z.B. auf wenn man von einer Schallplatte sampelt
+*    oder mal einen R/W-Fehler auf einem Datenträger hatte.<br>
+*    Bevor man diesen Operator nutzt empfiehlt es sich, erst den
+*    <a href="Middle.html">Middle</a> Operator, gefolgt vom
+*    <a href="ZeroPass.html">ZeroPass</a> Operator und abschließend den
+*    <a href="Amplify.html">Amplify</a> Operator mit der MaxVol Funktion
+*    anzuwenden, um das Sample vorzubereiten.
+*    Wenn die Ergebnisse dieses Operators dumpf klingen und die Anschläge fehlen,
+*    dann erhöhen sie die Dif. und Amp. Werte, so das weniger Signale als
+*    Knackser interpretiert werden. Sie können die Test Funktion benutzen um
+*    die Ergebnisse abzustimmen.
+*******
+*/
+
+#define DECRACKLE_C
+
+//-- includes -----------------------------------------------------------------
+
+#include "../../cfg.h"
+
+#include <libraries/sfxsupport.h> 
+#include <proto/sfxsupport.h>
+
+//-- Local
+#include "project.h"
+#include "DeCrackle.h"
+
+//-- globals ------------------------------------------------------------------
+
+//DEBUG
+//FILE *__dbg_fh1;
+//FILE *__dbg_fh2;
+//WORD __dbg_sample;
+//DEBUG
+
+//-- definitions --------------------------------------------------------------
+
+int init(void) {
+	return(TRUE);
+}
+
+int instantiate(SFXCoreInstance *instance) {
+	return(TRUE);	
+}
+
+int activate(SFXCoreInstance *instance) {
+	UBYTE l;
+
+	//-- reset crackle counters
+	for(l=0;l<CH_MAX;l++) instance->crackle_cts[l]=0;
+
+	//DEBUG
+	//__dbg_fh1=fopen("t:sfx_dbg1.sraw16","wb");
+	//__dbg_fh2=fopen("t:sfx_dbg2.sraw16","wb");
+	//DEBUG
+
+	return(TRUE);
+}
+
+void activate_ch(SFXCoreInstance *instance,unsigned char ch) {
+	instance->lval=0;
+	instance->amp=(double)0.0;instance->lpropa=(double)0.0;
+	instance->dif=(double)0.0;instance->lpropd=(double)0.0;
+	instance->crackle_ct=0;
+}
+
+void process_dry(SFXCoreInstance *instance,unsigned long samples) {
+	unsigned long i,curlen;
+	SAMPLE *sbuf;
+	LONG cval,lval;
+	LONG adif;
+	double amp,propa,lpropa,thresha;
+	double dif,propd,lpropd,threshd;
+	double nenv,adj;
+	BOOL b1,b2;
+
+	curlen=instance->curlen;
+
+	// Source
+	sbuf=instance->sbuf;
+	//
+	lval=instance->lval;
+	amp=instance->amp;lpropa=instance->lpropa;thresha=instance->thresha;
+	dif=instance->dif;lpropd=instance->lpropd;threshd=instance->threshd;
+	//	
+	adj=instance->adj;
+
+	for(i=0;((i<samples) && (instance->curlen<instance->slen));i++,curlen++,instance->curlen++) {
+		b1=b2=FALSE;
+		//-- get amplitude
+		cval=(LONG)*sbuf++;
+		if(amp<1.0) amp=1.0;
+		propa=(double)labs(cval)/amp;
+		if(propa<lpropa) { propa=0.5*(lpropa+propa);b1=TRUE; }
+		//-- get delta
+		adif=lval-cval;
+		if(dif<1.0) dif=1.0;
+		propd=(double)labs(adif)/dif;
+		if(propd<lpropd) { propd=0.5*(lpropd+propd);b2=TRUE; }
+
+		//DEBUG
+		//__dbg_sample=(WORD)(propa*16.0);		fwrite(&__dbg_sample,2,1,__dbg_fh1);
+		//__dbg_sample=(WORD)(amp  * 4.0);		fwrite(&__dbg_sample,2,1,__dbg_fh1);
+		//__dbg_sample=(propa>=thresha)?32767:0;	fwrite(&__dbg_sample,2,1,__dbg_fh1);
+		//__dbg_sample=b1?32768:0;				fwrite(&__dbg_sample,2,1,__dbg_fh1);
+		//
+		//__dbg_sample=(WORD)(propd*16.0);		fwrite(&__dbg_sample,2,1,__dbg_fh2);
+		//__dbg_sample=(WORD)(dif  * 4.0);		fwrite(&__dbg_sample,2,1,__dbg_fh2);
+		//__dbg_sample=(propd>=threshd)?32767:0;	fwrite(&__dbg_sample,2,1,__dbg_fh2);
+		//__dbg_sample=b2?32767:0;				fwrite(&__dbg_sample,2,1,__dbg_fh2);
+		//DEBUG
+
+		// problem 1:
+		// if we initially detect cracks
+		// -> then we don't get any sensible amp,dif-envelopes
+		//    (if we don't update envelopes when adjusting)
+		// problem 2:
+		// if we adjust by 100%
+		// -> then dif becomes 0% and next dif is very like detected as a crack as well
+		//    (if amp is around 0 at that time we get a flat line
+
+		if((propa>=thresha) && (propd>=threshd)) {
+			//-- adjust it towards the last value
+			//cval+=(lval-cval)*adj;
+			//-- then adjust it towards the average amp
+			if(lval>0) cval+=(amp-cval)*adj;
+			else cval+=((-amp)-cval)*adj;
+			//-- count crackles
+			instance->crackle_ct++;
+		}
+		//else {
+			//-- update envelopes
+			nenv=(double)labs(cval);	 amp=(nenv>amp)?nenv:(ENVFC1*amp+ENVFC2*nenv);
+			nenv=(double)labs(lval-cval);dif=(nenv>dif)?nenv:(ENVFC1*dif+ENVFC2*nenv);
+			lval=cval;
+		//}
+		if(adj<0.99) adj+=(10.0/instance->srat);
+		lpropa=propa;
+		lpropd=propd;
+	}
+	instance->lval=lval;
+	instance->amp=amp;instance->lpropa=propa;
+	instance->dif=dif;instance->lpropd=propd;
+	instance->adj=adj;
+}
+
+
+void process(SFXCoreInstance *instance,unsigned long samples) {
+	unsigned long i,curlen;
+	SAMPLE *dbuf,*sbuf;
+	LONG cval,lval;
+	LONG adif;
+	double amp,propa,lpropa,thresha;
+	double dif,propd,lpropd,threshd;
+	double nenv,adj;
+
+	curlen=instance->curlen;
+
+	// Source, Dest.
+	sbuf=instance->sbuf;
+	dbuf=instance->dbuf;
+	//
+	lval=instance->lval;
+	amp=instance->amp;lpropa=instance->lpropa;thresha=instance->thresha;
+	dif=instance->dif;lpropd=instance->lpropd;threshd=instance->threshd;
+	//
+	adj=instance->adj;
+
+	for(i=0;((i<samples) && (instance->curlen<instance->slen));i++,curlen++,instance->curlen++) {
+		//if(fabs(*sbuf)>instance->maxi) instance->maxi=fabs(*sbuf);
+		//-- get amplitude
+		cval=(LONG)*sbuf++;
+		if(amp<1.0) amp=1.0;
+		propa=(double)labs(cval)/amp;
+		if(propa<lpropa) propa=0.5*(lpropa+propa);
+		//-- get delta
+		adif=lval-cval;
+		if(dif<1.0) dif=1.0;
+		propd=(double)labs(adif)/dif;
+		if(propd<lpropd) propd=0.5*(lpropd+propd);
+
+		//-- we say it is a crackle, if signal is 100%+thresh% over agerage
+		if((propa>=thresha) && (propd>=threshd)) {
+			//-- adjust it towards the last value
+			//cval+=(lval-cval)*adj;
+			//-- then adjust it towards the average amp
+			if(lval>0) cval+=(amp-cval)*adj;
+			else cval+=((-amp)-cval)*adj;
+			//instance->crackle_ct++;	// only count in process_dry()
+		}
+		//else {
+			//-- update envelopes
+			nenv=(double)labs(cval);	 amp=(nenv>amp)?nenv:(ENVFC1*amp+ENVFC2*nenv);
+			nenv=(double)labs(lval-cval);dif=(nenv>dif)?nenv:(ENVFC1*dif+ENVFC2*nenv);
+			lval=cval;
+		//}
+		lpropa=propa;
+		lpropd=propd;
+		if(adj<0.99) adj+=(10.0/instance->srat);
+		*(dbuf++)=(SAMPLE)(cval);
+
+		//if(fabs(res)>instance->maxo) instance->maxo=fabs(res);
+	}
+	instance->lval=lval;
+	instance->amp=amp;instance->lpropa=propa;
+	instance->dif=dif;instance->lpropd=propd;
+	instance->adj=adj;
+}
+
+void deactivate_ch(SFXCoreInstance *instance,unsigned char ch) {
+	instance->crackle_cts[ch]=instance->crackle_ct;
+}
+
+void deactivate(SFXCoreInstance *instance) {
+	//DEBUG
+	//fclose(__dbg_fh1);
+	//fclose(__dbg_fh2);
+	//DEBUG
+}
+
+void destroy(SFXCoreInstance *instance) {
+}
+
+void done(void) {
+}
+//-- eof ----------------------------------------------------------------------

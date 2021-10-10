@@ -1,0 +1,110 @@
+Subject:
+Re: stack-decoding wie z.B. in MuForce
+From:
+Thomas Richter <thor@math.TU-Berlin.DE>
+Date:
+Wed, 7 Aug 2002 13:58:05 +0200 (CEST)
+To:
+Stefan Kost <kost@imn.htwk-leipzig.de>
+X-UIDL:
+361df5b500005c8e
+X-Mozilla-Status:
+0015
+X-Mozilla-Status2:
+00000000
+Received:
+from mail.math.TU-Berlin.DE (mail.math.TU-Berlin.DE [130.149.12.212]) by imn.htwk-leipzig.de (8.9.1/8.9.1) with ESMTP id NAA16786 for <kost@imn.htwk-leipzig.de>; Wed, 7 Aug 2002 13:58:06 +0200 (MET DST)
+Received:
+from tunix.math.tu-berlin.de (tunix.math.TU-Berlin.DE [130.149.13.88]) by mail.math.TU-Berlin.DE (8.12.0.Beta10/8.12.0.Beta10) with ESMTP id g77Bw65Y000208 for <kost@imn.htwk-leipzig.de>; Wed, 7 Aug 2002 13:58:06 +0200 (MEST)
+Received:
+(from thor@localhost) by tunix.math.tu-berlin.de (8.9.3/8.8.8) id NAA32490 for kost@imn.htwk-leipzig.de; Wed, 7 Aug 2002 13:58:05 +0200
+Message-ID:
+<200208071158.NAA32490@tunix.math.tu-berlin.de>
+In-Reply-To:
+<3D50F10E.5080205@imn.htwk-leipzig.de> from Stefan Kost at "Aug 7, 2002 12:06:06 pm"
+X-Mailer:
+ELM [version 2.4ME+ PL60 (25)]
+MIME-Version:
+1.0
+Content-Transfer-Encoding:
+8bit
+Content-Type:
+text/plain; charset=ISO-8859-1
+Content-Length:
+2622
+Status:
+O
+
+Hi Stefan,
+
+
+> Waaahh ASM - lange nicht gemacht :-) 
+
+
+Historisches Überbleibsel von Mike Sinz' Enforcer; das hätte man alles
+genausogut in C machen können.
+
+
+> aber ich kannst noch lesen, ist zu Glueck 
+> gut kommentiert, aber leider nicht das was ich meinte ;-(
+
+
+> Ich habe getsern ein kleines c-proggi mit drei Functionen geschrieben, die sich 
+> gegenseitig aufrufen. In den Funktionen mache ich Stackdumps. An und fuer sich 
+> ist mir da das meisste klar. Mein Problem ist, wie wird aus den Adressen auf dem 
+> Stack eine Hunk-Offset Kombi gemacht, die man dann FindLine uebergeben kann um 
+> Sourcecode File und Zeile herauszubekommen ?
+
+
+Achso. Das erledigt der Seg-Tracker für mich - das Programm muss irgendwo in
+der Startup-Sequence geladen werden, und patcht dann LoadSeg() um aufgrund
+der Adressen auf Hunk und Offset zurückschließen zu können. Das Interface
+zum SegTracker findet sich in den Enforcer-Manuals.
+
+Hier der Code, den Mike/ich verwenden: 
+
+(hier ist:
+
+SegTracker=FindSemaphore("SegTracker");
+
+)
+
+;FOLD SegTrack
+;*************************************************
+;** SegTrack                                    **
+;** the SegTracker interface...                 **
+;**     d3 = the address to find/display        **
+;*************************************************
+SegTrack:
+        saveregs d0/a0-a3
+        defvar
+         auto.l sgt_fea                         ;fault address
+         auto.l sgt_name                        ;name
+         auto.l sgt_hunk                        ;seg #
+         auto.l sgt_offset                      ;offset within that hunk
+        endvar
+
+        move.l  _SegTracker(a4),d0              ; Get tracker FindSeg pointer
+        beq.s   .exit                           ; If NULL, no tracker
+        move.l  d0,a3                           ; get the semaphore
+        move.l $2e(a3),a3                       ; Function pointer...
+        lea sgt_offset(a7),a2
+        lea sgt_hunk(a7),a1
+        move.l  d3,a0                           ; Get fault address...
+        jsr     (a3)                            ; Look for segment...
+        move.l d0,sgt_name(a7)                  ; Store name pointer...
+        beq.s .exit                             ; if no name, skip output
+        move.l d3,sgt_fea(a7)                   ; Store fault address...
+        lea     SegTrackLine(a4),a0             ; String...
+        bsr     PrintItSP                       ; Display it...
+        moveq.l #10,d0                          ; Get LF
+        bsr     PutChar                         ; Output LF
+.exit:
+        freevar
+        loadregs
+        rts
+;ENDFOLD
+
+Grüße,
+	Thomas
+

@@ -1,0 +1,102 @@
+Bild 00
+----------------------------------------------------------------------
+SoundFX mit einer geöffneten Audiodatei.
+Jede Datei wird in einem separaten Fenster angezeigt.
+Dabei können soviele Datei geöffnet werden wie das System aushält.
+
+Am oberen Bildschirmrand sieht man die Werkzeugleisten.
+In Fenster der Audiodatei sieht man Lineale und eine Bereichsauswahl.
+
+
+Bild 01
+----------------------------------------------------------------------
+Collage, die alle Pluginmenüs mit Inhalten zeigt.
+SoundFX verwendet externe Plugins zum Laden, Speichern und Bearbeiten
+von der Samples.
+Außerdem kann man Macros in der Sprache Rexx schreiben (letztes Menü).
+
+
+Bild 02
+----------------------------------------------------------------------
+Zwei geöffnet Effektoperatoren. SoundFX ist multi-threaded - das
+bedeutet sie können alles gleichzeitig machen ;-), während ein Effekt
+rechnet können sie normal weiterarbeiten.
+
+Alle Effekte sind ähnlich aufgebaut. So ist auf der rechten Seite
+immer eine Liste mit abgespeicherten Vorgaben (Presets) zu finden.
+
+
+Bild 03
+----------------------------------------------------------------------
+Ein herausragendes Merkmal von SoundFX sind die modulierbaren Effekt-
+parameter. So stellt man für einen Parameter (z.B. die Lautstärke-
+änderung) nicht einfach einen festen Wert ein, sonder kann einen
+Bereich angeben und den Übergang steuern.
+
+Beispiele:
+- die Lautstärke soll von ganz leise nach laut überblenden
+- die Tonhöhe soll zyklisch schwanken (vibrieren)
+- die Effektstärke soll einem Hüllkurvenverlauf folgen
+
+Das Konzept geht soweit, das sogar ein Klang die Effektparameter eines
+Anderen steuern kann.
+
+
+Bild 04
+----------------------------------------------------------------------
+Die Darstellung der Samples ist recht flexibel. Man kann Bereiche bis
+ins Detail vergrößern. Es stehen verschiedene Einheiten für die
+Achsenbeschriftungen zur Verfügung.
+
+SoundFX kann mit Mono, Stereo und Quadrosignalen umgehen.
+
+
+Bild 05
+----------------------------------------------------------------------
+Klänge lassen sich nicht nur bearbeiten, sie können auch detailiert
+untersucht werden. Im Bild ist ein Spektralanalyse in 2D und in 3D zu
+sehen.
+
+
+Bild 06
+----------------------------------------------------------------------
+Einige Effekte benötigen umfangreichere Einstellungen. Im Bild ist ein
+vollwertiger FM-Synthesizer (oben links), ein Dynamik-Modul (oben
+rechts) und ein Kanalkonverter (unten links) zu sehen.
+
+
+Bild 07
+----------------------------------------------------------------------
+SoundFX bietet umfangreiche Hilfestellung. Die Anleitung gibt es zum
+Einen als kontextsensitive Hilfefunktion und zum Anderen als PDF Datei
+mit über 100 Seiten.
+
+Die Hilfe ist in deutsch und englisch verfügbar. SoundFX selbst ist
+in ca. 15 Sprachen lokalisiert.
+
+SoundFX kann vielfältig an die Wünsche der Nutzer angepasst werden.
+Links unten im Bild sind die Einstellungen für die Samplezeige zu
+sehen.
+
+
+Bild 08
+----------------------------------------------------------------------
+Noch ein Bild mit der Hilfefunktion. Desweiteren ist der Raumklang-
+analyser zu sehen.
+
+
+Bild 09
+----------------------------------------------------------------------
+Dises Bild zeigt die Einstellungen für die Farben der Benutzungs-
+schnittstele und ein weiteres Analysemodul.
+
+
+http://www.sonicpulse.de
+----------------------------------------------------------------------
+Auf der Homepage der Programmes sind weitere Bilder zu sehen.
+Hier nicht gezeigt wurde z.B.
+* die Stapelverarbeitung mit der ganze Verzeichnisse mit Dateien in
+  einem Rutsch bearbeitet werden können
+* die Aufnahmefunktion mit automatischer Aussteuerungskorrrektur
+* viele weitere Effekte
+

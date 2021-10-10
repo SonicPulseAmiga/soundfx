@@ -1,0 +1,53 @@
+<<<<<<<<<< Resampling, PitchShift >>>>>>>>>>
+
+05 nov 01 
+Q: 
+> What is the difference between Detune, PitchShift and Resample? in the sense >
+that all 3 could change the pithc of a sound without altering it's lenght?
+A: 
+Thats an easy one. Detune and Resample are quite similiar. They both
+just output incomming sample slower or faster. - 
+-
+The difference is resample is doing this with a constant rate e.g. output 3
+values for each two incomming ones, while Detune can do this with a varying
+factor.
+Resample offers a few gimmicks to cure diseases which can be caused by doing this
+(aliasing). 
+-
+[on how aliasing would develop:]
+just a example : think of a wave containing 
++-+-+-+- 
+now you down sample it by factor two and you would get
++++ 
+means the high frequencey has canceled itself or even became a small 
+dc-offset. it	gets worser if you downsample by fractional factors.e.g. 1.5
++--
+There is a very easy way to see and hear the effect. Use Synthesize-add and
+generate a sine-sweep from 1000 Hz to e.g. 10000 Hz but choose a sampling 
+rate of e.g. 44100. the result should be something like puuuuuiiiiiiieeeee ;-)
+But it will be something like puuuuiiiiieeeeeiiieeeeuuueeeeiii. You use 
+Analyse-Spect-2D to visualize it.
+-
+You would use Resample if you have a sample recorded e.g. at 22050 Hz and you
+want to use it in a software which requires samples recorded at 44100. 
+-
+Resample changes the sample so that it sounds the same when played back at 44100
+instead of 22500. 
+Resample steps through the sample at a constant speed (read factor e.g. something
+like 3.0 or even fractonal like 2.75). It can interpolate if desired and when
+downsampling (resulting samplingrate is lower and there are less values) it can
+be asked to low-pass filter the signal first.
+-
+In contrast, with Detune you can do things like simulation the effect of a
+power-outage of a vinyl-player. Detune also steps through the sample, but with
+dynamic speed aka a dynamic factor. It leaves the samplingrate untouched.
+-
+Both operators have one thing in comon - they change the length of the sample
+along with the pitch. 
+-
+Now to Pitchshift. Its speciallity is that it changes the pitch without changing
+the length, by using a lot of magic. 
+There is another fx which will appear in SFX sooner or later (I wish sooner). Its
+called Timestretch and it makes a sample longer or shorter whitout changing the
+pitch. Basically this is a pitchshift followed by a resample (thus can be
+simulated in sfx alreday).

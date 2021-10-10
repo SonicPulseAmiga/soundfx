@@ -1,0 +1,1389 @@
+Debugging/Testing
+-----------------
+	* startup-testing
+		* handling
+			* start SFX and send SFX_Exit Cmd via Arexx
+			* add define/cmdline-switch for STARTUP-TESTING
+		* test starting with several problems
+			* config (damaged/not existing/write protected)
+			* databases
+			* files missing
+			* progdir: is on writeprotected partition (lock/unlock shell commands)
+			* with/without keyfile
+
+Ideen für SoundFX (not yet in timeline)
+---------------------------------------
+
+	* better file-io error-messages
+		* two Methods in sfx-library/src/error.c (include error codes and messages)
+			ADosError(filename,code,file,line);
+				IoErr : Fault(IoErr(),NULL,err,255);
+			StdCError(filename,code,file,line);
+				errno : strerror(errno);
+			* call LIBMessage(code,extmsg,file,line);
+		* include filename
+		* scan sources for: access, fopen, open, fread, fwrite, read, write, rename, delete
+		* old
+			sprintf(sfxmsg,GetString(errOpenFile),fn);Message(errOpenFile,sfxmsg,__FILE__,__LINE__);
+		* new
+			
+	* Data-Access Optimization
+		* when generating a new sample (loading, fx) we loop over storage 3 times
+			* generating
+			* maxline-scanning: sfxsupport.library::AddSample()/RecalcSampleLines()
+			* drawing
+		* idea : make combined functions by using defines
+			* extend SAAcess structure with Maxline scanning variables
+			* SAInit needs to initialise these for Writes,
+			  special flag for e.g. Edit/Copy to omit MaxLineScanning
+			* merge scanning code into special SA_XXXWrite() routines
+			* SADone needs to calculate and store results
+	* Module
+		* neue API-Funktion : STRPTR GetProperty(STRPTR name);
+			* liefert Eigenschaft des Modules zurück
+			* Eigenschaften
+				Type        : 'Loader'/'Operator'/'Player'/'Saver'
+				Inputs      : Nummer der Eingänge (Loader=0,Generatoren=0)
+				Outputs     : Nummer der Ausgänge (Saver=0,Analyser=0)
+		* Handling
+			* neues 'Object' : SInfoList
+			* Module bekommen SInfoList als Parameter von Process und liefern
+			  dort auch die Ergebnisse ab
+		* Player werden *richtige* Module
+			* Player sind jedoch immer im Stand-By, d.h.:
+				* nach dem Starten von SFX wird der akt. Player geladen & initialisiert
+				* beim Wechsel des akt. Player wird 
+					* der Alte freigegeben & entfernt, sowie
+					* der Neue geladen & initialisiert
+				* vor dem Beenden von SFX wird der akt. Player freigegeben & entfernt
+	* Multi-Color Graphen
+		* usage
+			* Waveform, Histogramm, Spectrogramm
+		* Graph1 -> Red, Graph2 -> Green, Graph3 ...
+		* every graph has transparenzy 50%
+	* Operatoren
+		* neu :
+			* Analyse-Spect-1D
+				* FFT with a large number of bands
+				* detect loudest peak -> freq and note
+			* Analyse-Data-2D
+				* Analyse-Data -> Analyse-Data-1D
+				* Sample wird mit sliding window bearbeitet
+				* Amplituden und Delta Histogramm mit wählbarer Größe (Bins)
+				* ein Histogrammergebnis => eine Pixelspalte, Histogrammwerte => Farben
+			* Arpeggio
+				* Liste mit 16 Einträgen (abspeicherbar)
+				* Verschiebung in Halbtonschritten angeben (+/- 36)
+				* mit entsprechenden Factoren Resamplen
+			* Bass-Exciter (Keys 3/98 S.112 MaxxBass)
+				* LPF mit e.g. 70 Hz
+				* PitchShift mit e.g. 2.0
+				* Mix Originalsignal+FXSignal 50:50
+			* Chord (ev. also Rexx-Script)
+				* Src / Basisnote
+				* 3/4 x Resamplingfactor bzw. Noten
+				* Predefined Chords (relativ zum Basiston)
+				* Ampf
+				* 2 Algorithmen
+					* Resample (mit oder ohne Delay)
+					* Pitchshift
+			* Clip
+				* Parameter
+					* Threshold
+					* Softness-Hardness
+				* Funktion
+					* sample wird hard auf den threshold-wert beschränkt
+					* je näher sample an threshold kommt schon absenken (softnesss-hardness)
+					* alles über threshold *immer* auf threshold setzen (clipping)
+					* =>
+						* soft-hard=1.0 (=hard)
+							* alle samples über thresh = auf thres setzen
+							* alle sample drunter bleiben unverändert
+						* soft-hard=0.0 (=soft)
+							* amp=thresh/maxsample
+						* soft-hard=x (0.0...1.0)
+							* amp=(maxsample*x+thresh*(1.0-x))/maxsample
+						
+			* Combine
+				* 2 Sources
+				* Mode :
+					* Add   : Src1+Src2
+					* Sub   : Src1-Src2 (dafür Subtract entfernen)
+					* Mul   : Src1*Src2 (normalisieren -1.0..1.0)
+					* Div   : Src1/Src2 (normalisieren -1.0..1.0) 
+					* Max   : max(Src1,Src2)
+					* Min   : min(Src1,Src2)
+				* Sign/Abs
+			* Compressor-Expander
+				* GFX-Teil mit Kennlinie und zwei verschiebbaren Knöpfen
+					* 1. Knopf : Threshold
+					* 2. Compression/Expansion Ratio
+				* Knopfpos. auch wertemäßig anzeigen und einstelbar machen
+				* Checkbox. CorrectAmplitude
+					* bei Compression Sample verstärken
+					* bei Expansion abschwächen
+				* für Berechnung ein Array yvalues[32768] anlegen, das zu jedem
+				  x-Wert einen y-Wert enthält. Verstärkung / Abschwächung schon
+				  mit einrechnen.
+				* Bsp.:
+						+--------------+
+						|              |    
+						|            - *  - Compression (ca. 1:2 -> 50% )
+						|         /    |
+						|      *       |  - Threshold (ca. 16384 -> 50% )
+						|    /         |
+						|  /           |
+						|/             |
+						+--------------+
+			* Enhance (ev. as rexx macro)
+				* mit PitchShift 2 Samples erstellen Fakt. 0.5 & 2.0
+				* beide 50/50 mixen
+				* laut Effektanteil mit OriginalSample mixen
+					*   0 % -> Original
+					* 100 % -> nur gepitchshiftete Version
+			* EQ graph (full-parametric)
+				* max 10 IIR-Filter (Low,Hi,Band,Notch)
+				* für jeden Filter FX-Anteil (damit Cut/Boost möglich)
+				* graph Preview
+				* Presets
+					* DeHum 50 hz,60 hz
+					* Vocalize a,e,i,o,u
+			* Equalizer - Wavetable
+			* Filter/Booster Max,Min (nicht Querschnitt)
+			* GetVolEnv-Hold
+				* Amp-Envelope über Maxhold und LpF
+				* Parameter :
+					* LpF-Crosssection
+			* GetVolEnv-Decay
+				* Amp-Envelope über Maxpeak, Decay und LpF
+				* Parameter :
+					* LpF-Crosssection
+					* Decay
+						* absolut/relativ
+						* Prozent
+					* Bsp.:
+						* Abs 25% : 100 75 50    25    0
+						* Rel 25% : 100 75 56.25 42.18 31.64 23.73 17.79 ....
+			* GetVolEnv-PhaseShift
+				* max of abs of several phaseshifted copies and the original sample
+				* feed throuh lpf
+			* GetPitchEnv-Thresh
+				* evaluate maxvol in a given range
+				* set all values below 0.9 of maxvol, to 0
+				* find distances between peeks and average them
+				* calculate frequency
+			* GetPanoramaEnv
+				* Extrahiert Panoramaverlauf
+			* Grain
+				* Version 1
+					* Source ist Samplefragment
+						* len,len2=len>>1;
+					* Parameter
+						* Amplitude     0...100 %
+						* Detune        0...1000 %
+						* Position      0...100 %
+						* Anzahl        0.... (ULONG)
+						* Grainwindow (analog FFT-Windows)
+							rect,cos,trapez,...
+					* Window generieren
+					* amp,det,pos lesen
+					* apos=0;c=0;offs=pos*len;
+					* for(i=0;i<len2;i+=det)
+					  {
+						dst[apos+offs-c]+=scr[len2-i]*win[i];
+						dst[apos+offs+c]+=scr[len2+i]*win[i];
+						c++;
+					  }
+					  apos+=offs;
+				* Version 2
+					* Parameter
+						* FX-Propotion (mod)
+						* Grainsize (mod) 
+							* Größe eines Körnchens als abstime oder reltime
+						* Grainspread (mod)
+							* Verteilungsbereich als abstime
+						* Graindensity (mod)
+							* Körnchendichte als absct (Anzahl der Körnchen)
+						* Grainposition (mod)
+							* bei 1.0 würden alle Hauptgrains direkt aneinanderpassen
+							* bei 2.0 währe das Resultat doppel so lang
+							* bei 0.5 währe es halb so lang
+						* Grainpitch (mod)
+							* pitch-Faktor für die Haupt und Nebengrains
+						* Grainshapes
+							* e.g. cos²
+			* Loop-Optimizer
+				* Ansicht
+					* beide waves um die Looppunkte herum zeichnen
+					* innerer Bereich rot, äußerer Bereich blau
+					* Wave diagonal gestreift zur Mitte füllen, Linien abwechselnd
+				* Buttons zum manuellen Verschieben der Looppunkte
+				* Gadgets zum manuellen eintragen der Looppunkte
+				* Button zum Suchen der optimalen Loopposition (beste Überdeckung)
+				* Button für Optimizer
+					* Bsp.:             LoopStart       LoopEnd
+								 :.     |  .   .   :.   |     :..
+							..:.:::.:../|\.:..:::.::::./|\..:.::::.:..
+					* Parameter
+						* outer Range
+							* wieviele Samplewerte vor LoopStart und hinter Loopend
+						* inner Range
+							* wieviele Samplewerte hinter LoopStart und vor Loopend
+					* je nach Bereich CrossFades an den LoopPunkten
+					* Überblendung mit Linear,SpeedUp,Slowdown
+			* Merge (interleave)
+				* zwei Sample mischen
+				* aus jedem Sample abwechselnd einen Wert nehmen
+			* Mix-Pattern (mod2smp) ev. Playlist
+				* PT-Pattern in ein Sample mixen
+				* Rate auswählen
+				* Interpolation
+				* Resampling zum Mixen nutzen
+				* PT-Effekte
+					* A Volumen relativ
+					* C Volumen absolut
+					* F Geschwindigkeit
+			* Mix-Spect.
+				* generiert die Spectren der 2 Ausgangssamples
+				* Mix1,Mix2 Parameter regelt das Mischungsverhältniss für tiefe und hohe Frequenzen
+				* dazwischen kann über blendshape übergeblended werden
+			* MultiMix
+				* mixes unlimited number of samples to equal parts
+				* incl. amplification
+							* jeweils für single und group
+			* Panorama-2Ch+ / 4Ch+
+				* feste Höhrerposition
+				* bewegbare Monoschallquelle (Src.sample)
+				* Schallgeschwindigkeit, Dämpfung als Parameter
+				* Distance zu den Ohren berechnen (Laufzeitunterschiede, Wegdämpfung)
+				* solbald Kopf (Kugel) zwischen der Schallquelle und den virtuellen Ohr ist
+				  Signal filtern
+				* Eintrittswinkel in's Ohr berechnen
+			* PhaseShift
+				* FX-Propotion
+				* Phase (0°..360°)
+				* Number, Window
+				* Realisierung : FIR Hilbert-Transformator
+			* Radio
+				* Signal auf eine Frequenz aufmodulieren
+				* Rauschen auf Nachbarbänder aufmodulieren
+				* Demodulationsfrequenz steuerbar (-> Modulator)
+				* Bandpass über Demodfrq. und dann demodulieren
+			* Rearange (beat monger)
+				* slice drum-llop into 16 part
+				* generate a new loop -> for each of the 16 parts user can choose
+					* up to 4 fragments from the source, each with
+						* either forward or backward mode
+						* own volume
+						* pitch (detune, shift)
+					* random parameters function
+			* Retro (ev. also Rexx-Script)
+				* Crackle
+					* Density
+					* Level
+				* Noise
+					* Level
+				* Detune
+					* Depth
+					* Speed
+				* Filter (LowPass)
+			* RemoveMono
+				* Remove mono Signal
+					D=SrcL-SrcR
+					DestL=SrcL-D
+					DestR=SrcR+D
+				* Additionally add Gain for each Channel (Balance)
+					DestL=SrcL-(GainL*D)
+					DestR=SrcR+(GainR*D)
+				* Additionally apply band-pass-filter
+					D=filter(SrcL-SrcR)
+			* Room
+				* Parameter
+					* SizeX,Y,Z -> fixed
+					* ListenerX,Y,Z -> mod
+					* SourceX,Y,Z (pro Channel ?) -> mod
+					* Number of Particels
+					* Medium (Presets Air,Water,...)
+					* WallEQ
+				* Preview
+			* Spectral-FX
+				* FFT berechnen
+				* Varianten
+					* an der mittleren Frequenzachse (tiefe Frq's <-> hohe Frq's)
+					* Real- und Imaginäranteil vertauschen
+			* Synthesize
+				* FM
+					* n-Operators
+						* displayed in a matrix (n x n)
+						* parameter pro Operator
+							* Output_Level (Base + Variation)
+							* AmpEnvelope_Rate 1-4
+							* AmpEnvelope_Level 1-4
+							* Frequency
+							* FrqEnvelope_Rate 1-4
+							* FrqEnvelope_Level 1-4
+							* Phase (Base + Variation)
+							* Waveform
+						* Waveforms (sin,saw,sqr,tri)
+						* frequency (low and high frequency)
+						* envelope
+					* length
+					* basefrequency
+					* Möglichkeit FM_Synth Files und DX7 SysEx-Dumps zu laden
+				* Wavetable
+					* Parameter 1 = Wavetable-Index
+						* Wavetableample hat <n> Segmente (Slices)
+					* Parameter 2 = Pitch
+					* Parameter 3 = Volume
+					* Länge
+					* Analyse
+						* nimmt ein Sourcesample und zerlegt es in <n> Segmente
+						* Parameter 1 ist dann eine lineare Kurve (/)
+						* Parameter 2 ist glatt (-)
+						* alle Segmente werden normalisiert, der Amplitudenver-
+						  lauf wird durch eine <n>-segmentige Hüllkurve simuliert
+				* Spectrogramm2D (ev. auch Synthesize_Add_Gfx)
+					* Umkehrfkt. zu Analyse-Spectrogramm2D
+					* Bild per Datatypes einladen
+					* daraus Sample synthetisieren
+						* X-Achse => Zeit
+						* Y-Achse => Bänder
+						* Farbe   => Amplitude
+					* Parameter
+						* Bands : daraus y-scale berechen
+						* Slen  : daraus x-scale berechen
+						* Interpolator (für fehlende Bildpixel)
+				* VMorph (Vectormorph)
+					* 2/3 Listen (ähnlich ADSR-Envelope)
+					* Liste entspricht Wellenform
+					* je nach Vmorph-Parameter überblenden (Vectorpunkte bewegen)
+						*   0 % -> Liste 1
+						  100 % -> Liste 2
+						*   0 % -> Liste 1
+						   50 % -> Liste 2
+						  100 % -> Liste 3
+				* Transform
+					* Die Ausgangswerte einer Funktion dienen als Eingangswerte für die Nächste
+					* Funktionen siehe Oszillatoren
+					* n-Stufen (Liste)
+					* Wertebereich von 0.0-100.0%
+					* zum Schluß auf 16-bit bringen
+					* jede Funktion hat
+						* Amplitude und Frequenz-Modulator
+			* Synthesize_MultiOszi (siehe PC-sMorPhi)
+				* mehrere Voices
+					* pro Voice
+						* Wave 1 & 2 (jeweils Sample mit einer Periode) oder Presets
+						* Wavemix ( Verhältniss aus Wave 1 & 2)
+						* Frequency
+						* Volume
+						* Pulsbreite (0.0 ... 1.0)
+							* Array mit ebenfalls 4000 Werten : *WORD phase[4000];
+							* Array wird wie folgt gefüllt
+								* von phase[0] bis phase[1999] linearer Verlauf von
+								  &oszi[0] bis &oszi[(pulswidth*3999)]
+								* von phase[2000] bis phase[3999] linearer Verlauf von
+								  &oszi[(pulswidth*3999)] bis &oszi[3999]
+							* oszi benutzen : wert=*phase[(ULONG)aktphase];
+						* Offset,Länge (beide konstant)
+						* Hardsync Voice <nr>
+							* jedesmal wenn diese Voice eine Periode geschafft
+							  hat, wird die Phase von Voice <nr> auf 0 gesetzt
+					* Copy & Pase buttons
+					* Mainparameter
+						* volume, pitch
+						* samplingrate
+			* Transform
+				* Source1,Source2
+				* Scr2: Start -100%, Mitte 0%, Ende 100%
+				* Scr1: Max. Amp. 100%, Min Amp. -100%
+				* Bearbeitung :
+					* Wert aus Src1 auslesen
+					* als % umwandeln -> y aus Src1 auf x in Src2 umsetzen
+					* entsprechen den Wert aus Src2[x] auslesen
+					* in dest schreiben
+				* Abs-Mode : von 0-100 %
+			* Treble-Exciter (Keys 11/98 S. 160)
+				* Parameter
+					* Tune (Einsetzpunkt) in Hz
+					* Drive (Eingangsverstärkung) ?
+				* Funktion
+					* HPF,LPF mit <tune>
+					* Gamma/Clipping des HPF Samples
+					* Mix HPF Sample mit LPF Sample 50:50,
+					  LPF Sample um 25 ms nach hinten verzögert
+			* Trigonometrie
+				* f(x)=Sample (auf -1.0...1.0 normalisieren)
+				* fneu(x)=trigfkt(2*pi*f(x))
+				* trigfkt={sin,asin,cos,acos,tan,atan,cot,...)
+			* Vocode,Morph,Equalize,Equalize-ZPlane(3D) -> *-FFT
+				* neue Varianten mit *-FIR
+			* Wave-Changer
+				* Sourcewave1 & 2 (Zwischenwaves - modulieren)
+				* Algorithmus
+					* von Nulldurchgang zu Nulldurchgang suchen
+					* Anzahl der Werte, Amplitude und Vorzeichen des Zwischenraumes merken
+					* Zwischenraum mit resample`ter Zwischenwave mischen (0-100%)
+			* Wave-Shaper
+				* wie Transform, aber Transferfkt. ist zeichenbar
+			*  ???-Operator
+				* n-bit Histogramm erstellen
+					* 4 bit -> 16 Töpfe
+					* 8 bit -> 256 Töpfe
+				* Prozentanteile der Töpfe berechnen
+				* Samplewert auf Prozentwert des Topfes setzen, in dem er sich befindet
+		* Verbesserungen :
+			* alle
+				* Ampf-Parameter
+					* PopUp-Symbol vor Ampf-wert
+					* nach Klick erscheint SrcSel-Win
+					* nach Auswahl wird maxvol für gewählten Buffer ermittelt
+					  und in ampf eingetragen
+				* more intuitive GUI (Preview-Pictures)
+					Amplify
+					AmplifySplit
+					Analyse-Data
+					Analyse-Spect2D
+					Analyse-Spect3D
+					ChorusPhaser
+					ConvertChannels
+					Convolve
+					CrossTalk
+					DeCrackle
+					Delay                   X=Time, Y=Level(Lin/Log), Color=Mod-Min/-Max
+					DeNoise-FFT
+					DeNoise-FIR
+					Detune
+					Duplicate
+					Dynamic                 X=Inputvalues, Y=Outputvalues
+					Echo                    X=Time, Y=Level(Lin/Log), Color=Mod-Min/-Max
+					Equalize-FFT
+					Equalize-FFT-3D
+					Filter-CRSHiPass        X=Frequency(Lin/Log),Y=Amplitude(Lin/Log), Color=Mod-Min/-Max, (GetResponse-Function : test sines with diff frq.)
+					Filter-CRSLowPass       "
+					Filter-FIRBandPass      "
+					Filter-FIRBandStop      "
+					Filter-FIRHiPass        "
+					Filter-FIRLowPass       "
+					Filter-FIRMatrix        "
+					Filter-FIRMutate
+					Filter-StateVariable    "
+					Fold
+					Gamma                   X=Inputvalues, Y=Outputvalues
+					Hall                    X=Time, Y=Level(Lin/Log), Color=Components(Early,Main,Diff)
+					Invert
+					Logic
+					Middle
+					Mix
+					Mix-3D
+					Morph-FFT
+					MultiDelay              X=Time, Y=Level(Lin/Log), Color=Mod-Min/-Max
+					Noise
+					NoiseGate
+					Panorama-2Ch
+					Panorama-4Ch            show path
+					PitchShift
+					QuantizeHoriz
+					QuantizeVert
+					Resample
+					Reverse
+					Shorten
+					Slide
+					Smear
+					Subtract
+					SurroundEncoder
+					Swap
+					Synthesize-Add
+					Vocode-FFT
+					ZeroPass
+					* for Filters
+						* GetResponse
+						* FFT -> Response & Phase
+			* Amplify
+				* Adjust-Button
+					* nach Klick kommt SourceSelectWindow
+					* nach Selektion wird Volume so gesetzt, daß beide Sample
+					  gleichlaut klingen
+					* es wird eventuell angeboten die Sources zu vertauschen,
+					  wenn dadurch eine Verstärkung anstatt einer Dämpfung
+					  möglich ist.
+				* absolute Volume als RMS
+					* analog zu MaxVol, eine Eingabefeld "dstRMSVol" und einen Button "RMSVol"
+					* nach Klick auf "RMSVol"
+						* curRMSVol berechnen
+						* fc=dstRMSVol/curRMSVol ???
+			* Analyse-#?
+				* Cycle 'Graph for Channel x' in Analyse-Spect2D,Analyse-Spect3D
+				* Channelmode
+					* Channel 1,2,3,4 : analysiert entsprechenden Kanal
+					* Diff 1-2,3-4    : nur #?-Spect#?; zeigt Unterschiede an
+				* SaveGraph Buttons (sfxsupport.library/image.c)
+					* split DisplayResults methods
+						* OpenWinodw/OpenCustomBitmap
+						* Drawing
+					* save pictures via Datatypes DTM_WRITE
+					* see
+						XPKTXT:SOURCE/RKM_Lib/Icon/GlowIconImage.c
+						XPKTXT:SOURCE/RKM_Lib/DataTypes/Src/ClipView/save.c
+			* Analyse-Data
+				* analyse
+					* Min & MaxFrq.
+					* Offset (and recomend Middle)
+					* real Silence at begin, end
+					  when >0 optionally start Shorten
+					  and add zoom buttons beside textfields to enlarge that area
+			* AnalyseSpect-?D
+				* merge parameter + gfx output windows
+					* GUI from Interface() to Process()
+					* when starting the fx it calls Interface() which just returns 1 and the calls Process()
+					* process opens the window :
+						+-------+----------+
+						|Params |Gfx       |
+						|       |          |
+						|       |          |
+						+-------+----------+
+					* the window is resizable, minsize is dictated by param-part dimensions
+					* everytime the user clicks "Start" the gfx-part gets recalculated and redrawn
+					* during calculation the window gets blocked and a prowin is shown
+				* 2 FFT-Modi
+					* Real - wie bisher
+					* Env. - Werte durch einen Envelopefollower schicken
+				* Sample zum Graphen dazu zeichnen
+			* AnalyseSpect-3D
+				* 2 DrawModi
+					* Wireframe - wie bisher
+					* Gouraud   - einfach schattiert (CyberGL)
+				* eventuell Viewdirection
+			* Chorus-Phaser
+				* on/off Schalter für die einzelnen Voices bzw. VoiceAnz
+			* Dynamic
+				* Blendmode (Quiet -> Loud)
+					* Faktor einstellbar
+			* Equalize-FFT
+				* Curve
+					* Sliderfield->Vectors
+					* Buttons für ZoomIn/ZoomOut
+					* Frequenzscala
+					* X/Y-Slider zum rumscrollen
+				* Tools
+					* Adapt Spectrogram
+						* Type 1
+							* Average
+								* FFT mit aktuellen Einstellungen; für jedes Band
+								  den Durchschnittswert suchen
+							* Maximum (wie Average nur max eines jeden Bandes)
+							* Miniimum (wie Average nur min eines jeden Bandes)
+						* Type 2
+							* Supress
+							* Amplify
+			* FilterMatrix
+				* Matrixgröße konstant (z.B. 20) -> unbenutzte Werte 0
+				* Matrix nicht mehr gespiegelt
+				* Matrizen laden/speichern
+				* Divisor für gesamte Summe
+				* Rand() für Matrix
+				* Sym-Button    - spiegelt Matrix
+				* Range-Button  - erzeugt lin. verlauf zwischen zwei Einträgen
+			* Middle
+				* Mode
+					* Constant : wie bisher
+					* Adaptive
+						* Slide : 1.0...-1.0 User Normal Single
+						* ModSrc itself, after two times Rexx-ExpSmoothing
+			* Mix-3D
+				* Repeat für Sourcewaves
+			* MultiDelay
+				* Filter (Low,Hi,Band,Notch)
+					* für jedes Delay einstellbar wie stark Signal von Source oder Filter kommt
+			* Synthesize_Add
+				* move miscellaneous-Section to top (like in Synthesize-FM)
+				* 2 Oszillatoren
+					* choose Oszillator to process in misc-section
+					* offer combine-mode
+						* Mix
+						* Synch 1 on 2, 2 on 1
+				* Fkt`s (-> Oszillators)
+					* e
+					* 1/e
+				* highest band parameter ?
+					* letzter benutzter Oberton
+					* popup-button um ihn automatisch zu ermitteln
+				* maxvol -> popup-button vor volume (anpassen an sample)
+				* zwei Volume-Modulatoren (low freq, high freq)
+				* WaveShaper (Modulator)
+					* 2 Modi
+						* one path (gut für Rechteckpulsweitenmodulation)
+							* angle=pi2*pow((angle/pi2),wsfc)
+						* mirror path
+							* angle=(angle<pi) ? (pi*pow((angle/pi),wsfc)) : (pi+pi*pow(((angle-pi)/pi),(1.0/wsfc)))
+				* ev. Formant Filter
+					* Gadgets
+						* On/Off
+						* Shape (Sample mind. 64 Werte lang)
+						* Mod.  (Sample)
+					* Funktion
+						* Shapesample -> 1.0 ... 1.0
+						* Werte mit. Spektralwerten multiplizieren.
+						* Mod. moduliert Offset des Shapesample (0.0 ... 1.0)
+						* Array mit 128 Einträgen (0=64,1=65,...) um Offsetberechnungen nur
+						  einmal durzuführen
+						* im Array stehen Offsets des Shapesamples
+						  (bei einem 64 Werte lange Sample : Offset=Index)
+	* MultichannelFX
+		* in jedem Operator
+			* Preset-Type Select (mono,stereo,quadro)
+				* für wieviele Kanäle das Preset gemacht ist (def=Mono)
+			* Result-CHannels Select ('like Src','expand')
+				Dest=like Src                       Dest=expand
+					Source| mono  stereo quadro         Source| mono    stereo  quadro
+				Preset   \|                         Preset   \|
+				----------+---------------------    ----------+------------------------
+				  mono    | 1     1,1    1,1,1,1      mono    | 1       1,1     1,1,1,1
+				stereo    | 1     1,2    1,2,1,2    stereo    | 1,2     1,2     1,2,1,2
+				quadro    | 1     1,2    1,2,3,4    quadro    | 1,2,3,4 1,2,3,4 1,2,3,4
+			* 5 Kanal Buttons : All,1,2,3,4
+				* Kanal-Button wählt Kanal für den die Parameter gelten (wie ein Tabview)
+			* Copy und Paste Buttons
+				* Copy sichert die Parameter der aktuellen Seite und Paste fügt sie ein
+		* in der .cfg eine [Global]-Section mit Parameter 'Channels=mono,stereo,quadro'
+		* Parameter-Sections :
+			* Channels=All : General,S1,M1,etc.
+			* Channels=<n> : General.<0,1,2,3>,S1.<0,1,2,3>,M1.<0,1,2,3>,etc.
+		* vparams (analog vbuf) erledigen das Mapping
+		* Laden
+			* wenn Global->Channels==All
+				* von Params ohne Suffix nach [0]
+				* vparams[0]=vparams[1]=vparams[2]=vparams[3]=params[0]
+			* wenn Global->Channels==mono
+				* von Params.0 nach [0] laden
+				* vparams[0]=vparams[1]=vparams[2]=vparams[3]=params[0]
+			* wenn Global->Channels==stereo
+				* von Params.0 nach [0] laden und von Params.1 nach [1] laden
+				* vparams[0]=vparams[2]=params[0]
+				* vparams[1]=vparams[3]=params[1]
+			* wenn Global->Channels==quadro
+				* von Params.0 nach [0] laden und von Params.1 nach [1] laden und ...
+				* vparams[0]=params[0]
+				* vparams[1]=params[1]
+				* vparams[2]=params[2]
+				* vparams[3]=params[3]
+			* ...
+		* während der Berechnung wird auf param[channel] zugegriffen
+	* SInfo
+		* divide Variable into sections and associate this with states
+			* states
+				...
+				available
+				visible
+			* all data associated with visible must not be read when
+			  sample is in a lower state
+		* Liste mit Views
+			* ein View beinhaltet
+				* Ptr. auf Window
+				* Name des Public-Screens auf dem Fenster geöffnet ist
+				* X-zoomstart und ~end
+				* Y-zoomstart und ~end
+				* drawmode
+			* play_rng benutzt Mark/Zoom des zuletzt aktivierten Views
+			* wenn in einem Puffer irgendetwas geändert wird, muessen alle Views refresht werden !
+			  (e.g. trace mit draw, cut,zero,etc.)
+			* Funktionen im ContextMenü/WindowMenü
+				* SplitView
+				* CloseView
+		* Liste mit Markern
+			* each sample can have unlimited markers (list)
+			* special markers
+				* loop beg/end - loop range
+				* peak - loudest part
+				* pause - break part
+			* markers can be single or duo markers
+			* markers can be named (duo markers get automatically extendet to ...beg,...end)
+			* markers will look like loops
+		* Liste (Hash) mit Strings ( ExtNode->ln_name=key, ExtNode->ln_data=data
+			* anno, author, copy, ... im Hash speichern
+	* Sample Oszillatoren
+		* Verzeichniss mit Namen Oszillatoren
+		* alle darin befindlichen Dateien sind 16 signed RAW Samples mit einer
+		  Länge von 4000 Samplingwerten und beinhalten einen Wellendurchgang.
+		* die Namen sind als Liste in RunTime verfügbar.
+		* sie werden benutzt von
+			* Blendshapes (Cyclic)
+			* Synthesize_Add
+			* Synthesize_Mix
+			* Synthesize_Transform
+			* Synthesize_FM
+		* bei der Verwendung werden keine Zwischendaten interpoliert
+		  (Rate dürfte hoch genug sein)
+		* bei Erzeugung mit Synthesize_Add e.g. SRat=48000 und Pitch=12
+		* einige in SFX-data.lzx/lha direkt mitliefern
+			* rnd,saw_50.50,sin_50.50,sqr_50.50,tri_50.50
+		* weitere als Synthesize_Add-Presets, dazu Rexx-Script welche diese
+		  alle in Sample umsetzt und nach "Progdir:Oszillatoren" speichert
+	* 'Boopsi'-klassen
+		* GraphView
+			* Funktion
+				* irgendeine Kurve anzeigen
+			* Attribute
+				* PenCurve      - Pennr
+				* PenBack       - Pennr
+				* PenGrid       - Pennr
+				* AxisFont      - geöffneter Font
+				* AxisX         - boolean
+				* AxisXUnit     - Achsenbezeichnung (char *), wenn =NULL dann keine
+				* AxisXS        - startvalue (double *)
+				* AxisYS        - endvalue (double *)
+				* AxisXFmt      - printf-like fmt string (char *)
+				* AxisXScl      - Linear, Nonlinear
+				* AxisXSclFc    - Faktor for AxisXScl=NonLinear (normalerweise 0.5 oder 2.0)
+				* AxisY...      - wie AxisX
+				* GridX         - Raster einzeichnen (Abstände wie Axis)
+				* GridY         - Raster einzeichnen (Abstände wie Axis)
+				* Values        - Pointer auf eine Feld mit Werten 
+				* NumValues     - Anzahl der Werte
+				* HasAxisXScl   - hat das Object einen AxisXScl-Cycle
+				* HasAxisYScl   - hat das Object einen AxisYScl-Cycle
+		* VectorEdit
+			* Funktion
+				* eine Kurve, bestehend aus Vektorsegmenten editieren
+			* Attribute
+				* PenCurve      - Pennr (es wird mit XOR gezeichnet)
+				* PenBack       - Pennr
+				* PenGrid       - Pennr
+				* AxisFont      - geöffneter Font
+				* AxisX         - boolean
+				* AxisXUnit     - Achsenbezeichnung (char *), wenn =NULL dann keine
+				* AxisXS        - startvalue (double *)
+				* AxisYS        - endvalue (double *)
+				* AxisXFmt      - printf-like fmt string (char *)
+				* AxisXScl      - Linear, Nonlinear
+				* AxisXSclFc    - Faktor for AxisXScl=NonLinear (normalerweise 0.5 oder 2.0)
+				* AxisY...      - wie AxisX
+				* GridX         - Raster einzeichnen (Abstände wie Axis)
+				* GridY         - Raster einzeichnen (Abstände wie Axis)
+				* Values        - Pointer auf eine Feld mit Vektorknoten
+								  (2 Elemente per Knoten x,y jeweils von 0.0...1.0)
+				* NumValues     - Anzahl der Knoten
+				* Lock          - None,LockStart,LockEnd,LockBoth
+				* HasAxisXScl   - hat das Object einen AxisXScl-Cycle (Lin/NonLin)
+				* HasAxisYScl   - hat das Object einen AxisYScl-Cycle (Lin/NonLin)
+				* HasFlipX      - gibt es einen X-Flip Button
+				* HasFlipY      - gibt es einen Y-Flip Button
+				* HasEditFields - gibt es Eingabefelder zur manuellen Eingabe
+				* MouseCross    - sollen zwei Linien mit dem Mauszeiger mitbewegt werden
+		* SliderField
+			* Funktion
+				* ein Feld mit mehreren (simulierten) vertikal-Slidern bereitstelllen
+				* Sliderknobs are hollow Boxes, drawn in XOR mode (3 pixels height)
+			* Attribute
+				* PenCurve      - Pennr (es wird mit XOR gezeichnet)
+				* PenBack1      - Pennr
+				* PenBack2      - Pennr
+				* PenGrid       - Pennr
+				* AxisFont      - geöffneter Font
+				* AxisX         - boolean
+				* AxisXUnit     - Achsenbezeichnung (char *), wenn =NULL dann keine
+				* AxisXS        - startvalue (double *)
+				* AxisYS        - endvalue (double *)
+				* AxisXFmt      - printf-like fmt string (char *)
+				* AxisXScl      - Linear, Nonlinear
+				* AxisXSclFc    - Faktor for AxisXScl=NonLinear (normalerweise 0.5 oder 2.0)
+				* AxisY...      - wie AxisX
+				* GridX         - Raster einzeichnen (Abstände wie Axis)
+				* GridY         - Raster einzeichnen (Abstände wie Axis)
+				* Values        - Pointer auf eine Feld mit Werten
+				* NumValues     - Anzahl der Werte -> Anzahl der Slider
+				* HasAxisXScl   - hat das Object einen AxisXScl-Cycle
+				* HasAxisYScl   - hat das Object einen AxisYScl-Cycle
+				* HasFlipX      - gibt es einen X-Flip Button
+				* HasFlipY      - gibt es einen Y-Flip Button
+				* HasEditFields - gibt es Eingabefelder zur manuellen Eingabe
+				* HasRotateX    - gibt es Buttons zum Rotieren der Sliderwerte
+				* HasMoveY      - gibt es Buttons zum Verschieben des/der Sliderwerte(s)
+								  und einen Button um zwischen single,all,pos,neg umzuschalten
+				* HasRange      - gibt es einen Verlaufsknopf
+	* Units
+		* bpm=(b*r*60)/l
+			* b : number of beats
+			* r : sampling rate
+			* l : länge des samples
+			* Bsp:
+				* 130:4 bpm -> 130 bpm & aktuelles Sample hat 4 beats
+		* intervalle
+			* major, minor, etc.
+	* Sample drawing
+		* new mode (oder auch nicht)
+			* FilledHQ-HR (high quality - high res)
+				* doppelte Punkteanzahl wie bei FilledHQ
+				* immer zwei Ergebnisse auf einmal
+					* max_n(1),max_p(1)
+					* max_n(2),max_p(1)
+					* draw(PEN_SMP_LINE_DARK  ,max(max_n(1),max_n(2)),max(max_p(1),max_p(2)));
+					* draw(PEN_SMP_LINE_BRIGHT,min(max_n(1),max_n(2)),min(max_p(1),max_p(2)));
+			* FilledHQ-Freq
+				* diff zwischen cur und last
+				* für jeden block avg diff
+				* hohe diff -> hell, wenig diff dunkel : PEN_SMP_LINE_BRIGHT,PEN_SMP_LINE,PEN_SMP_LINE_BRIGHT
+		* avoid recalculation
+			* RunTime.yh        -> SInfo.yh
+			* RunTime.chanz     -> SInfo.chakt
+		* Functionpointer to Drawfunct in SInfo (avoid switch)
+		* Cache Y-Values in SInfo (to avoid multiplication and if's)
+			* jedesmal wenn Y-Size oder Y-Zoom verändert wurde Y-Cache neuberechnen
+			* wenn y-zoomed, y-chache enthält schon geklippte Werte
+			* zum Zeichnen : y=entry->ycache[entry[chan][xpos]];
+	* Modulatoren (BShapes)
+		* ModPreview
+			* anstatt slen, srat in mod-opts jetzt ptr to S1 (Bezugsquelle, e.g. bei Mix erste source),
+			  dadurch auch korrekter rm_len wert (anstatt slen)
+			* aktuelles Sourcesample in Preview von Curve/Cycle/Vector einblenden
+			  oder Curce in Sample einblenden
+		* Typen
+			* Cycle (enhanced)
+				* LoopSync Adapt buttons
+					* Adapt Freq up/down : adapt freq to looplength (integer number of cycles)
+					* Adapt Phase : shift that on loopstart,loopend=0°
+				* new WaveForms
+					* Gate
+						- springt zwischen 0.0 und 1.0 hin und her
+						- 8 bit werden auf einen cycle aufgeteilt
+						- phase wird als 8 bit Wert interpretiert 0°->0x00, 359°->0xFF
+			* Vector (enhanced)
+				* other-points (cycle)
+					* keep (wie bisher)
+					* move (alle anderen punkte werden um die selben delta verschoben (check borders!))
+					* stretch (alle anderen pinkte werden prozentual neu verteilt, gesteckt oder gestaucht)
+				* x get from (aktueller punkt an einer größe ausrichten auf der zeit-achse)
+					* loop-start, loop-end, mark-start, mark-end, zoom-start, zoom-end
+					* ?? alignment im preset merken ??
+				* y get from (aktueller punkt an einer größe ausrichten auf der amplituden-achse)
+					* max-vol, avg-vol, rms-vol
+					* ?? ist sowas sinnvol, für was anwendbar ??
+				* curved line-segments
+					* every segment has bend-value, so every segment can be speedup, linear, slowdown
+					* can be entered or modified with mouse
+					* realised via funtion pointer to seg_linear, seg_bended
+			* VarCycle (neu)
+				* start Frq & end Frq
+				* Modulator zum Überblenden
+				  - nur Linear,Cycle,Vector,User
+				  - None macht keinen Sinn
+				  - Verschachtelung mit VarCycle ist ev. gefährlich
+			* Controller
+				* Nutzer steuert einen BShapeResult via Soft/HardwareController in Realtime
+				* Sortware
+					* damit kann man e.g. VST Plugins machen
+					* solche ControlChanges lösen kein Activate/ActivateCh aus!
+				* Hardware
+					Mouse Controller :
+							0.X,0.Y,1.X,1.Y
+					Midi Controller :
+							0,1,2,3,4...
+		* Y-Hints
+			* Operator kann Y-Hints an Modulator übergeben
+			* e.g. for Tone (440 Hz, 88Hz, ...)
+		* X-Hints
+			* Operator kann als X-Hint die Länge des Zielsamples übergeben (Vector,Curve)
+	* ARexx
+		* Scripts/Macros/MacroFX (u.a. Quickedit-Operatoren)
+			* Egalizer (Amplituden beider Hälften auf maximum (getrennt) bringen)
+			* Amplify maxvol (beide)
+			* Normalize
+			* Amplify maxvol
+			* Middle (Normal DC)
+			* FilterLow (einfacher MittelwertFilter  (a+b)/2   )
+			* FilterHi  (einfacher MittelwertFilter  (a-b)/2   )
+			* BoostLow  (einfacher MittelwertBooster a+(a+b)/2 )
+			* BoostHi   (einfacher MittelwertBooster a+(a-b)/2 )
+			* Shorten (mit Threshold 1%)
+			* Invert
+			* Reverse
+			* XFade (Reverse 50 %)
+			* SpaceDrums
+				* Drumloop mit MultiDelay/Resonate-#?_Duo bearbeiten
+				* Ergebniss mitteln
+				* dann mit Dynamic/EnhanceQuietSounds bewerken
+				* und letztendlich noch ein 1/8 Delay mit 25 % FX und 25% Feedback
+		* Commands
+			SFX_FlushSamples all/shown/hidden
+		* Hierarchie im RexxOperator-Window analog zu Directorystructure
+			* FX,Synth
+		* work with multiple sfx-copies
+			* supply SFX-nr as parameter
+			* use this for the portname "REXX_SFX.<nr>"
+		* RunTime.quiet
+			* don't refresh menus/toolbars
+			* defer until quiet=0
+	* Edittools
+		* Zero -> Flat
+			* Cycle-Gadget (Max,Zero,Min)
+		* Virtual Cut/Erase
+			* wenn man Cut oder Erase zum Anfang oder Ende durchführt
+			  dann nur offsetts verschieben oder länge ändern
+				* SInfo hat neu
+					* SAMPLE *rbuf[maxchannels] -> die Pointer auf den tatsächlich belegten Speicher
+					* ULONG sbeg -> begin (offset) a la slen
+				* buf[channel]=&rbuf[channel][sbeg]
+	* Modulwindows
+		* Cleanup Modwins im Cleanupmenu
+	* Operatoren
+	* Loader/Saver
+		* Beschleunigung
+			* SplitChannelPtr -> avoid Loop
+				* SplitChannel2;
+				* SplitChannel4;
+			* DecrunchPtr -> avoid switch
+			* same for MergeChannel & Crunch
+		* Filenote
+			* Loaders (vor allem Universal Loader)
+				* check Filenote (e.g. for RAW-detection)
+		* .cfg Files für RAW Loader/Saver
+			* Infos
+				* SamplesPerSecond
+				* SamplesPerChannel
+				* Channels
+				* Format
+				* LoopStart
+				* LoopEnd
+				* LoopMode
+			* save & load sample infos using ConfigIO.library
+	* Loader NEU
+		* AVR (Atari)
+		* SMP (TurtleVision/SampleVision)
+		* SF (Icram Soundfiles)
+		* SSD (StandartSampleDump) -> Studiosampler ( Mididump)
+		* DIG (Digidesign)
+		* TX16-Sampler
+		* Mac-Resource
+			* Header ca. 520 Bytes
+			* Sample : ULAW-gepackt
+			* Hex Start :
+				00 00 01 00  XX XX XX XX  YY YY YY YY  00 00 00 ZZ
+					* X : Länge1 (ca. Fileläne-Länge3)
+					* Y : Länge2 = Länge1-256
+					* Z : Länge3 = Filelänge-Länge1
+			* Hex bis :
+				?? 00 FF FF
+					* dann Header mit Sampledaten
+		* Sonix
+			* .ss
+				* Headerlength=66 (selten 58)
+				* HexStart
+					0L LL LM MM M5 05 00 FF
+					* L Länge/2
+					* M LoopStart/2 (Looplänge=Länge-Loopstart)
+				* Daten signed RAW 8-bit
+			* .instr
+				SampledSound....
+				................
+				....name--------
+				----------------
+				----name--------
+				----------------
+				----                         00036C9C 00FF00FF 00FF00FF
+									000000FF 00980098 00980000 00000000
+		* XI (FastTracker)
+			* header
+				struct header
+				{
+					char id[20]     ="Extended Instrument:";
+					char name[24]   ="..."+0x1A;
+					char ver[20]    ="Fasttracker v2.00";
+					UWORD unknown1  =0x0201;
+				}
+			* daten
+		* Samplitude_RAP
+			* header
+				struct header
+				{
+					char id[8]  ="SEKD_SAMR";
+					ULONG       =32;
+					ULONG bits  =8,16;
+					ULONG bytes =1,2;
+					ULONG chan  =1,2;
+					ULONG len;
+					ULONG offs  ={161,162,212},{74};
+					ULONG       =1;
+				}
+			* daten
+			* bereiche
+				* ein Bereich ist 62 Bytes
+				struct rangeblk
+				{
+					ULONG anz;
+					struct range
+					{
+						ULONG start;
+						ULONG end;
+						UBYTE unknown0[10]
+						UBYTE unknown1[14];
+						char  name[4];
+						UBYTE unknown2[26];
+					} ranges[anz];
+					
+				}
+			* playlist
+				* length=255/251
+	* für Loader
+		* in Taskdescription of ProcessWin
+			* Type (RAW,IFF-8SVX,RIFF-WAV,...)
+			* Kanäle (Mono,Stereo,Quadro)
+			* Packverfahren
+			* Länge
+			* e.g "RIFF-WAV stereo PCM16 134872 Samples"
+		* Chunkorientierte Files
+			* struct Chunks
+			  {
+				  ULONG id;
+				  ULONG offset;
+			  }
+			* Chunkoffsets suchen und offset eintragen
+			* dann in zweitem Loop Chunks anfahren und lesen
+				* hierbei testen ob Chunkreihenfolge stimmt
+				* ob Chunklängen stimmen
+				* ob Felder korrekt initialisiert sind
+		* Repairmode
+			* wenn Files mit Merkwürdigkeiten gelesen werden -> damaged=TRUE
+			* nach Lesen Abfrage damaged==TRUE ?, wenn ja Msg "File is (partly)
+			  damaged ! Should I resave it ?"
+				* wenn ja SaverPrefs modifizieren (Format, Chunks, ...) und
+				  Saver aufrufen.
+	* Saver
+		* in Saverprefs Checkboxes für Textchunks
+			* IFF-8SVX/16SV
+				* NAME,AUTH,ANNO,... on/off
+			* RIFF-WAV
+				* INFO
+			* VOC
+				* ASCII-Block mit "ANNO : blabla\nAUTH : blabla..."
+		* in Sampleoptions
+			* generate Filenote
+				* beim Saven Filenote mit folgendem Aufbau generieren
+				"FMT <fmt-name> <compr> <rate> Hz <slen> samples <mono/stereo/quadro>
+					* fmt-name : eg. IFF-8SVX
+					* compr    : e.g PCM8
+		* AVR (Atari)
+		* SMP (TurtleVision/SampleVision)
+		* SF (Icram Soundfiles)
+		* SSD (StandartSampleDump) -> Studiosampler ( Mididump)
+		* DIG (Digidesign)
+		* TX16-Sampler
+		* ( Printer )
+	* Codecs (convertieren von und nach "PCM16 signed motorola")
+		* PCM8 signed
+		* PCM8 unsigned
+		* PCM16 signed motorola
+		* PCM16 unsigned motorola
+		* PCM16 signed intel
+		* PCM16 unsigned intel
+		* IEEE32
+		* IEEE64
+		* µ-Law
+		* A-LAW
+		* µ-Law inverted
+		* A-Law inverted
+		* ...
+		* Aufbau (Shared Libraries)
+			* GetCrunchedLenght/GetDecrunchedLength
+			* PrepCrunch/PrepDecrunch
+			* Crunch/Decrunch
+	* Compression
+		* FFT
+			* nicht die Samplewerte abspeichern
+			-> sondern die FFT-Daten als Integerwerte
+				*  4bit: 0 ~ 0.0,    15 ~ 1.0 (eventuell)
+				*  8bit: 0 ~ 0.0,   255 ~ 1.0
+				* 12bit: 0 ~ 0.0,  4095 ~ 1.0 (eventuell)
+				* 16bit: 0 ~ 0.0, 65535 ~ 1.0
+			* eventuell Werte < treshold weglassen
+			  threshold einstellbar als quality (0 ist sehr gut, 100 sehr loosy)
+			* Parameter :
+				* Bands (FFT-Bänder)
+				* Steps (aller wieviel Samples eine neue FFT)
+				* Bits  (FFT-Werte auf wieviel Bits packen ((4),8,(12),16))
+				* Smt.  (Anzahl der zu interpolierenden Zwischen-FFT`s (2,4,...))
+			* Kompressionsverhältniss anzeigen
+				* z.B.
+					* Bands= 64 Steps=128 Bits= 8 Smt=2     =>  4:1 (gut)
+					* Bands= 64 Steps=128 Bits= 8 Smt=1     =>  2:1 (gut)
+					* Bands= 64 Steps= 64 Bits= 8 Smt=1     =>  1:1 (schwachfug)
+					* Bands= 64 Steps= 64 Bits=16 Smt=1     =>  1:2 (ungünstig)
+					* Bands= 64 Steps= 32 Bits= 8 Smt=1     =>  1:2 (ungünstig)
+					* Bands= 64 Steps= 32 Bits=16 Smt=1     =>  1:4 (sehr ungünstig)
+				* komp=1.0;
+				* if bits==16 then komp/=2.0;
+				* komp*=(2.0*(step/bands));
+				* komp*=smt;
+		* Vector
+			* Save
+				* ersten Samplewert abspeichern
+				* Min/Max suchen
+				* dann Offset (8bit) (in x-richtung) und Samplewert abspeichern
+					* an der Hälfte der Min/Max-Pos
+					* an der Min/Max-Pos
+			* Load
+				* ersten Samplewert lesen
+				* nächste zwei Offsets & Werte lesen
+				* Kurve interpolieren
+	* für Loader/Saver
+		* Roland-Samples
+			* Fish 514 : S220To8SVX_1.4
+		* MacSamples
+			* Fish 586 : Opus8
+		* SAMP
+			* Fish 307
+	* Samples aus Modulen laden (PT-Mods)
+		* Requester mit allen Samples aus Modul
+			* eins anwählen
+			* alle laden (nur die die belegt sind)
+			* ggf Namen korregieren
+		* -> mod2Smp (ext. Modul)
+	* Prefs
+		* Menu : Prefs
+			* GUI ...
+				* Keys
+			* Sample ...
+				* Puffer-Titelleiste
+					* Liste mit Attributen
+						* Name, Länge, Rate, Spieldauer, Saved(Flag)
+					* aus Liste Titel zusammenstellen
+		* in MISC-Settings
+			* automatisches Ausführen eines Arexxscriptes
+				* Programmstart
+				* Programmende
+				* neuen Samplepuffer
+			* Einstellung, wo cfg-File gespeichert werden soll
+				* lokal    : <sfxdir>/data/sfx.cfg
+				* standard : env:sfx.cfg & envarc:sfx.cfg
+		* Prefs als separate Programme
+			* kürzeres Executable, auch separat ausführbar.
+			* SoundFX muß Notification auf cfg-File legen
+	* GUI
+		* Operator-Liste
+			* vor jedem Operator ein '-'
+			* bei Events, MouseX und ~Y merken
+			* nach SingleClick auf '-', aus '-' -> '+' und alle Presets eingerückt
+			  anzeigen (inclusive "env:operators/#?.prefs" als "current.prefs" )
+			* nach SingleClick auf '+', aus '+' -> '-' und alle Presets einfalten
+			* nach DoubleClick auf Zeile Operatorwindow öffnen
+			* nach DoubleClick auf Preset, dieses Laden, Operator starten (bei
+			  current.prefs 0l übergeben) ohne Fenster anzuzeigen
+		* ^ ev. auch bei Loadern und Savern
+	* Mouse-Handling in Samplefenstern
+		* ON_MOUSE_DOWN -> Kontext bestimmen
+			* MARK_NEW_FREE
+			* MARK_NEW_VERT
+			* MARK_NEW_HORIZ
+			* MARK_RESIZE
+			* MARK_MOVE
+			* LOOP_MOVE_BEG
+			* LOOP_MOVE_END
+			* PLAY_SCRUB
+			* DRAW
+		* ON_MOUSE_MOVE -> je nach Kontext Aktion ausführen
+	* Projekt menu
+		* Browse ...
+			* öffnet ein Dateirequester ähnliches Fenster
+			* dienst dem durchstöbern der File-hierarchy
+			* kann Samples
+				* abspielen
+				* in spezielle Listen einsortieren
+			* jede Liste bietet eine Funktionalität wie
+				* Datei laden
+				* ARexx-Script ausführen (Batchkonvertierung)
+	* aus DrawGad -> DrawBevelBox
+	* Localisation
+		* Shortcuts: Gadgetabfrage per switch-block
+			* array char key_trans[256];
+			* in jedem eintrage ist shortcut-id
+			* id=0 -> no shortcut
+			* dann
+				switch key_trans[key] {
+					case KEYID_PLAY: ...
+					case KEYID_LOAD: ...
+					:
+				}
+	* PreHear
+		* wo macht das Sinn ? und wie ?
+			* in FX, die genau ein Resultat erzeugen
+			* in FX ohne Modulatoren ?
+			* in FX mit Modulatoren
+				* mod!=none -> kein Problem
+				* mod!=none ->
+					* alle Modulatoren bekommen Popup für Realtimecontroller
+						* Maus, Midi, Analog-Joystick, ...
+					* über controller mod-index steuern
+		* neuer Rahmen : "Prehear"
+			* Prehearstart & -end
+			* Prehear on/off
+			* Prehear-presets
+				* Prehear from Start
+				* Prehear from Window
+				* Prehear from Range
+		* Puffer im RAM anlegen (mit clear)
+		* Puffer geloopt abspielen
+			* Problem : wie starte ich das Abspielen von einem FX ?
+		* nach jeder Parameteränderung - Puffer aktualisieren
+	* virtueller Speicher
+		* Leseroutienen erweitern so daß sie auch direkt mit Samples arbeiten können
+		* Formate : alle PCM-16 Formate
+		* Arbeitsweise
+			* wenn Sample geladen wird, Filenamen in sinfo merken
+			* wenn Sample ausgelagert werden muß :
+				* ist File lesbar (noch da etc.)
+					* nein  : auslagern
+					* ja    : weiter
+				* ist File in einem der unterstuetzten Formate
+					* nein  : auslagern
+					* ja    : weiter
+				* im sinfo Daten eintragen (offsett, data-type, ...)
+			* wenn sample veraendert werden soll (schneiden, zero, etc.),
+			  (neues sample) auslagern
+	* Realtime
+		* neuer Storagetype=VM_RealTime
+		* ließt Daten vom AudioEingang (Parallel,AHI)
+		* schickt Daten zum Audioausgang
+		* Kombinationen
+			* buffer        ->  buffer          (standart offline processing)
+			* buffer        ->  audio-output    (play+fx -> preview)
+			* audio-input   ->  buffer          (rec.+fx)
+			* audio-input   ->  audio-output    (realtime fx)
+	* Distribution
+		* Icons
+			* Uberbench
+				* Aminet20:pix/icon/Uberbench.lha
+				* gregb@connectup.com (W.G. Bailey)
+	* Pens
+		* Pens direct änden
+			* nur Liste mit Pens und r,g,b-Regler
+			* zwei Buttons
+				"Pen->Copy" : aktuelle Farbe merken
+				"Copy->Pen" : gemerkte Fabe setzen
+			* Pen selektieren und Farbe einstellen
+			* alle Pens werden mit ObtainBestPen belegt, wenn zwei Stifte den
+			  gleichen Wert haben wird der Stift automatisch geteilt.
+	* Command-line
+		* commandline arg oder besser rexx-script welches automatisch sfx startet, wenn es noch nicht läuft
+		* Tasks
+			* Load <filename> <filename> ...
+				* läd files per Universal-loader
+			* Rexx <filename>
+				* started rexx skript
+			* SaveAs <type> <filename_in> <filename_out>
+				* läd file per Universal loader und speichert es im zielformat ab
+			* Play <filename>
+				* läd file und spielt es ab
+			* Prefs <name>
+				* nutzt die angegebene .cfg Datei als Config
+			* background
+				* don't bring screen to front
+	* Key-schutz
+		* CheckKeyfile4 dynamisch generieren
+		* Modulovars für zyklische Keyfilechecks dynamisch generieren
+		* XOR-Vars für Scrambling dynamisch generieren (scrambled Strings im source patchen)
+		* SFXKeyBase als Array, Keybase in der Mitte, diverse checks über Offsets durchführen
+		* Checks in sfxsupport.library
+			* Pointer auf Demostring in RunTime und diesen testen
+			* CheckKeyContents auch in sfxsupport.library
+
+		* nachfolgende Dinge sind problematisch
+			* Key trägt selbst Dinge in RunTime ein
+			* Key erzeugt Messageport
+				* ein Saver kann diesen wiederum abfragen, falls keine sfx.key Datei existiert
+			* Key erzeugt ARexxPort
+				* damit funktioniert der ARexxport nur wenn ein Key vorhanden ist
+	* BatchProcessor
+		* ein Batchjob beinhaltet Pre- und Post-Arexx-Scripts
+		* BatchProzessor setzt prefs.sample_sa_path temporär um
+		* Analyse*-Operators speichern Ergebnisse dort
+	* Tasks
+		* AudioMastering Wizard per Batchprocessor
+			* ein Batchjob beinhaltet Pre- und Post-Arexx-Scripts
+		* alle Samples per Batchprocessor auf gleiche RMS-Volume anpassen
+		  dies alles über ein ARexx Skript
+		  -> benötigt Befehl 'BatchProcess <from> <to> <preset>'
+			1. ermittle max RMSVol die in allen Samples möglich ist ohne zu Übersteurn
+				* Batchprocess mit
+					* Operator AnalyseData aufrufen -> RMSVol und MaxVol pro Sample
+					* Saver ist egal da AnalyseData nix erzeugt
+			2. t:analyse-data.log lesen und pro Zeile
+				* maxRMSVol=curRMSVol/MaxVol
+				* minRMSVol=min(minRMSVol,maxRMSVol)
+			3. AmplifyPreset '__rmsvol__.cfg' erzeugen
+			4. rufe amplify mit diesem Preset auf
+	* Portabillity
+		* sfxsuport.library auftrennen
+			* sfx-common.library
+			* sfx-operators.library
+			* sfx-loaders.library
+			* sfx-savers.library
+			* sfx-gui-amiga.library
+			* RunTime
+				* aufsplitten (append to the respective library-bases)
+					* non gui related part : sfx-common
+					* gui related (os-dependent) part : sfx-gui-amiga
+			* usage
+				* sfx
+					* old
+						if(!(SFXSupportBase =OpenLibrary("progdir:libs/"SFXSupportName,SFXSupportVersion)))         { printf("Can't open progdir:libs/"SFXSupportName" >=V"NUM2STR(SFXSupportVersion)" !\n%s"   ,ErrorInfo());CloseAll(CLLEV_LIBS,RETURN_FAIL); }
+						if(GetSFXVersion()!=MAKE_VERSION_STAMP(PRJ_VERSION,PRJ_REVISION))                           { printf("progdir:libs/"SFXSupportName" has not the requested version V"NUM2STR(PRJ_VERSION)"."NUM2STR(PRJ_REVISION)"!\n");CloseAll(CLLEV_LIBS,RETURN_FAIL); }
+						//-- testen ob Programm schon läuft
+						// we can run it just once, because of the shared library
+						if(!ServerDataInit(&RunTime)) { printf("SoundFX is already running !\n");CloseAll(CLLEV_LIBS,RETURN_ERROR); }
+						...
+						if(SFXSupportBase)  CloseLibrary(SFXSupportBase);
+					* new
+						if(!(SFXCommonBase =OpenLibrary("progdir:libs/"SFXCommonName,SFXCommonVersion)))            { printf("Can't open progdir:libs/"SFXCommonName" >=V"NUM2STR(SFXCommonVersion)" !\n%s"   ,ErrorInfo());CloseAll(CLLEV_LIBS,RETURN_FAIL); }
+						if(Common_GetVersion()!=MAKE_VERSION_STAMP(PRJ_VERSION,PRJ_REVISION))                       { printf("progdir:libs/"SFXCommonName" has not the requested version V"NUM2STR(PRJ_VERSION)"."NUM2STR(PRJ_REVISION)"!\n");CloseAll(CLLEV_LIBS,RETURN_FAIL); }
+				* plugin
+					* old
+						if(!(SFXSupportBase	=OpenLibrary(PROGDIR"libs/"SFXSupportName,SFXSupportVersion)))          { DisplayAlert(RECOVERY_ALERT,"\x00\xF0\x14" "Can't open "PROGDIR"libs/" SFXSupportName " >=V" NUM2STR(SFXSupportVersion) "\x00\x00",44);goto Error; }
+						if(GetSFXVersion()!=MAKE_VERSION_STAMP(PRJ_VERSION,PRJ_REVISION))			        		{ DisplayAlert(RECOVERY_ALERT,"\x00\xF0\x14" PROGDIR"libs/"SFXSupportName" has not the requested version V"NUM2STR(PRJ_VERSION)"."NUM2STR(PRJ_REVISION)"!" "\x00\x00",44);goto Error; }
+						// gets RunTime pushed in
+					* new
+						if(!(SFXCommonBase =OpenLibrary("progdir:libs/"SFXCommonName,SFXCommonVersion)))            { printf("Can't open progdir:libs/"SFXCommonName" >=V"NUM2STR(SFXCommonVersion)" !\n%s"   ,ErrorInfo());CloseAll(CLLEV_LIBS,RETURN_FAIL); }
+						if(Common_GetVersion()!=MAKE_VERSION_STAMP(PRJ_VERSION,PRJ_REVISION))                       { printf("progdir:libs/"SFXCommonName" has not the requested version V"NUM2STR(PRJ_VERSION)"."NUM2STR(PRJ_REVISION)"!\n");CloseAll(CLLEV_LIBS,RETURN_FAIL); }
+			* workflow
+				* rename sfxsupport.library -> sfx-common.library and make sure everything works as before
+				* mv RunTime -> SFXCommonBase and change all accesses to it
+				* prepare sfx-gui-amiga.library skelleton
+				* prepare sfx to use it
+				* start moving methods + data to it
+		* plugins
+			* ModInfo
+				* einkompilieren
+				* GetAttr ins API mit aufnehmen (macht SetAttr Sinn ?)
+				* Attributes
+					BlockRatio						Operators (ibuflen:obuflen)
+					Description			(#DESC)
+					Extension			(#EXT)		Loader/Saver
+					FileSelection		(#FSEL)		Loader/Saver
+					HasGUI				(#GUI)		Loader/Saver
+					MagicCookie			(#MAGIC)	Loader
+					NrOfInputs
+					NrOfInputsChannels
+					NrOfOutputs
+					NrOfOutputChannels
+			* split plugins
+				* dsp-core -> implement as ladspa plugin
+				* statically link into sfxmod
+				* Process() should call ladspa-functions
+
+	* Optimizing Sampleaccess
+		* Situations
+			* S1: Loading (same for Generating)
+				* Load : writing samples to disk/mem
+				* CalcLines : reading samples
+				* Draw: reading samples
+			* S2: Cut/Erase
+				* CalcLines : reading samples
+				* Draw: reading samples
+		* Version 1 :
+			* have variants for Draw#? with CalcLines functionallity
+			* do this via #defines
+			* ineffective for S1, as we reread data)
+		* Version 2:
+			* extract drawing core to __inline functions (args are buffer to memory
+			  and local state as ptr to struct)
+			* build a chain of funcptr + local state structs, so that while loading,
+			  we immeately calc lines and draw
+			* add chain processing to all SAWrite variants (problematic for S2)

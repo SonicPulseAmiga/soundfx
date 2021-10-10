@@ -1,0 +1,1075 @@
+@database debugtools.guide
+@rem Source: debugtools.c
+@rem Generated with RoboDoc v3.0k (Aug  2 1998)
+@rem RoboDoc is copyright 1994-1998 by Maverick Software Development
+@node Main debugtools.guide
+@{jcenter}
+@{fg highlight}@{b}TABLE OF CONTENTS@{ub}@{fg text}
+
+@{"debugtools/--background--      " Link "--background--"}
+@{"debugtools/ASSERT              " Link "ASSERT"}
+@{"debugtools/ASSERTL             " Link "ASSERTL"}
+@{"debugtools/ASSERTQ             " Link "ASSERTQ"}
+@{"debugtools/ASSERT_RESET        " Link "ASSERT_RESET"}
+@{"debugtools/AUTOBREAKS_...      " Link "AUTOBREAKS_..."}
+@{"debugtools/BREAK               " Link "BREAK"}
+@{"debugtools/BREAKC              " Link "BREAKC"}
+@{"debugtools/CHECK_VER           " Link "CHECK_VER"}
+@{"debugtools/CLEAR_OUTPUT        " Link "CLEAR_OUTPUT"}
+@{"debugtools/CUR...              " Link "CUR..."}
+@{"debugtools/DONEDEBUG           " Link "DONEDEBUG"}
+@{"debugtools/ERR                 " Link "ERR"}
+@{"debugtools/FAILREQ             " Link "FAILREQ"}
+@{"debugtools/FAILREQ_...         " Link "FAILREQ_..."}
+@{"debugtools/IF_...              " Link "IF_..."}
+@{"debugtools/INITDEBUG           " Link "INITDEBUG"}
+@{"debugtools/IS_VALID_...        " Link "IS_VALID_..."}
+@{"debugtools/LAST...             " Link "LAST..."}
+@{"debugtools/LED_...             " Link "LED_..."}
+@{"debugtools/MSG                 " Link "MSG"}
+@{"debugtools/MSGC                " Link "MSGC"}
+@{"debugtools/MemRead             " Link "MemRead"}
+@{"debugtools/MemReadIX           " Link "MemReadIX"}
+@{"debugtools/MemWrite            " Link "MemWrite"}
+@{"debugtools/MemWriteIX          " Link "MemWriteIX"}
+@{"debugtools/REPORT              " Link "REPORT"}
+@{"debugtools/REPORT_...          " Link "REPORT_..."}
+@{"debugtools/SCRAMBLE_PTR        " Link "SCRAMBLE_PTR"}
+@{"debugtools/SHOWC_...           " Link "SHOWC_..."}
+@{"debugtools/SHOWC_...           " Link "SHOWC_..."}
+@{"debugtools/SHOW_...            " Link "SHOW_..."}
+@{"debugtools/STACKCHECK          " Link "STACKCHECK"}
+@{"debugtools/VERIFY              " Link "VERIFY"}
+@{"debugtools/VERIFYL             " Link "VERIFYL"}
+@{"debugtools/dt_decl.h           " Link "dt_decl.h"}
+@{"debugtools/sos_exec_decl.h     " Link "sos_exec_decl.h"}
+@{"debugtools/sos_listtools_decl.h" Link "sos_listtools_decl.h"}
+@{"debugtools/sos_math_decl.h     " Link "sos_math_decl.h"}
+@{"debugtools/sos_stdc_decl.h     " Link "sos_stdc_decl.h"}
+@{jleft}
+@endnode
+@Node "--background--" "debugtools/--background--"
+@{fg shine}debugtools/--background--@{fg text}
+
+@{b}PURPOSE@{ub}
+   A system, which helps you to write better (more solid, less bugs) software.
+
+@{b}USAGE@{ub}
+   Simply put the following lines into every source or into one global include
+     #define DEBUG_SRCPATH "..."
+     #include <debug/dt-decl.h>
+   Then link with the following libraries.
+     LIB:debug.lib
+     LIB:ddebug.lib
+     LIB:debugtools(|881|ffp|ieee).lib
+   Choose the last one depending on the mathtype you are using.
+   Finally set the symbol DEBUG, either by adding the following line to the
+   global include or every file
+     #define DEBUG
+   or better set the symbol using the compiler option 'DEFINE DEBUG'
+   With this symbol you control, if the system is used or not. 
+
+
+@endnode
+@Node "ASSERT" "debugtools/ASSERT"
+@{fg shine}debugtools/ASSERT@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}ASSERT@{ub} -- produces an error if an expression evaluates to FALSE
+@{ub}
+@{b}SYNOPSIS@{ub}
+    @{b}ASSERT@{ub}(exp)
+
+@{b}FUNCTION@{ub}
+    Evaluates the expression and prints out an error if the result is FALSE.
+    If one of a series of assertions fails the global assert state is false as
+    well.
+
+@{b}INPUTS@{ub}
+    exp - expression with a result to test for (condition)
+
+@{b}EXAMPLE@{ub}
+    @{b}ASSERT@{ub}(ptrMem);
+    @{b}ASSERT@{ub}(numMaxLoops<conMaxLoops);
+
+    @{"ASSERT_RESET" Link "ASSERT_RESET"};
+    @{b}ASSERT@{ub}(...)
+    @{b}ASSERT@{ub}(...)
+    :
+    if(ASSERT_OKAY) ...
+
+@{b}NOTES@{ub}
+    If the global state is used it must be reseted first
+
+@{b}SEE ALSO@{ub}
+    @{"ASSERTL" Link "ASSERTL"}(),@{"ASSERTQ" Link "ASSERTQ"}(),@{"ASSERT_RESET" Link "ASSERT_RESET"},ASSERT_OKAY,@{"VERIFY" Link "VERIFY"}(),@{"VERIFYL" Link "VERIFYL"}()
+
+@endnode
+@Node "ASSERTL" "debugtools/ASSERTL"
+@{fg shine}debugtools/ASSERTL@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}ASSERTL@{ub} -- prints an error (specific file & line) if the assertion fails
+@{ub}
+@{b}SYNOPSIS@{ub}
+    @{b}ASSERTL@{ub}(exp,file,line,msg)
+
+@{b}FUNCTION@{ub}
+    Evaluates the expression and prints out an error if the result is FALSE.
+    If one of a series of assertions fails the global assert state is false as
+    well.
+
+@{b}INPUTS@{ub}
+    exp - expression with a result to test for (condition)
+    file - the source file name
+    line - the source file line
+    msg - the error message
+
+@{b}EXAMPLE@{ub}
+    @{b}ASSERTL@{ub}(ptrMem,__FILE__,__LINE__,"1. par is null pointer);
+
+@{b}NOTES@{ub}
+    If the global state is used it must be reseted first
+    This macro is used internally by all function wrapper to show the source
+    name and line of the calling procedure
+
+@{b}SEE ALSO@{ub}
+    @{"ASSERT" Link "ASSERT"}(),@{"ASSERTQ" Link "ASSERTQ"}(),@{"ASSERT_RESET" Link "ASSERT_RESET"},ASSERT_OKAY,@{"VERIFY" Link "VERIFY"}(),@{"VERIFYL" Link "VERIFYL"}()
+
+@endnode
+@Node "ASSERTQ" "debugtools/ASSERTQ"
+@{fg shine}debugtools/ASSERTQ@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}ASSERTQ@{ub} -- checks if an assertion fails
+@{ub}
+@{b}SYNOPSIS@{ub}
+    @{"ASSERTL" Link "ASSERTL"}(exp)
+
+@{b}FUNCTION@{ub}
+    Evaluates the expression and sets the global state to FALSE the condition
+    resulted in FALSE.
+
+@{b}INPUTS@{ub}
+    exp - expression with a result to test for (condition)
+
+@{b}EXAMPLE@{ub}
+    @{b}ASSERTQ@{ub}(IS_VALID_POINTER(ptrMem,"free","1. par"));
+
+@{b}NOTES@{ub}
+    If the global state is used it must be reseted first
+    This macro can be used when a part of the expression already prints the
+    error.
+
+@{b}SEE ALSO@{ub}
+    @{"ASSERT" Link "ASSERT"}(),@{"ASSERTL" Link "ASSERTL"}(),@{"ASSERT_RESET" Link "ASSERT_RESET"},ASSERT_OKAY,@{"VERIFY" Link "VERIFY"}(),@{"VERIFYL" Link "VERIFYL"}()
+
+@endnode
+@Node "ASSERT_RESET" "debugtools/ASSERT_RESET"
+@{fg shine}debugtools/ASSERT_RESET@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}ASSERT_RESET@{ub}
+@{ub}
+@{b}SYNOPSIS@{ub}
+    @{b}ASSERT_RESET@{ub}
+
+@{b}FUNCTION@{ub}
+    Resets the global assertion state.
+
+@{b}NOTES@{ub}
+    This is required, before a series of @{"ASSERT" Link "ASSERT"}'s is started, when the result
+    is required.
+
+@{b}SEE ALSO@{ub}
+    @{"ASSERT" Link "ASSERT"}(),@{"ASSERTL" Link "ASSERTL"}(),ASSERT_OKAY,@{"VERIFY" Link "VERIFY"}(),@{"VERIFYL" Link "VERIFYL"}()
+
+@endnode
+@Node "AUTOBREAKS_..." "debugtools/AUTOBREAKS_..."
+@{fg shine}debugtools/AUTOBREAKS_...@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}AUTOBREAKS_...@{ub} -- switches auto break points on or off
+@{ub}
+@{b}SYNOPSIS@{ub}
+    AUTOBREAKS_OFF
+    AUTOBREAKS_ENTER
+    AUTOBREAKS_LEAVE
+    AUTOBREAKS_BOTH
+
+@{b}FUNCTION@{ub}
+    Enables or disables automatic break points. If enabled these breakpoints
+    are inserted at each function entry, exit or both locations.
+
+@{b}EXAMPLE@{ub}
+    AUTOBREAKS_BOTH;
+    : // some critical code
+    AUTOBREAKS_OFF;
+
+@{b}NOTES@{ub}
+    Requires that the code has been compiler with the PROFILE option.
+
+@endnode
+@Node "BREAK" "debugtools/BREAK"
+@{fg shine}debugtools/BREAK@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}BREAK@{ub} -- halt the process
+@{ub}
+@{b}SYNOPSIS@{ub}
+    @{b}BREAK@{ub}(str)
+
+@{b}FUNCTION@{ub}
+    Halts the process, displays the supplied message in a request-window and
+    waits for the "Continue"-button to be pressed.
+
+@{b}INPUTS@{ub}
+    str - a string to be displayed, could be NULL as well
+
+@{b}EXAMPLE@{ub}
+    @{b}BREAK@{ub}("critical point reached");
+
+@{b}SEE ALSO@{ub}
+    @{"BREAKC" Link "BREAKC"}();@{"AUTOBREAKS_..." Link "AUTOBREAKS_..."}
+
+@endnode
+@Node "BREAKC" "debugtools/BREAKC"
+@{fg shine}debugtools/BREAKC@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}BREAKC@{ub} -- halt the process if a condition is satisfied
+@{ub}
+@{b}SYNOPSIS@{ub}
+    @{b}BREAKC@{ub}(cond,str)
+
+@{b}FUNCTION@{ub}
+    Halts the process if a condition is satisfied, displays the supplied
+    message in a request-window and waits for the "Continue"-button to be
+    pressed.
+
+@{b}INPUTS@{ub}
+    cond - a condition
+    str - a string to be displayed, could be NULL as well
+
+@{b}EXAMPLE@{ub}
+    @{b}BREAKC@{ub}((numLoops>100),"critical point reached");
+
+@{b}SEE ALSO@{ub}
+    @{"BREAK" Link "BREAK"}();@{"AUTOBREAKS_..." Link "AUTOBREAKS_..."}
+
+@endnode
+@Node "CHECK_VER" "debugtools/CHECK_VER"
+@{fg shine}debugtools/CHECK_VER@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}CHECK_VER@{ub} -- performs library version checking and tracking
+@{ub}
+@{b}SYNOPSIS@{ub}
+    res=@{b}CHECK_VER@{ub}(lib,ver,func,file,line)
+
+@{b}FUNCTION@{ub}
+    Checks if a function is available in a specific library version. Further-
+    more it tracks the used version numbers to find out which version is re-
+    quired at least.
+    Additionally it tests if the library is opened, before it is used.
+
+@{b}INPUTS@{ub}
+    lib - the library name
+    ver - the version from which the function exists
+    func - the function name
+    file - the source file name
+    line - the source file line
+
+@{b}RESULT@{ub}
+    res - 0 if function is not available, 1 else
+
+@{b}EXAMPLE@{ub}
+    @{"ASSERTQ" Link "ASSERTQ"}(@{b}CHECK_VER@{ub}(Exec,OSVER_1_2,"exec.library/AddMemList",file,line));
+
+@endnode
+@Node "CLEAR_OUTPUT" "debugtools/CLEAR_OUTPUT"
+@{fg shine}debugtools/CLEAR_OUTPUT@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}CLEAR_OUTPUT@{ub} -- clears all active output channels
+@{ub}
+@{b}SYNOPSIS@{ub}
+    @{b}CLEAR_OUTPUT@{ub}
+
+@{b}FUNCTION@{ub}
+    Clears all active output channels.
+
+@endnode
+@Node "CUR..." "debugtools/CUR..."
+@{fg shine}debugtools/CUR...@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}CUR...@{ub} -- get current location
+@{ub}
+@{b}SYNOPSIS@{ub}
+    res=CURFILE
+    res=CURFUNC
+    res=CURLINE
+
+@{b}FUNCTION@{ub}
+    Gets the location the current code comes from.
+
+@{b}RESULT@{ub}
+    res - CURFILE : the file name the current function is defined in
+          CURFUNC : the current functions name
+          CURLINE : the line at which the definition of the current function
+                    starts
+
+@{b}NOTES@{ub}
+    Requires that the code has been compiler with the PROFILE option.
+
+@{b}SEE ALSO@{ub}
+    @{"LAST..." Link "LAST..."}
+
+@endnode
+@Node "DONEDEBUG" "debugtools/DONEDEBUG"
+@{fg shine}debugtools/DONEDEBUG@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}DONEDEBUG@{ub} -- calles the dt-system destructor
+@{ub}
+@{b}SYNOPSIS@{ub}
+    @{b}DONEDEBUG@{ub}
+  FUNCTION
+    Calles the dt-system destructor, which cleans up the dt-system after use.
+    This is normally done automatically by the startup-code. It must be done for
+    own tasks / processes and shared libraries / devices / ressources etc.
+
+@{b}SEE ALSO@{ub}
+    @{"INITDEBUG" Link "INITDEBUG"}
+
+@endnode
+@Node "ERR" "debugtools/ERR"
+@{fg shine}debugtools/ERR@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}ERR@{ub} -- displays an error message
+@{ub}
+@{b}SYNOPSIS@{ub}
+    @{b}ERR@{ub}(str)
+    ERR1(str,arg1)
+    :
+    ERR6(str,arg1,arg2,arg3,arg4,arg5,arg6)
+
+@{b}FUNCTION@{ub}
+    Displays an error message.
+
+@{b}INPUTS@{ub}
+    str - the printf like format string
+    arg<x> - message arguments
+
+@{b}EXAMPLE@{ub}
+    ERR1("unexpected error : %ld",errcode);
+
+@{b}NOTES@{ub}
+    The system automatically adds a '\\n' character to the end of the message,
+    if neccesary,
+
+@{b}SEE ALSO@{ub}
+    @{"MSG" Link "MSG"}(),@{"MSGC" Link "MSGC"}(),ERRL()
+
+@endnode
+@Node "FAILREQ" "debugtools/FAILREQ"
+@{fg shine}debugtools/FAILREQ@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}FAILREQ@{ub} -- returns if fail requesters are switched on or off
+@{ub}
+@{b}SYNOPSIS@{ub}
+    res=@{b}FAILREQ@{ub}
+
+@{b}FUNCTION@{ub}
+    Returns if fail requesters are switched on or off
+
+@{b}RESULT@{ub}
+    res - 1 if they are switched on, 0 if off
+
+@{b}SEE ALSO@{ub}
+    @{"FAILREQ_..." Link "FAILREQ_..."}
+
+@endnode
+@Node "FAILREQ_..." "debugtools/FAILREQ_..."
+@{fg shine}debugtools/FAILREQ_...@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}FAILREQ_...@{ub} -- switches ressource fail requester on or off
+@{ub}
+@{b}SYNOPSIS@{ub}
+    FAILREQ_ON
+    FAILREQ_OFF
+
+@{b}FUNCTION@{ub}
+    Switches ressource fail requesters on or off. If switched on, the user can
+    interactive decide that a ressource allocation should fail. This is useful
+    to test program paths which are not executed normally.
+
+@{b}SEE ALSO@{ub}
+    @{"FAILREQ" Link "FAILREQ"}
+
+@endnode
+@Node "IF_..." "debugtools/IF_..."
+@{fg shine}debugtools/IF_...@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}IF_...@{ub} -- conditionl execution
+@{ub}
+@{b}SYNOPSIS@{ub}
+    IF_DEBUG(exp1)
+    IF_DEBUG_ELSE(exp1,exp2)
+
+@{b}FUNCTION@{ub}
+    exp1 will be executed in a debug-version and exp2 in a non-debug version.
+
+@{b}INPUTS@{ub}
+    exp1,exp2 - any expression
+
+@{b}EXAMPLE@{ub}
+    IF_DEBUG_ELSE(SaveInsert(list,node),Insert(list,node));
+
+@endnode
+@Node "INITDEBUG" "debugtools/INITDEBUG"
+@{fg shine}debugtools/INITDEBUG@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}INITDEBUG@{ub} -- calles the dt-system constructor
+@{ub}
+@{b}SYNOPSIS@{ub}
+    @{b}INITDEBUG@{ub}
+  FUNCTION
+    Calles the dt-system constructor, which initializes the dt-system for use.
+    This is normally done automatically by the startup-code. It must be done for
+    own tasks / processes and shared libraries / devices / ressources etc.
+
+@{b}SEE ALSO@{ub}
+    @{"DONEDEBUG" Link "DONEDEBUG"}
+
+@endnode
+@Node "IS_VALID_..." "debugtools/IS_VALID_..."
+@{fg shine}debugtools/IS_VALID_...@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}IS_VALID_...@{ub} -- tests the correctness of some basic types
+@{ub}
+@{b}SYNOPSIS@{ub}
+    res=IS_VALID_DOUBLE(x,funcname,parname)
+    res=IS_VALID_FLOAT(x,funcname,parmum)
+    res=IS_VALID_POINTER(x,funcname,parmum,align)
+    res=IS_VALID_POINTER_N0(x,funcname,parmum,align)
+    res=IS_VALID_STRING(x,funcname,parmum,maxlength)
+
+@{b}FUNCTION@{ub}
+    Tests if the supplied parameter is a valid member of the variable type.
+
+@{b}INPUTS@{ub}
+    x - variable to test
+        DOUBLE     double *
+        FLOAT      float *
+        POINTER    APTR
+        POINTER_N0 APTR
+        STRING     STRPTR
+    funcname - name of the function, which we are in
+    parname - name of the variable/parameter
+    align - if the pointer needs to be aligned, supply here to how many bytes
+    maxlength - the maximum legnth, for which the string will be checked
+
+@{b}RESULT@{ub}
+    res - 0 if variable is not valid, 1 if it is
+
+@{b}EXAMPLE@{ub}
+    @{"ASSERTQ" Link "ASSERTQ"}(IS_VALID_DOUBLE(&x,"sqrt","1.par"));
+
+@{b}SEE ALSO@{ub}
+    @{"ASSERTQ" Link "ASSERTQ"}()
+
+@endnode
+@Node "LAST..." "debugtools/LAST..."
+@{fg shine}debugtools/LAST...@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}LAST...@{ub} -- get previous location
+@{ub}
+@{b}SYNOPSIS@{ub}
+    res=LASTFILE
+    res=LASTFUNC
+    res=LASTLINE
+
+@{b}FUNCTION@{ub}
+    Gets the location of the function, from which the current one has been
+    called.
+
+@{b}RESULT@{ub}
+    res - CURFILE : the file name the previous function is defined in
+          CURFUNC : the previous functions name
+          CURLINE : the line at which the definition of the previous function
+                    starts
+
+@{b}NOTES@{ub}
+    Requires that the code has been compiler with the PROFILE option.
+
+@{b}SEE ALSO@{ub}
+    @{"CUR..." Link "CUR..."}
+
+@endnode
+@Node "LED_..." "debugtools/LED_..."
+@{fg shine}debugtools/LED_...@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}LED_...@{ub} -- switching the AMIGA-powerled
+@{ub}
+@{b}SYNOPSIS@{ub}
+    LED_ON
+    LED_OFF
+    LED_TOGGLE
+
+@{b}FUNCTION@{ub}
+    These macros switching the AMIGA-powerled on, off or toggling the led
+    state.
+
+@{b}NOTES@{ub}
+    You must only use this with a REAL AMIGA. Do not use this on clones.
+
+@endnode
+@Node "MSG" "debugtools/MSG"
+@{fg shine}debugtools/MSG@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}MSG@{ub} -- displays a message
+@{ub}
+@{b}SYNOPSIS@{ub}
+    @{b}MSG@{ub}(str)
+    MSG1(str,arg1)
+    :
+    MSG6(str,arg1,arg2,arg3,arg4,arg5,arg6)
+
+@{b}FUNCTION@{ub}
+    Displays a message.
+
+@{b}INPUTS@{ub}
+    str - the printf like format string
+    arg<x> - message arguments
+
+@{b}EXAMPLE@{ub}
+    MSG1("unexpected error : %ld",errcode);
+
+@{b}NOTES@{ub}
+    The system automatically adds a '\\n' character to the end of the message,
+    if neccesary,
+
+@{b}SEE ALSO@{ub}
+    @{"MSGC" Link "MSGC"}(),MSGL(),@{"ERR" Link "ERR"}(),ERRL()
+
+@endnode
+@Node "MSGC" "debugtools/MSGC"
+@{fg shine}debugtools/MSGC@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}MSGC@{ub} -- displays a message depending on a condition
+@{ub}
+@{b}SYNOPSIS@{ub}
+    @{b}MSGC@{ub}(cond,str)
+    MSGC1(cond,str,arg1)
+    :
+    MSGC6(cond,str,arg1,arg2,arg3,arg4,arg5,arg6)
+
+@{b}FUNCTION@{ub}
+    Displays a message if the condition evaluates to true.
+
+@{b}INPUTS@{ub}
+    cond - a condition
+    str - the printf like format string
+    arg<x> - message arguments
+
+@{b}EXAMPLE@{ub}
+    MSGC1((errcode<0),"unexpected error : %ld",errcode);
+
+@{b}NOTES@{ub}
+    The system automatically adds a '\\n' character to the end of the message,
+    if neccesary,
+
+@{b}SEE ALSO@{ub}
+    @{"MSG" Link "MSG"}(),MSGL(),@{"ERR" Link "ERR"}(),ERRL()
+
+@endnode
+@Node "MemRead" "debugtools/MemRead"
+@{fg shine}debugtools/MemRead@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}MemRead@{ub} -- reads one value from memory
+@{ub}
+@{b}SYNOPSIS@{ub}
+    val=@{b}MemRead@{ub}(base,index,size)
+
+@{b}FUNCTION@{ub}
+    Reads one value from memory. Performs bound checks to detect illegal
+    memory accesses.
+
+@{b}INPUTS@{ub}
+    base - basis address of the memory block
+    index - index (pointer) to read value from
+    size - length of the memory block
+
+@{b}RESULT@{ub}
+    val - value form array or 0 if it is an illegal access
+
+@{b}EXAMPLE@{ub}
+    numSum+=@{"MemReadIX" Link "MemReadIX"}(ptrVector,ptrElement,numVectorSize);
+
+@{b}SEE ALSO@{ub}
+    @{"MemReadIX" Link "MemReadIX"}(),@{"MemWriteIX" Link "MemWriteIX"}(),@{"MemWrite" Link "MemWrite"}()
+
+@endnode
+@Node "MemReadIX" "debugtools/MemReadIX"
+@{fg shine}debugtools/MemReadIX@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}MemReadIX@{ub} -- reads one value from an array
+@{ub}
+@{b}SYNOPSIS@{ub}
+    val=@{b}MemReadIX@{ub}(base,index,size)
+
+@{b}FUNCTION@{ub}
+    Reads one value from an array. Performs bound checks to detect illegal
+    memory accesses.
+
+@{b}INPUTS@{ub}
+    base - basis address of the array
+    index - index to read value from
+    size - length of the array
+
+@{b}RESULT@{ub}
+    val - value form array or 0 if it is an illegal access
+
+@{b}EXAMPLE@{ub}
+    numSum+=@{b}MemReadIX@{ub}(ptrVector,i,numVectorSize);
+
+@{b}TODO@{ub}
+    Add variatons for multidimensional arrays.
+
+@{b}SEE ALSO@{ub}
+    @{"MemWriteIX" Link "MemWriteIX"}(),@{"MemRead" Link "MemRead"}(),@{"MemWrite" Link "MemWrite"}()
+
+@endnode
+@Node "MemWrite" "debugtools/MemWrite"
+@{fg shine}debugtools/MemWrite@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}MemWrite@{ub} -- writes one value into memory
+@{ub}
+@{b}SYNOPSIS@{ub}
+    @{b}MemWrite@{ub}(base,index,size,val)
+
+@{b}FUNCTION@{ub}
+    Writes one value into memory. Performs bound checks to detect illegal
+    memory accesses.
+
+@{b}INPUTS@{ub}
+    base - basis address of the memory block
+    index - index (pointer) to write value into
+    size - length of the memory block
+    val  - value to write
+
+@{b}EXAMPLE@{ub}
+    @{b}MemWrite@{ub}(ptrVector,ptrElement,numVectorSize,i);
+
+@{b}SEE ALSO@{ub}
+    @{"MemReadIX" Link "MemReadIX"}(),@{"MemWriteIX" Link "MemWriteIX"}(),@{"MemRead" Link "MemRead"}()
+
+@endnode
+@Node "MemWriteIX" "debugtools/MemWriteIX"
+@{fg shine}debugtools/MemWriteIX@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}MemWriteIX@{ub} -- writes one value into an array
+@{ub}
+@{b}SYNOPSIS@{ub}
+    @{b}MemWriteIX@{ub}(base,index,size,val)
+
+@{b}FUNCTION@{ub}
+    Writes one value into an array. Performs bound checks to detect illegal
+    memory accesses.
+
+@{b}INPUTS@{ub}
+    base - basis address of the array
+    index - index to write value into
+    size - length of the array
+    val  - value to write
+
+@{b}EXAMPLE@{ub}
+    @{b}MemWriteIX@{ub}(ptrVector,i,numVectorSize,i);
+
+@{b}TODO@{ub}
+    Add variatons for multidimensional arrays.
+
+@{b}SEE ALSO@{ub}
+    @{"MemReadIX" Link "MemReadIX"}(),@{"MemRead" Link "MemRead"}(),@{"MemWrite" Link "MemWrite"}()
+
+@endnode
+@Node "REPORT" "debugtools/REPORT"
+@{fg shine}debugtools/REPORT@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}REPORT@{ub} -- returns  which kind of reports is desired
+@{ub}
+@{b}SYNOPSIS@{ub}
+    res=@{b}REPORT@{ub}
+
+@{b}FUNCTION@{ub}
+    Return which kind of reports has been choosen.
+
+@{b}RESULT@{ub}
+    res - type of report
+          DTV_Report_Off
+          DTV_Report_Calls
+          DTV_Report_Fails
+
+@{b}SEE ALSO@{ub}
+    @{"REPORT_..." Link "REPORT_..."}
+
+@endnode
+@Node "REPORT_..." "debugtools/REPORT_..."
+@{fg shine}debugtools/REPORT_...@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}REPORT_...@{ub} -- switches auto reports on or off
+@{ub}
+@{b}SYNOPSIS@{ub}
+    REPORT_OFF
+    REPORT_CALLS
+    REPORT_FAILS
+
+@{b}FUNCTION@{ub}
+    REPORT_OFF - switches reports off
+    REPORT_CALLS - generates report entries for each OS-call
+    REPORT_FAILS - generate report entries for each OS-call which failed
+
+@{b}EXAMPLE@{ub}
+    REPORT_CALLS;
+    :             // critical section
+    REPORT_OFF;
+
+@{b}SEE ALSO@{ub}
+    @{"REPORT" Link "REPORT"}
+
+@endnode
+@Node "SCRAMBLE_PTR" "debugtools/SCRAMBLE_PTR"
+@{fg shine}debugtools/SCRAMBLE_PTR@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}SCRAMBLE_PTR@{ub} -- invalidates a pointer
+@{ub}
+@{b}SYNOPSIS@{ub}
+    @{b}SCRAMBLE_PTR@{ub}(ptr);
+
+@{b}FUNCTION@{ub}
+    Marks a pointer as invalid. This is useful to let the dt.system find out,
+    if you are going to use a ressource after you have already freed it.
+
+@{b}INPUTS@{ub}
+    ptr - a pointer (lvalue required - no expressions, no casts)
+
+@{b}EXAMPLE@{ub}
+    Free(ptrMem);@{b}SCRAMBLE_PTR@{ub}(ptrMem);
+
+@endnode
+@Node "SHOWC_..." "debugtools/SHOWC_..."
+@{fg shine}debugtools/SHOWC_...@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}SHOWC_...@{ub} -- displays contents of variables depending on a condition
+@{ub}
+@{b}SYNOPSIS@{ub}
+    SHOWC_BYTE(cond,var)
+    SHOWC_WORD(cond,var)
+    SHOWC_LONG(cond,var)
+    SHOWC_BOOL(cond,var)
+    SHOWC_FLT(cond,var)
+    SHOWC_PTR(cond,var)
+    SHOWC_BPTR(cond,var)
+    SHOWC_STR(cond,var)
+    SHOWC_BSTR(cond,var)
+
+@{b}FUNCTION@{ub}
+    Displays nicely formated the contents of several variable types if the
+    condition evaluates to true.
+
+@{b}INPUTS@{ub}
+    cond - a condition
+    var - the varable to output
+
+@{b}EXAMPLE@{ub}
+    SHOWC_STR((cntLoop1<10),strList[cntLoop1]);
+
+@{b}NOTES@{ub}
+    There is no type checking, because those are marcros.
+
+@{b}IDEAS@{ub}
+    Use inline functions instead of pure macros, to add type checking.
+
+@endnode
+@Node "SHOWC_..." "debugtools/SHOWC_..."
+@{fg shine}debugtools/SHOWC_...@{fg text}
+
+@{b}NAME@{ub}
+@{b}    INTRO,OUTRO -- displays message for entering and leaving a function
+@{ub}
+@{b}SYNOPSIS@{ub}
+    INTRO
+    OUTRO
+
+@{b}FUNCTION@{ub}
+    Displays a message indication that the current function has been
+    entered or left.
+
+@{b}NOTES@{ub}
+    These function should be the first / last statements in a function.
+
+@endnode
+@Node "SHOW_..." "debugtools/SHOW_..."
+@{fg shine}debugtools/SHOW_...@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}SHOW_...@{ub} -- displays contents of variables
+@{ub}
+@{b}SYNOPSIS@{ub}
+    SHOW_BYTE(var)
+    SHOW_WORD(var)
+    SHOW_LONG(var)
+    SHOW_BOOL(var)
+    SHOW_FLT(var)
+    SHOW_PTR(var)
+    SHOW_BPTR(var)
+    SHOW_STR(var)
+    SHOW_BSTR(var)
+
+@{b}FUNCTION@{ub}
+    Displays nicely formated the contents of several variable types.
+
+@{b}INPUTS@{ub}
+    var - the varable to output
+
+@{b}EXAMPLE@{ub}
+    SHOW_BYTE(cntLoop1);
+
+@{b}NOTES@{ub}
+    There is no type checking, because those are marcros.
+
+@{b}IDEAS@{ub}
+    Use inline functions instead of pure macros, to add type checking.
+
+@endnode
+@Node "STACKCHECK" "debugtools/STACKCHECK"
+@{fg shine}debugtools/STACKCHECK@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}STACKCHECK@{ub} -- checks for stack-overflows and invalidates unused stack area
+@{ub}
+@{b}SYNOPSIS@{ub}
+    @{b}STACKCHECK@{ub}
+  FUNCTION
+    Checks for stack overflows, keeps track of maximum stack-usage. Further-
+    more it invalidates unused stack space to force that the use of uninitia-
+    lized variables will cause Enforcer/CyberGuard hits or other effects.
+
+@{b}NOTES@{ub}
+    When you compile with the PROFILE option, this function is called auto-
+    matically each time a function is called and left.
+
+@endnode
+@Node "VERIFY" "debugtools/VERIFY"
+@{fg shine}debugtools/VERIFY@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}VERIFY@{ub} -- produces an error if an expression evaluates to FALSE
+@{ub}
+@{b}SYNOPSIS@{ub}
+    @{b}VERIFY@{ub}(exp)
+
+@{b}FUNCTION@{ub}
+    Evaluates the expression and prints out an error if the result is FALSE.
+    If one of a series of assertions fails the global assert state is false as
+    well.
+    In contrast to @{"ASSERT" Link "ASSERT"} the expression will be evaluated in non-debug ver-
+    sions too.
+
+@{b}INPUTS@{ub}
+    exp - expression with a result to test for (condition)
+
+@{b}EXAMPLE@{ub}
+    @{b}VERIFY@{ub}(ptrMem=malloc(MEMSIZE));
+
+@{b}NOTES@{ub}
+    If the global state is used it must be reseted first
+
+@{b}SEE ALSO@{ub}
+    @{"ASSERT" Link "ASSERT"}(),@{"ASSERTL" Link "ASSERTL"}(),@{"ASSERTQ" Link "ASSERTQ"}(),@{"ASSERT_RESET" Link "ASSERT_RESET"},ASSERT_OKAY,@{"VERIFYL" Link "VERIFYL"}()
+
+@endnode
+@Node "VERIFYL" "debugtools/VERIFYL"
+@{fg shine}debugtools/VERIFYL@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}VERIFYL@{ub} -- prints an error (specific file & line) if the assertion fails
+@{ub}
+@{b}SYNOPSIS@{ub}
+    @{b}VERIFYL@{ub}(exp,file,line,msg)
+
+@{b}FUNCTION@{ub}
+    Evaluates the expression and prints out an error if the result is FALSE.
+    If one of a series of assertions fails the global assert state is false as
+    well.
+    In contrast to @{"ASSERT" Link "ASSERT"} the expression will be evaluated in non-debug ver-
+    sions too.
+
+@{b}INPUTS@{ub}
+    exp - expression with a result to test for (condition)
+    file - the source file name
+    line - the source file line
+    msg - the error message
+
+@{b}NOTES@{ub}
+    If the global state is used it must be reseted first
+    This macro is used internally by all function wrapper to show the source
+    name and line of the calling procedure
+
+@{b}SEE ALSO@{ub}
+    @{"ASSERT" Link "ASSERT"}(),@{"ASSERTL" Link "ASSERTL"}(),@{"ASSERTQ" Link "ASSERTQ"}(),@{"ASSERT_RESET" Link "ASSERT_RESET"},ASSERT_OKAY,@{"VERIFY" Link "VERIFY"}()
+
+@endnode
+@Node "dt_decl.h" "debugtools/dt_decl.h"
+@{fg shine}debugtools/dt_decl.h@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}dt_decl.h@{ub}
+@{ub}
+@{b}COPYRIGHT@{ub}
+    $VER: @{b}dt_decl.h@{ub} 1.20 (29.06.99) © by Stefan Kost 1998-1999
+
+@{b}FUNCTION@{ub}
+    one and only include file for the debugtools system
+
+@{b}AUTHOR@{ub}
+@{i}    Stefan Kost
+@{ui}
+@{b}CREATION DATE@{ub}
+    04.Feb.1998
+
+@{b}MODIFICATION HISTORY@{ub}
+    29.Jun.1999 V 1.20  first release
+    10.Apr.1998    V 0.80  breakpoints added
+    22.Mar.1998    V 0.20  control-flow macros added
+    04.Feb.1998 V 0.00  initial version
+
+@{b}NOTES@{ub}
+
+
+@endnode
+@Node "sos_exec_decl.h" "debugtools/sos_exec_decl.h"
+@{fg shine}debugtools/sos_exec_decl.h@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}sos_exec_decl.h@{ub}
+@{ub}
+@{b}COPYRIGHT@{ub}
+    $VER: @{b}sos_exec_decl.h@{ub} 1.20 (02.08.98) © by Stefan Kost 1998-1998
+
+@{b}FUNCTION@{ub}
+    exec-function wrapper-decls
+
+@{b}AUTHOR@{ub}
+@{i}    Stefan Kost
+@{ui}
+@{b}CREATION DATE@{ub}
+    12.Feb.1998
+
+@{b}MODIFICATION HISTORY@{ub}
+    02.Aug.1998 V 1.20  first release
+    12.Feb.1998 V 0.00  initial version
+
+@{b}NOTES@{ub}
+
+
+@endnode
+@Node "sos_listtools_decl.h" "debugtools/sos_listtools_decl.h"
+@{fg shine}debugtools/sos_listtools_decl.h@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}sos_listtools_decl.h@{ub}
+@{ub}
+@{b}COPYRIGHT@{ub}
+    $VER: @{b}sos_listtools_decl.h@{ub} 1.20 (05.06.99) © by Stefan Kost 1998-1999
+
+@{b}FUNCTION@{ub}
+    listtools-function wrapper-decls
+
+@{b}AUTHOR@{ub}
+@{i}    Stefan Kost
+@{ui}
+@{b}CREATION DATE@{ub}
+    04.Mai.1998
+
+@{b}MODIFICATION HISTORY@{ub}
+    05.Jun.1999 V 1.20  first release
+    04.Mai.1998 V 1.00  initial version
+
+@{b}NOTES@{ub}
+
+
+@endnode
+@Node "sos_math_decl.h" "debugtools/sos_math_decl.h"
+@{fg shine}debugtools/sos_math_decl.h@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}sos_math_decl.h@{ub}
+@{ub}
+@{b}COPYRIGHT@{ub}
+    $VER: @{b}sos_math_decl.h@{ub} 1.20 (02.08.98) © by Stefan Kost 1998-1998
+
+@{b}FUNCTION@{ub}
+    math-function wrapper-decls
+
+@{b}AUTHOR@{ub}
+@{i}    Stefan Kost
+@{ui}
+@{b}CREATION DATE@{ub}
+    15.Feb.1998
+
+@{b}MODIFICATION HISTORY@{ub}
+    02.Aug.1998 V 1.20  first release
+    15.Feb.1998 V 0.00  initial version
+
+@{b}NOTES@{ub}
+
+
+@endnode
+@Node "sos_stdc_decl.h" "debugtools/sos_stdc_decl.h"
+@{fg shine}debugtools/sos_stdc_decl.h@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}sos_stdc_decl.h@{ub}
+@{ub}
+@{b}COPYRIGHT@{ub}
+    $VER: @{b}sos_stdc_decl.h@{ub} 1.20 (02.08.98) © by Stefan Kost 1998-1998
+
+@{b}FUNCTION@{ub}
+    stdc-function wrapper-decls
+
+@{b}AUTHOR@{ub}
+@{i}    Stefan Kost
+@{ui}
+@{b}CREATION DATE@{ub}
+    04.Mai.1998
+
+@{b}MODIFICATION HISTORY@{ub}
+    02.Aug.1998 V 1.20  first release
+    04.Mai.1998 V 1.00  initial version
+
+@{b}NOTES@{ub}
+
+
+@endnode
+

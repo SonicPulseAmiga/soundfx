@@ -1,0 +1,61 @@
+From - Tue Mar  5 17:09:37 2002
+X-UIDL: 361df5b500004297
+X-Mozilla-Status: 0001
+X-Mozilla-Status2: 00000000
+Received: from rwcrmhc53.attbi.com (rwcrmhc53.attbi.com [204.127.198.39])
+	by imn.htwk-leipzig.de (8.9.1/8.9.1) with ESMTP id BAA02704
+	for <kost@imn.htwk-leipzig.de>; Tue, 5 Mar 2002 01:29:14 +0100 (MET)
+Received: from attbi.com ([12.225.3.124]) by rwcrmhc53.attbi.com
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020305003258.RSGS2951.rwcrmhc53.attbi.com@attbi.com>
+          for <kost@imn.htwk-leipzig.de>; Tue, 5 Mar 2002 00:32:58 +0000
+From: Travis Halfman <thalfman@attbi.com>
+Reply-To: thalfman@attbi.com
+To: kost@imn.htwk-leipzig.de
+Date: Mon, 04 Mar 2002 16:38:13 +0200
+Message-ID: <yam8828.656.65760456@mail.attbi.com>
+X-Mailer: YAM 2.3p1 [040] AmigaOS E-Mail Client (c) 2000-2001 by YAM Open Source Team - http://www.yam.ch/
+Organization: Calder/Wood Productions
+Subject: SoundFX-key
+MIME-Version: 1.0
+Content-Type: text/plain
+Content-Length: 983
+Status:  O
+
+
+On 20-Feb-02, you wrote:
+
+> Dear Amigauser,
+> 
+> thank you for registering SoundFX. This fortifies my will, to further
+> develop the program. To make SoundFX detect the keyfile, copy it to either
+> one of the directories below :
+>  devs:keyfiles/
+>  <sfxdir>/
+>  <sfxdir>/keyfiles/
+> as sfx.key.
+
+Thanks for getting me the SFX key right away.  However, after following the
+directions above, I'm having difficulties starting the program.  It loads
+sixteen percent of the program then encounters the following error:
+
+"SFX-prefs.c 1314:
+Can't access configio.library >=3.1
+(errorcode: 00000040)!"
+
+Hitting either OK or HELP causes my computer to freeze and reboot
+(Amithlon).  
+
+If I remove the keyfile SFX loads properly in DEMO mode.
+
+Using 'version' in a shell doesn't return the version number of
+configio.library, but it's the one from the installation.
+
+I believe I'm using the latest SFX (from 'information'): 4.1.86
+(05/08/2001).
+
+Am I doing something wrong?
+
+Travis Halfman
+
+

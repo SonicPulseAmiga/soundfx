@@ -1,0 +1,117 @@
+X-UIDL: 3ead5db70000cf7d
+X-Mozilla-Status: 0004
+X-Mozilla-Status2: 00000000
+Received: from n2.grp.scd.yahoo.com (n2.grp.scd.yahoo.com [66.218.66.75])
+	by imn.htwk-leipzig.de (8.9.1/8.9.1) with SMTP id PAA15773
+	for <kost@imn.htwk-leipzig.de>; Wed, 30 Jul 2003 15:41:32 +0200 (MET DST)
+Received: from [66.218.67.193] by n2.grp.scd.yahoo.com with NNFMP; 30 Jul 2003 13:41:03 -0000
+Received: (qmail 66608 invoked from network); 30 Jul 2003 13:41:00 -0000
+Received: from unknown (66.218.66.218)
+  by m11.grp.scd.yahoo.com with QMQP; 30 Jul 2003 13:41:00 -0000
+Received: from unknown (HELO moutvdom.kundenserver.de) (212.227.126.251)
+  by mta3.grp.scd.yahoo.com with SMTP; 30 Jul 2003 13:40:59 -0000
+Received: from [212.227.126.224] (helo=mrvdomng.kundenserver.de)
+	by moutvdom.kundenserver.de with esmtp (Exim 3.35 #1)
+	id 19hrCN-0001ad-00
+	for soundfx-users@yahoogroups.com; Wed, 30 Jul 2003 15:40:59 +0200
+Received: from [193.158.181.143] (helo=194.25.2.129)
+	by mrvdomng.kundenserver.de with smtp (Exim 3.35 #1)
+	id 19hrCL-0003fQ-00
+	for soundfx-users@yahoogroups.com; Wed, 30 Jul 2003 15:40:58 +0200
+X-eGroups-Return: sentto-3879093-907-1059572463-kost=imn.htwk-leipzig.de@returns.groups.yahoo.com
+X-Sender: blakkhar@online.de
+X-Apparently-To: soundfx-users@yahoogroups.com
+To: soundfx-users@yahoogroups.com
+Message-ID: <yam9341.2696.25194440@smtp.nwn.de>
+In-Reply-To: <3F27938C.9070001@imn.htwk-leipzig.de>
+X-Mailer: YAM 2.4p1 [040] AmigaOS E-mail Client (c) 2000-2003 by YAM Open Source Team - http://www.yam.ch/
+From: Stellan <blakkhar@nwn.de>
+MIME-Version: 1.0
+Mailing-List: list soundfx-users@yahoogroups.com; contact soundfx-users-owner@yahoogroups.com
+Delivered-To: mailing list soundfx-users@yahoogroups.com
+Precedence: bulk
+List-Unsubscribe: <mailto:soundfx-users-unsubscribe@yahoogroups.com>
+Date: Wed, 30 Jul 2003 15:38:53 +0200
+Subject: [soundfx-users] Re: sfx-4.3b2
+Reply-To: soundfx-users@yahoogroups.com
+Content-Transfer-Encoding: 8bit
+X-MIME-Autoconverted: from quoted-printable to 8bit by imn.htwk-leipzig.de id PAA15773
+Content-Type: text/plain; charset=ISO-8859-1
+Content-Length: 3155
+Status:  O
+
+Hello,
+
+I noticed some strange Window behaves. The Operator-Windows appear under all
+ohter Sample-Windows (In Single- or Multiple-Window modus). If I choose a new
+Operator immediately the Window appear in front, or in background, but without
+starting it (why?). Stefan, maybe you have changed this ? 
+
+Cou Process Name     Action   Target Name                       Option Res.
+--- ------------     ------   -----------                       ------ ----
+1   SoundFX          *Lock    Music:                            Read   OK  
+2   SoundFX          *Lock    Music:                            Read   OK  
+3   SoundFX          FindTask SFX_SampleJoin.0                         Fail
+4   SoundFX          *Lock    Music:                            Read   OK  
+5   SFX_SampleJoin.0 *MakeDir progdir:_operators/SampleJoin            Fail
+6   SFX_SampleJoin.0 MakeDir  progdir:_operators/SampleJoin            Fail
+7   SFX_SampleJoin.0 *Lock    env:sfx/operators/SampleJoin.cfg  Read   OK  
+8   SFX_SampleJoin.0 *Open    env:sfx/operators/SampleJoin.cfg  Read   OK  
+
+
+The Save-Sample-Prefs-Window don`t appear. Menu: Project -Save the same.
+
+Count Process Name  Action    Target Name                     Options  Res.
+----- ------------  ------    -----------                     -------  ----
+4     SoundFX       OpenLib   progdir:_savers/RAW_S.sfxmod    Ver 4    Fail
+
+
+> * pitchshift crashes (at least on WinUAE/68020-881)
+
+confirmed :-)
+
+> * TimeStretch produces garbage (at least on WinUAE/68020-881)
+
+Here too, but not ever. Sometimes when change the parameters there is a good
+timestrechted sample. 
+
+I got enforcer-hits while SFX starts, like last version.
+
+In the goodies archive is the old version of:
+Delay Calculator 0.2 for SoundFX © Dan Jedlicka
+
+
+-- 
+ ____/\ _______ ____      _________ ________
+ \  //.\     //   //______\\ .___ \\  ____//_____
+  \//   \   //   //.    // \\   /  \\ \\   __. //_________
+  //_____\ //\  /______//___\\ /___//__\\ /   //        //
+  ¯ \\ z!o\/  \/       ¯     \/    ¯    \/___//        //
+     \\                                      ¯        //
+     //         mailto:blakkhar@nwn.de                \\
+     \\        http://www.thescene.de.vu              //
+      \\      http://www.chscene.ch/moods/           //
+       \\                                           //
+ _______\\_ ___________    _________ ____/\_____   //
+ \\  ____//_\\_______//____\\ .___ \\  .// \  //  //
+  \\ \\   __. //\\ ._¯   // \\   /  \\_// __\ \\__/
+  //__\\ /   //__\\ /___//___\\ /___////_______\\
+  ¯    \/___//    \/    ¯     \/z!o ¯ ¯         ¯
+            ¯
+
+
+------------------------ Yahoo! Groups Sponsor ---------------------~-->
+Free shipping on all inkjet cartridge & refill kit orders to US & Canada. Low prices up to 80% off. We have your brand: HP, Epson, Lexmark & more.
+http://www.c1tracking.com/l.asp?cid=5510
+http://us.click.yahoo.com/GHXcIA/n.WGAA/ySSFAA/mjFolB/TM
+---------------------------------------------------------------------~->
+
+To unsubscribe from this group, send an email to:
+soundfx-users-unsubscribe@yahoogroups.com
+
+ 
+
+Your use of Yahoo! Groups is subject to http://docs.yahoo.com/info/terms/ 
+
+
+

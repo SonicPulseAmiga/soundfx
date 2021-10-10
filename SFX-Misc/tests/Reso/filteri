@@ -1,0 +1,90 @@
+From d93jesno@isy.liu.seThu Apr 25 15:17:53 1996
+Date: Thu, 25 Apr 1996 14:47:28 +0200
+From: d93jesno@isy.liu.se
+To: Nikola.Fox@public.srce.hr
+Subject: Re: Resonant filters, how???
+
+-----------------------------------------------
+
+Or, if you want it to be even simpler, try this one:
+
+  freq = 2 * sin(PI*F/Fs); Where F is the desired frequency and Fs is the
+                           sample rate.
+
+  recQ = 1/Q; Reciprocal of Q, where Q is the desired resonance.
+
+double StateVariableFilter(double input, double freq, double recQ)
+{
+    static double high=0, mid=0, low=0;
+
+    high = input - mid * recQ - low;
+    mid += high * freq;
+    low += mid  * freq;
+
+    return low;  // or mid or high... notch is high+low
+}
+
+This is a two pole filter. If you want sharper cutoff, use two in
+series. I leave it to you to calculate the correct freq/Q when using
+more than one filter :-)
+
+-= Lars =-
+
+--------------------------------------------------------------------------
+
+From: ray@rucus.ru.ac.za (Ray Heasman)
+Newsgroups: comp.dsp
+Subject: Re: Dynamic digital filters
+Date: 19 Mar 1996 10:36:51 GMT
+Message-ID: <4im2o3$sg2@quagga.ru.ac.za>
+References: <4icl0f$oup@web.cae.ca> <4ife9m$klq@aimnet.aimnet.com> <4ij82c$13t@oznet07.ozemail.com.au>
+
+Hi, this is a 2nd order filter with independently programmable centre frequency
+and resonance (Q). It is from the book 'Musical applications of
+Microprocessors' and I cant remember the author.
+
+It provides High, Low, Notch and Band pass outputs.
+
+Key:
+        I  = Input sample
+        LP = Low pass output
+        BP = band pass output
+        HP = high pass output
+        NO = notch output
+        f1 = frequency control parameter
+        q1 = resonance control parameter
+        d1 = delay, assoc. with bandpass output
+        d2 = delay, assoc. with lowpass output
+        
+        
+The algorithm is as follows, for every sample period:
+
+        LP := D2 + f1*d1
+        HP := I - LP - q1*d1
+        BP := f1*HP + d1
+        NO := HP+LP
+        d1 := BP
+        d2 := LP
+        
+To use this, set:
+
+        q1 := 1/Q where Q is the desired resonance (useful from 2 to
+                        Infinity)
+        f1 := 2*sin(Pi*F/Fs) where F is the desired frequency and Fs is the
+                        sample rate
+                        
+I hope this helps.
+
+Cheerio,
+Ray
+--
+             _/_/_/   ""\ ""\    ""\ ""\ """""""\ ""\   _/_/_/_/_/_/_/_/_/_/_/
+           _/_/_/   """"\ """\  """\ ""\ ""\      """"\   _/ StarWriter  /  _/
+         _/_/_/   ""\ ""\ ""\"""\""\ ""\ ""\ """\ ""\ ""\   _/    Genisys   _/
+_/_/_/ _/_/_/   """"""""\ ""\ "\ ""\ ""\ ""\  ""\ """"""""\   _/            _/
+ _/_/_/_/_/   ""\     ""\ ""\    ""\ ""\ """""""\ ""\     ""\   _/_/_/_/_/_/_/
+   _/_/_/             Amiga - The canvas of the Gods.
+
+
+----- End Included Message -----
+

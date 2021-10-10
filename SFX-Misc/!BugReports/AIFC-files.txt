@@ -1,0 +1,66 @@
+Return-Path: <alfred.j.faust@gmx.de>
+Received: from mail.gmx.net (pop.gmx.de [213.165.64.20])
+	by server1.wecotec.de (8.12.10/8.12.10) with SMTP id iAABsePL028375
+	for <webmaster@sonicpulse.de>; Wed, 10 Nov 2004 12:54:40 +0100
+Received: (qmail 9775 invoked by uid 65534); 10 Nov 2004 11:54:38 -0000
+Received: from p50888796.dip0.t-ipconnect.de (EHLO ALFRED) (80.136.135.150)
+  by mail.gmx.net (mp020) with SMTP; 10 Nov 2004 12:54:38 +0100
+X-Authenticated: #2031639
+Message-ID: <000301c4c71c$3772d220$0101a8c0@ALFRED>
+Reply-To: "Alfa" <alfred.j.faust@gmx.de>
+From: "Alfa" <alfred.j.faust@gmx.de>
+To: <webmaster@sonicpulse.de>
+Subject: AIFC-files
+Date: Wed, 10 Nov 2004 12:55:42 +0100
+MIME-Version: 1.0
+Content-Type: text/plain;
+	charset="iso-8859-1"
+Content-Transfer-Encoding: 8bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 6.00.2800.1437
+X-MimeOLE: Produced By Microsoft MimeOLE V6.00.2800.1441
+X-Virus-Scan: smtp-vilter
+X-SMTP-Vilter-Version: 1.1.4
+X-SMTP-Vilter-Backend: vilter-clamd
+X-SMTP-Vilter-Status: clean
+X-Spam-Checker-Version: SpamAssassin 2.64 (2004-01-11) on server1.wecotec.de
+X-Spam-Status: No, hits=0.0 required=7.2 tests=none autolearn=ham version=2.64
+X-Spam-Level: 
+
+Hallo Stefan,
+vor einiger Zeit habe ich Dich schon mal wegen der AIFC-files was gefragt.
+Nun nochmal, etwas konkreter:
+
+Ich bin gerade dabei sowas wie einen Softwaresynthesizer für BarsnPipes MOS
+zu machen.
+Für die Samples brauche ich dazu die Loopmarken im File.
+Nun habe ich gesehen, daß nur der Saver für AIFC-files in SoundFX die
+Loop-Marker speichert.
+Also habe ich mich darauf festgelegt. Ist ja auch eine sehr schöne Sache mit
+SFX zu arbeiten.
+Nur habe ich da ein kleines Problem:
+
+Im MARK-chunk stehen ja die Namen der Marker. Die sollten nach den
+Richtlinien im Pascal-Stil gespeichert sein.
+(1.Byte gibt an wieviele Bytes folgen (also maximal 256))
+Der SoundFX-AIFC-Saver speichert die Namen aber im C-Stil (0-terminiert).
+Damit kriege ich nun Probleme hier beim Auslesen.
+
+Der SoundFX-Loader moniert, daß die im AIFC-Format gespeicherten Files
+irgend einen Fehler haben, und ich das ganze erneut abspeichern soll. Aber
+er liest die Positionen der Loop-Marken korrekt aus.
+Wie hast Du das gelöst ? Genau diese Positionen brauche ich.
+
+Wenn Du mir da eine Hilfe geben könntest, wäre ich sehr dankbar.
+
+Mit freundl.Gruß
+Alfred
+URL: www.alfred-j-faust.de
+mail: alfred.j.faust@gmx.de
+--------------------------------------------------------------
+Member of the team of furtherdevelopment
+of the great Multimedia-MIDI-Sequencer
+BarsnPipes
+
+

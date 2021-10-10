@@ -1,0 +1,174 @@
+@database SFX-Index
+
+@remark $VER: SFX-Index.guide © by Stefan Kost 1994-1997 (09.03.97)
+@remark AmigaGuide-OnLine-Hilfe für SoundFX
+
+@master sfx.guide/main
+@index sfx-index.guide/Index
+
+@node Index "Index"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+5.8 Index
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+In diesem Kapitel finden Sie die einzelnen Stichworte der Anleitung, geordnet
+nach dem Alphabet.
+
+@{" A " link index  12 } @{" B " link index  18 } @{" C " link index  27 } @{" D " link index  32 } @{" E " link index  38 } @{" F " link index  44 } @{" G " link index  51 } @{" H " link index  59 } @{" I " link index  65 } @{" J " link index  71 } @{" K " link index  71 } @{" L " link index  78 } @{" M " link index  86 } 
+@{" N " link index  93 } @{" O " link index  93 } @{" P " link index 100 } @{" Q " link index 109 } @{" R " link index 115 } @{" S " link index 122 } @{" T " link index 134 } @{" U " link index 139 } @{" V " link index 139 } @{" W " link index 148 } @{" X " link index 158 } @{" Y " link index 158 } @{" Z " link index 158 } 
+
+	@{" Allgemeines                                        " link SFX.guide/Charpter1.1 }
+	@{" Aussichten                                         " link SFX.guide/Future }
+
+@{" A " link index  12 } @{" B " link index  18 } @{" C " link index  27 } @{" D " link index  32 } @{" E " link index  38 } @{" F " link index  44 } @{" G " link index  51 } @{" H " link index  59 } @{" I " link index  65 } @{" J " link index  71 } @{" K " link index  71 } @{" L " link index  78 } @{" M " link index  86 } 
+@{" N " link index  93 } @{" O " link index  93 } @{" P " link index 100 } @{" Q " link index 109 } @{" R " link index 115 } @{" S " link index 122 } @{" T " link index 134 } @{" U " link index 139 } @{" V " link index 139 } @{" W " link index 148 } @{" X " link index 158 } @{" Y " link index 158 } @{" Z " link index 158 } 
+
+	@{" Benutzerdefiniert                                  " link SFX-GUIModWin.guide/ModWinUser }
+	@{" Bereichsfenster                                    " link SFX-GUIToolWin.guide/RangeWin }
+	@{" bersteuerung                                       " link SFX-Glossar.guide/Overdrive }
+	@{" Bitauflösung                                       " link SFX-Glossar.guide/Bitauflösung }
+	@{" Bugs & Bugreports                                  " link SFX.guide/Bugs }
+
+@{" A " link index  12 } @{" B " link index  18 } @{" C " link index  27 } @{" D " link index  32 } @{" E " link index  38 } @{" F " link index  44 } @{" G " link index  51 } @{" H " link index  59 } @{" I " link index  65 } @{" J " link index  71 } @{" K " link index  71 } @{" L " link index  78 } @{" M " link index  86 } 
+@{" N " link index  93 } @{" O " link index  93 } @{" P " link index 100 } @{" Q " link index 109 } @{" R " link index 115 } @{" S " link index 122 } @{" T " link index 134 } @{" U " link index 139 } @{" V " link index 139 } @{" W " link index 148 } @{" X " link index 158 } @{" Y " link index 158 } @{" Z " link index 158 } 
+
+	@{" Copyright                                          " link SFX.guide/Charpter0.3 }
+
+@{" A " link index  12 } @{" B " link index  18 } @{" C " link index  27 } @{" D " link index  32 } @{" E " link index  38 } @{" F " link index  44 } @{" G " link index  51 } @{" H " link index  59 } @{" I " link index  65 } @{" J " link index  71 } @{" K " link index  71 } @{" L " link index  78 } @{" M " link index  86 } 
+@{" N " link index  93 } @{" O " link index  93 } @{" P " link index 100 } @{" Q " link index 109 } @{" R " link index 115 } @{" S " link index 122 } @{" T " link index 134 } @{" U " link index 139 } @{" V " link index 139 } @{" W " link index 148 } @{" X " link index 158 } @{" Y " link index 158 } @{" Z " link index 158 } 
+
+	@{" Danksagung                                         " link SFX.guide/Thanks }
+	@{" Dynamik                                            " link SFX-Glossar.guide/Dynamic }
+
+@{" A " link index  12 } @{" B " link index  18 } @{" C " link index  27 } @{" D " link index  32 } @{" E " link index  38 } @{" F " link index  44 } @{" G " link index  51 } @{" H " link index  59 } @{" I " link index  65 } @{" J " link index  71 } @{" K " link index  71 } @{" L " link index  78 } @{" M " link index  86 } 
+@{" N " link index  93 } @{" O " link index  93 } @{" P " link index 100 } @{" Q " link index 109 } @{" R " link index 115 } @{" S " link index 122 } @{" T " link index 134 } @{" U " link index 139 } @{" V " link index 139 } @{" W " link index 148 } @{" X " link index 158 } @{" Y " link index 158 } @{" Z " link index 158 } 
+
+	@{" Editfenster                                        " link SFX-GUIToolWin.guide/EditWin }
+	@{" Einstellungen                                      " link SFX-GUIPrefsWin.guide/main }
+
+@{" A " link index  12 } @{" B " link index  18 } @{" C " link index  27 } @{" D " link index  32 } @{" E " link index  38 } @{" F " link index  44 } @{" G " link index  51 } @{" H " link index  59 } @{" I " link index  65 } @{" J " link index  71 } @{" K " link index  71 } @{" L " link index  78 } @{" M " link index  86 } 
+@{" N " link index  93 } @{" O " link index  93 } @{" P " link index 100 } @{" Q " link index 109 } @{" R " link index 115 } @{" S " link index 122 } @{" T " link index 134 } @{" U " link index 139 } @{" V " link index 139 } @{" W " link index 148 } @{" X " link index 158 } @{" Y " link index 158 } @{" Z " link index 158 } 
+
+	@{" Fensterfunktionsfenster                            " link SFX.guide/WFktSelWin }
+	@{" Filter                                             " link SFX-Glossar.guide/Filter }
+	@{" Fourier-Transformation                             " link SFX-Glossar.guide/FourierTransformation }
+
+@{" A " link index  12 } @{" B " link index  18 } @{" C " link index  27 } @{" D " link index  32 } @{" E " link index  38 } @{" F " link index  44 } @{" G " link index  51 } @{" H " link index  59 } @{" I " link index  65 } @{" J " link index  71 } @{" K " link index  71 } @{" L " link index  78 } @{" M " link index  86 } 
+@{" N " link index  93 } @{" O " link index  93 } @{" P " link index 100 } @{" Q " link index 109 } @{" R " link index 115 } @{" S " link index 122 } @{" T " link index 134 } @{" U " link index 139 } @{" V " link index 139 } @{" W " link index 148 } @{" X " link index 158 } @{" Y " link index 158 } @{" Z " link index 158 } 
+
+	@{" Generierung von Effektsounds                       " link SFX-Workshop.guide/Workshop3 }
+	@{" Generierung von Percussionsounds                   " link SFX-Workshop.guide/Workshop1 }
+	@{" Generierung von Synthesizersounds                  " link SFX-Workshop.guide/Workshop2 }
+	@{" Glossar                                            " link SFX-Glossar.guide/main }
+
+@{" A " link index  12 } @{" B " link index  18 } @{" C " link index  27 } @{" D " link index  32 } @{" E " link index  38 } @{" F " link index  44 } @{" G " link index  51 } @{" H " link index  59 } @{" I " link index  65 } @{" J " link index  71 } @{" K " link index  71 } @{" L " link index  78 } @{" M " link index  86 } 
+@{" N " link index  93 } @{" O " link index  93 } @{" P " link index 100 } @{" Q " link index 109 } @{" R " link index 115 } @{" S " link index 122 } @{" T " link index 134 } @{" U " link index 139 } @{" V " link index 139 } @{" W " link index 148 } @{" X " link index 158 } @{" Y " link index 158 } @{" Z " link index 158 } 
+
+	@{" History                                            " link SFX.guide/History }
+	@{" Hüllkurve                                          " link SFX-Glossar.guide/Envelope }
+
+@{" A " link index  12 } @{" B " link index  18 } @{" C " link index  27 } @{" D " link index  32 } @{" E " link index  38 } @{" F " link index  44 } @{" G " link index  51 } @{" H " link index  59 } @{" I " link index  65 } @{" J " link index  71 } @{" K " link index  71 } @{" L " link index  78 } @{" M " link index  86 } 
+@{" N " link index  93 } @{" O " link index  93 } @{" P " link index 100 } @{" Q " link index 109 } @{" R " link index 115 } @{" S " link index 122 } @{" T " link index 134 } @{" U " link index 139 } @{" V " link index 139 } @{" W " link index 148 } @{" X " link index 158 } @{" Y " link index 158 } @{" Z " link index 158 } 
+
+	@{" Informationsfenster                                " link SFX.guide/InfoWin }
+	@{" Inhalt                                             " link SFX.guide/main }
+
+@{" A " link index  12 } @{" B " link index  18 } @{" C " link index  27 } @{" D " link index  32 } @{" E " link index  38 } @{" F " link index  44 } @{" G " link index  51 } @{" H " link index  59 } @{" I " link index  65 } @{" J " link index  71 } @{" K " link index  71 } @{" L " link index  78 } @{" M " link index  86 } 
+@{" N " link index  93 } @{" O " link index  93 } @{" P " link index 100 } @{" Q " link index 109 } @{" R " link index 115 } @{" S " link index 122 } @{" T " link index 134 } @{" U " link index 139 } @{" V " link index 139 } @{" W " link index 148 } @{" X " link index 158 } @{" Y " link index 158 } @{" Z " link index 158 } 
+
+	@{" Kanäle                                             " link SFX-Glossar.guide/Channels }
+	@{" komplexe Effekte                                   " link SFX-Workshop.guide/Workshop4 }
+	@{" Kurve                                              " link SFX-GUIModWin.guide/ModWinCurve }
+
+@{" A " link index  12 } @{" B " link index  18 } @{" C " link index  27 } @{" D " link index  32 } @{" E " link index  38 } @{" F " link index  44 } @{" G " link index  51 } @{" H " link index  59 } @{" I " link index  65 } @{" J " link index  71 } @{" K " link index  71 } @{" L " link index  78 } @{" M " link index  86 } 
+@{" N " link index  93 } @{" O " link index  93 } @{" P " link index 100 } @{" Q " link index 109 } @{" R " link index 115 } @{" S " link index 122 } @{" T " link index 134 } @{" U " link index 139 } @{" V " link index 139 } @{" W " link index 148 } @{" X " link index 158 } @{" Y " link index 158 } @{" Z " link index 158 } 
+
+	@{" Listenfenster                                      " link SFX-GUIListWin.guide/main }
+	@{" Loader : Allgemeines                               " link Loaders.guide/main }
+	@{" Loaderfenster                                      " link SFX-GUIListWin.guide/LoaderWin }
+	@{" Loop                                               " link SFX-Glossar.guide/Loop }
+
+@{" A " link index  12 } @{" B " link index  18 } @{" C " link index  27 } @{" D " link index  32 } @{" E " link index  38 } @{" F " link index  44 } @{" G " link index  51 } @{" H " link index  59 } @{" I " link index  65 } @{" J " link index  71 } @{" K " link index  71 } @{" L " link index  78 } @{" M " link index  86 } 
+@{" N " link index  93 } @{" O " link index  93 } @{" P " link index 100 } @{" Q " link index 109 } @{" R " link index 115 } @{" S " link index 122 } @{" T " link index 134 } @{" U " link index 139 } @{" V " link index 139 } @{" W " link index 148 } @{" X " link index 158 } @{" Y " link index 158 } @{" Z " link index 158 } 
+
+	@{" Menü                                               " link SFX.guide/Menu }
+	@{" Modulation                                         " link SFX-Glossar.guide/Modulation }
+	@{" Modulatorfenster                                   " link SFX-GUIModWin.guide/main }
+
+@{" A " link index  12 } @{" B " link index  18 } @{" C " link index  27 } @{" D " link index  32 } @{" E " link index  38 } @{" F " link index  44 } @{" G " link index  51 } @{" H " link index  59 } @{" I " link index  65 } @{" J " link index  71 } @{" K " link index  71 } @{" L " link index  78 } @{" M " link index  86 } 
+@{" N " link index  93 } @{" O " link index  93 } @{" P " link index 100 } @{" Q " link index 109 } @{" R " link index 115 } @{" S " link index 122 } @{" T " link index 134 } @{" U " link index 139 } @{" V " link index 139 } @{" W " link index 148 } @{" X " link index 158 } @{" Y " link index 158 } @{" Z " link index 158 } 
+
+	@{" Obertöne                                           " link SFX-Glossar.guide/Obertöne }
+	@{" Operatoren : Allgemeines                           " link Operators.guide/main }
+	@{" Operatorfenster                                    " link SFX-GUIListWin.guide/OperatorWin }
+
+@{" A " link index  12 } @{" B " link index  18 } @{" C " link index  27 } @{" D " link index  32 } @{" E " link index  38 } @{" F " link index  44 } @{" G " link index  51 } @{" H " link index  59 } @{" I " link index  65 } @{" J " link index  71 } @{" K " link index  71 } @{" L " link index  78 } @{" M " link index  86 } 
+@{" N " link index  93 } @{" O " link index  93 } @{" P " link index 100 } @{" Q " link index 109 } @{" R " link index 115 } @{" S " link index 122 } @{" T " link index 134 } @{" U " link index 139 } @{" V " link index 139 } @{" W " link index 148 } @{" X " link index 158 } @{" Y " link index 158 } @{" Z " link index 158 } 
+
+	@{" Periodenauswahlfenster                             " link SFX.guide/PeriodWin }
+	@{" Playerfenster                                      " link SFX-GUIListWin.guide/PlayerWin }
+	@{" Players : Allgemeines                              " link Players.guide/main }
+	@{" Problems                                           " link SFX.guide/Problems }
+	@{" Pufferfenster                                      " link SFX-GUIListWin.guide/BufferWin }
+
+@{" A " link index  12 } @{" B " link index  18 } @{" C " link index  27 } @{" D " link index  32 } @{" E " link index  38 } @{" F " link index  44 } @{" G " link index  51 } @{" H " link index  59 } @{" I " link index  65 } @{" J " link index  71 } @{" K " link index  71 } @{" L " link index  78 } @{" M " link index  86 } 
+@{" N " link index  93 } @{" O " link index  93 } @{" P " link index 100 } @{" Q " link index 109 } @{" R " link index 115 } @{" S " link index 122 } @{" T " link index 134 } @{" U " link index 139 } @{" V " link index 139 } @{" W " link index 148 } @{" X " link index 158 } @{" Y " link index 158 } @{" Z " link index 158 } 
+
+	@{" Quantisierung                                      " link SFX-Glossar.guide/Quantisierung }
+	@{" Quellenauswahlfenster                              " link SFX.guide/SourceWin }
+
+@{" A " link index  12 } @{" B " link index  18 } @{" C " link index  27 } @{" D " link index  32 } @{" E " link index  38 } @{" F " link index  44 } @{" G " link index  51 } @{" H " link index  59 } @{" I " link index  65 } @{" J " link index  71 } @{" K " link index  71 } @{" L " link index  78 } @{" M " link index  86 } 
+@{" N " link index  93 } @{" O " link index  93 } @{" P " link index 100 } @{" Q " link index 109 } @{" R " link index 115 } @{" S " link index 122 } @{" T " link index 134 } @{" U " link index 139 } @{" V " link index 139 } @{" W " link index 148 } @{" X " link index 158 } @{" Y " link index 158 } @{" Z " link index 158 } 
+
+	@{" Registration                                       " link SFX.guide/Registration }
+	@{" Rexxoperatoren : Allgemeines                       " link Rexx.guide/main }
+	@{" Rexxoperatorfenster                                " link SFX-GUIListWin.guide/RXOperatorWin }
+
+@{" A " link index  12 } @{" B " link index  18 } @{" C " link index  27 } @{" D " link index  32 } @{" E " link index  38 } @{" F " link index  44 } @{" G " link index  51 } @{" H " link index  59 } @{" I " link index  65 } @{" J " link index  71 } @{" K " link index  71 } @{" L " link index  78 } @{" M " link index  86 } 
+@{" N " link index  93 } @{" O " link index  93 } @{" P " link index 100 } @{" Q " link index 109 } @{" R " link index 115 } @{" S " link index 122 } @{" T " link index 134 } @{" U " link index 139 } @{" V " link index 139 } @{" W " link index 148 } @{" X " link index 158 } @{" Y " link index 158 } @{" Z " link index 158 } 
+
+	@{" Sample                                             " link SFX-Glossar.guide/Sample }
+	@{" Samplebearbeitung                                  " link SFX-Workshop.guide/Workshop5 }
+	@{" Samplefenster                                      " link SFX.guide/SampleWin }
+	@{" Sampleoptionsfenster                               " link SFX.guide/OptionsWin }
+	@{" Samplingrate                                       " link SFX-Glossar.guide/Samplingrate }
+	@{" Saver : Allgemeines                                " link Savers.guide/main }
+	@{" Saverfenster                                       " link SFX-GUIListWin.guide/SaverWin }
+	@{" Statusfenster                                      " link SFX.guide/StatusWin }
+
+@{" A " link index  12 } @{" B " link index  18 } @{" C " link index  27 } @{" D " link index  32 } @{" E " link index  38 } @{" F " link index  44 } @{" G " link index  51 } @{" H " link index  59 } @{" I " link index  65 } @{" J " link index  71 } @{" K " link index  71 } @{" L " link index  78 } @{" M " link index  86 } 
+@{" N " link index  93 } @{" O " link index  93 } @{" P " link index 100 } @{" Q " link index 109 } @{" R " link index 115 } @{" S " link index 122 } @{" T " link index 134 } @{" U " link index 139 } @{" V " link index 139 } @{" W " link index 148 } @{" X " link index 158 } @{" Y " link index 158 } @{" Z " link index 158 } 
+
+	@{" Tastaturbelegung                                   " link SFX.guide/Keymap }
+
+@{" A " link index  12 } @{" B " link index  18 } @{" C " link index  27 } @{" D " link index  32 } @{" E " link index  38 } @{" F " link index  44 } @{" G " link index  51 } @{" H " link index  59 } @{" I " link index  65 } @{" J " link index  71 } @{" K " link index  71 } @{" L " link index  78 } @{" M " link index  86 } 
+@{" N " link index  93 } @{" O " link index  93 } @{" P " link index 100 } @{" Q " link index 109 } @{" R " link index 115 } @{" S " link index 122 } @{" T " link index 134 } @{" U " link index 139 } @{" V " link index 139 } @{" W " link index 148 } @{" X " link index 158 } @{" Y " link index 158 } @{" Z " link index 158 } 
+
+	@{" Vektor                                             " link SFX-GUIModWin.guide/ModWinVector }
+	@{" verschiedene Einstellungen                         " link SFX-GUIPrefsWin.guide/PrefsMiscWin }
+	@{" Voreinsteller für das GUI                          " link SFX-GUIPrefsWin.guide/PrefsGUIWin }
+	@{" Voreinsteller für den virtuellen Speicher          " link SFX-GUIPrefsWin.guide/PrefsVMemWin }
+	@{" Voreinsteller für die Samplepuffer                 " link SFX-GUIPrefsWin.guide/PrefsSmpWin }
+
+@{" A " link index  12 } @{" B " link index  18 } @{" C " link index  27 } @{" D " link index  32 } @{" E " link index  38 } @{" F " link index  44 } @{" G " link index  51 } @{" H " link index  59 } @{" I " link index  65 } @{" J " link index  71 } @{" K " link index  71 } @{" L " link index  78 } @{" M " link index  86 } 
+@{" N " link index  93 } @{" O " link index  93 } @{" P " link index 100 } @{" Q " link index 109 } @{" R " link index 115 } @{" S " link index 122 } @{" T " link index 134 } @{" U " link index 139 } @{" V " link index 139 } @{" W " link index 148 } @{" X " link index 158 } @{" Y " link index 158 } @{" Z " link index 158 } 
+
+	@{" Was ist SoundFX ?                                  " link SFX.guide/Charpter0.1 }
+	@{" Wellenformen                                       " link SFX-Glossar.guide/Wellenformen }
+	@{" Werbung                                            " link SFX.guide/Commercial }
+	@{" Werkzeugfenster                                    " link SFX-GUIToolWin.guide/main }
+	@{" Wo läuft SoundFX ?                                 " link SFX.guide/Charpter0.2 }
+	@{" Workshop                                           " link SFX-Workshop.guide/main }
+
+@{" A " link index  12 } @{" B " link index  18 } @{" C " link index  27 } @{" D " link index  32 } @{" E " link index  38 } @{" F " link index  44 } @{" G " link index  51 } @{" H " link index  59 } @{" I " link index  65 } @{" J " link index  71 } @{" K " link index  71 } @{" L " link index  78 } @{" M " link index  86 } 
+@{" N " link index  93 } @{" O " link index  93 } @{" P " link index 100 } @{" Q " link index 109 } @{" R " link index 115 } @{" S " link index 122 } @{" T " link index 134 } @{" U " link index 139 } @{" V " link index 139 } @{" W " link index 148 } @{" X " link index 158 } @{" Y " link index 158 } @{" Z " link index 158 } 
+
+	@{" Zoomfenster                                        " link SFX-GUIToolWin.guide/ZoomWin }
+	@{" Zyklus                                             " link SFX-GUIModWin.guide/ModWinCycle }
+
+@{" A " link index  12 } @{" B " link index  18 } @{" C " link index  27 } @{" D " link index  32 } @{" E " link index  38 } @{" F " link index  44 } @{" G " link index  51 } @{" H " link index  59 } @{" I " link index  65 } @{" J " link index  71 } @{" K " link index  71 } @{" L " link index  78 } @{" M " link index  86 } 
+@{" N " link index  93 } @{" O " link index  93 } @{" P " link index 100 } @{" Q " link index 109 } @{" R " link index 115 } @{" S " link index 122 } @{" T " link index 134 } @{" U " link index 139 } @{" V " link index 139 } @{" W " link index 148 } @{" X " link index 158 } @{" Y " link index 158 } @{" Z " link index 158 } 
+
+@endnode

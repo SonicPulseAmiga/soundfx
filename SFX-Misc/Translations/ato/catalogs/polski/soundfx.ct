@@ -1,0 +1,1098 @@
+## version $VER: SoundFX.catalog 1.0 (23.04.2002)
+## language polski
+## codeset 0
+;
+;
+; Errors ======================================================================
+;
+;-- Resource errors -----------------------------------------------------------
+;
+;
+errOpenFile
+Nie mogë otworzyê pliku: %s!
+; Can't open file : %s !
+;
+errOpenLibrary
+Nie mogë otworzyê biblioteki: %s!
+; Can't open library : %s !
+;
+errOpenScreen
+Nie mogë otworzyê ekranu!
+; Can't open screen !
+;
+errOpenWindow
+Nie mogë otworzyê okna!
+; Can't open window !
+;
+errAllocateMemory
+Nie mogë zaalokowaê pamiëci!
+; Can't allocate memory !
+;
+errAllocateFileRequest
+Nie mogë utworzyê okna wyboru plików!
+; Can't allocate file request !
+;
+errAllocateFontRequest
+Nie mogë utworzyê okna wyboru czcionek!
+; Can't allocate font request !
+;
+errAllocateScrmdRequest
+Nie mogë utworzyê okna wyboru trybu wyôwietlania!
+; Can't allocate screenmode request !
+;
+errAllocateAudioRequest
+Nie mogë utworzyê okna wyboru trybu audio!
+; Can't allocate audiomode request !
+;
+errAllocateSignal
+Nie mogë zaalokowaê sygnaîu!
+; Can't allocate signal !
+;
+errCreateContext
+Nie mogë utworzyê menu podrëcznego!
+; Can't create context !
+;
+errCreateGadgets
+Nie mogë utworzyê gadûetów!
+; Can't create gadgets !
+;
+errCreateMenus
+Nie mogë utworzyê menu!
+; Can't create menus !
+;
+errLayoutMenus
+Nie mogë utworzyê ukîadu menu!
+; Can't layout menus !
+;
+errCreatePort
+Nie mogë utworzyê portu!
+; Can't create port !
+;
+errVisitorWindows
+Nie mogë zamknâê ekranu!\n\
+Proszë najpierw zamknâê okna innych programów!
+; Can't close screen !\n\
+; Please close visitor-windows first !
+;
+errMakeScreenPublic
+Nie mogë przeîâczyê ekranu na publiczny!
+; Can't make screen public !
+;
+errCloseSample
+Nie mogë zamknâê próbki, nadal jest uûywana!
+; Can't close that sample yet, it's still in use !
+;
+errEmptyClip
+Schowek jest pusty!
+; Clip is empty !
+;
+errAccessFile
+Nie mogë otworzyê %s!
+; Can't access %s !
+;
+errAddAppIcon
+Nie mogë dodaê AppIkonki!
+; Can't add AppIcon !
+;
+errAddSampleBuffer
+Nie mogë dodaê bufora dla próbki!
+; Can't add samplebuffer !
+;
+errGetVisualInfo
+Nie mogë uzyskaê informacji wizualnej!
+; Can't get visual info !
+;
+errAllocateAudio
+Nie mogë zaalokowaê karty audio!
+; Can't allocate audio hardware !
+;
+errNoAHI
+Brak systemu AHI lub wybrano niewîaôciwy tryb audio!
+; No AHI System or invalid AudioMode !
+;
+errFail
+Wykonywanie %s nie powiodîo sië!
+; Execution of %s failed !
+;
+errSampleAttributes
+Nie mogë odczytaê atrybutów próbki!
+; Can't get sample attributes !
+;
+errSampleObject
+Nie mogë odczytaê próbki!
+; Can't get sample object !
+;
+;-  FileIO --------------------------------------------------------------------
+;
+errReadData
+Bîâd odczytu danych!
+; Can't read data !
+;
+errWriteData
+Bîâd zapisu danych!
+; Can't write data !
+;
+errWrongFiletype
+To nie jest plik %s!
+; This isn't a %s file !
+;
+errUnsupportedSubtype
+Bîâd odczytu pliku %s!
+; Can't read this %s file !
+;
+errWrongDatafile
+Niewlaôciwy plik z danymi!
+; This is not the right data file !
+;
+errNoSampleRate
+Brak informacji o czëstotliwoôci próbkowania. SoundFX uûyje ustawieï domyôlnych!
+; Sample has no sampling rate, SoundFX sets it to default !
+;
+errSampleToLong
+Nie mogë zapisaê caîej fali dúwiëku!
+; Can't save the whole wave !
+;
+errDamagedFormat
+Próbka dúwiëku nie zostaîa zapisana poprawnie!\n\
+Radzë ponowiê próbë zapisu!
+; This sample isn't saved correctly !\n\
+; I advice you to save the sample again.
+;
+;-- Sampletype ----------------------------------------------------------------
+;
+errSourceMono
+Úródîo musi byê próbkâ monofonicznâ!
+; Source must be a mono sample !
+;
+errSourceStrereo
+Úródîo musi byê próbkâ stereofoniczâ!
+; Source must be a stereo sample !
+;
+errSourceQuadro
+Úródîo musi byê próbkâ kwadrofonicznâ!
+; Source must be a quadro sample !
+;
+errSourceStereoQuadro
+Úródîo musi byê próbkâ stereo- lub kwadrofonicznâ!
+; Source must be a stereo or quadro sample !
+;
+;-- Beta ----------------------------------------------------------------------
+;
+errNotImplemented
+Ta funkcja nie zostaîa jeszcze zaimplementowana!
+; This function is not implemented yet !
+;
+errNoVMemYet
+Ta operacja jeszcze nie obsîuguje urzâdzeï-próbek!
+; This operation doesn't supports device-samples yet !
+;
+; Messages ====================================================================
+;
+msgUnregVersionStart
+To jest niezarejestrowana wersja programu SoundFX!\n\
+Wyîâczone sâ funkcje zapisu próbek oraz port ARexx'a!\n\
+Dodatkowych informacji szukaj w dokumentacji!
+; This is an unregistered version of SoundFX !\n\
+; Saving of your work and using ARexx-Port is disabled !\n\
+; See guide for further informations !
+;
+msgUnregVersionEnd
+Uûywaîeô niezarejestrowanej wersji programu SoundFX!
+; You have used an unregistered version of SoundFX !
+;
+msgDemoNoSave
+Juû Ci wspominaîem, ûe nie moûesz zapisywaê próbek w wersji demonstracyjnej!
+; I have already told you that you can't save your samples in the demo-version !
+;
+msgDemoNoARexx
+Juû Ci mówiîem, ûe nie moûesz uûywaê portu ARexx'a w wersji demonstracyjnej!
+; I have already told you that you can't use the arexx-port in the demo-version !
+;
+msgInstIncomplete
+Instalacja wyglâda na niekompletnâ!\n\
+Pamiëtaj, by zawsze instalowaê archiwa sfx-bin_???, sfx-doc_??? i sfx-data.\n\
+Pominiëcie któregoô z nich moûe doprowadziê do zainstalowania niestabilnej wersji!
+; Installations seems to be incomplete !\n\
+; Please always install the sfx-bin_???, sfx-doc_??? and sfx-data archives.\n\
+; Leaving one out may lead to an instable installation !
+;
+msgSetPlayerOpts
+Ustawiam opcje odtwarzaczy...
+; Setting player options ...
+;
+msgSetDefaultGlobals
+Ustawiam globalne opcje...
+; Setting global options ...
+;
+msgSetLocalTexts
+Ustawiam lokalne teksty...
+; Setting local texts ...
+;
+msgScanOperators
+Sprawdzam operatory...
+; Scanning operators ...
+;
+msgScanLoaders
+Sprawdzam moduîy wczytujâce...
+; Scanning loaders ...
+;
+msgScanPlayers
+Sprawdzam odtwarzacze...
+; Scanning playerrs ...
+;
+msgScanSavers
+Sprawdzam moduîy zapisujâce...
+; Scanning savers ...
+;
+msgScanRexxmacros
+Sprawdzam makra ARexx'a...
+; Scanning rexxmacross ...
+;
+msgBuildHelp
+Tworzë zawartoôê szybkiej pomocy...
+; Building on-line-help contents ...
+;
+msgCreatePorts
+Tworzë porty...
+; Create ports ...
+;
+msgInitGUI
+Inicjalizujë GUI...
+; Initialising GUI ...
+;
+msgProgress
+Pracujë nad %s[%d]
+; Working on %s[%d]
+;
+msgProgressLoad
+Wczytujë[%d]
+; Loading[%d]
+;
+msgProgressSave
+Zapisujë[%d]
+; Saving[%d]
+;
+msgNoChannelSelected
+nie zostaî wybrany kanaî
+; no channel selected
+;
+;-- Requests ====================================================================
+;
+reqFileExists
+Plik juû isnieje!\n\
+Co powinienem zrobiê?
+; File already exists !\n\
+; What should I do ?
+;
+reqReallyQuit
+Naprawdë chcesz skoïczyê pracë?
+; Do you really want to quit ?
+;
+reqRunAgain
+SoundFX juû jest uruchomiony!\nCzy mam go uruchomiê jeszcze raz?
+; SoundFX is already running !\nShould I start it again ?
+;
+reqRemoveAll
+Czy na pewno chcesz usunâê wszystkie próbki?
+; Do you really want to remove all samples ?
+;
+reqRemoveHidden
+Czy na pewno chcesz usunaê wszystkie ukryte próbki?
+; Do you really want to remove all hidden samples ?
+;
+reqRemoveShown
+Czy na pewno chcesz usunaê wszystkie widoczne próbki?
+; Do you really want to remove all shown samples ?
+;
+reqCloseSample
+Czy na pewno chcesz zamknâê próbkë?
+; Do you really want to close this sample ?
+;
+reqRemEntry
+Czy na pewno chcesz skasowaê ten wpis?
+; Do you really want to delete this entry ?
+;
+; Strings =====================================================================
+;
+;-- Requestertitles -----------------------------------------------------------
+;
+strSoundFXMessage
+SoundFX - Wiadomoôê
+; SoundFX-Message
+;
+strSoundFXRequest
+SoundFX - Ûâdanie
+; SoundFX-Request
+;
+strLoad
+Otwórz
+; Load
+;
+strSaveAs
+Zapisz jako
+; Save as
+;
+strSelectFont
+Wybierz czcionkë
+; Select a font
+;
+strSelectScrMd
+Wybierz rozdzielczoôê ekranu
+; Select a screenmode
+;
+strSelectAudioMd
+Wybierz tryb audio
+; Select an audiomode
+;
+strSelectPreset
+Wybierz ustawienia
+; Select a preset
+;
+strSelectSmpPath
+Wybierz domyôlnâ ôcieûkë dostëpu do próbek
+; Select the default sample path
+;
+strSelectVMemPath
+Wybieû ôcieûkë dostëpu do plików pamiëci wirtualnej
+; Select the path for virtual memory files
+;
+strSelectLogPath
+Wybierz ôcieûkë dostëpu do pliku raportu
+; Select the logfile path
+;
+strSelectBuffer
+Wybierz bufor
+; Select a buffer
+;
+strSelectFrequency
+Wybierz czëstotliwoôê
+; Select a frequency
+;
+strSelectWinFunc
+Wybierz funkcjë okna
+; Select a window function
+;
+strSmpOptions
+Opcje próbki
+; Sample options
+;
+strSelectEntry
+Wybierz wpis
+; Select an entry
+;
+;-- Requesterbuttons ----------------------------------------------------------
+;
+strOkay
+OK
+; Okay
+;
+strCancel
+Poniechaj
+; Cancel
+;
+strReplace
+Zastâp
+; Replace
+;
+strNewName
+Nowa Nazwa
+; New Name
+;
+strYes
+Tak
+; Yes
+;
+strNo
+Nie
+; No
+;
+strHelp
+Pomoc
+; Help
+;
+;-- Windowtitles --------------------------------------------------------------
+;
+strRecord
+Nagrywanie
+; Record
+;
+strPlayerOptions
+Opcje odtwarzania: %s
+; Playeroptions : %s
+;
+;-- Misc ----------------------------------------------------------------------
+;
+strReady
+Gotowy
+; Ready
+;
+; Menutexts ===================================================================
+;
+;-- SFX Mainmenu --------------------------------------------------------------
+;
+menProject
+Projekt
+; Project
+;
+menPrjNew
+Nowy...
+; New ...
+;
+menPrjLoad
+Otwórz...
+; Load ...
+;
+menPrjSave
+Zapisz...
+; Save ...
+;
+menPrjFlush
+Wyczyôê
+; Flush
+;
+menPrjFlushAll
+Wyczyôê wszystko...
+; Flush All ...
+;
+menPrjFlushHidden
+Wyczyôê ukryte...
+; Flush Hidden ...
+;
+menPrjFlushShown
+Wyczyôê widoczne...
+; Flush Shown ...
+;
+menPrjRunOperator
+Wykonaj...
+; Execute ...
+;
+menPrjRunRexx
+Uruchom ARexx...
+; Run Rexx ...
+;
+menPrjPlayAll
+Odtwarzaj wszystko
+; Play All
+;
+menPrjPlayRange
+Odtwarzaj zakres
+; Play Range
+;
+menPrjStop
+Zatrzymaj
+; Stop
+;
+menPrjBatchProc
+Przetwarzanie wsadowe...
+; Batch Processor ...
+;
+menPrjInfo
+Informacje...
+; Information ...
+;
+menPrjQuit
+Skoïcz...
+; Quit ...
+;
+menEdit
+Edycja
+; Edit
+;
+menEditCut
+Wytnij
+; Cut
+;
+menEditCutBeg
+Wytnij do poczâtku
+; Cut to beginning
+;
+menEditCutEnd
+Wytnij do koïca
+; Cut to end
+;
+menEditCopy
+Kopiuj
+; Copy
+;
+menEditCopyBeg
+Kopiuj do poczâtku
+; Copy to beginning
+;
+menEditCopyEnd
+Kopiuj do koïca
+; Copy to end
+;
+menEditGrab
+Wyjmij
+; Grab
+;
+menEditGrabBeg
+Wyjmij do poczâtku
+; Grab to beginning
+;
+menEditGrabEnd
+Wyjmij do koïca
+; Grab to end
+;
+menEditPaste
+Wklej
+; Paste
+;
+menEditPasteBeg
+Wklej na poczâtku
+; Paste at beginning
+;
+menEditPasteEnd
+Wklej na koïcu
+; Paste at end
+;
+menEditErase
+Wyczyôê
+; Erase
+;
+menEditEraseBeg
+Wyczyôê do poczâtku
+; Erase to beginning
+;
+menEditEraseEnd
+Wyczyôê do koïca
+; Erase to end
+;
+menEditZero
+Wyzeruj
+; Zero
+;
+menEditZeroBeg
+Wyzeruj do poczâtku
+; Zero to beginning
+;
+menEditZeroEnd
+Wyzeruj do koïca
+; Zero to end
+;
+menEditOverwrite
+Nadpisz
+; Overwrite
+;
+menEditOverwriteBeg
+Nadpisz od poczâtku
+; Overwrite at beginning
+;
+menEditExchangeMarkAndClip
+Wymieï zaznaczenie i schowek
+; Exchange mark and clip
+;
+menEditReplaceMarkByClip
+Zamieï zaznaczenie przez schowek
+; Replace mark by clip
+;
+menRange
+Zakres
+; Range
+;
+menRangeMark2Loop
+ustaw pëtlë w zaznaczeniu
+; set loop like mark
+;
+menRangeLoop2Mark
+ustaw zaznaczenie w pëtli
+; set mark like loop
+;
+menRangeZoom2Loop
+ustaw pëtlë jako powiëkszenie
+; set loop like zoom
+;
+menRangeZoom2Mark
+ustaw zaznaczenie jako powiëkszenie
+; set mark like zoom
+;
+menRangeMarkOff
+wyîâcz zaznaczenie
+; switch mark off
+;
+menRangeMarkAll
+zaznacz wszystko
+; mark all
+;
+menZoom
+Rozmiar
+; Zoom
+;
+menZoomIn
+Powiëkszenie
+; Zoom in
+;
+menZoomOut
+Pomniejszenie
+; Zoom out
+;
+menZoomPixel
+1 Piksel = 1 Próbka
+; 1 Pixel = 1 Sample
+;
+menZoomFull
+Maksymalne pomniejszenie
+; Zoom all way out
+;
+menCleanup
+Uporzâdkuj
+; Cleanup
+;
+menClCur
+aktualny
+; current
+;
+menClAll
+wszystkie
+; all
+;
+menClAllNorm
+wszystkie normalne
+; all normal
+;
+menClAllZoom
+wszystkie ze zmienionym rozm.
+; all zoomed
+;
+menHelp
+Pomoc
+; Help
+;
+menHelpContents
+Zawartoôê...
+; Contents ...
+;
+menHelpIndex
+Indeks...
+; Index ...
+;
+menHelpWorkshop
+Obszar roboczy...
+; Workshop ...
+;
+menHelpOnline
+http://www.sonicpulse.de
+; http://www.sonicpulse.de
+;
+menHelpMail
+mailto:soundfx@sonicpulse.de
+; mailto:soundfx@sonicpulse.de
+;
+menHelpShowTips
+Pokaû porady przy starcie
+; Show tips on startup
+;
+menPrefs
+Preferencje
+; Prefs
+;
+menPrefsGUI
+GUI...
+; GUI ...
+;
+menPrefsSample
+Próbki...
+; Sample ...
+;
+menPrefsVMem
+Pamiëê wirtualna...
+; Virtual memory ...
+;
+menPrefsMisc
+Róûne...
+; Miscellaneous ...
+;
+menPrefsUse
+Uûyj
+; Use
+;
+menPrefsSave
+Zapisz
+; Save
+;
+menPrefsLoad
+Otwórz
+; Load
+;
+menPrefsRestoreUsed
+Otwórz ostatnio uûywane
+; Load last used
+;
+menPrefsRestoreSaved
+Otwórz ostatnio zapisane
+; Load last saved
+;
+menPrefsDefault
+Przywróê domyôlne
+; Reset to defaults
+;
+menUtilities
+Narzëdzia
+; Utilities
+;
+menUtSwapEnd
+Zmieï kolejnoôê bajtów
+; Swap byte order
+;
+menUtSwapSign
+Zmieï znak
+; Swap sign
+;
+menUtInterleave
+Przepleê kanaîy
+; Interleave channels
+;
+menUtDeInterleave
+Rozpleê kanaîy
+; De-interleave channels
+;
+;-- SFX FXmenu ----------------------------------------------------------------
+;
+menStart
+Rozpocznij
+; Start
+;
+menAbout
+O...
+; About ...
+;
+;-- SFX ContextMenu -----------------------------------------------------------
+;
+menCtxDrawMode
+Tryb rysowania
+; Drawmode
+;
+menCtxLoop
+Pëtla
+; Loop
+;
+menCtxChannels
+Kanaîy
+; Channels
+;
+menCtxHide
+Ukryj
+; Hide
+; Toolbartexts ================================================================
+;
+;-- Loader --------------------------------------------------------------------
+;
+tbbLoaderChoice
+wybierz moduî wczytujâcy...
+; choose loader ...
+;
+tbbLoaderOptions
+opcje moduîu wczytujâcego...
+; loader options ...
+;
+tbbLoadFile
+wczytaj plik...
+; load file ...
+;
+;-- Saver ---------------------------------------------------------------------
+;
+tbbSaverChoice
+wybierz moduî zapisujâcy...
+; choose saver ...
+;
+tbbSaverOptions
+opcje moduîu zapisujâcego...
+; saver options ...
+;
+tbbSaveFile
+zapisz plik...
+; save file ...
+;
+;-- Operator ------------------------------------------------------------------
+;
+tbbOperatorChoice
+wybierz operator...
+; choose operator ...
+;
+tbbRunOperator
+uruchom operator...
+; run operator ...
+;
+;-- Arexx macro ---------------------------------------------------------------
+;
+tbbArexxMacroChoice
+wybierz makro ARexx'a...
+; choose arexx macro ...
+;
+tbbRunArexxMacro
+uruchom makro ARexx'a
+; run arexx macro
+;
+;-- Audio IO ------------------------------------------------------------------
+;
+tbbPlayerChoice
+wybierz moduî audio...
+; choose audio module ...
+;
+tbbPlayerOptions
+opcje moduîu audio...
+; audio module options ...
+;
+tbbPlayAll
+odtworz wszystko
+; play all
+;
+tbbPlayRange
+odtwórz zakres
+; play range
+;
+tbbStopPlaying
+zatrzymaj odtwarzanie
+; stop playing
+;
+tbbRecord
+nagrywaj...
+; record ...
+;
+;-- Buffer --------------------------------------------------------------------
+;
+tbbBufferChoice
+wybierz próbkë...
+; choose sample ...
+;
+tbbBufferOptions
+opcje próbki...
+; sample options ...
+;
+tbbHideShow
+ukryj/pokaû próbkë
+; hide/show sample
+;
+;-- Edit ----------------------------------------------------------------------
+;
+tbbCutMen
+opcje wycinania obszaru
+; variations for cuting an area
+;
+tbbCopyMen
+opcje kopiowania obszaru
+; variations for copying an area
+;
+tbbPasteMen
+opcje wklejania obszaru
+; variations for pasting an area
+;
+tbbEraseMen
+opcje czyszczenia obszaru
+; variations for erasing an area
+;
+tbbGrabMen
+opcje wyjmowania obszaru
+; variations for grabbing an area
+;
+tbbZeroMen
+opcje zerowania obszaru
+; variations for zeroing an area
+;
+tbbOverwrMen
+opcje nadpisywania obszaru
+; variations for overwriting an area
+;
+;-- Zoom ----------------------------------------------------------------------
+;
+tbbZoomMode
+tryb rozmiaru
+; zoom mode
+;
+tbbZoomIn
+powiëkszenie
+; zoom in
+;
+tbbZoomOut
+pomniejszenie
+; zoom out
+;
+tbbZoomEq
+rozmiar 1:1
+; zoom 1:1
+;
+tbbZoomOutFull
+maksymalne pomniejszenie
+; zoom out full
+;
+;-- Range ---------------------------------------------------------------------
+;
+tbbRangeMode
+tryby zakresu
+; range mode
+;
+tbbLockLength
+zablokuj dîugoôê zakresu
+; lock range length
+;
+tbbChBegEnd
+lewo i dóî / prawo i góra
+; left & down / right & up
+;
+tbbMoveBeg
+przesuï do poczâtku
+; move to beginning
+;
+tbbMoveLeftF
+przesuï szybko w lewo
+; move left fast
+;
+tbbMoveLeftS
+przesuï powoli w lewo
+; move left slow
+;
+tbbMoveLeftN
+przesuï do nastëpnego lewego punktu-zera
+; move to next left zero-crossing
+;
+tbbMoveRightN
+przesuï do nastëpnego prawego punktu-zera
+; move to next right zero-crossing
+;
+tbbMoveRightS
+przesuï powoli w prawo
+; move right slow
+;
+tbbMoveRightF
+przesuï szybko w prawo
+; move right fast
+;
+tbbMoveEnd
+przesuï do koïca
+; move to end
+;
+tbbMoveTop
+przesuï w górë
+; move to top
+;
+tbbMoveUpF
+przesuï szybko w górë
+; move up fast
+;
+tbbMoveUpS
+przesuï powoli w górë
+; move up slow
+;
+tbbMoveUpP
+przesuï do górnego wierzchoîka
+; move to upper peak
+;
+tbbMoveDownP
+przesuï do dolnego wierzchoîka
+; move to lower peak
+;
+tbbMoveDownS
+przesuï powoli w dóî
+; move down slow
+;
+tbbMoveDownF
+przesuï szybko w dóî
+; move to down fast
+;
+tbbMoveBottom
+przesuï do koïca
+; move to end
+;
+; Dropdowntexts ===============================================================
+;
+;-- Cut -----------------------------------------------------------------------
+;
+tbbCut
+wytnij obszar
+; cut area
+;
+tbbCutB
+wytnij do poczâtku
+; cut to beginning
+;
+tbbCutE
+wytnij do koïca
+; cut to end
+;
+;-- Copy ----------------------------------------------------------------------
+;
+tbbCopy
+kopiuj obszar
+; copy area
+;
+tbbCopyB
+kopiuj do poczâtku
+; copy to beginning
+;
+tbbCopyE
+kopiuj do koïca
+; copy to end
+;
+;-- Paste ----------------------------------------------------------------------
+;
+tbbPaste
+wklej obszar
+; paste area
+;
+tbbPasteB
+wklej na poczâtku
+; paste at beginning
+;
+tbbPasteE
+wklej na koïcu
+; paste at end
+;
+;-- Erase ----------------------------------------------------------------------
+;
+tbbErase
+wyczyôê obszar
+; erase area
+;
+tbbEraseB
+wyczyôê do poczâtku
+; erase to beginning
+;
+tbbEraseE
+wyczyôê do koïca
+; erase to end
+;
+;-- Grab ----------------------------------------------------------------------
+;
+tbbGrab
+wyjmij obszar
+; grab area
+;
+tbbGrabB
+wyjmij do poczâtku
+; grab to beginning
+;
+tbbGrabE
+wyjmij do koïca
+; grab to end
+;
+;-- Zero ----------------------------------------------------------------------
+;
+tbbZero
+wyzeruj obszar
+; zero area
+;
+tbbZeroB
+wyzeruj do poczâtku
+; zero to beginning
+;
+tbbZeroE
+wyzeruj do koïca
+; zero to end
+;
+;-- OverWr --------------------------------------------------------------------
+;
+tbbOverwr
+nadpisz obszar
+; overwrite area
+;
+tbbOverwrB
+nadpisz od poczâtku
+; overwrite at beginning
+;
+; URLs ========================================================================
+;
+urlHome
+http://www.sonicpulse.de/eng/p_sfx.html
+; http://www.sonicpulse.de/eng/p_sfx.html
+;
+;-- EOF -----------------------------------------------------------------------

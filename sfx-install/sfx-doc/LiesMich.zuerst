@@ -1,0 +1,22 @@
+SoundFX-LiesMich.zuerst für V4.3x (26.03.2004)
+----------------------------------------------
+
+* Für registrierte Benutzer:
+  Bitte legen Sie Ihre Registrationsdiskette in ein Laufwerk, wenn sie das
+  Programm neu installieren. Wenn der Installer Ihre alte Version nicht findet
+  wird er das Keyfile von dieser neu installieren. Dies wird jedoch nicht ab-
+  gefragt um nicht-registrierte Benutzer nicht zu nerven.
+
+* Bitte installieren sie ausserdem die folgenden Biblotheken:
+	OpenUrl.library
+	PopupMenu.library (funktioniert auch ohne)
+
+* Bitte installieren sie auch den truetype-Font aus dem sfx-data/fonts Ver-
+  zeichnis als ButtonGlyphMedium Font und eine aktuelle Version der
+  ttf.library
+
+* Die Dokumentation ist noch nicht komplett, da sie derzeit in HTML neu
+  erstellt wird.
+
+Stefan Kost
+http://www.sonicpulse.de

@@ -1,0 +1,128 @@
+weitere Konfigurierbarkeit der Plugins
+	* config vor dem include von "sfxmod.h"
+		* #define SFXMod_Type "operators"/"savers"/"loaders"
+		* #define SFXMod_HasCfgSel 1
+		* #define SFXMod_HasModDesc 1
+			=> ClientDataInit/Done
+		* #define SFXMod_HasSource
+	* every plugin gets cfg var !
+	* in "sfxmod.h" #defines abhängig von config
+	* get names : list DIRS (~_#?) SORT=NAME LFORMAT=%s
+
+                           |   |   |   | H |   |
+                           |   |   | H | a | H |
+                           |   |   | a | s | a |
+                           |   |   | s | M | s |
+                           |   | H | C | o | S |
+                           |   | a | f | d | o |
+                           | T | s | g | D | u |
+                           | y | C | S | e | r |
+                           | p | f | e | s | c |
+                           | e | g | l | c | e |
+---------------------------+---+---+---+---+---+
+*                          |   |   |   |   |   |
+  Loaders                  | l |   |   |   | - |
+    CDDA-Direct            |   | 1 | - | - |   |
+    Clipboard              |   | - | - | - |   |
+    DataTypes              |   |   |   |   |   |
+    FutureSound            |   |   |   |   |   |
+    IFF-16SV               |   |   |   |   |   |
+    IFF-8SVX               |   |   |   |   |   |
+    IFF-AIFC               |   |   |   |   |   |
+    IFF-AIFF               |   |   |   |   |   |
+    IFF-MAUD               |   |   |   |   |   |
+    Maestro                |   |   |   |   |   |
+    MPEG                   |   |   |   |   |   |
+    RAW                    |   |   |   |   |   |
+    RIFF-WAV               |   |   |   |   |   |
+    SDS-File               |   |   |   |   |   |
+    SND-AU                 |   |   |   |   |   |
+    Studio16               |   |   |   |   |   |
+    TX16W                  |   |   |   |   |   |
+    VOC                    |   |   |   |   |   |
+  Operators                | o |   |   |   |   |
+    Analyser               |   |   |   |   | 1 |
+      Analyse-Data         |   |   |   |   |   |
+      Analyse-Spect2D      |   |   |   |   |   |
+      Analyse-Spect3D      |   |   |   |   |   |
+      Analyse-Stereo       |   |   |   |   |   |
+    Generators             |   |   |   |   | 1 |
+      Amplify              |   |   |   |   |   |
+      AmplifySplit         |   |   |   |   |   |
+      ChannelJoin          |   |   |   |   |   |
+      ChannelSplit         |   |   |   |   |   |
+      ChorusPhaser         |   |   |   |   |   |
+      ConvertChannels      |   |   |   |   |   |
+      Convolve             |   |   |   |   |   |
+      CrossTalk            |   |   |   |   |   |
+      DeCrackle            |   |   |   |   |   |
+      Delay                |   |   |   |   |   |
+      DelayPlus            |   |   |   |   |   |
+      DeNoise-FFT          |   |   |   |   |   |
+      DeNoise-FIR          |   |   |   |   |   |
+      Detune               |   |   |   |   |   |
+      Distortion           |   |   |   |   |   |
+      Duplicate            |   |   |   |   |   |
+      Dynamic              |   |   |   |   |   |
+      Echo                 |   |   |   |   |   |
+      Equalize-3Band       |   |   |   |   |   |
+      Equalize-FFT         |   |   |   |   |   |
+      Equalize-FFT-3D      |   |   |   |   |   |
+      Filter-CRSHiPass     |   |   |   |   |   |
+      Filter-CRSLowPass    |   |   |   |   |   |
+      Filter-FIRBandPass   |   |   |   |   |   |
+      Filter-FIRBandStop   |   |   |   |   |   |
+      Filter-FIRHiPass     |   |   |   |   |   |
+      Filter-FIRLowPass    |   |   |   |   |   |
+      Filter-FIRMatrix     |   |   |   |   |   |
+      Filter-FIRMutate     |   |   |   |   |   |
+      Filter-StateVariable |   |   |   |   |   |
+      Fold                 |   |   |   |   |   |
+      Gamma                |   |   |   |   |   |
+      Hall                 |   |   |   |   |   |
+      Invert               |   |   |   |   |   |
+      Logic                |   |   |   |   |   |
+      Middle               |   |   |   |   |   |
+      Mix                  |   |   |   |   |   |
+      Mix-3D               |   |   |   |   |   |
+      Morph-FFT            |   |   |   |   |   |
+      MultiDelay           |   |   |   |   |   |
+      NoiseGate            |   |   |   |   |   |
+      Panorama-2Ch         |   |   |   |   |   |
+      Panorama-4Ch         |   |   |   |   |   |
+      PitchShift           |   |   |   |   |   |
+      QuantizeHoriz        |   |   |   |   |   |
+      QuantizeVert         |   |   |   |   |   |
+      Resample             |   |   |   |   |   |
+      Reverse              |   |   |   |   |   |
+      SampleJoin           |   |   |   |   |   |
+      SampleSplit          |   |   |   |   |   |
+      Shorten              |   |   |   |   |   |
+      Slide                |   |   |   |   |   |
+      Smear                |   |   |   |   |   |
+      Subtract             |   |   |   |   |   |
+      SurroundEncoder      |   |   |   |   |   |
+      Swap                 |   |   |   |   |   |
+      Vocode-FFT           |   |   |   |   |   |
+      ZeroPass             |   |   |   |   |   |
+    Synthesizers           |   |   |   |   | - |
+      Noise                |   |   |   |   |   |
+      Synthesize-Add       |   |   |   |   |   |
+      Synthesize-FM        |   |   |   |   |   |
+  Saver                    | s |   |   |   | 1 |
+    Clipboard              |   |   |   |   |   |
+    FutureSound            |   |   |   |   |   |
+    IFF-16SV               |   |   |   |   |   |
+    IFF-8SVX               |   |   |   |   |   |
+    IFF-AIFC               |   |   |   |   |   |
+    IFF-AIFF               |   |   |   |   |   |
+    IFF-MAUD               |   |   |   |   |   |
+    MPEG                   |   |   |   |   |   |
+    RAW                    |   |   |   |   |   |
+    RIFF-WAV               |   |   |   |   |   |
+    SDS-File               |   |   |   |   |   |
+    SND-AU                 |   |   |   |   |   |
+    Studio16               |   |   |   |   |   |
+    TX16W                  |   |   |   |   |   |
+    VOC                    |   |   |   |   |   |
+---------------------------+---+---+---+---+---+

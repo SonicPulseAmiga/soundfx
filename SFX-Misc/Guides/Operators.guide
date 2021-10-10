@@ -1,0 +1,186 @@
+@database SFX
+
+@remark $VER: Operators.guide © by Stefan Kost 1994-1997 (09.03.97)
+@remark AmigaGuide-OnLine-Hilfe für SoundFX
+
+@master /guides/sfx.guide
+@index /guides/sfx-index.guide/index
+
+@node main "Operatoren : Allgemeines"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Operatoren : Allgemeines
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Viele SFX-Operatoren gleichen sich in Ihrem Aufbau. Deshalb werde ich allge-
+meine Details an dieser Stelle erklären.
+
+Alle Parameter die Sie in einem Operator ändern, werden als aktuelle Einstel-
+lungen während der Rechner läuft gehalten. D.h., wenn Sie einen Operator ein
+weiteres mal benutzen (auch wenn Sie das Programm zwischenzeitlich beendet
+haben), haben alle Parameter die Werte des letzten Aufrufes. Falls Sie Puffer
+zur Modulation benutzt haben und diese inzwischen geschlossen haben, ändert SFX
+diese Einstellungen ab, da die Samples ja nicht mehr existieren.
+
+Bei der Programmierung von SoundFX habe ich großen Wert auf hohe Variabilität
+gelegt. Parameter sollten frei zugänglich und komplex veränderbar sein. So kam
+es zur Entwicklung von Blendshapes. Dies sind Kurven die einen Parameter modu-
+lieren. Ein Blendshape gibt immer Werte von 0.0 - 1.0 zurück. Folgende Va-
+riationen gibt es :
+None	 :	Diese Shape gibt immer 0.0 zurück - es wird also nichts geän-
+		dert. Verwenden Sie diese Variante wenn Sie mit einem konstan-
+		ten Wert arbeiten möchten, und tragen Sie diesen im 1. Parame-
+		terfeld ein.
+@{"Curve" link sfx-guimodwin.guide/ModWinCurve }	 :	gekrümmter Verlauf
+@{"Cycle" link sfx-guimodwin.guide/ModWinCycle }	 :	Schwingung
+@{"Vector" link sfx-guimodwin.guide/ModWinVector }	 :	Hüllkurven
+@{"User" link sfx-guimodwin.guide/ModWinUser   }	 :	Benutzerdefiniert
+
+Mit den beiden Parametern hinter "Par" läßt sich die Stärke der Modulation ein-
+stellen. Der erste Wert entspricht dem Parameter bei Modulation=0.0. Der zweite
+Wert entspricht dem Parameter bei Modulation=1.0. Mit dem "<->"-Schalter zwi-
+schen beiden Werten lassen sich diese vertauschen.
+
+Beispiele für den Amplify-Operator :
+1.)	Sie wollen die Lautstärke des gesammten Samples um 5% erhöhen.
+	Par.0 :	105 % (100%+5%)
+	Par.1 : egal
+	Modus :	None
+2.)	Sie wollen die Lautstärke des Samples anfangs um 10 % erhöhen und am
+	Ende auf 60% bringen. Der Lautstärkeabfall soll immer schneller werden.
+	Par.0 :	110 % (100%+10%)
+	Par.1 :	 60
+	Modus :	Curve, Exp="2.0"
+3.)	Sie möchten einen Tremolloeffekt (zyklische Schwankungen der Lautstär-
+	ke - "Hubschrauber") erzeugen.
+	Par.0 : 120 %
+	Par.1 :  80 %
+	Modus : Cycle, Sin, Frequency, Frq="1 Hz"
+
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Folgende Schalter möchte ich ebenfalls an dieser Stelle erklären, da sie fast
+überall vorkommen.
+Go	:	Startet die Berechnung
+Reset	:	Setzt die Parameter auf ihre Standarteinstellungen zurück.
+
+Src	:	Bezeichnet den Sourcepuffer. Dieser beinhaltet die Wellenform,
+		die mit dem Operator bearbeitet werden soll.
+		Das Cylegadget hinter dem Namen des Sourcepuffers, ermöglicht
+		die Auswahl des zubearbeitenden Bereiches. Dabei sind folgende
+		Varianten möglich :
+			All    : das gesammte Sample wird bearbeitet
+			Window : nur der aktuell sichtbare (gezoomte) Bereich
+				 wird bearbeitet
+			Range  : nur der aktuell markierte Bereich wird bear-
+				 beitet
+		SFX schlägt ihn automatisch den warscheinlich gewünschten Modus
+		vor, d.h. wenn Sie z.B. einem Bereich markiert haben, ist Range
+		voreingestellt.
+
+Par :		Beinhaltet zwei Parameterwerte und einen Button '<->' zum
+		Tauschen.
+Mod :		Mit dem Cycle-Gadget kann der Modulationstyp ausgewählt werden.
+		Nach einem Click auf das Popup-symbol erschein ein
+		@{" Parameterfenster " link sfx-guimodwin.guide/main} zu dem Modulationstyp.
+
+Interpol :	Auswahl des Intepolationstypes
+			None	 : keine Interpolation
+			Lin      : lineare Interpolation
+			Si       : Kurveninterpolation über <n> Werte
+			Lagrange : Kurveninterpolation über <n> Werte
+IntRange :	Ordnung der Interpolation <n>
+
+Window :	Nach einem Click auf das Popup-symbol erscheint das
+		@{" Fensterfunktions-Fenster " link sfx.guide/WFktSelWin }
+
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Jetzt noch einige Worte zu den Parametern selber. Seit der Version 3.4 kann man
+echte Einheiten in SFX verwenden. Das bedeutet, wenn Sie z.B. etwas mit Amplify
+doppelt so laut machen wollen, können Sie alle der folgenden Varianten ver-
+wenden :
+	2.0		: factor
+	200 %		: absolut, Prozent
+	2000 %%		: absolut, Promille
+	+ 100 %		: relativ, Prozent
+	+ 1000 %%	: relativ, Promille
+	+ 6 db		: relativ, Dezibel
+Die derzeitig von SFX erkannten Einheiten (schreiben Sie mir wenn Sie mehr
+brauchen) :
+
+Amplitude
+	Faktor				Wert
+	absolut, Prozent		Wert %
+	absolut, Promille		Wert %%
+	relativ, Prozent		+/- Wert %
+	relativ, Promille		+/- Wert %%
+	relativ, dezibel		+/- Wert db
+	absolut, Pegel			Wert lv
+
+relative Frequenz
+	Faktor				Wert
+	absolut, Prozent		Wert %
+	absolut, Promille		Wert %%
+	relativ, Prozent		+/- Wert %
+	relativ, Promille		+/- Wert %%
+	relativ, semitones		+/- Wert st
+	relativ, cents			+/- Wert ct
+	relativ, semitones & cents	+/- Wert:Wert st:ct
+
+absoulte Frequenz
+	Herz				Wert hz
+	Ton				note -/# oktave  (e.q. C-3, E#2)
+
+relative Zeit
+	Faktor				Wert
+	absolut, Prozent		Wert %
+	absolut, Promille		Wert %%
+	Wiederholungen			Wert rpts
+	
+absolute Zeit
+	Stunde				Wert h
+	Minute				Wert m
+	Sekunde				Wert s
+	Millisekunde			Wert ms
+	Sekunde & Millisekunde		Wert:Wert s:ms
+	Minute & Sekunde		Wert:Wert m:s
+	Stunde & Minute			Wert:Wert h:m
+	Minute & Sekunde & Millisekunde	Wert:Wert:Wert m:s:ms
+	:
+	:
+	(Ich denke Sie haben's kapiert)
+	Samples				Wert sv
+	Movie(Kino)frames (24 fps)	Wert mf
+	PAL-Videoframes	(25 fps)	Wert pf
+	NTSC-Videoframes (30 fps)	Wert nf
+
+Verhältnis, Anteil
+	Faktor				Wert
+	absolut, Prozent		Wert %
+	absolut, Promille		Wert %%
+
+Anzahl
+	absolut				Wert
+	relativ				+/- Wert
+
+Phase/Winkel
+	Faktor				Wert
+	absolut, Prozent		Wert %
+	absolut, Promille		Wert %%
+	Grad				Wert °
+	Minuten				Wert '
+	Sekunden			Wert "
+	Minuten & Sekunden		Wert:Wert ':"
+	:
+	:
+	Radian				Wert rad
+	englische Grad 			Wert grd
+
+Nicht alle dieser Einheiten können für alle Parameter benutzt werden und umge-
+kehrt können manchmal ungebäuchliche Eiheiten verwendet werden. Auf den letz-
+teren Fall weise ich in den zugehörigen Operatorbescheibungen hin.
+@endnode

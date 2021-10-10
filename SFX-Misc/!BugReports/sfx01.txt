@@ -1,0 +1,87 @@
+From - Thu Aug 13 11:06:13 1998
+Received: from munich.netsurf.de (laurin.munich.netsurf.de [194.64.166.1])
+	by imn.htwk-leipzig.de (8.9.1/8.9.1) with ESMTP id HAA26434
+	for <kost@imn.htwk-leipzig.de>; Tue, 11 Aug 1998 07:46:38 +0200 (MET DST)
+Received: from munich.netsurf.de (Andi@ns2056.munich.netsurf.de [195.180.232.56]) by munich.netsurf.de (8.8.5/8.7) with SMTP id HAA07839 for <kost@imn.htwk-leipzig.de>; Tue, 11 Aug 1998 07:48:06 +0200 (MET DST)
+From: Andreas Baenisch <andreas.baenisch@munich.netsurf.de>
+To: Stefan Kost <kost@imn.htwk-leipzig.de>
+Date: Tue, 11 Aug 1998 07:48:46 +0200
+Message-ID: <yam7527.2312.138817568@mail.munich.netsurf.de>
+In-Reply-To: <35CEBCA8.57DBDE71@imn.htwk-leipzig.de>
+X-Mailer: YAM 2.0.0 Preview4 [020] - Amiga Mailer by Marcel Beck - http://www.yam.ch
+Subject: Re[2]: SoundFX V3.70
+MIME-Version: 1.0
+Content-Type: text/plain
+Content-Length: 416
+Status:   
+X-Mozilla-Status: 8013
+
+Hallo Stefan,
+
+Am 10-Aug-98 schriebst Du:
+> I've (hopefully) fixed those bugs.
+> Please download again. A new version is available on my homepage and has
+> been uploaded to aminet.
+> 
+> Sorry for any inconvinience.
+> 
+> Ciao Stefan
+
+Hi Stefan
+
+Ich hab immer noch Probleme :(
+Ich komm jettzt zwar rein
+aber irgendwie kann ich keine Daten laden :(
+Da stimmt scheinbar was nicht mit dem Laderequester :(
+ 
+!!!!!!! Initial Directory setzen
+
+
+MfG
+
+Andi
+
+
+From - Tue Aug 18 12:21:34 1998
+Received: from sun-ultra.hamburg-online.de ([195.145.139.10])
+	by imn.htwk-leipzig.de (8.9.1/8.9.1) with ESMTP id WAA03242
+	for <kost@imn.htwk-leipzig.de>; Thu, 13 Aug 1998 22:16:31 +0200 (MET DST)
+Received: from hamburg-online.de ([194.221.192.67])
+          by sun-ultra.hamburg-online.de (Netscape Messaging Server 3.0)
+           with SMTP id AAA621 for <kost@imn.htwk-leipzig.de>;
+          Thu, 13 Aug 1998 22:14:10 +0100
+From: "Christoph Flatau" <shadow@hamburg-online.de>
+To: Stefan Kost <kost@imn.htwk-leipzig.de>
+Date: Thu, 13 Aug 1998 11:34:10 +0200
+Message-ID: <yam7529.534.142463656@mail.hamburg-online.de>
+X-Mailer: YAM 2.0 Preview5 - Amiga Mailer by Marcel Beck - http://www.yam.ch
+Organization: Action Images
+Subject: Bugs in SFX
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-MIME-Autoconverted: from quoted-printable to 8bit by imn.htwk-leipzig.de id WAA03242
+Content-Type: text/plain; charset=iso-8859-1
+Content-Length: 844
+Status:   
+X-Mozilla-Status: 8000
+
+Hallo Stefan,
+
+die neue Version von SFX ist wirklich toll ! Jedoch gibt es immer noch ein
+paar Probleme mit dem Erase und dem Short ->Absturz...
+Mit kurzen Samples klappt es meistens, da ich aber meistens CDDA-Files
+nachbearbeite stolpere ich dort oft über das Problem... Achja, bei mir klappt
+auch das Abspielen von Samples im virutellen Speicher über AHI nicht, weder
+über Paula, noch über die Soundkarte. Ausserdem läuft die Marke beim Abspielen
+über AHI nicht mit :-(( 
+Aufpassen muß man auch im
+Parameterfenster der Samples, wenn man den Darstellungsmodus ändert, bei
+großen Samples kann auch das schnell zum Guru führen.
+
+Gruß, Christoph
+-- 
+ ____ __  __   ____ _____    ____ __ __ __
+/ ___\\ \_\ \ / <_ \\  /\ \ / /\ \\ \\ \\ \
+\____ \\  __ \\  __ \\ \_\ \\ \_\ \\ \\ \\ \
+ \____/ \_\ \_\\_\ \_\\____/ \____/ \_/ \__/@hamburg-online.de
+

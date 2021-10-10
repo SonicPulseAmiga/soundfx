@@ -1,0 +1,172 @@
+Juhuuuu Stefan ;O)
+
+Nach unserer letzten Email habe ich mich dann mal mit unserem Team zusammen
+gesetzt und wir haben uns Gedanken über weitere Optimierungen zu SFX
+gemacht.
+Was dabei heraus gekommen ist kannst du unter den folgenden Punkten lesen
+:O)
+Und das war garnicht ma so wenich :O)
+
+( PS Rächtschraibfähla bitte übasehen :O)
+
+Anbei noch einge GFX auf den dur ersehen kannst was wir meien......und los
+gehts
+Haben diese in verschieden Formate abgelegt :O):O):O)
+
+
+· Den ADD-Button der in den Preset ist sollte in Savebutton umgewandelt
+werden
+  Die sollte dann folgende Funktion erhalten.
+
+  Sobald man Werte geändert hat und den Save Preset Button gedrückt hat
+  ( jetzt noch ADD-Button ) erschein KEIN Requester sondern der Cursor
+springt
+  in die Zeile darüber und verlangt einen Filenamen. Nach Eingabe desselben
+und
+  Eingabe durch ENTER wird das Preset dann in dem dementsprechenden
+Verzeichniss
+  gespeichert.
+
+  Ein zweite UND zusätzliche Möglichkeit wäre das man erst die Werte
+verändert
+  dann den File/Presetnamen eingibnt und ENTER drückt. Auch dann wir das
+Preset
+  in seinem Verzeichnis gespeichert. Ich möchte für Wetten das es so auch
+mehr
+  Leute gibt die dann damit rum experimentieren ;O)
+
+
+· Es wäre sinnvoll wenn es einen neue Eingabemöglichkeit für die Werte gäbe.
+  Wir haben das Kind einfach mal "POWERSILDER" genannt. Die Funktion ist
+denkbar
+  einfach. In den Presets und überall da wo Werte einzugeben sind könntest
+du diesen
+  PS (POWERSLIDER) plazieren. Der Pfeil nach Links < verringert den Wert -1.
+  Der Pfeil nach rechts erhöht der Wert +1. (Ha was sollte er sonst tun
+*grins*)
+  Jetzt kommt der Clou... das Feld in der mitte mit dem +- Zeichen lässt
+sich per
+  Maus mit linker gedrückter Taste den Wert +1 oder -1 rauf und runter
+scrollen,
+  je nach Mausbewegung.   Dabei stoppt der Wert jeweils bei einem für das
+Preset
+   SINNVOLLEN Min oder Maxwert. So kann erstmal
+  vermieden werden das MEGAFETT übersteuerte Ergebnisse dabei rauskommen ;O)
+  ( Ich habe schon das eine oder andere mal mein Kopfhörer hektisch herunter
+reissen
+  müssen weilgenau das passiert war ) :O) Das habe ich von Bars & Pipes und
+es ist KLASSE!!!!!!
+  Ausserdem ist noch die manuelle Eingabe der Werte möglich wenn mann die
+  Min-und Maxwerte über oder unterschreiten möchte ;O) ;O).
+
+· Was auch sehr sinnvoll wäre ( unsere Meinug nach ) ;O) wenn du Prosses und
+Effectpresets
+  in verschieden Librarys trennst. Wir haben das mit auf dem Bild
+eingezeichnet. ;O)
+  So wären sicherlich alle grundsätzlichen Prosseze wie VOLUME / FADE /
+CONVERT / MORMALIZE usw.
+  in der Processlib zu finden. Alle Effecte wie  CHORUS / REVERB / PITCH
+usw. könnten dann
+  in die Effectslib ;O). So müsste man weniger suchen :O) ;O) Jau das is der
+HIT :O)
+
+· Ein neues Markersystem wäre ebenfalls sehr zu empfehlen . Wozu muss ich
+den Markbereich
+  rauf un runter schieben können. Wenn ich es aufzoome wird das Sample ja
+doch in der
+  Mitte dargestellt und nicht nur die markierten Spitzen, also weg damit und
+her mit einem
+  einfach genialen, genial einfachen System. Auch hier haben wir dir das
+eingezeichent ;O)
+  Im Markbereich hat man links und rechts oben und unten Anfasser an den der
+Bereich
+  vergrößert oder verkleinert werden kann. Wenn man mit der Maus in den
+makierten
+  Bereich reinklickt und die linke Maustaste drückt kann der makeirte
+Bereich verschoben werden.
+  Das ist ungemein nützlich und schnell und erfüllt genau den Zweck den
+Marker haben sollten.
+  Falls Du im Besitz von Soundprobe bist schau Dir das mal da an. OPTIMAL
+;O) :O)
+  Wäre Klasse wenn das auch für SFX so gelöst werden könnte ;O) bittteeee
+:O)
+
+· Auch nicht uncool wäre Marker für einen Loopbereich ( sind mit
+eingezeichnet )
+  Dieser Loopbereich wird mit abgespeichert und kann von Programmen wir
+Protracker,Digibooster und
+  ähnlichen Programmen verwendet werden. Das wäre der Hammer.
+
+  Falls Du jetzt noch liesst -------- Klasse dann hast Du Interesse an
+weitern Verbesserungen?
+
+· Wichtig oder zumindestens für den User leichter zu verstehen wäre auch
+eine Beschriftung
+  der einzelenen Abteilungnen ( siehe über CHORUS , FADE ) Prosses, Effects
+!!
+  So würde der Neueinsteiger sich schneller zu recht finden :O) ;O)
+
+· Soweit erstmal die GROßEN Veränderungen.
+
+  Hier noch weiter Anregungen :O)
+
+· Bei Presets die mehrere Sources mischen oder verbinden wäre es Klasse wenn
+das zuerst geladene
+  AUTOMATISCH auf SCR1 (also auf SRC_OP1) gelegt wird. Das zweit geladene
+dann auf SRC2 und so weiter.
+  Wem das nicht passt ( und das ist ja ehr seltener ) kann das ja manuell
+ändern.
+  SO wäre es bei MIX-3D  sehr vorteilhaft wenn sagen wir mal bei 5 geladenen
+Samples alle der Reihe nach
+  auf die SCR-Positionen eingesetzt werden würden. Wie gesagt Manuelle
+Veränderungen wären ja noch
+  möglich.
+
+· In den Presets sollten die Einstellungen auch gespeichert werden können
+  .....oh mann was will der Typ den noch alles haben *grins*
+
+und weiter gehts
+
+· Wie wäre es PPC-Support für die Berechnungen damit das alles NOCH fixer
+geht?
+
+· In den Presets wäre eine 1Sekunden lange Previewfunktion der eingestellten
+Werte nicht schlecht.
+  Ich denke das sollte sich machen lassen ohne die CPU zu sehr zu quällen
+;O)
+
+· In den Presets wäre es nicht schlecht wenn die VECTOReinstellungen
+gespeichert werden könnten.
+
+
+· AC3/5.1 sowie DOLBY und DTS sowie es z.B WAVETRACER besitzt wäre nicht
+schlecht. Damit würde
+  das Programm ENORM!!!!! an Power und Wert gewinnen!!!!! und weiter seine
+Platz1 Position
+  verteidigen!!!!
+
+· In den Presets wird das Version$ nicht richtig ausgelesen. Wenn man hier
+seinen einen Namen und
+  einen eigenen Kommentar einträgt wird trotzdem Deiner angezeigt ;O)
+  Im Prinzip nicht schlecht aber wir hätten da schon ganz gerne unser
+Copyright drin ;O)
+  Wenn ich dann auf ABOUT gehe im Preset das dort unser Name usw. erscheint.
+
+
+Oh mann das war es erstmal................Ich hoffe wir haben Dich nicht
+überfordert ....
+Schreib mir zu den Ideen was du davon hälst und was du glaubst sich in der
+kommenden
+Version schon umsetzten lässt. So hätte ich wieder reichlich Stoff für Deine
+Supportseiten ;O)
+
+So Thats all 4 Today
+
+Fette und Nette Grüße nach LAPZICH und sollten uns mal wieder treffen.
+PS: Hast Du die letzte Email gelesen  oder bekommen?
+
+
+RON & Stefan
+
+2IDs.TEAM
+www.2IDs.de

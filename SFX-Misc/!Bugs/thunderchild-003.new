@@ -1,0 +1,6 @@
+- Fast alle Operatoren verursachen nach mehrmaligem gebrauch einen
+  Totalcrasch. Dabei spielt die Reihenfolge der Anwendung keine Rolle.
+  Ich habe z.B. zuerst Middle, dann Amilpfy benutzt. Klappte alles.
+  Als ich aber dann Amplify nochmals aufrief, hing der Rechner.
+  Dies funktioniert analog auch mit anderen OP´s in beliebiger
+  Reihenfolge.

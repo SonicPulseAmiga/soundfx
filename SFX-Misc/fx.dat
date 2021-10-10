@@ -1,0 +1,500 @@
+Amplify
+	Chop.prefs -> erst ChopperRect.cfg und dann FadeOut.cfg
+		Ampf : 0.0 | 1.0 | Vector (Linear von 1.0 bis 0.0 mit Unterbrechungen)
+		Wrap=None
+-	Chopper.prefs ->ChopperSaw.cfg
+		Ampf : 1.2 | 0.25 | Cycle(Saw,16 rpts, 0.0°)
+		Wrap=Clip
+-	Chopper2.prefs ->ChopperTri.cfg
+		Ampf : 1.2 | 0.25 | Cycle(Tri,16 rpts, 0.0°)
+		Wrap=Clip
+_	FadeIn&Out.prefs
+		Ampf : 0.0 | 1.0 | Vector((0.0,0.0),(0.1,1.0),(0.9,1.0),(1.0,0.0))
+		Wrap=None
+-	FadeIn.prefs
+		Ampf : 0.0 | 1.0 | Curve(Linear Exp 1.0)
+		Wrap=None
+-	FadeOut.prefs
+		Ampf : 1.0 | 0.0 | Curve(Linear Exp 1.0)
+		Wrap=None
+-	Invert.prefs
+		Ampf : -1.0 | -1.0 | None
+		Wrap=None
+-	Percussion.prefs
+		Ampf : 0.0 | 1.0 | Vector(cplx)
+		Wrap=None
+-	Pluck.prefs
+		Ampf : 0.0 | 1.0 | Vector(cplx)
+		Wrap=None
+-	RoomImpulseResponse.prefs
+		Ampf : 0.0 | 1.0 | Vector(cplx)
+		Wrap=None
+-	SoftKnee.prefs (kapput)
+		Ampf : 
+-	Tremolo_50%_2Hz.prefs
+		Ampf : 0.5 | 2.0 | Cycle(Sin,2.0 hz,0.0°)
+		Wrap=None
+AmplifySplit
+-	ClapLowerToUpper.prefs
+		Lower 	:  1.0 | 1.0 | None
+		Uppwer	: -1.0 | 1.0 | None
+-	ClapUpperToLower.prefs
+		Lower 	: -1.0 | 1.0 | None
+		Uppwer	:  1.0 | 1.0 | None
+-	ClearLower.prefs
+		Lower 	:  1.0 | 1.0 | None
+		Uppwer	:  0.0 | 1.0 | None
+-	ClearUpper.prefs
+		Lower 	:  0.0 | 1.0 | None
+		Uppwer	:  1.0 | 1.0 | None
+-	Invert.prefs
+		Lower 	: -1.0 | 1.0 | None
+		Uppwer	: -1.0 | 1.0 | None
+-	Slide.prefs
+		Lower 	:  1.0 | 0.0 | Curve(Linear Exp 1.0)
+		Uppwer	:  0.0 | 1.0 | Curve(Linear Exp 1.0)
+ChorusPhaser
+-	Fat1.prefs
+		Fx		:  0.8 | 0.8 | None
+		Voice1	: 6 ms | 14 ms | Cycle(Sin,1.0 hz,  0.0 °)
+		Voice2	: 4 ms | 12 ms | Cycle(Sin,1.3 hz, 45.0 °)
+		Voice3	: 2 ms | 10 ms | Cycle(Sin,1.7 hz, 90.0 °)
+		Voice4	: 0 ms |  8 ms | Cycle(Sin,2.1 hz,135.0 °)
+		Interpol=Lin
+		Ampf=1.5;
+-	Fat2.prefs
+		Fx		:  0.8 | 0.8 | None
+		Voice1	: 6 ms | 14 ms | Cycle(Sin,1.0 hz,135.0 °)
+		Voice2	: 4 ms | 12 ms | Cycle(Sin,1.3 hz, 90.0 °)
+		Voice3	: 2 ms | 10 ms | Cycle(Sin,1.7 hz, 45.0 °)
+		Voice4	: 0 ms |  8 ms | Cycle(Sin,2.1 hz,  0.0 °)
+		Interpol=Lin
+		Ampf=1.5;
+-	SuperFat.prefs
+		Fx		:  0.8 | 0.8 | None
+		Voice1	: 15 ms | 25 ms | Cycle(Sin,1.0 hz,  0.0 °)
+		Voice2	: 10 ms | 30 ms | Cycle(Sin,1.3 hz, 45.0 °)
+		Voice3	:  5 ms | 35 ms | Cycle(Sin,1.7 hz, 90.0 °)
+		Voice4	:  0 ms | 40 ms | Cycle(Sin,2.1 hz,135.0 °)
+		Interpol=Lin
+		Ampf=1.5;
+ConvertChannels
+-	MonoToQuadro.prefs
+		 1.0		 1.0		 1.0		 1.0
+		 0.0		 0.0		 0.0		 0.0
+		 0.0		 0.0		 0.0		 0.0
+		 0.0		 0.0		 0.0		 0.0
+-	MonoToStereo.prefs
+		 1.0		 1.0		 0.0		 0.0
+		 0.0		 0.0		 0.0		 0.0
+		 0.0		 0.0		 0.0		 0.0
+		 0.0		 0.0		 0.0		 0.0
+-	MonoToWideQuadro.prefs
+		 1.0		-1.0		 1.0		-1.0
+		 0.0		 0.0		 0.0		 0.0
+		 0.0		 0.0		 0.0		 0.0
+		 0.0		 0.0		 0.0		 0.0
+-	MonoToWideStereo.prefs
+		 1.0		-1.0		 0.0		 0.0
+		 0.0		 0.0		 0.0		 0.0
+		 0.0		 0.0		 0.0		 0.0
+		 0.0		 0.0		 0.0		 0.0
+-	QuadroDiff1.prefs
+		 0.5		-0.5		 0.0		 0.0
+		-0.5		 0.5		 0.0		 0.0
+		 0.0		 0.0		 0.5		-0.5
+		 0.0		 0.0		-0.5		 0.5
+-	QuadroToMono.prefs
+		 0.25		 0.0		 0.0		 0.0
+		 0.25		 0.0		 0.0		 0.0
+		 0.25		 0.0		 0.0		 0.0
+		 0.25		 0.0		 0.0		 0.0
+-	QuadroToStereo.prefs
+		 0.5		 0.0		 0.0		 0.0
+		 0.0		 0.5		 0.0		 0.0
+		 0.5		 0.0		 0.0		 0.0
+		 0.0		 0.5		 0.0		 0.0
+-	QuadroToStereo2.prefs
+		 0.5		 0.0		 0.0		 0.0
+		 0.0		 0.5		 0.0		 0.0
+		 0.25		 0.25		 0.0		 0.0
+		 0.25		 0.25		 0.0		 0.0
+_	StereoDiff.prefs
+		 0.5		-0.5		 0.0		 0.0
+		-0.5		 0.5		 0.0		 0.0
+		 0.0		 0.0		 0.0		 0.0
+		 0.0		 0.0		 0.0		 0.0
+-	StereoToMono.prefs
+		 0.5		 0.0		 0.0		 0.0
+		 0.5		 0.0		 0.0		 0.0
+		 0.0		 0.0		 0.0		 0.0
+		 0.0		 0.0		 0.0		 0.0
+-	StereoToQuadro.prefs
+		 1.0		 0.0		 1.0		 0.0
+		 0.0		 1.0		 0.0		 1.0
+		 0.0		 0.0		 0.0		 0.0
+		 0.0		 0.0		 0.0		 0.0
+-	StereoToWideQuadro.prefs
+		 1.0		 0.0		-1.0		 0.0
+		 0.0		 1.0		 0.0		-1.0
+		 0.0		 0.0		 0.0		 0.0
+		 0.0		 0.0		 0.0		 0.0
+-	SwapQuadro1.prefs
+		 0.0		 1.0		 0.0		 0.0
+		 1.0		 0.0		 0.0		 0.0
+		 0.0		 0.0		 0.0		 1.0
+		 0.0		 0.0		 1.0		 0.0
+-	SwapStereo.prefs
+		 0.0		 1.0		 0.0		 0.0
+		 1.0		 0.0		 0.0		 0.0
+		 0.0		 0.0		 0.0		 0.0
+		 0.0		 0.0		 0.0		 0.0
+-	WideQuadroToMono.prefs
+		 0.25		 0.0		 0.0		 0.0
+		-0.25		 0.0		 0.0		 0.0
+		 0.25		 0.0		 0.0		 0.0
+		-0.25		 0.0		 0.0		 0.0
+-	WideQuadroToStereo.prefs
+		 0.5		 0.0		 0.0		 0.0
+		 0.0		 0.5		 0.0		 0.0
+		-0.5		 0.0		 0.0		 0.0
+		 0.0		-0.5		 0.0		 0.0
+-	WideStereoToMono.prefs
+		 0.5		 0.0		 0.0		 0.0
+		-0.5		 0.0		 0.0		 0.0
+		 0.0		 0.0		 0.0		 0.0
+		 0.0		 0.0		 0.0		 0.0
+Delay
+-	Auditorium.prefs
+		Fx		: 0.5 | 0.5 | None
+		Fb		: 0.4 | 0.4 | None
+		Delay	: 90 ms | 90 ms | None
+		Ampf=1.25
+		Dry=1-Eff
+		Interpol=Lin
+-	DeHummer_50Hz.prefs
+		Fx		: -1.0 | -1.0 | None
+		Fb		: 0.05 | 0.05 | None
+		Delay	: 50 Hz | 50 Hz | None
+		Ampf=1.0
+		Dry=-Eff
+		Interpol=Lin
+-	DeHummer_60Hz.prefs
+		Fx		: -1.0 | -1.0 | None
+		Fb		: 0.05 | 0.05 | None
+		Delay	: 60 Hz | 60 Hz | None
+		Ampf=1.0
+		Dry=-Eff
+		Interpol(Lin)
+-	Flanger.prefs
+		Fx		: 0.5 | 0.5 | None
+		Fb		: 0.5 | 0.5 | None
+		Delay	: 1 ms | 5 ms | Cycle(Sin,0.5 Hz,0.0°)
+		Ampf=1.35
+		Dry=1-Eff
+		Interpol(Lin)
+-	LightEcho.prefs
+		Fx		: 0.25 | 0.25 | None
+		Fb		: 0.7 | 0.7 | None
+		Delay	: 205 ms | 205 ms | None
+		Ampf=1.25
+		Dry=1-Eff
+		Interpol(Lin)
+Detune
+-	PowerOutage.prefs
+		Detune	: 1.0 | 0.005 | Curve(Linear Exp 1.0)
+		Interpol(Lagrange,3.0)
+-	Vibrato_10Hz_Deep.prefs
+		Detune	: 2.0 | 0.5 | Cycle(Sin,10.0 hz,0.0°)
+		Interpol(Lagrange,3.0)
+-	Vibrato_10Hz_Shallow.prefs
+		Detune	: 1.1 | 0.95 | Cycle(Sin,10.0 hz,0.0°)
+		Interpol(Lagrange,3.0)
+Dynamic
+-	Compressor.prefs
+		Loud	: 1.5  | 1.5  | None
+		Quiet	: 0.75 | 0.75 | None
+-	Delimiter.prefs
+		Loud	: 1.5 | 1.5 | None
+		Quiet	: 1.0 | 1.0 | None
+-	EnhanceQuietSounds.prefs
+		Loud	: 0.75 | 0.75 | None
+		Quiet	: 4.0  | 4.0  | None
+-	Expander.prefs
+		Loud	: 0.75 | 0.75 | None
+		Quiet	: 1.5  | 1.5  | None
+-	Limiter.prefs
+		Loud	: 1.0 | 1.0 | None
+		Quiet	: 1.5 | 1.5 | None
+Echo
+-	Chamber.prefs
+		Fx		: 1.0 | 1.0 | None
+		Delay	: 10 ms | 75 ms | Curve(Speedup Exp 2.0)
+		Amplit	: 0.2 | 0.01 | Curve(Speedup Exp 2.0)
+		Num=5
+		Ampf=0.7
+		Interpol(Lin)
+-	SmallBunker.prefs
+		Fx		: 1.0 | 1.0 | None
+		Delay	: 10 ms | 100 ms | Curve(Speedup Exp 2.0)
+		Amplit	: 0.3 | 0.01 | Curve(Speedup Exp 2.0)
+		Num=5
+		Ampf=0.7
+		Interpol(Lin)
+-	SmallRoom.prefs
+		Fx		: 1.0 | 1.0 | None
+		Delay	: 10 ms | 100 ms | Curve(Linear Exp 1.0)
+		Amplit	: 0.3 | 0.01 | Curve(Linear Exp 1.0)
+		Num=5
+		Ampf=0.7
+		Interpol(Lin)
+Equalize-FFT
+-	Bass&TrebbleBoost.prefs
+		Bands  0-10 = 200 %
+		Bands 10-20 = 200 % -> 100 %
+		Bands 20-40 = 100 %
+		Bands 40-50 = 100 % -> 200 %
+		Bands 50-64 = 200 %
+		Bands=64
+		Steps=32
+		Window(Hamming,0.54)
+-	MidCut.prefs
+		Bands  0-32 = 200 % -> 0 %
+		Bands 32-64 =   0 % -> 200 %
+		Bands=64
+		Steps=32
+		Window(Hamming,0.54)
+-	Peak1_1.prefs
+		Bands  0- 5 = 100 % -> 0 %
+		Bands  5-64 =   0 %
+-	Peak1_2.prefs
+		Bands  0- 3 =   0 %
+		Bands  3- 8 =   0 % -> 100 %
+		Bands  8-13 = 100 % ->   0 %
+-	Peak1_3.prefs
+-	Peak1_4.prefs
+-	Peak1_5.prefs
+-	Peak1_6.prefs
+-	Peak1_7.prefs
+-	Peak1_8.prefs
+-	Peak2_1.prefs
+		Bands  0- 5 = 175 % -> 75 %
+		Bands  5-64 =  75 %
+-	Peak2_2.prefs
+-	Peak2_3.prefs
+-	Peak2_4.prefs
+-	Peak2_5.prefs
+-	Peak2_6.prefs
+-	Peak2_7.prefs
+-	Peak2_8.prefs
+Equalize-FFT-3D
+-	Peak1.prefs
+		Sourcecurves : Peak1_1.cfg ... Peak1_8.cfg
+		XAxis : 0.0 | 1.0 | Cycle(Sin,2 rpts,0.0°)
+		XAxis : 0.0 | 1.0 | Cycle(Sin,1 rpts,0.0°)
+		XAxis : 0.0 | 1.0 | Cycle(Saw,1 rpts,0.0°)
+		Window(Hamming,0.54)
+		Bands=64
+		Steps=32
+-	Peak2.prefs
+		Sourcecurves : Peak2_1.cfg ... Peak2_8.cfg
+		XAxis : 0.0 | 1.0 | Cycle(Sin,2 rpts,0.0°)
+		XAxis : 0.0 | 1.0 | Cycle(Sin,1 rpts,0.0°)
+		XAxis : 0.0 | 1.0 | Cycle(Saw,1 rpts,0.0°)
+		Window(Hamming,0.54)
+		Bands=64
+		Steps=32
+Filter-FIRBandPass
+-	Phoneline.prefs
+		Fx		: 1.0 | 1.0 | None
+		CutOff1 : 400 hz | 400 hz | None
+		CutOff2 : 4000 hz | 4000 hz | None
+		Window(Hamming,0.54)
+		Num=64;
+Filter-StateVariable
+-	Example1.prefs -> EnvelopeSweep.cfg
+		Fx		: 1.0 | 1.0 | None
+		CutOff  : 0.0 | 0.75 | Vector(cplx)
+		Reso	: 50.0 | 10.0 | Vector(cplx)
+-	Sweep.prefs
+		Fx		: 1.0 | 1.0 | None
+		CutOff  : 1.0 | 0.0 | Curve(SpeedUp Exp 4.0)
+		Reso	: 5.0 | 200.0 | Curve(SlowDown Exp 0.5)
+Gamma (neu)
+-	Bass
+		Exp		: 0.25 | 0.25 | None
+-	Trebble
+		Exp		: 4.0 | 4.0 | None
+MultiDelay
+#	Fb_GlobalLocal.prefs
+#	Fb_Local.prefs
+-	MediumRoom.prefs
+		Delay1	:  10.0 | 0.8 | 0.8
+		Delay2	:  21.0 | 0.8 | 0.7
+		Delay3	:  35.0 | 0.7 | 0.7
+		Delay4	:  50.0 | 0.7 | 0.6
+		Delay5	:  62.0 | 0.6 | 0.6
+		Delay6	:  78.0 | 0.6 | 0.5
+		Delay7	:  89.0 | 0.5 | 0.5
+		Delay8	: 107.0 | 0.5 | 0.4
+		Amp=9.0
+		Dry=0.8
+		Num=8
+-	Noise2Synth.prefs
+		Delay1	:  C-0 | 0.65 | 0.8
+		Delay2	:  C-1 | 0.6  | 0.7
+		Delay3	:  C-2 | 0.55 | 0.6
+		Delay4	:  C-3 | 0.5  | 0.5
+		Delay5	:  G-0 | 0.3  | 0.4
+		Delay6	:  G-1 | 0.25 | 0.3
+		Amp=6.0
+		Dry=0.2
+		Num=6
+-	Resonate-CDisG.prefs
+		Delay1	:  C-3 | 0.9 | 1.0
+		Delay2	:  D#3 | 0.9 | 1.0
+		Delay3	:  G-3 | 0.9 | 1.0
+		Amp=7.0
+		Dry=0.0
+		Num=3
+-	Resonate-CEG.prefs
+		Delay1	:  C-3 | 0.9 | 1.0
+		Delay2	:  E-3 | 0.9 | 1.0
+		Delay3	:  G-3 | 0.9 | 1.0
+		Amp=7.0
+		Dry=0.0
+		Num=3
+-	Resonate-CEG_Duo.prefs
+		Delay1	:  C-3 | 0.9 | 1.0
+		Delay2	:  E-3 | 0.9 | 1.0
+		Delay3	:  G-3 | 0.9 | 1.0
+		Delay4	:  C-2 | 0.9 | 1.0
+		Delay5	:  E-2 | 0.9 | 1.0
+		Delay6	:  G-2 | 0.9 | 1.0
+		Amp=7.0
+		Dry=0.0
+		Num=6
+-	Resonate-CFG_Duo.prefs
+		Delay1	:  C-3 | 0.9 | 1.0
+		Delay2	:  F-3 | 0.9 | 1.0
+		Delay3	:  G-3 | 0.9 | 1.0
+		Delay4	:  C-2 | 0.9 | 1.0
+		Delay5	:  F-2 | 0.9 | 1.0
+		Delay6	:  G-2 | 0.9 | 1.0
+		Amp=7.0
+		Dry=0.0
+		Num=6
+-	Resonate-MaleVocalA.prefs
+		Delay1	:  175 Hz | 0.9 | 1.0
+		Delay2	:  312 Hz | 0.9 | 1.0
+		Delay3	:  650 Hz | 0.9 | 1.0
+		Amp=6.0
+		Dry=0.0
+		Num=3
+-	Resonate-MaleVocalI.prefs
+		Delay1	:  67 Hz  | 0.9 | 1.0
+		Delay2	:  575 Hz | 0.9 | 1.0
+		Delay3	:  750 Hz | 0.9 | 1.0
+		Amp=6.0
+		Dry=0.0
+		Num=3
+-	Reverb.prefs
+		Delay1	:  30.0 | 0.4  | 0.4
+		Delay2	:  70.0 | 0.4  | 0.35
+		Delay3	: 110.0 | 0.35 | 0.3
+		Delay4	: 155.0 | 0.35 | 0.25
+		Delay5	: 213.0 | 0.3  | 0.2
+		Delay6	: 297.0 | 0.25 | 0.15
+		Delay7	: 342.0 | 0.2  | 0.1
+		Delay8	: 401.0 | 0.2  | 0.05
+		Amp=8.0
+		Dry=0.95
+		Num=8
+-	Robotize.prefs
+		Delay1	:  10.0 | 0.8  | 0.8
+		Delay2	:  20.0 | 0.7  | 0.7
+		Delay3	:  25.0 | 0.7  | 0.7
+		Delay4	:  30.0 | 0.65 | 0.65
+		Delay5	:  50.0 | 0.6  | 0.6
+		Delay6	:  60.0 | 0.6  | 0.6
+		Delay7	:  70.0 | 0.5  | 0.5
+		Delay8	:  80.0 | 0.5  | 0.5
+		Amp=9.0
+		Dry=0.0
+		Num=8
+-	SmallRoom.prefs
+		Delay1	:  10.0 | 0.8  | 0.8
+		Delay2	:  17.0 | 0.75 | 0.75
+		Delay3	:  29.0 | 0.7  | 0.7
+		Delay4	:  35.0 | 0.65 | 0.65
+		Delay5	:  53.0 | 0.6  | 0.6
+		Delay6	:  67.0 | 0.55 | 0.55
+		Delay7	:  72.0 | 0.5  | 0.5
+		Delay8	:  84.0 | 0.45 | 0.45
+		Amp=9.0
+		Dry=0.8
+		Num=8
+Noise
+-	Flash.prefs
+		Min		: 0.95 | 0.0   | Curve(SlowDown Exp 0.5)
+		Max		: 1.0  | 0.001 | Curve(SlowDown Exp 0.5)
+		Rate=22050 hz
+		Length=1.0 s
+Panorama-2Ch
+-	PingPong.prefs
+		LRPos	: 0.0 | 1.0 | Cycle(Tri,1 rpts,0.0°)
+-	RightToLeft.prefs
+		LRPos	: 0.0 | 1.0 | Curve(Linear Exp 1.0)
+Panorama-4Ch
+-	Circle.prefs
+		LRPos	: 0.0 | 1.0 | Cycle(Sin,1 rpts,0.0°)
+		FBPos	: 0.0 | 1.0 | Cycle(Sin,1 rpts,90.0°)
+-	EightShape.prefs
+		LRPos	: 0.0 | 1.0 | Cycle(Sin,2 rpts,0.0°)
+		FBPos	: 0.0 | 1.0 | Cycle(Sin,1 rpts,90.0°)
+-	CandyShape.prefs
+		LRPos	: 0.0 | 1.0 | Cycle(Sin,3 rpts,0.0°)
+		FBPos	: 0.0 | 1.0 | Cycle(Sin,1 rpts,90.0°)
+PitchShift
+-	RhythmicPitcher.prefs
+		Factor	: 0.75 | 1.5 | Cycle(Swa,4 rpts,0.0°)
+		WinSize=20 ms
+		Smooth=25%
+		Interpol(Lin)
+Reverse
+-	BeatFX1.prefs
+		Fx		: 0 % | 50 % | Cycle(Swa,4 rpts,0.0°)
+-	XFade.prefs
+		Fx		: 50 % | 50 % | None
+Smear
+-	DuoSound.prefs
+		Fx		: 0.5 | 0.5 | None
+		Smear	: -40 ms | +40 ms | Cycle(Sin,2 rpts,0.0°)
+		Interpol=Lin
+-	PhaserLight.prefs
+		Fx		: 0.5 | 0.5 | None
+		Smear	: -1 ms | +1 ms | Cycle(Sin,2 rpts,0.0°)
+		Interpol=Lin
+-	Siren.prefs
+		Fx		: 1.0 | 1.0 | None
+		Smear	: -3.5 ms | +3.5 ms | Cycle(Sin,8 hz,0.0°)
+		Interpol=Lin
+-	Wobble.prefs
+		Fx		: 0.5 | 0.5 | None
+		Smear	: -1.0 ms | +1.0 ms | Cycle(Tri,30 hz,0.0°)
+		Interpol=Lin
+Swap
+-	ReversedLoops_eighth.prefs
+		Fx		: 0.35 | 0.35 | None
+		Swap	: 0.125 | 0.125 | None
+Synthesize-Add
+-	LaserShot1.prefs
+		Wave=Tri
+		Phase=0.0°
+		Slen=1.0 s
+		Rate=22050 hz
+		Vol=1.0
+		Frq=C-3
+		Frq : 4.0 | 0.001 | Curve(SlowDown Exp 0.1)
+		Amp : 0.0 | 1.0 | Vector(cplx)
+

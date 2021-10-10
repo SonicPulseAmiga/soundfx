@@ -1,0 +1,11 @@
+10
+With the keys '<' and '>' you can zoom in and out of samples.
+The sample options allow you to change the unit for the rules.
+Read in chapter '2.1 Operators' the section 'Common'.
+In the operators you can often enter negative values as well (e.g. negative feedback).
+In delay-based operators you can enter the delay as a note (C-3), which turns the delay under high feedback values into a resonator.
+With the 'space'-key you can start and stop playback.
+If you need more space on screen, then hide currently unused samples.
+You can achieve good stereo-fx by taking a mono source, applying the same fx with slightly varying settings twice and joining the channels.
+I recommend using MagicMenu, cdxSizer, MCP and VisualPrefs for a better looking GUI.
+I recommend installing the 'popupmenu.library'. Then SoundFX will have context menus on the middle mouse-button in sample windows.

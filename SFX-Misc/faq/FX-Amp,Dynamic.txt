@@ -1,0 +1,77 @@
+<<<<<<<<<< Amplify, Envelope, Dynamic >>>>>>>>>>
+
+26 jul 99
+Q:
+> My aim is to do an envelope detector in a few steps (maybe Arexx Script).
+> Does anyone know how to rectify a sample (i.e. mirror the negative parts,
+> absolute value)
+> I mean not just the display, but the actual sample data. Then I want to LPF
+> the sample to end up with the envelope. What cutoff frequency would be OK?
+> How is this done when applying the AmpEnv modulation?
+A:
+The first is easy. Use AmplifySplit. there you can aplify upper and lower parts
+individually. Thus you can amplify the upper by '1.0' and the lower by '-1.0'
+and therfore just inverting the lower part. Then apply a lowpass with a cutoff
+at about '250 Hz'. Another good idea is to mix the signal with a delayed copy of
+itself (choose a delay of e.g. 25 ms in the Mix-operator).
+I've not tried the values, so please experiment and tell us then.
+ 
+> The Amplify-split and LPF combination works just perfectly. The best
+> results are achieved with the State variable filter (cutoff between 50 and
+> 200 Hz and resonance=1) With these values you see really nice and smooth
+> envelope curves which can be used to modulate other effects.
+Q:
+> The envelope curve I end up getting lies on the upper
+> part of the window (i.e it only takes positive values), but I would like
+> it to take values from -(max) to +(max). I thought that I should substract
+> 32.000 to every sample. (is there a way to do this?)
+A:
+Ofcourse you can use slide to slide it 50 % down and then Amplify to scale it to
+200 %. If you use it in SoundFX for modulation, just use
+the modulation mode 'abs'.
+Even easier is to use soundfx's ability to create those envelopes on-the-fly.
+You know that soundfx is able to do that ? Choose blend-shape=User, then
+activate the setting and choose the source sample (where to grab that envelope
+from) and modulation type AmpEnv (AmplitudeEnvelope).
+
+26 jul 00
+Q:
+> In the operator Dynamic, what is the threshold for deciding what is a 
+> loud or quiet value? Do we have acces to setting this threshold?
+A:
+In former SoundFX version this was called 'CompressorExpander'. I renamed it,
+because it works different. You give the operator a factor for the loudest value
+(full amplitude) and a factor for the quietest (zero). Inbetween the operator
+interpolates linear.
+
+Q:
+> If i give a negative value for quiet, will it sit on zero or be fliped 
+> on negative side?
+A:
+SoundFX will never reject a parameter because it looks unfamilliar. that's why
+my operators can produce some many different results. When you enter a negative
+value for the quiet, then it will inverse quiet sounds and the interpolation
+will range from that negative value to the (probably) positive value for loud.
+
+19 dec 00
+Q:
+> while mixing a cd last weekend i found that some tracks are much more
+> silent than others.
+> is soundfx able to do a "maximize" function on a track? i mean to make
+> silent tracks louder and maybe loud tracks more silent?
+> and if yes, how?
+-
+Thats easy. You can use the 'Amplify'-Operator for that. Just press
+MaxVol there and it calculates the optimal amplification. When you have
+a batch of file to maximize, then use the Batchprocessor :
+  1. Loader : Universal
+  2. Operator Amplify, Preset MaxVol
+  3. Saver : e.g. IFF-AIFC
+Then you just select source and destination directories and hit start.
+-
+If all tracks are amplified to full extent, its a bit more difficult. It
+would mean to use AnalyseData for each track and to write down the
+'RMS-Volume'. Then you could make the louder tracks quieter (with
+amplify) to reduce their energy (RMS-Volume) or use the dynamic operator
+to compress the silent tracks (e.g. loud values=0.9, quiet values 1.0)
+and then amplify (maxvol) them to make them louder.

@@ -1,0 +1,370 @@
+@database debugtools-lib.guide
+@rem Source: debugtools-lib.c
+@rem Generated with RoboDoc v3.0k (Aug  2 1998)
+@rem RoboDoc is copyright 1994-1998 by Maverick Software Development
+@node Main debugtools-lib.guide
+@{jcenter}
+@{fg highlight}@{b}TABLE OF CONTENTS@{ub}@{fg text}
+
+@{"debugtools.lib/_CXFERR             " Link "_CXFERR"}
+@{"debugtools.lib/_EPILOG             " Link "_EPILOG"}
+@{"debugtools.lib/_PROLOG             " Link "_PROLOG"}
+@{"debugtools.lib/_STD_1000_DebugTools" Link "_STD_1000_DebugTools"}
+@{"debugtools.lib/_STD_150_Sprof      " Link "_STD_150_Sprof"}
+@{"debugtools.lib/_STI_1000_DebugTools" Link "_STI_1000_DebugTools"}
+@{"debugtools.lib/_STI_150_Sprof      " Link "_STI_150_Sprof"}
+@{"debugtools.lib/__matherr           " Link "__matherr"}
+@{"debugtools.lib/dt_defs.c           " Link "dt_defs.c"}
+@{"debugtools.lib/sos_exec_defs.h     " Link "sos_exec_defs.h"}
+@{"debugtools.lib/sos_listtools_defs.h" Link "sos_listtools_defs.h"}
+@{"debugtools.lib/sos_math_defs.h     " Link "sos_math_defs.h"}
+@{"debugtools.lib/sos_stdc_defs.h     " Link "sos_stdc_defs.h"}
+@{jleft}
+@endnode
+@Node "_CXFERR" "debugtools.lib/_CXFERR"
+@{fg shine}debugtools.lib/_CXFERR@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}_CXFERR@{ub} -- replace the low level fp-math error handler
+@{ub}
+@{b}SYNOPSIS@{ub}
+    @{b}_CXFERR@{ub}(code)
+
+    void @{b}_CXFERR@{ub}(int);
+
+@{b}FUNCTION@{ub}
+    Replaces the standart low level floating point math error handler by a
+    version with visual feedback.
+
+@{b}INPUTS@{ub}
+    code  -- the math error code
+
+@{b}NOTES@{ub}
+    Which handler is called for each math library
+    math-typ   lib      trap     format  routines
+    -----------------------------------------------------------------------
+    STANDARD   scm      @{b}_CXFERR@{ub}  IEEE    internal
+    IEEE       scmieee  ?        IEEE    mathieee#?.library
+    FFP        scmffp   Guru     FFP     mathffp.library, mathtrans.library
+    68881/882  scm881   ?        IEEE    internal
+    68040/060  scm040   ?        IEEE    internal               
+
+@{b}SEE ALSO@{ub}
+    math.h,@{"__matherr" Link "__matherr"}()
+
+@endnode
+@Node "_EPILOG" "debugtools.lib/_EPILOG"
+@{fg shine}debugtools.lib/_EPILOG@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}_EPILOG@{ub}
+@{ub}
+@{b}SYNOPSIS@{ub}
+    @{b}_EPILOG@{ub}(where)
+            a0
+    void @{b}_EPILOG@{ub}(char *);
+
+@{b}FUNCTION@{ub}
+    Replaces the function which is called by the profiling system each time
+    before a function is left.
+
+@{b}INPUTS@{ub}
+    where - a string in the form of "<file>\\<func>\\<line>"
+
+@{b}SEE ALSO@{ub}
+    @{"_PROLOG" Link "_PROLOG"}()
+
+@endnode
+@Node "_PROLOG" "debugtools.lib/_PROLOG"
+@{fg shine}debugtools.lib/_PROLOG@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}_PROLOG@{ub} -- enter a new level
+@{ub}
+@{b}SYNOPSIS@{ub}
+    @{b}_PROLOG@{ub}(where)
+            a0
+    void @{b}_PROLOG@{ub}(char *);
+
+@{b}FUNCTION@{ub}
+    Replaces the function which is called by the profiling system each time a
+    function is entered.
+
+@{b}INPUTS@{ub}
+    where - a string in the form of "<file>\\<func>\\<line>"
+
+@{b}SEE ALSO@{ub}
+    @{"_EPILOG" Link "_EPILOG"}()
+
+@endnode
+@Node "_STD_1000_DebugTools" "debugtools.lib/_STD_1000_DebugTools"
+@{fg shine}debugtools.lib/_STD_1000_DebugTools@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}_STD_1000_DebugTools@{ub} -- disconnects a process from the debugtools-system
+@{ub}
+@{b}SYNOPSIS@{ub}
+    @{b}_STD_1000_DebugTools@{ub}()
+
+    void @{b}_STD_1000_DebugTools@{ub}(void);
+
+@{b}FUNCTION@{ub}
+    This will disconnect the process from the debugtools system.
+    As this is an autodestruction function, it make the destruction totally
+    transparent to the process, because it will be automatically called by the
+    startup-code ("c.o"). When linking with different startup-codes, e.g. when
+     creating shared libraries, call it as the last thing you do.
+
+@{b}SEE ALSO@{ub}
+    @{b}_STD_1000_DebugTools@{ub}()
+
+@endnode
+@Node "_STD_150_Sprof" "debugtools.lib/_STD_150_Sprof"
+@{fg shine}debugtools.lib/_STD_150_Sprof@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}_STD_150_Sprof@{ub} -- replaces the standard profiler destructor
+@{ub}
+@{b}SYNOPSIS@{ub}
+    @{b}_STD_150_Sprof@{ub}()
+
+    void @{b}_STD_150_Sprof@{ub}(void);
+
+@{b}FUNCTION@{ub}
+    This functions replaces the standart destructor for the profiling system
+    with a version, which does nothing, because we 'misuse' the system for our
+    own purposes.
+
+@{b}SEE ALSO@{ub}
+    @{"_STI_150_Sprof" Link "_STI_150_Sprof"}()
+
+@endnode
+@Node "_STI_1000_DebugTools" "debugtools.lib/_STI_1000_DebugTools"
+@{fg shine}debugtools.lib/_STI_1000_DebugTools@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}_STI_1000_DebugTools@{ub} -- connect a process to the debugtoolssystem
+@{ub}
+@{b}SYNOPSIS@{ub}
+    res=@{b}_STI_1000_DebugTools@{ub}()
+
+    int @{b}_STI_1000_DebugTools@{ub}(void);
+
+@{b}FUNCTION@{ub}
+    This function connects the caller to the debugtools system and initia-
+    lizes its environment.
+    As this is an autoinitialization function, it make the initialisation to-
+    tally transparent to the process, because it will be automatically called
+    by the startup-code ("c.o"). When linking with different startup-codes,
+    e.g. when creating shared libraries, call it as the first thing you do.
+
+@{b}RESULT@{ub}
+    res                 -- 0 for success, anything else indicates an error
+
+@{b}NOTES@{ub}
+    Furthermore this makes sure the debugtools.library is already opened
+    before we enter main and call the @{"_PROLOG" Link "_PROLOG"} function therewith (@{"_PROLOG" Link "_PROLOG"} makes
+    calls to the debugtools.library)
+
+@{b}SEE ALSO@{ub}
+    @{"_STD_1000_DebugTools" Link "_STD_1000_DebugTools"}()
+
+@endnode
+@Node "_STI_150_Sprof" "debugtools.lib/_STI_150_Sprof"
+@{fg shine}debugtools.lib/_STI_150_Sprof@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}_STI_150_Sprof@{ub} -- replace the standard profiler constructor
+@{ub}
+@{b}SYNOPSIS@{ub}
+    res=@{b}_STI_150_Sprof@{ub}()
+
+    int @{b}_STI_150_Sprof@{ub}(void);
+
+@{b}FUNCTION@{ub}
+    This functions replaces the standart constructor for the profiling system
+    with a version, which does nothing, because we 'misuse' the system for our
+    own purposes.
+
+@{b}RESULT@{ub}
+    res                 -- will be always 0
+
+@{b}SEE ALSO@{ub}
+    @{"_STD_150_Sprof" Link "_STD_150_Sprof"}()
+
+@endnode
+@Node "__matherr" "debugtools.lib/__matherr"
+@{fg shine}debugtools.lib/__matherr@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}__matherr@{ub} - replaces the high level fp-math error handler
+@{ub}
+@{b}SYNOPSIS@{ub}
+    @{b}__matherr@{ub}(x)
+
+   int @{b}__matherr@{ub}(struct __exception *);
+
+@{b}FUNCTION@{ub}
+    Replaces the standart high level floating point math error handler by a
+    version with visual feedback.
+
+@{b}INPUTS@{ub}
+    x -- a structure informations like
+         - the type of the error
+         - the name of the function caused the error
+         - the operands
+
+@{b}RESULT@{ub}
+    For the @{b}__matherr@{ub} function, a nonzero return indicates that the
+    proposed return value in the exception vector has been changed and
+    that the new value should be used.  A return of 0 indicates that
+    the proposed return value is acceptable.
+
+@{b}NOTES@{ub}
+    Which handler is called for each math library
+    math-typ   lib      trap       format  routines
+    -------------------------------------------------------------------------
+    STANDARD   scm      @{b}__matherr@{ub}  IEEE    internal
+    IEEE       scmieee  ?          IEEE    mathieee#?.library
+    FFP        scmffp   Guru       FFP     mathffp.library, mathtrans.library
+    68881/882  scm881   ?          IEEE    internal
+    68040/060  scm040   ?          IEEE    internal             
+
+@{b}SEE ALSO@{ub}
+    math.h,@{"_CXFERR" Link "_CXFERR"}()
+
+@endnode
+@Node "dt_defs.c" "debugtools.lib/dt_defs.c"
+@{fg shine}debugtools.lib/dt_defs.c@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}dt_defs.c@{ub}
+@{ub}
+@{b}COPYRIGHT@{ub}
+    $VER: @{b}dt_defs.c@{ub} 1.20 (06.06.99) © by Stefan Kost 1998-1999
+
+@{b}FUNCTION@{ub}
+    Debugtools static link library
+
+@{b}AUTHOR@{ub}
+@{i}    Stefan Kost
+@{ui}
+@{b}CREATION DATE@{ub}
+    05.Feb.1998
+
+@{b}MODIFICATION HISTORY@{ub}
+    06.Jun.1999 V 1.20  traps fixed
+    21.Jul.1998 V 1.10  first release
+    05.Feb.1998 V 0.00  initial version
+
+@{b}NOTES@{ub}
+
+
+@endnode
+@Node "sos_exec_defs.h" "debugtools.lib/sos_exec_defs.h"
+@{fg shine}debugtools.lib/sos_exec_defs.h@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}sos_exec_defs.h@{ub}
+@{ub}
+@{b}COPYRIGHT@{ub}
+    $VER: @{b}sos_exec_defs.h@{ub} 1.20 (11.06.99) © by Stefan Kost 1998-1999
+
+@{b}FUNCTION@{ub}
+    exec-functions wrapper-defs
+
+@{b}AUTHOR@{ub}
+@{i}    Stefan Kost
+@{ui}
+@{b}CREATION DATE@{ub}
+    12.Feb.1998
+
+@{b}MODIFICATION HISTORY@{ub}
+    11.Jun.1999 V 1.20  even more checks
+    20.Jul.1998 V 1.10  first release
+    12.Feb.1998 V 0.00  initial version
+
+@{b}NOTES@{ub}
+
+
+@endnode
+@Node "sos_listtools_defs.h" "debugtools.lib/sos_listtools_defs.h"
+@{fg shine}debugtools.lib/sos_listtools_defs.h@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}sos_listtools_defs.h@{ub}
+@{ub}
+@{b}COPYRIGHT@{ub}
+    $VER: @{b}sos_listtools_defs.h@{ub} 1.20 (06.06.99) © by Stefan Kost 1998-1999
+
+@{b}FUNCTION@{ub}
+    listtools-functions wrapper-defs
+
+@{b}AUTHOR@{ub}
+@{i}    Stefan Kost
+@{ui}
+@{b}CREATION DATE@{ub}
+    05.Jun.1999
+
+@{b}MODIFICATION HISTORY@{ub}
+    06.Jun.1999 V 1.10  first (incomplete) release
+    05.Jun.1999 V 1.00  initial version
+
+@{b}NOTES@{ub}
+
+
+@endnode
+@Node "sos_math_defs.h" "debugtools.lib/sos_math_defs.h"
+@{fg shine}debugtools.lib/sos_math_defs.h@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}sos_math_defs.h@{ub}
+@{ub}
+@{b}COPYRIGHT@{ub}
+    $VER: @{b}sos_math_defs.h@{ub} 1.20 (02.08.98) © by Stefan Kost 1998-1998
+
+@{b}FUNCTION@{ub}
+    math-functions wrapper-defs
+
+@{b}AUTHOR@{ub}
+@{i}    Stefan Kost
+@{ui}
+@{b}CREATION DATE@{ub}
+    15.Feb.1998
+
+@{b}MODIFICATION HISTORY@{ub}
+    02.Aug.1998 V 1.20  first release
+    15.Feb.1998 V 0.00  initial version
+
+@{b}NOTES@{ub}
+
+
+@endnode
+@Node "sos_stdc_defs.h" "debugtools.lib/sos_stdc_defs.h"
+@{fg shine}debugtools.lib/sos_stdc_defs.h@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}sos_stdc_defs.h@{ub}
+@{ub}
+@{b}COPYRIGHT@{ub}
+    $VER: @{b}sos_stdc_defs.h@{ub} 1.20 (20.06.99) © by Stefan Kost 1998-1999
+
+@{b}FUNCTION@{ub}
+    stdc-functions wrapper-defs
+
+@{b}AUTHOR@{ub}
+@{i}    Stefan Kost
+@{ui}
+@{b}CREATION DATE@{ub}
+    04.Mai.1998
+
+@{b}MODIFICATION HISTORY@{ub}
+    20.Jun.1999 V 1.20  more functions wrapped
+    23.Jul.1998 V 1.10  first (incomplete) release
+    04.Mai.1998 V 1.00  initial version
+
+@{b}NOTES@{ub}
+
+
+@endnode
+

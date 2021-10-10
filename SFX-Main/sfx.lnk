@@ -1,0 +1,15 @@
+FROM LIB:c.o "SFX.o"+"SFX-N-CheckKey1.o"+"SFX-Q-CheckKey2.o"+"SFX-V-CheckKey3.o"+"SFX-U-CheckKey4.o"+"SFX-D-CheckOldKey1.o"+"SFX-Q-CheckOldKey2.o"+"SFX-Z-CheckSum1.o"+"SFX-K-CheckKeyContents.o"+"SFX-Error.o"+"SFX-J-CheckKeyList.o"+"SFX-Pointers.o"+"SFX-ModOperator.o"+"SFX-PlayCasc.o"+"SFX-WinBackdrop.o"+"SFX-ToolsList.o"+"SFX-PlayNorm.o"+"SFX-CheckKeyHelper.o"+"SFX-Utilities.o"+"SFX-GUIKeys.o"+"SFX-Tools.o"+"SFX-ModSaver.o"+"SFX-Play.o"+"SFX-BootWin.o"+"SFX-PlayAhi.o"+"SFX-CrashMark.o"+"SFX-HookListView.o"+"SFX-ModRexx.o"+"SFX-ToolsGUI.o"+"SFX-CleanUp.o"+"SFX-IOApp.o"+"SFX-IDCMPCtrl.o"+"SFX-PrefsGUI.o"+"SFX-PrefsSamp.o"+"SFX-WinInfo.o"+"SFX-SmpGfx.o"+"SFX-GUI.o"+"SFX-Prefs.o"+"SFX-WinStatus.o"+"SFX-SmpUnits.o"+"SFX-Zoom.o"+"SFX-Edit.o"+"SFX-ModTools.o"+"SFX-PlayOpts.o"+"SFX-MRU.o"+"SFX-ModLoader.o"+"SFX-ToolsRange.o"+"SFX-PlayCaCa.o"+"SFX-Range.o"+"SFX-IORexx.o"+"SFX-WinToolbar.o"+"SFX-WinNew.o"+"SFX-PrefsMisc.o"+"SFX-PrefsVMem.o"+"SFX-WinBatchproc.o"+"SFX-GUIMenu.o"+"SFX-WinSmpOpts.o"+"SFX-HookString.o"+"SFX-WinSample.o"+"SFX-WinRecord.o"
+TO "sfx"
+LIB LIB:scmnb.lib
+    LIB:scnb.lib LIB:amiga.lib
+ADDSYM
+STRIPDEBUG
+BATCH
+VERBOSE
+NOICONS
+DEFINE @__chkabort=@__dummy
+DEFINE __CXM33=__UCXM33
+DEFINE __CXD33=__UCXD33
+DEFINE __CXM22=__UCXM22
+DEFINE __CXD22=__UCXD22
+

@@ -1,0 +1,13 @@
+.key NAME/A
+.bra {
+.ket }
+
+; $VER: New .sfxmod 0.2 (08.02.98)
+
+echo [32m»» generation sfxmod {NAME} ...[31m
+
+mkdir {NAME}
+cd {NAME}
+copy /_TEMPLATES/#? "" QUIET
+
+echo ready !

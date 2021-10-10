@@ -1,0 +1,5 @@
+.key TYP/A
+.bra {
+.ket }
+
+rebuild sa {TYP}

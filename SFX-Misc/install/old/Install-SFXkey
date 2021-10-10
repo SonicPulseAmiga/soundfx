@@ -1,0 +1,146 @@
+; Install-SFXkey Start --------------------------------------------------------------------------------------
+;
+; $VER: Install-SFXkey (02.12.1995)
+;
+; SoundFX key Installscript
+; (C) Copyright 1993-1995 Stefan Kost. All Rights Reserved.
+;
+; -----------------------------------------------------------------------------------------------------------
+
+; setze sprachenabhängige Texte -----------------------------------------------------------------------------
+
+(IF (= @LANGUAGE "english")
+(
+	(SET #bad-kick			"SoundFX requires at least Kickstart 3.0 !")
+	(SET #welcome-messy 	"\n\nWelcome to the installation of keyfile for SoundFX !")
+	(SET #choose-dest		"Please choose a destination directory !\nA drawer called SFX will be automatically generated !")
+	(SET #choose-dest-help	"Here you can choose the place on your HD, were the data for SFX should be installed")
+	(SET #dest-require		"\n\nPlease be shure, that you have on your HD at least 2.0 Mb free !")
+	(SET #choose-path		"Please choose a directory where the keyfile should be installed !")
+	(SET #choose-path-help	"You can choose any of these places ! SFX will try to open it from all locations.")
+	(SET #copy-keyfile		"copying Keyfile ...")
+	(SET #copy-help			"The respective files will copied to your HD.")
+	(SET #exit-messy		"\n\nSFXkey is successfuly installed.\nPlease read the guide, to learn how to work with the program.\n")
+))
+(IF (= @LANGUAGE "deutsch")
+(
+	(SET #bad-kick			"SoundFX benötigt mindestens Kickstart 3.0 !")
+	(SET #welcome-messy		"\n\nWillkommen zur Installation des Keyfiles SoundFX !")
+	(SET #choose-dest		"Bitte Zielverzeichnis aussuchen !\nEin Verzeichnis mit dem Namen SFX wird angelegt !")
+	(SET #choose-dest-help	"Hier können Sie auswählen, wohin Sie die Daten für das Programm installeren möchten")
+	(SET #dest-require		"\n\nBitte stellen Sie sicher, daß auf der Zielpartition\n 2.0 Mb-Speicher frei ist !")
+	(SET #choose-path		"Bitte suchen Sie ein Zielverzeichnis aus, wo das Keyfile installiert werden soll !")
+	(SET #choose-path-help	"Sie können irgendeins der angegebenen Verzeichnisse wählen ! SFX versucht es von allen Verzeichnissen zu öffnen.")
+	(SET #copy-keyfile		"kopiere Keyfile ...")
+	(SET #copy-help			"Die entsprechenden Dateien werden gerade auf ihre Festplatte kopiert.")
+	(SET #exit-messy		"\n\nSFXkey konnte erfolgreich installiert werden.\nBitte lesen Sie das Guide, um zu erfahren wie das Programm bedient wird.\n")
+))
+
+; check kick version ----------------------------------------------------------------------------------------
+
+(if (< (/ (getversion) 65536) 39)
+	(abort #bad-kick)
+)
+
+; los geht`s ------------------------------------------------------------------------------------------------
+
+(COMPLETE 0)
+(MESSAGE #welcome-messy)
+
+; mal sehn was für Drives da sind ---------------------------------------------------------------------------
+
+(IF (= (EXISTS "music:" (NOREQ)) 2)
+	(SET @DEFAULT-DEST "music:")
+)
+(IF (= (EXISTS "sound:" (NOREQ)) 2)
+	(SET @DEFAULT-DEST "sound:")
+)
+(IF (= (EXISTS "audio:" (NOREQ)) 2)
+	(SET @DEFAULT-DEST "audio:")
+)
+
+; vielleicht hat er es ja auch schon mal installiert --------------------------------------------------------
+
+(SET lastdest (GETENV "SFXPATH"))
+(IF (= (STRLEN lastdest) 0)
+(
+	(SET @DEFAULT-DEST
+		(ASKDIR
+			(PROMPT #choose-dest)
+			(HELP #choose-dest-help)
+			(DEFAULT @DEFAULT-DEST)
+		)
+	)
+	(RUN (CAT "SETENV SFXPATH " @DEFAULT-DEST))
+	(RUN "COPY ENV:SFXPATH ENVARC:SFXPATH")
+	(MESSAGE #dest-require)
+)
+(
+	(SET @DEFAULT-DEST
+		(ASKDIR
+			(PROMPT #choose-dest)
+			(HELP #choose-dest-help)
+			(DEFAULT lastdest)
+		)
+	)
+)
+)
+
+; falls nicht vorhanden, Verzeichnis anlegen ----------------------------------------------------------------
+(COMPLETE 5)
+(SET @DEFAULT-DEST (TACKON @DEFAULT-DEST "SFX"))
+(SET sfx-dest @DEFAULT-DEST)
+(IF (= (EXISTS sfx-dest) 0)
+	(MAKEDIR sfx-dest (INFOS))
+)
+
+; Keyfile kopieren ------------------------------------------------------------------------------------------
+(COMPLETE 15)
+(SET keypath
+	(ASKCHOICE
+		(PROMPT #choose-path)
+		(HELP #choose-path-help)
+		(CHOICES
+			"DEVS:keyfiles/"
+			"Progdir:keyfiles/"
+			"Progdir:"
+		)
+		(DEFAULT 0)
+	)
+)
+(IF (= keypath 0)
+(
+	(SET sfxsub-dest "DEVS:keyfiles")
+	(IF (= (EXISTS sfxsub-dest) 0)
+		(MAKEDIR sfxsub-dest (INFOS))
+	)
+)
+)
+(IF (= keypath 1)
+(
+	(SET sfxsub-dest (TACKON sfx-dest "keyfiles"))
+	(IF (= (EXISTS sfxsub-dest) 0)
+		(MAKEDIR sfxsub-dest (INFOS))
+	)
+)
+)
+(IF (= keypath 2)
+(
+	(SET sfxsub-dest sfx-dest)
+	(IF (= (EXISTS sfxsub-dest) 0)
+		(MAKEDIR sfxsub-dest (INFOS))
+	)
+)
+)
+(COMPLETE 20)
+(COPYFILES
+	(PROMPT #copy-keyfile)
+	(HELP #copy-help)
+	(SOURCE "SFX.key")
+	(DEST "DEVS:keyfiles/")
+)
+
+; Fertig ----------------------------------------------------------------------------------------------------
+(COMPLETE 100)
+(EXIT #exit-messy)
+; Install-SFXkey Ende ---------------------------------------------------------------------------------------

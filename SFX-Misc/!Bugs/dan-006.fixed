@@ -1,0 +1,7 @@
+Equalize-FFT-3D
+
+Opening the Equalize-FFT-3D operator window (both via pop-up
+and "E") causes four Enforcer hits. These are BYTE-READS
+from 00000000 to 00000003, which looks like accessing a bad
+string pointer.
+

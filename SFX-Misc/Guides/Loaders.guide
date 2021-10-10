@@ -1,0 +1,22 @@
+@database SFX
+
+@remark $VER: Loader.guide © by Stefan Kost 1994-1997 (09.03.97)
+@remark AmigaGuide-OnLine-Hilfe für SoundFX
+
+@master /guides/sfx.guide
+@index /guides/sfx-index.guide/index
+
+@node main "Loader : Allgemeines"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Loader : Allgemeines
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+!! Hinweis !!!!!!!!!!
+
+Wenn Sie ein Sample haben, welches nicht gelesen werden kann, senden Sie mir es
+zu und schreiben Sie eine kurze Bemerkung dazu, woher Sie es haben und was Sie
+sonst noch darüber wissen.
+Danke.
+@endnode

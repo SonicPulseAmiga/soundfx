@@ -1,0 +1,14 @@
+SoundFX-NG
+================================================================================
+
+Components
+--------------------------------------------------------------------------------
+ProjectManager
+  * keeps all opened projects in a list
+  * offers GetAttr, SetAttr Methods
+  * NotificationSystem
+    * notifies processes of changes (new entries, attribute changes)
+  * AccessSystem
+
+Datatypes (like amiga-datatypes)
+  * access to files

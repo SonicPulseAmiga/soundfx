@@ -1,0 +1,8 @@
+delete >NIL: _VERSIONS.68000/#?[31m
+delete >NIL: _VERSIONS.68020/#?[31m
+delete >NIL: _VERSIONS.68030/#?[31m
+delete >NIL: _VERSIONS.68020-881/#?[31m
+delete >NIL: _VERSIONS.68030-881/#?[31m
+delete >NIL: _VERSIONS.68040-881/#?[31m
+delete >NIL: _VERSIONS.68060-881/#?[31m
+rebuild lo release

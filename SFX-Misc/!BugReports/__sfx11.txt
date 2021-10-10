@@ -1,0 +1,54 @@
+From - Wed Sep  9 13:31:56 1998
+Received: from freebee.tu-graz.ac.at (root@freebee.tu-graz.ac.at [129.27.193.128])
+	by imn.htwk-leipzig.de (8.9.1/8.9.1) with SMTP id PAA04489
+	for <kost@imn.htwk-leipzig.de>; Thu, 3 Sep 1998 15:54:19 +0200 (MET DST)
+Received: from sbox.tu-graz.ac.at (isdn119.tu-graz.ac.at [129.27.240.119]) by freebee.tu-graz.ac.at (8.6.11/8.6.9) with SMTP id PAA19129 for <kost@imn.htwk-leipzig.de>; Thu, 3 Sep 1998 15:56:11 +0200
+From: Stefan Keilwert <derrel@sbox.tu-graz.ac.at>
+To: Stefan Kost <kost@imn.htwk-leipzig.de>
+Date: Thu, 03 Sep 1998 15:26:44 +0200
+Message-ID: <yam7550.2218.141714896@freebee.tu-graz.ac.at>
+X-Mailer: YAM 2.0 Preview5 - Amiga Mailer by Marcel Beck - http://www.yam.ch
+Subject: SFX-bug
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-MIME-Autoconverted: from quoted-printable to 8bit by imn.htwk-leipzig.de id PAA04489
+Content-Type: text/plain; charset=iso-8859-1
+Content-Length: 1306
+Status:   
+X-Mozilla-Status: 8003
+
+Yo !
+
+
+Versuch mal einen etwas längeren Sample zu laden und zoom dann etwas hinein
+(etwa 1/5tel des Gesamtbereiches). Danach setzte eine Markierung und versuch
+nun mittels CB (Cut Begin) oder CE (Cut End) das Sample zu kürzen.
+
+Bei mir funktioniert es nur manchmal. Meistens wird die Wellenform des Samples
+nur mehr irgendwie nachgezeichnet, und gar nicht so selten stürtzt der Rechner
+dabei auch ab !!!
+ 
+
+Ich verwende V3.70 68060/FPU auf einem A4000, PPC233, OS3.1.
+
+
+Hast Du schon mal daran gedacht SoundFX für den PPC zu kompilieren? Mal
+abgesehen von den Operatoren wären doch auch alle RAM-Operationen um einiges
+schneller, oder nicht? (ich hab sogar mal 200.0mb/sec. zugriff aufs ram
+gemessen !)
+
+
+regards,
+         Stefan
+
+
+
++----------------------+-------------------------------------+
+|       *PUSHKIN*        |    /Dream = Progressive = House/      |
++----------------------+-------------------------------------|
+| Keilwert Stefan      | Musikproduktion, Rendering, Code    |
+| Herrgottwiesg. 47/1  | phone: +43-316/273623               |
+| A-8020 Graz, Austria | email: derrel@sbox.tu-graz.ac.at    |
++----------------------+-------------------------------------+
+| #Web: http://www.sbox.tu-graz.ac.at/home/d/derrel/index.htm# |
++------------------------------------------------------------+

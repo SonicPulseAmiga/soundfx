@@ -1,0 +1,102 @@
+X-UIDL: 3f8791b30000ebd8
+X-Mozilla-Status: 0001
+X-Mozilla-Status2: 00000000
+Received: from n34.grp.scd.yahoo.com (n34.grp.scd.yahoo.com [66.218.66.102])
+	by imn.htwk-leipzig.de (8.9.1/8.9.1) with SMTP id RAA17113
+	for <kost@imn.htwk-leipzig.de>; Wed, 15 Oct 2003 17:09:09 +0200 (MET DST)
+Received: from [66.218.67.193] by n34.grp.scd.yahoo.com with NNFMP; 15 Oct 2003 15:08:31 -0000
+Received: (qmail 98539 invoked from network); 15 Oct 2003 15:08:29 -0000
+Received: from unknown (66.218.66.172)
+  by m11.grp.scd.yahoo.com with QMQP; 15 Oct 2003 15:08:29 -0000
+Received: from unknown (HELO moutvdom.kundenserver.de) (212.227.126.250)
+  by mta4.grp.scd.yahoo.com with SMTP; 15 Oct 2003 15:08:28 -0000
+Received: from [212.227.126.224] (helo=mrvdomng.kundenserver.de)
+	by moutvdom.kundenserver.de with esmtp (Exim 3.35 #1)
+	id 1A9nGG-0004rt-00
+	for soundfx-users@yahoogroups.com; Wed, 15 Oct 2003 17:08:28 +0200
+Received: from [193.158.182.141] (helo=194.25.2.129)
+	by mrvdomng.kundenserver.de with smtp (Exim 3.35 #1)
+	id 1A9nGF-0002PE-00
+	for soundfx-users@yahoogroups.com; Wed, 15 Oct 2003 17:08:27 +0200
+X-eGroups-Return: sentto-3879093-1222-1066230511-kost=imn.htwk-leipzig.de@returns.groups.yahoo.com
+X-Sender: blakkhar@online.de
+X-Apparently-To: soundfx-users@yahoogroups.com
+To: soundfx-users@yahoogroups.com
+Message-ID: <yam9418.1808.25831776@smtp.nwn.de>
+In-Reply-To: <bmj608+aomc@eGroups.com>
+X-Mailer: YAM 2.4p1 [040] AmigaOS E-mail Client (c) 2000-2003 by YAM Open Source Team - http://www.yam.ch/
+From: Stellan <blakkhar@nwn.de>
+MIME-Version: 1.0
+Mailing-List: list soundfx-users@yahoogroups.com; contact soundfx-users-owner@yahoogroups.com
+Delivered-To: mailing list soundfx-users@yahoogroups.com
+Precedence: bulk
+List-Unsubscribe: <mailto:soundfx-users-unsubscribe@yahoogroups.com>
+Date: Wed, 15 Oct 2003 16:58:36 +0200
+Subject: [soundfx-users] Recording
+Reply-To: soundfx-users@yahoogroups.com
+Content-Transfer-Encoding: 8bit
+X-MIME-Autoconverted: from quoted-printable to 8bit by imn.htwk-leipzig.de id RAA17113
+Content-Type: text/plain; charset=ISO-8859-1
+Content-Length: 2155
+Status:  O
+
+Hello Paolo
+
+Am 15.10.03 schrieb Paolo Vanni:
+> what about something like that:
+> Button:
+> Rec Pause Stop
+> 1) if you hit 'Rec' the recording start from the beginning maybe with
+>   a requester to confirm
+
+Please, no requester. I would recommend the 3-buttons:
+
+*Rec/Pause  *|*  Stop  *|*  Reset/Delete *(or Kill...)
+
+*Rec/Pause*: First click starts the record, second click pause the record, third
+click continue the record, etc... (like AHIRecord it does).
+
+*Stop*: Click stops the record. The record sample file must be "save" on hd/ram.
+
+*Reset/Delete*: Click deletes the last record sample file. Maybe a requester to
+confirm.
+
+I think, this is a comfortable solution or not? The possibility to set
+"record-times" would make it a real record beast. :-)
+
+
+-- 
+ ____/\ _______ ____      _________ ________
+ \  //.\     //   //______\\ .___ \\  ____//_____
+  \//   \   //   //.    // \\   /  \\ \\   __. //_________
+  //_____\ //\  /______//___\\ /___//__\\ /   //        //
+  ¯ \\ z!o\/  \/       ¯     \/    ¯    \/___//        //
+     \\                                      ¯        //
+     //         mailto:blakkhar@nwn.de                \\
+     \\        http://www.thescene.de.vu              //
+      \\      http://www.chscene.ch/moods/           //
+       \\                                           //
+ _______\\_ ___________    _________ ____/\_____   //
+ \\  ____//_\\_______//____\\ .___ \\  .// \  //  //
+  \\ \\   __. //\\ ._¯   // \\   /  \\_// __\ \\__/
+  //__\\ /   //__\\ /___//___\\ /___////_______\\
+  ¯    \/___//    \/    ¯     \/z!o ¯ ¯         ¯
+            ¯
+
+
+------------------------ Yahoo! Groups Sponsor ---------------------~-->
+Buy Ink Cartridges or Refill Kits for your HP, Epson, Canon or Lexmark
+Printer at MyInks.com. Free s/h on orders $50 or more to the US & Canada.
+http://www.c1tracking.com/l.asp?cid=5511
+http://us.click.yahoo.com/mOAaAA/3exGAA/qnsNAA/mjFolB/TM
+---------------------------------------------------------------------~->
+
+To unsubscribe from this group, send an email to:
+soundfx-users-unsubscribe@yahoogroups.com
+
+ 
+
+Your use of Yahoo! Groups is subject to http://docs.yahoo.com/info/terms/ 
+
+
+

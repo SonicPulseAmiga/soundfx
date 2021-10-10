@@ -1,0 +1,25 @@
+; build whole SFX
+
+assign builddir: ""
+
+; build GSTs
+
+;cd builddir:SFX-Module/gst
+;build.debug
+;cd builddir:SFX-Main/gst
+;build.debug
+
+; build EXEs
+
+cd builddir:SFX-Main
+build.debug
+cd builddir:SFX-Library
+build.debug
+cd builddir:SFX-Operators
+build.debug
+cd builddir:SFX-Loaders
+build.debug
+cd builddir:SFX-Savers
+build.debug
+
+assign builddir: remove

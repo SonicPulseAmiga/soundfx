@@ -1,0 +1,98 @@
+Hallo Stefan,
+
+Ich versuche gerade ein ARexx Script für SFX zu schreiben. Leider ist die SFX
+ARexx Dokumentation nicht gerade ausführlich. Folgende Probleme habei ich mit
+dem Angehängen script:
+
+Generell fehlen Informationen zu Rückgabewerten (z.B. SFX_ProcessSample). Den
+Teil im Script habe ich aus einem Beispielscript kopiert.
+SFX_SetOperatorPreset funktioniert im Script nicht richtig (es werden nur 3
+Teile, anstatt 6 erstellt). In SFX selber funktioniert das Preset. Deshalb habe
+ich es mit SFX_SetOperatorParam versucht. Allerdings weiss ich nicht wie
+"ParamName Value" aussehen soll. Das Beispiel aus Test3.rexx hat mir leider
+nicht weitergeholfen.
+
+Operator SampleSplit:
+Es scheinen nur integer Werte für Pos zu funktionieren. Das Preset "DrumLoop4"
+ist hier Falsch (Pos müsste 25 % sein).
+
+SFX_SaveSample:
+Ist es möglich nach SampleSplit, jedes Sample (Teil) einzelnd zu speichern? Im
+Moment wird nur der letzte Sample (Buffer) gespeichert.
+
+
+Gruss
+-- 
+   _____   _____     ______ ___   _____   _____    ______ ________
+  _\  _/___\   /__ __\_   /   /___\   /___\   /____\_   /_\__    /
+.-/   \   /   /  /_   /  /_  /   /_  /   /_   \     /  /   (/___/-.
+|/________________\_______\__\____\__\____\___/   ___________\.vK |
+`- ( www.moodsplateau.net ) - ------------ - /____/ - ------------'
+
+
+--BOUNDARY.28375760.2
+Content-Type: application/x-rexx; name="Downgrade_Split_Sample.rexx"
+Content-Disposition: attachment; filename="Downgrade_Split_Sample.rexx"
+
+/* SFX 16bit 44,1kHz stereo TO 8bit 22kHz mono AND Split into 6 parts */
+
+OPTIONS RESULTS
+IF (LEFT(ADDRESS(), 8) ~= "SFX_REXX") THEN DO	/* not started by SoundFX ? */
+	PARSE ARG opts
+	sfxport=WORD(opts,1)
+	IF SHOW("Ports",sfxport) THEN DO
+		ADDRESS VALUE sfxport
+	END
+	ELSE DO
+		IF ~SHOW("Ports","SFX_REXX") THEN EXIT 10
+    	ADDRESS 'SFX_REXX'
+	END
+END
+
+trace results
+
+/*
+SFX_SelLoader 'UNIVERSAL'
+SFX_LoadSample sourcefile
+
+SFX_SetOperatorParam   OperatorName ParamName Value
+
+SFX_SetQuietMode 1		/* [0,1] 1 = Quiet */
+*/
+
+	SFX_GetActiveBuffer ; buf1 = RESULT
+	IF buf1 > -1 THEN DO
+		SFX_SelOperator 'ConvertChannels'
+		SFX_SetOperatorPreset 'ConvertChannels' 'StereoToMonoLeftCh'
+		SFX_ProcessSample buf1
+		IF RC=0 THEN buf1 = RESULT
+			ELSE buf1 = -2
+		IF buf1 > -1 THEN DO
+			SFX_RedrawBuffer buf1
+			SFX_SetActiveBuffer buf1
+			/* SFX_CleanUp 0 */
+		END
+			SFX_GetActiveBuffer ; buf2 = RESULT
+        	SFX_SelOperator 'SampleSplit'
+        	/* SFX_SetOperatorPreset 'SampleSplit' 'Split 2 hours in 6 parts' */
+        	SFX_SetOperatorParam 'SampleSplit' 'Pos' '"17 %"'
+            SFX_SetOperatorParam 'SampleSplit' 'Splits' '5'
+        	SFX_ProcessSample buf2
+        	IF RC=0 THEN buf2 = RESULT  
+        	ELSE buf2 = -2              
+        	IF buf2 > -1 THEN DO        
+            	SFX_RedrawBuffer buf2   
+            	SFX_SetActiveBuffer buf2
+            	/* SFX_CleanUp 0 */     
+        	END                         			
+		
+		SFX_SelSaver 'IFF-8SVX'
+		SFX_SaveSample 'DH4:newSampleMono.8svx'
+		
+	END
+	ELSE SFX_Message '"No sample to operate on !"'
+SFX_Activate
+
+--BOUNDARY.28375760.2--
+
+

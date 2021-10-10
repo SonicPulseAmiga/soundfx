@@ -1,0 +1,153 @@
+<html>
+	<head><title>SoundFX : 2.5.1 VOC_S</title></head>
+	<body bgcolor="#EEEEEE" leftmargin="5" rightmargin="5" topmargin="5" text="#000000" link="#2040FF" vlink="#0020E0" alink="#FFFFFF">
+	<a name="#000"></a>
+	<table border="0" width="100%" cellpadding="3" cellspacing="1" bgcolor="#000000"><tr bgcolor="#FFFFFF"><td>
+		<table border="0" width="100%" cellpadding="0" cellspacing="0"><tr>
+			<td align="left"><font size="-1">
+		[<a href="../node__.__.__.html">SoundFX</a>]
+			[<a href="../node02.__.__.html">Module</a>]
+				[<a href="../node02.05.__.html">Saver</a>]
+			</font></td>
+			<td align="right" valign="center">
+				<a href="../node02.05.01/TX16W_S.html">
+				<img src="../../_img/a_le.gif" width="13" height="13" border="0" alt="[prev]"></a>
+				<img src="../../_img/space.gif" width="2">
+				<a href="../node02.05.02.html">
+				<img src="../../_img/a_ri.gif" width="13" height="13" border="0" alt="[next]"></a>
+			</td>
+		</tr></table>
+	</td></tr></table>
+	<br>
+		<!-- Contents -->
+	<a name="#001"></a>
+<table border="0" width="100%" cellpadding="3" cellspacing="1" bgcolor="#000000">
+	<tr bgcolor="#DDDDDD"><td>
+		<table border="0" width="100%" cellpadding="0" cellspacing="0"><tr>
+			<td align="left">
+				<b>VOC_S</b>
+			</td>
+			<td align="right">
+				<a href="#000">
+				<img src="../../_img/a_up.gif" width="13" height="13" border="0" alt="[up]"></a>
+				<img src="../../_img/space.gif" width="2">
+				<a href="#002">
+				<img src="../../_img/a_do.gif" width="13" height="13" border="0" alt="[down]"></a>
+			</td>
+		</tr></table>
+	</td></tr>
+	<tr bgcolor="#FFFFFF"><td>
+		<table border="0" width="100%" cellpadding="5" cellspacing="0"><tr><td>
+Speichert SoundBlaster-VOC Samples.
+<table border="0" cellspacing="1" cellpadding="2" width="100%>
+<tr bgcolor="#BBBBBB"><td>Loops      </td><td>ja (vorwärts)</td></tr>
+<tr bgcolor="#AAAAAA"><td>Kanäle     </td><td>ja (mono/stereo/quadro)</td></tr>
+<tr bgcolor="#BBBBBB"><td>Kompression</td><td>ja (PCM-8,PCM-16,ADPCM-8:4,ADPCM-8:3,ADPCM-8:2,A-LAW,µ-LAW)</td></tr>
+</table>
+Dieses Format wurde von der Firma "Creative Labs", dem Hersteller der
+SoundBlaster-Karten für PCs eingefürt. Das Format ist für das direkte
+Abspielen der Samples von dem Datenträger ausgelegt und hat in dieser
+Richtung mehrere Vorteile. Allerdings ist dieses Format etwas inkonsequent
+geplant worden, so das einige Erweiterungen notwendig wurden, die die
+Handhabung des Formates sehr erschweren. Die meisten Programme können
+lediglich die Formatversion 1.1 lesen. <b>SoundFX</b> kann alle bekannten Versionen
+des Formates laden und Speichern.
+		</td></tr></table>
+	</td></tr>
+</table>
+<br>
+	<a name="#002"></a>
+<table border="0" width="100%" cellpadding="3" cellspacing="1" bgcolor="#000000">
+	<tr bgcolor="#DDDDDD"><td>
+		<table border="0" width="100%" cellpadding="0" cellspacing="0"><tr>
+			<td align="left">
+				<b>Parameter</b>
+			</td>
+			<td align="right">
+				<a href="#001">
+				<img src="../../_img/a_up.gif" width="13" height="13" border="0" alt="[up]"></a>
+				<img src="../../_img/space.gif" width="2">
+				<a href="#003">
+				<img src="../../_img/a_do.gif" width="13" height="13" border="0" alt="[down]"></a>
+			</td>
+		</tr></table>
+	</td></tr>
+	<tr bgcolor="#FFFFFF"><td>
+		<table border="0" width="100%" cellpadding="5" cellspacing="0"><tr><td>
+<table border="0" cellspacing="1" cellpadding="2" width="100%"><tr bgcolor="#BBBBBB"><td align="right" valign="top"><nobr>Type</nobr></td><td align="left">Art der Kompression
+<ul>
+<li>PCM8 : ungepackt 8bit</li>
+<li>PCM16 : ungepackt 16bit</li>
+<li>ADPCM8_4 : AdaptiveDelta (2:1) gepackt 8bit</li>
+<li>ADPCM8_3 : AdaptiveDelta (3:1) gepackt 8bit</li>
+<li>ADPCM8_2 : AdaptiveDelta (4:1) gepackt 8bit</li>
+<li>µ-Law : µ-Law (14:8) gepackt 14bit</li>
+</td></tr>
+<tr bgcolor="#AAAAAA"><td align="right" valign="top"><nobr>Header</nobr></td><td align="left"></ul>
+Dateiformatversion :
+<ul>
+<li>1.20 : Es wird der Blocktyp 9 für den Soundheader verwendet.</li>
+<li>1.15 : Es werden die Blocktypen 8 und 1 für den Soundheader verwendet.</li>
+<li>1.10 : Es wird nur der Blocktyp 1 verwendet.</li>
+</ul>
+Ich habe die Erfahrung gemacht, daß die meisten Programme die  neueren
+VOC-Files nicht lesen. Deshalb habe ich die Möglichkeit offengelassen,
+auch die älteren Formate zu speichern. Am sichersten ist die Version 1.10.
+Allerdings sollte mann folgende Einschränkungen bedenken:
+<ul>
+<li>1.15 : nur 8-bit Samples</li>
+<li>1.10 : nur Mono und 8-bit Samples</li>
+</ul>
+</td></tr>
+</table>
+		</td></tr></table>
+	</td></tr>
+</table>
+<br>
+	<a name="#003"></a>
+<table border="0" width="100%" cellpadding="3" cellspacing="1" bgcolor="#000000">
+	<tr bgcolor="#DDDDDD"><td>
+		<table border="0" width="100%" cellpadding="0" cellspacing="0"><tr>
+			<td align="left">
+				<b>Hinweise</b>
+			</td>
+			<td align="right">
+				<a href="#002">
+				<img src="../../_img/a_up.gif" width="13" height="13" border="0" alt="[up]"></a>
+				<img src="../../_img/space.gif" width="2">
+				<a href="#004">
+				<img src="../../_img/a_do.gif" width="13" height="13" border="0" alt="[down]"></a>
+			</td>
+		</tr></table>
+	</td></tr>
+	<tr bgcolor="#FFFFFF"><td>
+		<table border="0" width="100%" cellpadding="5" cellspacing="0"><tr><td>
+keine
+		</td></tr></table>
+	</td></tr>
+</table>
+<br>
+	<a name="#004"></a>
+	<table border="0" width="100%" cellpadding="3" cellspacing="1" bgcolor="#000000"><tr bgcolor="#FFFFFF"><td>
+		<table border="0" width="100%" cellpadding="0" cellspacing="0"><tr>
+			<td align="left"><font size="-1">
+		[<a href="../node__.__.__.html">SoundFX</a>]
+			[<a href="../node02.__.__.html">Module</a>]
+				[<a href="../node02.05.__.html">Saver</a>]
+			</font></td>
+			<td align="right" valign="center">
+				<a href="../node02.05.01/TX16W_S.html">
+				<img src="../../_img/a_le.gif" width="13" height="13" border="0" alt="[prev]"></a>
+				<img src="../../_img/space.gif" width="2">
+				<a href="../node02.05.02.html">
+				<img src="../../_img/a_ri.gif" width="13" height="13" border="0" alt="[next]"></a>
+			</td>
+		</tr></table>
+	</td></tr></table>
+	<br>
+	<table border="0" width="100%" cellpadding="3" cellspacing="1" bgcolor="#000000"><tr bgcolor="#FFFFFF"><td align="center"><font size="-1">
+		&copy; by <a href="mailto:soundfx@sonicpulse.de">Stefan Kost</a> 1993-2004
+		<a href="http://www.sonicpulse.de" target="_new">www.sonicpulse.de</a>
+	</font></td></tr></table>
+	</body>
+</html>

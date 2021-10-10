@@ -1,0 +1,10 @@
+finally I've got sfx-4.2 ready and the bugtracker is in a somewhat working
+state too. The last two weeks I spent recovering my harddisk as my pfs2
+partition crashed.
+
+I would like to ask you if you can translate the new entries in the
+in the installer text file, which is attached and mail it back to me.
+
+Thanks a lot.
+
+Stefan

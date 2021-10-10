@@ -1,0 +1,3 @@
+echo [32m»» making docs ...[31m
+m4gen `list *.c LFORMAT="%M" FILES` data:source/sfx/sfx-doc/ger/node02.01.06/ ger
+m4gen `list *.c LFORMAT="%M" FILES` data:source/sfx/sfx-doc/eng/node02.01.06/ eng

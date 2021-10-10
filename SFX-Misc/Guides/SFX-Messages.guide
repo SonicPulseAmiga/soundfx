@@ -1,0 +1,370 @@
+@database SFX-Messages
+
+@remark $VER: SFX-Fehlermeldungen.guide 3.82 (28.09.99) © by Stefan Kost 1994-1999
+@remark AmigaGuide-OnLine-Hilfe für SoundFX
+
+@master sfx-fehlermeldungen.guide
+@index sfx-index.guide/index
+
+@node Messages "4.1 Fehlermeldungen"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+4.1 Fehlermeldungen
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+SFX informiert Sie stets, wenn es irgend eine Aktion nicht ausführen kann.
+Dazu öffnet es auf seinem Screen einen Requester und zeigt Ihnen eine Fehler-
+meldung. Die einzelnen Fehlermeldungen sind in vier Hauptgruppen eingeteilt.
+
+	@{" 4.1.1 Allgemeine Meldungen        " link Message1 }
+	@{" 4.1.2 Dateizugriffsfehler         " link Message2 }
+	@{" 4.1.3 Resourcefehler              " link Message3 }
+	@{" 4.1.4 Formatfehler                " link Message4 }
+	@{" 4.1.5 Verschiedene Meldungen      " link Message5 }
+@endnode
+
+@node Message1 "4.1.1 Allgemeine Meldungen"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+4.1.1 Allgemeine Meldungen
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+"This is an unregistered version of SoundFX !
+"Saving of your work is disabled !"
+"See guide for further informations !",
+"You have used an unregistered version of SoundFX !",
+	Diese Nachrichten erscheinen beim Starten und Beenden der SFX-Demover-
+	sion und dienen dazu Sie daran zu erinnern sich möglichst bald regis-
+	trieren zu lassen.
+
+"If`ve already told you -\nYOU CAN`T SAVE YOUR SAMPLES IN THE DEMO !",
+	Wenn Sie in der Demo-Version versuchen etwas abzuspeichern, erscheint
+	diese Nachricht.
+
+"If`ve already told you -\nYOU CAN`T USE THE AREXX-PORT IN THE DEMO !",
+	Wenn Sie in der Demo-Version versuchen den ARexxport zu benutzen, er-
+	scheint diese Nachricht.
+
+"This function is not ready implemented !"
+	Falls einige Funktionen noch nicht fertig sind, wird diese Meldung an-
+	gezeigt. Sie sollte in den nächsten Versionen verschwunden sein.
+@endnode
+
+@node Message2 "4.1.2 Dateizugriffsfehler"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+4.1.2 Dateizugriffsfehler
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+Die folgend im Einzelnen beschriebenen Fehlermeldungen können im Zusammenhang
+mit Dateioperationen (Laden, Speichern, Umbenennen, ...) auftreten.
+
+	@{" 4.1.2.1 Can`t open file !         " link Message2_1 }
+	@{" 4.1.2.2 Can`t read data !         " link Message2_2 }
+	@{" 4.1.2.3 Can`t write data !        " link Message2_3 }
+	@{" 4.1.2.4 Can`t access ... !        " link Message2_4 }
+@endnode
+
+@node Message2_1 "4.1.2.1 Can`t open file !"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+4.1.2.1 Can`t open file !
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+@remark errOpenFile
+SFX kann eine Datei nicht öffnen. Falls Sie etwas abspeichern wollten, über-
+prüfen Sie den Schreibschutz der Diskette. Eventuell sind auch die Schutzbits
+der Datei verstellt.
+@endnode
+
+@node Message2_2 "4.1.2.2 Can`t read data !"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+4.1.2.2 Can`t read data !
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+@remark errReadData
+SFX kann nicht aus der Datei lesen. Eventuelle Fehler im Dateiformat (Datei ist
+zu kurz).
+@endnode
+
+@node Message2_3 "4.1.2.3 Can`t write data !"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+4.1.2.3 Can`t write data !
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+@remark errWriteData
+SFX kann nicht in die Datei schreiben. Eventuell Schreibschutzfehler.
+@endnode
+
+@node Message2_4 "4.1.2.4 Can`t access ... !"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+4.1.2.4 Can`t access ... !
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+@remark errAccessFile
+SFX kann nicht auf die angegebene Datei zugreifen. Dies kann daran liegen, das
+sie z.B. gar nicht existiert.
+@endnode
+
+@node Message3 "4.1.3 Resourcefehler"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+4.1.3 Resourcefehler
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+Die folgenden Fehlermeldungen treten auf, wenn eine Aktion nicht ausgeführt
+werden kann, weil eine Resource nicht belegt werden kann.
+
+	@{" 4.1.3.1 "Can`t ... !                         " link Message3_1 }
+	@{" 4.1.3.2 "Can't open ... library !            " link Message3_2 }
+	@{" 4.1.3.3 "No AHI System or invalid AudioMode !" link Message3_3 }
+	@{" 4.1.3.4 "Execution of %s failed !            " link Message3_4 }
+	@{" 4.1.3.5 "Can't get sample attributes !       " link Message3_5 }
+	@{" 4.1.3.6 "Can't get sample object !           " link Message3_6 }
+@endnode
+
+@node Message3_1 "4.1.3.1 Can`t ... !"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+4.1.3.1 Can`t ... !
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+@remark err...
+SFX kann eine Resource nicht belegen, da vermutlich nicht genügend freier Spei-
+cherplatz zur Verfügung steht oder die Resource bereits belegt ist. Im ersten
+Falle beenden Sie bitte andere noch laufende Programme oder schließen sie große
+Projekte um den notwendigen Speicher zu erhalten. Manchmal reicht auch schon
+die Eingabe folgenden Befehls in der Shell : "avail flush ".
+@endnode
+
+@node Message3_2 "4.1.3.2 Can't open ... library !"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+4.1.3.2 Can't open ... library !
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+@remark err
+Die angegebene Bibliothek kann nicht geöffnet werden.
+@endnode
+
+@node Message3_3 "4.1.3.3 No AHI System or invalid AudioMode !"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+4.1.3.3 No AHI System or invalid AudioMode !
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+@remark err
+"No AHI System or invalid AudioMode !"
+@endnode
+
+@node Message3_4 "4.1.3.4 Execution of ... failed !"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+4.1.3.4 Execution of ... failed !
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+@remark err
+"Execution of ... failed !"
+@endnode
+
+@node Message3_5 "4.1.3.5 Can't get sample attributes !"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+4.1.3.5 Can't get sample attributes !
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+@remark err
+"Can't get sample attributes !"
+@endnode
+
+@node Message3_6 "4.1.3.6 Can't get sample object !"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+4.1.3.6 Can't get sample object !
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+@remark err
+"Can't get sample object !"
+@endnode
+
+@node Message4 "4.1.4 Formatfehler"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+4.1.4 Formatfehler
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+Bei Laden von Dateien kann es zu Fehlern kommen, wenn diese nicht im richtigen
+Format vorliegen oder gar beschädigt sind.
+
+	@{" 4.1.4.1 "This isn`t a ... file !             " link Message4_1 }
+	@{" 4.1.4.2 "Can`t read this ... file !          " link Message4_2 }
+	@{" 4.1.4.3 "This isn`t a SFX-PREFS file !       " link Message4_3 }
+@endnode
+
+@node Message4_1 "4.1.4.1 This isn`t a ... file !"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+4.1.4.1 This isn`t a ... file !
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+@remark err
+Sie haben versucht eine Datei diesen Formates zu laden. Es handelt sich aber
+nicht um eine solche. Benutzen sie besser den Universalloader.
+@endnode
+
+@node Message4_1 "4.1.4.2 Can`t read this ... file !"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+4.1.4.2 Can`t read this ... file !
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+@remark err
+Es traten Probleme beim Lesen einer Datei auf. Diese können in unbekannten
+Formattypen oder Packverfahren begründet sein.
+@endnode
+
+@node Message4_1 "4.1.4.3 This isn`t a SFX-PREFS file !"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+4.1.4.3 This isn`t a SFX-PREFS file !
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+@remark err
+Die Datei mit dem Namen 'sfx.cfg' im ENV: oder ENVARC: Verzeichnis ist keine
+gültige SFX-Preferences-Datei.
+@endnode
+
+@node Message5 "4.1.5 Verschiedene Meldungen"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+4.1.5 Verschiedene Meldungen
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+	@{" 4.1.5.1 "Can't close screen ! Please close visitor-win... " link Message5_1 }
+	@{" 4.1.5.2 "Can't close that sample yet, it's still in use ! " link Message5_2 }
+@endnode
+
+@node Message5_1 "4.1.5.1 Can't close screen ! Please close visitor-windows first !"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+4.1.5.1 Can't close screen ! Please close visitor-windows first !
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+@remark err
+Es befinden sich noch Gastfenster auf dem SoundFX-Bildschirm. Bitte schließen Sie
+diese.
+@endnode
+
+@node Message5_2 "4.1.5.2 Can't close that sample yet, it's still in use !"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+4.1.5.2 Can't close that sample yet, it's still in use !
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+@remark err
+Das Sample ist noch bei einer Aktion in Benutzung. Warten Sie bitte bis diese
+fertig ist.
+@endnode
+
+@node Questions "4.2 Abfragen"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+4.2 Abfragen
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+SFX fragt Sie stets, wenn es sich nicht sicher ist ob eine Aktion auch wirklich
+ausgeführt werden soll. Dazu öffnet es auf seinem Screen einen Requester und
+zeigt Ihnen eine Abfrage. Die einzelnen Abfragen sind in zwei Hauptgruppen ein-
+geteilt.
+
+	@{" 4.2.1 Allgemeine Abfragen         " link Question1 }
+	@{" 4.2.2 Sicherheitsabfragen         " link Question2 }
+@endnode
+
+@node Question1 "4.2.1 Allgemeine Abfragen"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+4.2.1 Allgemeine Abfragen
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+	@{" 4.2.1.1 No audiochannels are fr..." link Question1_1 }
+	@{" 4.2.1.2 SFX is already running ..." link Question1_2 }
+@endnode
+
+@node Question1_1 "4.2.1.1 No audiochannels are free ! Should I continue ?"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+4.2.1.1 No audiochannels are free ! Should I continue ?
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+SFX hat keinen Zugriff auf die Audiokanäle der Amigahardware. Warum ist mir
+noch nicht bekannt. Starten sie kurz irgend eine Abspielaktion (mit dem Deli-
+tracker ein Modul anspielen). Danach sind die Kanäle verfügbar. Glücklicher-
+weise tritt dieses Problem sehr sehr sehr ... selten auf.
+@endnode
+
+@node Question1_2 "4.2.1.1 SFX is already running ! Should I start it again ?"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+4.2.1.2 SFX is already running ! Should I start it again ?
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+Sie haben SFX ein weiteres Mal gestartet. Wenn Sie Okay anwählen bleibt es da-
+bei, falls Sie Cancel anwählen wird das Programm sofort wieder verlassen. Be-
+denken Sie jedoch, daß der ARexx-Port nur in dem zu erst gestartetem SFX vor-
+handen ist. Dies liegt daran, daß Sie den Portnamen in Ihrem Script angeben
+müssen, es aber unmöglich ist mehrere Ports mit gleichem Namen anzulegen.
+@endnode
+
+@node Question2 "4.2.2 Sicherheitsabfragen"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+4.2.2 Sicherheitsabfragen
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+Sobald sie schwerwiegendere Aktionen ausführen wollen (die eventuell Ihre Ar-
+beit vernichtet) oder etwas tun, was fragwürdig scheint, fragt SFX nach, ob
+Sie dies wirklich tun wollen. Dazu erscheint ein Requester, indem Sie aufge-
+fordert werden sich zu entscheiden, wie Sie verfahren möchten.
+
+	@{" 4.2.2.1 File allready exists ! Should I continue ?" link Question2_1 }
+	@{" 4.2.2.2 Do you really want to quit ?              " link Question2_2 }
+	@{" 4.2.2.3 Do you really want to remove all samples ?" link Question2_3 }
+@endnode
+
+@node Question2_1 "4.2.2.1 File allready exists ! Should I continue ?"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+4.2.2.1 File allready exists ! Should I continue ?
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+Unter dem Namen mit dem Sie eine Datei abspeichern möchten, existiert schon
+eine Datei. Nach der Anwahl von Okay wird die Datei überschrieben. Bei Cancel
+wird der Schreibvorgang abgebrochen.
+@endnode
+
+@node Question2_2 "4.2.2.2 Do you really want to quit ?"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+4.2.2.2 Do you really want to quit ?
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+Sicherheitsabfrage ob sie das Programm tatsächlich velassen wollen.
+(Weil eigentlich wollen Sie doch gar nicht, gelle ?!)
+@endnode
+
+@node Question2_3 "4.2.2.3 Do you really want to remove all samples ?"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+4.2.2.3 Do you really want to remove all samples ?
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+Bestätigen Sie, ob Sie wirklich alle Samples aus dem Speicher entfernen möch-
+ten !
+@endnode

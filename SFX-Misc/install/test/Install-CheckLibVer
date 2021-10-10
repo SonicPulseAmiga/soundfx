@@ -1,0 +1,14 @@
+(SET #vernum (GETVERSION "libs:openurl.library"))
+(SET #ver_openurl (/ #vernum 65536))
+(SET #rev_openurl (- #vernum (* #ver_openurl 65536) ))
+(SET #vernum (GETVERSION "libs:ttf.library"))
+(SET #ver_ttf (/ #vernum 65536))
+(SET #rev_ttf (- #vernum (* #ver_ttf 65536) ))
+(SET #vernum (GETVERSION "libs:hollablub.library"))
+(SET #ver_hollablub (/ #vernum 65536))
+(SET #rev_hollablub (- #vernum (* #ver_hollablub 65536) ))
+(MESSAGE (CAT "Sie haben\n"
+	#ver_openurl "." #rev_openurl " der openurl.library\n"
+	#ver_ttf "." #rev_ttf " der ttf.library\n"
+	#ver_hollablub "." #rev_hollablub " der hollablub.library")
+)

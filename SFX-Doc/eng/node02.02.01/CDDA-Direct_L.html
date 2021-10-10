@@ -1,0 +1,148 @@
+<html>
+	<head><title>SoundFX : 2.2.1 CDDA-Direct_L</title></head>
+	<body bgcolor="#EEEEEE" leftmargin="5" rightmargin="5" topmargin="5" text="#000000" link="#2040FF" vlink="#0020E0" alink="#FFFFFF">
+	<a name="#000"></a>
+	<table border="0" width="100%" cellpadding="3" cellspacing="1" bgcolor="#000000"><tr bgcolor="#FFFFFF"><td>
+		<table border="0" width="100%" cellpadding="0" cellspacing="0"><tr>
+			<td align="left"><font size="-1">
+		[<a href="../node__.__.__.html">SoundFX</a>]
+			[<a href="../node02.__.__.html">Modules</a>]
+				[<a href="../node02.02.__.html">Loader</a>]
+			</font></td>
+			<td align="right" valign="center">
+				<a href="../node02.02.01.html">
+				<img src="../../_img/a_le.gif" width="13" height="13" border="0" alt="[prev]"></a>
+				<img src="../../_img/space.gif" width="2">
+				<a href="../node02.02.01/Clipboard_L.html">
+				<img src="../../_img/a_ri.gif" width="13" height="13" border="0" alt="[next]"></a>
+			</td>
+		</tr></table>
+	</td></tr></table>
+	<br>
+		<!-- Contents -->
+	<a name="#001"></a>
+<table border="0" width="100%" cellpadding="3" cellspacing="1" bgcolor="#000000">
+	<tr bgcolor="#DDDDDD"><td>
+		<table border="0" width="100%" cellpadding="0" cellspacing="0"><tr>
+			<td align="left">
+				<b>CDDA-Direct_L</b>
+			</td>
+			<td align="right">
+				<a href="#000">
+				<img src="../../_img/a_up.gif" width="13" height="13" border="0" alt="[up]"></a>
+				<img src="../../_img/space.gif" width="2">
+				<a href="#002">
+				<img src="../../_img/a_do.gif" width="13" height="13" border="0" alt="[down]"></a>
+			</td>
+		</tr></table>
+	</td></tr>
+	<tr bgcolor="#FFFFFF"><td>
+		<table border="0" width="100%" cellpadding="5" cellspacing="0"><tr><td>
+Copies files digitaly (1:1) from CDs. This has the advantage of very high
+quality, because it avoids converting the data (digital-&gt;analog and again
+analog-&gt;digital).<br>
+Instead of a file requester, a track listing will appear, where you can
+choose the desired track and set start/end/length.
+Read the chapter about <a href="../node01.05.09.html">recording/sampling</a> as well.
+		</td></tr></table>
+	</td></tr>
+</table>
+<br>
+	<a name="#002"></a>
+<table border="0" width="100%" cellpadding="3" cellspacing="1" bgcolor="#000000">
+	<tr bgcolor="#DDDDDD"><td>
+		<table border="0" width="100%" cellpadding="0" cellspacing="0"><tr>
+			<td align="left">
+				<b>Parameter</b>
+			</td>
+			<td align="right">
+				<a href="#001">
+				<img src="../../_img/a_up.gif" width="13" height="13" border="0" alt="[up]"></a>
+				<img src="../../_img/space.gif" width="2">
+				<a href="#003">
+				<img src="../../_img/a_do.gif" width="13" height="13" border="0" alt="[down]"></a>
+			</td>
+		</tr></table>
+	</td></tr>
+	<tr bgcolor="#FFFFFF"><td>
+		<table border="0" width="100%" cellpadding="5" cellspacing="0"><tr><td>
+<table border="0" cellspacing="1" cellpadding="2" width="100%"><tr bgcolor="#BBBBBB"><td align="right" valign="top"><nobr>Device</nobr></td><td align="left">Name of the device-driver which controls the cd-drive.
+</td></tr>
+<tr bgcolor="#AAAAAA"><td align="right" valign="top"><nobr>Unit</nobr></td><td align="left">Numer of device
+</td></tr>
+<tr bgcolor="#BBBBBB"><td align="right" valign="top"><nobr>Method</nobr></td><td align="left">The method which should be used to read from the drive.
+</td></tr>
+<tr bgcolor="#AAAAAA"><td align="right" valign="top"><nobr>Memory</nobr></td><td align="left">Which memory should be used for internal read buffer.
+<ul>
+<li>Any : doesn't matter</li>
+<li>Fast : choose only if you have some</li>
+<li>24bit : go for this if you experience crashes</li>
+</ul>
+</td></tr>
+</table>
+		</td></tr></table>
+	</td></tr>
+</table>
+<br>
+	<a name="#003"></a>
+<table border="0" width="100%" cellpadding="3" cellspacing="1" bgcolor="#000000">
+	<tr bgcolor="#DDDDDD"><td>
+		<table border="0" width="100%" cellpadding="0" cellspacing="0"><tr>
+			<td align="left">
+				<b>Notes</b>
+			</td>
+			<td align="right">
+				<a href="#002">
+				<img src="../../_img/a_up.gif" width="13" height="13" border="0" alt="[up]"></a>
+				<img src="../../_img/space.gif" width="2">
+				<a href="#004">
+				<img src="../../_img/a_do.gif" width="13" height="13" border="0" alt="[down]"></a>
+			</td>
+		</tr></table>
+	</td></tr>
+	<tr bgcolor="#FFFFFF"><td>
+		<table border="0" width="100%" cellpadding="5" cellspacing="0"><tr><td>
+This won't work with all drives. At first not every cd-rom or cd-writer
+is capable of DAE (Digital Audio Extraction) and what is worse, there is
+no standart way of doing it. To check, if your drive can do it and if yes
+how, see the list below.
+<table border="0" cellspacing="1" cellpadding="2" width="100%>
+<tr bgcolor="#DDDDDD"><th>Drive   </th><th>Type          </th><th>Interface</th><th>DAE</th><th>Modes</th></tr>
+<tr bgcolor="#BBBBBB"><td>Plextor </td><td>CD-ROM PX-32TS</td><td>SCSI     </td><td>yes</td><td>Plextor/Sony/IBM</td></tr>
+<tr bgcolor="#AAAAAA"><td>Plextor </td><td>CD-ROM PX-40TS</td><td>SCSI     </td><td>yes</td><td>Plextor/Sony/IBM</td></tr>
+<tr bgcolor="#BBBBBB"><td>Ricoh   </td><td>              </td><td>SCSI     </td><td>yes</td><td>Plextor/Sony/IBM, Toshiba</td></tr>
+<tr bgcolor="#AAAAAA"><td>Teac    </td><td>CD-523S       </td><td>SCSI     </td><td>yes</td><td>Plextor/Sony/IBM</td></tr>
+<tr bgcolor="#BBBBBB"><td>Teac    </td><td>CD-R55S       </td><td>SCSI     </td><td>yes</td><td>Plextor/Sony/IBM</td></tr>
+<tr bgcolor="#AAAAAA"><td>Teac    </td><td>CD-R58S       </td><td>SCSI     </td><td>yes</td><td>Plextor/Sony/IBM</td></tr>
+<tr bgcolor="#BBBBBB"><td>Toshiba </td><td>              </td><td>SCSI     </td><td>yes</td><td>Toshiba</td></tr>
+<tr bgcolor="#AAAAAA"><td>Traxdata</td><td>CDR4120       </td><td>SCSI     </td><td>yes</td><td>Plextor/Sony/IBM</td></tr>
+</table>
+Please send me reports to complete this list.
+		</td></tr></table>
+	</td></tr>
+</table>
+<br>
+	<a name="#004"></a>
+	<table border="0" width="100%" cellpadding="3" cellspacing="1" bgcolor="#000000"><tr bgcolor="#FFFFFF"><td>
+		<table border="0" width="100%" cellpadding="0" cellspacing="0"><tr>
+			<td align="left"><font size="-1">
+		[<a href="../node__.__.__.html">SoundFX</a>]
+			[<a href="../node02.__.__.html">Modules</a>]
+				[<a href="../node02.02.__.html">Loader</a>]
+			</font></td>
+			<td align="right" valign="center">
+				<a href="../node02.02.01.html">
+				<img src="../../_img/a_le.gif" width="13" height="13" border="0" alt="[prev]"></a>
+				<img src="../../_img/space.gif" width="2">
+				<a href="../node02.02.01/Clipboard_L.html">
+				<img src="../../_img/a_ri.gif" width="13" height="13" border="0" alt="[next]"></a>
+			</td>
+		</tr></table>
+	</td></tr></table>
+	<br>
+	<table border="0" width="100%" cellpadding="3" cellspacing="1" bgcolor="#000000"><tr bgcolor="#FFFFFF"><td align="center"><font size="-1">
+		&copy; by <a href="mailto:soundfx@sonicpulse.de">Stefan Kost</a> 1993-2004
+		<a href="http://www.sonicpulse.de" target="_new">www.sonicpulse.de</a>
+	</font></td></tr></table>
+	</body>
+</html>

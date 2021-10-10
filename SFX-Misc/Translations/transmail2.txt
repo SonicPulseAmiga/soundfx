@@ -1,0 +1,15 @@
+hi hi,
+
+thanks a lot for doing the translation for SoundFX. I've got the version 4.2
+ready now (after extensive betatesting). To make the keyfile for you I need
+your full address. Please mail it to me in reply.
+
+I further ask you to translate the new text in the installer-messages
+and fill the gaps in the catalogs (see attachments) and report:
+
+
+Then XXX is 100% up-to-date.
+
+Thanks again for your help.
+
+Stefan

@@ -1,0 +1,136 @@
+@database SFX-GUIPrefsWin
+
+@remark $VER: SFX-GUIPrefsWin.guide © by Stefan Kost 1994-1997 (09.03.97)
+@remark AmigaGuide-OnLine-Hilfe für SoundFX
+
+@master SFX-GUIPrefsWin.guide
+@index sfx-index.guide/index
+
+@node main "1.13 Einstellungen"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+1.13 Einstellungen
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+	@{" 1.13.1 GUI Einstellungen            " link PrefsGUIWin }
+	@{" 1.13.2 Samplepuffereinstellungen    " link PrefsSmpWin }
+	@{" 1.13.3 Virt. Speicher Einstellungen " link PrefsVMemWin }
+	@{" 1.13.4 verschiedene Einstellungen   " link PrefsMiscWin }
+@endnode
+
+@node PrefsGUIWin "1.13.1 Voreinsteller für das GUI"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+1.13.1 Voreinsteller für das GUI
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+In diesem Fenster können Sie verschiedene Voreinstellungen bezüglich des SFX
+GUI's machen.Folgend die Beschreibung der einzelnen Funktionen :
+
+	Palette		Hier wählen Sie den zu ändernden Paletteneintrag aus.
+	Red,Green,Blue	Mit diesen Gadgets können sie die Farbanteile des ge-
+			wählten Eintrages ändern.
+
+	Screen		Im nachfolgenden Auswahlfenster können Sie eine Bild-
+			schirmauflösung auswählen, wobei nur für SoundFX geeig-
+			neten Modi angezeigt werden.
+	Font		Hier können Sie einen Schriftsatz auswählen. Jetzt
+			stehen auch nichtproportionale Schriften zur verfügung.
+			Der standartmäßig eingestellte Zeichensatz (Trinomic.
+			font) is notwendig, wenn Sie SoundFX auf einem Hires-
+			NoLace-Screen (640x256) bentzen wollen.
+			Verwenden Sie nur dann eine größere Schrift, wenn Sie
+			auch eine entsprechende Bildschirmauflösung eingestellt
+			haben.
+@endnode
+
+@node PrefsSmpWin "1.13.2 Voreinsteller für die Samplepuffer"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+1.13.2 Voreinsteller für die Samplepuffer
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+In diesem Fenster können Sie verschiedene Voreinstellungen bezüglich den Sam-
+plepuffern machen.Folgend die Beschreibung der einzelnen Funktionen :
+
+	Samplepath	Hier kann der Default-Pfad für die Samples eingetragen
+			werden bzw. durch einen Klick auf das PopUp-Symbol aus-
+			gewählt werden.
+	Axisfont	Wählen Sie hiermit den Font, der für die Achsen benutzt
+			werden soll.
+	Drawmode	Über dieses Cycle-Gadget kann man auswählen, wie das
+			Sample gezeichnet werden soll. Es sehen folgende Modi
+			zur Verfügung :
+				1. Lines
+				2. Dots
+				3. DotAbs
+				4. Filled
+				5. FilledAbs
+				6. FilledHQ (sehr exakt,aber langsam)
+	SafeCheck	Hier können Sie einstellen, wie das Programm Sie davor
+			schützen soll, nichtgespeicherte Samples zu löschen.
+			never		: Abfrage erscheint nie
+			if unsaved	: Abfage erscheint nur bei nicht ge-
+					  speicherten Samples
+			ever		: Abfrage erscheint immer
+	Storage		Hiermit können Sie einstellen, ob das Sample im Spei-
+			cher gehalten wird oder auf die Festplatte ausgelagert
+			werden soll. SoundFX entscheidet dies normalerweise au-
+			tomatisch.
+	RasterX/Y	Mit diesem Checkboxen können Sie das Zeichnen des Ras-
+			ters ausschalten.
+	AxisX/Y		Und mit diesen können Sie die Achsen abschalten. Damit
+			vergrößern Sie den Zeichenbereich für die Wellenform.
+	UnitX/Y		Mit diesen Gadgets können Sie die Einheiten für jede
+			Achse auswählen. Diese wird auch vom
+			" Bereichsfenster " link sfx-guitoolwin.guide/RangeWin } benutzt.
+	MaxLines	Die MaxLines zeigen die maximale Aussteuerung eines
+			Samples an.
+	RMSLines	Diese Linien zeigen die wirkliche akustische Lautstär-
+			ke. Die Berechnung dieser und auch der nächsten, kann
+			etwas dauern (bei längern Samples).
+	AvgLines	Und diese zeigen die durchschnittliche Lautstärke an.		
+	QuickDraw	Wenn dies an ist, wird während des Scrollens das Raster
+			und die #?Lines weggelassen.
+	Letztendlich können Sie noch die Standartgröße für die Fenster fest-
+	legen. Diese können Sie absolut (in Pixeln) oder relativ (in promille)
+	zur Bildschirmauflösung eingeben.
+@endnode
+
+@node PrefsVMemWin "1.13.3 Voreinsteller für den virtuellen Speicher"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+1.13.3 Voreinsteller für den virtuellen Speicher
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+In diesem Fenster können Sie verschiedene Voreinstellungen zum virtuellen Spei-
+cher machen.Folgend die Beschreibung der einzelnen Funktionen :
+
+	Enable		Soll SFX überhaupt virtuellen Speicher benutzen.
+	Swappath	Hier kann der Default-Pfad für die Auslagerung eingetragen
+			werden bzw. durch einen Klick auf das PopUp-Symbol aus-
+			gewählt werden.
+	BlkSize		Puffergröße für den Laufwerkszugriff.
+@endnode
+
+@node PrefsMiscWin "1.13.4 verschiedene Einstellungen"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+1.13.4 verschiedene Einstellungen
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+In diesem Fenster finden Sie noch ein paar weitere Einstellungen.Folgend die
+Beschreibung der einzelnen Funktionen :
+
+	Sig-Audio	Wenn dieser Schalter angewählt ist, ertönt nach ferti-
+			ger Berechnung ein Signalton.
+	Sig-Screen	Wenn dieser Schalter angewählt ist, wird nach fertiger
+			Berechnung der SFX-Screen nach vorne gebracht.
+	BackLogo	Wenn abgehakt, wird ein SoundFX-Logo im Bildschirm-
+			hintergrund dargestellt.
+@endnode

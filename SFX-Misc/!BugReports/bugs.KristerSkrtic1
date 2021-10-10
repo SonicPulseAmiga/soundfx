@@ -1,0 +1,81 @@
+From - Mon Sep  9 12:48:39 2002
+X-UIDL: 361df5b500005f71
+X-Mozilla-Status: 0001
+X-Mozilla-Status2: 00000000
+Received: from n7.grp.scd.yahoo.com (n7.grp.scd.yahoo.com [66.218.66.91])
+	by imn.htwk-leipzig.de (8.9.1/8.9.1) with SMTP id UAA21742
+	for <kost@imn.htwk-leipzig.de>; Sat, 24 Aug 2002 20:01:19 +0200 (MET DST)
+Received: from [66.218.66.97] by n7.grp.scd.yahoo.com with NNFMP; 24 Aug 2002 18:00:49 -0000
+Received: (EGP: mail-8_1_0_1); 24 Aug 2002 18:00:47 -0000
+Received: (qmail 91821 invoked from network); 24 Aug 2002 18:00:46 -0000
+Received: from unknown (66.218.66.217)
+  by m14.grp.scd.yahoo.com with QMQP; 24 Aug 2002 18:00:46 -0000
+Received: from unknown (HELO mail.g.bonet.se) (212.181.52.4)
+  by mta2.grp.scd.yahoo.com with SMTP; 24 Aug 2002 18:00:46 -0000
+Received: from A4000 (Kicko@as8-2-4.kp.g.bonet.se [194.236.62.38])
+	by mail.g.bonet.se (8.12.3/8.12.3) with SMTP id g7OHwTT2098258
+	for <soundfx-users@yahoogroups.com>; Sat, 24 Aug 2002 19:58:30 +0200 (CEST)
+	(envelope-from transplant@tjohoo.se)
+X-eGroups-Return: sentto-3879093-508-1030212049-kost=imn.htwk-leipzig.de@returns.groups.yahoo.com
+X-Sender: transplant@tjohoo.se
+X-Apparently-To: soundfx-users@yahoogroups.com
+To: Sound fx list <soundfx-users@yahoogroups.com>
+Message-ID: <yam9001.320.144944944@mailrelay.bostream.com>
+X-Mailer: YAM 2.4-dev [020] AmigaOS E-mail Client (c) 2000-2002 by YAM Open Source Team - http://www.yam.ch/
+Organization: Transplant and Emulate
+From: "Krister S. Skrtic" <transplant@tjohoo.se>
+X-Yahoo-Profile: kicko52
+MIME-Version: 1.0
+Mailing-List: list soundfx-users@yahoogroups.com; contact soundfx-users-owner@yahoogroups.com
+Delivered-To: mailing list soundfx-users@yahoogroups.com
+Precedence: bulk
+List-Unsubscribe: <mailto:soundfx-users-unsubscribe@yahoogroups.com>
+Date: Sat, 24 Aug 2002 19:54:06 -0400
+Subject: [soundfx-users] virtual memory problems
+Reply-To: soundfx-users@yahoogroups.com
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Length: 1556
+Status:  O
+
+Hi. Tested sfx a little bit since 4.2 and still i have problems with virtual memory.
+If i load in a full sample in sfx and its bigger than my memory (using virtual ofcourse)
+then if i want to play range it always starts playing from the start of the sample instead
+of the range i selected. 
+
+If i for example stop in the middle of the loading so it dont load the full sample i can play range.
+Another thing is that if i stop loading it will put a long space after the sample. Should it only
+show the sample from the beginning to the stop (where i stoped loading).
+
+I had some other problems to after doing some stops and trying to load again than it wont.
+It exits the loading window directly instead of loading so i have to quit and restart the program
+again.
+
+others have these problems ? I had them in 4.1 and still in 4.2 
+
+-- 
+-----------------------------------------------------
+*TRANSPLANT & EMULATE - LIVE & DJ ACTS - TRANCE/TECHNO*
+
+HomePage:   http://transplant.listen.to
+Booking:        http://www.cat-productions.com
+Email:            transplant@tjohoo.se
+ICQ:              17397118
+-----------------------------------------------------
+
+
+
+------------------------ Yahoo! Groups Sponsor ---------------------~-->
+4 DVDs Free +s&p Join Now
+http://us.click.yahoo.com/pt6YBB/NXiEAA/mG3HAA/mjFolB/TM
+---------------------------------------------------------------------~->
+
+To unsubscribe from this group, send an email to:
+soundfx-users-unsubscribe@yahoogroups.com
+
+ 
+
+Your use of Yahoo! Groups is subject to http://docs.yahoo.com/info/terms/ 
+
+
+

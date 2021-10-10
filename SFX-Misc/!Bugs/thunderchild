@@ -1,0 +1,92 @@
+Hallo Stefan,
+
+zuersteinmal muß ich sagen, daß die 4.0´er Version leider noch nicht sooo
+klappt, wie ich (und bestimmt auch Du) es mir vorgestellt habe.
+
+- Da wäre z.B. der deutsche Catalog. Leider hast Du im Archiv noch die
+  alte Version (3.82). Dadurch werden einige Menütexte nicht korrekt
+  angezeigt. Insbesondere die Prefs sind völlig falsch beschriftet.
+  Aber ist nicht ganz so schlimm, man kann ja (´n büschn) englisch...
+
+- Ich habe mich ganz besonders über den Record´-Button gefreut...
+  Leider klappt der bei mir überhauüpt nicht. Ich nehme an, daß diese
+  Funktion sich noch in der Entwicklung befindet.
+
+- Fast alle Operatoren verursachen nach mehrmaligem gebrauch einen
+  Totalcrasch. Dabei spielt die Reihenfolge der Anwendung keine Rolle.
+  Ich habe z.B. zuerst Middle, dann Amilpfy benutzt. Klappte alles.
+  Als ich aber dann Amplify nochmals aufrief, hing der Rechner.
+  Dies funktioniert analog auch mit anderen OP´s in beliebiger
+  Reihenfolge.
+
+- Der Resample-OP klappt bei mir gar nicht mehr. Er erzeugt immer
+  ein leeres Sample (Nullinie). Sie Samplelänge bleibt aber erhalten.
+
+- Ab und zu bleiben beim Start von SFX sämtliche Fenster (Arexx, OP´s,
+  etc.) leer. SFX stürzt dann auch in 98% aller Fälle ab, sobald ich
+  irgendeine beliebige Funktion (z.B. Laden) aufrufe.
+  Starte ich den Rechner neu, klappt´s meistens.
+
+- Der IFF-AIFF Loader kann (schade) immer noch keine Samples über
+  den Scene-Handler laden. Im Gegensatz zu V3.82  stürzt der Compi
+  aber schon beim Anklicken des OK-Buttons im Filerequester ab.
+  Früher wurden SH-Samples bis 99% geladen, bevor er sich aufhing.
+
+- Der CD-Direkt Loader klappt bei mir immer noch nicht. Das könnte
+  allerdings auch bei mir liegen (keine Ahnung, wieso...).
+  Ich arbeite mit einem Philips CD-3600 Brenner und einem uralten
+  Toshiba (2x) CD-Rom. Bei beiden Geräten hängt sich der Loader
+  schon beim Einlesen des Index der CD auf.
+  Ganz selten klappt das Index-Lesen schon mal, dann bekomme ich
+  einen ´SCSI Mismatch-Error´ von meiner PPC-Karte und nix geht mehr.
+  Andere Programme (z.B. Opty-CD Player, Second Spin, etc.) laufen
+  dagenen einwandfrei.
+
+- Das Speichern als MP3-File klappt auch nicht, SFX meldet in einem
+  CLI-Fenster, daß (ooops vergessen) irgendwas nicht gefunden wird,
+  wenn ich den Pegase-Saver wähle.
+  Den 8Hz-Saver habe ich noch nicht ausprobiert.
+
+- Wenn man von´ner älteren SFX-Version die cfg nicht vor der
+  Installation von 4.0 löscht, kann man den Screenmode nicht mehr
+  ändern. Auch der Font kann nicht neu gewählt werden, da sich beim
+  Versuch die Fenster (den Screen) neu zu öffnen das Programm
+  aufhängt.
+
+Nach soviel ´böser Meckerei´ nun noch ein paar eigene Anmerkungen.
+
+- Das neue GUI finde ich zwar super gut gelungen, jedoch fand ich
+  die Auswahl der Loader, Saver, OP´s, etc. in der alten Version
+  etwas einfacher. man mußte nur das gewünschte Modul anklicken,
+  während man jetzt erst das Modul auswählen und sparat starten muß.
+  Evtl. könntest Du ja noch einbauen, daß man den Modul-Namen auch
+  durch Doppelklick starten kann.
+
+- Wäre es evtl. möglich (besonders für Beta-Tester), wenn ich die
+  Prefs ins Programmverzeichnis speichern könnte ???
+  Ich bekomme nämlich große Probleme, wenn ich - nachdem ich mit
+  der 4.0´er etwas gespielt habe - die 3.82 lade. Dann stimmen
+  die Prefs nicht mehr und ich muß die (gebackupte) alte Prefs-
+  datei wieder umbenennen, damit´s läuft.
+
+
+Vielleicht gibt´s ja einige der beschriebenen Fehler nur unter
+OS 3.5 (also bei mir - hahaha...).
+Aber egal, in einem solch komplexen Programm kann´s auch mal
+den einen oder anderen Fehler geben. Außerdem ist Dein Programm
+ja noch nicht einmal überteuert, wie so manch kommerzielles
+(siehe Movieshop. Hat mal viel Geld gekostet, strotzt nur so
+vor Fehlern und wird plötzlich nicht weiterentwickelt !!!).
+
+In diesem Sinne - ab in die Rinne,
+
+thunderchild@wtal.de  (Andreas L.)                                 \\|//
+   ___________________                                           (<O> <o>)
+__/ /  SYSTEM-INFO   / /________________________________________oOOo__(_)__oOOo___
+|                                                                              |
+| A-4000, CS-PPC 200, 68060/50, OS V3.5, 146 MB Ram, Picasso IV, Paloma, VT,   |
+| Toccata, VLab-Motion, IOBlix, CD-Rom (2x), CD-RW (6x/2x/2x), 3.2 GB IDE-HD,  |
+| 15 GB IDE-HD, 2x4.3 GB SCSI-UW HD, 2 GB DAT-Streamer, RBM-Towerhawk 4000ex.  |
+|                                                                              |
+| WWW: http://home.wtal.de/elasticimages    (Letztes Update: 19.05.2000)       |          |______________________________________________________________________________|
+

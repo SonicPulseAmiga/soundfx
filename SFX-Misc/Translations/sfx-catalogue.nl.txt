@@ -1,0 +1,1010 @@
+From - Thu Dec 21 10:45:21 2000
+Received: from thlhp.rz.htwk-leipzig.de (thlhp [141.57.1.1])
+	by imn.htwk-leipzig.de (8.9.1/8.9.1) with ESMTP id VAA06753
+	for <kost@imn.htwk-leipzig.de>; Sun, 17 Dec 2000 21:41:05 +0100 (MET)
+Received: from smtp1.a2000.nl (phoenix.a2000.nl [62.108.1.203])
+	by thlhp.rz.htwk-leipzig.de (8.8.8/8.8.8) with ESMTP id VAA35312
+	for <kost@imn.htwk-leipzig.de>; Sun, 17 Dec 2000 21:46:33 +0100
+Received: from node1b2c3.a2000.nl ([24.132.178.195] helo=let.vu.nl)
+	by smtp1.a2000.nl with esmtp (Exim 2.02 #4)
+	id 147keD-0003w0-00
+	for kost@imn.htwk-leipzig.de; Sun, 17 Dec 2000 21:43:09 +0100
+Message-ID: <3A3D2596.7FE1FA85@let.vu.nl>
+Date: Sun, 17 Dec 2000 21:44:06 +0100
+From: Jim Krab <j.krab@let.vu.nl>
+Reply-To: j.krab@let.vu.nl
+X-Mailer: Mozilla 4.72 [en] (Win98; U)
+X-Accept-Language: en
+MIME-Version: 1.0
+To: kost@imn.htwk-leipzig.de
+Subject: Forgot something
+X-Priority: 1 (Highest)
+Content-Type: multipart/mixed;
+ boundary="------------B9E2788ACF113721B04AE6C7"
+Content-Length: 21126
+Status:   
+X-Mozilla-Status: c005
+X-Mozilla-Status2: 00000000
+X-UIDL: 361df5b500002e79
+
+This is a multi-part message in MIME format.
+--------------B9E2788ACF113721B04AE6C7
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+Here's a catalogfile I forgot to mail in my 1st one.
+
+DMX
+303dmx@hetnet.nl
+
+--------------B9E2788ACF113721B04AE6C7
+Content-Type: text/plain; charset=us-ascii;
+ name="Nederlands_UPDATE.ct"
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline;
+ filename="Nederlands_UPDATE.ct"
+
+## version $VER: SoundFX/Nederlands.ct 1.1 (22.11.2000)
+## language nederlands
+## codeset 0
+;
+; Errors ======================================================================
+;
+;--	Resource errors -----------------------------------------------------------
+;
+;	Can't open file !
+errOpenFile
+Kan bestand niet openen !
+;Can't open file !
+;	Can't open library !
+errOpenLibrary
+Kan library niet openen !
+;Can't open library !
+;	Can't open screen !
+errOpenScreen
+Kan scherm niet openen !
+;Can't open screen !
+;	Can't open window !
+errOpenWindow
+Kan window niet openen!
+;Can't open window !
+;	Can't allocate memory !
+errAllocateMemory
+Kan geheugen niet reserveren !
+;Can't allocate memory !
+;	Can't allocate file request !
+errAllocateFileRequest
+Kan file requester niet openen !
+;Can't allocate file request !
+;	Can't allocate font request !
+errAllocateFontRequest
+Kan font requester niet openen !
+;Can't allocate font request !
+;	Can't allocate screenmode request !
+errAllocateScrmdRequest
+Kan screenmode requester niet openen !
+;Can't allocate screenmode request !
+;	Can't allocate audiomode request !
+errAllocateAudioRequest
+NEW --> Kan audiomode venster niet tonen !
+;Can't allocate audiomode request !
+;	Can't allocate signal !
+errAllocateSignal
+Kan signaal niet reserveren !
+;Can't allocate signal !
+;	Can't create context !
+errCreateContext
+Kan context niet maken !
+;Can't create context !
+;	Can't create gadgets !
+errCreateGadgets
+Kan gadgets niet maken !
+;Can't create gadgets !
+;	Can't create menus !
+errCreateMenus
+Kan menu's niet maken !
+;Can't create menus !
+;	Can't layout menus !
+errLayoutMenus
+Kan opmaak van menus niet maken !
+;Can't layout menus !
+;	Can't create port !
+errCreatePort
+Kan poort niet maken !
+;Can't create port !
+;	Can't close screen - close visitor windows first !
+errVisitorWindows
+Kan scherm niet sluiten !\n\
+Sluit eerst de bezoekende windows !
+;Can't close screen !\n\
+;Please close visitor-windows first !
+;	Can't make screen public !
+errMakeScreenPublic
+Kan scherm niet publiek maken !
+;Can't make screen public !
+;	Can't close that sample yet, it's still in use !
+errCloseSample
+Kan sample niet sluiten, is nog in gebruik  !
+;Can't close that sample yet, it's still in use !
+;	Clip is empty !
+errEmptyClip
+Clip is leeg !
+;Clip is empty !
+;	Can't access %s ! [ Expects filename as parameter ]
+errAccessFile
+Kan %s niet openen!
+;Can't access %s !
+;	Can't add appicon !
+errAddAppIcon
+Kan AppIcon niet toevoegen !
+;Can't add AppIcon !
+;	Can't add samplebuffer !
+errAddSampleBuffer
+Kan samplebuffer niet toevoegen !
+;Can't add samplebuffer !
+;	Can't get visual info !
+errGetVisualInfo
+Kan geen visuele informatie krijgen !
+;Can't get visual info !
+;	Can't allocate audio hardware !
+errAllocateAudio
+Kan audio hardware niet aanspreken !
+;Can't allocate audio hardware !
+;	No AHI System or invalid AudioMode !
+errNoAHI
+Geen AHI Systeem of invalide AudioMode !
+;No AHI System or invalid AudioMode !
+;	Execution of %s failed ! [ Expects functioname as parameter ]
+errFail
+Uitvoering van %s gefaald !
+;Execution of %s failed !
+;	Can't get sample attributes ! (loaders/Datatype_L)
+errSampleAttributes
+Kan sample attributen niet vinden !
+;Can't get sample attributes !
+;	Can't get sample object ! (loaders/Datatype_L)
+errSampleObject
+Kan sample object niet krijgen !
+;Can't get sample object !
+;
+;-	FileIO --------------------------------------------------------------------
+;	Can't read data !
+errReadData
+Kan data niet lezen !
+;Can't read data !
+;	Can't write data !
+errWriteData
+Kan data niet schrijven !
+;Can't write data !
+;	This isn't a %s file ! [ Expects filetype as parameter ]
+errWrongFiletype
+Dit is geen %s bestand !
+;This isn't a %s file !
+;	Can't read this %s file ! [ Expects filetype as parameter ]
+errUnsupportedSubtype
+Kan dit %s bestand niet lezen !
+;Can't read this %s file !
+;	This is not the right data file !
+errWrongDatafile
+Dit is niet het juiste data bestand !
+;This is not the right data file !
+;	Sample has no sampling rate, SoundFX sets it to default !
+errNoSampleRate
+Sample heeft geen sampling rate, SoundFX stelt standaardwaarde in !
+;Sample has no sampling rate, SoundFX sets it to default !
+;	Can't save the whole wave !
+errSampleToLong
+Kan niet de hele wave opslaan !
+;Can't save the whole wave !
+;	This sample isn't saved correctly !
+errDamagedFormat
+Deze sample is niet juist opgeslagen !\n\
+U wordt geadviseerd de sample opnieuw op te slaan.
+;This sample isn't saved correctly !\n\
+;I advice you to save the sample again.
+;
+;--	Sampletype ----------------------------------------------------------------
+;	Source must be a mono sample !
+errSourceMono
+Bron moet een mono sample zijn !
+;Source must be a mono sample !
+;	Source must be a stereo sample !
+errSourceStrereo
+Bron moet een stereo sample zijn !
+;Source must be a stereo sample !
+;	Source must be a quadro sample !
+errSourceQuadro
+Bron moet een quadro sample zijn !
+;Source must be a quadro sample !
+;	Source must be a stereo or quadro sample !
+errSourceStereoQuadro
+Bron moet een stereo of quadro sample !
+;Source must be a stereo or quadro sample !
+;
+;-- Beta ----------------------------------------------------------------------
+;	This function is not implemented yet !
+errNotImplemented
+Deze functie is nog niet geimplementeerd !
+;This function is not implemented yet !
+;	This operation doesn't supports device-samples yet !
+errNoVMemYet
+Deze operatie ondersteunt nog geen device-samples !
+;This operation doesn't supports device-samples yet !
+;
+; Messages ====================================================================
+;	This is an unregistered version ...
+msgUnregVersionStart
+Dit is een ongeregistreerde versie van SoundFX !\n\
+het opslaan van uw werk en het gebruik van de ARexx-Port werkt niet !\n\
+Zie de Guide voor verdere informatie !
+;This is an unregistered version of SoundFX !\n\
+;Saving of your work and using ARexx-Port is disabled !\n\
+;See guide for further informations !
+;	You have used an unregistered Version ...
+msgUnregVersionEnd
+U heeft een ongeregistreerde versie van SoundFX gebruikt !
+;You have used an unregistered version of SoundFX !
+;	Demo reminder - I've already told you that you can't save ...
+msgDemoNoSave
+U kunt geen samples opslaan in de demoversie !
+;I have already told you that you can't save your samples in the demo-version !
+;	Demo reminder - I've already told you that you can't use rexx ...
+msgDemoNoARexx
+U kunt de arexx-poort niet gebruiken in de demoversie !
+;I have already told you that you can't use the arexx-port in the demo-version !
+;	Installations seems to be incomplete !
+msgInstIncomplete
+Installatie lijkt incompleet te zijn !\n\
+Installeer altijd de sfx-bin_???, sfx-doc_??? en sfx-data archiven.\n\
+Een van deze weglaten leidt tot een instabiele installatie !
+;Installations seems to be incomplete !\n\
+;Please always install the sfx-bin_???, sfx-doc_??? and sfx-data archives.\n\
+;Leaving one out may lead to an instable installation !
+;	Setting player options ...
+msgSetPlayerOpts
+Player opties worden ingesteld ...
+;Setting player options ...
+;	Setting global options ...
+msgSetDefaultGlobals
+Globale opties worden ingesteld ...
+;Setting global options ...
+;	Setting local texts ...
+msgSetLocalTexts
+Locale teksten worden ingesteld ...
+;Setting local texts ...
+;	Scanning operators ...
+msgScanOperators
+Operators worden gescand ...
+;Scanning operators ...
+;	Scanning loaders ...
+msgScanLoaders
+CHANGE --> Loaders worden gescand ...
+;Scanning loaders ...
+;	Scanning players ...
+msgScanPlayers
+players worden gescand ...
+;Scanning playerrs ...
+;	Scanning savers ...
+msgScanSavers
+Savers worden gescand ...
+;Scanning savers ...
+;	Scanning rexxmacros ...
+msgScanRexxmacros
+Rexxmacross worden gescand ...
+;Scanning rexxmacross ...
+;	Building on-line-help contents ...
+msgBuildHelp
+On-line hulp inhoud wordt opgebouwd ...
+;Building on-line-help contents ...
+;	Create ports ...
+msgCreatePorts
+Poorten worden gemaakt ...
+;Create ports ...
+;	Initialising GUI ...
+msgInitGUI
+GUI wordt geinitialiseerd ...
+;Initialising GUI ...
+;	Working on %s[%d]
+msgProgress
+aan %s[%d] wordt gewerkt
+;Working on %s[%d]
+;	Loading[%d]
+msgProgressLoad
+Laden[%d]
+;Loading[%d]
+;	Saving[%d]
+msgProgressSave
+Opslaan[%d]
+;Saving[%d]
+;
+;-- Requests ====================================================================
+;	File already exists !
+reqFileExists
+Bestand bestaat al !\n\
+Wat zal ik doen ?
+;File already exists !\n\
+;What should I do ?
+;	Do you really want to quit ?
+reqReallyQuit
+Wilt u het programma echt verlaten ?
+;Do you really want to quit ?
+;	SoundFX is already running !\nShould I start it again ?
+reqRunAgain
+SoundFX draait al !\nZal ik het opnieuw opstarten ?
+;SoundFX is already running !\nShould I start it again ?
+;	Do you really want to remove all samples ?
+reqRemoveAll
+Wilt u echt alle samples verwijderen ?
+;Do you really want to remove all samples ?
+;	Do you really want to close this sample ?
+reqCloseSample
+Wilt u deze sample echt sluiten ?
+;Do you really want to close this sample ?
+;	Do you really want to delete this entry ?
+reqRemEntry
+Wilt u deze entry echt verwijderen ?
+;Do you really want to delete this entry ?
+;
+; Strings =====================================================================
+;
+;-- Requestertitles -----------------------------------------------------------
+;	SoundFX-Message
+strSoundFXMessage
+SoundFX-Boodschap
+;SoundFX-Message
+;	SoundFX-Request
+strSoundFXRequest
+SoundFX-Request
+;SoundFX-Request
+;	Load 
+strLoad
+Laden
+;Load
+;	Save as
+strSaveAs
+Opslaan als
+;Save as
+;	Select a font
+strSelectFont
+Selecteer een font
+;Select a font
+;	Select a screenmode
+strSelectScrMd
+Selecteer een screenmode
+;Select a screenmode
+;	Select an audiomode
+strSelectAudioMd
+NEW --> Selecteer een audiomode
+;Select an audiomode
+;	Select a preset
+strSelectPreset
+NEW --> Selecteer een preset
+;Select a preset
+;	Select the default sample path
+strSelectSmpPath
+Selecteer het standaard sample pad
+;Select the default sample path
+;	Select the path for virtual memory files
+strSelectVMemPath
+Selecteer het pad voor de virtueel geheugen bestanden
+;Select the path for virtual memory files
+;	Select an buffer
+strSelectBuffer
+Selecteer een buffer
+;Select an buffer
+;	Select a frequency
+strSelectFrequency
+Selecteer een frequency
+;Select a frequency
+;	Select a window function
+strSelectWinFunc
+Selecteer een window functie
+;Select a window function
+;	Sample options
+strSmpOptions
+Sample opties
+;Sample options
+;
+;-- Requesterbuttons ----------------------------------------------------------
+;	Okay
+strOkay
+Okee
+;Okay
+;	Cancel
+strCancel
+Cancel
+;Cancel
+;	Replace (for "File already exists !")
+strReplace
+Overschrijven
+;Replace
+;	specify new name (for "File already exists !")
+strNewName
+Nieuwe Naam
+;New Name
+;	Yes
+strYes
+Ja
+;Yes
+;	No
+strNo
+Nee
+;No
+;	Help
+strHelp
+Help
+;Help
+;
+;-- Windowtitles --------------------------------------------------------------
+;	Record
+strRecord
+NEW --> Opname
+;Record
+;	Playeroptions : %s
+strPlayerOptions
+NEW --> Player opties
+;Playeroptions : %s
+;
+;-- Misc ----------------------------------------------------------------------
+;	Ready
+strReady
+Klaar
+;Ready
+;
+; Menutexts ===================================================================
+;
+;-- SFX Mainmenu --------------------------------------------------------------
+;	Project
+menProject
+Project
+;Project
+;	Flush All ...
+menPrjFlushAll
+Verwijder Alles...
+;Flush All ...
+;	Load ...
+menPrjLoad
+Laden...
+;Load ...
+;	Save ...
+menPrjSave
+Opslaan...
+;Save ...
+;	Execute ...
+menPrjExecute
+Uitvoeren...
+;Execute ...
+;	Execute Rexx ...
+menPrjExecuteRexx
+Rexx uitvoeren...
+;Execute Rexx ...
+;	Play All
+menPrjPlayAll
+Speel Alles
+;Play All
+;	Play Range
+menPrjPlayRange
+Speel Range
+;Play Range
+;	Stop
+menPrjStop
+Stop
+;Stop
+;	Information
+menPrjInfo
+Informatie...
+;Information ...
+;	Quit
+menPrjQuit
+Quit...
+;Quit ...
+;	Edit
+menEdit
+Bewerk
+;Edit
+;	Cut
+menEditCut
+Snij
+;Cut
+;	Cut to begin
+menEditCutBeg
+Snij tot begin
+;Cut to begin
+;	Cut to end
+menEditCutEnd
+Snij tot einde
+;Cut to end
+;	Copy
+menEditCopy
+Copieer
+;Copy
+;	Copy to begin
+menEditCopyBeg
+Copieer tot begin
+;Copy to begin
+;	Copy to end
+menEditCopyEnd
+Copieer tot einde
+;Copy to end
+;	Grab
+menEditGrab
+Pak
+;Grab
+;	Grab to begin
+menEditGrabBeg
+Pak tot begin
+;Grab to begin
+;	Grab to end
+menEditGrabEnd
+Pak tot einde
+;Grab to end
+;	Paste
+menEditPaste
+Plak
+;Paste
+;	Paste at begin
+menEditPasteBeg
+Plak aan begin
+;Paste at begin
+;	Paste at end
+menEditPasteEnd
+Plak aan einde
+;Paste at end
+;	Erase
+menEditErase
+Wis
+;Erase
+;	Erase to begin
+menEditEraseBeg
+Wis tot begin
+;Erase to begin
+;	Erase to end
+menEditEraseEnd
+Wis tot end
+;Erase to end
+;	Zero
+menEditZero
+Leeg
+;Zero
+;	Zero to begin
+menEditZeroBeg
+Leeg tot begin
+;Zero to begin
+;	Zero to end
+menEditZeroEnd
+Leeg tot end
+;Zero to end
+;	Overwrite
+menEditOverwrite
+Overschrijven
+;Overwrite
+;	Overwrite at begin
+menEditOverwriteBeg
+Overschrijven aan begin
+;Overwrite at begin
+;	Exchange mark and clip
+menEditExchangeMarkAndClip
+NEW --> Verwissel mark en clip
+;Exchange mark and clip
+;	Replace mark by clip
+menEditReplaceMarkByClip
+NEW --> Vervang mark door clip
+;Replace mark by clip
+;	Zoom
+menZoom
+Zoom
+;Zoom
+;	Zoom in
+menZoomIn
+Zoom in
+;Zoom in
+;	Zoom out
+menZoomOut
+Zoom uit
+;Zoom out
+;	1 Pixel = 1 Sample
+menZoomPixel
+1 Pixel = 1 Sample
+;1 Pixel = 1 Sample
+;	Zoom all way out
+menZoomFull
+Zoom helemaal uit
+;Zoom all way out
+;	Cleanup
+menCleanup
+Opruimen
+;Cleanup
+;	current
+menClCur
+huidige
+;current
+;	all
+menClAll
+allen
+;all
+;	all normal
+menClAllNorm
+allen normaal
+;all normal
+;	all zoomed
+menClAllZoom
+allen gezoomd
+;all zoomed
+;	Help
+menHelp
+Help
+;Help
+;	Contents ...
+menHelpContents
+Inhoud...
+;Contents ...
+;	Index ...
+menHelpIndex
+Index...
+;Index ...
+;	Workshop ...
+menHelpWorkshop
+Workshop...
+;Workshop ...
+;	Prefs
+menPrefs
+Voorkeuren
+;Prefs
+;	GUI ...
+menPrefsGUI
+GUI...
+;GUI ...
+;	Sample ...
+menPrefsSample
+Sample...
+;Sample ...
+;	Virtual memory ...
+menPrefsVMem
+Virtueel geheugen...
+;Virtual memory ...
+;	Miscellaneous ...
+menPrefsMisc
+Overige...
+;Miscellaneous ...
+;	Load
+menPrefsLoad
+Laden
+;Load
+;	Save
+menPrefsSave
+Opslaan
+;Save
+;	Reset
+menPrefsReset
+Reset
+;Reset
+;
+;-- SFX FXmenu ----------------------------------------------------------------
+;	Start
+menStart
+Begin
+;Start
+;	About ...
+menAbout
+Over...
+;About ...
+;
+; Toolbartexts ================================================================
+;
+;-- Loader --------------------------------------------------------------------
+;	choose loader ...
+tbbLoaderChoice
+NEW --> Kies loadmodule
+;choose loader ...
+;	loader options ...
+tbbLoaderOptions
+NEW --> loadmodule opties
+;loader options ...
+;	load file ...
+tbbLoadFile
+NEW --> laad bestand
+;load file ...
+;
+;-- Saver ---------------------------------------------------------------------
+CHANGE --> ;	choose saver ...
+tbbSaverChoice
+NEW --> kies savemodule
+;choose saver ...
+;	saver options ...
+tbbSaverOptions
+NEW --> kies savemodule opties
+;saver options ...
+;	save file ...
+tbbSaveFile
+NEW --> bestand opslaan
+;save file ...
+;
+;-- Operator ------------------------------------------------------------------
+;	choose operator ...
+tbbOperatorChoice
+NEW --> kies operator
+;choose operator ...
+;	run operator ...
+tbbRunOperator
+NEW --> start operator
+;run operator ...
+;
+;-- Arexx macro ---------------------------------------------------------------
+;	choose arexx macro ...
+tbbArexxMacroChoice
+Kies ARexx macro
+;choose arexx macro ...
+;	run arexx macro
+tbbRunArexxMacro
+Start ARexx macro
+;run arexx macro
+;
+;-- Audio IO ------------------------------------------------------------------
+;	choose player ...
+tbbPlayerChoice
+NEW --> Kies player
+;choose audio module ...
+;	player options ...
+tbbPlayerOptions
+NEW --> Kies opties voor audiomodule
+;audio module options ...
+;	play all
+tbbPlayAll
+NEW --> Speel alles af
+;play all
+;	play range
+tbbPlayRange
+NEW --> Speel bereik
+;play range
+;	stop playing
+tbbStopPlaying
+NEW --> Stop afspelen
+;stop playing
+;	record ...
+tbbRecord
+NEW --> Opnemen
+;record ...
+;
+;-- Buffer --------------------------------------------------------------------
+;	choose buffer ...
+tbbBufferChoice
+NEW --> Kies sample buffer
+;choose sample ...
+;	buffer options ...
+tbbBufferOptions
+NEW --> Kies sample opties
+;sample options ...
+;	hide/show buffer
+tbbHideShow
+NEW --> Samplevenster verstoppen/vertonen
+;hide/show sample
+;
+;-- Edit ----------------------------------------------------------------------
+CHANGE --> ;	variations for cutting an area
+tbbCutMen
+
+CHANGE --> ;variations for cutting an area
+;	variations for copying an area
+tbbCopyMen
+
+;variations for copying an area
+;	variations for pasting an area
+tbbPasteMen
+
+;variations for pasting an area
+;	variations for erasing an area
+tbbEraseMen
+
+;variations for erasing an area
+;	variations for grabbing an area
+tbbGrabMen
+
+;variations for grabbing an area
+;	variations for zeroing an area
+tbbZeroMen
+
+;variations for zeroing an area
+;	variations for overwriting an area
+tbbOverwrMen
+
+;variations for overwriting an area
+;
+;-- Zoom ----------------------------------------------------------------------
+;	zoom mode
+tbbZoomMode
+NEW --> zoom mode
+;zoom mode
+;	zoom in
+tbbZoomIn
+NEW --> zoom in
+;zoom in
+;	zoom out
+tbbZoomOut
+NEW --> zoom uit
+;zoom out
+;	zoom 1:1
+tbbZoomEq
+NEW --> 1:1 uitzoomen
+;zoom 1:1
+;	zoom out full
+tbbZoomOutFull
+NEW --> volledig uitzoomen
+;zoom out full
+;
+;-- Range ---------------------------------------------------------------------
+;	range mode
+tbbRangeMode
+NEW ??? --> bereik mode
+;range mode
+;	lock range length
+tbbLockLength
+NEW --> bereik lengte vastzetten
+;lock range length
+;	left & down / right & up
+tbbChBegEnd
+NEW --> links & onder / rechts & boven
+;left & down / right & up
+;	move to begin
+tbbMoveBeg
+NEW --> ga naar het begin
+;move to begin
+;	move left fast
+tbbMoveLeftF
+NEW --> ga snel naar links
+;move left fast
+;	move left slow
+tbbMoveLeftS
+NEW --> ga langzaam naar links 
+;move left slow
+;	move to next left zero-crossing
+tbbMoveLeftN
+
+;move to next left zero-crossing
+;	move to next right zero-crossing
+tbbMoveRightN
+
+;move to next right zero-crossing
+;	move right slow
+tbbMoveRightS
+NEW --> ga langzaam naar rechts
+;move right slow
+;	move right fast
+tbbMoveRightF
+NEW --> ga snel naar rechts
+;move right fast
+;	move to end
+tbbMoveEnd
+NEW --> ga naar het einde
+;move to end
+;	move to top
+tbbMoveTop
+NEW --> ga helemaal naar boven
+;move to top
+;	move up fast
+tbbMoveUpF
+NEW --> ga snel naar boven
+;move up fast
+;	move up slow
+tbbMoveUpS
+NEW --> ga langzaam naar boven
+;move up slow
+;	move to upper peak
+tbbMoveUpP
+NEW --> ga naar bovenste sample piek
+;move to upper peak
+;	move to lower peak
+tbbMoveDownP
+NEW --> ga naar onderste sample piek
+;move to lower peak
+;	move down slow
+tbbMoveDownS
+NEW --> ga langzaam naar beneden
+;move down slow
+;	move down fast
+tbbMoveDownF
+NEW --> ga snel naar beneden
+;move to down fast
+;	move to bottom
+tbbMoveBottom
+NEW --> ga helemaal naar beneden
+;move to end
+;
+; Dropdowntexts ===============================================================
+;
+;-- Cut -----------------------------------------------------------------------
+;	cut area
+tbbCut
+NEW --> bereik uitsnijden
+;cut area
+;	cut to begin
+tbbCutB
+NEW --> bereik naar begin uitsnijden
+;cut to begin
+;	cut to end
+tbbCutE
+NEW --> bereik naar einde uitsnijden
+;cut to end
+;
+;-- Copy ----------------------------------------------------------------------
+;	copy area
+tbbCopy
+NEW --> kopieer bereik
+;copy area
+;	copy to begin
+tbbCopyB
+NEW --> bereik naar begin kopieeren
+;copy to begin
+;	copy to end
+tbbCopyE
+NEW --> bereik naar einde kopieeren
+;copy to end
+;
+;-- Paste ----------------------------------------------------------------------
+;	paste area
+tbbPaste
+
+;paste area
+;	paste at begin
+tbbPasteB
+
+;paste at begin
+;	paste at end
+tbbPasteE
+
+;paste at end
+;
+;-- Erase ----------------------------------------------------------------------
+;	erase area
+tbbErase
+
+;erase area
+;	erase to begin
+tbbEraseB
+
+;erase to begin
+;	erase to end
+tbbEraseE
+
+;erase to end
+;
+;-- Grab ----------------------------------------------------------------------
+;	grab area
+tbbGrab
+
+;grab area
+;	grab to begin
+tbbGrabB
+
+;grab to begin
+;	grab to end
+tbbGrabE
+
+;grab to end
+;
+;-- Zero ----------------------------------------------------------------------
+;	zero area
+tbbZero
+NEW --> bereik op nul zetten
+;zero area
+;	zero to begin
+tbbZeroB
+NEW --> begin to bereik op nul zetten
+;zero to begin
+;	zero to end
+tbbZeroE
+NEW --> bereik tot einde op nul zetten
+;zero to end
+;
+;-- OverWr ----------------------------------------------------------------------
+;	overwrite area
+tbbOverwr
+NEW --> bereik overschrijven
+;overwrite area
+;	overwrite at begin
+tbbOverwrB
+NEW --> overschrijf vanaf begin
+;overwrite at begin
+;-- EOF -----------------------------------------------------------------------
+
+--------------B9E2788ACF113721B04AE6C7--
+

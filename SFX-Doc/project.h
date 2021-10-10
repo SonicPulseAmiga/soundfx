@@ -1,0 +1,4 @@
+#define PRJ_VERSION		1
+#define PRJ_REVISION	00
+#define PRJ_NAME		"htmldoctools"
+#define PRJ_VERS		PRJ_NAME"/"PRJ_SUBNAME" "NUM2STR(PRJ_VERSION)"."NUM2STR(PRJ_REVISION)" (c) by Stefan Kost 2000-2000"

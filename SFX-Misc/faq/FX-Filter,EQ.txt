@@ -1,0 +1,92 @@
+<<<<<<<<<< Filters, Equalizer >>>>>>>>>>
+
+25 jul 00
+Q:
+> [How can i] change the band assignements in Equalizer?
+> The first band goes up to 648 hz and the last to 44100 hz, that makes no sense.
+A:
+The current equalizer is based on the fft. This algorithm splits the
+frequency-space into fixed ranges.
+The overall area covered is 0 Hz to samplingfreq/2.
+For SoundFX 4.1 I plan to include a full-parametric equalizer (4 bands +
+low/High shelf)
+
+
+
+29 aug 2000
+Q:
+> How can I quickly test the speed and quality of applying cutt-off and
+> resonance filters on SFX on for example a rhythm?
+> 
+> I couldn't manage to get TB303 like effect on rhythm - to change start
+> frequency to for example Low to Hi...- it's a
+> classic effect that is used in Trance or House songs when whole rhythm is
+> resonanting...
+> [...] 
+> Can I get this in SFX? 
+A:
+I belive you can. At first I recommend to use the 'Filter-StateVariable' as this
+is fast and powerful.
+A filter basicaly has three parameters :
+  1. model : lowpass, highpass, bandpass, bandstop, ... - you would choose
+  lowpass in your case
+  2. the cut-off frequency (this is the frequency where the amplitude has
+  already dropped by 3db)
+  3. the resonance (this attenuates frequencies around the cut-off)
+-
+SoundFX keeps most Parameters modulatable and not static as most other apps to.
+Both Cut-Off and Resonancy are modulatable. Such parameter can be controlled
+innearly every thinkable way. Therefor you have those blend-shapes (the
+cycle-button). You basically enter a start and end value and the shape
+alternates between them. There is an extensive chapter in the guide (the chapter
+about operators).
+-
+A: (Jan Krutisch)
+I guess a good way to start here is to use StateVariable as an effect (as 
+Stefan suggested) and let the cutoff be modulated by the signal's 
+amplitude. Since I haven't used SFX for some time now, I couldn't tell you 
+exactly how this is achieved, but you have to set the modulation to 
+"USER"-something (again, I can't tell you the exact labelling.) then you 
+can choose between frequency and amplitude modulation. The only thing you 
+have to do is to set the two values for cutoff to reasonable values 
+(experimentation rules!!!) and set the resonance to a fairly high value. 
+Voila! Instant jumpy filters attack.
+
+06 oct 00
+Q:
+> Is there any way to increase resolution when doing FFT analysis. I mean
+> doing zooms and such to find exact peaks?
+A:
+Not really. That is the unfortunate limitation of the FFT. If you are
+interested in lower frequencies, you can zoom. Just low-pass-filter the
+signal and resample it (you can use the builtin aliasing-filter of the
+resample-operator). Then start analyse-2d.
+What I could do, is to try to build an spectrum-analyser on the base of
+bandpass-filters. This analyser could then arbitrary zoom-into the
+signal.
+
+
+Q:
+> When I create a 1 second noise sample using the noise operator and then
+> perform a spectrum analysis, the result is anything but flat. What's
+> wrong, the noise algorithm or the FFT?
+A:
+It can't be perfectly flat. Depending on the quality of the
+random-number generator the noise is more or less 'white'.
+
+
+16 nov 01
+Q:
+> I have recorded a sample from a bigger distance, and want to increase
+> the volume. But if i do so, i get a background sound.
+> It seems that this sound is above 14kHz. My sample is speech only, so
+> i think it is no problem to cut this background sound of with soundfx.
+A:
+I assume, that you have recored in 16bit with 44100/48000 Hz.
+The easierst is to use a low-pass filter. Because you want good cancelation,
+I suggest to use Filter-FIRLowPass (and not the state-variable-filter).
+Start the filter and enter 13000 Hz for the cut-off, sert modulation to none,
+as you don't want to create artistic sounds. Number should be something like 64.
+-
+Use the Analyse-Spects-2D to verify thet high frequencies have been canceld out.
+You can even apply the filter several time to increase steepness and dampening.

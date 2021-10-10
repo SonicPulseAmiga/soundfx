@@ -1,0 +1,27 @@
+Hello Stefan Kost, on date 16-Jan-02 23:20:35 you wrote:
+
+ SK> tonight I took a stab at equping my data-windows (in SoundFX) with
+ SK> iconify buttons to allow the user to hide them. These data-windows
+ SK> already get 2 scrollbars and 4 arrow-buttons beamed into their border.
+ SK> So I though I'll just have to add one more gadget ...
+ SK> [...]
+ SK> then I set my firstgadget into WA_Gadgets of my tagitem list and open the
+ SK> new window. The problem now is that the image is there, but it behaves
+ SK> like the space is still part of the dragbar.I can still move the window
+ SK> around, when I click there and I can't press it. Do you have any ideas ?
+
+The problem is that the gadget list passed via WA_Gadgets is always appended
+*after* the window's own system gadgets, which thus get an higher priority and
+are always "reached" first by a mouse click. You need to make sure your
+iconify gadget is inserted before the system gadgets; this can be achieved
+for instance with the following code:
+
+   RemoveGadget(win,iconifygad);
+   AddGadget(win,iconifygad,0);
+
+after the window has opened. You could also just add it at this point without
+even inserting it into the initial gadget list, but having it there as well
+helps keeping GUI enhancers happy (see also TBITest.c in the class archive).
+
+Kind regards,
+                                  Massimo Tantignone (tanti@intercom.it)                                    [http://www.intercom.it/~amigaws]

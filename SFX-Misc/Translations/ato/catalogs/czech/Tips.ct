@@ -1,0 +1,304 @@
+## version $VER: Tips.catalog 1.0 (14.04.2002)
+## language czech
+## codeset 0
+;
+;
+;
+;-- internals
+;
+000
+41
+; 41
+;
+001
+Tip pro dneîní den
+; Tip Of The Day
+;
+002
+Ok
+; OK
+;
+;-- the tips
+;
+003
+Okno zvoleného operátoru otevêete\n\
+stisknutím klávesy 'r'.
+; You can easily open\nthe selected operator's\nwindow by pressing 'r'.
+;
+004
+Pêestoùe SoundFX podporuje mnoho rûzných\n\
+formátû zvukových souborû, pro ukládání\n\
+doporuçujeme pouùívat pouze RIFF-WAV\n\
+nebo IFF-AIFF.\n\
+Tyto dva formáty pêedstavují zavedený\n\
+standard a zajistí vám bezproblémovou\n\
+výmënu dat.
+; Although SoundFX can handle\na lot of sample formats,\nit is recommended that\nyou save your samples\nin RIFF-WAV or IFF-AIFF formats.\nThese represent the music\nindustry standards.
+;
+005
+Çasovë nároçné a opakující se operace\n\
+si mûùete ulehçit dávkovým zpracováním.
+; Time-consuming, repetitive tasks\ncan be made easier by\nthe use of the Batch Processor.
+;
+006
+Výbërem pêísluîné poloùky z menu Nápovëda\n\
+pêejdete na domovskou stránku SoundFX:\n\
+http://www.sonicpulse.de
+; The Help menu gives you\ndirect access to the\nSoundFX WWW homepage:\n\nwww.sonicpulse.de
+;
+007
+Operace se schránkou zrychlíte pomocí\n\
+standardních klávesových zkratek:\n\
+\n\
+Vystêihnout - pravá Amiga + X\n\
+Kopírovat - pravá Amiga + C\n\
+Vloùit - pravá Amiga + V
+; Cut, copy & paste operations\ncan be quickly performed using\nthe standard Amiga shortcuts:\n\nAmiga-X, Amiga-C, Amiga-V.
+;
+008
+Nejlepîího výkonu programu dosáhnete\n\
+na klasické Amize s procesorem 68060\n\
+nebo v emulaci (WinUAE, Amithlon, AmigaXL)\n\
+na PC.
+; Best performance can be achieved\nwith a 68060 processor\nor under emulation (WinUAE,\nAmithlon, AmigaXL) on the PC.
+;
+009
+SoundFX je velmi komplexní software,\n\
+který plnë vyuùijete aù po dûkladném\n\
+prostudování dokumentace.\n\
+Pozn.: nebojte se experimentovat!
+; SoundFX is a complex\npiece of software.\nRead the manual to get\nmost of it! And also:\n\nDon't be afraid to experiment!
+;
+010
+Nastavení parametrû vîech operátorû\n\
+a modulû lze uloùit do samostatných\n\
+konfiguraçních souborû.
+; With all operators, loader and savers,\nyour favourite parameter\nsettings can be saved\nas presets for future use.
+;
+011
+Vadí vám pêíliî mnoho souçasnë otevêených\n\
+oken na obrazovce?\n\
+Skryjte ta okna se samply, která v danou\n\
+chvíli nepotêebujete!\n\n\
+Máte nëkolik moùností:\n\
+- kliknëte na tlaçítko 'Skrýt' v liîtë okna,\n\
+- kliknëte na ikonu krabice v nástrojové liîtë,\n\
+- vyuùijte kontextové menu.
+; Too many sample windows\non the screen?\nHide the samples you are\nnot using at the moment!\n\nTo do this:\n- click on the 'hide' gadget\nin the window title bar, or\n- press the 'box' button\nin the toolbar, or\n- use the context menu.
+;
+012
+SoundFX dovede vyuùít têetího tlaçítka\n\
+myîi (máte-li takový model).
+; SoundFX can effectively make\nuse of a three-button mouse.
+;
+013
+Vëtîinu vlastností samplu lze zmënit\n\
+rychle pomocí kontextového menu.\n\n\
+Konfiguraci tohoto typu menu lze\n\
+zmënit v Nastavení, poloùka Ostatní.
+; A number of sample options\ncan be changed quickly\nvia the context menu.\n\nConfigure the display of this\nmenu in Prefs/Miscellaneous.
+;
+014
+Zrychlit práci s harddiskem lze pouùitím\n\
+moderního êadiçe diskû SCSI nebo EIDE\n\
+(napê. Buddha nebo FastATA).\n\
+Zpracování velkých samplû nebo práce\n\
+s virtuální pamëtí bude znatelnë\n\
+rychlejîí.
+; Equipping your Amiga with\nan SCSI or EIDE controller\n(such as Buddha or FastATA)\nwill speed up disc access.\nHandling of large samples\nor the use of virtual memory\nwill be considerably faster.
+;
+015
+Skuteçná práce se SoundFX zaçíná\n\
+v rozliîení 1024x768 nebo vyîîím.
+; The real thing comes when\nrunning SoundFX in 1024x768\nor a higher resolution mode.
+;
+016
+Operátory pracují nedestruktivnë.\n\n\
+Vîechny samply jsou ukládány zvláîï\n\
+a pokud nejste z výsledkem spokojeni,\n\
+vùdy se mûùete vrátit k originálu.
+; The use of operators\nis non-destructive!\n\nAll samples are stored\nin separate buffers\nso you can get back\nto the original if the\nresult doesn't meet\nyour expectations.
+;
+017
+SoundFX podporuje AmigaOS 3.0 nebo vyîîí.\n\
+Pêesto doporuçujeme pêejít na nejnovëjîí\n\
+verzi operaçního systému, který zakoupíte\n\
+na internetu nebo svých lokálních prodejcû.
+; Although SoundFX supports\nAmigaOS 3.0 and 3.1,\nthese systems are now\nconsidered obsolete. You\nshould consider upgrading\nto a newer version\n(AmigaOS 3.5 or 3.9).\nYou can obtain a copy from\nyour local Amiga dealer.
+;
+018
+Verze SoundFX, které nepodporují FPU,\n\
+jsou vhodné jen k seznámení s programem\n\
+a pro váùnou práci se nehodí.\n\
+Chcete-li SFX skuteçnë pouùívat, FPU\n\
+je naprosto nezbytné.
+; The non-FPU versions of SFX\nare, more or less, meant for\nevaluation purposes only.\nThose who want to use the\nprogram as an effective tool\nwill find it necessary to have\na math-coprocessor (FPU).
+;
+019
+Zaçínají vás tipy SoundFX nudit?\n\
+Vypnëte je v menu Nápovëda.
+; Bored with these tips?\n\nSwitch them off\nin the Help menu.
+;
+020
+Optimální hlasitost vybraného samplu\n\
+lze nastavit pomocí operátoru Amplify\n\
+(kliknëte na tlaçítka 'MaxVol' a 'Start'??).
+; Your samples can be set\nto their optimum volume\nusing the Amplify operator\n(click 'MaxVol' and 'Start').
+;
+021
+Neùadoucí brum el. sítë (obvykle 50/60 Hz)\n\
+snadno odstraníte pomocí operátoru Delay\n\
+a pêísluîného konfiguraçního souboru.
+; Unwanted 50/60Hz hum\ncan effectively be removed\nusing the appropriate presets\nof the Delay operator.
+;
+022
+Mnoho uùiteçných informací o zpracování\n\
+zvuku lze najít na internetu.
+; A lot of useful information\nregarding sound processing\ncan be found on the Web.
+;
+023
+Nalezené chyby nahlaîte prosím autorovi\n\
+programu. K tomuto úçelu lze pouùít\n\
+i pêísluînou poloùku z menu Nápovëda.
+; Report any bugs you find\nto the author. You can do it\ndirectly from within the\nprogram: use the Help menu.
+;
+024
+O své zkuîenosti a nápady se podëlte\n\
+s ostatními uùivateli!\n\n\
+Pêihlaîte se do diskusního fóra na adrese:\n\
+http://groups.yahoo.com/group/soundfx-users/
+; Exchange your experience and\nideas with other users!\n\nJoin the SoundFX mailing-list at\ngroups.yahoo.com/group/soundfx-users/
+;
+025
+Nejnovëjîí verzi SoundFX najdete\n\
+na domovské stránce programu. Viz\n\
+pêísluîná poloùka v menu Nápovëda.
+; The latest version of the program\ncan be downloaded from SoundFX\nhomepage: see the Help menu.
+;
+026
+Pouùitím kláves '<' a '>' lze zvëtîit\n\
+nebo zmenîit vybranou çást samplu.
+; With the keys '<' and '>'\nyou can zoom in and out of samples.
+;
+027
+Moùnosti SoundFX lze výraznë rozîíêit\n\
+pomocí arexxových skriptû.
+; SoundFX functionality can be\nconsiderably extended by\nusing the ARexx interface.
+;
+028
+Vybrat celý sampl lze snadno pomocí\n\
+klávesové zkratky pravá Amiga + A.
+; You can range the whole\nsample by pressing Amiga-A.
+;
+029
+Zruîit výbër dané oblasti samplu\n\
+lze snadno pomocí klávesové zkratky\n\
+pravá Amiga + H.
+; Ranges can be deselected\nusing the Amiga-H shortcut.
+;
+030
+Pouùívání cyklovacích tlaçítek je\n\
+snadnëjîí za pomoci utilit typu\n\
+CycleToMenu (autor: Federico Giannici)\n\
+nebo VisualPrefs (Massimo Tantignone).
+; Going through cycle gadgets\nwill be faster and easier\nif you install either\nCycleToMenu by Federico Giannici\nor VisualPrefs by Massimo Tantignone.
+;
+031
+Pêi práci se SoundFX je omezením pouze\n\
+vaîe pêedstavivost!
+; SoundFX: The sky's the limit!
+;
+032
+Parametry operátorû mohou být zadány\n\
+v rûzných jednotkách.\n\
+Napê. hlasitost lze zadat v decibelech\n\
+nebo procentuálnë, a to jak absolutnë,\n\
+tak i relativnë. Dobu trvání urçíte çasem,\n\
+poçtem vzorkû nebo samplû.\n\
+Zkrátka podle situace pouùijte jednotku\n\
+jakou zrovna potêebujete.
+; Operator parameters accept\nvalues in a great number of units.\nYou can specify volume in\ndecibels or as a percentage,\nboth absolute and relative.\nDuration values can be given in\ntime units, video frames, or as\na number of samples.\nWhatever your needs are.
+;
+033
+SoundFX vám nabízí:\n\n\
+- digitální zpracování zvuku,\n\
+- analýzu zvukového signálu,\n\
+- softwarovou syntézu,\n\
+- import/export dat v mnoha formátech.\n\n\
+Mûùete tedy zpracovávat samply pomocí\n\
+efektû, analyzovat zvuková data, generovat\n\
+vlastní zvuky a çíst çi ukládat data\n\
+v mnoha rûzných formátech.
+; The SoundFX package offers:\n\n- digital sound processing\n- digital sound analysis\n- software synthesis\n- multiformat export/import\n\nYou can add effects to your\nsamples, analyze sound data,\ngenerate your own sounds\nand load/save samples in\na variety of file formats.
+;
+034
+Na nëkterých konfiguracích se vám\n\
+SoundFX mûùe zdát pomalý a lenivý.\n\n\
+Mëjte prosím trpëlivost. I vy budete\n\
+jednou staêí a pomalí!
+; This program may be slow\non some configurations.\n\nPlease be patient.\n\nYou'll be old and slow\nyourself one day!
+;
+035
+Výchozí nastavení modulû pro çtení\n\
+a ukládání lze zmënit dle vaîich\n\
+pêedstav.\n\n\
+Prostë uloùte svou konfiguraci\n\
+jako výchozí ('default.cfg').
+; Loader and saver defaults\ncan be re-configured to\nyour preferred values.\n\nUse the menu and save your\nsettings as 'default.cfg'.
+;
+036
+V moùnostech nastavení samplu lze urçit\n\
+jednotku mëêítek.
+; The sample options allow you to change the unit for the rulers.
+;
+037
+V dokumentaci si pêeçtëte kapitolu '2.1'.\n\
+Tam najdete vîe podstatné o operátorech.
+; Read the chapter '2.1' of the documentetion.\nIt tells you everything about the operators.
+;
+038
+Jako parametry operátorû lze çasto pouùít\n\
+i záporná çísla (napê. záporná zpëtná\n\
+vazba).
+; In the operators you can often enter negative values as well (e.g. negative feedback).
+;
+039
+V operátorech generujících zpoùdëní\n\
+lze dobu zpoùdëní zadávat i v notách\n\
+(napê. C-3).\n\
+Ve spojení s velkou zpëtnou vazbou\n\
+pak bude zpoùðovaç fungovat jako rezonátor.
+; In delay-based operators you can enter the delay as a note (C-3),\nwhich turns the delay under high feedback values into a resonator.
+;
+040
+Pêehrávání samplu lze spustit\n\
+nebo pêeruîit klávesou 'mezerník'.
+; With the 'space'-key you can start and stop playback.
+;
+041
+Zajímavého stereo-efektu lze dosáhnout\n\
+dvojím pouùitím stejného filtru (jen\n\
+s mírnë pozmënënými parametry) na mono\n\
+sampl a jejich následným slouçením.
+; You can achieve good stereo-fx by taking a mono source,\napplying the same fx with slightly varying settings twice\nand joining the channels.
+;
+042
+Uùivatelské rozhraní SoundFX lze vylepîit\n\
+pomocí utilit typu MagicMenu, cdxSizer,\n\
+MCP nebo VisualPrefs.\n\n\
+Pozn.: MCP, VisualPrefs a MagicMenu se chovají\n\
+nekorektnë vûçi operaçnímu systému a jejich\n\
+pouùívání nelze doporuçit.
+; I recommend using MagicMenu, cdxSizer, MCP\nand VisualPrefs for a better looking GUI.
+;
+043
+Chcete si usnadnit práci? Pokud ano,\n\
+doporuçujeme nainstalovat knihovnu\n\
+'popupmenu.library'. Získáte tím moùnost\n\
+vyuùívat kontextové menu, které aktivujete\n\
+kliknutím prostêedního tlaçítka myîi\n\
+v oknech se samply.
+; I recommend installing the 'popupmenu.library'.\nThen SoundFX will have context menus\non the middle mouse-button in sample windows.
+;
+;-- Remember to increment the counter in message 000 ! (last msg-2)
+;-- EOF -----------------------------------------------------------------------

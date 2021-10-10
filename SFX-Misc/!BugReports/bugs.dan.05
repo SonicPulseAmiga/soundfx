@@ -1,0 +1,244 @@
+Hello Stefan and everyone who reads this!
+
+I have, as usual, done quite thorough testing of the new beta.
+
+The first words go to Stefan. Thanks for the time and effort you have 
+invested in this release! I am sure that the internal changes were 
+necessary and that SoundFX, already being an above-standard package, 
+is going for a quantum leap with the release of V5.
+
+I appreciate the changes you have made to the Help menu. Immediate 
+access to the SFX homepage and direct mailing are, for sure, useful 
+features. I also like that Help is now the last menu in the strip: 
+for me this seems more logical.
+
+The things I want to report, discuss or suggest here can be divided 
+into three groups: bugs, cosmetic changes, and suggestions. Comments 
+are welcome.
+
+
+1. PROBLEMS OF COSMETIC NATURE
+
+Some people perhaps don't care about how programs look. I'm an 
+aesthetically-founded person and therefore am unhappy when a cute 
+program does not LOOK cute. Starting with V4 SoundFX began to look 
+cute, and my friends stopped asking me "How can you work in this four-
+colour-window-mess?". Thanks, Stefan. Yet there are things that could 
+be improved.
+
+A) Hi-/true-color functionality
+
+Does anybody here use SFX in hi-color or true-color resolutions? On 
+my two "virtual Amigas" (WinUAE and AmigaXL) SoundFX does not handle 
+colours properly on 16/32bit screens (8bit screens up to 256 colours 
+are OK). The horror comes when you go to the GUI Prefs and start 
+playing with the palette. Stefan, it seems that the system gadgets 
+you use here are not able to cope with 16/32bit palettes, as they do 
+not refresh themselves properly. Using OS3.5+ gadgets might be a 
+solution, and should not be left out of the question.
+
+Tested with Picasso96. Do CyberGraphX screens do the same?
+
+=====> I use Picasso96 too. For SFX I mainly use plain gadtools gadgets - no hacks.
+I've just tried it. The only problem I noticed is, that the palette gadget
+in prefs/gui do not update. Hmm, at the moment I have no idea, how to fix
+that behaviour.
+
+B) Buffers-toolbar handling
+
+The Buffers-toolbar (see Help chapter 1.3.6) shows the name of the 
+active sample. The drop-down gadget located next to the name opens a 
+list of all samples you have loaded. Here you can activate the sample 
+you want.
+
+Stefan: is there a way of making also the sample WINDOW active (just 
+like you would do it by clicking on the window)? Would a call to 
+intuition.library's function ActivateWindow() make it possible?
+
+=====> done
+
+And second: is it necessary to open the list when there is only one 
+sample present? It really looks awful when there's just one sample 
+and you click on the drop-down (the list has not enough space to 
+display its gadgets). I believe that when there is less than two 
+samples (= there is nothing to choose from) the drop-down gadget 
+should stay inactive so that no list is displayed.
+
+=====> I now ask gadtools to hide the arros and scrollers from the
+listview if all entries are visible.
+
+C) Filter-FIRMutate palette problems
+
+The headlines "Effect", "Filter Offset" and "Filter Stretch" (see the 
+operator window) are drawn using an inappropriate colour. It seems 
+that SFX draws these headlines with ColorTextGlow instead of the 
+ColorText colour.
+
+=====> fixed
+
+D) Inconsistent/non-standard terminology
+
+I raised this up about a year ago. While certain terminology problems 
+can perhaps be tolerated in the manual, they can't be overlooked when 
+present in the menu.
+
+Stefan: it is a bit confusing that in the Project menu you speak 
+of "ranges" (Play Range) and in the Edit and Range (!) menus you call 
+the same thing "marks". Let's be consistent and use standard 
+terminology: replace MARKS with RANGES.
+
+=====> a range is either marked/zommed area (in this order)
+
+Second: let's have the menu in good English! I believe 
+that "Cut/Copy/Paste etc. to BEGIN" is nonsense for an English 
+speaker (or, rather, it has a different meaning: "Cut something in 
+order to begin some activity"). You really should replace it 
+with "Cut to beginning".
+
+======> fixed
+
+And third: the MultiDelay operator window has "Feedback" instead 
+of "Fb Local" in Delay 7 and Delay 8 sections.
+
+=====> fixed
+
+
+2. BUGS
+
+A) Misbehaving presets
+
+Some operator presets do not work properly: they produce a zero-
+waveform! The presets I have found so far are:
+Filter-StateVariable - BeatFX1, BeatFX2, BeatFX3, Sweep
+Synthesize-Add - LaserShot
+
+
+B) Sample-options context menu STILL not updated correctly
+
+Some people (like me :-) leaped with joy when Stefan introduced the 
+sample-options context menu. This feature is very helpful and 
+convenient (especially for people with 3-button mice). Unfortunately, 
+there's a bug there. Sorry, Stefan, but it's still there!
+
+Load a sample with no loop. Go to the context menu (press the middle 
+mouse button if you have it) and select "Loop". Loop-points are 
+displayed in the sample-window. Go to the context menu again. Do you 
+see the dot signalling that the loop is ON? Fine. Now deselect the 
+loop. The dot in the menu disappears, as well as the loop-points in 
+the window.
+
+So far everything has worked fine. But watch this: go to the context 
+menu and select "Loop" again (the dot appears because loop is now 
+ON). Now use the toolbar and go to the Sample Options window. Can you 
+see that the loop is set to "Forward"? Right. Now click on the cycle-
+gadget and select "None" instead of "Forward". You'll see that the 
+loop-points in the sample-window have disappeared (loop is now OFF). 
+Close the Sample Options window and go to the context menu again. Now 
+you can see the problem: the menu item displays the dot (= says that 
+the loop is ON) although the loop is OFF!
+
+The operations in the Range menu do not update the context menu, 
+either! If you, for example, select a range and then choose "set loop 
+like mark", the sample options window is updated correctly (loop is 
+set to "forward") but the context menu is not (no dot is displayed).
+
+=====> fixed
+
+C) SFX is untidy
+
+If you decide to record something (click the toolbar button), SFX 
+creates an empty file called "sfx-record" in your SFX directory. Now 
+close the Record window without recording anything, and quit SFX. 
+You'll see that the empty (and useless) file still resides in your 
+directory.
+
+In other words: SFX behaves like a bad boy, throwing mess around. His 
+mother should take action! :-)
+
+=====> fixed
+
+D) Applying effects to non-existing ranges
+
+Load/generate a sample. Do not select any range. Then choose an 
+operator, change the source cycle gadget to "Range" and run the 
+operator. Here comes the bug! The progress requester freezes and 
+won't disappear. No crash but you won't be able to quit SFX anyway.
+
+All operators do this. I recommend deactivating the "Range" cycle-
+item when there is no range selected. How can you operate on a range 
+when there is none? ;-)
+
+=====> fixed
+
+
+E) Overriding source settings
+
+Imagine this: you have a sample with a range and you select an 
+operator. The source cycle gadget shows that the effect will be 
+applied to the "Range". OK. Then you change your mind and decide that 
+you wish to effect the WHOLE sample, so you switch the cycle 
+to "All". Now you select a desired preset and what happens - SFX has 
+overridden your setting and changed the cycle back to "Range"! This 
+should not happen in my opinion. Presets should specify the operator 
+parameters but not the sample portion to be effected - this choice 
+should be left exclusively to the user.
+
+=====> understood, that's probably bit more than what I could fix immediately.
+
+
+F) Installation problems
+
+Somebody has reported here that he had problems with installing 
+V4.2beta. I also experienced this. When installing the beta under 
+WinUAE (OS3.9) I got an error at line 837 (the Installer could not 
+write to the file Sys:Prefs/Env-Archive/Installer/Programs/SFXPath) 
+and I had to install the program manually. I tried different versions 
+(040, 060) but no effect.
+
+What is strange is that under AmigaXL (OS3.9) there was no problem at 
+all and the installation ran smoothly.
+
+Something fishy in the installation script? I can send a SnoopDOS log 
+if it helps.
+
+(oh yes... version 4.1 installed smoothly under both systems...)
+
+=====> I tried to care about that.
+
+3. SUGGESTIONS
+
+A) I would appreciate if we could hide a sample directly from the 
+Sample Options context menu, not only via the "box"-button in the 
+toolbar. This should be really easy to implement.
+
+=====> in sfx 4.2 beta 2 sample windows have a iconify button in
+the window border (thanks to masimo/visual prefs).
+
+--- 
+
+All the problems mentioned here apply to the first betaversion of 
+SoundFX 4.2 for 060/FPU.
+The program was tested under Amiga OS 3.9, emulated under WinUAE 
+0.8.17 Release 3, and under AmigaOS XL (QNX).
+
+Regards,
+Dan Jedlicka
+
+
+
+------------------------ Yahoo! Groups Sponsor ---------------------~-->
+Tiny Wireless Camera under $80!
+Order Now! FREE VCR Commander!
+Click Here - Only 1 Day Left!
+http://us.click.yahoo.com/WoOlbB/7.PDAA/ySSFAA/mjFolB/TM
+---------------------------------------------------------------------~->
+
+To unsubscribe from this group, send an email to:
+soundfx-users-unsubscribe@yahoogroups.com
+
+ 
+
+Your use of Yahoo! Groups is subject to http://docs.yahoo.com/info/terms/ 
+
+
+

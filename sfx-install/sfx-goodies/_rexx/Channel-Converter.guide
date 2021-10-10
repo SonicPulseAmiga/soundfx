@@ -1,0 +1,123 @@
+@database SFX
+
+@remark $VER: Channel-Converter.guide
+@remark AmigaGuide-OnLine-Hilfe für SoundFX
+
+@master /guides/sfx.guide
+@index /guides/sfx-index.guide/index
+
+@node main "Rexx : Channel-Converter V1.04"
+@{b}@{fg shine}__________________________________________________________________________________________
+@{fg text}==========================================================================================
+CHANNEL-CONVERTER V1.05 (©14.06.1999 by FALCON).              E-MAIL: thunderchild@wtal.de
+@{fg shine}__________________________________________________________________________________________
+@{fg text}==========================================================================================@{ub}
+
+       Funktion:     Dieses Programm konvertiert die Anzahl der Kanäle eines Samples.
+                     Z.B. kann man aus einem Mono-Sample mit nur einem Mausklick ein
+                     Quadro-Sample generieren.
+                     Das Selbe gilt natürlich auch für Stereo- und Quadro-Samples.
+
+                     Das Programm erkennt automatisch die ursprüngliche Kanalzahl und
+                     stellt dem Benutzer davon ausgehend alle (sinnvollen) Alternativen
+                     zur Auswahl.
+
+Voraussetzungen:     - Sound-FX (Copyright by Stefan Kost) Version 3.70 oder höher.
+                     - REXXREQTOOLS.LIBRARY und REXXTRICKS.LIBRARY im LIBS: - Verzeichnis.
+
+   Installation:     Kopieren Sie alle Dateien ins Unterverzeichnis ´_REXX´ von Sound-FX.
+                     Ein evtl. vorhandenes Keyfile (CHANNEL-CONVERTER_KEY) kopieren Sie
+                     entweder ins Verzeichnis ´S:´, nach ´SYS:´, nach ´...SFX/´ oder
+                     ´...SFX/_REXX´. Alternativ können Sie auch im SFX-Verzeichnis ein
+                     Verzeichnis ´_KEYFILES´ erzeugrn und das Keyfile dorthin kopieren.
+                     Nach dem nächsten Programmstart von Sound-FX finden Sie im Fenster
+                     ´ArexxOperatoren´ den Channel-Converter, den Sie einfach per Doppel-
+                     klick starten können.
+
+                     Öffnen Sie mit einem beliebigen Texteditor (z.B. ED) die Datei
+                     ´CHANNEL-CONVERTER.REXX´ und ändern Sie dort die Sound-FX
+                     Pfadangabe entsprechend Ihrer SFX-Installation.
+                     Wenn Sie also z.B. Ihr Sound-FX auf der Festplatte ´DH4:´ im Ver-
+                     zeichnis ´SOUND/SFX´ installiert haben, so ändern Sie den Eintrag
+                     in: ADDRESS COMMAND 'DH4:SOUND/SFX/_REXX/CHANNEL-CONVERTER_EXE'.
+
+                     Diese Änderung bewirkt, daß der Channel-Converter überhaupt
+                     geladen und gestartet werden kann.
+
+                     Sollten Sie sich KOSTENLOS bei mir registrieren lassen, so erhalten
+                     Sie ein Keyfile, welches sie eines der oben genannten Verzeichnisse
+                     kopieren müssen, damit es gefunden wird.
+
+      Bemerkung:     Benötigt die REXXREQTOOLS-LIBRARY und die REXXTRICKS.LIBRARY.
+                     Beide Libs sind aus rechtlichen Gründen nicht im Archiv enthalten,
+                     können aber aus dem Aminet heruntergeladen oder auf diversen
+                     PD-Serien, bzw- -CD´s gefunden werden.
+                     Außerdem können die Original-Archive auch von meiner Homepage
+                     ´http://home.wtal.de/elasticimages´ heruntergeladen werden.
+
+        Haftung:     Der Autor haftet IN KEINSTER WEISE (!!!) für Schäden, die während
+                     der Benutzung dieses Programmes evtl. auftreten könnten !!!
+                     Dies gilt sowohl für Hardware-, als auch für Software-Schäden
+                     jeglicher Art !!!
+
+      Copyright:     Dieses Programm ist MAILWARE und darf folglich von jedermann
+                     unentgeltlich benutzt und auch weitergegeben werden.
+                     Es dürfen jedoch IN KEINER WEISE Veränderungen (mit Ausnahme
+                     der Datei ´CHANNEL-CONVERTER.REXX´) an den Programm- und
+                     Dokumentationsdateien, sowie an den Archivdateien vorgenommen
+                     werden !!!
+
+                     Bei der Weitergabe ist zu beachten, daß immer das GESAMTE
+                     ORIGINALARCHIV kopiert werden muß !!!
+
+                     KEYFILES sind von dieser Regelung ausdrücklich ausgenommen !!!
+                     Sie dürfen unter keinen Umständen - weder gegen Bezahlung, noch
+                     unentgeltlich - weitergegeben werden !!!
+
+         Fehler:     Bislang wurden keinerlei Fehler festgestellt.
+                     Sollte das Programm irgendwelche Fehlfunktionen aufweisen, so
+                     bitte ich um eine kurze E-Mail mit einer möglichst genauen
+                     Fehlerbeschreibung, sowie Ihrer System-Konfiguration.
+
+                     Eine kleine Einschränkung gibt es allerdings:
+                     Falls sie ein Mono-Sample zuvor in ein ´Wide...´-Sample
+                     (z.B. WideStereo) konvertiert haben, so wird das Ergebnis
+                     immer ein leeres Sample (Null-Linie) sein, da sich die
+                     Informationen für den rechten und linken Kanal gegeneinander
+                     aufheben.
+
+        Zukunft:     In einer nächsten Version wird es nicht mehr nötig sein, das
+                     ´Startprogramm´ zu installieren, da der SFX-Programmpfad vom
+                     Programm selbst ermittelt werden kann.
+                     Dies wird jedoch (sehr wahrscheinlich) erst ab SFX-Version
+                     3.80+ der Fall sein. Bitte etwas Geduld... ;-)
+
+         E-Mail:     Fehlermeldungen, Anregungen und Verbesserungsvorschläge, sowie
+                     Kritik senden Sie bitte an folgende E-Mail Adresse:
+
+                     thunderchild@wtal.de
+
+
+     Geschichte:     V1.01: 1. interne Beta-Version (21.12.1998).
+
+                     V1.02: 1. veröffentlichte Programmversion (21.12.1998).
+
+                     V1.03: Bugfix zu V1.02 (23.12.1998).
+                            - Gelegentlich wurde der Operator ´ConvertChannels´ mit
+                              falschen, bzw. gar keinen Parametern aufgerufen.
+                            - Das Programm hat jetzt eine kleine ´Online-Hilfe´.
+
+                     V1.04: Bugfix zu Version 1.03 (30.12.1998).
+                            - Requester-Fehler beseitigt.
+                            - Fehler in Sample-Erkennung (Mono, Stereo, u.s.w.)
+                              behoben.
+
+                     V1.05: Update zu Version 1.05 (14.06.1999).
+                            - Ein vorhandenes Keyfile wird nun in den Verzeichnissen
+                              ´SYS:´, ´S:´, ´...SFX´, ´...SFX/_REXX´ und
+                              ´...SFX/_KEYFILES´ gesucht.
+                            - Der gesamte Programmcode wurde überarbeitet und diverse
+                              kleinere ´Schönheitsgehler´ wurden behoben.
+
+
+@endnode

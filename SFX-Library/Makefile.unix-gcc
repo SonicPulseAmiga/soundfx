@@ -1,0 +1,38 @@
+#
+
+INCLUDES	= -Iinclude -Isrc -I../sfx-main -I/usr/include/amigaos
+#CFLAGS		= $(INCLUDES) -Wall -O3 -fPIC
+CFLAGS		= $(INCLUDES) -Wall -g -fPIC
+LIBRARIES	= -ldl -lm
+LDFLAGS		= $(LIBRARIES)
+CC			= gcc
+LD			= ld
+PREFIX		= /usr
+
+include Makefile.objects
+
+all: libsfxsupport.so
+
+libsfxsupport.so: ${OBJECTS}
+	$(LD) -o $@ ${OBJECTS} -shared $(LDFLAGS)
+
+install: libsfxsupport.so
+	cp libsfxsupport.so ${PREFIX}/lib/
+	cp include/libraries/sfx*.h ${PREFIX}/include/amigaos/libraries/
+	cp include/clib/sfxsupport_protos.h ${PREFIX}/include/amigaos/clib/
+
+clean::
+	rm -f src/*.o *.so
+
+splint::
+	splint \
+		-I/amiga/user/Dev/SC/os_guides/includes \
+		-I/amiga/user/Dev/SC/source/SFX/SFX-Main \
+		-nestcomment -weak \
+		+gnuextensions \
+		-D__regargs= \
+		-D__stdargs= \
+		-DUBYTE=unsigned\ char -DUWORD=unsigned\ short -DULONG=unsigned\ long \
+		-DBYTE=signed\ char -DWORD=signed\ short -DLONG=signed\ long \
+		-Du_char=unsigned\ char -Du_short=unsigned\ short -Du_long=unsigned\ long \
+		src/*.c

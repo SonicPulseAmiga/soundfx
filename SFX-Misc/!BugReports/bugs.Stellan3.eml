@@ -1,0 +1,93 @@
+X-UIDL: 3ead5db70000cf84
+X-Mozilla-Status: 0001
+X-Mozilla-Status2: 00000000
+Received: from n20.grp.scd.yahoo.com (n20.grp.scd.yahoo.com [66.218.66.76])
+	by imn.htwk-leipzig.de (8.9.1/8.9.1) with SMTP id QAA18438
+	for <kost@imn.htwk-leipzig.de>; Wed, 30 Jul 2003 16:39:44 +0200 (MET DST)
+Received: from [66.218.66.94] by n20.grp.scd.yahoo.com with NNFMP; 30 Jul 2003 14:39:15 -0000
+Received: (qmail 32946 invoked from network); 30 Jul 2003 14:39:12 -0000
+Received: from unknown (66.218.66.218)
+  by m1.grp.scd.yahoo.com with QMQP; 30 Jul 2003 14:39:12 -0000
+Received: from unknown (HELO moutvdom.kundenserver.de) (212.227.126.251)
+  by mta3.grp.scd.yahoo.com with SMTP; 30 Jul 2003 14:39:12 -0000
+Received: from [212.227.126.224] (helo=mrvdomng.kundenserver.de)
+	by moutvdom.kundenserver.de with esmtp (Exim 3.35 #1)
+	id 19hs6h-0002SK-00
+	for soundfx-users@yahoogroups.com; Wed, 30 Jul 2003 16:39:11 +0200
+Received: from [193.158.181.143] (helo=194.25.2.129)
+	by mrvdomng.kundenserver.de with smtp (Exim 3.35 #1)
+	id 19hs6g-00054h-00
+	for soundfx-users@yahoogroups.com; Wed, 30 Jul 2003 16:39:11 +0200
+X-eGroups-Return: sentto-3879093-908-1059575955-kost=imn.htwk-leipzig.de@returns.groups.yahoo.com
+X-Sender: blakkhar@online.de
+X-Apparently-To: soundfx-users@yahoogroups.com
+To: soundfx-ML <soundfx-users@yahoogroups.com>
+Message-ID: <yam9341.1918.25194440@smtp.nwn.de>
+X-Mailer: YAM 2.4p1 [040] AmigaOS E-mail Client (c) 2000-2003 by YAM Open Source Team - http://www.yam.ch/
+From: Stellan <blakkhar@nwn.de>
+MIME-Version: 1.0
+Mailing-List: list soundfx-users@yahoogroups.com; contact soundfx-users-owner@yahoogroups.com
+Delivered-To: mailing list soundfx-users@yahoogroups.com
+Precedence: bulk
+List-Unsubscribe: <mailto:soundfx-users-unsubscribe@yahoogroups.com>
+Date: Wed, 30 Jul 2003 16:36:38 +0200
+Subject: [soundfx-users] timestretch hits
+Reply-To: soundfx-users@yahoogroups.com
+Content-Transfer-Encoding: 8bit
+X-MIME-Autoconverted: from quoted-printable to 8bit by imn.htwk-leipzig.de id QAA18438
+Content-Type: text/plain; charset=ISO-8859-1
+Content-Length: 2025
+Status:  O
+
+hi,
+
+here a hit I got by using TimeStretch:
+
+30-Jul-03   13:46:16
+Alert !! Alert 0100000C     TCB: 01BCA810     CTX: 0129A728     USP: 01BCF46C
+----> 00F8204C - "ROM - exec 40.10 (15.7.93)"  Hunk 0000 Offset 00001F92
+----> 02C40CE8 - "progdir:libs/sfxsupport.library"  Hunk 0000 Offset 0000F108
+----> 00F8204C - "ROM - exec 40.10 (15.7.93)"  Hunk 0000 Offset 00001F92
+----> 00F8204C - "ROM - exec 40.10 (15.7.93)"  Hunk 0000 Offset 00001F92
+----> 02C40CE8 - "progdir:libs/sfxsupport.library"  Hunk 0000 Offset 0000F108
+----> 02C4890C - "progdir:libs/sfxsupport.library"  Hunk 0000 Offset 00016D2C
+Name: "SFX_TimeStretch.0"  
+
+
+
+
+
+-- 
+ ____/\ _______ ____      _________ ________
+ \  //.\     //   //______\\ .___ \\  ____//_____
+  \//   \   //   //.    // \\   /  \\ \\   __. //_________
+  //_____\ //\  /______//___\\ /___//__\\ /   //        //
+  ¯ \\ z!o\/  \/       ¯     \/    ¯    \/___//        //
+     \\                                      ¯        //
+     //         mailto:blakkhar@nwn.de                \\
+     \\        http://www.thescene.de.vu              //
+      \\      http://www.chscene.ch/moods/           //
+       \\                                           //
+ _______\\_ ___________    _________ ____/\_____   //
+ \\  ____//_\\_______//____\\ .___ \\  .// \  //  //
+  \\ \\   __. //\\ ._¯   // \\   /  \\_// __\ \\__/
+  //__\\ /   //__\\ /___//___\\ /___////_______\\
+  ¯    \/___//    \/    ¯     \/z!o ¯ ¯         ¯
+            ¯
+
+
+------------------------ Yahoo! Groups Sponsor ---------------------~-->
+Buy Ink Cartridges or Refill Kits for Your HP, Epson, Canon or Lexmark
+Printer at Myinks.com. Free s/h on orders $50 or more to the US & Canada. http://www.c1tracking.com/l.asp?cid=5511
+http://us.click.yahoo.com/sO0ANB/LIdGAA/ySSFAA/mjFolB/TM
+---------------------------------------------------------------------~->
+
+To unsubscribe from this group, send an email to:
+soundfx-users-unsubscribe@yahoogroups.com
+
+ 
+
+Your use of Yahoo! Groups is subject to http://docs.yahoo.com/info/terms/ 
+
+
+

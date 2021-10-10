@@ -1,0 +1,22 @@
+Hallo Ingo
+
+Die letzten Tage hat mich Henning gefragt ob Dein Audio Entwickler das
+Leihgerät zurück geben kann, oder ob noch Fehler bekannt sind.
+Nun eigentlich nicht, doch wie es "Murphy" will habe ich noch einen aus USA
+bekommen.
+
+
+27	21.7.2005	USA	Time Change		Nur unter NTSC.
+Ist das Sample länger als 33 sec so arbeitet der Time Change +10 Frames nicht korrekt.
+
+00:33:00        00:33:06                -4
+00:33:01        00:33:10                -1
+00:33:07        00:33:16                -1
+00:33:08        00:33:17                -1
+01:06:11        01:06:19                -2
+01:39:23        01:40:00                -3
+
+
+Hat der Entwickler das Gerät schon zurück geschickt, oder kann er an dem
+Effect evtl noch was machen. Evtl kann er es ja auch blind machen und ich
+teste es dann. ?????

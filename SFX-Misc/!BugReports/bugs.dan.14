@@ -1,0 +1,114 @@
+Subject:
+[soundfx-users] Info ARexx plugin
+From:
+"trixie_vct" <jedlicka@phil.muni.cz>
+Date:
+Thu, 15 Aug 2002 14:22:14 -0000
+To:
+soundfx-users@yahoogroups.com
+X-UIDL:
+361df5b500005dee
+X-Mozilla-Status:
+0005
+X-Mozilla-Status2:
+00000000
+Received:
+from n24.grp.scd.yahoo.com (n24.grp.scd.yahoo.com [66.218.66.80]) by imn.htwk-leipzig.de (8.9.1/8.9.1) with SMTP id QAA10301 for <kost@imn.htwk-leipzig.de>; Thu, 15 Aug 2002 16:22:47 +0200 (MET DST)
+Received:
+from [66.218.66.96] by n24.grp.scd.yahoo.com with NNFMP; 15 Aug 2002 14:22:17 -0000
+Received:
+(EGP: mail-8_0_7_4); 15 Aug 2002 14:22:16 -0000
+Received:
+(qmail 46120 invoked from network); 15 Aug 2002 14:22:16 -0000
+Received:
+from unknown (66.218.66.218) by m13.grp.scd.yahoo.com with QMQP; 15 Aug 2002 14:22:16 -0000
+Received:
+from unknown (HELO n29.grp.scd.yahoo.com) (66.218.66.85) by mta3.grp.scd.yahoo.com with SMTP; 15 Aug 2002 14:22:16 -0000
+Received:
+from [66.218.67.164] by n29.grp.scd.yahoo.com with NNFMP; 15 Aug 2002 14:22:16 -0000
+X-eGroups-Return:
+sentto-3879093-462-1029421337-kost=imn.htwk-leipzig.de@returns.groups.yahoo.com
+X-Sender:
+jedlicka@phil.muni.cz
+X-Apparently-To:
+soundfx-users@yahoogroups.com
+Message-ID:
+<ajgdem+10920@eGroups.com>
+In-Reply-To:
+<yam8992.1413.125324888@smtp.tiscalinet.it>
+User-Agent:
+eGroups-EW/0.82
+X-Mailer:
+Yahoo Groups Message Poster
+X-Originating-IP:
+62.245.96.12
+X-Yahoo-Profile:
+trixie_vct
+MIME-Version:
+1.0
+Mailing-List:
+list soundfx-users@yahoogroups.com; contact soundfx-users-owner@yahoogroups.com
+Delivered-To:
+mailing list soundfx-users@yahoogroups.com
+Precedence:
+bulk
+List-Unsubscribe:
+<mailto:soundfx-users-unsubscribe@yahoogroups.com>
+Reply-To:
+soundfx-users@yahoogroups.com
+Content-Transfer-Encoding:
+7bit
+Content-Type:
+text/plain; charset=US-ASCII
+Content-Length:
+1104
+Status:
+O
+
+Hello Franco!
+
+
+> yes but i've manually installed the INFO_EXE file, but the only 
+
+message that appears is:
+
+>  
+>   |----------------------|
+>     VER
+>     Starten Sie bitte zuerst
+>     SoundFX V3.70 oder holer !!!    
+>   |----------------------|
+>                  _A_bbruch
+> 
+> 
+> ? ? ? ? ?  Is it right?
+
+
+I don't know. I've finally found INFO_EXE in the Goodies archive but 
+it wouldn't even start, as it (according to SnoopDOS) needs 
+rexxapp.library. The same holds true for the ChannelConverter and 
+ChannelSwitcher ARexx plugins.
+
+I was unable to find the library on the Aminet. Stefan, where can we 
+get it from? Could you possibly distribute it with the Goodies 
+archive?
+
+Regards,
+DAN
+
+
+
+------------------------ Yahoo! Groups Sponsor ---------------------~-->
+4 DVDs Free +s&p Join Now
+http://us.click.yahoo.com/pt6YBB/NXiEAA/RN.GAA/mjFolB/TM
+---------------------------------------------------------------------~->
+
+To unsubscribe from this group, send an email to:
+soundfx-users-unsubscribe@yahoogroups.com
+
+ 
+
+Your use of Yahoo! Groups is subject to http://docs.yahoo.com/info/terms/ 
+
+
+

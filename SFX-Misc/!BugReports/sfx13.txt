@@ -1,0 +1,50 @@
+From - Tue Sep 22 11:16:00 1998
+Received: from mailme.wirehub.nl (ns2.wirehub.net [194.165.94.5])
+	by imn.htwk-leipzig.de (8.9.1/8.9.1) with ESMTP id UAA20828
+	for <kost@imn.htwk-leipzig.de>; Fri, 18 Sep 1998 20:25:26 +0200 (MET DST)
+Received: from poindexter.wirehub.nl (poindexter.wirehub.nl [194.165.93.194])
+	by mailme.wirehub.nl (8.8.7/8.8.8) with ESMTP id UAA11173
+	for <kost@imn.htwk-leipzig.de>; Fri, 18 Sep 1998 20:27:35 +0200 (CEST)
+Received: from wirehub.nl (davidwhite@p588.wirehub.net [195.86.48.76])
+	by poindexter.wirehub.nl (8.8.8/8.8.7) with SMTP id UAA13449
+	for <kost@imn.htwk-leipzig.de>; Fri, 18 Sep 1998 20:27:33 +0200 (CEST)
+From: "David M. White" <david.m.white@usa.net>
+Reply-To: "David M. White" <david.m.white@usa.net>
+To: kost@imn.htwk-leipzig.de
+Date: Fri, 18 Sep 1998 20:23:43 GMT
+Message-ID: <yam7565.2176.134359264@mail.wirehub.nl>
+X-Mailer: YAM 1.3.4 [040] - Amiga Mailer by Marcel Beck
+Organization: None that I know of.
+Subject: SoundFX V3.70 bug report.
+MIME-Version: 1.0
+Content-Type: text/plain
+Content-Length: 998
+Status:   
+X-Mozilla-Status: 8001
+
+Hello.
+
+I have found the following bugs in SoundFX:
+
+When I press the left Alt or either Shift key in the range window without a
+sample already loaded, SoundFX locks up, but with a sample already loaded, a
+requester appears asking me if I want to remove all samples, which continues
+to appear when I choose 'NO', and choosing 'YES' makes SoundFX lock up.
+
+When I press the left Amiga key in the range window, the miscellaneous prefs
+window appears, and when I choose 'OKAY' or click on the close gadget, SoundFX
+locks up.
+
+When I press the right Alt or Amiga key, or the F1-F10 keys in the range
+window, SoundFX locks up.
+
+When I press the Control key in the range window, the savers window closes and
+without a sample already loaded SoundFX locks up, but with a sample already
+loaded, a requester appears asking me if I want to remove all samples, which
+continues to appear when I choose 'NO', and choosing 'YES' makes SoundFX lock
+up.
+
+A full or clean boot makes no difference.
+
+David M. White.
+

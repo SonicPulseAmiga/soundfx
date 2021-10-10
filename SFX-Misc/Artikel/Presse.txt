@@ -1,0 +1,12 @@
+
+Presse über SoundFX
+-------------------
+
+	Zeitschrift		Ausgabe	Seite	Artikel
+	-----------------------------------------------------------------------------------------------
+	AmigaMagazin	 9/95	50		Neues aus dem AmiNet
+	AmigaMagazin	11/95	52-54	50 tolle Sound-Effekte
+	AmigaPlus		12/95	52		Tonkünstler - SoundSamples bearbeiten mit SoundFX3.22
+	AmigaComputing	12/95	22		CoverDisk
+	AmigaMagazin	 1/96	56		Time-Disks
+							58		Neues aus dem AmiNet

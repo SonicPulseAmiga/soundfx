@@ -1,0 +1,102 @@
+
+Hello Stefan!
+
+Here is the promised list of bugs and suggestions. I hope to
+be able to test SFX more intensively in the near future, and
+at last on a decent machine! (My dealer has promised to deliver
+my new 060 card next week.)
+
+News. Dave O'Reilly, the author of SoundProbe, gives up the development
+of this (great) program. He spoke positively about SoundFX (wishes
+you good luck with the development), and would be most probably willing to
+give you the sources of SoundProbe's effects. I advise you to
+contact Dave and ask him about it. The number of SFX's operators
+would increase drastically this way!
+
+Dan Jedlicka
+----------------------------------------------------------------------
+                       SOUNDFX 3.82 BUGREPORT
+                     by Daniel Jedlicka, Jan 2000
+
+
+1.  I have spotted a great difference in behaviour of SFX compiled for
+various  processors. I have tested a 030/nonFPU and a 040/FPU version,
+on the following configurations:
+- A4000, EC030/25, 2MB Chip, 16MB Fast, CVision64/3D (Picasso96 2.0)
+- A12OO, Blizzard 040/40/FPU, 2MB Chip, 32MB Fast, AGA
+The 040/FPU version was quite stable and nice to work with, except for
+Virtual  Memory  (permanent  crashes when trying to load a sample) and
+MPEG saver (saves strange files into strange places on the disk).
+
+The  030/nonFPU  version is, on the other hand, completely unusable on
+my  A4000.  It  crashes  any  time I try to load a sample into RAM (no
+matter  what sample format it is). It opens the samplewindow, displays
+sample  name,  playback  rate  and  length,  but  then  ends up with a
+#80000004  system  error.  I had the same problem with 3.81. I use the
+Universal loader, correct binaries and their respective libraries.
+----------------------------------------------------------------------
+2.  Why  is  there  still  "SoundFX  3.81"  in  the  screenbar and the
+Information window? (v3.82, 030/nonFPU version). This is confusing.
+----------------------------------------------------------------------
+3.  The sfxsupport.libraries (030/nonFPU) for 3.81 and 3.82 differ (at
+least  in  size),  yet  they both have the same version: 1.30. This is
+strange.  When  a  library changes, its version/revision number should
+change too. Otherwise we end up in a mess.
+Also,  I  suggest  more  transparent  handling of the version/revision
+identification.     Each    processor-specific    version    of    the
+sfxsupport.library  should,  when read with the DOS "Version" command,
+say e.g. "sfxsupport.library 1.30 (040/FPU)".
+----------------------------------------------------------------------
+Personally,  I  don't  care  much  about the 030 version. The EC030/25
+processor  in  my  A4000  is only a temporary matter, as I am about to
+upgrade  (060/66).  Frankly  speaking,  the  030 is far too slow for a
+decent  work with 16bit samples, and I believe anyone working with SFX
+these  days has at least a 040. I suggest you DON'T bother at all with
+a 030-binary when compiling the coming SFX 4.0. It will make your life
+easier. :)
+----------------------------------------------------------------------
+4.  There  are  frequent  spelling  mistakes  in  both the program and
+the  documentation.  They should be fixed at least in the program. The
+list of misspellins follows.
+
+Edit-Menu: Cut to begin, Grab to begin etc.
+There  is nothing like "begin" among English nouns. "Begin" is a verb!
+Cut to beginning is correct.
+
+Arexx Operators: "Differentiate", NOT "Differenciate".
+
+Prefs-Menu/Sample/SizeMode "Absolute", NOT "Absolut".
+
+Operators/Equalize-FFT/Presets "Bass&TrebleBoost", NOT "Trebble".
+
+Operators/Filter-FIRMatrix "Cut-Off", NOT "Cutt-Of".  "Resonance", NOT
+"Resonancy".
+
+Operators/Filter-StateVariable/Presets "TrebleBoost, NOT "Trebble".
+"Resonance, NOT "Resonane".
+
+Operators/Gamma/Presets "MoreTreble", NOT "Trebble".
+
+Operators/Logic "Logic Operand", NOT "Operant".
+
+Operators/Synthesize-Add/Mode  "Curr"  (meaning  "Current") instead of
+(German) "Akt".
+----------------------------------------------------------------------
+5. Some titles in the Operator windows do not fit into the window with
+most fonts:
+
+Operators/SampleSplit "Splitpos" exceeds the left window border.
+
+Operators/SurroundEncoder "RearFilt" exceeds the left window border.
+
+Operators/Filter-FIRMatrix  "Matrix" overwrites the part of the string
+gadget (even with Trinomic.font).
+
+I  use  SFX  in  800x600  mode,  with XEN 8 as default font. But these
+problems occur with the standard Trinomic.font as well.
+----------------------------------------------------------------------
+6.  Once  you  checked "FreeMem" in Prefs/Miscellaneous you cannot get
+rid  of it. Deselecting the checkbox and pressing Okay is no help; the
+FreeMem information stays in the screen bar for ever. "MaxMem" has the
+same problems.
+

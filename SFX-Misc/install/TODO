@@ -1,0 +1,8 @@
+* check available harddisk-space -> warning
+  (do not automatically abort, user may install an update (maybe check for it too))
+* extend welcome message : no changes will be made to your system-partition
+  (except copying fonts/libs if chosen)
+* test installation with write-protected "sys:" (the skip questions about fonts
+  and set to local use)
+* ask which documentation files to install
+* extend choose-dir message ("an existing installation will be updated")

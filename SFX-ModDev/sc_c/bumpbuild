@@ -1,0 +1,19 @@
+.key DUMMY/K
+.bra {
+.ket }
+
+; $VER: BumpBuild 1.0 (19.09.98)
+
+sc:c/grep >temp{$$}1 -q "#define PRJ_BUILD" project.h
+sc:c/grep >temp{$$}2 -q "#define PRJ_BUILD" project.h
+sc:c/sed >NIL: temp{$$}1 "#define PRJ_BUILD" ""
+sc:c/sed >NIL: temp{$$}1 "	" ""
+
+echo >temp{$$}3 "#define PRJ_BUILD	" NOLINE
+eval >>temp{$$}3 `type temp{$$}1` + 1
+
+copy >NIL: temp{$$}2 env:
+copy >NIL: temp{$$}3 env:
+sc:c/sed >NIL: project.h "$temp{$$}2" "$temp{$$}3"
+
+delete >NIL: env:temp{$$}2 env:temp{$$}3 temp{$$}1 temp{$$}2 temp{$$}3

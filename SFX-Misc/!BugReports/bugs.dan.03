@@ -1,0 +1,120 @@
+From - Mon Aug  7 12:14:00 2000
+Received: from brama.imn.htwk-leipzig.de (brama [141.57.8.39])
+	by imn.htwk-leipzig.de (8.9.1/8.9.1) with ESMTP id RAA02230
+	for <kost@imn.htwk-leipzig.de>; Sat, 5 Aug 2000 17:54:50 +0200 (MET DST)
+Received: by brama.imn.htwk-leipzig.de (8.9.1/8.9.1) id RAA06435
+	for soundfx-list; Sat, 5 Aug 2000 17:45:50 +0200 (MET DST)
+Received: from aragorn.ics.muni.cz (aragorn.ics.muni.cz [147.251.4.33])
+	by brama.imn.htwk-leipzig.de (8.9.1/8.9.1) with ESMTP id RAA06431
+	for <soundfx@brama.imn.htwk-leipzig.de>; Sat, 5 Aug 2000 17:45:47 +0200 (MET DST)
+Received: from lvt.phil.muni.cz (root@lvt.phil.muni.cz [147.251.96.1])
+	by aragorn.ics.muni.cz (8.8.5/8.8.5) with ESMTP id RAA26855
+	for <soundfx@brama.imn.htwk-leipzig.de>; Sat, 5 Aug 2000 17:53:57 +0200 (MET DST)
+Received: from localhost (jedlicka@localhost)
+	by lvt.phil.muni.cz (8.9.3/8.8.5) with ESMTP id RAA22060
+	for <soundfx@brama.imn.htwk-leipzig.de>; Sat, 5 Aug 2000 17:53:57 +0200
+X-Authentication-Warning: brama.imn.htwk-leipzig.de: majordomo set sender to owner-soundfx@brama.imn.htwk-leipzig.de using -f
+Date: Sat, 5 Aug 2000 17:53:57 +0200 (CEST)
+From: Daniel Jedlicka <jedlicka@phil.muni.cz>
+To: soundfx@brama.imn.htwk-leipzig.de
+Subject: Bugreport
+In-Reply-To: <3987D965.D7204C9D@imn.htwk-leipzig.de>
+Message-ID: <Pine.LNX.4.10.10008051749260.21433-100000@lvt.phil.muni.cz>
+MIME-Version: 1.0
+Sender: owner-soundfx@brama.imn.htwk-leipzig.de
+Precedence: bulk
+Reply-To: soundfx@brama.imn.htwk-leipzig.de
+Content-Type: TEXT/PLAIN; charset=US-ASCII
+Content-Length: 2403
+Status:   
+X-Mozilla-Status: 8001
+X-Mozilla-Status2: 00000000
+X-UIDL: 361df5b5000027e6
+
+
+Hello!
+
+I know I promised not to send any more bugreports this week,
+but I just can't stand waiting for Monday. :)
+After all, the sooner we get rid of bugs the better for us all...
+
+-----
+
+SFX BUGREPORT
+Daniel Jedlicka
+August 5, 2000
+
+
+
+FATAL BUGS
+
+
+1. Clipboard saving
+
+Samples are not saved correctly to the clipboard! Try saving
+a sample (no matter which unit you choose) and then load it
+back - your sample will miss its beginning and will have some
+crappy data appended at its end.
+
+The "result" of this bug is dependent on whether you save the
+sample as IFF 8SVX or 16SV. In the latter case the sample's
+frequency will be crippled, too.
+
+
+2. CDDA-Direct loader prefs
+
+On my system, selecting the CDDA-Direct loader and then clicking
+on the loader-prefs button causes SoundFX to lock up.
+(Busy-pointer appears, the prefswindow does not pop up).
+
+I have an old quad-speed Mitsumi CD-ROM, connected via standard
+Amiga IDE and atapi.device. Well, the drive does not support
+grabbing audiotracks, but I think this fact should not prevent
+SFX from opening the prefswindow...
+
+
+
+NON-DESTRUCTIVE BUGS
+
+
+1. Equalize-FFT-3D
+
+Opening the Equalize-FFT-3D operator window (both via pop-up
+and "E") causes four Enforcer hits. These are BYTE-READS
+from 00000000 to 00000003, which looks like accessing a bad
+string pointer.
+
+
+2. Window refresh problems
+
+Opening some program windows causes bad refreshing of 
+sample-windows when they are resized. If you open eg. a loader
+prefswindow, and then attempt to resize a sample-window,
+its contents is not properly refreshed. The refresh is
+completed only after you have closed the loader prefswindow.
+
+Operator windows DO NOT cause this! The refreshing is performed
+without any problems when an operator window is open.
+
+The bug appears on all OCS and AGA displays. Could you people
+with other gfx-systems (CGX, Picasso96) try this on your machines?
+
+
+3. IFF-AIFF saver prefswindow
+
+If you open the IFF-AIFF saver's prefswindow and then try
+to close it via closegadget, the window is NOT closed, but
+a filerequester pops up, letting you save the sample. :-)
+All other savers' prefswindows are OK in this respect.
+
+---
+
+Cheerio,
+Daniel
+
+
+
+
+___________________________________________________________________________
+SoundFX Mailinglist                       soundfx@brama.imn.htwk-leipzig.de
+Subscribe/Unsubscribe/Help              majordomo@brama.imn.htwk-leipzig.de

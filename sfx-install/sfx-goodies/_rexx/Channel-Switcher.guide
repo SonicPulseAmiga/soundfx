@@ -1,0 +1,72 @@
+@database SFX
+
+@remark $VER: SFX Channel-Switcher.guide V 1.04 (14.06.1999 by FALCON)
+@remark AmigaGuide-OnLine-Hilfe für Sound-FX
+
+@master /guides/sfx.guide
+@index /guides/sfx-index.guide/index
+
+@node main "Rexx : Channel-Converter V1.04"
+@{b}@{fg shine}__________________________________________________________________________________________
+@{fg text}==========================================================================================
+CHANNEL-SWITCHER V1.03 (©14.06.1999 by FALCON).               E-MAIL: thunderchild@wtal.de
+@{fg shine}__________________________________________________________________________________________
+@{fg text}==========================================================================================@{ub}
+
+  Funktion  :     Schaltet die einzelnen Kanäle eines Samples ein oder aus.
+
+                  Zuerst ermittelt das Programm die Anzahl der verfügbaren Kanäle des
+                  aktuellen Samples. Ist die Kanal-Anzahl 1 (= Mono-Sample), so bricht das
+                  Programm mit einer Meldung ab. Wozu sollte man auch ein Mono-Sample
+                  ´totschalten´ ???
+                  Bei Stereo- oder Quattrosamples öffnet Das Programm einen Requester, in
+                  dem Sie jeden einzelnen Sample-Kanal ein- oder ausschalten können.
+                  Dabei prüft das Programm selbstständig, ob und welche Kanäle bereits
+                  aktiviert und welche deaktiviert sind.
+                  Falls Sie alle Kanäle auf "AUS" schalten sollten, werden Sie vom Pro-
+                  gramm nachgefragt, ob dies korrekt ist, denn wenn man alle Kanäle
+                  abschaltet, ist das gesamte Sample quasi ´totgeschaltet´.
+
+                  Der Schalter ´<==>´ vertauscht die aktuellen Einstellungen.
+                  Bei Stereo-Samples werden also beide Kanäle vertauscht, während bei
+                  Quattro-Samples die Kanäle 1/2 und 3/4 miteinander vertauscht werden.
+
+                  Mit dem Schalter ´Info´ können Sie sich eine kurze Information und eine
+                  Online-Hilfe aufrufen.
+                  Der Schalter ´Abbruch´ beendet (übrigens in allen Programm-Requestern)
+                  das Programm ohne weitere Rückfrage.
+
+Installation:     Kopieren Sie einfach alle Dateien ins Verzeichnis ´_REXX´ Ihrer
+                  Sound-FX Installation.
+                  Außerdem muß die Pfadangabe in der Datei ´CHANNEL-SWITCHER.REXX´ entsprechend
+                  Ihrer Sound-FX Installation. Wenn Sie also z.B. Ihr Sound-FX auf der Fest-
+                  platte ´DH4:´ im Verzeichnis ´SOUND/SFX´ installiert haben, dann sollte
+                  dieser Eintrag folgendermaßen aussehen:
+
+                  ADDRESS COMMAND 'DH4:SOUND/SFX/_REXX/CHANNEL-SWITCHER_EXE´
+
+                  Diese Maßnahme ist nötig, damit Sound-FX per Arexx auch EXE-Dateien
+                  ausführen kann.
+
+    Hinweise:     - Benötigt UNBEDINGT die ´REXXREQTOOLS.LIBRARY´ (ist im Archiv enthalten) !!!
+
+
+   Benutzung:     Sample laden und einfach das Script per Doppelklick im REXX-Fenster starten.
+
+
+     History:     V1.01: 1. veröffentlichte Programmversion (01.01.1999).
+
+                  V1.02: Bugfix zu Version 1.01 (03.01.1999).
+                         - Nach dem Aufruf von Info & Anleitung wurde (bei Stereo-Samples) der
+                           2. Kanal ein-, bzw. ausgeschaltet.
+
+                  V1.03: Update zu Version 1.02 (09.01.1999).
+                         - Tausch-Funktion eingebaut.
+                         - Requestertexte teilweise neu gestaltet.
+
+                  V1.04: Update / Bugfix zu Version 1.03 (14.06.1999).
+                         - Gelegentlich wurde die Swap-Funktion fehlerhaft durchgeführt.
+                         - Code überarbeitet und stellenweise optimiert.
+
+
+@endnode

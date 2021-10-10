@@ -1,0 +1,60 @@
+Hi Michel !
+
+Thanx for those really complete bug-reports and ideas. Afterwards my reply:
+
+At first, yes I make music. Unfortunately since I've started SFX, I rarely have
+enough time to compose some tracks.
+
+
+Now to the ideas. (relized in V3.70, which will be released in mid of june (hopefully))
+
+* Info,(c),Author & Anoo are editable now
+* why do you need a multidelete in clipboard window. After I've implemented the clipboard
+  loader/saver, I found out that SoundFX and Multiview are the only programs I posses,
+  which are using it.
+* All the operators are already asynchronous. Maybe I'll make some more windows asyn-
+  chronous, like
+		Info
+		Sampleoptions
+* I am already thinking about a preview. Maybe you can tell me what you think about it.
+  I though that I add a 'prehear' checkbox in each operator-window and when you select it,
+  a part of the current selected source is played in loop-mode. When you change a parameter
+  the part is rerendered and you will heare it more or less instantaneous (depends on what
+  FX and the length f the range).
+  The problem I have is, what range should I play ? I can't use the mark or zoom, because
+  that could be quite long or not set (in case of mark).
+* I've included the CPU/FPU stuff
+* I've changed that filename-handling. You were absolutely right about that. It was easy to
+  do too, due to the universal-loader SoundFX knows about the extentsions of each loader,
+  so it keeps the extension, if it is an non-standart one.
+* My own virtual memory routines are already working. They are fully asynchronous. Loaders
+  and Savers are up to 5 times faster with them. Edittools are ported as well and I am
+  halftrough with the operators.
+
+
+Questions
+
+* I know that the price for SoundFX+Symphonie is too high, but he don't listen ... 
+  (I get just 35,-DM out of it)
+* %% means per thousand (1/1000), where % is per cent (1/100)
+* all samples are loaded to fastram
+* you can change your defaults module settings, by saving the preset as "default.prefs"
+* Sample-stretch
+	* e.g. by a factor of 3.2
+	* do a resample by 3.2 and then a pitchshift by 3.2, change the sampling rate back
+	  to the former
+	* e.g. by a factor of 0.7
+	* do a pitchshift by 0.7 and then a resample by 0.7, change the sampling rate back
+	  to the former
+* revealing the API of my libraries, makes it impossible for me to distribute it as
+  shareware (crackers could write operators which save samples to disk)
+
+Bugs
+
+I have checked all bugs in the report and succesfully fixed most which I can reproduce.
+
+* I've changed those datemismatches
+* the speedbar is placed absolutely correct on my machine
+* I can't do anything about, that the guidewindow is not activated, when pressing help.
+* Now then parent-window is blocked, when you click on a pop-up-button (sourceselect,
+  modulation, etc.)

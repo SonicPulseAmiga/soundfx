@@ -1,0 +1,24 @@
+prevnext.o: prevnext.c /gg/include/errno.h /gg/include/math.h \
+ /gg/lib/gcc-lib/m68k-amigaos/egcs-2.91.57/include/float.h \
+ /gg/include/sys/cdefs.h /gg/include/machine/cdefs.h \
+ /gg/lib/gcc-lib/m68k-amigaos/egcs-2.91.57/include/stdarg.h \
+ /gg/include/stdio.h /gg/include/sys/types.h \
+ /gg/include/machine/types.h /gg/include/machine/ansi.h \
+ /gg/include/machine/endian.h /gg/include/string.h \
+ /gg/include/cmacros.h project.h config.h
+prevnext.c :
+/gg/include/errno.h :
+/gg/include/math.h :
+/gg/lib/gcc-lib/m68k-amigaos/egcs-2.91.57/include/float.h :
+/gg/include/sys/cdefs.h :
+/gg/include/machine/cdefs.h :
+/gg/lib/gcc-lib/m68k-amigaos/egcs-2.91.57/include/stdarg.h :
+/gg/include/stdio.h :
+/gg/include/sys/types.h :
+/gg/include/machine/types.h :
+/gg/include/machine/ansi.h :
+/gg/include/machine/endian.h :
+/gg/include/string.h :
+/gg/include/cmacros.h :
+project.h :
+config.h :

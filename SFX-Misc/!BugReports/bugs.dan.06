@@ -1,0 +1,178 @@
+From - Tue Jan 22 13:22:56 2002
+X-UIDL: 361df5b500003dec
+X-Mozilla-Status: 0001
+X-Mozilla-Status2: 10000000
+Received: from email.seznam.cz (omx.seznam.cz [195.119.180.41])
+	by imn.htwk-leipzig.de (8.9.1/8.9.1) with SMTP id VAA17111
+	for <kost@imn.htwk-leipzig.de>; Sun, 20 Jan 2002 21:45:46 +0100 (MET)
+Received: (qmail 57536 invoked by uid 0); 20 Jan 2002 20:49:01 -0000
+Received: from [147.251.6.18] by email.seznam.cz with HTTP;
+	Sun, 20 Jan 2002 21:48:59 +0100 (CET)
+Content-Transfer-Encoding: 8bit
+Date: Sun, 20 Jan 2002 21:48:59 +0100 (CET)
+From: =?iso-8859-2?Q?Daniel=20Jedlicka?= <dan.jedlicka@seznam.cz>
+Reply-To: =?iso-8859-2?Q?Daniel=20Jedlicka?= <dan.jedlicka@seznam.cz>
+Subject: =?iso-8859-2?Q?SoundFX=20tips?=
+Mime-Version: 1.0
+Message-Id: <205.20301-6606-997545310-1011559739@seznam.cz>
+To: =?iso-8859-2?Q?Stefan=20Kost?= <kost@imn.htwk-leipzig.de>
+Content-Type: multipart/mixed;boundary="MessagePart:10115596211217790451"
+Content-Length: 9471
+Status:  O
+
+
+--MessagePart:10115596211217790451
+Content-Type: text/plain; charset=ISO-8859-2
+Content-Transfer-Encoding: quoted-printable
+
+Hello Stefan!
+
+I spent the weekend over a new feature that could possibly be added
+to one of the next releases of SFX.
+
+I have created a simple program that displays a Tip-Of-The-Day
+message when SFX starts up. As of this time, the program makes a
+random choice out of 30 different tips, and displays one. I have
+included a copy of the first alpha version with this e-mail.
+
+As it is not interconnected with SFX yet, it has to be run separately
+from the Shell, and SFX must be already running.
+
+My idea is:
+- The user will be able to select whether he wants to display such
+messages or not. You could implement this setting as a tick'able menu
+item in the Help menu (it's easier than making changes to the Prefs
+GUI, and is perfectly logical: a tip-of-the-day is a kind of help,
+so it should be placed along with the other Help items).
+- If the tips are ON, SFX would run the tips program at every
+startup. The message gets displayed, the user selects 'OK' and that's
+all. The user can start using SFX.
+
+The positives of the program:
+- Good for the newcomers and for people who have not mastered the
+many features yet.
+- Fully localizable and extendable. The tips are stored as a standard
+locale catalog, so translations can be made and new tips can be added
+easily.
+- Good-looking in all display modes, be it 16-colour mode or a
+true-color resolution.
+- Very easy to implement into SFX.
+- Short, uses a minimum of resources.
+
+Requirements:
+- locale.library
+- requester.class (part of OS3.5/3.9 distribution, can also be
+downloaded from the Aminet)
+
+Installation:
+Copy the executable ('tips') to SFX's PROGDIR: and the catalog
+('tips.catalog') to PROGDIR:Catalogs/english/.
+
+
+Have fun! I'm looking forward to your comments.
+
+Daniel
+
+______________________________________________________________________
+Hledani lidi a jejich e-mailu: http://www.lide.cz
+--MessagePart:10115596211217790451
+Content-Type: application/octet-stream;name="=?iso-8859-2?Q?tips=2Elha?=";boundary="MessagePart:1011559621926817020"
+Content-Transfer-Encoding: base64
+
+M2EtbGg1LSQIAABUDwAABJg0LAAAHUNhdGFsb2dzXGVuZ2xpc2hcdGlwcy5jYXRhbG9nUWwG9HO6
+7nI3FHd4ACjA68AAAAA6lyNkSk3ttp07ioSFskm22lttU2Wy94x7mPMxqZjeDbc3dPQeY+Ah4jyH
+nEHuPgp+/tvMttSqEjzG8L2tbab0+bn8mTJ2fHydHj7+n083PkyZPj+Mf/vHeq92ahD0WsrPnzds
++93M+bP283cz5+5v5NHl8vmHl/Fx7j8qFn8SabVUdSMnj0eXvjr9hK67VOsycmrm6B9z5P//tXRz
+6smT4f9T+30+7nj//gHPZ6FXn81R+ixIVe6PX+kXh+b+EvLHOk30MgegMSlDlW7jsvSszx6Lk2po
+emkui1D2NyuNsUulmw+vce9qXOUus+VOXMaS7+oOf7m0WvsZCuw+pkF06fVFOWIXTakyD2sedlR3
+IuvtSepjbkPdwGU86nHamhl1yV0havsQ824M25HWk4+DZ+o4yln5/Dp08PTo9J2NPoHzwROYwexy
+QiSaBK3nJyroOVQPWpg57dx3PDGobS6bcfVHP0G6FXJ4aGLdC4OvwEgkvU9QXr0O6nGJx9YRiKUx
+hYlogRGFUAsQ6hfLjQ+iw/naygQfY3CDWT6w59RM4fwJtvOHkgesJtxO0alQfp50UF6p3sJFGwh/
+09PSexlyb0Vp7xjbNmzM5i1UXwtcnNSmKi+uOdpuSD+A9DL9x/1nvQ56Zy8UHWwb/+UAG8ToHYKG
+gjVApkSnnODJ9Fyq0HdYxr6IPcFtHo8Pq4Jdrh5MPh6ZPF2By83Glz8EwhdCTzWaKLFJ600gID7D
+oPxfPn4s4CHOEphMUPWIoJuhbFrj73Spfo0c3AS4fZaxc1h6vHvnHeJrfPySXf2BzsxhcAjoEAyB
+VtNepNEZNuZU/YhqcxudKKZAVQuCLSjbWl5rmOiJlT+0fQuk6LXMD7crF5XxcKpqFUl5qdoeEAsW
+/tSm6X9QbpJ2pIWZMANeIt6kdY/yhI29DUXJelpnJe8R1dhCEhy0mQ6JWEvcQ0D1QfBsQvYhH+yO
+f6m6GMJvt2BR5GXcacGHUNSlf7zYnbsUBZl2cPIIrAgadYMdGfx0RJUIDE7BHhoKkuXZL18utm3K
+bXB7wolSUr2Mt1omOL7Q5/cb2nyTVUBpgcQDXcjqSaZJUD3Az3DNGXMxd77Y5/obQdcLtYAX66Ez
+L/cMGgUTawLeYyTdakRZAG8ena+JXMxjcjF1KrKIBdylTr7UbpGnU40TAhyfO1NTvk8inUJttQtI
+Y7CNnwjn/JuYKa+8oERmZIjJDHMGN1cmrwlSD5vDy80V+1ltom9vOgKAwmdxwppsQXhaQY/R0aN8
+EDttO69JF5vJl6Jn4zG8BVJiVQaW1Da0408wgPZRp61NeQu7k3MbukkdcYAOE6Wo1iOdRH/xpAdn
+Gj+1I9gJNDig0CUCkHssFfRsFrJd4lIWft5+5+zb83F85L5ACLXYJLgUDLYRNJcymcu/iHP9op+b
+RYkEMDILYvhpFBtsIgR7QonFAOTtxEQ4eUCABZuSRJQSzXABBHvuYUeYhTBqD60UdRpVIhFZValh
+z1Rq+mDNQteeliXEba5KXyMERs6HyqEYlL+4Of+f9tXuhfeKe7pU8vNqP3c2c4kwP/2+AqkweB24
+RcudMoew2EeSuXaxB4HjzHBfTCqFC2nGTInjW1FMat7BFJadg6nWHmDMm3vWsflIGXdzft382JxG
+a3oEH0SrwVNZdJ27WUCAMhL0ibmM9Pujn/cZJlH/T5/RgqHFKDVp9Rg33AJiNKJJxIpw+qUA/4o+
+mT1othKsZfBt7HCVTF27iuxj6AGjD7C8wOSU9CkAK6Qd+4h8+2gFGhXIU1QpAirIH5IeSBeOHvWC
+n6MBwXwbBeCxsLn3g2m/jK/70aMfGQKImAPKRZYt4p16h0qI9O4O9UadKXG7dJDffHPUUUscE7Gs
+CAVyCspsaON0Lj9YHTcVLrCoRoHpqq3YjeNvRqTny+RG30styxBRl1PQ1+XBufwDm83oWULA3Xy5
+/k4s/g/mewJ/eaKddqd83vqY6yNRcwrCnrXiLxBq9qiI7OxOaeDvypjTcmyslx+Ec84qnzxcxKOq
+AJUuWJWQcGprF+0k84h+YXkSE9OCtUevOyv0p14SM/EObhdLIlJytE64Vxwy4zgwM+iAK22JCYxm
+pYJ9Tw7bZDDjMmUq8Ae97AJ3vl4P34xzQbm2ysBnxO41SRg3mKPoLOA/RBAx5UsAjWu7RvEyYEgP
+kBqUVWjhGbWG/fHFV3IsYzMKiM1b+Qc/xiT8YSZYbMyfYY9c2uwhULrC7WILK8i7E6J5scbsBi/8
+635RzmjUR2Mb1RCCthytWmK5w4/iFPIH3pgVeZm6eDtk/MWf9jdzqgugpqItU/dMahvdYRFxuWa2
+Mrb2DR507doAqLFlSKMMGn8454saPTYxsjggWCm4ad5f26A8sg3RhKj9A5+Y3OXr4lhFgGein7io
+F6/lxya5oD9I5/wbvsl4zY1oKN1AWlaKayHxhb0lbnjDWWcqYWDCEQpYyzh4fIXrdDPII3mDY6Ui
+B6qGH76kC3hQrMWPLKXUcBoriYtsCIpozHDQrS+KgwSQGIAlxD508cT2FfJajZjV7/UWt3hJvvR1
+gndW7K6L52qGWnKYo13/g7GMw8ch8+OQ+WA1e8xVixEmNf+sXwn+zElgtRafOErBgtUFSilS7HpG
+pHQ1ptcVeUqzJZ0VAx5gJTgNrYWclrjfTTF5WpLOD6wArlhLQ8PNfTmQWlwWQMYVJEyX3AMJOlLA
+PkOAPrFUiul78csNP0jXZGgY2UP1jEHjdHB4gBoILWxoNS2NDAAA0BMAAKiDNCwAAARUaXBzqlAK
+w3vvr7wsaT1M/vevrx68cU77t2u7LYHj18V560vc2EMFnQettA456dbrapZobHuAveKNL3NO4a2d
+LuoUo4fp8jRWH4GRJ9GIIENcRjBYQgG0MLFzVxnGIxdGMRRc0hiM2soe//973Womdt+TSb82/wS3
+YOyONuTEVJ/Mm/qSj7RFL5B7jAd+KfzHXrcAkqr9h3yt8g9jekXGlVFj8xa+CnI4/aoKbAef/ZH9
+SJwtBTglJqbPJJOq9cFyW4QkeqRUqVt5It4amhkTp7Nvi60FZfKrpb0nWGyPpX0VXPFi6wiXdKTZ
+5RvHYRkb633nLxdt1qr9YuU5E6t1BkNc4871TrrvLMYGgmp4l7mFuLyt5turInHl+c3FH2/kTovU
+JWt8YGcSxykZYSlGq5hozGPB0mCQx2r0pkCzykZsjj9npNX75q/fC/31G/7wX+qzb+0av7QX8yy4
+VlwoMOhTEg0U2nldAFNgtayOOztfgyydNF6bRenKr/rLYMMNb1TVNLtnJZpy9+w5GUuFDJU2yuYW
+/9cE/Jgka0uOldWrRa7suEdfP6e6tW7nOPrq1aIetH8ZNAyFRDwqDRW9suEobVXv2YvmYrBh7tK2
+pO5mKPcu0u5dody7RNYx7bYi+Fz8Tbg1Im/9c1f7OIFfWaQWpaV+pYqzYy1iaUF+SR4CV2GSmkNS
+0qeADN9RLXbRTUt4qMPwqLJXf2IqM39+i6d2q1YtvLEAuxovfbt33226TDxq3bcvE8roDIcuYUf4
+bQpE5bwtVb2ClxLnX2z1d0pc3kzbqQq7vpN7M2klR/Xwq6F31dXwoVf3pXGrutJbTtjcbK/u7u+K
+7vmL282+0K9l7KTe3dde3mxv5N/4xX934k672827v67ZXsnb7cpow+u2UmbJvZbBonYnJWpZ/KSS
+n5rLhkloopJtWdb/azmINNN04kpE1uqMh4zZ2FV7TD1WJBJS8K2kb5XYSMZf41YkjGbwc7+V1pE4
+ims7hLWCzpobS7wwz/9SpNYW70diJheOy/YS3nEJ7FwC6EE3yuZG/Fr7FEl2f+iW1yQhM5rMXclw
+172cFNTaFHkb4RQtJrZ5RaAIbtGlJhyJzTg4Z3JuZkTtnL2+azf/BfEol8T6y+8vps68m3ku+zTU
+sw3VzTe0kTmpBbRhyr2zv7XTFG3Qcd14+SkgSXgGnsXI5Q0gWsPvxBz2bmuI9KtGKCf3sBXBUnua
+vWNtHVzs0tXZAj5jDiN3crLXTscoufUdKVlwN4vDd91reZGoMJ4+7Y7GPisdYUyLx8fEYWrPIhlb
+7q43q6NRzO2SpY+LK+my7sVV17m38hslXiX8DHw5WldvMeGWqYVvneOkClCVoHfdLqzHK528hj6h
+5uZTmZTLozO7t96unMgLpDK3OZkMrk2X3PUCslQ2xMyoOeg0hy9lyra1ba+jFja1jsNMn+nsyIc6
++8O+l+Lfakmml8lorj1XttTi6jMsXGvat8RtrrM9U9jHFmEcOcCXRllhzSU2xLDXNp1XYJeCqGqs
+7lZvTf4O4JvZJV0hLMOlUTu2iH0Rrx4JV8U8D6BkdNkW1qpEWi2bUMcx6r0/w9BnLaquxV6R1ZE6
+/rA8LAJyInYJOmtSnhiKN0aJq2BKR4btCx58jbOMMihaiq5ov3kee7GCflZMjD+iqskkjtzrqQSS
+i9SEqax1ZMaVqQ/lRsaU9mIRYio164hLICAOKtQYqFqS63KluoFF7MMPHcKRFOcuj5XQUTGjGEDV
+DFYNPG/Mw9aib5TDo8XBLogY6at2FGLPlMfU3bhxdkFP6nfqKwSfqSyWWlkpMKNvRCXz4CC6NvvX
+jxhxyIZKbLsX5PXnpwyrGEx50kpK/Qt96/QjbuUrguXjwEcKU+MvFHAaM7qU4t97gu10cFOe59bF
+2OArSz4Xu4r1Be2qyj0qZPHmt5s+FjYuRh4+6vbCNiCKflUAkDFcdNSGdNdwpD/KN+2qyxt7/KLD
+mNoqeX3eg5CN31132bXSFf0Ado2lCNFYRU3sf4Ug7UZvJ93FnucbFqEBTsW6b1pX64qJ25HnUbFK
+fCX7oUZN2nyKTZpT9cu6FWxu+JyEdn6M/8HOOONnGxTT0JrvL3l9tNeR/xNTY3qNl1mslS5FJd/I
+1kJM24T3prkzGNyep0s0p+TVwShBya0AOf1nVKp8Dqk9fwSrZSykY4fc9AT+6Nnd1G37Catw1Jfx
+rLf+15m4LAJfTBzbxRuYn04BSkpjK+lmuwVvu4e5pz7XmVe73fmaOzJTR2hVtlxCWAvz2wa2fInT
+LlvCWNiI+02haldp3quuGgC5bwOYS+pg05wv5myOy5rdgrrlBGWmV+gn3o5Fv3jZOcvN+zXUIKAl
+Npmpgxx67bycyU+C5g50RJuhGq7q5ZCRF5wyz+qyisNFGKIPf5B7hY/kbNURevmHDr/wnLDyChF8
+NlmLeDgBpybDbI29AYe7q9gsI/ZHgs5Ym9QaHbMswdIScmoO/uKEpOYTvSMsjThZkfjPkA9+8Dfa
+0ZytXBvrejaOTLxSqZT1WsJNbOBW/eDV0Z6C5Fjp1hUoVlwp4Ekka7BJ/SS7RSsJbfcUn8vX4+JL
+RUSjfnKExCU1ivhlU/t+cn8ahLp3n33fNEALlhK4oX3XWT8veVyfA3P7ga9Pci/jLyMwtBuTDh3/
+C4w5WV79DgUPcMjoLv6usJRasKpNFTRO+p5SUbd31QEbeBG6eyBP3g0SI2JfEzfYUTyeKT2Nu9q5
+PVVFu+XeRsVhPCQO3XcYXa9se1KWP8MUSdtMrllnz075Lw3N37IZakG5pqINsnOJE2Rmyttk+CRo
+XWhE5VOtnKs9b/IgEucD8TmjHWLo2SoJjQJCd+bxSWlrepibJGrSV1imr9z5yWUpGlpoSsr4N1wN
+1+8EPT3S6oLVgWv1nHRHk8VGhylgsrujWMCFjlcaYzj8USR6f1qDGlbw1svuIv6OdduHTsnMrsCi
++q0/N3NvuqLNTwlHBZGUv5imG2yFPMZDmsN6kKvEx7fH5h6zJZIbP8aTqU4A6hb0cf+AIF87Vwz1
+6D4FaxHYnyUWpfXUbcsOFc6fLzOVWOI5xHCNgHTqzCWirQByo7ajv+g3fwCeppFSsKVcALuJi+jx
+M1dTlZn6MI2MXMlcDYfgE/8sTa7g9uHlnN2c4d/5/6RxVRsQ1LSfqxw8MnwUV6E5xDyfN42/LWK3
+EhOZjKiLeyuaRjapT0UQnVnlZe00WtKEOIamPcSjev2rn2W7nL4HMa1J2789pWYhzPSJ6ef6evo7
+M9SILVG85wCduxwYZMpUcPNkZ7xliY1571vaxX5MQ1UppDsJhH17kE9/KsHb8dYI9otyKKJ0ZWg7
+Z2pmHcpZrfz9FepWPqb/yXdAr8URJnV+lpxPxPymENO9NjCDLXQF2BeqnFm/PdlmJYYrizfAakCp
+majIGt0c8ic8soR+878haU/dOmWnP3nvLKG1f4xRGq/sFaNE/PKK1XG4Mft10StpiAgPqT094vUU
+VDH3drks9ijAXnwhcRTQ5E/O7Xm5dLwcjz5sOOimSuhm18eyfIZGGN7FFagHWpSJx90c+Cuw6guV
+oim1Zy5KR6fo6j6bXCDKk+geH9Hvd1YHUiK+6A+sONTiD3zgOOLf1APHFPggz9M2YjipiycAvcWg
+GtAjbuceOB4wH4xw1z4bdSNcsG9NNA70CD+m2IYPCHvrgR+BXTdEMnG4zT9YD/QdacYvn0wI4lmf
+fAVAJpHoW+JqXmgbcDkAfeFlEA6sDggQgaAydD4gI3cUQfo3oH0QIQdEJuj9Q5LlyBjkfFqPjBE4
+04EU3A/BHcckCC/ODJ85hAdMEjcjazuT6pzf4cZf/AcUDhHyIwOmJtiAUMhj6HDA+wBCtoe+DIQy
+o/iAjT4RBmiD9EY+iE/R+AGf8W1aR9kCGdoBe0KgDAAjH0N8BDI0RnaOgAhwaPLAn+HuHRohf0fO
+AnwZemBDv6QIHSYwEZfSdgLOGPjo1ElxAP/4EMjSBW4Ct0oyeleAQk7ivAm6MZXng8vPWAiXCR50
+ObchudOGT5/V0fx9g8Ok6rf499JTlm/NQr/3+RL/fwk7OTc5MzkvOSs5JzkjOR85G/8/If9xOkyb
+O1kWEE/rHwbm1g2ce1uNVB11jrbnMvwImnSDk0hh6Xs9s7+U/yiz/IaFMQ15w78PXSDh0sANTTbv
+2mN6Ht5p5Z9nUDwD7IoHzj7DoHgn1CwPoAbYCMHI0HDkyE0ZHMvrz4w58maiwrsUYgzyMQXoCTtA
+TBoCQdB7RhXdH+Xz23f/PR/Or64A
+--MessagePart:10115596211217790451--
+

@@ -1,0 +1,75 @@
+From - Tue Aug 18 13:37:59 1998
+Received: from out1.ibm.net (out1.ibm.net [165.87.194.252])
+	by imn.htwk-leipzig.de (8.9.1/8.9.1) with ESMTP id CAA02437
+	for <kost@imn.htwk-leipzig.de>; Tue, 18 Aug 1998 02:58:50 +0200 (MET DST)
+Received: from slip139-92-49-160.lux.lu.ibm.net (geohei@slip139-92-49-160.lux.lu.ibm.net [139.92.49.160]) by out1.ibm.net (8.8.5/8.6.9) with SMTP id BAA67442 for <kost@imn.htwk-leipzig.de>; Tue, 18 Aug 1998 01:00:25 GMT
+Date: 17 Aug 98 18:38:47 +0200
+From: Georges Heinesch <geohei@ibm.net>
+Subject: Re: sfx 2x starten (fwd)
+To: Stefan Kost <kost@imn.htwk-leipzig.de>
+Message-ID: <297.7533T1118T2357@ibm.net>
+MIME-Version: 1.0
+X-Mailer: THOR 2.4 (Amiga;TCP/IP)
+Content-Type: multipart/mixed; boundary="p3TteRSuKXBIgGr8gRiNDIkkZAlLD3I"
+Content-Length: 1755
+Status:   
+X-Mozilla-Status: 8011
+
+If your are able to read this, your reader is not MIME compliant.
+Use Metamail or a MIME aware reader to view the message properly.
+
+--p3TteRSuKXBIgGr8gRiNDIkkZAlLD3I
+Content-type: text/plain; charset=iso-8859-1
+Content-transfer-encoding: 8bit
+
+Hallo Stefan.
+
+Hier dürfte es sich um einen kleinen Fehler handeln.
+
+--
+Cu  Georges Heinesch, Luxembourg
+    geohei@ibm.net - geohei@geocities.com
+    http://www.geocities.com/yosemite/2480
+    PGP 2.6.3i / 5.1i public key on request and on public servers
+
+... if you can't beat them, join them !
+
+--p3TteRSuKXBIgGr8gRiNDIkkZAlLD3I
+Content-type: message/rfc822
+
+From: Stephan Klein <S.Klein@ping.de>
+To: Georges Heinesch <geohei@ibm.net>
+Subject: Re: sfx 2x starten
+Date: 15 Aug 1998 13:32:44 GMT
+Message-id: <512.531T2200T8724095@ping.de>
+Received: from lilly.ping.de [195.37.120.2] by in1.ibm.net id 903186012.251268-1 ; Sat, 15 Aug 1998 13:00:12 +0000
+Received: (qmail 16273 invoked by alias); 15 Aug 1998 12:59:50 -0000
+Received: (qmail 16268 invoked from network); 15 Aug 1998 12:59:49 -0000
+Received: from asylum.ping.de (S.Klein@195.37.126.2)by lilly.ping.de with SMTP; 15 Aug 1998 12:59:49 -0000
+MIME-Version: 1.0
+X-Mailer: THOR 2.5a (Amiga;TCP/IP)
+
+Georges Heinesch hat folgendes zu *sfx 2x starten* zu sagen gehabt:
+
+Hallo Georges,
+
+>Versuch mal sfx 2x zu starten (der 2te Versuch schlägt fehl), und dann
+>ein Soundfile zu laden.
+
+>-> Lock ?!
+
+Scheint tatsächlich ein Fehler zu sein. Ein zweiter Start von sfx wird
+vom Programm nicht abgefangen. Bei mir stürzt nach der Fehlermeldung
+gleich der ganze Rechner ab.
+Wer schreibt den Bugreport, Du oder ich? ;-))
+
+CU
+  -Stephan-
+-- 
+Stephan Klein, Waltrop, Germany
+S.Klein@ping.de, http://www.ping.de/sites/asylum
+
+
+
+--p3TteRSuKXBIgGr8gRiNDIkkZAlLD3I--
+

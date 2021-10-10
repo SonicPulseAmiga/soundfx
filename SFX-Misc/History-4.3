@@ -1,0 +1,68 @@
+o plugins
+	o change "Start"-Button to "Load"/"Save"/"Process"
+o add different status texts for toggle buttons (like range mode)
+o modulator
+	o setting windows
+		o update GUI (gradients)
+		o curve and vector are usig custom mouse pointers
+	o new Cycle-Oszillator (Smoothed Random)
+	o presets-saving for ModVector
+o c-specific
+	o don't use SMALLDATA SMALLCODE anymore
+	o use volatile for synch-fields with tasks
+o new Operator
+	o TimeStretch
+o enhanced operator
+	o Hall (incl. new presets)
+	o Panorama4Ch (two speaker layouts)
+	o DeCrackle (better detection, test function to show results)
+	o TimeStretch/PitchShift (support for channel linking)
+	o Dynamic
+		o threshold settings, hard/soft knee)
+		o mouse-editable characteristics preview
+	o EqualizeFFT, SynthesizeAdd (custom mouse pointer for editing)
+o enhanced loader
+	o Riff-Wav (supports IEEE32/64)
+	o MPEG (choosable decoder engine)
+o Locale
+	o rename strRecord -> menPrjRecord and add "..."
+	o Bump version -> 43 (4.3)
+o Prefs
+	o prefs-misc
+		o AskExit = { never, loaded-samples, unsaved-sample, always }
+		o OneWindow-Mode
+o docs
+	o more docu
+		o tell about the difference of Start/Okay (Loader/Saver)
+		o additional text in many modules
+	o modules have a title
+	o better parsing of c-sources
+o Sample options
+	o display length in selected unit in a read-only textbox
+	o when srat has changed we need to redraw the axis (for time based units)
+o crash recovery
+	o wenn vmem aktiv, dann nach prog-start testen ob *.cfg files in swap-dir
+	o wenn ja dann user fragen ob laden, löschen oder ignorieren
+	o sampling-rate, etc. aus *.cfg Datei übernehmen
+o sample-window
+	o view modes (toggle via icon : multiple windows, one window)
+	o new drawmode (DotsHQ)
+	o sample drawing optimized and fixed
+		o multi-channel dividers are better visible and just one pixel instead of two
+		o better event detection during drawing
+		o better font handling (baseline)
+		o correct redraw when changing axis-font
+o edit-ops (copy/zero/grab) keep range now
+o interpolators now have a separate settings window with preview
+o fixed bug with ModCycle Frequency
+o inteligent (prefix aware) sample name joining
+o better MRU-Menu handling
+o saver now can add icons to saved samples (with deftool correction)
+o sfx now accepts filenames on the commandline
+o when sfx already runs, starting it again brings it to front and
+  ev. load new samples
+o Statusbar
+	o add labels above range fields
+	o allow selecting different font for them (Trinomic/6)
+o Progress bar shows total number of runs as well
+

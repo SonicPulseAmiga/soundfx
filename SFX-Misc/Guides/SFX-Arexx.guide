@@ -1,0 +1,1784 @@
+@database SFX-ARexx
+
+@remark $VER: SFX-Arexx.guide © by Stefan Kost 1994-1997 (09.03.97)
+@remark AmigaGuide-OnLine-Help for SoundFX
+
+@master sfx-arexx.guide
+@index sfx-index.guide/index
+
+---------------------------------------------------------------------------------------------------
+
+@node Charpter3.1 "3.1 Introduction"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+3.1 Introduction
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Since version 2.88 SoundFX has an ARexx-port. This one is called "REXX_SFX".
+Through this you can "remote-control" SFX through ARexx-Scripts.
+This way you can use SFX for processing samples for other programs FROM that
+other program (e.g. a Music program). Furthermore you can write macros or pro-
+gramm owm effects.
+
+Datatransfer between two programs is handled by @{" PutSample " link AREXX_PutSample } and @{" GetSample " link AREXX_GetSample }.
+With use of @{" PutSampleValue " link AREXX_PutSampleValue } and @{" GetSampleValue " link AREXX_GetSampleValue } you could write your own
+operators in ARexx.
+
+Important note. From version 3.70 all commands are prefixed by "SFX_" to avoid
+command-collisions.
+
+Actually there are about 90 commands available !
+@endnode
+
+---------------------------------------------------------------------------------------------------
+
+@node Charpter3.2 "3.2 Functions"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+3.2 Functions
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+	@{" Activate           " link AREXX_Activate }
+
+	@{" CleanUp            " link AREXX_CleanUp }
+
+	@{" DisableChannel     " link AREXX_DisableChannel }
+
+	@{" EditCut            " link AREXX_EditOps }
+	@{" EditCutB           " link AREXX_EditOps }
+	@{" EditCutE           " link AREXX_EditOps }
+	@{" EditCopy           " link AREXX_EditOps }
+	@{" EditCopyB          " link AREXX_EditOps }
+	@{" EditCopyE          " link AREXX_EditOps }
+	@{" EditErase          " link AREXX_EditOps }
+	@{" EditEraseB         " link AREXX_EditOps }
+	@{" EditEraseE         " link AREXX_EditOps }
+	@{" EditGrab           " link AREXX_EditOps }
+	@{" EditGrabB          " link AREXX_EditOps }
+	@{" EditGrabE          " link AREXX_EditOps }
+	@{" EditOverwrite      " link AREXX_EditOps }
+	@{" EditOverwriteB     " link AREXX_EditOps }
+	@{" EditPaste          " link AREXX_EditOps }
+	@{" EditPasteB         " link AREXX_EditOps }
+	@{" EditPasteE         " link AREXX_EditOps }
+	@{" EditZero           " link AREXX_EditOps }
+	@{" EditZeroB          " link AREXX_EditOps }
+	@{" EditZeroE          " link AREXX_EditOps }
+	@{" EnableChannel      " link AREXX_EnableChannel }
+	@{" Exit              " link AREXX_Exit }
+
+	@{" GetActiveBuffer    " link AREXX_GetActiveBuffer }
+	@{" GetBufferName      " link AREXX_GetBufferName }
+	@{" GetChannels        " link AREXX_GetChannels }
+	@{" GetLength          " link AREXX_GetLength }
+	@{" GetLoopMode        " link AREXX_GetLoopMode }
+	@{" GetLoopEnd         " link AREXX_GetLoopEnd }
+	@{" GetLoopLength      " link AREXX_GetLoopLength }
+	@{" GetLoopStart       " link AREXX_GetLoopStart }
+	@{" GetMarkXEnd        " link AREXX_GetMarkXEnd }
+	@{" GetMarkXLength     " link AREXX_GetMarkXLength }
+	@{" GetMarkXStart      " link AREXX_GetMarkXStart }
+	@{" GetMarkYEnd        " link AREXX_GetMarkYEnd }
+	@{" GetMarkYLength     " link AREXX_GetMarkYLength }
+	@{" GetMarkYStart      " link AREXX_GetMarkYStart }
+	@{" GetRate            " link AREXX_GetRate }
+	@{" GetSample          " link AREXX_GetSample }
+	@{" GetSampleValue     " link AREXX_GetSampleValue }
+	@{" GetZoomXEnd        " link AREXX_GetZoomXEnd }
+	@{" GetZoomXLength     " link AREXX_GetZoomXLength }
+	@{" GetZoomXStart      " link AREXX_GetZoomXStart }
+	@{" GetZoomYEnd        " link AREXX_GetZoomYEnd }
+	@{" GetZoomYLength     " link AREXX_GetZoomYLength }
+	@{" GetZoomYStart      " link AREXX_GetZoomYStart }
+
+	@{" InitProWin         " link AREXX_InitProWin }
+	@{" IsChannelActive    " link AREXX_IsChannelActive }
+
+	@{" LoadSample         " link AREXX_LoadSample }
+
+	@{" Message            " link AREXX_Message }
+
+	@{" NewBuffer          " link AREXX_NewBuffer }
+
+	@{" ProcessSample      " link AREXX_ProcessSample }
+	@{" PutSample          " link AREXX_PutSample }
+	@{" PutSampleValue     " link AREXX_PutSampleValue }
+
+	@{" RedrawBuffer       " link AREXX_RedrawBuffer }
+	@{" RefrProWin         " link AREXX_RefrProWin }
+	@{" RenameBuffer       " link AREXX_RenameBuffer }
+	@{" RemoveBuffer       " link AREXX_RemoveBuffer }
+	@{" RemoveProWin       " link AREXX_RemoveProWin }
+
+	@{" SaveSample         " link AREXX_SaveSample }
+	@{" SelLoader          " link AREXX_SelLoader }
+	@{" SelOperator        " link AREXX_SelOperator }
+	@{" SelPlayer          " link AREXX_SelPlayer }
+	@{" SelSaver           " link AREXX_SelSaver }
+	@{" SetActiveBuffer    " link AREXX_SetActiveBuffer }
+	@{" SetLength          " link AREXX_SetLength }
+	@{" SetLoopMode        " link AREXX_SetLoopMode }
+	@{" SetLoopEnd         " link AREXX_SetLoopEnd }
+	@{" SetLoopLength      " link AREXX_SetLoopLength }
+	@{" SetLoopStart       " link AREXX_SetLoopStart }
+	@{" SetMarkXEnd        " link AREXX_SetMarkXEnd }
+	@{" SetMarkXLength     " link AREXX_SetMarkXLength }
+	@{" SetMarkXStart      " link AREXX_SetMarkXStart }
+	@{" SetMarkYEnd        " link AREXX_SetMarkYEnd }
+	@{" SetMarkYLength     " link AREXX_SetMarkYLength }
+	@{" SetMarkYStart      " link AREXX_SetMarkYStart }
+	@{" SetOperatorParam   " link AREXX_SetOperatorParam }
+	@{" SetOperatorPreset  " link AREXX_SetOperatorPreset }
+	@{" SetRate            " link AREXX_SetRate }
+	@{" SetZoomXEnd        " link AREXX_SetZoomXEnd }
+	@{" SetZoomXLength     " link AREXX_SetZoomXLength }
+	@{" SetZoomXStart      " link AREXX_SetZoomXStart }
+	@{" SetZoomYEnd        " link AREXX_SetZoomYEnd }
+	@{" SetZoomYLength     " link AREXX_SetZoomYLength }
+	@{" SetZoomYStart      " link AREXX_SetZoomYStart }
+@endnode
+
+@node Charpter3.3 "3.3 Global operator parameter"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+3.3 Global operator parameter
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Due to the fact that most of the operators containing simmiliar structures,
+I'll describe their parameter in the following chapters.
+
+	@{" 3.3.1 Modulator      " link AREXX_Mod }
+	@{" 3.3.2 Interpolator   " link AREXX_Inter }
+	@{" 3.3.3 WindowFunction " link AREXX_WFkt }
+@endnode
+
+@node AREXX_Mod "3.3.1 Modulator"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+3.3.1 Modulator
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+<Prefix>S 	 : Start (modulation returns 0.0) value
+<Prefix>E 	 : End (modulation returns 1.0) value
+<Prefix>ModShape : Type of modulation control
+	"None","Curve","Cycle","Vector","User"
+There are more parameters related each type :
+Cycle :
+ <Prefix>CurveExp   : bendvalue 0.0...infinity
+Curve :
+ <Prefix>CycleOszi> : "Saw","Sin","Sqr","Tri"
+ <Prefix>CycleMode> : "Hz","Time","Repeats"
+ <Prefix>CycleFrq>  : frequency
+ <Prefix>CyclePhase>: angle
+Vector
+ <Prefix>VectorAnz  : number of points 2...20
+ <Prefix>VectorPos  : ix 0..(anz-1), pos 0.0...1.0
+ <Prefix>VectorLev  : ix 0..(anz-1), lev 0.0...1.0
+User
+ <Prefix>UserType   : "Normal","Abs","AmpEnv","FrqEnv"
+ <Prefix>UserMode   : "Single","Repeat","Stretch"
+ <Prefix>UserModBuf : id of modulation buffer 
+@endnode
+
+@node AREXX_Inter "3.3.2 Interpolator"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+3.3.2 Interpolator
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+<Prefix>IntType  : "None","Lin","Si","Lagrange"
+<Prefix>IntRange : order of interpolation 2...infinity
+@endnode
+
+@node AREXX_WFkt "3.3.3 WindowFunction"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+3.3.3 WindowFunction
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+<Prefix>WinType : "Rectangle","Bartlett","Fejer","Welch","Hanning","Hamming",
+		  "Blackman","Kaiser","HalfSine","HalfSineQ","HalfSineS"
+<Prefix>WinPar  : parameter of window function
+@endnode
+----------------------------------------------------------------------------------------------- A -
+
+@node AREXX_ActivateSFX "Activate"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+ActivateSFX
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Call :
+	SFX_Activate
+
+Function :
+	Brings the SoundFX screen to the front
+@endnode
+
+----------------------------------------------------------------------------------------------- C -
+
+@node AREXX_CleanUp "CleanUp"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+CleanUp
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Call :
+	SFX_CleanUp mode
+
+Function :
+	CleanUp one/all samplewindow/s.
+
+Parameters :
+	mode	0 : only current
+		1 : all samples
+		2 : all samples + standard size
+		3 : all samples + alternative size
+@endnode
+
+----------------------------------------------------------------------------------------------- D -
+
+@node AREXX_DisableChannel "DisableChannel"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+DisableChannel
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Call :
+	SFX_DisableChannel bufid cha
+
+Parameters :
+	bufid	samplebufer ID
+	cha	channel number (0-3)
+
+Function :
+	Disables the channel <cha> of buffer <bufid>
+
+See also :
+	@{" EnableChannel " link AREXX_EnableChannel } @{" GetChannels " link AREXX_GetChannels } @{" IsChannelActive " link AREXX_IsChannelActive }
+@endnode
+
+----------------------------------------------------------------------------------------------- E -
+
+@node AREXX_EditOps "EditOperations"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+EditOperations
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Call :
+	SFX_Edit<operation> bufid
+	e.g. EditCut,EditCopyB,EditPasteE,...
+
+Parameters :
+	bufid	samplebufer ID
+
+Function :
+	@{" Description " link SFX-GUIToolWin.guide/EditWin }
+@endnode
+
+@node AREXX_EnableChannel "EnableChannel"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+EnableChannel
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Call :
+	SFX_EnableChannel bufid cha
+
+Parameters :
+	bufid	samplebufer ID
+	cha	channel number (0-3)
+
+Function :
+	Enables the channel <cha> of buffer <bufid>
+
+See also :
+	@{" DisableChannel " link AREXX_DisableChannel } @{" GetChannels " link AREXX_GetChannels } @{" IsChannelActive " link AREXX_IsChannelActive }
+@endnode
+
+@node AREXX_Exit "Exit"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Exit
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Call :
+	SFX_Exit
+
+Function :
+	Exits SoundFX without confirm
+@endnode
+
+----------------------------------------------------------------------------------------------- G -
+
+@node AREXX_GetActiveBuffer "GetActiveBuffer"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+GetActiveBuffer
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Call :
+	SFX_GetActiveBuffer
+	bufid = RESULT
+
+Function :
+	Returns the ID of the selected buffer.
+
+Result :
+	bufid	ID of the samplebuffer
+@endnode
+
+@node AREXX_GetBufferName "GetBufferName"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+GetBufferName
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Call :
+	SFX_GetBufferName bufid
+	name = RESULT
+
+Function :
+	Returns the name of the supplied buffer.
+
+Parameters :
+	bufid	samplebufer ID
+
+Result :
+	name	name of the samplebuffer
+See also :
+	@{" RenameBuffer " link AREXX_RenameBuffer }
+@endnode
+
+@node AREXX_GetChannels "GetChannels"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+GetChannels
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Call :
+	SFX_GetChannels bufid
+	cha = RESULT
+
+Function :
+	Returns the number of channels of a buffer.
+
+Parameters :
+	bufid	samplebufer ID
+
+Result :
+	cha	number of channels (1-4)
+
+See also :
+	@{" DisableChannel " link AREXX_DisableChannel } @{" EnableChannel " link AREXX_EnableChannel } @{" IsChannelActive " link AREXX_IsChannelActive }
+@endnode
+
+@node AREXX_GetLength "GetLength"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+GetLength
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Call :
+	SFX_GetLength bufid
+	slen = RESULT
+
+Function :
+	Returns the length of a buffer.
+
+Parameters :
+	bufid	samplebufer ID
+
+Result :
+	slen	bufferlength
+
+See also :
+	@{" SetLength " link AREXX_SetLength }
+@endnode
+
+@node AREXX_GetLoopMode "GetLoopMode"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+GetLoopMode
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Call :
+	SFX_GetLoopMode bufid
+	loop = RESULT
+
+Function :
+	Returns wether loop is on or off for a buffer.
+
+Parameters :
+	bufid	samplebufer ID
+
+Result :
+	loop	0 means loop is off, 1 it's on
+
+See also :
+	@{" SetLoopMode " link AREXX_SetLoopMode }
+@endnode
+
+@node AREXX_GetLoopEnd "GetLoopEnd"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+GetLoopEnd
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Call :
+	SFX_GetLoopEnd bufid
+	loopend = RESULT
+
+Function :
+	Returns the endposition of the loop for a buffer.
+
+Parameters :
+	bufid	samplebufer ID
+
+Result :
+	loopend		position of loopend
+
+See also :
+	@{" GetLoopMode " link AREXX_GetLoopMode } @{" SetLoopMode " link AREXX_SetLoopMode } @{" SetLoopLength " link AREXX_SetLoopLength } @{" SetLoopStart " link AREXX_SetLoopStart }
+@endnode
+
+@node AREXX_GetLoopLength "GetLoopLength"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+GetLoopLength
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Call :
+	SFX_GetLoopLength bufid
+	looplength = RESULT
+
+Function :
+	Returns the length of the loop for a buffer.
+
+Parameters :
+	bufid	samplebufer ID
+
+Result :
+	looplength	length of loop
+
+See also :
+	@{" GetLoopMode " link AREXX_GetLoopMode } @{" SetLoopMode " link AREXX_SetLoopMode } @{" SetLoopEnd " link AREXX_SetLoopEnd } @{" SetLoopStart " link AREXX_SetLoopStart }
+@endnode
+
+@node AREXX_GetLoopStart "GetLoopStart"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+GetLoopStart
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Call :
+	SFX_GetLoopStart bufid
+	loopstart = RESULT
+
+Function :
+	Returns the startposition of the loop for a buffer.
+
+Parameters :
+	bufid	samplebufer ID
+
+Result :
+	loopstart	position of loopstart
+
+See also :
+	@{" GetLoopMode " link AREXX_GetLoopMode } @{" SetLoopMode " link AREXX_SetLoopMode } @{" SetLoopEnd " link AREXX_SetLoopEnd } @{" SetLoopLength " link AREXX_SetLoopLength }
+@endnode
+
+@node AREXX_GetMarkXEnd "GetMarkXEnd"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+GetMarkXEnd
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Call :
+	SFX_GetMarkXEnd bufid
+	markxend = RESULT
+
+Function :
+	Returns the endposition of the x-mark for a buffer.
+
+Parameters :
+	bufid	samplebufer ID
+
+Result :
+	markxend	endposition of x-mark
+
+See also :
+	@{" SetMarkXLength " link AREXX_SetMarkXLength } @{" SetMarkXStart " link AREXX_SetMarkXStart }
+	@{" GetMarkYEnd " link AREXX_GetMarkYEnd } @{" GetMarkYLength " link AREXX_GetMarkYLength } @{" GetMarkYStart " link AREXX_GetMarkYStart }
+	@{" SetMarkYEnd " link AREXX_SetMarkYEnd } @{" SetMarkYLength " link AREXX_SetMarkYLength } @{" SetMarkYStart " link AREXX_SetMarkYStart }
+@endnode
+
+@node AREXX_GetMarkXLength "GetMarkXLength"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+GetMarkXLength
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Call :
+	SFX_GetMarkXLength bufid
+	markxlength = RESULT
+
+Function :
+	Returns the length of the x-mark for a buffer.
+
+Parameters :
+	bufid	samplebufer ID
+
+Result :
+	markxlength	length of x-mark
+
+See also :
+	@{" SetMarkXEnd " link AREXX_SetMarkXEnd } @{" SetMarkXStart " link AREXX_SetMarkXStart }
+	@{" GetMarkYEnd " link AREXX_GetMarkYEnd } @{" GetMarkYLength " link AREXX_GetMarkYLength } @{" GetMarkYStart " link AREXX_GetMarkYStart }
+	@{" SetMarkYEnd " link AREXX_SetMarkYEnd } @{" SetMarkYLength " link AREXX_SetMarkYLength } @{" SetMarkYStart " link AREXX_SetMarkYStart }
+@endnode
+
+@node AREXX_GetMarkXStart "GetMarkXStart"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+GetMarkXStart
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Call :
+	SFX_GetMarkXStart bufid
+	markxstart = RESULT
+
+Function :
+	Returns the startposition of the x-mark for a buffer.
+
+Parameters :
+	bufid	samplebufer ID
+
+Result :
+	markxstart	startposition of x-mark
+
+See also :
+	@{" SetMarkXEnd " link AREXX_SetMarkXEnd } @{" SetMarkXLength " link AREXX_SetMarkXLength }
+	@{" GetMarkYEnd " link AREXX_GetMarkYEnd } @{" GetMarkYLength " link AREXX_GetMarkYLength } @{" GetMarkYStart " link AREXX_GetMarkYStart }
+	@{" SetMarkYEnd " link AREXX_SetMarkYEnd } @{" SetMarkYLength " link AREXX_SetMarkYLength } @{" SetMarkYStart " link AREXX_SetMarkYStart }
+@endnode
+
+@node AREXX_GetMarkYEnd "GetMarkYEnd"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+GetMarkYEnd
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Call :
+	SFX_GetMarkYEnd bufid
+	markyend = RESULT
+
+Function :
+	Returns the endposition of the y-mark for a buffer.
+
+Parameters :
+	bufid	samplebufer ID
+
+Result :
+	markyend	endposition of y-mark
+
+See also :
+	@{" SetMarkYLength " link AREXX_SetMarkYLength } @{" SetMarkYStart " link AREXX_SetMarkYStart }
+	@{" GetMarkXEnd " link AREXX_GetMarkXEnd } @{" GetMarkXLength " link AREXX_GetMarkXLength } @{" GetMarkXStart " link AREXX_GetMarkYStart }
+	@{" SetMarkXEnd " link AREXX_SetMarkXEnd } @{" SetMarkXLength " link AREXX_SetMarkXLength } @{" SetMarkXStart " link AREXX_SetMarkYStart }
+@endnode
+
+@node AREXX_GetMarkYLength "GetMarkYLength"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+GetMarkYLength
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Call :
+	SFX_GetMarkYLength bufid
+	markylength = RESULT
+
+Function :
+	Returns the length of the y-mark for a buffer.
+
+Parameters :
+	bufid	samplebufer ID
+
+Result :
+	markylength	length of y-mark
+
+See also :
+	@{" SetMarkYEnd " link AREXX_SetMarkYEnd } @{" SetMarkYStart " link AREXX_SetMarkYStart }
+	@{" GetMarkXEnd " link AREXX_GetMarkXEnd } @{" GetMarkXLength " link AREXX_GetMarkXLength } @{" GetMarkXStart " link AREXX_GetMarkYStart }
+	@{" SetMarkXEnd " link AREXX_SetMarkXEnd } @{" SetMarkXLength " link AREXX_SetMarkXLength } @{" SetMarkXStart " link AREXX_SetMarkYStart }
+@endnode
+
+@node AREXX_GetMarkYStart "GetMarkYStart"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+GetMarkYStart
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Call :
+	SFX_GetMarkYStart bufid
+	markystart = RESULT
+
+Function :
+	Returns the startposition of the y-mark for a buffer.
+
+Parameters :
+	bufid	samplebufer ID
+
+Result :
+	markystart	startposition of y-mark
+
+See also :
+	@{" SetMarkYEnd " link AREXX_SetMarkYEnd } @{" SetMarkYLength " link AREXX_SetMarkYLength }
+	@{" GetMarkXEnd " link AREXX_GetMarkXEnd } @{" GetMarkXLength " link AREXX_GetMarkXLength } @{" GetMarkXStart " link AREXX_GetMarkYStart }
+	@{" SetMarkXEnd " link AREXX_SetMarkXEnd } @{" SetMarkXLength " link AREXX_SetMarkXLength } @{" SetMarkXStart " link AREXX_SetMarkXStart }
+@endnode
+
+@node AREXX_GetRate "GetRate"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+GetRate
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Call :
+	SFX_GetRate bufid
+	srat = RESULT
+
+Function :
+	Returns the samplerate of a buffer.
+
+Parameters :
+	bufid	samplebufer ID
+
+Result :
+	srat	samplerate
+
+See also :
+	@{" SetRate " link AREXX_SetRate }
+@endnode
+
+@node AREXX_GetSample "GetSample"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+GetSample
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Call :
+	SFX_GetSample address type
+
+Function :
+	Loads a sample from SFX to a memoryarea. SFX transfers the sampledata
+	into a programm.
+
+Parameters :
+	address	Memory area in which the sample is to be loaded.
+		Please be sure to have allocated this memory , as SFX
+		won't check for this.
+	type	not supported yet .  Please enter '0'.
+
+See also :
+	@{" PutSample " link AREXX_PutSample }
+@endnode
+
+@node AREXX_GetSampleValue "GetSampleValue"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+GetSampleValue
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Call :
+	SFX_GetSampleValue bufid channel pos
+	val = RESULT
+
+Function :
+	Reads out a samplevalue from a buffer.
+
+Parameters :
+	bufid	samplebuffer ID
+	channel	channel (0-3)
+	pos		which samplevalue (0-samplelength)
+
+Result :
+	val		16-bit samplevalue (-32768...32767)
+
+See also :
+	@{" PutSampleValue " link AREXX_PutSampleValue }
+@endnode
+
+@node AREXX_GetZoomXEnd "GetZoomXEnd"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+GetZoomXEnd
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Call :
+	SFX_GetZoomXEnd bufid
+	zoomxend = RESULT
+
+Function :
+	Returns the endposition of the x-zoom for a buffer.
+
+Parameters :
+	bufid	samplebufer ID
+
+Result :
+	zoomxend	endposition of x-zoom
+
+See also :
+	@{" SetZoomXLength " link AREXX_SetZoomXLength } @{" SetZoomXStart " link AREXX_SetZoomXStart }
+	@{" GetZoomYEnd " link AREXX_GetZoomYEnd } @{" GetZoomYLength " link AREXX_GetZoomYLength } @{" GetZoomYStart " link AREXX_GetZoomYStart }
+	@{" SetZoomYEnd " link AREXX_SetZoomYEnd } @{" SetZoomYLength " link AREXX_SetZoomYLength } @{" SetZoomYStart " link AREXX_SetZoomYStart }
+@endnode
+
+@node AREXX_GetZoomXLength "GetZoomXLength"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+GetZoomXLength
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Call :
+	SFX_GetZoomXLength bufid
+	zoomxlength = RESULT
+
+Function :
+	Returns the length of the x-zoom for a buffer.
+
+Parameters :
+	bufid	samplebufer ID
+
+Result :
+	zoomxlength	length of x-zoom
+
+See also :
+	@{" SetZoomXEnd " link AREXX_SetZoomXEnd } @{" SetZoomXStart " link AREXX_SetZoomXStart }
+	@{" GetZoomYEnd " link AREXX_GetZoomYEnd } @{" GetZoomYLength " link AREXX_GetZoomYLength } @{" GetZoomYStart " link AREXX_GetZoomYStart }
+	@{" SetZoomYEnd " link AREXX_SetZoomYEnd } @{" SetZoomYLength " link AREXX_SetZoomYLength } @{" SetZoomYStart " link AREXX_SetZoomYStart }
+@endnode
+
+@node AREXX_GetZoomXStart "GetZoomXStart"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+GetZoomXStart
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Call :
+	SFX_GetZoomXStart bufid
+	zoomxstart = RESULT
+
+Function :
+	Returns the startposition of the x-zoom for a buffer.
+
+Parameters :
+	bufid	samplebufer ID
+
+Result :
+	zoomxstart	startposition of x-zoom
+
+See also :
+	@{" SetZoomXEnd " link AREXX_SetZoomXEnd } @{" SetZoomXLength " link AREXX_SetZoomXLength }
+	@{" GetZoomYEnd " link AREXX_GetZoomYEnd } @{" GetZoomYLength " link AREXX_GetZoomYLength } @{" GetZoomYStart " link AREXX_GetZoomYStart }
+	@{" SetZoomYEnd " link AREXX_SetZoomYEnd } @{" SetZoomYLength " link AREXX_SetZoomYLength } @{" SetZoomYStart " link AREXX_SetZoomYStart }
+@endnode
+
+@node AREXX_GetZoomYEnd "GetZoomYEnd"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+GetZoomYEnd
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Call :
+	SFX_GetZoomYEnd bufid
+	zoomyend = RESULT
+
+Function :
+	Returns the endposition of the y-zoom for a buffer.
+
+Parameters :
+	bufid	samplebufer ID
+
+Result :
+	zoomyend	endposition of y-zoom
+
+See also :
+	@{" SetZoomYLength " link AREXX_SetZoomYLength } @{" SetZoomYStart " link AREXX_SetZoomYStart }
+	@{" GetZoomXEnd " link AREXX_GetZoomXEnd } @{" GetZoomXLength " link AREXX_GetZoomXLength } @{" GetZoomXStart " link AREXX_GetZoomXStart }
+	@{" SetZoomXEnd " link AREXX_SetZoomXEnd } @{" SetZoomXLength " link AREXX_SetZoomXLength } @{" SetZoomXStart " link AREXX_SetZoomXStart }
+@endnode
+
+@node AREXX_GetZoomYLength "GetZoomYLength"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+GetZoomYLength
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Call :
+	SFX_GetZoomYLength bufid
+	zoomylength = RESULT
+
+Function :
+	Returns the length of the y-zoom for a buffer.
+
+Parameters :
+	bufid	samplebufer ID
+
+Result :
+	zoomylength	length of y-zoom
+
+See also :
+	@{" SetZoomYEnd " link AREXX_SetZoomYEnd } @{" SetZoomYStart " link AREXX_SetZoomYStart }
+	@{" GetZoomXEnd " link AREXX_GetZoomXEnd } @{" GetZoomXLength " link AREXX_GetZoomXLength } @{" GetZoomXStart " link AREXX_GetZoomXStart }
+	@{" SetZoomXEnd " link AREXX_SetZoomXEnd } @{" SetZoomXLength " link AREXX_SetZoomXLength } @{" SetZoomXStart " link AREXX_SetZoomXStart }
+@endnode
+
+@node AREXX_GetZoomYStart "GetZoomYStart"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+GetZoomYStart
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Call :
+	SFX_GetZoomYStart bufid
+	zoomystart = RESULT
+
+Function :
+	Returns the startposition of the y-zoom for a buffer.
+
+Parameters :
+	bufid	samplebufer ID
+
+Result :
+	zoomystart	startposition of y-zoom
+
+See also :
+	@{" SetZoomYEnd " link AREXX_SetZoomYEnd } @{" SetZoomYLength " link AREXX_SetZoomYLength }
+	@{" GetZoomXEnd " link AREXX_GetZoomXEnd } @{" GetZoomXLength " link AREXX_GetZoomXLength } @{" GetZoomXStart " link AREXX_GetZoomXStart }
+	@{" SetZoomXEnd " link AREXX_SetZoomXEnd } @{" SetZoomXLength " link AREXX_SetZoomXLength } @{" SetZoomXStart " link AREXX_SetZoomXStart }
+@endnode
+
+----------------------------------------------------------------------------------------------- I -
+
+@node AREXX_InitProWin "InitProWin"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+InitProWin
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Call :
+	SFX_InitProWin slen title
+	pwi=RESULT
+
+Function :
+	Opens a status-display.
+
+Parameters :
+	slen	How much cycles your process needs. If you process a sample
+		step by step and the sample is 4000 samplevalues long, then set
+		ths parameter to 4000.
+	title	text, which will displayed in the title of the status-window.
+		e.g. :	'Working on '<fxname>'['<nr of current pass/channel>']'
+
+Result :
+	pwi	0 if failed, anything else if okay. Check that, otherwise the
+		programm migth crash.
+
+See also :
+	@{" CloseProWin " link AREXX_CloseProWin } @{" RefrProWin " link AREXX_RefrProWin }
+@endnode
+
+@node AREXX_IsChannelActive "IsChannelActive"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+IsChannelActive
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Call :
+	SFX_IsChannelActive bufid channel
+	status=RESULT
+
+Function :
+	Checks if a channel is active for processing.
+
+Parameters :
+	bufid	samplebuffer ID
+	channel	number of channel to check
+
+Result :
+	status	0 if disabled, 1 if active.
+
+See also :
+	@{" DisableChannel " link AREXX_DisableChannel } @{" EnableChannel " link AREXX_EnableChannel } @{" GetChannels " link AREXX_GetChannels }
+@endnode
+
+----------------------------------------------------------------------------------------------- L -
+
+@node AREXX_LoadSample "LoadSample"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+LoadSample
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Call :
+	SFX_LoadSample fname
+	bufid = RESULT
+
+Function :
+	Loads a sample with the current Loader module,which can be any one
+	chosen with @{" SelLoader " link AREXX_SelLoader}.
+
+Parameters :
+	fname	Filename including full path.
+
+Result :
+	bufid	samplebuffer ID
+
+See also :
+	@{" SaveSample " link AREXX_SaveSample } @{" SelLoader " link AREXX_SelLoader }
+@endnode
+
+----------------------------------------------------------------------------------------------- M -
+
+@node AREXX_Message "Message"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Message
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Call :
+	SFX_Message text
+
+Function :
+	Displays a message. Use this function to inform the user about possible
+	problems during runtime of your script.
+
+Parameters :
+	text	message
+@endnode
+
+----------------------------------------------------------------------------------------------- N -
+
+@node AREXX_NewBuffer "NewBuffer"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+NewBuffer
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Call :
+	SFX_NewBuffer slen srat cha
+	bufid = RESULT
+
+Function :
+	Generates a new (empty) buffer
+
+Parameters :
+	slen	length of buffer
+	srat	samplerate
+	cha	number of channels (1-4)
+
+Result :
+	bufid	samplebuffer ID
+
+See also :
+	@{" GetChannels " link AREXX_GetChannels } @{" GetLength " link AREXX_GetLength } @{" GetRate " link AREXX_GetRate } @{" Removebuffer " link AREXX_RemoveBuffer }
+@endnode
+
+----------------------------------------------------------------------------------------------- P -
+
+@node AREXX_ProcessSample "ProcessSample"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+ProcessSample
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Call :
+	SFX_ProcessSample
+	bufid = RESULT
+
+Function :
+	Proceses current Samplebuffer with current selected operator and cur-
+	rent parameters.
+
+Result :
+	bufid	samplepuffer ID
+
+See also :
+	@{" SelOperator	" link AREXX_SelOperator } @{" SetActiveBuffer " link AREXX_SetActiveBuffer } @{" SetOperatorParam " link AREXX_SetOperatorParam } @{" SetOperatorPreset " link AREXX_SetOperatorPreset }
+@endnode
+
+@node AREXX_PutSample "PutSample"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+PutSample
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Call :
+	SFX_PutSample address length name type
+	bufid = RESULT
+
+Function :
+	Loads a sample from a buffer into SFX. A program can load a sample
+	into SFX with this.
+
+Parameters :
+	address	Memory area in which the sample is to be loaded.
+		Please be sure to have allocated this memory , as Sfx
+		won't check for this.
+	length	length of the sample that's being loaded
+	name	name by which Sfx will keep track of it.
+	type	not supported yet .  Please enter '0'.
+
+Result :
+	bufid	samplebuffer ID
+
+See also :
+	@{" GetSample " link AREXX_GetSample }
+@endnode
+
+@node AREXX_PutSampleValue "PutSampleValue"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+PutSampleValue
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Call :
+	SFX_PutSampleValue bufid channel pos val
+
+Function :
+	Writes a value into a buffer.
+
+Parameters :
+	bufid	samplebuffer ID
+	channel	channel (0-3)
+	pos		which samplevalue (0-samplelength)
+	val		16-bit samplevalue (-32768...32767)
+
+See also :
+	@{" GetSampleValue " link AREXX_GetSampleValue }
+@endnode
+
+----------------------------------------------------------------------------------------------- R -
+
+@node AREXX_RedrawBuffer "RedrawBuffer"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+RedrawBuffer
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Call :
+	SFX_RedrawBuffer bufid
+
+Function :
+	Redraws the current selected buffer.
+
+Parameters :
+	bufid	samplebuffer ID
+@endnode
+
+@node AREXX_RefrProWin "RefrProWin"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+RefrProWin
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Call :
+	SFX_RefrProWinw pwi apos
+	break = RESULT
+
+Function :
+	Updates a statuswindow and checks for break.
+
+Parameters :
+	pwi	ProWinInfo
+	apos	current workposition.
+
+Result :
+	break	0 if continue,1 if break.
+
+See also :
+	@{" CloseProWin " link AREXX_CloseProWin } @{" InitProWin " link AREXX_InitProWin }
+@endnode
+
+@node AREXX_RenameBuffer "RenameBuffer"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+RenameBuffer
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Call :
+	SFX_RenameBuffer bufid nname
+
+Function :
+	Change the name of the buffer
+
+Parameters :
+	bufid	samplebuffer ID
+	nname	new name
+See also :
+	@{" GetBufferName " link AREXX_GetBufferName }
+@endnode
+
+@node AREXX_RemoveBuffer "RemoveBuffer"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+RemoveBuffer
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Call :
+	SFX_RemoveBuffer bufid
+
+Function :
+	removes,deletes,kill,expunges chosen buffer
+
+Parameters :
+	bufid	samplebuffer ID
+
+See also :
+	@{" NewBuffer " link AREXX_NewBuffer }
+@endnode
+
+@node AREXX_RemoveProWin "RemoveProWin"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+RemoveProWin
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Call :
+	SFX_RemoveProWin pwi
+
+Function :
+	Closes a status-display (which you should have opened before).
+
+Parameters :
+	pwi	ProWinInfo
+
+See also :
+	@{" InitProWin " link AREXX_InitProWin } @{" RefrProWin " link AREXX_RefrProWin }
+@endnode
+
+----------------------------------------------------------------------------------------------- S -
+
+@node AREXX_SaveSample "SaveSample"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+SaveSample
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Call :
+	SFX_SaveSample fname
+
+Function :
+	Saves the sample in the current buffer with the current Saver
+	module,which can be any one selected with @{" SelSaver " link AREXX_SelSaver}
+
+Parameters :
+	fname	filename including full path
+
+See also :
+	@{" LoadSample " link AREXX_LoadSample } @{" SelSaver " link AREXX_SelSaver }
+@endnode
+
+@node AREXX_SelLoader "SelLoader"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+SelLoader
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Call :
+	SFX_SelLoader lname
+
+Function :
+	Selects a Loader module
+
+Parameters :
+	lname	Loader-module name
+
+See also :
+	@{" LoadSample " link AREXX_LoadSample }
+@endnode
+
+@node AREXX_SelOperator "SelOperator"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+SelOperator
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Call :
+	SFX_SelOperator opname
+
+Function :
+	Selects a Operator module
+
+Parameters :
+	opname	Operator-module name
+@endnode
+
+@node AREXX_SelPlayer "SelPlayer"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+SelPlayer
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Call :
+	SFX_SelPlayer pname
+
+Function :
+	Selects a Player module
+
+Parameters :
+	pname	Player-module name
+@endnode
+
+@node AREXX_SelSaver "SelSaver"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+SelSaver
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Call :
+	SFX_SelSaver sname
+
+Function :
+	Selects a Saver module
+
+Parameters :
+	sname	Saver-module name
+
+See also :
+	@{" SelSaver " link AREXX_SelSaver }
+@endnode
+
+@node AREXX_SetActiveBuffer "SetActiveBuffer"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+SetActiveBuffer
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Call :
+	SFX_SetActiveBuffer bufid
+
+Function :
+	Selects a buffer to be the 'current' buffer
+
+Parameters :
+	bufid	samplebuffer ID
+@endnode
+
+@node AREXX_SetLength "SetLength"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+SetLength
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Call :
+	SFX_SetLength bufid length
+
+Function :
+	Sets the length of an buffer
+
+Parameters :
+	bufid	samplebuffer ID
+	length	new samplelength in samples
+
+See also :
+	@{" GetLength " link AREXX_GetLength }
+@endnode
+
+@node AREXX_SetLoopMode "SetLoopMode"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+SetLoopMode
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Call :
+	SFX_SetLoopMode bufid loop
+
+Function :
+	Switches the loop on or off for a buffer.
+
+Parameters :
+	bufid	samplebuffer ID
+	loop	0 means off and 1 on
+
+See also :
+	@{" GetLoopMode " link AREXX_GetLoopMode }
+@endnode
+
+@node AREXX_SetLoopEnd "SetLoopEnd"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+SetLoopEnd
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Call :
+	SFX_SetLoopEnd bufid loopend
+
+Function :
+	Sets the endposition of the loop for a buffer.
+
+Parameters :
+	bufid		samplebufer ID
+	loopend		position of loopend
+
+See also :
+	@{" GetLoopMode " link AREXX_GetLoopMode } @{" SetLoopMode " link AREXX_SetLoopMode } @{" GetLoopLength " link AREXX_GetLoopLength } @{" GetLoopStart " link AREXX_GetLoopStart }
+@endnode
+
+@node AREXX_SetLoopLength "SetLoopLength"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+SetLoopLength
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Call :
+	SFX_SetLoopLength bufid looplength
+
+Function :
+	Sets the length of the loop for a buffer.
+
+Parameters :
+	bufid		samplebufer ID
+	looplength	length of loop
+
+See also :
+	@{" GetLoopMode " link AREXX_GetLoopMode } @{" SetLoopMode " link AREXX_SetLoopMode } @{" GetLoopEnd " link AREXX_GetLoopEnd } @{" GetLoopStart " link AREXX_GetLoopStart }
+@endnode
+
+@node AREXX_SetLoopStart "SetLoopStart"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+SetLoopStart
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Call :
+	SFX_SetLoopStart bufid loopstart
+
+Function :
+	Sets the startposition of the loop for a buffer.
+
+Parameters :
+	bufid		samplebufer ID
+	loopstart	position of loopstart
+
+See also :
+	@{" GetLoopMode " link AREXX_GetLoopMode } @{" SetLoopMode " link AREXX_SetLoopMode } @{" GetLoopEnd " link AREXX_GetLoopEnd } @{" GetLoopLength " link AREXX_GetLoopLength }
+@endnode
+
+@node AREXX_SetMarkXEnd "SetMarkXEnd"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+SetMarkXEnd
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Call :
+	SFX_SetMarkXEnd bufid markxend
+
+Function :
+	Sets the endposition of the x-mark for a buffer.
+
+Parameters :
+	bufid		samplebufer ID
+	markxend	endposition of x-mark
+
+See also :
+	@{" GetMarkXLength " link AREXX_GetMarkXLength } @{" GetMarkXStart " link AREXX_GetMarkXStart }
+	@{" SetMarkYEnd " link AREXX_SetMarkYEnd } @{" SetMarkYLength " link AREXX_SetMarkYLength } @{" SetMarkYStart " link AREXX_SetMarkYStart }
+	@{" GetMarkYEnd " link AREXX_GetMarkYEnd } @{" GetMarkYLength " link AREXX_GetMarkYLength } @{" GetMarkYStart " link AREXX_GetMarkYStart }
+@endnode
+
+@node AREXX_SetMarkXLength "SetMarkXLength"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+SetMarkXLength
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Call :
+	SFX_SetMarkXLength bufid markxlength
+
+Function :
+	Sets the length of the x-mark for a buffer.
+
+Parameters :
+	bufid		samplebufer ID
+	markxlength	length of x-mark
+
+See also :
+	@{" GetMarkXEnd " link AREXX_GetMarkXEnd } @{" GetMarkXStart " link AREXX_GetMarkXStart }
+	@{" SetMarkYEnd " link AREXX_SetMarkYEnd } @{" SetMarkYLength " link AREXX_SetMarkYLength } @{" SetMarkYStart " link AREXX_SetMarkYStart }
+	@{" GetMarkYEnd " link AREXX_GetMarkYEnd } @{" GetMarkYLength " link AREXX_GetMarkYLength } @{" GetMarkYStart " link AREXX_GetMarkYStart }
+@endnode
+
+@node AREXX_SetMarkXStart "SetMarkXStart"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+SetMarkXStart
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Call :
+	SFX_SetMarkXStart bufid markxstart
+
+Function :
+	Sets the startposition of the x-mark for a buffer.
+
+Parameters :
+	bufid		samplebufer ID
+	markxstart	startposition of markxstart
+
+See also :
+	@{" GetMarkXEnd " link AREXX_GetMarkXEnd } @{" GetMarkXLength " link AREXX_GetMarkXLength }
+	@{" SetMarkYEnd " link AREXX_SetMarkYEnd } @{" SetMarkYLength " link AREXX_SetMarkYLength } @{" SetMarkYStart " link AREXX_SetMarkYStart }
+	@{" GetMarkYEnd " link AREXX_GetMarkYEnd } @{" GetMarkYLength " link AREXX_GetMarkYLength } @{" GetMarkYStart " link AREXX_GetMarkYStart }
+@endnode
+
+@node AREXX_SetMarkYEnd "SetMarkYEnd"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+SetMarkYEnd
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Call :
+	SFX_SetMarkYEnd bufid markxend
+
+Function :
+	Sets the endposition of the y-mark for a buffer.
+
+Parameters :
+	bufid		samplebufer ID
+	markyend	endposition of y-mark
+
+See also :
+	@{" GetMarkYLength " link AREXX_GetMarkYLength } @{" GetMarkYStart " link AREXX_GetMarkYStart }
+	@{" SetMarkXEnd " link AREXX_SetMarkXEnd } @{" SetMarkXLength " link AREXX_SetMarkXLength } @{" SetMarkXStart " link AREXX_SetMarkXStart }
+	@{" GetMarkXEnd " link AREXX_GetMarkXEnd } @{" GetMarkXLength " link AREXX_GetMarkXLength } @{" GetMarkXStart " link AREXX_GetMarkXStart }
+@endnode
+
+@node AREXX_SetMarkYLength "SetMarkYLength"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+SetMarkYLength
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Call :
+	SFX_SetMarkYLength bufid markylength
+
+Function :
+	Sets the length of the y-mark for a buffer.
+
+Parameters :
+	bufid		samplebufer ID
+	markylength	length of y-mark
+
+See also :
+	@{" GetMarkYEnd " link AREXX_GetMarkYEnd } @{" GetMarkYStart " link AREXX_GetMarkYStart }
+	@{" SetMarkXEnd " link AREXX_SetMarkXEnd } @{" SetMarkXLength " link AREXX_SetMarkXLength } @{" SetMarkXStart " link AREXX_SetMarkXStart }
+	@{" GetMarkXEnd " link AREXX_GetMarkXEnd } @{" GetMarkXLength " link AREXX_GetMarkXLength } @{" GetMarkXStart " link AREXX_GetMarkXStart }
+@endnode
+
+@node AREXX_SetMarkYStart "SetMarkYStart"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+SetMarkYStart
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Call :
+	SFX_SetMarkYStart bufid markystart
+
+Function :
+	Sets the startposition of the y-mark for a buffer.
+
+Parameters :
+	bufid		samplebufer ID
+	markystart	startposition of markystart
+
+See also :
+	@{" GetMarkYEnd " link AREXX_GetMarkYEnd } @{" GetMarkYLength " link AREXX_GetMarkYLength }
+	@{" SetMarkXEnd " link AREXX_SetMarkXEnd } @{" SetMarkXLength " link AREXX_SetMarkXLength } @{" SetMarkXStart " link AREXX_SetMarkXStart }
+	@{" GetMarkXEnd " link AREXX_GetMarkXEnd } @{" GetMarkXLength " link AREXX_GetMarkXLength } @{" GetMarkXStart " link AREXX_GetMarkXStart }
+@endnode
+
+@node AREXX_SetOperatorParam "SetOperatorParam"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+SetOperatorParam
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Call :
+	SFX_SetOperatorParam <opname> <parameter> <value1> [<value2> ...]
+
+Function :
+	Sets parameter for the selected operator
+
+Parameters :
+	<opname>	Operator name
+	<parameter>	Which parameter is to be changed. The name of the
+			parameter can be found in the operators description.
+	<value1>	Value for selected parameter. If more than one value
+			can be entered then THIS is the INDEX number of
+			WHICH value in the parameter is to be changed.
+	<value2>	Only if <value1> exists, set value of parameter number
+			<value1> (one dim. arrays).
+	<value2>	Only if <value1> and <value2> exists, set value of par-
+			ameter number <value1>,<value2> (two dim. arrays).
+	...
+Examples :
+	SFX_SetOperatorParam 'Delay' 'P1ModShape' 'Linear'
+	Sets the parameter 'P1ModShape' to 'Linear' for the 'Delay' operator.
+
+	SFX_SetOperatorParam 'ConvertChannel' 'Mat' '0' '0' '1.0'
+	Sets the parameter 'Mat' with indizies '0' and '0' to '1.0' for the
+	'ConvertChannel' operator.
+	
+See also :
+	@{" ProcessSample " link AREXX_ProcessSample } @{" SelOperator " link AREXX_SelOperator } @{" SetOperatorPreset " link AREXX_SetOperatorPreset }
+@endnode
+
+@node AREXX_SetOperatorPreset "SetOperatorPreset"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+SetOperatorPreset
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Call :
+	SFX_SetOperatorPreset <opname> <presetname>
+
+Function :
+	Loads a preset into the selected operator
+
+Parameters :
+	<opname>	Operator name
+	<presetname>	Name of the Preset to load, without path and extension.
+			They are searched in "<sfxdir>:_operators/<opnam>/"
+			with the extension ".prefs"			
+	
+See also :
+	@{" ProcessSample " link AREXX_ProcessSample } @{" SelOperator " link AREXX_SelOperator } @{" SetOperatorParam " link AREXX_SetOperatorParam }
+@endnode
+
+@node AREXX_SetRate "SetRate"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+SetRate
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Call :
+	SFX_SetRate bufid rate
+
+Function :
+	Sets the samplerate of an buffer
+
+Parameters :
+	bufid	samplebuffer ID
+	rate	new samplerate
+
+See also :
+	@{" GetRate " link AREXX_GetRate }
+@endnode
+
+@node AREXX_SetZoomXEnd "SetZoomXEnd"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+SetZoomXEnd
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Call :
+	SFX_SetZoomXEnd bufid zoomxend
+
+Function :
+	Sets the endposition of the x-zoom for a buffer.
+
+Parameters :
+	bufid		samplebufer ID
+	zoomxend	endposition of x-zoom
+
+See also :
+	@{" GetZoomXLength " link AREXX_GetZoomXLength } @{" GetZoomXStart " link AREXX_GetZoomXStart }
+	@{" SetZoomYEnd " link AREXX_SetZoomYEnd } @{" SetZoomYLength " link AREXX_SetZoomYLength } @{" SetZoomYStart " link AREXX_SetZoomYStart }
+	@{" GetZoomYEnd " link AREXX_GetZoomYEnd } @{" GetZoomYLength " link AREXX_GetZoomYLength } @{" GetZoomYStart " link AREXX_GetZoomYStart }
+@endnode
+
+@node AREXX_SetZoomXLength "SetZoomXLength"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+SetZoomXLength
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Call :
+	SFX_SetZoomXLength bufid zoomxlength
+
+Function :
+	Sets the length of the x-zoom for a buffer.
+
+Parameters :
+	bufid		samplebufer ID
+	zoomxlength	length of x-zoom
+
+See also :
+	@{" GetZoomXEnd " link AREXX_GetZoomXEnd } @{" GetZoomXStart " link AREXX_GetZoomXStart }
+	@{" SetZoomYEnd " link AREXX_SetZoomYEnd } @{" SetZoomYLength " link AREXX_SetZoomYLength } @{" SetZoomYStart " link AREXX_SetZoomYStart }
+	@{" GetZoomYEnd " link AREXX_GetZoomYEnd } @{" GetZoomYLength " link AREXX_GetZoomYLength } @{" GetZoomYStart " link AREXX_GetZoomYStart }
+@endnode
+
+@node AREXX_SetZoomXStart "SetZoomXStart"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+SetZoomXStart
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Call :
+	SFX_SetZoomXStart bufid zoomxstart
+
+Function :
+	Sets the startposition of the x-zoom for a buffer.
+
+Parameters :
+	bufid		samplebufer ID
+	zoomxstart	startposition of zoomxstart
+
+See also :
+	@{" GetZoomXEnd " link AREXX_GetZoomXEnd } @{" GetZoomXLength " link AREXX_GetZoomXLength }
+	@{" SetZoomYEnd " link AREXX_SetZoomYEnd } @{" SetZoomYLength " link AREXX_SetZoomYLength } @{" SetZoomYStart " link AREXX_SetZoomYStart }
+	@{" GetZoomYEnd " link AREXX_GetZoomYEnd } @{" GetZoomYLength " link AREXX_GetZoomYLength } @{" GetZoomYStart " link AREXX_GetZoomYStart }
+@endnode
+
+@node AREXX_SetZoomYEnd "SetZoomYEnd"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+SetZoomYEnd
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Call :
+	SFX_SetZoomYEnd bufid zoomyend
+
+Function :
+	Sets the endposition of the y-zoom for a buffer.
+
+Parameters :
+	bufid		samplebufer ID
+	zoomyend	endposition of y-zoom
+
+See also :
+	@{" GetZoomYLength " link AREXX_GetZoomYLength } @{" GetZoomYStart " link AREXX_GetZoomYStart }
+	@{" SetZoomXEnd " link AREXX_SetZoomXEnd } @{" SetZoomXLength " link AREXX_SetZoomXLength } @{" SetZoomXStart " link AREXX_SetZoomXStart }
+	@{" GetZoomXEnd " link AREXX_GetZoomXEnd } @{" GetZoomXLength " link AREXX_GetZoomXLength } @{" GetZoomXStart " link AREXX_GetZoomXStart }
+@endnode
+
+@node AREXX_SetZoomYLength "SetZoomYLength"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+SetZoomYLength
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Call :
+	SFX_SetZoomYLength bufid zoomylength
+
+Function :
+	Sets the length of the y-zoom for a buffer.
+
+Parameters :
+	bufid		samplebufer ID
+	zoomylength	length of y-zoom
+
+See also :
+	@{" GetZoomYEnd " link AREXX_GetZoomYEnd } @{" GetZoomYStart " link AREXX_GetZoomYStart }
+	@{" SetZoomXEnd " link AREXX_SetZoomXEnd } @{" SetZoomXLength " link AREXX_SetZoomXLength } @{" SetZoomXStart " link AREXX_SetZoomXStart }
+	@{" GetZoomXEnd " link AREXX_GetZoomXEnd } @{" GetZoomXLength " link AREXX_GetZoomXLength } @{" GetZoomXStart " link AREXX_GetZoomXStart }
+@endnode
+
+@node AREXX_SetZoomYStart "SetZoomYStart"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+SetZoomYStart
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Call :
+	SFX_SetZoomYStart bufid zoomystart
+
+Function :
+	Sets the startposition of the y-zoom for a buffer.
+
+Parameters :
+	bufid		samplebufer ID
+	zoomystart	startposition of zoomystart
+
+See also :
+	@{" GetZoomYEnd " link AREXX_GetZoomYEnd } @{" GetZoomYLength " link AREXX_GetZoomYLength }
+	@{" SetZoomXEnd " link AREXX_SetZoomXEnd } @{" SetZoomXLength " link AREXX_SetZoomXLength } @{" SetZoomXStart " link AREXX_SetZoomXStart }
+	@{" GetZoomXEnd " link AREXX_GetZoomXEnd } @{" GetZoomXLength " link AREXX_GetZoomXLength } @{" GetZoomXStart " link AREXX_GetZoomXStart }
+@endnode

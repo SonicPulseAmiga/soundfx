@@ -1,0 +1,187 @@
+## version $VER: tips.catalog 1.01 (05.05.2002)
+## language français
+## codeset 0
+;
+;
+;-- internals
+;
+000
+41
+; 41
+;
+001
+Astuce du jour
+; Tip Of The Day
+;
+002
+Ok
+; OK
+;
+;-- the tips
+;
+003
+Vous pouvez facilement ouvrir la fenêtre de\nl'opérateur sélectionné\nen appuyant sur « r ».
+; You can easily open\nthe selected operator's\nwindow by pressing 'r'.
+;
+004
+Bien que SoundFX puisse travailler avec\nde nombreux formats d'échantillonage,\nil est recommandé de\nsauver vos échantillons\naux formats RIFF-WAV ou IFF-AIFF.\nCeux-ci représentent les standards\nde l'industrie de la musique.
+; Although SoundFX can handle\na lot of sample formats,\nit is recommended that\nyou save your samples\nin RIFF-WAV or IFF-AIFF formats.\nThese represent the music\nindustry standards.
+;
+005
+Les tâches répétitives et longues\npeuvent être simplifiées par\nl'utilisation du traitement par lots.
+; Time-consuming, repetitive tasks\ncan be made easier by\nthe use of the Batch Processor.
+;
+006
+Le menu « Aide » vous donne\nun accès direct à la\npage internet de SoundFX:\n\nwww.sonicpulse.de
+; The Help menu gives you\ndirect access to the\nSoundFX WWW homepage:\n\nwww.sonicpulse.de
+;
+007
+Les opérations couper, copier et coller\npeuvent être effectuées rapidement en utilisant\nles raccourcis claviers standards de l'Amiga:\n\nAmiga-X, Amiga-C, Amiga-V.
+; Cut, copy & paste operations\ncan be quickly performed using\nthe standard Amiga shortcuts:\n\nAmiga-X, Amiga-C, Amiga-V.
+;
+008
+Les meilleures performances sont atteintes\navec un processeur 68060\nou sous une émulation (WinUAE,\nAmithlon, AmigaXL) sur un PC.
+; Best performance can be achieved\nwith a 68060 processor\nor under emulation (WinUAE,\nAmithlon, AmigaXL) on the PC.
+;
+009
+SoundFX est un\nlogiciel complexe.\nLisez le manuel pour en tirer\nle meilleur ! Et surtout n'ayez pas\n\npeur de tenter des expériences !
+; SoundFX is a complex\npiece of software.\nRead the manual to get\nmost of it! And also:\n\nDon't be afraid to experiment!
+;
+010
+De même que tous les opérateurs, chargeurs et enregistreurs, la configuration\npréférée de vos paramètres\npeut être sauvegardée en réglages par défaut pour une utilisation ultérieure.
+; With all operators, loader and savers,\nyour favourite parameter\nsettings can be saved\nas presets for future use.
+;
+011
+Trop de fenêtres d'échantillons\nà l'écran ?\nCachez les échantillons que vous\nn'êtes pas en train d'utiliser !\n\nPour le faire : \n- cliquez sur le bouton « cacher » \ndans la barre de titre de la fenêtre, ou\n- appuyez sur le bouton « boîte »\ndans la barre d'outils, ou\n- utilisez le menu contextuel.
+; Too many sample windows\non the screen?\nHide the samples you are\nnot using at the moment!\n\nTo do this:\n- click on the 'hide' gadget\nin the window title bar, or\n- press the 'box' button\nin the toolbar, or\n- use the context menu.
+;
+012
+SoundFX peut utiliser efficacement\nune souris à trois boutons.
+; SoundFX can effectively make\nuse of a three-button mouse.
+;
+013
+Un certain nombre d'options d'échantillon\npeuvent être modifiées rapidement\nà l'aide du menu contextuel.\n\nConfigurez l'affichage de ce menu dans le menu Réglages/Divers.
+; A number of sample options\ncan be changed quickly\nvia the context menu.\n\nConfigure the display of this\nmenu in Prefs/Miscellaneous.
+;
+014
+Équiper votre Amiga\nd'un contrôleur SCSI ou EIDE\n (tels que Buddha ou FastATA)\n accellèrera les accès au disque.\nLa gestion de gros échantillons\nou l'utilisation de la mémoire virtuelle\n seront considérablement accellérés.
+; Equipping your Amiga with\nan SCSI or EIDE controller\n(such as Buddha or FastATA)\nwill speed up disc access.\nHandling of large samples\nor the use of virtual memory\nwill be considerably faster.
+;
+015
+Ça commence à devenir intéressant lorsque\nSoundFX fonctionne avec une résolution de 1024x768\nou plus.
+; The real thing comes when\nrunning SoundFX in 1024x768\nor a higher resolution mode.
+;
+016
+L'utilisation d'opérateurs\nest non destructive !\nChaque échantillon est conservé dans\nun tampon distinct\nsi bien que vous pouvez retrouver l'original si le\nrésultat ne satisfait pas\nvos attentes.
+; The use of operators\nis non-destructive!\n\nAll samples are stored\nin separate buffers\nso you can get back\nto the original if the\nresult doesn't meet\nyour expectations.
+;
+017
+Bien que SoundX supporte\nl'AmigaOS 3.0 et 3.1,\nces systèmes sont désormais\nconsidérés comme obsolètes. Vous\ndevriez considérer une mise à jour\nvers une version plus récente\n(AmigaOS 3.5 ou 3.9).\nVous pouvez en obtenir un exemplaire chez\nvotre revendeur Amiga habituel.
+; Although SoundFX supports\nAmigaOS 3.0 and 3.1,\nthese systems are now\nconsidered obsolete. You\nshould consider upgrading\nto a newer version\n(AmigaOS 3.5 or 3.9).\nYou can obtain a copy from\nyour local Amiga dealer.
+;
+018
+Les versions qui ne supportent pas le FPU de SoundFX\nsont, plus ou moins, vus pour à des but d'évaluation uniquement.\nCeux qui veulent utiliser le\nlogiciel comme un outil puissant\ntrouveront nécessaire d'avoir\nun coprocesseur mathématique (FPU).
+; The non-FPU versions of SFX\nare, more or less, meant for\nevaluation purposes only.\nThose who want to use the\nprogram as an effective tool\nwill find it necessary to have\na math-coprocessor (FPU).
+;
+019
+Vous en avez assez de ces astuces ?\n\nDésactivez-les dans le menu « Aide ».
+; Bored with these tips?\n\nSwitch them off\nin the Help menu.
+;
+020
+Vos échantillons peuvent être rêglés\nà leur volume idéal\nen utilisant l'opérateur Amplification\n(cliquez sur « MaxVol » et « Commencer »).
+; Your samples can be set\nto their optimum volume\nusing the Amplify operator\n(click 'MaxVol' and 'Start').
+;
+021
+Les fréquences 50/60Hz non désirées peuvent être supprimés\nen utilisant les réglages appropriés\nde l'opérateur « Attente ».
+; Unwanted 50/60Hz hum\ncan effectively be removed\nusing the appropriate presets\nof the Delay operator.
+;
+022
+On peut trouver un grand nombre d'informations utiles\nconcernant le traitement du son\nsur internet.
+; A lot of useful information\nregarding sound processing\ncan be found on the Web.
+;
+023
+Signalez les bugs rencontrés\nà l'auteur. Vous pouvez le faire\ndirectement à partir du\nprogramme : utilisez le menu « Aide ».
+; Report any bugs you find\nto the author. You can do it\ndirectly from within the\nprogram: use the Help menu.
+;
+024
+Echangez votre expérience et vos\nidées avec les autres utilisateurs !\n\nInscrivez-vous sur la liste de diffusion sur\ngroups.yahoo.com/group/soundfx-users/
+; Exchange your experience and\nideas with other users!\n\nJoin the SoundFX mailing-list at\ngroups.yahoo.com/group/soundfx-users/
+;
+025
+La dernière version du programme\npeut être téléchargée sur la page d'accueil de SoundFX :\nvoir dans le menu « Aide ».
+; The latest version of the program\ncan be downloaded from SoundFX\nhomepage: see the Help menu.
+;
+026
+Avec les touches « < » et  « > »\nvous pouvez zommer vers l'avant et vers l'arrière sur les échantillons.
+; With the keys '<' and '>'\nyou can zoom in and out of samples.
+;
+027
+Les fonctionnalités de SoundFX peuvent être\considérablement augmentées en\nutilisant l'interface ARexx.
+; SoundFX functionality can be\nconsiderably extended by\nusing the ARexx interface.
+;
+028
+Vous pouvez sélectionner l'échantillon\nentier en appuyant sur Amiga-A.
+; You can range the whole\nsample by pressing Amiga-A.
+;
+029
+Les champs peuvent être désélectionnés\nen utilisant le raccourci Amiga-H. 
+; Ranges can be deselected\nusing the Amiga-H shortcut.
+;
+030
+Naviguer dans les boutons cycliques\nsera plus facile et rapide\nsi vous installez soit\nCycleToMenu de Federico Giannici\nur VisualPrefs de Massimo Tantignone.
+; Going through cycle gadgets\nwill be faster and easier\nif you install either\nCycleToMenu by Federico Giannici\nor VisualPrefs by Massimo Tantignone.
+;
+031
+SoundFX : Jusqu'à l'infini et au delà !
+; SoundFX: The sky's the limit!
+;
+032
+Les paramètres d'opérateur acceptent\ndes valeurs dans un grand nombre d'unités.\nVous pouvez spécifier le volume en\ndécibels ou en pourcentage,\nles deux de manière absolue ou relative.\nLes valeurs de durée peuvent être données en\nunités de temps, en frames, ou en\nnombre d'échantilons.\nQuel que soit ce dont vous avez besoin, c'est inclu.
+; Operator parameters accept\nvalues in a great number of units.\nYou can specify volume in\ndecibels or as a percentage,\nboth absolute and relative.\nDuration values can be given in\ntime units, video frames, or as\na number of samples.\nWhatever your needs are.
+;
+033
+Le package SoundFX offre :\n\n- traitement numérique du son\n- analyse numérique du son\n- synthèse logicielle\n- enregistrement/sauvegarde dans de multiples formats\n\nVous pouvez ajouter des effets à vos \néchantillons, analyser des données sonores,\ngénérer vos propres sons\net charger/enregistrer dans\nune grande variété de formats de fichiers.
+; The SoundFX package offers:\n\n- digital sound processing\n- digital sound analysis\n- software synthesis\n- multiformat export/import\n\nYou can add effects to your\nsamples, analyze sound data,\ngenerate your own sounds\nand load/save samples in\na variety of file formats.
+;
+034
+Ce programme peut être lent\nsur certaines configurations.\n\nVeuillez être patient.\n\nVous aussi, vous serez vieux et lent\nun jour !
+; This program may be slow\non some configurations.\n\nPlease be patient.\n\nYou'll be old and slow\nyourself one day!
+;
+035
+La configuration par défaut des chargeurs/enregistreurs\npeut être reconfigurée\nselon vos valeurs préférées.\n\nUtilisez le menu et sauvegardez vos\nréglages en tant que "default.cfg".
+; Loader and saver defaults\ncan be re-configured to\nyour preferred values.\n\nUse the menu and save your\nsettings as « default.cfg ».
+;
+036
+Les options d'échantillon vous permettent de modifier l'unité pour les règles.
+; The sample options allow you to change the unit for the rulers.
+;
+037
+Lisez le chapitre « 3.1 » de la documentation.\nIl vous explique tout au sujet des opérateurs.
+; Read the chapter '2.1' of the documentetion.\nIt tells you everything about the operators.
+;
+038
+Dans les opérateurs, vous pouvez souvent entrer également des valeurs négatives (ex : un retour négative).
+; In the operators you can often enter negative values as well (e.g. negative feedback).
+;
+039
+Dans les opérateurs reposant sur un délai, vous pouvez entrer le délai comme une note (C-3 (DO-3)),\nqui transforme le délai sous de grandes valeurs de retours en un résonateur.
+; In delay-based operators you can enter the delay as a note (C-3),\nwhich turns the delay under high feedback values into a resonator.
+;
+040
+Avec la touche « espace », vous pouvez lancer et arrêter la lecture.
+; With the 'space'-key you can start and stop playback.
+;
+041
+Vous pouvez obtenir de bons effets stéréo en prenant une source mono,\en appliquent le même effet avec des réglages légèrements différents aux deux\net en associant les canaux.
+; You can achieve good stereo-fx by taking a mono source,\napplying the same fx with slightly varying settings twice\nand joining the channels.
+;
+042
+Je vous recommande l'utilisation de MagicMenu, cdxSizer, MCP\net VisualPrefs pour une interface graphique plus joli.
+; I recommend using MagicMenu, cdxSizer, MCP\nand VisualPrefs for a better looking GUI.
+;
+043
+Je vous recommande d'installer la « popupmenu.library ».\nComme ça SoundFX disposera de menus contextuels\n avec le bouton central de la souris dans les fenêtres d'échantillon.
+; I recommend installing the 'popupmenu.library'.\nThen SoundFX will have context menus\non the middle mouse-button in sample windows.
+;
+;-- Remember to increment the counter in message 000 ! (last msg-2)
+;-- EOF -----------------------------------------------------------------------

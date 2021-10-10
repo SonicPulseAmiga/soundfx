@@ -1,0 +1,55 @@
+From - Fri Sep 15 12:49:47 2000
+Received: from thlhp.rz.htwk-leipzig.de (thlhp [141.57.1.1])
+	by imn.htwk-leipzig.de (8.9.1/8.9.1) with ESMTP id MAA22826
+	for <kost@imn.htwk-leipzig.de>; Fri, 15 Sep 2000 12:14:27 +0200 (MET DST)
+Received: from aragorn.ics.muni.cz (aragorn.ics.muni.cz [147.251.4.33])
+	by thlhp.rz.htwk-leipzig.de (8.8.8/8.8.8) with ESMTP id MAA18392
+	for <kost@imn.htwk-leipzig.de>; Fri, 15 Sep 2000 12:18:13 +0200
+Received: from lvt.phil.muni.cz (root@lvt.phil.muni.cz [147.251.96.1])
+	by aragorn.ics.muni.cz (8.8.5/8.8.5) with ESMTP id MAA14704
+	for <kost@imn.htwk-leipzig.de>; Fri, 15 Sep 2000 12:14:48 +0200 (MET DST)
+Received: from localhost (jedlicka@localhost)
+	by lvt.phil.muni.cz (8.9.3/8.8.5) with ESMTP id MAA31908
+	for <kost@imn.htwk-leipzig.de>; Fri, 15 Sep 2000 12:14:48 +0200
+Date: Fri, 15 Sep 2000 12:14:48 +0200 (CEST)
+From: Daniel Jedlicka <jedlicka@phil.muni.cz>
+To: Stefan Kost <kost@imn.htwk-leipzig.de>
+Subject: Bugreport
+In-Reply-To: <39C0AB0E.4301A500@imn.htwk-leipzig.de>
+Message-ID: <Pine.LNX.4.10.10009151206530.29736-100000@lvt.phil.muni.cz>
+MIME-Version: 1.0
+Content-Type: TEXT/PLAIN; charset=US-ASCII
+Content-Length: 967
+Status:   
+X-Mozilla-Status: 8003
+X-Mozilla-Status2: 00000000
+X-UIDL: 361df5b500002a0c
+
+Stefan, this one's for you:
+
+There is a really nasty bug in V4.0 when you try to Save a sample that is
+STORED ON DISK (in virtual memory) instead of in RAM. After loading the
+saved sample you will realize that the saver has cut off the beginning of
+the sample, and inserted some zeroes at the end.
+
+The bug is not saver-specific: it appears no matter which saver is
+selected.
+
+Although I have a slow IDE harddrive, the bug cannot be possibly blamed
+on the disk speed. The sample is saved incorrectly even if I (goodness!)
+select RamDisk: as my virtual memory swap-path. ;-)
+
+---
+Config as usual:
+A1200T, Blizzard 1240/40/FPU, OS 3.0, 2Chip + 32Fast
+---
+
+Daniel
+
+P.S.
+I was quite unhappy to hear that you wanted to stuff SoundFX.
+Of course you can't develop it forever - just like the classic Amiga
+cannot live forever. But I would be very sad if you planned to stop
+development in the very near future. Now when SFX seems to be more than
+just a promising project...
+

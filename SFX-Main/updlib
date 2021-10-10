@@ -1,0 +1,6 @@
+;set cdir `cd`
+copy sfx //sfx/sfx
+;cd /sfx
+;ln -s sfx SoundFX
+;cd "$cdir"
+;unset cdir

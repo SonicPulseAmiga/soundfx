@@ -1,0 +1,51 @@
+Return-Path: <Timo@inutilis.de>
+Received: from smtp.hora-obscura.de ([unix socket])
+	 by imap.hora-obscura.de (Cyrus v2.2.10) with LMTPA;
+	 Fri, 24 Jun 2005 20:29:25 +0200
+X-Sieve: CMU Sieve 2.2
+Received: from localhost (localhost [127.0.0.1])
+	by smtp.hora-obscura.de (Postfix) with ESMTP id 30A9039C113
+	for <ensonic@sonicpulse.de>; Fri, 24 Jun 2005 20:29:25 +0200 (CEST)
+Received: from smtp.hora-obscura.de ([127.0.0.1])
+ by localhost (smtp.hora-obscura.de [127.0.0.1]) (amavisd-new, port 10024)
+ with LMTP id 15349-07 for <ensonic@sonicpulse.de>;
+ Fri, 24 Jun 2005 20:29:05 +0200 (CEST)
+Received: from moutng.kundenserver.de (moutng.kundenserver.de [212.227.126.183])
+	by smtp.hora-obscura.de (Postfix) with ESMTP id 7002B39C07E
+	for <ensonic@sonicpulse.de>; Fri, 24 Jun 2005 20:28:30 +0200 (CEST)
+Received: from pD9F53DC6.dip0.t-ipconnect.de [217.245.61.198] (helo=inutilis.de)
+	by mrelayeu.kundenserver.de with ESMTP (Nemesis),
+	id 0ML29c-1DlsuT18nh-0001EC; Fri, 24 Jun 2005 20:28:13 +0200
+From: Timo Kloss <Timo@inutilis.de>
+To: Stefan Kost <ensonic@sonicpulse.de>
+Subject: Re: SoundFX-key
+X-Mailer: SimpleMail 0.25 (AmigaOS4/MUI) E-Mail Client (c) 2000-2005 by Hynek Schlawack and Sebastian Bauer
+Date: 23 Jun 2005 22:07:14 +0100
+In-Reply-To: <yam10034.2549.153358000@smtp.primacom.net>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=ISO-8859-1
+Content-transfer-encoding: 8bit
+Message-ID: <0ML29c-1DlsuT18nh-0001EC@mrelayeu.kundenserver.de>
+X-Provags-ID: kundenserver.de abuse@kundenserver.de login:a569dff23e3846c4f0ec942c6cefe51c
+X-Virus-Scanned: amavisd-new at hora-obscura.de
+X-Spam-Status: No, hits=0.05 tagged_above=0 required=2 tests=FORGED_RCVD_HELO
+X-Spam-Level: 
+
+Hallo!
+
+Mir ist gerade etwas Seltsames bei SoundFX unter OS4 aufgefallen:
+
+Ich hab ne groﬂe Datei mit mehreren Drumsounds geladen, mir einen Teil
+davon rausgeschnitten und einzeln gespeichert. Wenn ich dann die neue Datei
+lade, hat diese wieder den Namen der Ursprungsdatei und ne falsche
+Samplerate (Orig: 44100, danach: 32767).
+Das ist bei AIFF der Fall. Hab gerade WAV ausprobiert, da klappt's richtig.
+
+Bis dann.
+Timo
+
+-- 
+Inutilis Imperium ∑ Timo Kloss
+Kopernikusstraﬂe 7 ∑ 10245 Berlin
+http://www.inutilis.de
+

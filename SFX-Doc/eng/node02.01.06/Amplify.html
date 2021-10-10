@@ -1,0 +1,143 @@
+<html>
+	<head><title>SoundFX : 2.1.6 Amplify</title></head>
+	<body bgcolor="#EEEEEE" leftmargin="5" rightmargin="5" topmargin="5" text="#000000" link="#2040FF" vlink="#0020E0" alink="#FFFFFF">
+	<a name="#000"></a>
+	<table border="0" width="100%" cellpadding="3" cellspacing="1" bgcolor="#000000"><tr bgcolor="#FFFFFF"><td>
+		<table border="0" width="100%" cellpadding="0" cellspacing="0"><tr>
+			<td align="left"><font size="-1">
+		[<a href="../node__.__.__.html">SoundFX</a>]
+			[<a href="../node02.__.__.html">Modules</a>]
+				[<a href="../node02.01.__.html">Operators</a>]
+			</font></td>
+			<td align="right" valign="center">
+				<a href="../node02.01.06.html">
+				<img src="../../_img/a_le.gif" width="13" height="13" border="0" alt="[prev]"></a>
+				<img src="../../_img/space.gif" width="2">
+				<a href="../node02.01.06/AmplifySplit.html">
+				<img src="../../_img/a_ri.gif" width="13" height="13" border="0" alt="[next]"></a>
+			</td>
+		</tr></table>
+	</td></tr></table>
+	<br>
+		<!-- Contents -->
+	<a name="#001"></a>
+<table border="0" width="100%" cellpadding="3" cellspacing="1" bgcolor="#000000">
+	<tr bgcolor="#DDDDDD"><td>
+		<table border="0" width="100%" cellpadding="0" cellspacing="0"><tr>
+			<td align="left">
+				<b>Amplify</b>
+			</td>
+			<td align="right">
+				<a href="#000">
+				<img src="../../_img/a_up.gif" width="13" height="13" border="0" alt="[up]"></a>
+				<img src="../../_img/space.gif" width="2">
+				<a href="#002">
+				<img src="../../_img/a_do.gif" width="13" height="13" border="0" alt="[down]"></a>
+			</td>
+		</tr></table>
+	</td></tr>
+	<tr bgcolor="#FFFFFF"><td>
+		<table border="0" width="100%" cellpadding="5" cellspacing="0"><tr><td>
+Changes the volume of a sample
+		</td></tr></table>
+	</td></tr>
+</table>
+<br>
+	<a name="#002"></a>
+<table border="0" width="100%" cellpadding="3" cellspacing="1" bgcolor="#000000">
+	<tr bgcolor="#DDDDDD"><td>
+		<table border="0" width="100%" cellpadding="0" cellspacing="0"><tr>
+			<td align="left">
+				<b>Parameter</b>
+			</td>
+			<td align="right">
+				<a href="#001">
+				<img src="../../_img/a_up.gif" width="13" height="13" border="0" alt="[up]"></a>
+				<img src="../../_img/space.gif" width="2">
+				<a href="#003">
+				<img src="../../_img/a_do.gif" width="13" height="13" border="0" alt="[down]"></a>
+			</td>
+		</tr></table>
+	</td></tr>
+	<tr bgcolor="#FFFFFF"><td>
+		<table border="0" width="100%" cellpadding="5" cellspacing="0"><tr><td>
+<table border="0" cellspacing="1" cellpadding="2" width="100%"><tr bgcolor="#BBBBBB"><td align="right" valign="top"><nobr>Amplification (<a href="../node03.02.01.html">P1</a>)</nobr></td><td align="left">This value controls the amount of amplification. The volume can be raised and/or lowered.
+</td></tr>
+<tr bgcolor="#AAAAAA"><td align="right" valign="top"><nobr>MaxVol</nobr></td><td align="left">After a clicking this button, the current source will be scanned and the maximum
+amplification without clipping will be calculated.
+the result will be entered into Par0 and modulation will be set to "None".
+</td></tr>
+<tr bgcolor="#BBBBBB"><td align="right" valign="top"><nobr>Wrap</nobr></td><td align="left">Choose how to handle clipping. The modi below are available :
+<ul>
+<li>NoClip : don't test for overdriven values; will produce distorted sounds when raising the volume beyond the maximum</li>
+<li>Clip : overdriven values are clipped</li>
+<li>Wrap1 : overdriven values are pushed into the opposite side until they don't clip anymore.</li>
+<li>Wrap2 : overdriven values are overturned (folded) until they don't clip anymore.</li>
+</ul>
+Just give it a try. Take a long sinewave  and slowly overdrive it.
+</td></tr>
+</table>
+		</td></tr></table>
+	</td></tr>
+</table>
+<br>
+	<a name="#003"></a>
+<table border="0" width="100%" cellpadding="3" cellspacing="1" bgcolor="#000000">
+	<tr bgcolor="#DDDDDD"><td>
+		<table border="0" width="100%" cellpadding="0" cellspacing="0"><tr>
+			<td align="left">
+				<b>Notes</b>
+			</td>
+			<td align="right">
+				<a href="#002">
+				<img src="../../_img/a_up.gif" width="13" height="13" border="0" alt="[up]"></a>
+				<img src="../../_img/space.gif" width="2">
+				<a href="#004">
+				<img src="../../_img/a_do.gif" width="13" height="13" border="0" alt="[down]"></a>
+			</td>
+		</tr></table>
+	</td></tr>
+	<tr bgcolor="#FFFFFF"><td>
+		<table border="0" width="100%" cellpadding="5" cellspacing="0"><tr><td>
+Percussion sounds (bassdrums,snare,drums,...) can be lifted a bit
+(ca. 120 %). This'll produce the typical <a href="../node06.03.00.Overdrive.html">overdrive</a> effect,
+by clipping sample data (vertically).<br>
+The amount of amplification without hitting the ceiling hard, can be estimated
+taking a look at the min-and maxlines in the <a href="../node01.05.01.html">samplewindow</a>.<br>
+This operator can also be used for amplitude and ring-modulation, creating
+further possiblities for sound synthesis.
+For example, make one sine wave with normal period and another
+with double. Let the one sine be the source and
+the other sine be the modulation waveform with User/
+Normal set. Set Par0 to 0.0 and Par1 to 1.0. 
+Generate the new sample and take a close look (with zoom maybe?:) at the result.
+What you have done is called ring-modulation. When choosing the modulation
+range to be from -1.0 to 1.0 then you will get amplitude modulation.
+		</td></tr></table>
+	</td></tr>
+</table>
+<br>
+	<a name="#004"></a>
+	<table border="0" width="100%" cellpadding="3" cellspacing="1" bgcolor="#000000"><tr bgcolor="#FFFFFF"><td>
+		<table border="0" width="100%" cellpadding="0" cellspacing="0"><tr>
+			<td align="left"><font size="-1">
+		[<a href="../node__.__.__.html">SoundFX</a>]
+			[<a href="../node02.__.__.html">Modules</a>]
+				[<a href="../node02.01.__.html">Operators</a>]
+			</font></td>
+			<td align="right" valign="center">
+				<a href="../node02.01.06.html">
+				<img src="../../_img/a_le.gif" width="13" height="13" border="0" alt="[prev]"></a>
+				<img src="../../_img/space.gif" width="2">
+				<a href="../node02.01.06/AmplifySplit.html">
+				<img src="../../_img/a_ri.gif" width="13" height="13" border="0" alt="[next]"></a>
+			</td>
+		</tr></table>
+	</td></tr></table>
+	<br>
+	<table border="0" width="100%" cellpadding="3" cellspacing="1" bgcolor="#000000"><tr bgcolor="#FFFFFF"><td align="center"><font size="-1">
+		&copy; by <a href="mailto:soundfx@sonicpulse.de">Stefan Kost</a> 1993-2004
+		<a href="http://www.sonicpulse.de" target="_new">www.sonicpulse.de</a>
+	</font></td></tr></table>
+	</body>
+</html>

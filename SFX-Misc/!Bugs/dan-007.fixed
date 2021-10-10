@@ -1,0 +1,7 @@
+IFF-AIFF saver prefswindow
+
+If you open the IFF-AIFF saver's prefswindow and then try
+to close it via closegadget, the window is NOT closed, but
+a filerequester pops up, letting you save the sample. :-)
+All other savers' prefswindows are OK in this respect.
+

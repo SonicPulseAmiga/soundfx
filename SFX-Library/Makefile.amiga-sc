@@ -1,0 +1,42 @@
+#
+
+CFLAGS	= NOLINK
+LDFLAGS = LINK
+CC		= sc
+LD		= sc
+
+include Makefile.objects
+
+all: sfxsupport.library
+
+%.o: %.c
+	$(CC) $(CFLAGS) $*.c
+
+sfxsupport.library: src/lib-amiga.o ${OBJECTS} ${OBJECTS_GUI}
+	$(LD) $(LDFLAGS) src/lib-amiga.o ${OBJECTS} ${OBJECTS_GUI} PROGRAMNAME=$@
+
+install: sfxsupport.library
+	cp sfxsupport.library ../sfx/libs
+	fd2pragma.old sfxsupport_lib.fd include/pragmas/sfxsupport_pragmas.h
+	cp include/pragmas/sfxsupport_pragmas.h include:pragmas
+	cp include/clib/sfxsupport_protos.h include:clib
+	cp include/libraries/sfx*.h include:libraries
+	cp include/proto/sfxsupport.h include:proto
+	cp sfxsupport_lib.fd include:fd/
+
+clean::
+	rm -f src/*.o *.library *.lnk temp
+
+
+splint::
+	splint \
+		-I/amiga/user/Dev/SC/os_guides/includes \
+		-I/amiga/user/Dev/SC/source/SFX/SFX-Main \
+		-nestcomment -weak \
+		+gnuextensions \
+		-D__regargs= \
+		-D__stdargs= \
+		-DUBYTE=unsigned\ char -DUWORD=unsigned\ short -DULONG=unsigned\ long \
+		-DBYTE=signed\ char -DWORD=signed\ short -DLONG=signed\ long \
+		-Du_char=unsigned\ char -Du_short=unsigned\ short -Du_long=unsigned\ long \
+		src/*.c

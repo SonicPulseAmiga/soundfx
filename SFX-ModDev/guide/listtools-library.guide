@@ -1,0 +1,1439 @@
+@database listtools-library.guide
+@rem Source: listtools-library.c
+@rem Generated with RoboDoc v3.0k (Aug  2 1998)
+@rem RoboDoc is copyright 1994-1998 by Maverick Software Development
+@node Main listtools-library.guide
+@{jcenter}
+@{fg highlight}@{b}TABLE OF CONTENTS@{ub}@{fg text}
+
+@{"listtools/CreateNameArray " Link "CreateNameArray"}
+@{"listtools/DeleteNameArray " Link "DeleteNameArray"}
+@{"listtools/GetFirstNode    " Link "GetFirstNode"}
+@{"listtools/GetIndexByName  " Link "GetIndexByName"}
+@{"listtools/GetIndexByNode  " Link "GetIndexByNode"}
+@{"listtools/GetLastNode     " Link "GetLastNode"}
+@{"listtools/GetNameByIndex  " Link "GetNameByIndex"}
+@{"listtools/GetNextNode     " Link "GetNextNode"}
+@{"listtools/GetNodeByIndex  " Link "GetNodeByIndex"}
+@{"listtools/GetNodeByName   " Link "GetNodeByName"}
+@{"listtools/GetNumberOfNodes" Link "GetNumberOfNodes"}
+@{"listtools/GetPrevNode     " Link "GetPrevNode"}
+@{"listtools/InsertAfter     " Link "InsertAfter"}
+@{"listtools/InsertAt        " Link "InsertAt"}
+@{"listtools/InsertBefore    " Link "InsertBefore"}
+@{"listtools/InsertByNameAsc " Link "InsertByNameAsc"}
+@{"listtools/InsertByNameDesc" Link "InsertByNameDesc"}
+@{"listtools/InsertByPriAsc  " Link "InsertByPriAsc"}
+@{"listtools/InsertByPriDesc " Link "InsertByPriDesc"}
+@{"listtools/InsertUserAsc   " Link "InsertUserAsc"}
+@{"listtools/InsertUserDesc  " Link "InsertUserDesc"}
+@{"listtools/IsEndOfList     " Link "IsEndOfList"}
+@{"listtools/IsFirstOfList   " Link "IsFirstOfList"}
+@{"listtools/IsLastOfList    " Link "IsLastOfList"}
+@{"listtools/RemoveAt        " Link "RemoveAt"}
+@{"listtools/ReverseList     " Link "ReverseList"}
+@{"listtools/SortByNameAsc   " Link "SortByNameAsc"}
+@{"listtools/SortByNameDesc  " Link "SortByNameDesc"}
+@{"listtools/SortByPriAsc    " Link "SortByPriAsc"}
+@{"listtools/SortByPriDesc   " Link "SortByPriDesc"}
+@{"listtools/SortUserAsc     " Link "SortUserAsc"}
+@{"listtools/SortUserDesc    " Link "SortUserDesc"}
+@{"listtools/foreach         " Link "foreach"}
+@{"listtools/lt-access.c     " Link "lt-access.c"}
+@{"listtools/lt-access.h     " Link "lt-access.h"}
+@{"listtools/lt-array.c      " Link "lt-array.c"}
+@{"listtools/lt-array.h      " Link "lt-array.h"}
+@{"listtools/lt-includes.h   " Link "lt-includes.h"}
+@{"listtools/lt-insert.c     " Link "lt-insert.c"}
+@{"listtools/lt-insert.h     " Link "lt-insert.h"}
+@{"listtools/lt-main.c       " Link "lt-main.c"}
+@{"listtools/lt-main.h       " Link "lt-main.h"}
+@{"listtools/lt-misc.c       " Link "lt-misc.c"}
+@{"listtools/lt-misc.h       " Link "lt-misc.h"}
+@{"listtools/lt-remove.c     " Link "lt-remove.c"}
+@{"listtools/lt-remove.h     " Link "lt-remove.h"}
+@{"listtools/lt-sort.c       " Link "lt-sort.c"}
+@{"listtools/lt-sort.h       " Link "lt-sort.h"}
+@{jleft}
+@endnode
+@Node "CreateNameArray" "listtools/CreateNameArray"
+@{fg shine}listtools/CreateNameArray@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}CreateNameArray@{ub} -- create a nullterminated array consisting of STRPTR's to nodenames
+@{ub}
+@{b}SYNOPSIS@{ub}
+
+
+@{b}FUNCTION@{ub}
+
+
+@{b}INPUTS@{ub}
+
+
+@{b}RESULT@{ub}
+
+
+@{b}EXAMPLE@{ub}
+
+
+@{b}NOTES@{ub}
+
+
+@{b}BUGS@{ub}
+@{fg shine}
+@{fg text}
+@{b}SEE ALSO@{ub}
+
+
+@endnode
+@Node "DeleteNameArray" "listtools/DeleteNameArray"
+@{fg shine}listtools/DeleteNameArray@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}DeleteNameArray@{ub} -- free such an array
+@{ub}
+@{b}SYNOPSIS@{ub}
+
+
+@{b}FUNCTION@{ub}
+
+
+@{b}INPUTS@{ub}
+
+
+@{b}RESULT@{ub}
+
+
+@{b}EXAMPLE@{ub}
+
+
+@{b}NOTES@{ub}
+
+
+@{b}BUGS@{ub}
+@{fg shine}
+@{fg text}
+@{b}SEE ALSO@{ub}
+
+
+@endnode
+@Node "GetFirstNode" "listtools/GetFirstNode"
+@{fg shine}listtools/GetFirstNode@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}GetFirstNode@{ub} -- get the first element
+@{ub}
+@{b}SYNOPSIS@{ub}
+    struct Node *@{b}GetFirstNode@{ub}(struct List *list)
+
+@{b}FUNCTION@{ub}
+
+
+@{b}INPUTS@{ub}
+
+
+@{b}RESULT@{ub}
+
+
+@{b}EXAMPLE@{ub}
+
+
+@{b}NOTES@{ub}
+
+
+@{b}BUGS@{ub}
+@{fg shine}
+@{fg text}
+@{b}SEE ALSO@{ub}
+
+
+@endnode
+@Node "GetIndexByName" "listtools/GetIndexByName"
+@{fg shine}listtools/GetIndexByName@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}GetIndexByName@{ub} -- get the position of a node by its <name>
+@{ub}
+@{b}SYNOPSIS@{ub}
+    index=@{b}GetIndexByName@{ub}(list,name)
+                         a0   a1
+    LONG @{b}GetIndexByName@{ub}(struct List *,STRPTR);
+
+@{b}FUNCTION@{ub}
+
+
+@{b}INPUTS@{ub}
+    list - list to seek for index
+    name - name to search in list
+
+@{b}RESULT@{ub}
+    index - node position or -1 if not found
+
+@{b}EXAMPLE@{ub}
+    pos=@{b}GetIndexByName@{ub}(filelist,"README.txt");
+
+@{b}SEE ALSO@{ub}
+    @{"GetIndexByNode" Link "GetIndexByNode"},@{"GetNodeByName" Link "GetNodeByName"}
+
+@endnode
+@Node "GetIndexByNode" "listtools/GetIndexByNode"
+@{fg shine}listtools/GetIndexByNode@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}GetIndexByNode@{ub} -- get the position of a node
+@{ub}
+@{b}SYNOPSIS@{ub}
+    index=@{b}GetIndexByNode@{ub}(list,node)
+                         a0   a1
+    LONG @{b}GetIndexByNode@{ub}(struct List *,struct Node *);
+
+@{b}FUNCTION@{ub}
+
+
+@{b}INPUTS@{ub}
+    list - list to seek for index
+    node - node to search in list
+
+@{b}RESULT@{ub}
+    index - node position or -1 if not found
+
+@{b}EXAMPLE@{ub}
+    pos=@{b}GetIndexByNode@{ub}(filelist,aktnode);
+
+@{b}SEE ALSO@{ub}
+    @{"GetIndexByName" Link "GetIndexByName"}
+
+@endnode
+@Node "GetLastNode" "listtools/GetLastNode"
+@{fg shine}listtools/GetLastNode@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}GetLastNode@{ub} -- get the last element
+@{ub}
+@{b}SYNOPSIS@{ub}
+    struct Node *@{b}GetLastNode@{ub}(struct List *list)
+
+@{b}FUNCTION@{ub}
+
+
+@{b}INPUTS@{ub}
+
+
+@{b}RESULT@{ub}
+
+
+@{b}EXAMPLE@{ub}
+
+
+@{b}NOTES@{ub}
+
+
+@{b}BUGS@{ub}
+@{fg shine}
+@{fg text}
+@{b}SEE ALSO@{ub}
+
+
+@endnode
+@Node "GetNameByIndex" "listtools/GetNameByIndex"
+@{fg shine}listtools/GetNameByIndex@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}GetNameByIndex@{ub} -- get the name of a node by its <index>
+@{ub}
+@{b}SYNOPSIS@{ub}
+    name=@{b}GetNameByIndex@{ub}(list,index)
+                        a0   d0
+    STRPTR @{b}GetNameByIndex@{ub}(struct List *,ULONG);
+
+@{b}FUNCTION@{ub}
+
+
+@{b}INPUTS@{ub}
+    list - list to seek for name
+    index - index to seach in list
+
+@{b}RESULT@{ub}
+    name - name of the node at the <index>-th position or NULL if out of range
+
+@{b}EXAMPLE@{ub}
+    filename=@{b}GetNameByIndex@{ub}(filelist,selected_item);
+
+@{b}SEE ALSO@{ub}
+    @{"GetNodeByIndex" Link "GetNodeByIndex"}
+
+@endnode
+@Node "GetNextNode" "listtools/GetNextNode"
+@{fg shine}listtools/GetNextNode@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}GetNextNode@{ub} -- get the next element
+@{ub}
+@{b}SYNOPSIS@{ub}
+    struct Node *@{b}GetNextNode@{ub}(struct Node *node)
+
+@{b}FUNCTION@{ub}
+
+
+@{b}INPUTS@{ub}
+
+
+@{b}RESULT@{ub}
+
+
+@{b}EXAMPLE@{ub}
+
+
+@{b}NOTES@{ub}
+
+
+@{b}BUGS@{ub}
+@{fg shine}
+@{fg text}
+@{b}SEE ALSO@{ub}
+
+
+@endnode
+@Node "GetNodeByIndex" "listtools/GetNodeByIndex"
+@{fg shine}listtools/GetNodeByIndex@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}GetNodeByIndex@{ub} -- searches a node by its position (<index>)
+@{ub}
+@{b}SYNOPSIS@{ub}
+    node=@{b}GetNodeByIndex@{ub}(list,index)
+                        a0   d0
+    struct Node *@{b}GetNodeByIndex@{ub}(struct List *,ULONG);
+
+@{b}FUNCTION@{ub}
+
+
+@{b}INPUTS@{ub}
+    list - list to seek for node
+    index - position in list
+
+@{b}RESULT@{ub}
+    node - listnode or NULL if index is out of range
+
+@{b}EXAMPLE@{ub}
+    node=@{b}GetNodeByIndex@{ub}(filelist,selected_item);
+
+@{b}SEE ALSO@{ub}
+    @{"GetNodeByName" Link "GetNodeByName"},@{"GetNameByIndex" Link "GetNameByIndex"}
+
+@endnode
+@Node "GetNodeByName" "listtools/GetNodeByName"
+@{fg shine}listtools/GetNodeByName@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}GetNodeByName@{ub} -- searches a node by <name> (like FindName)
+@{ub}
+@{b}SYNOPSIS@{ub}
+    node=@{b}GetNodeByName@{ub}(list,name)
+                       a0   a1
+    struct Node *@{b}GetNodeByName@{ub}(struct List *,STRPTR);
+
+@{b}FUNCTION@{ub}
+
+
+@{b}INPUTS@{ub}
+    list - list to seek node
+    name - name to search in list
+
+@{b}RESULT@{ub}
+    node - listnode or NULL if not found
+
+@{b}EXAMPLE@{ub}
+    node=@{b}GetNodeByName@{ub}(filelist,"README.txt");
+
+@{b}SEE ALSO@{ub}
+    @{"GetNodeByIndex" Link "GetNodeByIndex"},@{"GetIndexByName" Link "GetIndexByName"}
+
+@endnode
+@Node "GetNumberOfNodes" "listtools/GetNumberOfNodes"
+@{fg shine}listtools/GetNumberOfNodes@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}GetNumberOfNodes@{ub} -- return the number of nodes in <list>
+@{ub}
+@{b}SYNOPSIS@{ub}
+    nr=@{b}GetNumberOfNodes@{ub}(list)
+                        a0
+    ULONG @{b}GetNumberOfNodes@{ub}(struct List *)
+
+@{b}FUNCTION@{ub}
+
+
+@{b}INPUTS@{ub}
+    list - list to count nodes in
+
+@{b}RESULT@{ub}
+    nr - number of nodes in list
+
+@{b}EXAMPLE@{ub}
+    nr=@{b}GetNumberOfNodes@{ub}(list);
+
+@{b}SEE ALSO@{ub}
+
+
+@endnode
+@Node "GetPrevNode" "listtools/GetPrevNode"
+@{fg shine}listtools/GetPrevNode@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}GetPrevNode@{ub} -- get the previous element
+@{ub}
+@{b}SYNOPSIS@{ub}
+    struct Node *@{b}GetPrevNode@{ub}(struct Node *node)
+
+@{b}FUNCTION@{ub}
+
+
+@{b}INPUTS@{ub}
+
+
+@{b}RESULT@{ub}
+
+
+@{b}EXAMPLE@{ub}
+
+
+@{b}NOTES@{ub}
+
+
+@{b}BUGS@{ub}
+@{fg shine}
+@{fg text}
+@{b}SEE ALSO@{ub}
+
+
+@endnode
+@Node "InsertAfter" "listtools/InsertAfter"
+@{fg shine}listtools/InsertAfter@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}InsertAfter@{ub} -- insert new element after an other
+@{ub}
+@{b}SYNOPSIS@{ub}
+    @{b}InsertAfter@{ub}(newnode,curnode)
+                a0      a1
+    void @{b}InsertAfter@{ub}(struct Node *,struct Node *)
+
+@{b}FUNCTION@{ub}
+
+
+@{b}INPUTS@{ub}
+    newnode - the node to insert
+    curnode - the curent node
+
+@{b}RESULT@{ub}
+    -
+
+@{b}EXAMPLE@{ub}
+    @{"InsertBefore" Link "InsertBefore"}(newnode,activenode);
+
+@{b}SEE ALSO@{ub}
+    @{"InsertBefore" Link "InsertBefore"},@{"InsertAt" Link "InsertAt"}
+
+@endnode
+@Node "InsertAt" "listtools/InsertAt"
+@{fg shine}listtools/InsertAt@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}InsertAt@{ub} -- try to insert new element at given position
+@{ub}
+@{b}SYNOPSIS@{ub}
+    @{b}InsertAt@{ub}(list,newnode,index)
+             a0   a1      d0
+    void @{b}InsertAt@{ub}(struct List *,struct Node *,ULONG)
+
+@{b}FUNCTION@{ub}
+
+
+@{b}INPUTS@{ub}
+    list    - the list to insert node into
+    newnode - the node to insert
+    index   - the position to put the node at
+
+@{b}RESULT@{ub}
+    -
+
+@{b}EXAMPLE@{ub}
+    @{b}InsertAt@{ub}(list,newnode,5);
+
+@{b}SEE ALSO@{ub}
+    @{"InsertBefore" Link "InsertBefore"},@{"InsertAfter" Link "InsertAfter"}
+
+@endnode
+@Node "InsertBefore" "listtools/InsertBefore"
+@{fg shine}listtools/InsertBefore@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}InsertBefore@{ub} -- insert new element before an other
+@{ub}
+@{b}SYNOPSIS@{ub}
+    @{b}InsertBefore@{ub}(newnode,curnode)
+                 a0      a1
+    void @{b}InsertBefore@{ub}(struct Node *,struct Node *)
+
+@{b}FUNCTION@{ub}
+
+
+@{b}INPUTS@{ub}
+    newnode - the node to insert
+    curnode - the curent node
+
+@{b}RESULT@{ub}
+    -
+
+@{b}EXAMPLE@{ub}
+    @{b}InsertBefore@{ub}(newnode,activenode);
+
+@{b}SEE ALSO@{ub}
+    @{"InsertAfter" Link "InsertAfter"},@{"InsertAt" Link "InsertAt"}
+
+@endnode
+@Node "InsertByNameAsc" "listtools/InsertByNameAsc"
+@{fg shine}listtools/InsertByNameAsc@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}InsertByNameAsc@{ub} -- insert new element sorted by ascending names
+@{ub}
+@{b}SYNOPSIS@{ub}
+    @{b}InsertByNameAsc@{ub}(list,node)
+                    a0   a1
+    void @{b}InsertByNameAsc@{ub}(struct List *,struct Node *)
+
+@{b}FUNCTION@{ub}
+
+
+@{b}INPUTS@{ub}
+    list - the list to insert node into
+    node - the node to insert
+
+@{b}RESULT@{ub}
+    -
+
+@{b}EXAMPLE@{ub}
+    @{b}InsertByNameAsc@{ub}(list,node);
+
+@{b}SEE ALSO@{ub}
+    @{"InsertByNameDesc" Link "InsertByNameDesc"}
+
+@endnode
+@Node "InsertByNameDesc" "listtools/InsertByNameDesc"
+@{fg shine}listtools/InsertByNameDesc@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}InsertByNameDesc@{ub} -- insert new element sorted by descending names
+@{ub}
+@{b}SYNOPSIS@{ub}
+    @{b}InsertByNameDesc@{ub}(list,node)
+                     a0   a1
+    void @{b}InsertByNameDesc@{ub}(struct List *,struct Node *)
+
+@{b}FUNCTION@{ub}
+
+
+@{b}INPUTS@{ub}
+    list - the list to insert node into
+    node - the node to insert
+
+@{b}RESULT@{ub}
+    -
+
+@{b}EXAMPLE@{ub}
+    @{b}InsertByNameDesc@{ub}(list,node);
+
+@{b}SEE ALSO@{ub}
+    @{"InsertByNameAsc" Link "InsertByNameAsc"}
+
+@endnode
+@Node "InsertByPriAsc" "listtools/InsertByPriAsc"
+@{fg shine}listtools/InsertByPriAsc@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}InsertByPriAsc@{ub} -- insert new element sorted by ascending priorities
+@{ub}
+@{b}SYNOPSIS@{ub}
+
+
+@{b}FUNCTION@{ub}
+
+
+@{b}INPUTS@{ub}
+
+
+@{b}RESULT@{ub}
+
+
+@{b}EXAMPLE@{ub}
+
+
+@{b}NOTES@{ub}
+
+
+@{b}BUGS@{ub}
+@{fg shine}
+@{fg text}
+@{b}SEE ALSO@{ub}
+
+
+@endnode
+@Node "InsertByPriDesc" "listtools/InsertByPriDesc"
+@{fg shine}listtools/InsertByPriDesc@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}InsertByPriDesc@{ub} -- insert new element sorted by descending priorities
+@{ub}
+@{b}SYNOPSIS@{ub}
+
+
+@{b}FUNCTION@{ub}
+
+
+@{b}INPUTS@{ub}
+
+
+@{b}RESULT@{ub}
+
+
+@{b}EXAMPLE@{ub}
+
+
+@{b}NOTES@{ub}
+
+
+@{b}BUGS@{ub}
+@{fg shine}
+@{fg text}
+@{b}SEE ALSO@{ub}
+
+
+@endnode
+@Node "InsertUserAsc" "listtools/InsertUserAsc"
+@{fg shine}listtools/InsertUserAsc@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}InsertUserAsc@{ub} -- insert new element sorted ascending according to user function
+@{ub}
+@{b}SYNOPSIS@{ub}
+
+
+@{b}FUNCTION@{ub}
+
+
+@{b}INPUTS@{ub}
+
+
+@{b}RESULT@{ub}
+
+
+@{b}EXAMPLE@{ub}
+
+
+@{b}NOTES@{ub}
+
+
+@{b}BUGS@{ub}
+@{fg shine}
+@{fg text}
+@{b}SEE ALSO@{ub}
+
+
+@endnode
+@Node "InsertUserDesc" "listtools/InsertUserDesc"
+@{fg shine}listtools/InsertUserDesc@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}InsertUserDesc@{ub} -- insert new element sorted ascending according to user function
+@{ub}
+@{b}SYNOPSIS@{ub}
+
+
+@{b}FUNCTION@{ub}
+
+
+@{b}INPUTS@{ub}
+
+
+@{b}RESULT@{ub}
+
+
+@{b}EXAMPLE@{ub}
+
+
+@{b}NOTES@{ub}
+
+
+@{b}BUGS@{ub}
+@{fg shine}
+@{fg text}
+@{b}SEE ALSO@{ub}
+
+
+@endnode
+@Node "IsEndOfList" "listtools/IsEndOfList"
+@{fg shine}listtools/IsEndOfList@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}IsEndOfList@{ub} -- is the end of this list reached
+@{ub}
+@{b}SYNOPSIS@{ub}
+    BOOL @{b}IsEndOfList@{ub}(struct List *list, struct Node *node)
+
+@{b}FUNCTION@{ub}
+
+
+@{b}INPUTS@{ub}
+
+
+@{b}RESULT@{ub}
+
+
+@{b}EXAMPLE@{ub}
+
+
+@{b}NOTES@{ub}
+
+
+@{b}BUGS@{ub}
+@{fg shine}
+@{fg text}
+@{b}SEE ALSO@{ub}
+
+
+@endnode
+@Node "IsFirstOfList" "listtools/IsFirstOfList"
+@{fg shine}listtools/IsFirstOfList@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}IsFirstOfList@{ub} -- is element the first of this list
+@{ub}
+@{b}SYNOPSIS@{ub}
+    BOOL @{b}IsFirstOfList@{ub}(struct List *list, struct Node *node)
+
+@{b}FUNCTION@{ub}
+
+
+@{b}INPUTS@{ub}
+
+
+@{b}RESULT@{ub}
+
+
+@{b}EXAMPLE@{ub}
+
+
+@{b}NOTES@{ub}
+
+
+@{b}BUGS@{ub}
+@{fg shine}
+@{fg text}
+@{b}SEE ALSO@{ub}
+
+
+@endnode
+@Node "IsLastOfList" "listtools/IsLastOfList"
+@{fg shine}listtools/IsLastOfList@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}IsLastOfList@{ub} -- is element the last of this list
+@{ub}
+@{b}SYNOPSIS@{ub}
+    BOOL @{b}IsLastOfList@{ub}(struct List *list, struct Node *node)
+
+@{b}FUNCTION@{ub}
+
+
+@{b}INPUTS@{ub}
+
+
+@{b}RESULT@{ub}
+
+
+@{b}EXAMPLE@{ub}
+
+
+@{b}NOTES@{ub}
+
+
+@{b}BUGS@{ub}
+@{fg shine}
+@{fg text}
+@{b}SEE ALSO@{ub}
+
+
+@endnode
+@Node "RemoveAt" "listtools/RemoveAt"
+@{fg shine}listtools/RemoveAt@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}RemoveAt@{ub} -- remove an element at given position
+@{ub}
+@{b}SYNOPSIS@{ub}
+    oldnode=@{b}RemoveAt@{ub}(list,index)
+                     a0   d0
+    struct Node *@{b}RemoveAt@{ub}(struct List *,ULONG)
+
+@{b}FUNCTION@{ub}
+
+
+@{b}INPUTS@{ub}
+    list    - the list to insert node into
+    index   - the position to remove the node from
+
+@{b}RESULT@{ub}
+    oldnode - the removed node
+
+@{b}EXAMPLE@{ub}
+    oldnode=@{b}RemoveAt@{ub}(list,5);
+
+@{b}SEE ALSO@{ub}
+    @{"InsertBefore" Link "InsertBefore"},@{"InsertAfter" Link "InsertAfter"},@{"InsertAt" Link "InsertAt"}
+
+@endnode
+@Node "ReverseList" "listtools/ReverseList"
+@{fg shine}listtools/ReverseList@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}ReverseList@{ub} -- reverse the order of all nodes
+@{ub}
+@{b}SYNOPSIS@{ub}
+    @{b}ReverseList@{ub}(list)
+                a0
+    @{b}ReverseList@{ub}(struct List *)
+
+@{b}FUNCTION@{ub}
+
+
+@{b}INPUTS@{ub}
+    list - list to reverse order of nodes
+
+@{b}RESULT@{ub}
+    -
+
+@{b}EXAMPLE@{ub}
+    @{b}ReverseList@{ub}(list)
+
+@{b}SEE ALSO@{ub}
+
+
+@endnode
+@Node "SortByNameAsc" "listtools/SortByNameAsc"
+@{fg shine}listtools/SortByNameAsc@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}SortByNameAsc@{ub} -- sort by ascending names
+@{ub}
+@{b}SYNOPSIS@{ub}
+
+
+@{b}FUNCTION@{ub}
+
+
+@{b}INPUTS@{ub}
+
+
+@{b}RESULT@{ub}
+
+
+@{b}EXAMPLE@{ub}
+
+
+@{b}NOTES@{ub}
+
+
+@{b}BUGS@{ub}
+@{fg shine}
+@{fg text}
+@{b}SEE ALSO@{ub}
+
+
+@endnode
+@Node "SortByNameDesc" "listtools/SortByNameDesc"
+@{fg shine}listtools/SortByNameDesc@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}SortByNameDesc@{ub} -- sort by descending names
+@{ub}
+@{b}SYNOPSIS@{ub}
+
+
+@{b}FUNCTION@{ub}
+
+
+@{b}INPUTS@{ub}
+
+
+@{b}RESULT@{ub}
+
+
+@{b}EXAMPLE@{ub}
+
+
+@{b}NOTES@{ub}
+
+
+@{b}BUGS@{ub}
+@{fg shine}
+@{fg text}
+@{b}SEE ALSO@{ub}
+
+
+@endnode
+@Node "SortByPriAsc" "listtools/SortByPriAsc"
+@{fg shine}listtools/SortByPriAsc@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}SortByPriAsc@{ub} -- sort by ascending priorities
+@{ub}
+@{b}SYNOPSIS@{ub}
+
+
+@{b}FUNCTION@{ub}
+
+
+@{b}INPUTS@{ub}
+
+
+@{b}RESULT@{ub}
+
+
+@{b}EXAMPLE@{ub}
+
+
+@{b}NOTES@{ub}
+
+
+@{b}BUGS@{ub}
+@{fg shine}
+@{fg text}
+@{b}SEE ALSO@{ub}
+
+
+@endnode
+@Node "SortByPriDesc" "listtools/SortByPriDesc"
+@{fg shine}listtools/SortByPriDesc@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}SortByPriDesc@{ub} -- sort by descending priorities
+@{ub}
+@{b}SYNOPSIS@{ub}
+
+
+@{b}FUNCTION@{ub}
+
+
+@{b}INPUTS@{ub}
+
+
+@{b}RESULT@{ub}
+
+
+@{b}EXAMPLE@{ub}
+
+
+@{b}NOTES@{ub}
+
+
+@{b}BUGS@{ub}
+@{fg shine}
+@{fg text}
+@{b}SEE ALSO@{ub}
+
+
+@endnode
+@Node "SortUserAsc" "listtools/SortUserAsc"
+@{fg shine}listtools/SortUserAsc@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}SortUserAsc@{ub} -- sort ascending according to user function
+@{ub}
+@{b}SYNOPSIS@{ub}
+
+
+@{b}FUNCTION@{ub}
+
+
+@{b}INPUTS@{ub}
+
+
+@{b}RESULT@{ub}
+
+
+@{b}EXAMPLE@{ub}
+
+
+@{b}NOTES@{ub}
+
+
+@{b}BUGS@{ub}
+@{fg shine}
+@{fg text}
+@{b}SEE ALSO@{ub}
+
+
+@endnode
+@Node "SortUserDesc" "listtools/SortUserDesc"
+@{fg shine}listtools/SortUserDesc@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}SortUserDesc@{ub} -- sort descending according to user function
+@{ub}
+@{b}SYNOPSIS@{ub}
+
+
+@{b}FUNCTION@{ub}
+
+
+@{b}INPUTS@{ub}
+
+
+@{b}RESULT@{ub}
+
+
+@{b}EXAMPLE@{ub}
+
+
+@{b}NOTES@{ub}
+
+
+@{b}BUGS@{ub}
+@{fg shine}
+@{fg text}
+@{b}SEE ALSO@{ub}
+
+
+@endnode
+@Node "foreach" "listtools/foreach"
+@{fg shine}listtools/foreach@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}foreach@{ub} -- iterate through the whole list
+@{ub}
+@{b}SYNOPSIS@{ub}
+    @{b}foreach@{ub}(struct Node *node,struct List *list)
+
+@{b}FUNCTION@{ub}
+
+
+@{b}INPUTS@{ub}
+
+
+@{b}RESULT@{ub}
+
+
+@{b}EXAMPLE@{ub}
+    @{b}foreach@{ub}(node,list) puts(node->ln_Name);
+
+    i=0;
+    @{b}foreach@{ub}(node,list)
+    {
+       printf("list[%2d]=\\"%s\\"\\n",i++,(node->ln_Name));
+    }
+
+
+@{b}NOTES@{ub}
+
+
+@{b}BUGS@{ub}
+@{fg shine}
+@{fg text}
+@{b}SEE ALSO@{ub}
+
+
+@endnode
+@Node "lt-access.c" "listtools/lt-access.c"
+@{fg shine}listtools/lt-access.c@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}lt-access.c@{ub}
+@{ub}
+@{b}COPYRIGHT@{ub}
+    $VER: @{b}lt-access.c@{ub} 1.00 (27.08.00) © by Stefan Kost 1998-2000
+
+@{b}FUNCTION@{ub}
+    element access via index,name and node - definitions
+
+@{b}AUTHOR@{ub}
+@{i}    Stefan Kost
+@{ui}
+@{b}CREATION DATE@{ub}
+    05.Jun.1999
+
+@{b}MODIFICATION HISTORY@{ub}
+    27.Aug.2000 V 1.00  most recent version
+    05.Jun.1999 V 0.00  initial version
+
+@{b}NOTES@{ub}
+
+
+@endnode
+@Node "lt-access.h" "listtools/lt-access.h"
+@{fg shine}listtools/lt-access.h@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}lt-access.h@{ub}
+@{ub}
+@{b}COPYRIGHT@{ub}
+    $VER: @{b}lt-access.h@{ub} 1.00 (27.08.00) © by Stefan Kost 1998-2000
+
+@{b}FUNCTION@{ub}
+    element access via index,name and node - declarations
+
+@{b}AUTHOR@{ub}
+@{i}    Stefan Kost
+@{ui}
+@{b}CREATION DATE@{ub}
+    05.Jun.1999
+
+@{b}MODIFICATION HISTORY@{ub}
+    27.Aug.2000 V 1.00  most recent version
+    05.Jun.1999 V 0.00  initial version
+
+@{b}NOTES@{ub}
+
+
+@endnode
+@Node "lt-array.c" "listtools/lt-array.c"
+@{fg shine}listtools/lt-array.c@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}lt-array.c@{ub}
+@{ub}
+@{b}COPYRIGHT@{ub}
+    $VER: @{b}lt-array.c@{ub} 1.00 (05.06.99) © by Stefan Kost 1998-1999
+
+@{b}FUNCTION@{ub}
+    array export - definitions
+
+@{b}AUTHOR@{ub}
+@{i}    Stefan Kost
+@{ui}
+@{b}CREATION DATE@{ub}
+    05.Jun.1999
+
+@{b}MODIFICATION HISTORY@{ub}
+    05.Jun.1999 V 1.00  most recent version
+    05.Jun.1999 V 0.00  initial version
+
+@{b}NOTES@{ub}
+
+
+@endnode
+@Node "lt-array.h" "listtools/lt-array.h"
+@{fg shine}listtools/lt-array.h@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}lt-array.h@{ub}
+@{ub}
+@{b}COPYRIGHT@{ub}
+    $VER: @{b}lt-array.h@{ub} 1.00 (05.06.99) © by Stefan Kost 1998-1999
+
+@{b}FUNCTION@{ub}
+    array export - declarations
+
+@{b}AUTHOR@{ub}
+@{i}    Stefan Kost
+@{ui}
+@{b}CREATION DATE@{ub}
+    05.Jun.1999
+
+@{b}MODIFICATION HISTORY@{ub}
+    05.Jun.1999 V 1.00  most recent version
+    05.Jun.1999 V 0.00  initial version
+
+@{b}NOTES@{ub}
+
+
+@endnode
+@Node "lt-includes.h" "listtools/lt-includes.h"
+@{fg shine}listtools/lt-includes.h@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}lt-includes.h@{ub}
+@{ub}
+@{b}COPYRIGHT@{ub}
+    $VER: @{b}lt-includes.h@{ub} 1.00 (05.06.99) © by Stefan Kost 1998-1999
+
+@{b}FUNCTION@{ub}
+    main include file
+
+@{b}AUTHOR@{ub}
+@{i}    Stefan Kost
+@{ui}
+@{b}CREATION DATE@{ub}
+    05.Jun.1998
+
+@{b}MODIFICATION HISTORY@{ub}
+    05.Jun.1999 V 1.00  most recent version
+    05.Jun.1998 V 0.00  initial version
+
+@{b}NOTES@{ub}
+
+
+@endnode
+@Node "lt-insert.c" "listtools/lt-insert.c"
+@{fg shine}listtools/lt-insert.c@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}lt-insert.c@{ub}
+@{ub}
+@{b}COPYRIGHT@{ub}
+    $VER: @{b}lt-insert.c@{ub} 1.00 (06.06.99) © by Stefan Kost 1998-1999
+
+@{b}FUNCTION@{ub}
+    insert nodes - definitions
+
+@{b}AUTHOR@{ub}
+@{i}    Stefan Kost
+@{ui}
+@{b}CREATION DATE@{ub}
+    05.Jun.1999
+
+@{b}MODIFICATION HISTORY@{ub}
+    06.Jun.1999 V 1.00  most recent version
+    05.Jun.1999 V 0.00  initial version
+
+@{b}NOTES@{ub}
+
+
+@endnode
+@Node "lt-insert.h" "listtools/lt-insert.h"
+@{fg shine}listtools/lt-insert.h@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}lt-insert.h@{ub}
+@{ub}
+@{b}COPYRIGHT@{ub}
+    $VER: @{b}lt-insert.h@{ub} 1.00 (06.06.99) © by Stefan Kost 1998-1999
+
+@{b}FUNCTION@{ub}
+    insert nodes - declarations
+
+@{b}AUTHOR@{ub}
+@{i}    Stefan Kost
+@{ui}
+@{b}CREATION DATE@{ub}
+    05.Jun.1999
+
+@{b}MODIFICATION HISTORY@{ub}
+    06.Jun.1999 V 1.00  most recent version
+    05.Jun.1999 V 0.00  initial version
+
+@{b}NOTES@{ub}
+
+
+@endnode
+@Node "lt-main.c" "listtools/lt-main.c"
+@{fg shine}listtools/lt-main.c@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}lt-main.c@{ub}
+@{ub}
+@{b}COPYRIGHT@{ub}
+    $VER: @{b}lt-main.c@{ub} 1.00 (05.06.99) © by Stefan Kost 1998-1999
+
+@{b}FUNCTION@{ub}
+    init & done routines - definitions
+
+@{b}AUTHOR@{ub}
+@{i}    Stefan Kost
+@{ui}
+@{b}CREATION DATE@{ub}
+    02.Jun.1999
+
+@{b}MODIFICATION HISTORY@{ub}
+    05.Jun.1999 V 1.00  most recent version
+    02.Jun.1999 V 0.00  initial version
+
+@{b}NOTES@{ub}
+
+
+@endnode
+@Node "lt-main.h" "listtools/lt-main.h"
+@{fg shine}listtools/lt-main.h@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}lt-main.h@{ub}
+@{ub}
+@{b}COPYRIGHT@{ub}
+    $VER: @{b}lt-main.h@{ub} 1.00 (03.06.99) © by Stefan Kost 1998-1999
+
+@{b}FUNCTION@{ub}
+    init & done routines - declarations
+
+@{b}AUTHOR@{ub}
+@{i}    Stefan Kost
+@{ui}
+@{b}CREATION DATE@{ub}
+    20.Aug.1998
+
+@{b}MODIFICATION HISTORY@{ub}
+    03.Jun.1999 V 1.00  most recent version
+    02.Jun.1999 V 0.00  initial version
+
+@{b}NOTES@{ub}
+
+
+@endnode
+@Node "lt-misc.c" "listtools/lt-misc.c"
+@{fg shine}listtools/lt-misc.c@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}lt-misc.c@{ub}
+@{ub}
+@{b}COPYRIGHT@{ub}
+    $VER: @{b}lt-misc.c@{ub} 1.00 (06.06.99) © by Stefan Kost 1998-1999
+
+@{b}FUNCTION@{ub}
+    miscellaneous - definitions
+
+@{b}AUTHOR@{ub}
+@{i}    Stefan Kost
+@{ui}
+@{b}CREATION DATE@{ub}
+    05.Jun.1999
+
+@{b}MODIFICATION HISTORY@{ub}
+    06.Jun.1999 V 1.00  most recent version
+    05.Jun.1999 V 0.00  initial version
+
+@{b}NOTES@{ub}
+
+
+@endnode
+@Node "lt-misc.h" "listtools/lt-misc.h"
+@{fg shine}listtools/lt-misc.h@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}lt-misc.h@{ub}
+@{ub}
+@{b}COPYRIGHT@{ub}
+    $VER: @{b}lt-misc.h@{ub} 1.00 (06.06.99) © by Stefan Kost 1998-1999
+
+@{b}FUNCTION@{ub}
+    miscellaneous - declarations
+
+@{b}AUTHOR@{ub}
+@{i}    Stefan Kost
+@{ui}
+@{b}CREATION DATE@{ub}
+    05.Jun.1999
+
+@{b}MODIFICATION HISTORY@{ub}
+    06.Jun.1999 V 1.00  most recent version
+    05.Jun.1999 V 0.00  initial version
+
+@{b}NOTES@{ub}
+
+
+@endnode
+@Node "lt-remove.c" "listtools/lt-remove.c"
+@{fg shine}listtools/lt-remove.c@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}lt-remove.c@{ub}
+@{ub}
+@{b}COPYRIGHT@{ub}
+    $VER: @{b}lt-remove.c@{ub} 1.00 (26.08.00) © by Stefan Kost 1998-2000
+
+@{b}FUNCTION@{ub}
+    remove nodes - definitions
+
+@{b}AUTHOR@{ub}
+@{i}    Stefan Kost
+@{ui}
+@{b}CREATION DATE@{ub}
+    26.Aug.2000
+
+@{b}MODIFICATION HISTORY@{ub}
+    26.Aug.2000 V 1.00  most recent version
+    26.Aug.2000 V 0.00  initial version
+
+@{b}NOTES@{ub}
+
+
+@endnode
+@Node "lt-remove.h" "listtools/lt-remove.h"
+@{fg shine}listtools/lt-remove.h@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}lt-remove.h@{ub}
+@{ub}
+@{b}COPYRIGHT@{ub}
+    $VER: @{b}lt-remove.h@{ub} 1.00 (26.08.00) © by Stefan Kost 1998-2000
+
+@{b}FUNCTION@{ub}
+    remove nodes - declarations
+
+@{b}AUTHOR@{ub}
+@{i}    Stefan Kost
+@{ui}
+@{b}CREATION DATE@{ub}
+    26.Aug.2000
+
+@{b}MODIFICATION HISTORY@{ub}
+    26.Aug.2000 V 1.00  most recent version
+    26.Aug.2000 V 0.00  initial version
+
+@{b}NOTES@{ub}
+
+
+@endnode
+@Node "lt-sort.c" "listtools/lt-sort.c"
+@{fg shine}listtools/lt-sort.c@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}lt-sort.c@{ub}
+@{ub}
+@{b}COPYRIGHT@{ub}
+    $VER: @{b}lt-sort.c@{ub} 1.00 (06.06.99) © by Stefan Kost 1998-1999
+
+@{b}FUNCTION@{ub}
+    list sorting - definitions
+
+@{b}AUTHOR@{ub}
+@{i}    Stefan Kost
+@{ui}
+@{b}CREATION DATE@{ub}
+    05.Jun.1999
+
+@{b}MODIFICATION HISTORY@{ub}
+    06.Jun.1999 V 1.00  most recent version
+    05.Jun.1999 V 0.00  initial version
+
+@{b}NOTES@{ub}
+
+
+@endnode
+@Node "lt-sort.h" "listtools/lt-sort.h"
+@{fg shine}listtools/lt-sort.h@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}lt-sort.h@{ub}
+@{ub}
+@{b}COPYRIGHT@{ub}
+    $VER: @{b}lt-sort.h@{ub} 1.00 (06.06.99) © by Stefan Kost 1998-1999
+
+@{b}FUNCTION@{ub}
+    list sorting - declarations
+
+@{b}AUTHOR@{ub}
+@{i}    Stefan Kost
+@{ui}
+@{b}CREATION DATE@{ub}
+    05.Jun.1999
+
+@{b}MODIFICATION HISTORY@{ub}
+    06.Jun.1999 V 1.00  most recent version
+    05.Jun.1999 V 0.00  initial version
+
+@{b}NOTES@{ub}
+
+
+@endnode
+

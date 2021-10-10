@@ -1,0 +1,21 @@
+; test installer script
+
+(SET copykey 1)
+(COPYFILES
+  (SOURCE "sfx.key")
+  (DEST "ram:")
+  (OPTIONAL "nofail")
+)
+(TRAP 4 (SET copykey 0))
+
+(IF (= copykey 0)
+(
+  (SET copykey 1)
+  (COPYFILES
+    (SOURCE "sfx.key_1")
+    (DEST "ram:")
+    (NEWNAME "sfx.key")
+    (OPTIONAL "nofail")
+  )
+  (TRAP 4 (SET copykey 0))
+))

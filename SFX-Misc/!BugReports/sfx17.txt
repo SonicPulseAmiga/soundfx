@@ -1,0 +1,39 @@
+From - Wed Jan  6 08:11:18 1999
+From: Falcon <thunderchild@wtal.de>
+To: Stefan Kost <kost@imn.htwk-leipzig.de>
+Date: Tue, 05 Jan 1999 22:51:13 +0000
+Subject: Hilfe & Anregungen zu SFX.
+
+Moin, moin Stefan,
+
+leider muß ich Dich schon wieder mal ´nerven´.
+Gibt´s die Anleitung zu SFX auch komplett (!) in deutsch ? - Falls ja, dann aber
+nicht im Aminet, daher hab´ ich das Proggi nämlich.
+Meine Guide (von Deiner Disk) ist nämlich leider zur Hälfte in englisch.
+Wichtig ist eigentlich nur die Arexx-Implementierung. Ich habe nämlich einige
+Probleme mit der Arexx-Einbindung der SFX-Operatoren. Z.B. schaffe ich´s
+einfach nicht, den Mix-Operator fehlerfrei einzubinden (bitte nicht lachen...).
+Vielleicht bin ich ja auch nur wieder mal zu doof dazu...
+
+Außerdem hätte ich da noch ´n paar Ideen für weitere Arexx-Befehle
+(Die von mir verwendeten Befehle sind nur Anregungen):
+
+1) SFX_GETSAMPLELIST (oder ähnlich): Gibt eine komplette Liste aller im
+    Speicher befindlichen Samplenamen und Buffer-ID's aus.
+2) SFX_ISSAMPLEVIRTUAL (oder so): Gibt Auskunft, ob ein Sample z. Zt. im			(DONE : GetStorageType)
+    virtuellen Speicher oder im echten Ram liegt.
+3) SFX_GETMEMSTATUS: Gibt zurück, ob und wieviel virtueller Speicher für
+    SFX zur Verfügung steht (Gesamtgröße).
+4)  SFX_GETFREEMEM: Gibt den freien Speicher (auch virtuell) zurück, den
+    SFX noch nicht benutzt. Könnte man evtl. auch mit 3) zusammenlegen.
+5) SFX_GETLENGTH: Ich weiß, den gibt´s schon, aber könntest Du den
+    Befehl nicht so erweitern, daß er auch die tatsächliche Samplegröße in
+    Bytes ausgibt ?
+5) SFX_GETUSERINFO: Gibt (bei registrierten Versionen) den Usernamen				(DONE : GetUserInfo)
+    zurück (... nur den Namen und die Seriennr., wegen dem Datenschutz... ;-))).
+    Bei unregistreirten Versionen könnte er z.B. UNREGISTRIERT ausgeben.
+6) SFX_GETTIME: Gibt aus, wieviel Zeit die letzte Berechnung benötigt hat.
+
+Viele Grüße,
+
+thunderchild@wtal.de (Andreas L.)

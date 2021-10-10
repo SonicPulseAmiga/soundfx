@@ -1,0 +1,5 @@
+#define PRJ_VERSION		0
+#define PRJ_REVISION	00
+#define PRJ_BUILD		1
+#define PRJ_NAME		"toolbar"
+//#define PRJ_VERS		PRJ_NAME" "NUM2STR(PRJ_VERSION)"."NUM2STR(PRJ_REVISION)"."NUM2STR(PRJ_BUILD)" "__AMIGADATE__" © 1999-1999 by Stefan Kost"

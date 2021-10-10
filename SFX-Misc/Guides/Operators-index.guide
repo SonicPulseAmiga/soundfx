@@ -1,0 +1,87 @@
+@database SFX
+
+@Remark (C) Copyright 1993-1996 Stefan Kost
+@Remark All Rights Reserved
+@Remark $VER: Operators-Index.guide (--.--.--)
+@Remark AmigaGuide-OnLine-Hilfe für SoundFX
+
+@master /guides/sfx.guide
+@index /guides/sfx-index.guide/index
+
+@node main "Operators-Index"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Operators-Index
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+@{" General Information " link Operators.guide/main }
+@{" Amplify             " link /_Operators/Amplify.guide/main }		Dynamic,Volume
+@{" AmplifySplit        " link /_Operators/AmplifySplit.guide/main }		Dynamic,Volume
+@{" Analyse-Data        " link /_Operators/Analyse-Data.guide/main }		Analysis
+@{" Analyse-Spect2D     " link /_Operators/Analyse-Spect2D.guide/main }		Analysis
+@{" Analyse-Spect3D     " link /_Operators/Analyse-Spect3D.guide/main }		Analysis
+@{" Analyse-Stereo      " link /_Operators/Analyse-Stereo.guide/main }		Analysis
+@{" ChannelJoin         " link /_Operators/ChannelJoin.guide/main }		Tool
+@{" ChannelSplit        " link /_Operators/ChannelSplit.guide/main }		Tool
+@{" ChorusPhaser        " link /_Operators/ChorusPhaser.guide/main }		Frequency
+@{" ConvertChannels     " link /_Operators/ConvertChannels.guide/main }		Tool
+@{" Convolve            " link /_Operators/Convolve.guide/main }		Delay,Room,Hall,Echo
+@{" CrossTalk           " link /_Operators/CrossTalk.guide/main }		Quality
+@{" DeCrackle           " link /_Operators/DeCrackle.guide/main }		Quality
+@{" DeNoise-FFT         " link /_Operators/DeNoise-FFT.guide/main }		Quality
+@{" DeNoise-FIR         " link /_Operators/DeNoise-FIR.guide/main }		Quality
+@{" Delay               " link /_Operators/Delay.guide/main }		Delay,Room,Hall,Echo
+@{" DelayPlus           " link /_Operators/DelayPlus.guide/main }		Delay,Room,Hall,Echo,Frequency
+@{" Detune              " link /_Operators/Detune.guide/main }		Frequency,Tuning
+@{" Distorsion          " link /_Operators/Distorsion.guide/main }		FX
+@{" Duplicate           " link /_Operators/Duplicate.guide/main }		Tool
+@{" Dynamic             " link /_Operators/Dynamic.guide/main }		Dynamic,Volume
+@{" Echo                " link /_Operators/Echo.guide/main }		Delay,Room,Hall,Echo
+@{" Equalize-FFT        " link /_Operators/Equalize-FFT.guide/main }		Frequency,Tuning
+@{" Equalize-FFT-3D     " link /_Operators/Equalize-FFT-3D.guide/main }		Frequency,Tuning
+@{" Filter-CRSHiPass    " link /_Operators/Filter-CRSHiPass.guide/main }		Frequency,Tuning
+@{" Filter-CRSLowPass   " link /_Operators/Filter-CRSLowPass.guide/main }		Frequency,Tuning
+@{" Filter-FIRBandPass  " link /_Operators/Filter-FIRBandPass.guide/main }		Frequency,Tuning
+@{" Filter-FIRBandStop  " link /_Operators/Filter-FIRBandStop.guide/main }		Frequency,Tuning
+@{" Filter-FIRHiPass    " link /_Operators/Filter-FIRHiPass.guide/main }		Frequency,Tuning
+@{" Filter-FIRLowPass   " link /_Operators/Filter-FIRLowPass.guide/main }		Frequency,Tuning
+@{" Filter-FIRMatrix    " link /_Operators/Filter-FIRMatrix.guide/main }		Frequency,Tuning
+@{" Filter-FIRMutate    " link /_Operators/Filter-FIRMutate.guide/main }		Frequency,Tuning
+@{" Filter-StateVariable" link /_Operators/Filter-StateVariable.guide/main }		Frequency,Tuning
+@{" Fold                " link /_Operators/Fold.guide/main }		FX
+@{" Gamma               " link /_Operators/Gamma.guide/main }		Frequency,Tuning,Volume
+@{" Hall                " link /_Operators/Hall.guide/main }		Delay,Room,Hall,Echo
+@{" Hall2               " link /_Operators/Hall2.guide/main }		Delay,Room,Hall,Echo
+@{" Invert              " link /_Operators/Invert.guide/main }		Dynamic
+@{" Logic               " link /_Operators/Logic.guide/main }		FX
+@{" Middle              " link /_Operators/Middle.guide/main }		Quality
+@{" Mix                 " link /_Operators/Mix.guide/main }		Mix
+@{" Mix-3D              " link /_Operators/Mix-3D.guide/main }		Mix
+@{" Morph-FFT           " link /_Operators/Morph-FFT.guide/main }		Frequency
+@{" MultiDelay          " link /_Operators/MultiDelay.guide/main }		Delay,Room,Hall,Echo
+@{" Noise               " link /_Operators/Noise.guide/main }		Synthesis
+@{" NoiseGate           " link /_Operators/NoiseGate.guide/main }		Quality
+@{" Panorama-2Ch        " link /_Operators/Panorama-2Ch.guide/main }		FX
+@{" Panorama-4Ch        " link /_Operators/Panorama-4Ch.guide/main }		FX
+@{" PhaseShift          " link /_Operators/PhaseShift.guide/main }		Frequency,Tuning, Psychoacoustic
+@{" PitchShift          " link /_Operators/PitchShift.guide/main }		Frequency,Tuning
+@{" QuantizeHoriz       " link /_Operators/QuantizeHoriz.guide/main }		FX
+@{" QuantizeVert        " link /_Operators/QuantizeVert.guide/main }		FX
+@{" Resample            " link /_Operators/Resample.guide/main }		Frequency,Tuning
+@{" Reverse             " link /_Operators/Reverse.guide/main }		FX
+@{" Room                " link /_Operators/Room.guide/main }		Delay,Room,Hall,Echo
+@{" SampleJoin          " link /_Operators/SampleJoin.guide/main }		Tool
+@{" SampleSplit         " link /_Operators/SampleSplit.guide/main }		Tool
+@{" Shorten             " link /_Operators/Shorten.guide/main }		Quality
+@{" Slide               " link /_Operators/Slide.guide/main }		FX
+@{" Smear               " link /_Operators/Smear.guide/main }		Frequency
+@{" Subtract            " link /_Operators/Subtract.guide/main }		FX
+@{" SurroundEncoder     " link /_Operators/SurroundEncoder.guide/main }		Tool
+@{" Swap                " link /_Operators/Swap.guide/main }		FX
+@{" Synthesize-Add      " link /_Operators/Synthesize-Add.guide/main }		Synthesis
+@{" Synthesize-FM       " link /_Operators/Synthesize-FM.guide/main }		Synthesis
+@{" Vocode-FFT          " link /_Operators/Vocode-FFT.guide/main }		Frequency
+@{" ZeroPass            " link /_Operators/ZeroPass.guide/main }		Quality,Volume
+
+@endnode

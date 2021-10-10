@@ -1,0 +1,55 @@
+Subject:
+Re: repulse_error.bin
+From:
+ALiENDESiGN <sales@aliendesign-gbr.de>
+Date:
+Wed, 03 Oct 2001 11:55:51 +0200
+To:
+Stefan Kost <kost@imn.htwk-leipzig.de>
+X-UIDL:
+361df5b50000384a
+X-Mozilla-Status:
+0013
+X-Mozilla-Status2:
+00000000
+Received:
+from proteus.eatserver.de (root@[213.69.39.25]) by imn.htwk-leipzig.de (8.9.1/8.9.1) with ESMTP id NAA09264 for <kost@imn.htwk-leipzig.de>; Wed, 3 Oct 2001 13:30:52 +0200 (MET DST)
+Received:
+(from uucp@localhost) by proteus.eatserver.de (8.9.3/8.9.3) id NAA26025 for <kost@imn.htwk-leipzig.de>; Wed, 3 Oct 2001 13:34:44 +0200
+Received:
+from UNKNOWN(217.5.94.100), claiming to be "aliendesign-gbr.de" via SMTP by proteus, id smtpdOHkBnl; Wed Oct 3 11:34:41 2001
+Message-ID:
+<yam8676.2579.156588648@mail.aliendesign-gbr.de>
+In-Reply-To:
+<yam8627.2498.148118416@smtp.kapott.org>
+X-Mailer:
+YAM 2.3 [020] AmigaOS E-Mail Client (c) 1995-2000 by Marcel Beck http://www.yam.ch/
+MIME-Version:
+1.0
+Content-Transfer-Encoding:
+8bit
+X-MIME-Autoconverted:
+from quoted-printable to 8bit by imn.htwk-leipzig.de id NAA09264
+Content-Type:
+text/plain; charset=iso-8859-1
+Content-Length:
+602
+Status:
+O
+
+Hi Stefan!
+
+Wir haben hier einen User, der folgende Frage stellt. Da ich mich nicht mit
+Musikprogrammen auskenne, wollte ich Dich bitten mir die Frage zu beantworten.
+
+"
+Ist Ihnen ein Tool aehnlich "AHIrecord" bekannt, das bei Digital-Input
+      (von DAT) automatisch bei "Digital-0"-Signal die Aufnahme beendet und
+      bei Flanke von 0 auf ungleich 0 triggert, um ein neues File zu oeffnen
+      und aufzunehmen?
+      Das waere mir sehr hilfreich und ich waere mit der Repulse richtig
+      gluecklich!
+"
+
+-- Mit freundlichen Grüßen Jörg Rebenstorf http://www.aliendesign-gbr.de ALiENDESiGN GbR
+

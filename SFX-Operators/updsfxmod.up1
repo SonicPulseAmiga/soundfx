@@ -1,0 +1,11 @@
+.key PATH/A,NAME/A
+.bra {
+.ket }
+
+; $VER: UpdSfxMod.Up1 1.0 (08.02.98)
+
+;echo {PATH}{NAME}
+;copy {PATH}_TEMPLATES/build#? {PATH}{NAME}/ QUIET
+;copy {PATH}_TEMPLATES/upd#? {PATH}{NAME}/ QUIET
+;copy {PATH}_TEMPLATES/Makefile {PATH}{NAME}/ QUIET
+copy {PATH}_TEMPLATES/src/Makefile {PATH}{NAME}/src/ QUIET

@@ -1,0 +1,36 @@
+
+index.txt erzeugen :
+	pipe list *.html LFORMAT="%m" | sort in: index.txt
+
+	rm index.txt
+	foreach file (*.m4)
+		gg:bin/echo >>index.txt -n |$file
+	end
+	foreach file (*.m4)
+		gg:bin/echo >>index.txt -n |$file
+	end
+	gg:bin/echo >>index.txt -n |
+
+mit tidy html-Files aufräumen :
+	m4 -I../_m4 node06.04.08.m4 | tidy >node06.04.08.html -wrap 0 -q -f nil:
+
+bilder grabben
+	* with sgrab als ilbm
+	* convert with adpro to gif (use screen for rendering)
+	* eventually cut pictures in PPaint
+
+für ps/pdf
+	* in _m4-pspdf ev. html für Druck optimieren
+	* alle Dateien eines Kapitels (nodeXX.*.m4) sortiert
+	  aneinanderhängen -> chapXX.html (html/body-merge)
+	* m4 -I../_m4-pspdf chapXX.m4 >chapXX.html
+	  foreach sort(node$chap.*.m4)
+		echo "<a name="$file"> >>chapXX.html
+	    m4 -I../_m4-pspdf $file | perl bodymerge.pl >>chap$chap.html
+	  echo "</body>\n</html>" >>chapXX.html
+	* bodymerge.pl
+		* entfernt alles bis einschliesslich des <body>-tags
+		* entfernt alles nach einschliesslich des </body>-tags
+		* ändert lokale links (node.XX.YY.ZZ*) nach nach links
+		  auf anker chapXX#$1
+

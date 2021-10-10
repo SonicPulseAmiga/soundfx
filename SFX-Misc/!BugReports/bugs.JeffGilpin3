@@ -1,0 +1,96 @@
+From - Mon Sep  9 12:48:38 2002
+X-UIDL: 361df5b500005f6d
+X-Mozilla-Status: 0001
+X-Mozilla-Status2: 00000000
+Received: from n13.grp.scd.yahoo.com (n13.grp.scd.yahoo.com [66.218.66.68])
+	by imn.htwk-leipzig.de (8.9.1/8.9.1) with SMTP id SAA18933
+	for <kost@imn.htwk-leipzig.de>; Sat, 24 Aug 2002 18:04:30 +0200 (MET DST)
+Received: from [66.218.67.201] by n13.grp.scd.yahoo.com with NNFMP; 24 Aug 2002 16:04:01 -0000
+Received: (EGP: mail-8_1_0_1); 24 Aug 2002 16:03:54 -0000
+Received: (qmail 30279 invoked from network); 24 Aug 2002 16:03:53 -0000
+Received: from unknown (66.218.66.218)
+  by m9.grp.scd.yahoo.com with QMQP; 24 Aug 2002 16:03:53 -0000
+Received: from unknown (HELO mail.site.dejazzd.com) (209.173.31.24)
+  by mta3.grp.scd.yahoo.com with SMTP; 24 Aug 2002 16:03:56 -0000
+Received: from dejazzd.com ([66.109.233.30]) by mail.site.dejazzd.com
+          with SMTP id <20020824155915.JWIS25002.mail@dejazzd.com>
+          for <soundfx-users@yahoogroups.com>;
+          Sat, 24 Aug 2002 11:59:15 -0400
+X-eGroups-Return: sentto-3879093-507-1030205039-kost=imn.htwk-leipzig.de@returns.groups.yahoo.com
+X-Sender: jeg@dejazzd.com
+X-Apparently-To: soundfx-users@yahoogroups.com
+To: soundfx-users@yahoogroups.com
+Message-ID: <yam9001.882.142571696@mail.dejazzd.com>
+X-Mailer: YAM 2.3p1 [020] AmigaOS E-Mail Client (c) 2000-2001 by YAM Open Source Team - http://www.yam.ch/
+From: Jeff Gilpin <jeg@dejazzd.com>
+X-Yahoo-Profile: paraxenic
+MIME-Version: 1.0
+Mailing-List: list soundfx-users@yahoogroups.com; contact soundfx-users-owner@yahoogroups.com
+Delivered-To: mailing list soundfx-users@yahoogroups.com
+Precedence: bulk
+List-Unsubscribe: <mailto:soundfx-users-unsubscribe@yahoogroups.com>
+Date: Sat, 24 Aug 2002 12:01:17 -0500
+Subject: [soundfx-users] New Release
+Reply-To: soundfx-users@yahoogroups.com
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Length: 1938
+Status:  O
+
+Hello,
+
+I've just downloaded the new SoundFX archives and noticed some minor
+problems in the docs. The following HTML pages previously contained
+table of contents links to appropriate pages and are now blank except
+for the headings:
+node.02.01.06.html
+node.02.02.01.html
+node.02.03.01.html
+node.02.04.01.html
+node.o2.05.01.html
+Blank "tables of contents" and lists (list of modules etc.) aren't
+to useful. Was this intentional or an omission??
+
+The links in both PDF manuals are 2 pages off. If you click on a link
+in the table of contents, you must go forward 2 more pages to get
+to the correct page. Maybe this is a problem with APDF. Can someone
+check the PDFs with another PDF reader?
+
+I ended up printing the A4 PDF because the "Letter size" PDF has little
+or no right hand margin. If you print the "letter version" 2-sided, the
+binder holes obscure some of the text because of the lack of a right
+hand margin. Centering the manual on the page would make single sided
+and 2 sided printing possible.
+
+I appreciate the addition of a "letter size" version but I think something
+went wrong with that. The letter size PDF prints to the same page length
+as the A4 version. The text is just bigger and more spread out. Maybe
+someone could try printing a page or two on a different system and let
+me know if this is a problem with my printing setup or the document
+itself.
+
+None of these are problems require immediate attention, but I just thought
+I'd bring them up for attention in a future version of SoundFX. 
+
+Regards,
+-- 
+Jeff
+
+
+
+
+
+------------------------ Yahoo! Groups Sponsor ---------------------~-->
+4 DVDs Free +s&p Join Now
+http://us.click.yahoo.com/pt6YBB/NXiEAA/mG3HAA/mjFolB/TM
+---------------------------------------------------------------------~->
+
+To unsubscribe from this group, send an email to:
+soundfx-users-unsubscribe@yahoogroups.com
+
+ 
+
+Your use of Yahoo! Groups is subject to http://docs.yahoo.com/info/terms/ 
+
+
+

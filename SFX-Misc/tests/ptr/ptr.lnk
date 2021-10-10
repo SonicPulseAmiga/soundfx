@@ -1,0 +1,10 @@
+FROM LIB:c.o "ptr.o"
+TO "ptr"
+LIB LIB:scm881.lib
+    LIB:sc.lib LIB:amiga.lib
+SMALLCODE
+SMALLDATA
+BATCH
+VERBOSE
+DEFINE @__chkabort=@__dummy
+

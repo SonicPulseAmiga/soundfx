@@ -1,0 +1,189 @@
+Subject:
+Re: SoundFX 4.3
+From:
+Daniel Jedlicka <dan.jedlicka@seznam.cz>
+Date:
+Tue, 06 Aug 2002 16:04:51 +0200 (CEST)
+To:
+Stefan Kost <kost@imn.htwk-leipzig.de>
+X-UIDL:
+361df5b500005c6b
+X-Mozilla-Status:
+0011
+X-Mozilla-Status2:
+10000000
+Received:
+from email.seznam.cz (omx.seznam.cz [212.80.76.41]) by imn.htwk-leipzig.de (8.9.1/8.9.1) with SMTP id QAA19547 for <kost@imn.htwk-leipzig.de>; Tue, 6 Aug 2002 16:05:23 +0200 (MET DST)
+Received:
+(qmail 22691 invoked by uid 0); 6 Aug 2002 14:04:53 -0000
+Received:
+from [62.245.96.12] by email.seznam.cz with HTTP; Tue, 06 Aug 2002 16:04:51 +0200 (CEST)
+In-Reply-To:
+<3D4F974B.7070605@imn.htwk-leipzig.de>
+Content-Transfer-Encoding:
+8bit
+Reply-To:
+Daniel Jedlicka <dan.jedlicka@seznam.cz>
+MIME-Version:
+1.0
+Message-ID:
+<6563.26442-10521-803526024-1028642691@seznam.cz>
+Content-Type:
+multipart/mixed;boundary="MessagePart:10286387901431011394"
+Content-Length:
+8339
+Status:
+O
+
+Hello Stefan,
+
+I have downloaded the final 4.2 version and installed it without any
+problems.
+
+Seems that some guys from the m-list had problems with getting the
+right archive. I assume they downloaded an LHA archive, which is out
+of date. It would be a good idea to deactivate the links to the old
+archives until you replace them with the latest ones...
+
+I have, again, written a short news article for the Czech Amiga News.
+Also, as it seems there is no History file distributed with the
+release, I wrote a list of changes (new features and bugfixes) so
+that people can see the progress since V4.1. If you feel anything is
+missing, just add it and send me the updated file back.
+
+See the attachments.
+
+
+
+> now that we are set with 4.2 I would like to initiate the
+> development for version 4.3.
+
+
+If've been waiting for this moment more than for anything else!
+
+
+
+> I sent you a copy of SAS-C along
+
+
+Please do! And please instruct me how to write makefiles - I've never
+done this as StormC doesn't use them. ;-)
+
+
+> sources of SFX (I belive that you will handle them confidentially
+
+
+You can be 100% sure about that.
+
+
+> can you mail me your postal address again?
+
+
+Dan Jedlicka
+Uvoz 24
+60200 Brno
+Czech Republic
+
+
+
+> 2.) I have no plans for new loaders at the moment
+
+
+I do have some plans. Not only have I collected a number of format
+descriptions (SF2, XI, DLS, AVR, AVI audio, PAT, DWD...), I also want
+to update the loader plugin engine to support multi-sample files
+(like soundbanks and modules) in an intelligent way. My idea is as
+follows:
+
+- you load a file, e.g. a soundfont.
+- the plugin reads the sample properties and finds that the file
+contains e.g. 8 waveforms (if there is just one waveform, the plugin
+loads it straight away).
+- a window opens, showing a check-able ReAction listview with the
+names of the samples (by default, all samples are checked)
+- the user selects just the waveforms he wants to load, and presses
+"Load"
+- the desired waveforms are loaded into SFX
+
+Similarly, I want to implement a Save All function. Let's say the
+user has 6 samples open in SFX:
+
+- he selects Save All from the Project menu
+- a window opens, showing a check-able ReAction listview with the
+names of the buffers (by default, all buffers are checked)
+- it will be possible at this point to select/edit saving path and/or
+to create a specific directory for the samples
+- the user selects the buffers he wants to save, and presses "Save"
+- the desired samples are saved
+
+
+
+> 3.) Externalising the prefs and re-writing them to use re-action
+> would be another goal.
+
+
+Right. The program will become smaller and less error-prone. Also, it
+will be possible to run the prefs editor even without running SFX.
+This is helpful e.g. before running SFX for the first time.
+
+
+
+> If that works nicely, other internal SFX windows can follow
+
+
+The Information window would probably be the next one.
+
+
+
+> (I belive that re-action handles the layout like MUI).
+
+
+Absolutely. You don't have to worry about re-sizing and
+font-sensitivity.
+
+
+
+> For the plugins it is difficult to support the localisation,
+> as I don't really want to have those strings in the main catalog
+
+
+Definitely not.
+
+
+
+> but on the other hand don't want to have one catalog per plugin
+> Maybe one catalog for loaders, one for savers and one for
+> operators.
+
+
+Yes, my idea was exactly the same. If anyone wants to develop a new
+plugin, he can use the strings in the particular catalog, which will
+be part of the developer package. If he needs to introduce some new
+strings, he will contact you and you'll update the catalog source.
+
+ 
+
+> * realtime-prehear (I am still thinking about how to specify
+> the range to use for it
+
+
+I wouldn't lose too much sleep about it for now. Just play the sample
+from the beginning (CoolEdit does the same, BTW) and let it play for
+some specific time. Realtime FX preview will be such a breakout on
+the Amiga that people would gladly tolerate this limitation before
+you come up with a new solution {based on FFT analysis?).
+
+
+
+> and even trickier how to trigger playback from an operator
+
+
+What's the problem exactly?
+
+
+Regards,
+DAN
+
+______________________________________________________________________
+Reklama:
+E-mail zdarma na cely zivot: http://email.seznam.cz

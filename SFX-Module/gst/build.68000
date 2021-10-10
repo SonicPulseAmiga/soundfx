@@ -1,0 +1,4 @@
+echo [32m»» making the 68000-Version ...[31m
+copy sc_options/scoptions.68000 scoptions
+delete sfx.68000.gst
+sc allincludes.c

@@ -1,0 +1,16 @@
+FROM LIB:libent.o LIB:libinitr.o "DelayNew.o"
+TO "DelayNew.sfxmod"
+LIB LIB:scm881.lib
+    LIB:sc.lib LIB:amiga.lib
+SMALLCODE
+SMALLDATA
+BATCH
+QUIET
+NOICONS
+DEFINE @__chkabort=@__dummy
+LIBVERSION 1
+LIBREVISION 20
+LIBPREFIX _LIB
+LIBFD //sfx-module/sfx_mod_lib.fd
+
+DEFINE __XCEXIT=_stub

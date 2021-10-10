@@ -1,0 +1,23 @@
+.key VER/A
+.bra {
+.ket }
+
+echo [32m»» making the {VER}-Version ...[31m
+copy FROM SC_OPTIONS/scoptions.rel.{VER} TO scoptions
+
+failat 30
+delete >NIL: #?.o #?.lnk sfx
+delete >NIL: SFX-?-Check#?.? 				; delete old links
+failat 10
+rks											; generate new links
+
+bumpbuild
+
+sc NOLINK									; compile
+
+sc SFX.o SFX-#?.o LINK						; with debuging info
+copy FROM sfx TO SC_VERSIONS/sfx.dbg.{VER}
+delete sfx
+
+sc SFX.o SFX-#?.o LINK STRIPDEBUG			; without debugging info
+copy FROM sfx TO SC_VERSIONS/sfx.{VER}

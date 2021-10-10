@@ -1,0 +1,45 @@
+From - Tue Aug 18 12:46:25 1998
+Received: from dns1.enterprise.net (root@dns1.enterprise.net [194.72.192.3])
+	by imn.htwk-leipzig.de (8.9.1/8.9.1) with ESMTP id VAA03094
+	for <kost@imn.htwk-leipzig.de>; Thu, 13 Aug 1998 21:02:49 +0200 (MET DST)
+Received: from enterprise.net (doncox@max03-150.enterprise.net [194.72.197.150])
+	by dns1.enterprise.net (8.8.5/8.8.5) with SMTP id UAA25676
+	for <kost@imn.htwk-leipzig.de>; Thu, 13 Aug 1998 20:04:19 +0100 (BST)
+From: Don Cox <doncox@enterprise.net>
+To: Stefan Kost <kost@imn.htwk-leipzig.de>
+Date: Thu, 13 Aug 1998 19:51:55 +0100
+Message-ID: <yam7529.2765.148192120@smtp.enterprise.net>
+In-Reply-To: <35D2AC64.522A6E76@imn.htwk-leipzig.de>
+X-Mailer: YAM 2.0 Preview5 - Amiga Mailer by Marcel Beck - http://www.yam.ch
+Subject: Re: SoundFX V3.70
+MIME-Version: 1.0
+Content-Type: text/plain
+Content-Length: 560
+Status:   
+X-Mozilla-Status: 8011
+
+Hello Stefan
+
+
+> Those are (should be) built by SFX automatically, when not
+available.
+> 
+>> It complained about lack of db files, I copied them in from the
+last
+> 
+>> week version. Anyway, it worked after rebooting.
+> 
+> And those as well.
+> Anyway I'll double check it.
+
+It could be that the file building would only work after you reboot,
+not if you just install without rebooting. Especially if it backs up
+the old version - it may not know where to look. Perhaps it just needs
+a "Reboot before using" message.
+
+
+Regards
+-- 
+Don Cox
+doncox@enterprise.net
+

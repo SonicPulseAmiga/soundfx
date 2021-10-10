@@ -1,0 +1,9 @@
+build 68000
+build 68020
+build 68020-881
+build 68030
+build 68030-881
+build 68040-881
+build 68060-881
+m4gen `list *.c LFORMAT="%M" FILES` data:source/sfx/sfx-doc/ger/node02.01.06/ ger
+m4gen `list *.c LFORMAT="%M" FILES` data:source/sfx/sfx-doc/eng/node02.01.06/ eng

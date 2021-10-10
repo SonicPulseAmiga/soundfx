@@ -1,0 +1,26 @@
+; test installer script
+
+(PROCEDURE my_proc1 text
+(
+	(MESSAGE text)
+))
+
+(PROCEDURE my_proc2 text
+(
+	(CAT ">>" text "<<")
+))
+
+(PROCEDURE P_NEWDIR #path #dir
+(
+	(SET #newpath (TACKON #path #dir))
+	(IF (= (EXISTS #newpath) 0)
+		(MAKEDIR #newpath)
+	)
+	(#newpath)
+))
+
+;(my_proc1 "Hallo Du da")
+;(MESSAGE (my_proc2 "Hi Hi"))
+(MESSAGE (P_NEWDIR "ram:" "mydir"))
+(EXIT)
+

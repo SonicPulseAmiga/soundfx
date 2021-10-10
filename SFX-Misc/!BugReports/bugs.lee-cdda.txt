@@ -1,0 +1,93 @@
+Subject:
+[soundfx-users] CD Audio extraction
+From:
+"leerjs" <annihilater.1@btinternet.com>
+Date:
+Sun, 04 May 2003 21:08:48 -0000
+To:
+soundfx-users@yahoogroups.com
+X-UIDL:
+3ead5db700009f95
+X-Mozilla-Status:
+0001
+X-Mozilla-Status2:
+00000000
+Received:
+from n27.grp.scd.yahoo.com (n27.grp.scd.yahoo.com [66.218.66.83]) by imn.htwk-leipzig.de (8.9.1/8.9.1) with SMTP id XAA28866 for <kost@imn.htwk-leipzig.de>; Sun, 4 May 2003 23:09:23 +0200 (MET DST)
+Received:
+from [66.218.66.97] by n27.grp.scd.yahoo.com with NNFMP; 04 May 2003 21:08:55 -0000
+Received:
+(EGP: mail-8_2_6_6); 4 May 2003 21:08:53 -0000
+Received:
+(qmail 10763 invoked from network); 4 May 2003 21:08:51 -0000
+Received:
+from unknown (66.218.66.218) by m14.grp.scd.yahoo.com with QMQP; 4 May 2003 21:08:51 -0000
+Received:
+from unknown (HELO n9.grp.scd.yahoo.com) (66.218.66.93) by mta3.grp.scd.yahoo.com with SMTP; 4 May 2003 21:08:50 -0000
+Received:
+from [66.218.67.129] by n9.grp.scd.yahoo.com with NNFMP; 04 May 2003 21:08:50 -0000
+X-eGroups-Return:
+sentto-3879093-793-1052082534-kost=imn.htwk-leipzig.de@returns.groups.yahoo.com
+X-Sender:
+annihilater.1@btinternet.com
+X-Apparently-To:
+soundfx-users@yahoogroups.com
+Message-ID:
+<b93vh0+ic1n@eGroups.com>
+User-Agent:
+eGroups-EW/0.82
+X-Mailer:
+Yahoo Groups Message Poster
+X-Originating-IP:
+81.135.55.17
+X-Yahoo-Profile:
+leerjs
+MIME-Version:
+1.0
+Mailing-List:
+list soundfx-users@yahoogroups.com; contact soundfx-users-owner@yahoogroups.com
+Delivered-To:
+mailing list soundfx-users@yahoogroups.com
+Precedence:
+bulk
+List-Unsubscribe:
+<mailto:soundfx-users-unsubscribe@yahoogroups.com>
+Reply-To:
+soundfx-users@yahoogroups.com
+Content-Transfer-Encoding:
+7bit
+Content-Type:
+text/plain; charset=ISO-8859-1
+Content-Length:
+701
+Status:
+O
+
+Hi
+
+SFX Displays cd tracks saying they are copy protected,so can't 
+extract them,these are my own tracks i have recorded,samples of 
+synths mostly,radio etc.
+
+is there a way to use SFX for extraction of copy protected tracks?
+
+lee
+
+
+
+
+
+------------------------ Yahoo! Groups Sponsor ---------------------~-->
+Make Money Online Auctions! Make $500.00 or We Will Give You Thirty Dollars for Trying!
+http://us.click.yahoo.com/KXUxcA/fNtFAA/uetFAA/mjFolB/TM
+---------------------------------------------------------------------~->
+
+To unsubscribe from this group, send an email to:
+soundfx-users-unsubscribe@yahoogroups.com
+
+ 
+
+Your use of Yahoo! Groups is subject to http://docs.yahoo.com/info/terms/ 
+
+
+

@@ -1,0 +1,345 @@
+; $VER: Installiere_SampleE 2.71 (27.10.97)
+;
+; 15.08.97  erste Installerversion
+
+
+(set SourceDir          "/")
+
+
+;************************************************************************
+;*									*
+;* Deutsche Texte							*
+;*									*
+;************************************************************************
+(if (= @language "deutsch")
+(
+   (set #WrongInstallerVersion
+   (cat "\nSie benötigen mindestens Version 42 des Installers!\n"
+	"Die Version 43.3 finden Sie im Aminet in util/misc/Installer43.3.lha\n\n"
+	"Ihre Installer-Version ist: %ld.%ld"
+    ))
+
+   (set #WrongKickVersion
+   (cat "\nSie benötigen mindestens Kickstart-Version 37!\n"
+	"Ihre Kickstart-Version ist: %ld.%ld"
+    ))
+
+   (set #WrongUserLevel
+   (cat "\nEine Installation im Einsteiger-Modus ist nicht möglich!\n"
+    ))
+
+   (set #AskTargetdir
+   (cat "\nWo soll das Programm installiert werden?\n"
+	"Ein neues Verzeichnis namens SampleE wird dort angelegt"
+    ))
+
+   (set #AskLibdir
+   (cat "\nWo soll die reqtools.library installiert werden?\n"
+    ))
+
+   (set #AskCatdir
+   (cat "\nWo sollen die Sprachkataloge installiert werden?\n"
+    ))
+
+
+   (set #InstallingLibs
+   (cat "Installiere die reqtools.library.\n"
+    ))
+
+   (set #Copy_files
+   (cat "Kopiere Dateien...\n"
+    ))
+))
+
+
+
+;************************************************************************
+;*									*
+;* English Texts							*
+;*									*
+;************************************************************************
+(if (= @language "english")
+(
+   (set #WrongInstallerVersion
+   (cat "\nYou need at least V42 of the Installers!\n"
+	"Version 43.3 can be found on Aminet in util/misc/Installer43.3.lha\n\n"
+	"Your Installer-Version is: %ld.%ld"
+    ))
+
+   (set #WrongKickVersion
+   (cat "\nYou need at least Kickstart-Version 37!\n"
+	"Your Kickstart-Version is: %ld.%ld"
+    ))
+
+   (set #WrongUserLevel
+   (cat "\nInstalling with Novice-Mode is not supported!\n"
+    ))
+
+   (set #AskTargetdir
+   (cat "\nWhere do you want to install the program?\n"
+	"A new directory called SampleE will be created there"
+    ))
+
+   (set #AskLibdir
+   (cat "\nWhere do you want to install the reqtools.library?\n"
+    ))
+
+   (set #AskCatdir
+   (cat "\nWhere do you want to install the catalog-files?\n"
+    ))
+
+   (set #InstallingLibs
+   (cat "Installing the reqtools.library.\n"
+    ))
+
+   (set #Copy_files
+   (cat "Copying files...\n"
+    ))
+))
+
+
+
+;************************************************************************
+;*									*
+;* French Texts 							*
+;*									*
+;************************************************************************
+(if (= @language "français")
+(
+   (set #WrongInstallerVersion
+   (cat "\nVous avez besoin d'au moins la version 42 d'Installer !\n"
+	"La version 43.3 peut être trouvée sur Aminet dans util/misc/Installer43.3.lha\n\n"
+	"Votre version d'Installer est : %ld.%ld"
+    ))
+
+   (set #WrongKickVersion
+   (cat "\nVous avez besoin d'au moins le Kickstart version 37 !\n"
+	"Votre version de Kickstart est : %ld.%ld"
+    ))
+
+   (set #WrongUserLevel
+   (cat "\nL'installation en mode Novice n'est pas supportée !\n"
+    ))
+
+   (set #AskTargetdir
+   (cat "\nOù voulez vous installer le programme ?\n"
+	"Un nouveau répertoire appellé SampleE y sera créé"
+    ))
+
+   (set #AskLibdir
+   (cat "\nOù voulez vous installer la reqtools.library?\n"
+    ))
+
+   (set #AskCatdir
+   (cat "\nOù voulez vous installer les fichiers catalogues ?\n"
+    ))
+
+   (set #InstallingLibs
+   (cat "Installation de la reqtools.library.\n"
+    ))
+
+   (set #Copy_files
+   (cat "Copie de fichiers...\n"
+    ))
+))
+
+
+
+
+;************************************************************************
+;***								      ***
+;*** Some version-tests  (Installer, OS and User-Level)               ***
+;***								      ***
+;************************************************************************
+
+;************************************************************************
+;* at least Version 42 of the Installer is needed			*
+;************************************************************************
+(set #vernum @installer-version)
+(set #ver (/ #vernum 65536))
+(set #rev (- #vernum (* #ver 65536) ) )
+
+(if (< #ver 42)
+(
+   (abort (#WrongInstallerVersion #ver #rev) )
+))
+
+
+;************************************************************************
+;* at least Kickstart 3.0 (V39) of the System is needed                 *
+;************************************************************************
+(set #vernum (getversion) )
+(set #ver (/ #vernum 65536))
+(set #rev (- #vernum (* #ver 65536) ) )
+
+(if (< #ver 39)
+   (abort (#WrongKickVersion #ver #rev) )
+)
+
+
+;************************************************************************
+;* at least a "Average User" is needed                                  *
+;************************************************************************
+(if (= @user-level 0)
+(
+   (abort (#WrongUserLevel) )
+))
+
+
+
+;************************************************************************
+;***								      ***
+;*** Here begins installation procedure 			      ***
+;***								      ***
+;*** Part 1: all needed requests				      ***
+;***								      ***
+;************************************************************************
+
+;************************************************************************
+;* ask where SampleE shall be placed					*
+;*   ==> #Installverz							*
+;************************************************************************
+(complete 0)
+
+(set #Zielverzeichnis @default-dest)
+
+(set #Zielverzeichnis (askdir (prompt  #AskTargetdir)
+			      (help    @askdir-help)
+			      (default #Zielverzeichnis)
+		       )
+ )
+
+(set #Installverz (tackon #Zielverzeichnis "SampleE"))
+
+(set @default-dest #Installverz)
+
+
+;************************************************************************
+;* ask where the Libraries shall be placed				*
+;*   ==> #Libverz							*
+;************************************************************************
+;*** install reqtools.library
+;*** a Average-User is not asked
+;*** a Expert-User can choose
+(complete 5)
+
+(set #Libverz "LIBS:")
+
+;*** ask the Expert-User
+(if (> @user-level 1)
+(
+   (set #Libverz (askdir (prompt  #AskLibdir)
+			 (help    @askdir-help)
+			 (default #Libverz)
+		  )
+    )
+))
+
+
+
+;*********************************************************************
+;* Abfrage, wo Catalogs installiert werden sollen
+;*   ==> #Catverz
+;*********************************************************************
+;*** install catalogs
+;*** a Average-User is not asked
+;*** a Expert-User can choose
+(complete 10)
+
+;*** CAUTION: English is the built-in language - in this case no Catalog is needed
+(if (<> @language "english")
+(
+   ;* create a catalog-directory ind the installation-directory
+   (set #Catverz (tackon #Installverz "Catalogs") )
+
+   (makedir #Catverz)
+
+
+   ;*** ask the Expert-User
+   (if (> @user-level 1)
+   (
+      (set #Catverz (askdir (prompt  #AskCatdir)
+			    (help    @askdir-help)
+			    (default #Catverz)
+		     )
+       )
+    ))
+))
+
+
+
+;************************************************************************
+;***								      ***
+;*** Here begins installation procedure 			      ***
+;***								      ***
+;*** TEIL 2: Die gewuenschten Dateien kopieren			      ***
+;***								      ***
+;************************************************************************
+
+;************************************************************************
+;* create destination directory 					*
+;************************************************************************
+(complete 15)
+(makedir #Installverz (infos)
+ )
+
+
+;************************************************************************
+;* install libraries							*
+;************************************************************************
+(complete 25)
+(copylib (prompt #InstallingLibs) (source   (tackon SourceDir "libs/reqtools.library"))
+				  (dest     #Libverz)
+				  (help     @copylib-help)
+				  (confirm)
+				  (nogauge)
+ )
+
+
+;************************************************************************
+;* copy needed files							*
+;************************************************************************
+(complete 35)
+(working #Copy_files)
+
+(copyfiles (source (tackon SourceDir "samplee"))       (dest #Installverz) (nogauge) (infos) )
+(copyfiles (source (tackon SourceDir "samplee_prefs")) (dest #Installverz) (nogauge) (infos) )
+
+
+;************************************************************************
+;* install catalogs							*
+;************************************************************************
+(complete 70)
+(working #Copy_files)
+
+;*** CAUTION: English is the built-in language - in this case no Catalog is needed
+(if (<> @language "english")
+(
+   (copyfiles (source (tackon SourceDir (tackon "catalogs" @language) ))
+	      (dest   (tackon #Catverz                     @language) )
+	      (all)
+	      (nogauge)
+    )
+))
+
+
+;************************************************************************
+;* install documentation in the needed language 			*
+;************************************************************************
+(complete 85)
+
+(copyfiles (source (tackon SourceDir (tackon "docs" @language) ))
+	   (dest   #Installverz)
+	   (all)
+	   (nogauge)
+	   (infos)
+ )
+
+
+;************************************************************************
+;* finish								*
+;************************************************************************
+(complete 100)
+
+(exit)
+

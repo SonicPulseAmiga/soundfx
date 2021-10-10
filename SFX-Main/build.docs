@@ -1,0 +1,14 @@
+echo [32m»» making docs ...[31m
+m4gen SFX-ModLoader data:source/sfx/sfx-doc/ger/node02.02.01/ ger
+m4gen SFX-ModLoader data:source/sfx/sfx-doc/eng/node02.02.01/ eng
+m4gen SFX-PlayAhi data:source/sfx/sfx-doc/ger/node02.03.01/ ger
+m4gen SFX-PlayAhi data:source/sfx/sfx-doc/eng/node02.03.01/ eng
+m4gen SFX-PlayCaCa data:source/sfx/sfx-doc/ger/node02.03.01/ ger
+m4gen SFX-PlayCaca data:source/sfx/sfx-doc/eng/node02.03.01/ eng
+m4gen SFX-PlayCasc data:source/sfx/sfx-doc/ger/node02.03.01/ ger
+m4gen SFX-PlayCasc data:source/sfx/sfx-doc/eng/node02.03.01/ eng
+m4gen SFX-PlayNorm data:source/sfx/sfx-doc/ger/node02.03.01/ ger
+m4gen SFX-PlayNorm data:source/sfx/sfx-doc/eng/node02.03.01/ eng
+perl ../sfx-doc/m4gen_rexx.pl SFX-IORexx.c ../sfx-doc/ger/node03.01.__.m4
+perl ../sfx-doc/m4gen_rexx.pl SFX-IORexx.c ../sfx-doc/eng/node03.01.__.m4
+

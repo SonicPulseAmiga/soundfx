@@ -1,0 +1,11 @@
+10
+Mit den Tasten '<' und '>' kann man in das Sample herein und herauszoomen.
+In den Sampleoptionen kann man die Einheit für die Achsenbeschriftung umschalten.
+Lesen Sie im Kapitel '2.1 Operatoren' den Abschnitt 'Allgemeines'.
+In den Operatoren könen sie oft auch negative Werte eingeben (z.B. negatives Feedback).
+In Delay-basierenden Operatoren können Sie die Verzögerung als Note eingeben (C-3) wodurch das Delay bei hohen Feedback-Werten zum Resonator wird.
+Mit der 'Space'-Taste können sie die Wiedergabe starten und stoppen.
+Wenn Sie Platz brauchen, dann verstecken sie momentan nicht gebrauchte Samples.
+Gute Stereoeffekte errreichen Sie, wenn sie ein Monosample nehmen, es zwei mal mit leicht unterschiedlichen Einstellungen bearbeiten und dann die Kanäle zusammenfügen.
+Ich empfehle ihnen MagicMenu, cdxSizer, MCP und VisualPrefs für ein schöneres GUI.
+Ich empfehle die 'popupmenu.library' zu installieren. Dann wird SoundFX auf die mittlere Maustaste ein Kontextmenu für alle Samplefenster legen.

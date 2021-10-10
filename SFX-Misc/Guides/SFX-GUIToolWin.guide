@@ -1,0 +1,184 @@
+@database SFX-GUIToolWin
+
+@remark $VER: SFX-GUIToolWin.guide © by Stefan Kost 1994-1997 (09.03.97)
+@remark AmigaGuide-OnLine-Hilfe für SoundFX
+
+@master SFX-GUIToolWin.guide
+@index sfx-index.guide/index
+
+@node main "1.4 Werkzeugfenster"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+1.4 Werkzeugfenster
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+	@{" 1.4.1 Zoomfenster     " link ZoomWin }
+	@{" 1.4.2 Editfenster     " link EditWin }
+	@{" 1.4.3 Bereichsfenster " link RangeWin }
+@endnode
+
+@node ZoomWin "1.4.1 Zoomfenster"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+1.4.1 Zoomfenster
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Diese Operationen ermöglichen es Ihnen Bereiche eines Sample beliebig zu ver-
+größern und zu verkleinern, so das Sie optimal arbeiten können. Den zu zoomen-
+den Bereich markieren Sie, indem Sie den Startpunkt anklicken und mit gedrük-
+kter linker Maustaste bis zum Endpunkt fahren. Während der Mausbewegung wird
+der bisher markierte Bereich hervorgehoben und die Start- und Endpositionen
+im @{" Rangewindow " link RangeWin} angezeigt.
+
+Mode	XZoom,YZoom,Both
+	Zum Einstellen welche Richtungen gezoomt werden soll.
+
+* |<>| (Zoom In)
+	Der angewählte Bereich wird vergrößert. Wenn kein Bereich markiert ist,
+	wird 2-fach vergrößert.
+
+* 1:1
+	Der aktuelle Puffer wird 1:1 dargestellt, d.h. ein Samplewert ent-
+	spricht einem Bildschirmpunkt.
+
+* >||< (Zoom Out)
+	Der angewählte Bereich wird verkleinert indem der sichtbare Bereich
+	verdoppelt wird.
+
+* >><< (Zoom Out All)
+	Der aktuelle Puffer wird komplett dargestellt, d.h. es wird maximal
+	herausgezoomt.
+
+Tastaturbefehle
+			X-Achse	Y-Achse
+	ZoomIn		"<"	CTRL+"<"
+	ZoomOut		">"	CTRL+">"
+@endnode
+
+@node EditWin "1.4.2 Editfenster"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+1.4.2 Editfenster
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+SFX stellt ihnen vielfältige Schnittfunktionen zur Verfügung (wesentlich mehr
+als sie in anderen Programmen finden werden).
+Bedenken Sie bitte das es sich hierbei um destruktive Operatoren handelt, d.h.
+sie nehmen direkte Änderungen an einem Sample vor - es wird kein neuer Puffer
+angelegt und die Änderungen sind nicht rückgängig zumachen. Deshalb empfiehlt
+es sich vorher lieber einmal mehr abzuspeichern.
+Den zu bearbeitenden Bereich markieren Sie, indem Sie den Startpunkt anklicken
+und mit gedrückter linker Maustaste bis zum Endpunkt fahren. Während der Maus-
+bewegung wird der bisher markierte Bereich hervorgehoben und die Start-, End-
+positionen und Länge in der Titelleiste angezeigt. Verwenden Sie auch die Funk-
+tionen des @{" Bereichsfensters " link RangeWin } um ihren Bereich optimal zu markieren.
+
+* Cut
+	Der angewählte Bereich wird herausgeschnitten und zwischengespeichert.
+* CB - Cut to begin
+	Es wird von der markierten Position bis zum Anfang herausgeschnitten
+	und gespeichert.
+* CE - Cut to end
+	Es wird von der markierten Position bis zum Ende herausgeschnitten und
+	gespeichert.
+
+* Copy
+	Der angewählte Bereich wird zwischengespeichert.
+* CB - Copy to begin
+	Es wird von der markierten Position bis zum Anfang kopiert.
+* CB - Copy to end
+	Es wird von der markierten Position bis zum Ende kopiert.
+
+* Grab
+	Der angewählte Bereich wird in einen neuen Puffer kopiert.
+* GB - Grab to begin
+	Es wird der Bereich von der markierten Position bis zum Anfang in einen
+	neuen Puffer kopiert.
+* GE - Grab to end
+	Es wird der Bereich von der markierten Position bis zum Ende in einen
+	neuen Puffer kopiert.
+
+* Paste
+	Der zwischengespeicherte Bereich wird an der ausgewählten Stelle einge-
+	fügt.
+* PB - Paste at begin
+	Der zwischengespeicherte Bereich wird am Anfang eingefügt.
+* PE - Paste at end
+	Der zwischengespeicherte Bereich wird am Ende eingefügt.
+
+* Erase
+	Der ausgewählte Bereich wird herausgeschnitten ohne zwischengespeichert
+	zu werden.
+* EB - Erase to begin
+	Es wird von der markierten Position bis zum Anfang gelöscht.
+* EE - Erase to end
+	Es wird von der markierten Position bis zum Ende gelöscht
+
+* Zero
+	Der ausgewählte Bereich wird auf Null gesetzt.
+* ZB - Zero to begin
+	Es wird von der markierten Position bis zum Anfang auf Null gesetzt.
+* ZE - Zero to end
+	Es wird von der markierten Position bis zum Ende auf Null gesetzt.
+
+* Overwr
+	Der Inhalt des Zwischenspeichers wird ab der ausgewählten Stelle über
+	das Sample kopiert.
+* OverwrB - Overwrite from begin
+	Der Inhalt des Zwischenspeichers wird vom Anfang des Puffers an über
+	das Sample kopiert.
+@endnode
+
+@node RangeWin "1.4.3 Bereichsfenster"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+1.4.3 Bereichsfenster
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+Mit diesen Funktionen können Sie die Looppunkte, den markierten Bereich und den
+angezeigten Ausschnitt genau justieren.
+
+Mode	Was geändert werden soll (Loop,Mark,Zoom,Trace) ?
+	Die einzelnen Modi werden bei folgenden Aktionen automatisch ausge-
+	wählt :
+	Loop :	an- und abschalten von Loop in den Options
+	Mark :	markieren eines Bereiches mit der Maus
+	Zoom :	drücken der '<' oder '>' Taste bzw. betätigen eines Buttons im
+		Zoomfenster	
+Lock	Wenn "Lock" aktiviert ist, dient die obere Buttonleiste für den Start-
+	punkt und die untere Buttonleiste für den Endpunkt, d.h. wenn sie einen
+	Punkt verschieben bleibt der andere stehen.
+	Wenn "Lock" ausgeschalten ist, bewegen Sie sowohl Start- als auch End-
+	punkt gleichzeitig.
+|<	setzt den Startpunkt auf den Sampleanfang
+<<	bewegt den Start- bzw. Endpunkt in großen Schritten nach links ¹
+<	bewegt den Start- bzw. Endpunkt in 1`er-Schritten nach links
+<0	sucht den nächsten linken Nulldurchgang 
+0>	sucht den nächsten rechten Nulldurchgang
+>	bewegt den Start- bzw. Endpunkt in 1`er-Schritten nach rechts
+>>	bewegt den Start- bzw. Endpunkt in großen Schritten nach rechts ¹
+>|	setzt den Endpunkt auf das Sampleende
+XS	Startposition des horizontalen Bereiches
+XE	Endposition des horizontalen Bereiches
+XL	Länge des horizontalen Bereiches
+YS	Startposition des vertikalen Bereiches
+YE	Endposition des vertikalen Bereiches
+YL	Länge des vertikalen Bereiches
+
+¹) große Schritte : SFX paßt die Schrittlänge der Größe des sichtbaren Berei-
+   ches an, wobei es eine minimale Schrittweite gibt.
+
+Die Nulldurchgangssuche ist hervoragend dazu geeignet, um knackfreie Loops zu
+erzeugen. Setzen Sie dazu manuell die Looppunkte. Lassen Sie das Sample abspie-
+len. Jetzt werden Sie sicherlich bei jedem Rücksprung zum Loopbegin ein Knack-
+geräusch hören. Aktivieren Sie "Lock" und klicken solange auf "<0" für den
+Startpunkt und auf "0>" für den Endpunkt, bis das Knackgeräusch minimal oder
+weg ist.
+Wenn Sie "Trace" ausgewählt und ein Samplefenster aktiviert haben, wird in den
+Feldern XS und YS der Wert unter dem Mauszeiger angezeigt. Der aktuelle Sample-
+wert wird in YE angezeigt und kann dort auch geändert werden.
+@endnode

@@ -1,0 +1,484 @@
+@database SFX-Workshop
+
+@remark $VER: SFX-Workshop.guide © by Stefan Kost 1994-1997 (09.03.97)
+@remark AmigaGuide-OnLine-Hilfe für SoundFX
+
+@master sfx-workshop.guide
+@index sfx-index.guide/index
+
+@node main "5.0 Workshop"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+5.0 Workshop
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+In nachfolgenden Kapiteln werden Sie anhand verschiedener Beispiele in die Ar-
+beit mit SFX eingeführt.
+
+	@{" 5.1 Generierung von Percussionsounds  " link Workshop1 }
+	@{" 5.2 Generierung von Synthesizersounds " link Workshop2 }
+	@{" 5.3 Generierung von Effektsounds      " link Workshop3 }
+	@{" 5.4 komplexe Effekte                  " link Workshop4 }
+	@{" 5.5 Samplebearbeitung                 " link Workshop5 }
+	
+Die fertigen Samples finden Sie teilweise im Verzeichnis "Workshop" in ihrem
+Programmverzeichnis.
+
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+allgemeiner Tip
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+* !!!! AUSPROBIEREN !!!! - es kann nichts kaputtgehen
+* die Funktionsweise von SoundFX versteht man am besten durch die intensive Be-
+  nutzung des Programms
+* Nicht nur die Standarteinstellungen der Operatoren verwenden.
+  Beispiel : PitchShift
+	* dieser wurde in seiner Qualität stark verbessert
+	* allerdings ist der WinSize-parameter von entscheidender Bedeutung
+	* bei tiefenen/dumpferen Samples sollter dieser etwas größer sein
+	  ca 400-1000 sv
+	* bei höheren/heller Klängen ca. 200-600 sv
+	* probieren Sie verschiedene Varianten aus
+	* ungünstig gewählte Werte hört man daran, daß das Ergebnissample schwankt
+* Nutzen Sie die Modulationsmöglichkeiten - einige Effekte weden nur dadurch so
+  richtig wirkungsvoll z.B. Detune, Smear
+
+* Letzter Hinweis :
+	* wenn Sie Fragen haben - schreiben Sie mir / rufen Sie mich an !!!
+	* nur so kann ich sehen, wo etwas zu kompliziert beschrieben ist, wo noch
+	  Schwachstellen sind.
+
+* für Ideen, Anregungen, Informationen (Sampleformate) bin ich natürlich jeder-
+  zeit dankbar
+@endnode
+
+-------------------------------------------------------------------------------------------------------------
+
+@node Workshop1 "5.1 Generierung von Percussionsounds"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+better Basedrums
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+	* laden Sie eine Basedrum die ihnen nicht "bassig" genug ist
+	* starten Sie Synthesize_Add
+		* stellen Sie für die Länge den Längenwert des Basedrumsamples
+		  ein
+		* stellen Sie für die Frequenz (Pitch) den niedrigsten Ton auf
+		  dem Keyboard ein (65. ...)
+		* setzen Sie den zweiten Frequenzmodulationswert auf 0.01 (oder
+		  noch kleiner)
+		* wählen Sie als Modus "Curve" mit einem Wert von 2.0
+		* lassen Sie sich das Sample generieren -> jetzt haben Sie
+		  einen tiefen Sinus der gegen Ende noch tiefer wird.
+		* probieren Sie auch mal andere Wellenformen aus (z.B. Saw)
+	* starten Sie Amplify
+		* Source : Sinus-Sample
+		* stellen Sie für die Factoren 0 und 100 ein
+		* Modulationsmodus  : "User2"
+		* Modulationssample : Basedrum-Sample
+		* "Go" -> jetzt haben Sie die Hüllkurve der Basedrum für den
+		  Sinus übernommen.
+	* Mixen Sie jetzt beide Samples zusammen
+		* Src1: Basedrum
+		* Src2: Sinus
+		* Mix : ca. 50-70 % (ausprobieren)
+
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Basedrums
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+	@{"*" rx workshop/BaseDrum1.rexx } Synthesize_Add aufrufen
+		* len=0.1 s
+		* pitch=130.8127.... Hz (C-1)
+		* waveform=sin
+		* 1. Slider auf max (=1), rest to 0.0
+		* Frequency=1.0 ... 0.0001, Curve mit 2.0
+		* Amplitude=0.0 ... 1.0, Vector mit 5 Punkten
+			* 0 : Pos=0.0 , Lev=0.0
+			* 1 : Pos=0.02, Lev=1.0
+			* 2 : Pos=0.15, Lev=1.0
+			* 3 : Pos=0.2 , Lev=0.3
+			* 4 : Pos=1.0 , Lev=0.0
+	* wer`s ein bischen härter mag, ...
+	@{"*" rx workshop/BaseDrum2.rexx } Amplify
+		* amplification=150 % ... 100 %, Curve mit fc=1.0, Wrap=Clip
+	@{"*" rx workshop/BaseDrum3.rexx } oder
+		* amplification=200 % ... 100 %, Curve mit fc=1.0, Wrap=Wrap2
+
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+HiHats
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+	@{"*" rx workshop/HiHat1.rexx } Noise aufrufen
+		* len=0.5 s
+	@{"*" rx workshop/HiHat2.rexx } Amplify
+		* amplification=100 ... 0, Curve mit 1.0
+	@{"*" rx workshop/HiHat3.rexx } nochmal Amplify
+		* amplification=100 ... 0, Curve mit 0.5
+	=> Version 1 ist fertig
+	@{"*" rx workshop/HiHat4.rexx } für Version2 noch ein Resample
+		* Faktor=0.5
+		* interpol=Lin
+
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Snaredrums
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+	@{"*" rx workshop/SnareDrum1.rexx } Noise aufrufen
+		* len=0.5 s
+	@{"*" rx workshop/SnareDrum2.rexx } Amplify
+		* amplification=20 % ... 20 %, None
+	@{"*" rx workshop/SnareDrum3.rexx } Synthesize_Add
+		* len=0.5 s
+		* pitch=130.8127.... Hz (C-1)
+		* waveform=sin
+		* 1. Slider auf max (=1), rest to 0.0
+		* Frequency=1.0 ... 0.1, Curve mit fc=0.5
+		* Amplitude=1.0 ... 1.0, None
+	@{"*" rx workshop/SnareDrum4.rexx } Slide
+		* Source=leises Rauschen
+		* slidedistance=-25000 ... 25000, User 0, ModSource=Sinus
+	@{"*" rx workshop/SnareDrum5.rexx } Amplify
+		* kurzer Attack
+		* ca. 2/3 der Hüllkurve sehr leise, dabei relativ abrupter
+		  Wechsel von laut zu leise
+	* Version1 ist fertig
+	* weiterhin ...
+	* Amplify
+		* amplification=150 ... 100, Linear, Wrap=Wrap2
+	* oder
+	* Filter-LowPass
+		* Effektanteil=-100 ... -100, None
+		* range/cut-off=9.0 ... 9.0, None
+@endnode
+
+-------------------------------------------------------------------------------------------------------------
+
+@node Workshop2 "5.2 Generierung von Synthesizersounds"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+interessante Strings/Synths
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+	* sehr interessante Ergebnisse erhält man bei Flächenklängen wenn man diese mit
+	  dem :
+		* HiPass-Filter bearbeitet (CutOff ca. 3-10)
+			* mit Amplify danach wieder auf MaxVol bringen
+			* Klänge sind nicht mehr so aufdringlich / vordergründig
+		* Chorus-Phaser-Operator bearbeitet
+		* OctaveDown-Operator bearbeitet (mehrmals)
+			* dann Swap-Operator ausführt
+			* wieder OctaveUp
+			* die letzten beiden Schritte so oft wie man OctaveDown gemacht hat)
+
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+interessante Tekknosounds
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+	* erstellen Sie zwei Samples gleicher Länge mit Synthesize_Add
+	  (können unterschiedlich hoch sein und sollten verschieden klingen)
+	* generieren sie eine Rechteckschwingung der selben Länge mit
+          Synthesize_Add wählen Sie dafür eine hohe Frequenz (C-4/C-5)
+	* die einzelnen Frequenzen sollten zueinander passen (Akkord/octaven-
+	  weise gestimmt)
+	* rufen Sie Mix auf
+	* stellen Sie als Sources die ersten beiden Synthsounds ein
+	* setzen Sie die Mixparameter auf 100 und 0
+	  Blendshape 		: User1
+	  Modulationsbuffer : Rechtecksound
+	  Modulationsmode 	: Single
+	* -> Go
+
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Metallic Sounds
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+	* Noise
+		* Länge=800
+	* oder Synthesize_Add
+		* Länge=800
+		* hellen Klang erzeugen (Sägezahn)
+	* Länge auf 30000 in den Sampleoptions erweitern
+	* Hall aufrufen
+		* Early=100
+		* Main=100
+		* Diff=100
+		* Ampf=225
+	* Amplify
+		* maxvol
+	* Hall erneut aufrufen
+		* Early=100
+		* Main=250
+		* Diff=175
+		* Ampf=200
+	* Amplify
+		* maxvol
+	* fertig ist der Mega-hall-gong-sound !
+
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+fette analoge lead sounds
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+	* einfach (mono)
+		* generieren Sie z.B. ein Sägezahnsample in Synthesize_Add
+		* rufen Sie Chorus_Phaser mit dem "Fat1.prefs" Preset auf
+	* etwas aufwendiger (stereo)
+		* generieren Sie z.B. ein Sägezahnsample in Synthesize_Add
+		* benutzen Sie ConvertChannels mit dem "MonoToStereo.prefs"
+		  Preset
+		* öffnen Sie die Sampleoptionen und schalten Sie den zweiten
+		  Kanal ab
+		* rufen Sie den Chorus_Phaser mit dem "Fat1.prefs" Preset auf
+		* öffnen Sie die Sampleoptionen, schalten Sie ersten Kanal ab
+		  und den zweiten an.
+		* starten Sie Chorus_Phaser mit dem "Fat2.prefs" Preset
+		* öffnen Sie die Sampleoptionen und schalten Sie den ersten
+		  Kanal ein
+@endnode
+
+-------------------------------------------------------------------------------------------------------------
+
+@node Workshop3 "5.2 Generierung von Effektsounds"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Warps
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+	@{"*" rx workshop/Warp1.rexx } Noise
+		* len=60000
+	@{"*" rx workshop/Warp2.rexx } Chorus/Phaser
+		* defaults
+	@{"*" rx workshop/Warp3.rexx } Synthesize_Add
+		* generieren Sie eine halbe Sinus-Periode
+	@{"*" rx workshop/Warp4.rexx } Slide
+		* source=sine
+		* slidedist=0 ... -25000, Linear
+	@{"*" rx workshop/Warp5.rexx } Amplify
+		* maxvol
+	@{"*" rx workshop/Warp6.rexx } Detune
+		* source=phaser-noise
+		* detune=0.1 ... 2.0, User 0,
+		  ModSource=half_sine, ModMode=stretch
+	@{"*" rx workshop/Warp7.rexx } Amplify
+		* amplification=0 ... maxvol, User 0,
+		  ModSource=half_sine, ModMode=stretch
+	* eventuell Filter-LowPass (als Boost), Delay, ....
+	* mit Synthesize_Add nochmal einen halben Sinus generieren
+	* mit Resample/OctaveDown diesen auf Länge ca. 2000 bringen
+	* Amplify
+		* amplification=65 ... 105, User1, ModSource=half_sine
+
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Stereo-Warps
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+	* lade einen der im vorherigen Abschnitt generierten Sounds
+	* starte ConvertChannels
+		* num=Stereo
+	* öffne das Optionswindow (Bufferwindow/'P'-Button neben Stringgadget
+	  mit Namen des Puffers)
+		* deselektiere das zweite Checkbox-Gadget (die mit den Haken)
+		  (befindet sich bei Misc/Channels)
+		* jetzt wirken sich alle Operationen nur noch auf den 1. Kanal
+		  aus
+	* benutze Amplify
+		* amplification=120 ... 0, Linear
+	* Optionswindow
+		* 1. Checkbox deselektieren
+		* 2. Checkbox selektieren
+	* Amplify
+		* klicken sie auf den Swap-Button ('<->') und 'Go'
+	* Optionswindow
+		* 1. Checkbox selektieren
+	* Amplify
+		* maxvol
+	* und fertig ; jetzt sollten sie ein fx-sound haben der von einer
+	  Seite zur anderen fährt (Kopfhörer !)
+@endnode
+
+-------------------------------------------------------------------------------------------------------------
+
+@node Workshop4 "5.4 komplexe Effekte"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Robotize
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+	verleiht einem Sprachsample einen Roboterstimmenklang
+
+	* Sprachsample laden
+	* Variante 1
+		* Delay aufrufen
+			* Effektanteil ca. 95%
+			* Feedback ca. 85 %
+			* Delay 32,64,128,256 (Delay 4 mal auf Ausgangssample ausführen)
+		* Mix-ZPlane aufrufen
+			* Src1-Src2 vier Delay-Samples
+			* zu gleichen Teilen mixen (x-axis=z-axis=50)
+	* Variante 2
+		* Echo aufrufen
+			* Delay=200, keine Modulation
+			* Amplitude 80..10 linear
+			* Num=12
+			* Start=0
+			* Ampf=70
+
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Alienize
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+	generiert den recht gut bekannten Alien-Sound (gut geeignet für Sprach-
+	samples) - starkes Vibrato
+
+	* Sprachsample laden
+	* generate a sine-sound of the same length with Synthesize_Add
+		* use a deep frequency : Frq=C0
+		* Frequency : rules the speed of vibrato (useful values ranging
+		  from 0.1 to 2.0)
+	* start PitchShift
+		* Src : speechsample
+		* Pitchshiftfactor : 1.0...2.0 User0 Sinesample
+		* or Pitchshiftfactor : 1.0...0.5 User0 Sinesample
+
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Hall (Echo)
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+	verleiht dem Klang räumlichkeit
+
+	* Echo aufrufen
+		* Delay=200..1400 linear
+		* Amplitude 80..10 linear
+		* Num=12
+		* Start=0
+		* Ampf=65
+
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Chord
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+	generiert einen Akkord mit dem PitchShifter
+	Vorteil gegenüber z.B. Chord im Protracker :
+	die zu mixenden Samples sind alle gleichlang
+
+	* Sample laden
+	* Faktoren berechnen
+		* z.B. C-Dur	C	1.000000
+				E	1.259893
+				G	1.498331
+		* einfact Resample aufrufen
+			* die Note bei der Periode eintragen und Factor ablesen
+			* Resample verlassen (Close-Gadget)
+	* Pitchshift aufrufen und Faktor für E eintragen (Source Originalsample)
+	* PitchShift aufrufen und Factor für G eintragen (Source Originalsample)
+	* Mix aufrufen
+		* beide gepitchshifteten Samples mit 50:50 mixen
+	* Mix aufrufen
+		* Originalsample und Mix mit 33:67 mixen
+	* Amplify maxvol
+
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Ghost Echo
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+	erzeugt Geisterechos
+
+	* Sample laden (z.B. Sprachsample)
+	* Reverse aufrufen
+		* Effektanteil=100%
+	* Optionsfenster aufrufen
+		* das Ergebnissample ca. um 5000-10000 Werte verlängern
+	* Echo aufrufen
+		* Standart-Einstellungen benutzen
+		* eventuell Echoanz erhöhen
+		* eventuell Amp. auf kleineren Wert setzen (bei Übersteuerung)
+	* Reverse aufrufen
+		* Effektanteil=100%
+	* und fertig - jetzt hört man ein Sprachsample bei dem die Reflexionen
+	  vor dem eigentlichen Schallereignis kommen
+@endnode
+
+-------------------------------------------------------------------------------------------------------------
+
+@node Workshop5 "5.5 Samplebearbeitung"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+better Basssounds/Drumloops/Basedrums
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+	verbessert den Bassbereich eines Samples
+
+	* Sample laden
+	* falls es ein 'altes Tracker-Sample' ist erst mal resamplen und zwar
+	  auf mind. 22050 Hz (besser 44100 od 48000 Hz)
+	  (Interpolation einschalten !!)
+	* jetzt Filter-LowPass
+		* Effektanteil=-100 ... -100, None
+		* range/cut-off=3.0 ... 3.0, None
+		* wirkt als Höhen-Booster !!!
+	* Amplify
+		* Amplification ca 70 ... 70, None
+	* Filter-HiPass
+		* Effektanteil=-80 ... -80, None
+		* range/cut-off=3.0 ... 3.0, None
+		* wirkt als Bass-Booster !!!
+
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Enhance
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+	erweitert das Frequenzspectrum eines Klangs
+
+	* Sample laden
+	* mit PitchShift bearbeiten
+		* einmal mit Faktor 2.0 und einmal mit 0.5
+	* beide ge"pitchshift"ete Versionen mit 50 % zusammenmixen
+	* Ergebnis mit Ausgangssample (auch 50 %)  zusammenmixen
+
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Remove Quantizenoise
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+	vermindert das Quantisierungsrauschen von 8bit Samples
+
+	* 8bit Sample laden
+	* Resample mit Faktor=2.0 und 0.5 ca 3 mal abwechselnd hintereinander
+	  aufrufen.
+	* Filter-LowPass (Effektanteil negativ -> Boost) aufrufen
+	* als 16bit Sample abspeichern
+@endnode

@@ -1,0 +1,191 @@
+<html>
+	<head><title>SoundFX : 2.1.6 Synthesize-Add</title></head>
+	<body bgcolor="#EEEEEE" leftmargin="5" rightmargin="5" topmargin="5" text="#000000" link="#2040FF" vlink="#0020E0" alink="#FFFFFF">
+	<a name="#000"></a>
+	<table border="0" width="100%" cellpadding="3" cellspacing="1" bgcolor="#000000"><tr bgcolor="#FFFFFF"><td>
+		<table border="0" width="100%" cellpadding="0" cellspacing="0"><tr>
+			<td align="left"><font size="-1">
+		[<a href="../node__.__.__.html">SoundFX</a>]
+			[<a href="../node02.__.__.html">Module</a>]
+				[<a href="../node02.01.__.html">Operatoren</a>]
+			</font></td>
+			<td align="right" valign="center">
+				<a href="../node02.01.06/Swap.html">
+				<img src="../../_img/a_le.gif" width="13" height="13" border="0" alt="[prev]"></a>
+				<img src="../../_img/space.gif" width="2">
+				<a href="../node02.01.06/Synthesize-FM.html">
+				<img src="../../_img/a_ri.gif" width="13" height="13" border="0" alt="[next]"></a>
+			</td>
+		</tr></table>
+	</td></tr></table>
+	<br>
+		<!-- Contents -->
+	<a name="#001"></a>
+<table border="0" width="100%" cellpadding="3" cellspacing="1" bgcolor="#000000">
+	<tr bgcolor="#DDDDDD"><td>
+		<table border="0" width="100%" cellpadding="0" cellspacing="0"><tr>
+			<td align="left">
+				<b>Synthesize-Add</b>
+			</td>
+			<td align="right">
+				<a href="#000">
+				<img src="../../_img/a_up.gif" width="13" height="13" border="0" alt="[up]"></a>
+				<img src="../../_img/space.gif" width="2">
+				<a href="#002">
+				<img src="../../_img/a_do.gif" width="13" height="13" border="0" alt="[down]"></a>
+			</td>
+		</tr></table>
+	</td></tr>
+	<tr bgcolor="#FFFFFF"><td>
+		<table border="0" width="100%" cellpadding="5" cellspacing="0"><tr><td>
+Generierung von Wellenformen mittels additativer Klangsynthese,
+inclusive Frequenz- & Amplitudenmodulation.
+		</td></tr></table>
+	</td></tr>
+</table>
+<br>
+	<a name="#002"></a>
+<table border="0" width="100%" cellpadding="3" cellspacing="1" bgcolor="#000000">
+	<tr bgcolor="#DDDDDD"><td>
+		<table border="0" width="100%" cellpadding="0" cellspacing="0"><tr>
+			<td align="left">
+				<b>Parameter</b>
+			</td>
+			<td align="right">
+				<a href="#001">
+				<img src="../../_img/a_up.gif" width="13" height="13" border="0" alt="[up]"></a>
+				<img src="../../_img/space.gif" width="2">
+				<a href="#003">
+				<img src="../../_img/a_do.gif" width="13" height="13" border="0" alt="[down]"></a>
+			</td>
+		</tr></table>
+	</td></tr>
+	<tr bgcolor="#FFFFFF"><td>
+		<table border="0" width="100%" cellpadding="5" cellspacing="0"><tr><td>
+<table border="0" cellspacing="1" cellpadding="2" width="100%"><tr bgcolor="#BBBBBB"><td align="right" valign="top"><nobr>Wave (Oszillator)</nobr></td><td align="left">Welche Wellenform für den Oszilator verwendet werden soll. Zur Auswahl
+stehen folgenden Wellenformen :
+<ul>
+<li>Sin : Sinus</li>
+<li>Tri : Dreieck</li>
+<li>Saw : Sägezahn</li>
+<li>Sqr : Rechteck</li>
+</td></tr>
+<tr bgcolor="#AAAAAA"><td align="right" valign="top"><nobr>Wave/Pha. (Phase)</nobr></td><td align="left"></ul>
+Phasenverschiebung (0-360 Grad)
+</td></tr>
+<tr bgcolor="#BBBBBB"><td align="right" valign="top"><nobr>Curve Editing/Range</nobr></td><td align="left">Hiermit kann ein linearer Verlauf zwischen 2 Reglern erzeugt werden. Dazu
+klickt man den 1. Regler an, dann auf Range und jetzt wählt man den 2. Regler aus.
+</td></tr>
+<tr bgcolor="#AAAAAA"><td align="right" valign="top"><nobr>Curve Editing/Mode</nobr></td><td align="left">Hier kann man auswählen, wie die Regler mit den vertikalen Pfeilen
+verschoben oder geflipt werden sollen.
+<ul>
+<li>Cur : der aktuelle Regler</li>
+<li>All : alle Regler</li>
+<li>Pos : alle positiven Regler</li>
+<li>Neg : alle negativen Regler</li>
+</td></tr>
+<tr bgcolor="#BBBBBB"><td align="right" valign="top"><nobr>Curve Editing/Nr</nobr></td><td align="left"></ul>
+Nummer des Obertones
+</td></tr>
+<tr bgcolor="#AAAAAA"><td align="right" valign="top"><nobr>Curve Editing/Val</nobr></td><td align="left">Lautstärke für den Oberton
+</td></tr>
+<tr bgcolor="#BBBBBB"><td align="right" valign="top"><nobr>Miscellaneous/SLen</nobr></td><td align="left">Länge des Sounds
+</td></tr>
+<tr bgcolor="#AAAAAA"><td align="right" valign="top"><nobr>Miscellaneous/OnePer</nobr></td><td align="left">Berechnet die Länge für eine Periode bei aktueller Rate und trägt das Ergebnis bei SLen ein.
+</td></tr>
+<tr bgcolor="#BBBBBB"><td align="right" valign="top"><nobr>Miscellaneous/SRat</nobr></td><td align="left">Abspielrate des Samples. Diese kann als Rate direkt oder als Note eingegeben werden bzw. im
+<a href="../node01.05.04.html">Periodenauswahlfenster</a> ausgewählt werden.
+</td></tr>
+<tr bgcolor="#AAAAAA"><td align="right" valign="top"><nobr>Miscellaneous/Volume (Scale)</nobr></td><td align="left">Lautstärke für die Wellenform
+</td></tr>
+<tr bgcolor="#BBBBBB"><td align="right" valign="top"><nobr>Miscellaneous/MaxVol</nobr></td><td align="left">Berechnet den Lautstärkewert für eine optimale Dynamikausnutzung.
+</td></tr>
+<tr bgcolor="#AAAAAA"><td align="right" valign="top"><nobr>Miscellaneous/Frq (Pitch)</nobr></td><td align="left">Dient der Einstellung der Basistonhöhe. Diese kann direkt oder im
+<a href="../node01.05.04.html">Periodenauswahlfenster</a> ausgewählt werden.
+Es empfiehlt sich die Frequenz eines "C" zu nehmen, um die generierten Klänge
+in einem Musikprogramm verwenden zu können.
+</td></tr>
+<tr bgcolor="#BBBBBB"><td align="right" valign="top"><nobr>Harmonics (SVal)</nobr></td><td align="left">In diesem Feld sind 64-Regler für den Lautstärken der Obertöne. Wenn der
+Regler in der Mitte ist (Wert=0), dann geht der Ton nicht mit in die
+Berechnung ein.
+</td></tr>
+<tr bgcolor="#AAAAAA"><td align="right" valign="top"><nobr>Harmonics/horiz. Pfeile</nobr></td><td align="left">Verschieben die Liste horizontal in Einer- oder Fünferschritten.
+</td></tr>
+<tr bgcolor="#BBBBBB"><td align="right" valign="top"><nobr>Harmonics/vert. Pfeile</nobr></td><td align="left">Verschieben die Liste oder den aktuellen Regler vertikal in Einer- oder Fünferschritten.
+</td></tr>
+<tr bgcolor="#AAAAAA"><td align="right" valign="top"><nobr>Harmonics/F-Gadget</nobr></td><td align="left">Flip, spiegelt die Liste oder den aktuellen Regler vertikal.
+</td></tr>
+<tr bgcolor="#BBBBBB"><td align="right" valign="top"><nobr>Frequency (<a href="../node03.02.01.html">P1</a>)</nobr></td><td align="left">Faktoren zur Frequenzmodulation
+</td></tr>
+<tr bgcolor="#AAAAAA"><td align="right" valign="top"><nobr>Amplitude (<a href="../node03.02.01.html">P2</a>)</nobr></td><td align="left">Faktoren zur Amplitudenmodulation
+</td></tr>
+</table>
+		</td></tr></table>
+	</td></tr>
+</table>
+<br>
+	<a name="#003"></a>
+<table border="0" width="100%" cellpadding="3" cellspacing="1" bgcolor="#000000">
+	<tr bgcolor="#DDDDDD"><td>
+		<table border="0" width="100%" cellpadding="0" cellspacing="0"><tr>
+			<td align="left">
+				<b>Hinweise</b>
+			</td>
+			<td align="right">
+				<a href="#002">
+				<img src="../../_img/a_up.gif" width="13" height="13" border="0" alt="[up]"></a>
+				<img src="../../_img/space.gif" width="2">
+				<a href="#004">
+				<img src="../../_img/a_do.gif" width="13" height="13" border="0" alt="[down]"></a>
+			</td>
+		</tr></table>
+	</td></tr>
+	<tr bgcolor="#FFFFFF"><td>
+		<table border="0" width="100%" cellpadding="5" cellspacing="0"><tr><td>
+Ein jeder Ton besteht aus einer Grundschwingung und mehreren Obertönen, deren
+Frequenzen ein Vielfaches der Grundfrequenz betragen. Mit diesem Operator
+können Sie die komplexesten Wellenformen entwerfen, indem Sie die einzelnen
+<a href="../node06.03.00.Harmonics.html">Obertöne</a> eingeben. Am Bestem
+laden Sie eine der abgespeicherten Dateien und schauen bzw. hören sich das
+Ergebnis an. Ein jeder Oberton wird durch seine Wertigkeit (=Lautstärke)
+definiert. Diese wird von dem Wert "Val" representiert. Dieser Wert sollte
+mit zunemenden Obertönen kleiner werden. Positive Werte werden aufaddiert und
+Negative werden abgezogen.<br>
+Sehr interessante Ergebnisse erhält man, wenn man ein Grundsample für z.B.
+C-2 erzeugt und ein weiteres mit folgender Frequenz : [C-2]+(([C#2]-[C-2])/4)
+Folgend ein paar Beispiele :<table>
+<tr><td>C-0</td><td>65.4063913</td><td>67.35102453</td></tr>
+<tr><td>C-1</td><td>130.8127827</td><td>132.7574159</td></tr>
+<tr><td>C-2</td><td>261.6255653</td><td>265.5148317</td></tr>
+<tr><td>C-3</td><td>523.2511306</td><td>531.0296635</td></tr></table>
+Diese zwei Samples mischt man jetzt mit <a href="Mix.html">Mix</a> zu gleichen
+Teilen zusammen. Dadurch haben wir eine leichte Schwebung in das Sample
+gebracht ; es klingt nun wesentlich lebendiger und fetter.
+		</td></tr></table>
+	</td></tr>
+</table>
+<br>
+	<a name="#004"></a>
+	<table border="0" width="100%" cellpadding="3" cellspacing="1" bgcolor="#000000"><tr bgcolor="#FFFFFF"><td>
+		<table border="0" width="100%" cellpadding="0" cellspacing="0"><tr>
+			<td align="left"><font size="-1">
+		[<a href="../node__.__.__.html">SoundFX</a>]
+			[<a href="../node02.__.__.html">Module</a>]
+				[<a href="../node02.01.__.html">Operatoren</a>]
+			</font></td>
+			<td align="right" valign="center">
+				<a href="../node02.01.06/Swap.html">
+				<img src="../../_img/a_le.gif" width="13" height="13" border="0" alt="[prev]"></a>
+				<img src="../../_img/space.gif" width="2">
+				<a href="../node02.01.06/Synthesize-FM.html">
+				<img src="../../_img/a_ri.gif" width="13" height="13" border="0" alt="[next]"></a>
+			</td>
+		</tr></table>
+	</td></tr></table>
+	<br>
+	<table border="0" width="100%" cellpadding="3" cellspacing="1" bgcolor="#000000"><tr bgcolor="#FFFFFF"><td align="center"><font size="-1">
+		&copy; by <a href="mailto:soundfx@sonicpulse.de">Stefan Kost</a> 1993-2004
+		<a href="http://www.sonicpulse.de" target="_new">www.sonicpulse.de</a>
+	</font></td></tr></table>
+	</body>
+</html>

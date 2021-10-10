@@ -1,0 +1,54 @@
+From - Mon Sep 14 13:04:13 1998
+Received: from gmxlx2.gmx.net (qmailr@gmxlx2.gmx.net [195.63.104.132] (may be forged))
+	by imn.htwk-leipzig.de (8.9.1/8.9.1) with SMTP id WAA08528
+	for <kost@imn.htwk-leipzig.de>; Sun, 13 Sep 1998 22:50:30 +0200 (MET DST)
+Received: (qmail 2794 invoked from network); 13 Sep 1998 20:52:34 -0000
+Received: from tc1ppp2.rz.uni-mannheim.de (134.155.53.2)
+  by gmxlx2.gmx.net with SMTP; 13 Sep 1998 20:52:34 -0000
+From: "Michael Merkel" <Michael.Merkel@gmx.net>
+Organization: -
+Date: 13 Sep 98 22:50:27 +0100
+Subject: nochwas...
+Message-Id: <35FC4C33.MD-0.198.Michael.Merkel@gmx.net>
+In-Reply-To: <199809131125.NAA22758@thlhp.rz.htwk-leipzig.de>
+To: kost@imn.htwk-leipzig.de
+Mime-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-Mailer: MicroDot-II/AmigaOS 0.198
+Content-Type: text/plain; charset=iso-8859-1
+Content-Length: 942
+Status:   
+X-Mozilla-Status: 8003
+
+> hi!
+> 
+> mir ist folgendes aufgefallen:
+> WAV files, welche mit STFax exportiert wurden, kann SFX nicht lesen.
+> es erscheint dann ein rewuester mit der fehlermeldung:
+> 
+> RIFF-WAV_L.c 155
+> Kann Daten nicht lesen!
+> 
+> diese WAV files können problemlos mit multiview oder play16 abgespielt
+> werden.
+
+ein weiterer bug in diesem zusammenhang:
+
+mach mal folgendes:
+
+- starte sfx
+- versuche dieses wav file zu laden, welches ich dir geschickt hatte.
+  -> es kommt dann die fehlermeldung. bestätigen.
+- lade ein funktionierendes file (irgend ein aiff oder so)
+
+---> im offenen play window bleiben alle gadgets geghostet! das sample
+     kann nicht abgespielt werden. die fenster müssen zuerst
+     geschlossen und dann wieder geöffnet werden. dann geht es.
+     da wird wohl aus einem fehlerzustand nicht korrekt
+     rausgesprungen.
+
+byebye...
+--
+Michael Merkel (MiMe@IRC)
+Michael.Merkel@gmx.net
+http://home.t-online.de/home/Merkel.Michael/

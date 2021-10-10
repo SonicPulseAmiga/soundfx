@@ -1,0 +1,329 @@
+V -.-   1993
+- first experiements with soundeffects (in AMOS)
+
+V 0.0	01.03.1994
+- Idea to develop an effect-software in C
+- trigger was an artikel in the german magazin "Keys"
+
+V 1.2	01.05.1994
+- first version - very unflexibel (only 2 buffers : source and destination)
+- only a few unmature FX
+
+V 2.0	25.06.1994
+- a little better usage (10 buffers)
+- more FX
+- works in 16bit
+
+V 3.0	20.02.1995
+- completely new GUI (fontsensitiv/screenmodesensitiv)
+- as many buffers as you like (limited by the window-system)
+- more FX/Player/Loader/Saver
+- many FX combined
+- ARexx-Port
+
+V 3.1	23.06.1995
+- new window-system - now really unlimited number of windows
+- enhanced ARexx-port
+- new playroutines 14bit, interruptplayer, playposition
+
+V 3.2	01.08.1995
+- Equalize / Equalizer-ZPlane / Vocoder working again
+- enhanced PitchShift
+- sample-morphing !!!
+- better GUI (more asynchroneous windows, more flexible usage)
+- listwindows are sizesensitive
+- menus
+- screen is public now
+
+V 3.2x	25.09.1995 - 13.12.1995
+- Bugfixes
+- faster GUI
+- smaller executable (more than 5% gained)
+- new ARexx-commands
+- new Loaderroutine
+
+V 3.3x  14.12.1995
+- Bugfixes
+- 1. Step to modularisation
+  Guides splitted, dynamic nodelists
+- new installscripts
+- Booster -> Filter (use negative effectpropotion)
+
+- enhanced display of start, end, lenght of loops, ranges, zooms
+- Loader/Saver for IFF-Maud-Samples (Macrosystems)
+- AIFF/AIFC Loader/Saver splitted
+- GUI will be reopened, after changing screenmode or font
+- you can use proportional-fonts now
+- bugs in fontsensitivity and GUI fixed
+- bugs in FFT-based operators are fixed (AnalyseSpect,Equalize,Morph)
+- FFT enhanced - now you could use various window-functions for better results
+- AnalyseSpect2D/3D uses SFX-PubScreen now
+- more parameters and better (more flexible) scaling in AnalyseSpect2D/3D
+
+- 14bit callibrated player
+- AnalyseData-Operator
+- Loader- and Saver-modules are rewritten
+  now with better compression-support
+- screenrefresh improved
+
+- DeNoise Operator added
+- Vocode works fine
+- Trace improved
+- Samplebuffersettings expanded and can now be saved
+- Installerscripts improved
+- Access of help-files from Workbench works (icon added)
+- Players are now more than 2 times faster
+  SFX can replay a quadro sample with 48000 Hz with 14bit-callibrated on my
+  machine (A2000 68030+68882 50Mz)
+- Optimized : executable is now faster, shorter and runs more stable
+  my c-compiler displays : no errors, no warnings, no user suppressed warnings
+- User0/1/2-modulationmodes are faster now
+- ??_ZPlane enhanced
+
+- new Hall-algorithm
+- enhanced color-handling on screens with much colours - better visibility of :
+	the percentage in proceed-window
+	the slider in Equalize and Synthesize_Add
+	the envelope in ADSR-Envelope
+	the marked area
+- Bug in Guide-system fixed
+- Layout of list- and Samplewindows enhanced (no problems with programs like
+  e.g. UrouHack)
+- double-click-bug removed
+- enhanced DeCrackle
+- 48 new ARexx commands
+- some memoryleaks found and fixed
+- help-menu
+- ARexxOp.-window added
+- better blocking of currently not active windows
+- new algorithm for generating samplebuffer-names avoids doubled names
+- automatical updating index-guides
+- new ARexx-examples
+- asynchronous Help
+- Resample,OctaveUp,OctaveDown correcting loopposition now
+- bug during break of calculation of multichannelsample fixed
+- samplememory will be cleared now
+- bug in buffer visual/hidden fixed
+- some enforcer hits removed and a strange one detected (but can't remove,
+  because it appears BETWEEN two sourcelines ??)
+- Synthesize_Add changed
+- some deadlocks fixed
+- AHI-player added
+- intuition-overhead reduced
+- bug in Info fixed
+- exit -> quit (hotkey-conflict)
+- RastPort-handling overworked
+- scrolling of sample considarably accelerated
+- ADSR-Envelope enhanced
+- GUI enhanced; probleme with fonts fixed; fontsensitivity enhanced
+- Filters renamed
+- dynamic scrolling (ranges)
+- ASL-screenmoderequester in prefs
+- some functions moved to sfxsupport.library
+
+- menu in prefs
+- Bufferhandling enhanced - now really unlimited number of samples and faster
+  too
+- FX reduced
+	Invert		-> Amplify with factor=-100
+	OctaveDown	-> Resample with Factor=0.5
+	OctaveUp	-> Resample with Factor=2.0
+- 4 new Filters built in
+- Bug in colorhandling in Analyse-Spect3D fixed
+- new ARexx-commands
+- ARexx-scipts reworked again + new examples
+- further functions in sfxsupport.library
+- Glossary expanded
+- automatical window-cleanup
+- startup-window
+- new DeNoise (FIR)
+- [long break : because of HD with faulty RDB]
+- ARexx-scripts in workshop
+- AHI-Prefs saved (temporarilly)
+- recompiled with SAS 6.57
+- improved install scripts
+
+V 3.4x  03.05.1997
+- bugfixes
+- now all FX are really external modules
+- FX are running asynchronous
+- all FX got a menu
+- all FX can save and load their setting (presets)
+- all FX settings are held as long as the computer is on
+- SFX supports now real units (db,hz,semitones,cents,prozent,promille,factor,
+  milliseconds,seconds,minits,hours,...)
+- Y-Zoom
+- new windowlayout for samplewindows (scroller, arrows)
+- faster (synthesize_add +3x, filter-fit +4x)
+- ahi-player fixed
+
+- fixed some memory leaks, detected by using my new debug-tools (soon available
+  in aminet)
+- all loaders and savers now external
+- new support routines making write loaders and saves easier and don't
+  wasting memory like before
+- loader and savers using AsyncIO.library for fast disk IO
+- some new loaders and savers, others enhanced
+- new compressions supported (ALAW) and others fixed
+- new interpolation type (si-interpolation)
+- fixed some more problems with players
+- new colour scheme for sample windows
+
+- bugfixes (EnforcerHit - when changing screen or font in Prefs)
+- new fx (FilterFIRMutate), loader & saver (Clipboard), and compression
+  (ALaw-Inv, µLaw-Inv)
+- stack will be controled by sfx now
+
+V 3.5x  12.10.1997
+
+- bugfixes
+- Preparation for virtual memory
+- fonts doesn't need to be copied to Fonts:
+- appicon support
+- clippboard support
+- fixed that strange crash, which occured if amigaguide.library is not in ram
+  when starting
+- raw-type detection improved
+- datatypes loader
+
+V 3.6x  19.11.1997
+
+- bugfixes
+- screen colours now 8/32 bit (instead of 4 bit)
+- prefs splitted
+- all editfunctions rewritten for virtualmemory system
+- Filter (FIR) enhanced
+- Window-functions (for #?-FIR#? und #?-FFT) fixed
+- Windowfunctions can be selected in an own requester with preview
+- new modulationsystem
+- Operators are smaller
+- mainguide splitted
+- FFT is faster
+- AREXX-parameter of the new modulationsystem are more flexible
+- clipboard-req improved (table-listview + prop. font support)
+- new data swap routines
+- new unit groups (relative time, phase)
+- enhanced some operators (Resample, Synthesize_Add, MultiDelay, Equalize-FFT,
+  Vocode-FFT, Morph-FFT, ...)
+- new source project management (no wrong cpu/fpu versions anymore, more con-
+  sistent version numbering)
+- volume and pitch tracking in modulator 'user'
+- improved installscript
+- new icons sets
+- more presets
+
+V 3.7x 04.08.1998
+
+- sampleoptions extended
+- GUI, Sampleprefs extended
+- Rulers for samplewindows
+- enhanced marking possibillities
+- cross-hair in samplewindows
+- enhanced position-display (rangewindow)
+- operators accellerated & improved
+- Clap & Clear -> AmplifySplit
+- new Operators	Convolve
+- new Savers	Studio16
+- all modules are working with virtual memory
+- ARexxport is faster (binary keyword search, automatic preparse)
+- installscript enhanced again
+
+V3.8x 01.01.1999
+
+- bugfixes
+- better pen managment
+- new prefs file format (enhanced compatibillity)
+- new Operator (Synthesize_FM)
+- new Loader (MPEG)
+- enhanced loader (datatype-loader supports sounddt v41)
+- new RexxScripts (for project exchange)
+- varying mousepointers
+- enhanced progressbar (supports several runs)
+- curve modulator can be edited with the mouse
+- vector modulator supports more points and has helplines
+- enhanced sample-display
+- new ARexx commands
+- many new presets
+
+- new prefs option : srcsel-mode
+- preset list at right operator border
+- even more presets
+- enhancements : Pitchshift, Vocode-FFT
+
+- new operators (SampleJoin, SampleSplit, ChannelJoin, ChannelSplit)
+- new loader (CDDA-Direct)
+- enhanced savers (MPEG supports Pegase,Lame)
+- enhanced error messages and queries (in work)
+- redrawing samples is now aware of window changes
+
+V4.0x 11.03.2000
+
+- new GUI (toolbars, context-menues, statusbar)
+- fx are faster
+- playposition will now be shown in prefered unit
+- fx enhanced (Analyse-Data)
+- loader/saver enhanced (IFF-AIFC loads & saves µlaw,alaw)
+- new fx (Analyse-Stereo, DelayPlus)
+
+V4.1x 10.05.2001
+
+- now you can select ranges on rulers
+- range-menu
+- enhanced Info-window
+- html-help
+- use of 'listtools.library'
+- stronger version-managment and -checking
+- gradients in section-titles
+- new arexx-commands : Set/GetSaverParam,SetSaverPreset,Set/GetQuietMode, Hide/ShowBuffer
+- sample- and progressbar-windows only get activated now, when SoundFX-screen in infront
+- some bug-fixes in savers (slightly faster too)
+- bug-fix progressbar-display
+- quiet mode (no requests and messages)
+- logfile support
+- batchprocessor
+- use now only asynchronous progressbars
+- strongly enhanced mode detection in RAW-loader
+- sampling now supports 8bit and mono
+- loader are now more fault tolerant
+- loaders/saver now output better error-messages
+
+V4.2x 09.08.2002
+
+- internal cleanups
+- virtual memory bugfixes
+- new operator (Equalize-3Ch)
+- enhanced operators (Amplify,AmplifySplit,Analyse-Data,Detune,Equalize-3D)
+- enhanced saver (SDS-File)
+- more fault-tolerant Loaders (IFF-based)
+- all savers now can save ranges
+- separate Filerequests for loading and saving (keeps path)
+- total rewrite of sample loading/saving helpers (much more error robust)
+- iconify for sample-windows
+- popup-button for sample-windows
+- rearranged and extended main-menus
+- disable menu-commands if not available
+- better shortcuts
+- extended documentation (now as ps and pdf too)
+- show tips on startup
+- extended and localized context menu
+
+V4.3x 26.03.2004
+
+- enhanced usabillity (button texts, status bar info)
+- modulatiors (updated gui, mouse pointers, new oszi, presets for vector)
+- new operator (Timestretch)
+- enhanced operators (DeCrackle, Dynamic, Equalize-FFT, Hall,
+  Panorama4Ch, PitchShift, SynthesizeAdd)
+- enhanced loader (Riff-Wav, MPEG)
+- one winodw mode
+- more info. in sampleoptions
+- interpolators have separate settings window with preview
+- better sample naming
+- loader/saver add sampleinformation to filenotes
+- saver can add icons
+- filenames can be passed on the commandline, if SoundFXalredy runs files
+  will be just loaded
+- extended documentation
+
+V4.4x 
+

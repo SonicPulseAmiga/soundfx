@@ -1,0 +1,92 @@
+Subject:
+flexcat 2.5 & sfx nederlands updated
+From:
+303dmx@hetnet.nl
+Date:
+Thu, 1 Aug 2002 13:08:22 +0200
+To:
+"Stefan Kost" <kost@imn.htwk-leipzig.de>
+X-UIDL:
+361df5b500005bce
+X-Mozilla-Status:
+0001
+X-Mozilla-Status2:
+10000000
+Received:
+from hetnet.nl (net038s.hetnet.nl [194.151.104.194]) by imn.htwk-leipzig.de (8.9.1/8.9.1) with ESMTP id NAA29724 for <kost@imn.htwk-leipzig.de>; Thu, 1 Aug 2002 13:01:46 +0200 (MET DST)
+Received:
+from mail pickup service by hetnet.nl with Microsoft SMTPSVC; Thu, 1 Aug 2002 13:08:23 +0200
+Content-Class:
+urn:content-classes:message
+Message-ID:
+<1e91001c2394b$c0249ab0$c26897c2@hetnet.local>
+MIME-Version:
+1.0
+X-Mailer:
+Microsoft CDO for Windows 2000
+Thread-Index:
+AcI5S8AkSm7NQKU4EdaESABQi2aA2A==
+X-MimeOLE:
+Produced By Microsoft MimeOLE V5.50.4807.1700
+Content-Type:
+multipart/mixed; boundary="----=_NextPart_000_1E911_01C2395C.83AD6AB0"
+Content-Length:
+15448
+Status:
+O
+
+Hello Stefan.
+
+
+>I recently worked a bit on translations again and noticed the following
+>things (flexcat 2.5) :
+>* FlexCat_english.guide
+>  * still version  2.3
+>  * many typos in section "program start"
+>* FlexCat_deutsch.guide
+>  * still version  1.7
+
+
+>=> I would offer to update the english docs and mail them to you, if you
+>have not yet done so.
+
+
+That would be great! I hardly read the docs ;)
+
+>* when flexcat generates a .catalog-file from a .ct-file, it should change
+>the version string
+>  * replace ".ct" with ".catalog"
+>  * update the date
+
+
+Use $TODAY
+
+
+>* when flextcat updates/creates a .ct-file it should update the version
+>string too.
+>  * the date should be updated
+
+
+Again, use $TODAY.
+
+
+>=> If you have not time to look into it, I'll see if I can grab the source
+>and do the fixes.
+
+
+I'm pretty busy atm. So if you would be some kind and do the update.
+
+
+>* it would be useful, if it could support an option WARNEMPTYSTRINGS which
+>would alter the user of translations which are empty (or only whitespaces)
+
+
+Is that not already included? Really strange...
+
+Greetz from Amsterdam
+Michel 'DMX' Bagmeijer
+
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------

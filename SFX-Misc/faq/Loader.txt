@@ -1,0 +1,52 @@
+<<<<<<<<<< CDDA >>>>>>>>>>
+
+21 jul 99
+Q:
+> I must have missed the mention of this in the docs. I'd be nice if
+> there were a selection in the loader & saver listviews specifically
+> labeled CDDA load & save. And does SFX support Motorola byte order
+> CDDA files as well? That would allow conversion of CDDA files from
+> 1 format to the other.
+A:
+All can be done. SoundFX's RAW loader has a nice feature - a configurable
+'autodectection' for raw-files.
+That means you can associate a file extension or a pattern (some id) in the file
+with a set of options.
+To load cdda-file automaticaly in the right way, you would load the cdda-preset
+and edit it's setting to your desire.
+e.g.
+    Format=16 bit signed
+    Endian=Intel
+    Channels=stereo interleaved
+and associate this with the ending '.cdda'.
+Then you enable the autodetection and save this settings as default.cfg.
+Everytime you load a file via 'Universal'-loader or 'RAW'-loader, the format
+gets detected properly and converted as said above.
+
+26 jul 99
+Q:
+> It would be nice if you could permanently set the drive unit and
+> device preferences that the CDDA-Direct loader uses.
+A:
+Just choose your device and unit and save this as 'default.cfg'.
+
+Q:
+> Also, how do
+> you permanently set the Raw loader preferences so that it loads
+> regular CDDA files?  Once I set them, they ramain until I reboot
+> but once I've done that when I run SFX again and use the Raw
+> loader the preferences are back to their original settings.
+A:
+* start raw-loader GUI
+* load cdda.cfg
+* change setting to you needs (16bit signed, stereo interleaved, intel/motorolla
+  order)
+* save this as cdda.cfg again
+* activate 'autodetect' (I don't remember the exact name)
+* if there is no entry for cdda yet, create one
+  * press add
+  * select cdda.cfg
+  * and enter '.cdda'
+   this means whenever a file is called '.cdda' the use the setting from the
+   cdda.cfg
+* save this now as 'default.cfg'

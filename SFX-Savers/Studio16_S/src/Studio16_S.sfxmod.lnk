@@ -1,0 +1,15 @@
+FROM LIB:libent.o LIB:libinit.o "Studio16_S.o"+"lib-soundfx.o"
+TO "Studio16_S.sfxmod.dbg"
+LIB LIB:stormamiga_060.lib LIB:scm881.lib
+    LIB:sc.lib LIB:amiga.lib
+ADDSYM
+BATCH
+QUIET
+NOICONS
+DEFINE @__chkabort=@__dummy
+LIBVERSION 4
+LIBREVISION 3
+LIBPREFIX _LIB
+LIBFD ///sfx-module/sfxmod_lib.fd
+
+DEFINE __XCEXIT=_stub

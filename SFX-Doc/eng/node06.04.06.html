@@ -1,0 +1,88 @@
+<html>
+	<head><title>SoundFX : 6.4.6 Loaders</title></head>
+	<body bgcolor="#EEEEEE" leftmargin="5" rightmargin="5" topmargin="5" text="#000000" link="#2040FF" vlink="#0020E0" alink="#FFFFFF">
+	<a name="#000"></a>
+	<table border="0" width="100%" cellpadding="3" cellspacing="1" bgcolor="#000000"><tr bgcolor="#FFFFFF"><td>
+		<table border="0" width="100%" cellpadding="0" cellspacing="0"><tr>
+			<td align="left"><font size="-1">
+		[<a href="node__.__.__.html">SoundFX</a>]
+			[<a href="node06.__.__.html">Appendix</a>]
+				[<a href="node06.04.__.html">FAQ</a>]
+			</font></td>
+			<td align="right" valign="center">
+				<a href="node06.04.05.html">
+				<img src="../_img/a_le.gif" width="13" height="13" border="0" alt="[prev]"></a>
+				<img src="../_img/space.gif" width="2">
+				<a href="node06.04.07.html">
+				<img src="../_img/a_ri.gif" width="13" height="13" border="0" alt="[next]"></a>
+			</td>
+		</tr></table>
+	</td></tr></table>
+	<br>
+		<!-- Contents -->
+	<a name="#001"></a>
+		<table border="0" width="100%" cellpadding="3" cellspacing="1" bgcolor="#000000">
+	<tr bgcolor="#DDDDDD"><td>
+		<table border="0" width="100%" cellpadding="0" cellspacing="0"><tr>
+			<td align="left">
+				<b>6.4.6 Loaders</b>
+			</td>
+			<td align="right">
+				<a href="#000">
+				<img src="../_img/a_up.gif" width="13" height="13" border="0" alt="[up]"></a>
+				<img src="../_img/space.gif" width="2">
+				<a href="#002">
+				<img src="../_img/a_do.gif" width="13" height="13" border="0" alt="[down]"></a>
+			</td>
+		</tr></table>
+	</td></tr>
+			<tr bgcolor="#FFFFFF"><td>
+				<table border="0" cellpadding="5" cellspacing="0"><tr><td>
+					<p align="justify">
+						<b>Q:</b> It would be nice if there were a selection in the loader and saver list-views specifically
+								  labeled CDDA load & save. And does <b>SoundFX</b> support Motorola byte order CDDA files as well?
+								  That would allow conversion of CDDA files from 1  to the other.<br>
+						<b>A:</b> All can be done. <b>SoundFX</b>&#39;s <a href="node02.02.01/RAW_L.html">RAW</a> loader has a nice feature - a configurable
+								  'auto-dectection' for raw-files. That means you can associate a file extension
+								  or a pattern (some id) in the file with a set of options.<br>
+								  To load cdda-file automatically in the right way, you would create a cdda-preset
+								  and edit it's setting to your desire. e.g.:<br>
+								    &nbsp;&nbsp; Format=16 bit signed<br>
+								    &nbsp;&nbsp; Endian=Intel<br>
+								    &nbsp;&nbsp; Channels=stereo interleaved<br>
+								  and associate this with the ending '.cdda'.
+								  Then you enable the auto-detection and save this settings as 'default.cfg'. Every time
+								  you load a cdda-file via <a href="node02.02.01/Universal_L.html">Universal</a>-loader or <a href="node02.02.01/RAW_L.html">RAW</a>-loader then, the  gets
+								  detected properly and converted as said above<br><br>
+						<b>Q:</b> It would be nice if you could permanently set the drive unit and
+								  device preferences that the <a href="node02.02.01/CDDA-Direct_L.html">CDDA-Direct</a> loader uses.<br>
+						<b>A:</b> Just choose your device and unit and save this as 'default.cfg'.<br>
+					</p>
+				</td></tr></table>
+			</td></tr>
+		</table>
+		<br>
+	<a name="#002"></a>
+	<table border="0" width="100%" cellpadding="3" cellspacing="1" bgcolor="#000000"><tr bgcolor="#FFFFFF"><td>
+		<table border="0" width="100%" cellpadding="0" cellspacing="0"><tr>
+			<td align="left"><font size="-1">
+		[<a href="node__.__.__.html">SoundFX</a>]
+			[<a href="node06.__.__.html">Appendix</a>]
+				[<a href="node06.04.__.html">FAQ</a>]
+			</font></td>
+			<td align="right" valign="center">
+				<a href="node06.04.05.html">
+				<img src="../_img/a_le.gif" width="13" height="13" border="0" alt="[prev]"></a>
+				<img src="../_img/space.gif" width="2">
+				<a href="node06.04.07.html">
+				<img src="../_img/a_ri.gif" width="13" height="13" border="0" alt="[next]"></a>
+			</td>
+		</tr></table>
+	</td></tr></table>
+	<br>
+	<table border="0" width="100%" cellpadding="3" cellspacing="1" bgcolor="#000000"><tr bgcolor="#FFFFFF"><td align="center"><font size="-1">
+		&copy; by <a href="mailto:soundfx@sonicpulse.de">Stefan Kost</a> 1993-2004
+		<a href="http://www.sonicpulse.de" target="_new">www.sonicpulse.de</a>
+	</font></td></tr></table>
+	</body>
+</html>

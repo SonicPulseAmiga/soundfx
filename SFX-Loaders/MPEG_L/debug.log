@@ -1,0 +1,26 @@
+MPEG_L.c       500 mpeg-stream Swap:SamplesNew/LICTD0.mp3 opened succesfully
+MPEG_L.c       501      norm        : 1
+MPEG_L.c       502      layer       : 3
+MPEG_L.c       503      bitrate     : 128 kps
+MPEG_L.c       504      frequency   : 44100 Hz
+MPEG_L.c       505      channels    : 2
+MPEG_L.c       506      duration    : 187062 ms
+MPEG_L.c       507      private     : 0
+MPEG_L.c       508      copyright   : 0
+MPEG_L.c       509      original    : 1
+MPEG_L.c       517      duration    : 8249434 samples
+MPEG_L.c       528 AllocSampleMem okay
+
+
+MPEG_L.c       500 mpeg-stream Swap:SamplesNew/LICTD0.mp3 opened succesfully
+MPEG_L.c       501      norm        : 1
+MPEG_L.c       502      layer       : 3
+MPEG_L.c       503      bitrate     : 128 kps
+MPEG_L.c       504      frequency   : 44100 Hz
+MPEG_L.c       505      channels    : 2
+MPEG_L.c       506      duration    : 187062 ms
+MPEG_L.c       507      private     : 0
+MPEG_L.c       508      copyright   : 0
+MPEG_L.c       509      original    : 1
+MPEG_L.c       517      duration    : 8249434 samples
+MPEG_L.c       528 AllocSampleMem okay

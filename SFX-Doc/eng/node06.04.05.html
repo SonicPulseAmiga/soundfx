@@ -1,0 +1,113 @@
+<html>
+	<head><title>SoundFX : 6.4.5 Usage</title></head>
+	<body bgcolor="#EEEEEE" leftmargin="5" rightmargin="5" topmargin="5" text="#000000" link="#2040FF" vlink="#0020E0" alink="#FFFFFF">
+	<a name="#000"></a>
+	<table border="0" width="100%" cellpadding="3" cellspacing="1" bgcolor="#000000"><tr bgcolor="#FFFFFF"><td>
+		<table border="0" width="100%" cellpadding="0" cellspacing="0"><tr>
+			<td align="left"><font size="-1">
+		[<a href="node__.__.__.html">SoundFX</a>]
+			[<a href="node06.__.__.html">Appendix</a>]
+				[<a href="node06.04.__.html">FAQ</a>]
+			</font></td>
+			<td align="right" valign="center">
+				<a href="node06.04.04.html">
+				<img src="../_img/a_le.gif" width="13" height="13" border="0" alt="[prev]"></a>
+				<img src="../_img/space.gif" width="2">
+				<a href="node06.04.06.html">
+				<img src="../_img/a_ri.gif" width="13" height="13" border="0" alt="[next]"></a>
+			</td>
+		</tr></table>
+	</td></tr></table>
+	<br>
+		<!-- Contents -->
+	<a name="#001"></a>
+		<table border="0" width="100%" cellpadding="3" cellspacing="1" bgcolor="#000000">
+	<tr bgcolor="#DDDDDD"><td>
+		<table border="0" width="100%" cellpadding="0" cellspacing="0"><tr>
+			<td align="left">
+				<b>6.4.5 Usage</b>
+			</td>
+			<td align="right">
+				<a href="#000">
+				<img src="../_img/a_up.gif" width="13" height="13" border="0" alt="[up]"></a>
+				<img src="../_img/space.gif" width="2">
+				<a href="#002">
+				<img src="../_img/a_do.gif" width="13" height="13" border="0" alt="[down]"></a>
+			</td>
+		</tr></table>
+	</td></tr>
+			<tr bgcolor="#FFFFFF"><td>
+				<table border="0" cellpadding="5" cellspacing="0"><tr><td>
+					<p align="justify">
+						<b>Q:</b> How can I make a sample window forget a range I marked, without 
+								  cutting or copying or anything<br>
+						<b>A:</b> You can select it from range-menu or with short-cut Amiga-H.<br><br>
+						<b>Q:</b> I am very much intrigued as to why we have control over the vertical
+								  component of ranges? Can we grab only peaks of samples?<br>
+						<b>A:</b> This is currently only for zooming, i.e. you can roughly mark a range,
+								  let <b>SoundFX</b> extend this that it optimally encloses the peak values
+								  and then enlarge the area.<br><br>
+						<b>Q:</b> Having a keyboard shortcut for starting an operator would be nice (not Amiga-r,
+								  but something to start the calculation in the operator).<br>
+						<b>A:</b> There is one. Press "Enter/Return".<br><br>
+						<b>Q:</b> How can I select the whole sample?<br>
+						<b>A:</b> Again by using the range-menu or with the shortcut Amiga-A.<br><br>
+						<b>Q:</b> About the Del key? I am used to use it for Cut operations, just like
+								  SoundForge, CoolEdit, and also word-processors have it.<br>
+						<b>A:</b> I think the best would be to make all short-cut user definable. Now <b>SoundFX</b>
+								  uses Amiga-x for "Cut" like all good Amiga-programs do.<br><br>
+						<b>Q:</b> If you have a 600 Mb file that you want to process in <b>SoundFX</b>, but not
+								  room for a second (or third, or fourth) 600 Mb file, how do you
+								  handle it?  The method of making a new sample every time you
+								  apply an effect works well for short samples, but it is a problem for
+								  whole recordings.<br>
+						<b>A:</b> At first - short samples - that is what <b>SoundFX</b> is for mainly. As it was
+								  often asked for, <b>SoundFX</b> learned how to cope with long recordings.
+								  If there is no room left in memory, <b>SoundFX</b> tries to swap out onto hd and
+								  if even there is no space, the operation fails.<br>
+								  If you have alternative ideas, they are very welcome. Just to mention
+								  it, I already thought about reusing the space of the source samples
+								  for the result. This would work with most effects, but not with all and is
+								  sometimes tricky to handle too.<br><br>
+						<b>Q:</b> Opening some program windows causes bad refreshing of
+								  sample-windows when they are resized. If you open eg. a loader
+								  prefs window, and then attempt to resize a sample-window,
+								  its contents is not properly refreshed. The refresh is
+								  completed only after you have closed the loader prefs window.<br>
+								  Operator windows DO NOT cause this!<br>
+						<b>A:</b> The operators are started as separated tasks, most other windows are not.
+								  As I don't run them asynchronously, all events you cause
+								  for other windows are queued until you close the blocking window.<br>
+								  I don't know if it is worth the work, to make them all asynchronous.<br><br>
+						<b>Q:</b> Will the new batch facility allow me to convert them all to WAV in one
+								  go, recursively going through the drawers?<br>
+						<b>A:</b> Yes, as this is exactly what it is for.<br>
+					</p>
+				</td></tr></table>
+			</td></tr>
+		</table>
+		<br>
+	<a name="#002"></a>
+	<table border="0" width="100%" cellpadding="3" cellspacing="1" bgcolor="#000000"><tr bgcolor="#FFFFFF"><td>
+		<table border="0" width="100%" cellpadding="0" cellspacing="0"><tr>
+			<td align="left"><font size="-1">
+		[<a href="node__.__.__.html">SoundFX</a>]
+			[<a href="node06.__.__.html">Appendix</a>]
+				[<a href="node06.04.__.html">FAQ</a>]
+			</font></td>
+			<td align="right" valign="center">
+				<a href="node06.04.04.html">
+				<img src="../_img/a_le.gif" width="13" height="13" border="0" alt="[prev]"></a>
+				<img src="../_img/space.gif" width="2">
+				<a href="node06.04.06.html">
+				<img src="../_img/a_ri.gif" width="13" height="13" border="0" alt="[next]"></a>
+			</td>
+		</tr></table>
+	</td></tr></table>
+	<br>
+	<table border="0" width="100%" cellpadding="3" cellspacing="1" bgcolor="#000000"><tr bgcolor="#FFFFFF"><td align="center"><font size="-1">
+		&copy; by <a href="mailto:soundfx@sonicpulse.de">Stefan Kost</a> 1993-2004
+		<a href="http://www.sonicpulse.de" target="_new">www.sonicpulse.de</a>
+	</font></td></tr></table>
+	</body>
+</html>

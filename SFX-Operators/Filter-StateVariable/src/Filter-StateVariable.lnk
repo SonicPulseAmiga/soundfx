@@ -1,0 +1,16 @@
+FROM LIB:libent.o LIB:libinit.o "Filter-StateVariable.o"+"lib-soundfx.o"
+TO "Filter-StateVariable.sfxmod"
+LIB LIB:debugtools881.lib LIB:debug.lib LIB:stormamiga_060.lib LIB:scm881.lib
+    LIB:sc.lib LIB:amiga.lib
+ADDSYM
+STRIPDEBUG
+BATCH
+QUIET
+NOICONS
+DEFINE @__chkabort=@__dummy
+LIBVERSION 4
+LIBREVISION 3
+LIBPREFIX _LIB
+LIBFD ///sfx-module/sfxmod_lib.fd
+
+DEFINE __XCEXIT=_stub

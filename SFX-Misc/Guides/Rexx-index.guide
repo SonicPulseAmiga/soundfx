@@ -1,0 +1,43 @@
+@database SFX
+
+@Remark (C) Copyright 1993-1996 Stefan Kost
+@Remark All Rights Reserved
+@Remark $VER: Rexx-Index.guide (--.--.--)
+@Remark AmigaGuide-OnLine-Hilfe für SoundFX
+
+@master /guides/sfx.guide
+@index /guides/sfx-index.guide/index
+
+@node main "Rexx-Index"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Rexx-Index
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+@{" General Information " link Rexx.guide/main }
+@{" ApplySine           " link /_Rexx/ApplySine.guide/main }		Operator
+@{" Channel-Converter   " link /_Rexx/Channel-Converter.guide/main }		       Macro
+@{" Channel-Switcher    " link /_Rexx/Channel-Switcher.guide/main }		Testscript
+@{" DeCrackleTest       " link /_Rexx/DeCrackleTest.guide/main }		Operator
+@{" DelayFX             " link /_Rexx/DelayFX.guide/main }		Macro
+@{" Differenciate       " link /_Rexx/Differenciate.guide/main }		Operator
+@{" ExpSmoothing        " link /_Rexx/ExpSmoothing.guide/main }		Operator
+@{" FromOctaMed         " link /_Rexx/FromOctaMed.guide/main }		Macro for Dataexchange
+@{" FromSoundProbe      " link /_Rexx/FromSoundProbe.guide/main }		Macro for Dataexchange
+@{" GhostEcho           " link /_Rexx/GhostEcho.guide/main }		Macro
+@{" Info                " link /_Rexx/Info.guide/main }		Tool
+@{" Integrate           " link /_Rexx/Integrate.guide/main }		Operator
+@{" MultiBandDelay      " link /_Rexx/MultiBandDelay.guide/main }		Macro
+@{" RemQuantNoise       " link /_Rexx/RemQuantNoise.guide/main }		Macro
+@{" Resynth             " link /_Rexx/Resynth.guide/main }		Macro
+@{" SimpleInfo          " link /_Rexx/SimpleInfo.guide/main }		Tool
+@{" Test                " link /_Rexx/Test.guide/main }		Testscript
+@{" ToOctaMed           " link /_Rexx/ToOctaMed.guide/main }		Macro for Dataexchange
+@{" ToSoundProbe        " link /_Rexx/ToSoundProbe.guide/main }		Macro for Dataexchange
+@{" Wavelet1Step        " link /_Rexx/Wavelet1Step.guide/main }		Operator
+@{" WideStereo          " link /_Rexx/WideStereo.guide/main }		Macro
+@{" ZoomLoopEnd         " link /_Rexx/ZoomLoopEnd.guide/main }		Tool
+@{" ZoomLoopStart       " link /_Rexx/ZoomLoopStart.guide/main }		Tool
+
+@endnode

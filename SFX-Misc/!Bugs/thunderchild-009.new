@@ -1,0 +1,5 @@
+- Wenn man von´ner älteren SFX-Version die cfg nicht vor der
+  Installation von 4.0 löscht, kann man den Screenmode nicht mehr
+  ändern. Auch der Font kann nicht neu gewählt werden, da sich beim
+  Versuch die Fenster (den Screen) neu zu öffnen das Programm
+  aufhängt.

@@ -1,0 +1,77 @@
+From - Fri Mar  8 09:21:42 2002
+X-UIDL: 361df5b500004337
+X-Mozilla-Status: 0003
+X-Mozilla-Status2: 00000000
+Received: from n31.groups.yahoo.com (n31.groups.yahoo.com [216.115.96.81])
+	by imn.htwk-leipzig.de (8.9.1/8.9.1) with SMTP id TAA02565
+	for <kost@imn.htwk-leipzig.de>; Thu, 7 Mar 2002 19:53:27 +0100 (MET)
+Received: from [216.115.97.162] by n31.groups.yahoo.com with NNFMP; 07 Mar 2002 18:57:16 -0000
+Received: (EGP: unknown); 7 Mar 2002 18:57:15 -0000
+Received: (qmail 76732 invoked from network); 7 Mar 2002 18:57:14 -0000
+Received: from unknown (216.115.97.167)
+  by m8.grp.snv.yahoo.com with QMQP; 7 Mar 2002 18:57:14 -0000
+Received: from unknown (HELO ns0.enterprise.net) (213.137.2.163)
+  by mta1.grp.snv.yahoo.com with SMTP; 7 Mar 2002 18:57:14 -0000
+Received: from enterprise.net (d6-69.dialup.zoo.co.uk [193.192.66.197])
+	by ns0.enterprise.net (8.10.2+Sun/8.10.2) with SMTP id g27IvAr17440
+	for <soundfx-users@yahoogroups.com>; Thu, 7 Mar 2002 18:57:10 GMT
+X-eGroups-Return: sentto-3879093-118-1015527436-kost=imn.htwk-leipzig.de@returns.groups.yahoo.com
+X-Sender: doncox@enterprise.net
+X-Apparently-To: soundfx-users@yahoogroups.com
+To: soundfx-users@yahoogroups.com
+Message-ID: <yam8831.287.155198560@smtp.enterprise.net>
+In-Reply-To: <3C879E8D.8050206@imn.htwk-leipzig.de>
+X-Mailer: YAM 2.4-dev [020] AmigaOS E-mail Client (c) 2000-2002 by YAM Open Source Team - http://www.yam.ch/
+From: Don Cox <doncox@enterprise.net>
+MIME-Version: 1.0
+Mailing-List: list soundfx-users@yahoogroups.com; contact soundfx-users-owner@yahoogroups.com
+Delivered-To: mailing list soundfx-users@yahoogroups.com
+Precedence: bulk
+List-Unsubscribe: <mailto:soundfx-users-unsubscribe@yahoogroups.com>
+Date: Thu, 07 Mar 2002 19:45:05 +0000
+Subject: [soundfx-users] Re: sfx beta #3 is online
+Reply-To: soundfx-users@yahoogroups.com
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Length: 987
+Status:  O
+
+On 07-Mar-02, Stefan Kost wrote:
+> Somehow I managed to release the beta #3. I really hope I packed
+> everything properly.
+
+Unfortunately it still refuses to start up here.
+
+The configio library does now have a version number, but it is 1.11, and
+the program wants version 3.1.
+
+The message says "SFX-Prefs.c 1503:
+Could not find configio.library >=3.1"
+
+Then when I click either of the buttons, it crashes the computer, which
+is not a good thing.
+
+This is disappointing.
+
+Regards
+-- 
+Don Cox
+doncox@enterprise.net
+
+
+------------------------ Yahoo! Groups Sponsor ---------------------~-->
+Tiny Wireless Camera under $80!
+Order Now! FREE VCR Commander!
+Click Here - Only 1 Day Left!
+http://us.click.yahoo.com/nuyOHD/7.PDAA/yigFAA/mjFolB/TM
+---------------------------------------------------------------------~->
+
+To unsubscribe from this group, send an email to:
+soundfx-users-unsubscribe@yahoogroups.com
+
+ 
+
+Your use of Yahoo! Groups is subject to http://docs.yahoo.com/info/terms/ 
+
+
+

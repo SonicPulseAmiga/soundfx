@@ -1,0 +1,48 @@
+***************************************************************************
+*                                                                         *
+* *         ####                           #      #####   #   #         * *
+*          # ::::  ###   #   #  ####    ####:     #:::::   # # :          *
+*           ###   #:::#  #:  #: #:::#  # ::#:     ###       # :           *
+*            ::#  #:  #: #:  #: #:  #: #:  #:     #:::     # #            *
+*          #### :  ### :  ####: #:  #:  ####:     #:      # : #           *
+* *         ::::    :::    ::::  :   :   ::::      :       :   :        * *
+*                                                                         *
+***************************************************************************
+
+  Nimi :        ___________________________________________________________
+
+  Osoite :      ___________________________________________________________
+
+                ___________________________________________________________
+
+  Maa :         __________________
+
+  Puhelin :     ___________________ Sähköposti :  _________________________
+
+  Laitteisto :  Prosessori (CPU) :    Liukulukuprosessori (FPU) :
+
+                o 68000               o ei ole
+                o 68020               o 68881/882
+                o 68030               o prosessorin sisäinen (68040/68060)
+                o 68040
+                o 68060
+
+                muu kuin yllämainittu : ___________________________________
+
+                ___________________________________________________________
+
+  Maksutapa :
+            o käteisenä tämän lomakkeen ohessa    (EUR 20 / US$ 30 / £ 20)
+            o tilisiirto saksalaiselle tilille    (EUR 20 / US$ 30 / £ 20)
+              (Muistathan kirjoittaa tilisiirtoon nimesi ja osoitteesi!)
+
+
+  
+  Vahvistan täten allekirjoituksellani, että avaintiedostoa käytetään vain 
+  yhdessä tietokoneessa eikä sitä kopioida toisten henkilöiden käyttöön.
+
+
+
+
+   _____________________  ___________________________________________
+         (Päiväys)                      (Allekirjoitus)

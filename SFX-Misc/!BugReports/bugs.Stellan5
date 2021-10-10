@@ -1,0 +1,31 @@
+
+04-Aug-03   19:54:48
+BYTE READ from 00000000                        PC: 0129D5D4
+----> 00FF0000 - "ROM - wb 40.5 (24.5.93)"  Hunk 0000 Offset 0000163C
+----> 022EEDA4 - "Music:Misc/SFX/SoundFX"  Hunk 0002 Offset 00004044
+----> 01AE6740 - "Music:Misc/SFX/SoundFX"  Hunk 0004 Offset 00000000
+----> 022B4E4C - "Music:Misc/SFX/SoundFX"  Hunk 0000 Offset 000056E4
+PC-8: 61E29480 650AD5C0 14DB57CA FFFC4222 4CDF0C04 4E752F08 5380651C 32004840
+PC *: 10D957C9 FFFC57C8 FFF86704 600A4218 51C9FFFC 51C8FFF8 201F4E75 48E72020
+Name: "SoundFX"  
+
+
+04-Aug-03   19:54:48
+BYTE READ from 00000000                        PC: 0129D5D4
+----> 00FF0000 - "ROM - wb 40.5 (24.5.93)"  Hunk 0000 Offset 0000163C
+----> 022EEDAC - "Music:Misc/SFX/SoundFX"  Hunk 0002 Offset 0000404C
+----> 01AE6740 - "Music:Misc/SFX/SoundFX"  Hunk 0004 Offset 00000000
+----> 022B4E4C - "Music:Misc/SFX/SoundFX"  Hunk 0000 Offset 000056E4
+PC-8: 61E29480 650AD5C0 14DB57CA FFFC4222 4CDF0C04 4E752F08 5380651C 32004840
+PC *: 10D957C9 FFFC57C8 FFF86704 600A4218 51C9FFFC 51C8FFF8 201F4E75 48E72020
+Name: "SoundFX"  
+
+findline sc_versions/sfx.dbg.68040-881 Hunk 0000 Offset 000056E4
+File 'User{1400}:Dev/SC/source/SFX/SFX-Main/SFX-GUI.c', Line 928
+
+findline sc_versions/sfx.dbg.68060-881 Hunk 0002 Offset 4044
+Symbol _File_Reqtags+0x38 -> InitialFile
+
+findline sc_versions/sfx.dbg.68060-881 Hunk 0002 Offset 404C
+Symbol _File_Reqtags+0x40 -> InitialDrawer
+

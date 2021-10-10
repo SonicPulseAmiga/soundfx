@@ -1,0 +1,84 @@
+X-UIDL: 3f8791b30000f42f
+X-Mozilla-Status: 0005
+X-Mozilla-Status2: 00000000
+Received: from n2.grp.scd.yahoo.com (n2.grp.scd.yahoo.com [66.218.66.75])
+	by imn.htwk-leipzig.de (8.12.9/8.12.9) with SMTP id hA3NIUnQ011240
+	for <kost@imn.htwk-leipzig.de>; Tue, 4 Nov 2003 00:18:31 +0100 (MET)
+X-eGroups-Return: sentto-3879093-1298-1067901510-kost=imn.htwk-leipzig.de@returns.groups.yahoo.com
+Received: from [66.218.66.158] by n2.grp.scd.yahoo.com with NNFMP; 03 Nov 2003 23:18:30 -0000
+X-Sender: pierregiroux@videotron.ca
+X-Apparently-To: soundfx-users@yahoogroups.com
+Received: (qmail 60129 invoked from network); 3 Nov 2003 23:17:18 -0000
+Received: from unknown (66.218.66.172)
+  by m18.grp.scd.yahoo.com with QMQP; 3 Nov 2003 23:17:18 -0000
+Received: from unknown (HELO VL-MO-MR005.ip.videotron.ca) (24.201.245.36)
+  by mta4.grp.scd.yahoo.com with SMTP; 3 Nov 2003 23:17:18 -0000
+Received: from relais.videotron.ca ([24.200.134.26])
+ by VL-MO-MR005.ip.videotron.ca
+ (iPlanet Messaging Server 5.2 HotFix 1.16 (built May 14 2003))
+ with SMTP id <0HNS00D2FU0T7U@VL-MO-MR005.ip.videotron.ca> for
+ soundfx-users@yahoogroups.com; Mon, 03 Nov 2003 18:17:17 -0500 (EST)
+In-reply-to: <yam9437.2954.123260792@smtp.rocler.qc.ca>
+To: soundfx-users@yahoogroups.com
+Message-id: <yam9437.1629.156485344@relais.videotron.ca>
+X-Mailer: YAM 2.4p1 [060] AmigaOS E-mail Client (c) 2000-2003 by YAM Open
+ Source Team - http://www.yam.ch/
+From: Pierre Giroux <pierregiroux@videotron.ca>
+X-Yahoo-Profile: powertowerca
+MIME-Version: 1.0
+Mailing-List: list soundfx-users@yahoogroups.com; contact soundfx-users-owner@yahoogroups.com
+Delivered-To: mailing list soundfx-users@yahoogroups.com
+Precedence: bulk
+List-Unsubscribe: <mailto:soundfx-users-unsubscribe@yahoogroups.com>
+Date: Mon, 03 Nov 2003 18:17:32 -0500
+Subject: [soundfx-users] Re: Loading Problem, cut problem, docs, misc
+Reply-To: soundfx-users@yahoogroups.com
+Content-Type: text/plain; charset=ISO-8859-1
+Content-Transfer-Encoding: 8bit
+Content-Length: 1245
+Status:  O
+
+Salut Claude,
+
+Le 03/11/2003, Claude Lavigne a écrit:
+
+
+> Works here, prefs are saved properly. Sorry to point to the obvious,
+> Pierre, but if you boot from CD, envarc: is on it and you can't save there
+> (you do save your prefs after changing them, right?). The changes will
+> only be saved in ENV: (probably in ram:).
+
+The problem I have with the Path saving is not when I boot from the CD.
+
+When I changed the Path in the preference window there is no change, the
+Path remain at progdir:, nothing to do with saving since the change is not
+done at all.
+
+I found the cause of the problem... I'm using reqtools.library, don't know
+if theres is something wrong with it or only in the way SoundFX is looking for the
+result of my choice.
+
+Thank you.
+
+Bye!
+-- 
+Pierre Giroux
+
+
+
+------------------------ Yahoo! Groups Sponsor ---------------------~-->
+Rent DVDs from home.
+Over 14,500 titles. Free Shipping
+& No Late Fees. Try Netflix for FREE!
+http://us.click.yahoo.com/I3w.vC/hP.FAA/3jkFAA/mjFolB/TM
+---------------------------------------------------------------------~->
+
+To unsubscribe from this group, send an email to:
+soundfx-users-unsubscribe@yahoogroups.com
+
+ 
+
+Your use of Yahoo! Groups is subject to http://docs.yahoo.com/info/terms/ 
+
+
+

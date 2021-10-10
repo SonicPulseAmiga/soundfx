@@ -1,0 +1,174 @@
+Hi,
+
+Can I grab CDDA (CDDA-Direct) with ATAPI CD-Roms or only with SCSI drives?
+
+I tired to grab with my ATAPI 44x and got only zero level sample as result.
+Because of this I played a bit with the CDDA-Direct Prefs. The track window
+shows copy prohibited (see attached .png) but the CD is from 1994. With
+CDDA-FileSystem grabing is no problem so I think the information isn`t right.
+
+As I played with start, stop and length slider some hits (attached) and a guru
+appeared as the lenght/stop slider pushed to the right (as the .png shows). See
+also the start time as the error occurred. sfx.log shows many:
+ERROR : device has to be a cd-romCDDA-Direct_L.c 1257:
+
+Loading an mp3 with SFX and stop the loading prozess gives allways the
+attached hit.
+
+MPEG save:
+Don`t work here. The 8Hz encoder too. External encoders aren`t found (see
+SnoopDos.log).
+
+PIPE:
+If I want to use AWNPipe, must the pipe string be changed? If yes, please add
+this information to MPEG_S.html.
+
+
+Regards
+--
+____/\ _______ ____ _________ ________
+\ //.\ // //______\\ .___ \\ ____//_____
+\// \ // //. // \\ / \\ \\ __. //_________
+//_____\ //\ /______//___\\ /___//__\\ / // //
+¯ \\ z!o\/ \/ ¯ \/ ¯ \/___// //
+\\ ¯ //
+\\ www.moodsplateau.net //
+\\ //
+_______\\_ ___________ _________ ____/\_____ //
+\\ ____//_\\_______//____\\ .___ \\ .// \ // //
+\\ \\ __. //\\ ._¯ // \\ / \\_// __\ \\__/
+//__\\ / //__\\ /___//___\\ /___////_______\\
+¯ \/___// \/ ¯ \/z!o ¯ ¯ ¯
+¯
+
+
+
+
+
+
+ 
+Attachment(not stored)
+SoundFX 4.3_720x551x4.png
+Type:
+image/png
+ 
+
+05-Jun-05 17:54:23
+READ from 34350090 (INST) PC: 34350090
+USP : 018A0D50 SR: 0014 (U0)(-)(-) TCB: 01891878
+Data: 00000000 00000000 000001F4 0000001E 00007579 00007578 00007579 FFFFFFFF
+Addr: 015A7934 018A0CD4 015A7934 015A1B1C 01A751F8 0147F294 01A751C8 010826CC
+Stck: 00007579 00000000 00000010 00008000 00006A96 00008000 00000000 00000000
+Stck: 0147F294 018A4D00 018A4970 01A751C8 00000C01 75790000 01F47344 018A0000
+Stck: 0052E03A 0147F294 018A41C6 01A751C8 20312009 30352030 363A3430 3A373320
+PC Address invalid
+Name: "SoundFX"
+
+
+05-Jun-05 17:54:23
+Exception !! 00000003 TCB: 01891878 CTX: 0121BE38 SSP: 010826FC
+USP : 018A0D4E SR: 0010 (U0)(-)(-) TCB: 01891878
+Data: 00000000 00000000 000001F4 0000001E 00007579 00007578 00007579 FFFFFFFF
+Addr: 015A7934 018A0CD4 015A7934 015A1B1C 01A751F8 0147F294 01A751C8 010826FC
+Stck: 50C80000 75790000 00000000 00100000 80000000 6A960000 80000000 00000000
+Stck: 00000147 F294018A 4D00018A 497001A7 51C80000 0C017579 000001F4 7344018A
+Stck: 00000052 E03A0147 F294018A 41C601A7 51C82031 20093035 2030363A 34303A37
+PC Address invalid
+Name: "SoundFX"
+
+
+
+ 
+
+05-Jun-05 17:41:06
+BYTE READ from 00000080 PC: 01AABEB2
+USP : 0189FC3C SR: 0000 (U0)(-)(-) TCB: 0188DEF0
+Data: 00000080 000001F4 0000002A 00000005 00000001 FFFFFFFF 00000480 00000000
+Addr: 00000080 0189FCC4 00000080 01AAC3F8 01979A08 0189FCD4 019799D8 010826CC
+Stck: 007A9C85 00000005 00000001 00000000 00000480 00001C25 01AB3B24 0189FCD4
+Stck: 01AAC3F8 2073FFFF 7FFF0197 A020FFFF 0197A01F 0189FCC4 000000F8 0C0C0010
+Stck: 00000100 00000001 007A9C85 FFFFFFFF 00000000 00000020 00000480 00001C00
+----> 01AABEB2 - "Music:Misc/SFX/_loaders/MPEG_L.sfxmod" Hunk 0000 Offset
+00001CEA
+----> 01AAC3F8 - "Music:Misc/SFX/_loaders/MPEG_L.sfxmod" Hunk 0000 Offset
+00002230
+PC-8: 0FE26000 FEF2226F 00342051 58912450 200A660A 70FF45FA 05322F40 004C204A
+PC *: 4A1866FC 538891CA 2C08202F 004C6A06 2F46004C 6008B086 6F042F46 004C2E2F
+01aabe92 : 0fe2 bset.l d7,-(a2)
+01aabe94 : 6000 fef2 bra $1aabd88
+01aabe98 : 226f 0034 movea.l $34(a7),a1
+01aabe9c : 2051 movea.l (a1),a0
+01aabe9e : 5891 addq.l #$4,(a1)
+01aabea0 : 2450 movea.l (a0),a2
+01aabea2 : 200a move.l a2,d0
+01aabea4 : 660a bne.s $1aabeb0
+01aabea6 : 70ff moveq.l #-$1,d0
+01aabea8 : 45fa 0532 lea.l $1aac3dc(pc),a2
+01aabeac : 2f40 004c move.l d0,$4c(a7)
+01aabeb0 : 204a movea.l a2,a0
+01aabeb2 : *4a18 tst.b (a0)+
+01aabeb4 : 66fc bne.s $1aabeb2
+01aabeb6 : 5388 subq.l #$1,a0
+01aabeb8 : 91ca suba.l a2,a0
+01aabeba : 2c08 move.l a0,d6
+01aabebc : 202f 004c move.l $4c(a7),d0
+01aabec0 : 6a06 bpl.s $1aabec8
+01aabec2 : 2f46 004c move.l d6,$4c(a7)
+01aabec6 : 6008 bra.s $1aabed0
+01aabec8 : b086 cmp.l d6,d0
+01aabeca : 6f04 ble.s $1aabed0
+01aabecc : 2f46 004c move.l d6,$4c(a7)
+01aabed0 : 2e2f 004c move.l $4c(a7),d7
+Name: "SoundFX"
+
+
+
+ 
+Count Process Name Action Target Name
+Options Res.
+----- ------------ ------ -----------
+------- ----
+1 SoundFX Open Müll:bassplayerd!RT!e_16bit.mp3
+Read Fail
+2 SoundFX *Open Müll:bassplayerd!RT!e_16bit.mp3
+Read Fail
+3 SoundFX OpenLib progdir:_savers/MPEG_S.sfxmod
+Ver 4 OK
+4 SoundFX MakeDir progdir:_savers/MPEG_S
+Fail
+5 SoundFX *MakeDir progdir:_savers/MPEG_S
+Fail
+6 SoundFX Lock env:sfx/savers/MPEG_S.cfg
+Read OK
+7 SoundFX *Lock env:sfx/savers/MPEG_S.cfg
+Read OK
+8 SoundFX Open env:sfx/savers/MPEG_S.cfg
+Read OK
+9 SoundFX *Open env:sfx/savers/MPEG_S.cfg
+Read OK
+10 SoundFX Lock progdir:
+Read OK
+11 SoundFX *Lock progdir:
+Read OK
+12 SoundFX Lock Work:C/lame
+Read Fail
+13 SoundFX *Lock Work:C/lame
+Read Fail
+14 SoundFX Lock Müll:sfx.log
+Read OK
+
+Count Process Name Action Target Name
+Options Res.
+----- ------------ ------ -----------
+------- ----
+92 SoundFX *Open env:sfx/savers/MPEG_S.cfg
+Read OK
+93 SoundFX Lock progdir:
+Read OK
+94 SoundFX *Lock progdir:
+Read OK
+95 SoundFX Lock Music:Misc/SFX/_savers/MPEG_S_8Hz
+Read Fail
+96 SoundFX *Lock Music:Misc/SFX/_savers/MPEG_S_8Hz
+Read Fail
+

@@ -1,0 +1,1188 @@
+; Install-SFX Start -----------------------------------------------------------------------------------------
+;
+; $VER: Install-SFX (08.07.1998)
+;
+; SoundFX Installscript
+; (C) Copyright 1993-1998 Stefan Kost. All Rights Reserved.
+;
+; -----------------------------------------------------------------------------------------------------------
+
+; definiere Prozeduren --------------------------------------------------------------------------------------
+
+(PROCEDURE P_PUTTAG #tag #val							; write a tagged variable to a config-file
+(
+	(SET #val (CAT #val))								; make it a string
+	(IF (= (SUBSTR #val (- (STRLEN #val) 1) 1) "\n")
+	(
+		(SET #val (SUBSTR #val 0 (- (STRLEN #val) 1)))
+	))
+	(RUN (CAT "PutTag ENV:Installer/Programs/sfx.cfg " #tag " \"" #val "\""))
+))
+
+(PROCEDURE P_GETTAG #tag								; read a tagged variable from a config-file
+(
+	(RUN "DELETE ENV:gettag_sfx FORCE QUIET")
+	(RUN (CAT "GetTag >ENV:gettag_sfx ENV:Installer/Programs/sfx.cfg " #tag))
+	(GETENV "gettag_sfx")
+))
+
+(PROCEDURE P_NEWDIR #path #dir							; tackon a path and create the dir if it not yet exists
+(
+	(SET #newpath (TACKON #path #dir))
+	(IF (= (EXISTS #newpath) 0) (MAKEDIR #newpath))		; get an error here : "Interpreter : Install statements nested in Line xx"
+	(#newpath)											; if anybody know what to do about this (if somebody ready this anyway ...)
+))														; then please tell me
+
+; setze sprachenabhängige Texte -----------------------------------------------------------------------------
+
+(IF (= @LANGUAGE "dansk")
+(
+	(SET #bad-kick				"SoundFX kræver mindst Kickstart 3.0!")
+	(SET #bad-installer			"SoundFX kræver mindst en Installerversion >= 43.0!\nDen kan findes på Aminet under util/misc/Installer43.3.lha.")
+	(SET #welcome-messy1		"\n\nVelkommen til installationen af SoundFX!\nDette script vil kopiere alle de filer, der er nødvendige for at bruge SoundFX, til din hardisk.")
+;NEW
+	(SET #welcome-messy2		"This script will remember all your choices permanently.\nIf you run this script the next time in 'Novice' or 'Average' mode, it will assume all choces to be like the last time and proceed quietly. You will be only asked if there is a new choice required.\nIf you need to change any setting run the script in expert mode. This reasks you all questions, but reenters already your last choice.")
+;NEW
+	(SET #choose-dest			"Vælg destinationsmappen! En undermappe med navn SFX vil automatisk blive oprettet.\nDu skal være sikker på, at der er mindst 3.0 MB fri på din harddisk!")
+	(SET #choose-dest-help		"Her kan du vælge det sted på din harddisk, hvor du vil have SFX installeret.")
+	(SET #copy-loader			"kopierer load-modulerne ...")
+	(SET #copy-operators		"kopierer operatør-modulerne ...")
+	(SET #copy-player			"kopierer afspilnings-modulerne ...")
+	(SET #copy-rexx				"kopierer ARexx-scriptene ...")
+	(SET #copy-saver			"kopierer save-modulerne ...")
+	(SET #copy-executable		"kopierer executable ...")
+	(SET #copy-fonts			"kopierer fonte ...")
+	(SET #copy-libs				"kopierer biblioteker ...")
+	(SET #copy-envelopes		"kopierer envelopes ...")
+	(SET #copy-presets			"kopierer præindstillinger ...")
+	(SET #copy-workshop			"kopierer workshop-data ...")
+	(SET #copy-gfx				"kopierer grafik ...")
+	(SET #copy-text				"kopierer tekst ...")
+	(SET #copy-guides			"kopierer guides ...")
+	(SET #copy-keyfile			"kopierer keyfile ...")
+; NEW
+	(SET #copy-catalogs			"copying catalogs ...")
+; NEW
+	(SET #copy-help				"De respektive filer vil blive kopieret til din harddisk.")
+; CHANGE
+;	(SET #choose-icon			"Vælg det ikon du vil installere\n4-farve udgaven er til standard wb-farven, mens 8-farve udgaven er til Magic-WB!")
+;	(SET #choose-icon-help		"Hvis du har mere end fire farver på din WB, skal du vælge 8-farve ikonet.\nDen ser pænere ud.")
+	(SET #choose-icon			"Vælg det ikon du vil installere !")
+	(SET #choose-icon-help		"The standart version is for a 4 coulour wb.\nThe MagicWB and Iconographics versions require at least 8 colours.\nThe NewIcon versions require the newicon software.")
+; CHANGE
+	(SET #choose-icon			"Vælg det ikon du vil installere\n4-farve udgaven er til standard wb-farven, mens 8-farve udgaven er til Magic-WB!")
+	(SET #choose-icon-help		"Hvis du har mere end fire farver på din WB, skal du vælge 8-farve ikonet.\nDen ser pænere ud.")
+	(SET #choose-keypath		"Vælg en mappe, som din keyfile skal installeres i.")
+	(SET #choose-fontpath		"Vælg en mappe, som fontene skal installeres i!")
+	(SET #choose-path-help		"Du kan vælge imellem alle disse mapper. SFX vil gennemsøge dem alle!")
+	(SET #choose-instmode		"SFX er allerede installeret! Hvordan skal jeg fortsætte?")
+	(SET #choose-instmode-help	"I backup-mode bliver den gamle SFX-mappe omdøbt til SFX_old.\nI opdaterings-mode vil allerede installerede filer blive overskrevet.")
+; NEW
+	(SET #copykey-fail			"Copying of the keyfile failed !")
+; NEW
+	(SET #exit-messy			"\n\nSFX er blevet succesfuldt installeret!\nLæs venligst guiden for at lære, hvordan man bruger programmet.")
+	(SET #orderform				"Orderform.dansk.txt")
+	(SET #catalog				"dansk")
+	(SET #readme				"ReadMe#?")
+))
+(IF (= @LANGUAGE "deutsch")
+(
+	(SET #bad-kick				"SoundFX benötigt mindestens Kickstart 3.0 !")
+	(SET #bad-installer			"SoundFX benötigt die Installerversion >= 43.0 !\nDieser ist im Aminet unter util/misc/Installer43.3.lha zu finden.")
+	(SET #welcome-messy1	 	"\n\nWillkommen zur Installation von SoundFX !\nDieses Script wird alle Dateien, die Sie zum Benutzen von SoundFX brauchen, auf Ihre Festplatte kopieren.")
+	(SET #welcome-messy2		"Dieses Skript wird sich all ihre Auswahlen dauerhaft merken.\nWenn Sie das Skript im 'Einsteiger' oder 'geübter Benutzer'-Modus starten wieder starten, wird es alle Einstellungen beibehalten und im stillen fortfahren. Sie werden nur gefragt, wenn eine neue Einstellung erforderlich ist.\nWenn Sie einige Einstellungen ändern müssen, so starten Sie das Skript im Expertenmodus. Dadurch werden alle Einstellungen erneut abgefragt, Ihre letzte Auswahl wird bereits voreingestellt.")
+	(SET #choose-dest			"Bitte Zielverzeichnis aussuchen !\nEin Verzeichnis mit dem Namen SFX wird angelegt !\nBitte stellen Sie sicher, daß auf der Zielpartition 3.0 MB-Speicher frei ist !")
+	(SET #choose-dest-help		"Hier können Sie auswählen, wohin Sie das Programm installeren möchten")
+	(SET #copy-loader			"kopiere Loader-Module ...")
+	(SET #copy-operators		"kopiere Operator-Module ...")
+	(SET #copy-player			"kopiere Player-Module ...")
+	(SET #copy-rexx				"kopiere ARexx-Scripts ...")
+	(SET #copy-saver			"kopiere Saver-Module ...")
+	(SET #copy-executable		"kopiere Executable ...")
+	(SET #copy-fonts			"kopiere Fonts ...")
+	(SET #copy-libs				"kopiere Librarys ...")
+	(SET #copy-envelopes		"kopiere Envelopes ...")
+	(SET #copy-presets			"kopiere Presets ...")
+	(SET #copy-workshop			"kopiere Workshopdateien ...")
+	(SET #copy-gfx				"kopiere Gfx ...")
+	(SET #copy-text				"kopiere Texte ...")
+	(SET #copy-guides			"kopiere Guides ...")
+	(SET #copy-keyfile			"kopiere Keyfile ...")
+	(SET #copy-catalogs			"kopiere Kataloge ...")
+	(SET #copy-help				"Die entsprechenden Dateien werden gerade auf ihre Festplatte kopiert.")
+	(SET #choose-icon			"Bitte wählen Sie den Icontyp aus, das Sie installieren möchten !")
+	(SET #choose-icon-help		"Die Standart Variante ist für eine 4-farbige WB.\nDie MagicWB und Iconographics-Varianten benötigen mindestens 8 Farben.\nDie NewIcon Varianten benötigen die NewIcon Software.")
+	(SET #choose-keypath		"Bitte suchen Sie ein Zielverzeichnis aus, wo das Keyfile installiert werden soll !")
+	(SET #choose-fontpath		"Bitte suchen Sie ein Zielverzeichnis aus, wo die Zeichensätze installiert werden sollen !")
+	(SET #choose-path-help		"Sie können irgendeins der angegebenen Verzeichnisse wählen ! SFX wird in allen Verzeichnissen suchen.")
+	(SET #choose-instmode		"SFX ist bereits installiert ! Wie soll ich fortfahren ?")
+	(SET #choose-instmode-help	"Im Modus Backup wird das alte SFX-Verzeichnis nach SFX_old umbenannt.\nIm Modus Update werde bereits installierte Dateien überschrieben.")
+	(SET #copykey-fail			"Das Kopieren des Keyfiles hat nicht geklappt !")
+	(SET #exit-messy			"\n\nSFX konnte erfolgreich installiert werden.\nBitte lesen Sie das Guide, um zu erfahren wie das Programm bedient wird.\n")
+	(SET #orderform				"Bestellformular.txt")
+	(SET #catalog				"deutsch")
+	(SET #readme				"LiesMich#?")
+))
+(IF (= @LANGUAGE "english")
+(
+	(SET #bad-kick				"SoundFX requires at least Kickstart 3.0 !")
+	(SET #bad-installer			"SoundFX requires installer version >= 43.0 !\nThis could be found on Aminet in util/misc/Installer43.3.lha.")
+	(SET #welcome-messy1		"\n\nWelcome to the installation of SoundFX !\nThis script will copy all the files you need to run SoundFX to your harddisk.")
+	(SET #welcome-messy2		"This script will remember all your choices permanently.\nIf you run this script the next time in 'Novice' or 'Average' mode, it will assume all choces to be like the last time and proceed quietly. You will be only asked if there is a new choice required.\nIf you need to change any setting run the script in expert mode. This reasks you all questions, but reenters already your last choice.")
+	(SET #choose-dest			"Please choose a destination directory !\nA drawer called SFX will be automatically generated !\nPlease make sure, that you have at least 3.0 MB free free space on your HD !")
+	(SET #choose-dest-help		"Here you can choose the place on your HD, were SFX should be installed")
+	(SET #copy-loader			"copying loadermoduls ...")
+	(SET #copy-operators		"copying operatormoduls ...")
+	(SET #copy-player			"copying playermoduls ...")
+	(SET #copy-rexx				"copying arexxscripts ...")
+	(SET #copy-saver			"copying savermoduls ...")
+	(SET #copy-executable		"copying executable ...")
+	(SET #copy-fonts			"copying fonts ...")
+	(SET #copy-libs				"copying libraries ...")
+	(SET #copy-envelopes		"copying envelopes ...")
+	(SET #copy-presets			"copying presets ...")
+	(SET #copy-workshop			"copying workshopfiles ...")
+	(SET #copy-icons			"copying icons ...")
+	(SET #copy-gfx				"copying gfx ...")
+	(SET #copy-text				"copying texts ...")
+	(SET #copy-guides			"copying guides ...")
+	(SET #copy-keyfile			"copying the keyfile ...")
+	(SET #copy-catalogs			"copying catalogs ...")
+	(SET #copy-help				"The respective files will copied to your HD.")
+	(SET #choose-icon			"Please choose the the icon-set you want to install !")
+	(SET #choose-icon-help		"The standart version is for a 4 coulour wb.\nThe MagicWB and Iconographics versions require at least 8 colours.\nThe NewIcon versions require the newicon software.")
+	(SET #choose-keypath		"Please choose a directory where the keyfile should be installed to !")
+	(SET #choose-fontpath		"Please choose a directory where the fonts should be installed to !")
+	(SET #choose-path-help		"You can choose any of these places ! SFX will search all loactions.")
+	(SET #choose-instmode		"SFX is already installed ! What should i do ?")
+	(SET #choose-instmode-help	"In mode backup the old drawer will be renamed to SFX_old.\nIn mode update already installed files will be overwritten.")
+	(SET #copykey-fail			"Copying of the keyfile failed !")
+	(SET #exit-messy			"\n\nSFX is successfuly installed.\nPlease read the guide, to learn how to work with the program.")
+	(SET #orderform				"Orderform.txt")
+	(SET #catalog				"english")
+	(SET #readme				"ReadMe#?")
+))
+(IF (= @LANGUAGE "français")
+(
+	(SET #bad-kick				"SoundFX demande au moins le Kickstart 3.0 !")
+	(SET #bad-installer			"SoundFX demande l'installer version >= 43.0 !\nCe Script peut être trouver sur Aminet dans util/misc/Installer43.3.lha.")
+	(SET #welcome-messy1		"\n\nBienvenue dans l'installation de SoundFX !\nCes  scripts vont copier tous les fichiers dont vous avez besoin pour démarrer SoundFX de votre disque dur.")
+	(SET #welcome-messy2		"Ce script va enregistrer vos choix dans la durée.\n Si vous redemarré le script en mode "Débutant" ou "Utilisateur averti", vos options seront sauvegardées et mises a jour immédiatement. Vous ne serez interrogés que pour une nouvelle version.\nSi vous voulez modifier des options, démarrez le script en mode "Utilisateur averti". Ceci aura pour effet de tout reconfigurer selon vos choix. Vos anciennes pr'ef'erences resteront selectionnées.")
+	(SET #choose-dest			"Choisissez SVP le répertoire de destination !\nUn répertoire appelé SFX va être automatiquement créé !\nVérifier SVP que vous avez au moins 3 Mo d'espace libre dans votre DD !")
+	(SET #choose-dest-help		"Ici vous pouvez choisir la place dans votre DD, où SFX doit être installé")
+	(SET #copy-loader			"Copie des modules de lecture (loadermoduls) ...")
+	(SET #copy-operators		"Copie des modules opérateurs (operatormoduls) ...")
+	(SET #copy-player			"Copie des modules d'écoute (playermoduls) ...")
+	(SET #copy-rexx				"Copie des scripts AREXX (arexxscripts) ...")
+	(SET #copy-saver			"Copie des modules de sauvegarde (savermoduls) ...")
+	(SET #copy-executable		"Copie de l'executable ...")
+	(SET #copy-fonts			"Copie des fontes ...")
+	(SET #copy-libs				"Copie des librairies ...")
+	(SET #copy-envelopes		"Copie des envellopes ...")
+	(SET #copy-presets			"Copie des "presets" ...")
+	(SET #copy-workshop			"Copie des fichiers workshop ...")
+	(SET #copy-icons			"Copie des icônes ...")
+	(SET #copy-gfx				"Copie des gfx ...")
+	(SET #copy-text				"Copie des textes ...")
+	(SET #copy-guides			"Copie des guides ...")
+	(SET #copy-keyfile			"Copie du Keyfile ...")
+	(SET #copy-catalogs			"Copie des catalogues ...")
+	(SET #copy-help				"Les fichiers respectifs vont être copiés dans votre DD.")
+	(SET #choose-icon			"Choisissez SVP le type d'icône que vous voulez installer !")
+	(SET #choose-icon-help		"La version standart est faite pour le WB de 4 couleur.\nLes versions MagicWB et Iconographics demandent au moins 8 coleurs.\nLes versions NewIcon demandent le NewIcon logiciel.")
+	(SET #choose-keypath		"Choisissez SVP le répertoire où le keyfile doit être installé !")
+	(SET #choose-fontpath		"Choisissez SVP le répertoire où les fontes doivent être installés !")
+	(SET #choose-path-help		"Vous pouvez choisir n'importe lequel de ces endroits ! SFX cherchera touts ces endroits.")
+	(SET #choose-instmode		"SFX est déjà installé ! Que dois je faire ?")
+	(SET #choose-instmode-help	"En mode "backup" le vieux répertoire sera renommé en SFX_old.\nEn mode "update", les fichiers éxistants seront remplacés.")
+	(SET #copykey-fail			"La copie du fichier Keyfile a échouée !")
+	(SET #exit-messy			"\n\nSFX a été installé avec succés.\nLisez SVP le guide, pour apprendre comment travailler avec le programme.")
+	(SET #orderform				"Orderform.français.txt")
+	(SET #catalog				"français")
+	(SET #readme				"ReadMe#?")
+))
+(IF (= @LANGUAGE "italiano")
+(
+	(SET #bad-kick				"SoundFX richiede il Kickstart 3.0 o superiore !")
+	(SET #bad-installer			"SoundFX richiede una versione di Installer 43.0 o superiore !\nTale versione può essere reperita in Aminet in util/misc/Installer43.3.lha.")
+	(SET #welcome-messy1		"\n\nBenvenuto nell'installazione di SoundFX !\nQuesto script copierà tutti i file necessari sul tuo hard-disk.")
+;NEW
+	(SET #welcome-messy2		"This script will remember all your choices permanently.\nIf you run this script the next time in 'Novice' or 'Average' mode, it will assume all choces to be like the last time and proceed quietly. You will be only asked if there is a new choice required.\nIf you need to change any setting run the script in expert mode. This reasks you all questions, but reenters already your last choice.")
+;NEW
+	(SET #choose-dest			"Seleziona una directory di destinazione !\nUna directory chiamata SFX sarà automaticamente creata.\nAssicurati di avere almeno 3.0 Mb liberi sul tuo HD !")
+	(SET #choose-dest-help		"Con questo requester puoi scegliere dove installare SFX sul tuo HD.")
+	(SET #copy-loader			"sto copiando i loadermodules ...")
+	(SET #copy-operators		"sto copiando gli operatormodules ...")
+	(SET #copy-player			"sto copiando i playermodules ...")
+	(SET #copy-rexx				"sto copiando gli script arexx ...")
+	(SET #copy-saver			"sto copiando i savermodules ...")
+	(SET #copy-executable		"sto copiando l'eseguibile ...")
+	(SET #copy-fonts			"sto copiando i fonts ...")
+	(SET #copy-libs				"sto copiando le librerie ...")
+	(SET #copy-envelopes		"sto copiando le envelopes ...")
+	(SET #copy-presets			"sto copiando i presets ...")
+	(SET #copy-workshop			"sto copiando i workshopfiles ...")
+	(SET #copy-icons			"sto copiando le icone ...")
+	(SET #copy-gfx				"sto copiando la grafica ...")
+	(SET #copy-text				"sto copiando i testi ...")
+	(SET #copy-guides			"sto copiando le guide ...")
+	(SET #copy-keyfile			"sto copiando il Keyfile ...")
+; NEW
+	(SET #copy-catalogs			"copying catalogs ...")
+; NEW
+	(SET #copy-help				"I file selezionati verranno copiati sul tuo HD.")
+; CHANGE
+;	(SET #choose-icon			"Seleziona l'icona che vuoi installare\nL'icona a 4 colori è stata creata per il WB standard, mentre quella a 8 colori segue la palette MagicWB.")
+;	(SET #choose-icon-help		"Se il tuo WB ha più di 4 colori, seleziona l'icona ad 8 colori.\nQuesta icona è più bella.")
+	(SET #choose-icon			"Seleziona l'icona che vuoi installare !")
+	(SET #choose-icon-help		"The standart version is for a 4 coulour wb.\nThe MagicWB and Iconographics versions require at least 8 colours.\nThe NewIcon versions require the newicon software.")
+; CHANGE
+	(SET #choose-keypath		"Please choose a directory where the keyfile should be installed to !")
+	(SET #choose-keypath		"Seleziona la directory dove installare il keyfile !")
+	(SET #choose-fontpath		"Seleziona la directory dove installare i fonts !")
+	(SET #choose-path-help		"Puoi selezionare qualsiasi destinazione: SFX controllerà tutte le directory")
+	(SET #choose-instmode		"SFX è già installato ! Cosa devo fare ?")
+	(SET #choose-instmode-help	"In modalità backup il vecchio cassetto verrà rinominato SFX_old.\nIn modalità update i file già installati verranno sovrascritti.")
+; NEW
+	(SET #copykey-fail			"Copying of the keyfile failed !")
+; NEW
+	(SET #exit-messy			"\n\nSFX è stato installato con successo.\nLeggi attentamente la guida per imparare ad utilizzare al meglio il programma.")
+	(SET #orderform				"Orderform.italiano.txt")
+	(SET #catalog				"italiano")
+	(SET #readme				"ReadMe#?")
+))
+(IF (= @LANGUAGE "nederlands")
+(
+	(SET #bad-kick				"SoundFX heeft minstens Kickstart 3.0 nodig!")
+	(SET #bad-installer			"SoundFX heeft een installer versie >= 43.0 nodig!\nDeze is op Aminet te vinden in util/misc/Installer43.3.lha.")
+	(SET #welcome-messy1		"\n\nWelkom bij de installatie van SoundFX!\nDit script copieert alle bestanden die nodig zijn voor het gebruiken van SoundFX naar uw harddisk.")
+;NEW
+	(SET #welcome-messy2		"This script will remember all your choices permanently.\nIf you run this script the next time in 'Novice' or 'Average' mode, it will assume all choces to be like the last time and proceed quietly. You will be only asked if there is a new choice required.\nIf you need to change any setting run the script in expert mode. This reasks you all questions, but reenters already your last choice.")
+;NEW
+	(SET #choose-dest			"Kies een directory voor SoundFX!\nEen lade met de naam SFX wordt automatisch aangemaakt!\nVoor de installatie is tenminste 3.0 MB vrije ruimte op uw HD nodig!")
+	(SET #choose-dest-help		"Hier kunt u de plaats op uw harddisk kiezen waar SoundFX geinstalleerd moet worden.")
+	(SET #copy-loader			"loadermodules worden gecopieerd ...")
+	(SET #copy-operators		"operatormodules worden gecopieerd ...")
+	(SET #copy-player			"playermodules worden gecopieerd ...")
+	(SET #copy-rexx				"arexxscripts worden gecopieerd ...")
+	(SET #copy-saver			"savermodules worden gecopieerd ...")
+	(SET #copy-executable		"executable  worden gecopieerd ...")
+	(SET #copy-fonts			"fonts worden gecopieerd ...")
+	(SET #copy-libs				"libraries worden gecopieerd ...")
+	(SET #copy-envelopes		"envelopes worden gecopieerd ...")
+	(SET #copy-presets			"presets worden gecopieerd ...")
+	(SET #copy-workshop			"workshopfiles worden gecopieerd ...")
+	(SET #copy-icons			"icons worden gecopieerd ...")
+	(SET #copy-gfx				"gfx worden gecopieerd ...")
+	(SET #copy-text				"texts worden gecopieerd ...")
+	(SET #copy-guides			"guides worden gecopieerd ...")
+	(SET #copy-keyfile			"Keyfile wordt gecopieerd ...")
+	(SET #copy-catalogs			"catalogs worden gecopieerd ...")
+	(SET #copy-help				"De benodigde bestanden worden naar uw HD gecopieerd.")
+	(SET #choose-icon			"Kies het icon-set dat u wilt installeren!")
+	(SET #choose-icon-help		"De standaard versie is voor een 4-kleuren Werkbank.\nDe MagicWB en Iconographics versies hebben tenminste 8 kleuren nodig.\nDe NewIcon versie heeft de newicon software nodig.")
+	(SET #choose-keypath		"Kies een directory waar de keyfile geinstalleerd moet worden!")
+	(SET #choose-fontpath		"Kies een directory waar de fonts geinstalleerd moeten worden!")
+	(SET #choose-path-help		"U kunt elk van deze plekken kiezen ! SFX zal automatisch alle locaties afzoeken.")
+	(SET #choose-instmode		"SFX is reeds geinstalleerd! Wat zal ik doen?")
+	(SET #choose-instmode-help	"Bij mode backup word de naam van de oude lade veranderd in SFX_old.\nBij mode update worden alle oude bestanden overgeschreven.")
+	(SET #copykey-fail			"Het copieren van de keyfile is niet gelukt!")
+	(SET #exit-messy			"\n\nSFX is successvol geinstalleerd.\nLees de Guide om met het programma te leren werken.")
+	(SET #orderform				"Bestelformulier.txt")
+	(SET #catalog				"nederlands")
+	(SET #readme				"ReadMe#?")
+))
+(IF (= @LANGUAGE "norsk")
+(
+	(SET #bad-kick				"SoundFX krever minst Kickstart 3.0!")
+	(SET #bad-installer			"SoundFX krever minst en Installerversion >= 43.0!\nDen kan finnes på Aminet under util/misc/Installer43.3.lha.")
+	(SET #welcome-messy1		"\n\nVelkommen til installasjonen av SoundFX!\nDette script vil kopiere alle de filer, som er nødvendige for å bruke SoundFX, til din hardisk.")
+	(SET #welcome-messy2		"Dette skript vil huske alledine valg permanent.\nhvis du kjører dette skript neste gang i 'Novice' eller 'Average' mode, vil det anta at alle valg er som sist gang, og fortsetter stille. Du vil bare bli spurt om det er et nytt valg når det gjelder.\nHvis du trenger å forandre en setting, må skriptet kjøres i expert mode. Dette spør alle spørsmål på nytt, men legger inn dine gamle valg som standard.")
+	(SET #choose-dest			"Velg destinasjonskatalogen! En underkatalog med navn SFX vil automatisk bli opprettet.\nDu skal være sikker på at det er minst 3.0 MB fri på din harddisk!")
+	(SET #choose-dest-help		"Her kan du velge det sted på din harddisk, hvor du vil ha SFX installert.")
+	(SET #copy-loader			"kopierer load-modulene ...")
+	(SET #copy-operators		"kopierer operatør-modulene ...")
+	(SET #copy-player			"kopierer afspilnings-modulene ...")
+	(SET #copy-rexx				"kopierer ARexx-scriptene ...")
+	(SET #copy-saver			"kopierer save-modulene ...")
+	(SET #copy-executable		"kopierer executable ...")
+	(SET #copy-fonts			"kopierer fontene ...")
+	(SET #copy-libs				"kopierer biblioteker ...")
+	(SET #copy-envelopes		"kopierer envelopes ...")
+	(SET #copy-presets			"kopierer forinnstillinger ...")
+	(SET #copy-workshop			"kopierer workshop-data ...")
+	(SET #copy-gfx				"kopierer grafikk ...")
+	(SET #copy-text				"kopierer tekst ...")
+	(SET #copy-guides			"kopierer guides ...")
+	(SET #copy-keyfile			"kopierer keyfile ...")
+	(SET #copy-catalogs			"copying catalogs ...")
+	(SET #copy-help				"De respektive filer vil bli kopiert til din harddisk.")
+	(SET #choose-icon			"Velg det ikon du vil innstallere\n4-farge utgaven er til standard wb-fargen, mens 8-farge utgaven er til Magic-WB!")
+	(SET #choose-icon-help		"Hvis du har mer enn fire farger på din WB, skal du velge 8-farge ikonet.\nDen ser penere ut.")
+	(SET #choose-keypath		"Velg en katalog, som din keyfile skal innstalleres i.")
+	(SET #choose-fontpath		"Velg en katalog, som fontene skal innstalleres i!")
+	(SET #choose-path-help		"Du kan velge imellom alle disse mapper. SFX vil gjennomsøke dem alle!")
+	(SET #choose-instmode		"SFX er allerede installert! Hvordan skal jeg fortsette?")
+	(SET #choose-instmode-help	"I backup-mode blir den gamle SFX-mappe omdøpt til SFX_old.\nI oppdaterings-mode vil allerede installerte filer bli overskrevet.")
+	(SET #copykey-fail			"Kopiering av keyfilen feilet!")
+	(SET #exit-messy			"\n\nSFX er blitt suksessfullt installert!\nLes vennligst guiden for å lære, hvordan man bruker programmet.")
+	(SET #orderform				"Orderform.norsk.txt")
+	(SET #catalog				"norsk")
+	(SET #readme				"ReadMe#?")
+))
+(IF (= @LANGUAGE "polski")
+(
+	(SET #bad-kick				"SoundFX wymaga systemu w wesji co najmniej 3.0!")
+	(SET #bad-installer			"SoundFX wymaga Installera w wesji co najmniej 43.0!\nNajnowszâ wersjë Installera znajdziesz na Aminecie: \"util/misc/Installer43.3.lha\".")
+	(SET #welcome-messy1		"\n\nWitaj w programie instalacyjnym SoundFXa!\nTen program skopiuje wszystkie pliki niezbëdne do uruchomienia SoundFXa na Twój dysk twardy.")
+;NEW
+	(SET #welcome-messy2		"This script will remember all your choices permanently.\nIf you run this script the next time in 'Novice' or 'Average' mode, it will assume all choces to be like the last time and proceed quietly. You will be only asked if there is a new choice required.\nIf you need to change any setting run the script in expert mode. This reasks you all questions, but reenters already your last choice.")
+;NEW
+	(SET #choose-dest			"Gdzie chcesz zainstalowaê SoundFXa?\nKatalog \"SFX\" zostanie automatycznie utworzony!\nUpewnij sië, ûe masz co najmniej 3.0 MB wolnego miejsca na dysku!")
+	(SET #choose-dest-help		"wybierz katalog na dysku twardym, w którym SoundFX powinien zostaê zainstalowany")
+	(SET #copy-loader			"kopiujë moduîy wczytujâce ...")
+	(SET #copy-operators		"kopiujë operatory ...")
+	(SET #copy-player			"kopiujë moduîy odtwarzajâce ...")
+	(SET #copy-rexx				"kopiujë skrypty ARexx'a ...")
+	(SET #copy-saver			"kopiujë moduîy zapisujâce ...")
+	(SET #copy-executable		"kopiujë program ...")
+	(SET #copy-fonts			"kopiujë czcionki ...")
+	(SET #copy-libs				"kopiujë biblioteki ...")
+	(SET #copy-envelopes		"kopiujë obwiednie ...")
+	(SET #copy-presets			"kopiujë ustawienia ...")
+	(SET #copy-workshop			"kopiujë przykîady ...")
+	(SET #copy-icons			"kopiujë ikonki ...")
+	(SET #copy-gfx				"kopiujë grafikë ...")
+	(SET #copy-text				"kopiujë teksty ...")
+	(SET #copy-guides			"kopiujë dokumentacjë ...")
+	(SET #copy-keyfile			"kopiujë plik-klucz ...")
+; NEW
+	(SET #copy-catalogs			"copying catalogs ...")
+; NEW
+	(SET #copy-help				"Odpowiednie pliki zostanâ skopiowane na Twój dysk twardy.")
+; CHANGE
+;	(SET #choose-icon			"Wybierz rodzaj ikonek do zainstalowania\n4 kolorowâ dla standardowej palety Workbencha oraz 8 kolorowâ dla palety MagicWB!")
+;	(SET #choose-icon-help		"Jeôli masz wiëcej niû 4 kolory na swoim ekranie WB wybierz wersjë 8 kolorowâ.\nWyglâda znacznie lepiej.")
+	(SET #choose-icon			"Wybierz rodzaj ikonek do zainstalowania !")
+	(SET #choose-icon-help		"The standart version is for a 4 coulour wb.\nThe MagicWB and Iconographics versions require at least 8 colours.\nThe NewIcon versions require the newicon software.")
+; CHANGE
+	(SET #choose-keypath		"Wybierz katalog w którym chcesz zainstalowaê swój plik-klucz")
+	(SET #choose-fontpath		"Wybierz katalog w którym chcesz zainstalowaê czcionki")
+	(SET #choose-path-help		"Moûesz wybraê dowolny katalog z wymienionych! SFX sprawdzi je wszystkie.")
+	(SET #choose-instmode		"SFX jest juû zainstalowany! Co mam zrobiê?")
+	(SET #choose-instmode-help	"W trybie \"Backup\" nazwa istniejâcëgo katalogu zostanie zmieniona na \"SFX_old\".\nW trybie aktualizacji, istniejâce pliki zostanâ zastâpione nowymi.")
+; NEW
+	(SET #copykey-fail			"Copying of the keyfile failed !")
+; NEW
+	(SET #exit-messy			"\n\nSFX zostaî poprawnie zainstalowany.\nProszë, przeczytaj dokumentacjë, aby dowiedzieê sië jak pracowaê z programem.")
+	(SET #orderform				"Orderform.polski.txt")
+	(SET #catalog				"polski")
+	(SET #readme				"ReadMe#?")
+))
+(IF (= @LANGUAGE "svenska")
+(
+	(SET #bad-kick				"SoundFX kräver åtminstone Kickstart 3.0 !")
+	(SET #bad-installer			"SoundFX kräver åtminstone version 43.0 av installeraren !\nDenna finns på Aminet i util/misc/Installer43.3.lha.")
+	(SET #welcome-messy1		"\n\nVälkommen till installationen av SoundFX !\nDetta skript kommer att kopiera alla filer du behöver för att köra SoundFX till din hårddisk.")
+;NEW
+	(SET #welcome-messy2		"This script will remember all your choices permanently.\nIf you run this script the next time in 'Novice' or 'Average' mode, it will assume all choces to be like the last time and proceed quietly. You will be only asked if there is a new choice required.\nIf you need to change any setting run the script in expert mode. This reasks you all questions, but reenters already your last choice.")
+;NEW
+	(SET #choose-dest			"Välj var SoundFX skall installeras !\nEn låda med namnet SFX kommer automatiskt att skapas !\nSe till att du har minst 3.0 MB ledigt utrymme på hårddisken !")
+	(SET #choose-dest-help		"Här kan du välja var på din hårddisk som SoundFX skall installeras.")
+	(SET #copy-loader			"kopierar laddningsmoduler ...")
+	(SET #copy-operators		"kopierar operatormoduler ...")
+	(SET #copy-player			"kopierar ljudmoduler ...")
+	(SET #copy-rexx				"kopierar arexxskript ...")
+	(SET #copy-saver			"kopierar sparningsmoduler ...")
+	(SET #copy-executable		"kopierar körbara filen ...")
+	(SET #copy-fonts			"kopierar typsnitt ...")
+	(SET #copy-libs				"kopierar bibliotek (libraries)...")
+	(SET #copy-envelopes		"kopierar enveloper ...")
+	(SET #copy-presets			"kopierar förinställningar (presets) ...")
+	(SET #copy-workshop			"kopierar workshopfiler ...")
+	(SET #copy-icons			"kopierar ikoner ...")
+	(SET #copy-gfx				"kopierar grafik ...")
+	(SET #copy-text				"kopierar texter ...")
+	(SET #copy-guides			"kopierar guider ...")
+	(SET #copy-keyfile			"kopierar nyckelfil (Keyfile) ...")
+; NEW
+	(SET #copy-catalogs			"copying catalogs ...")
+; NEW
+	(SET #copy-help				"Respektive filer kommer att kopieras till din hårddisk.")
+; CHANGE
+;	(SET #choose-icon			"Var vänlig välj vilken ikon du vill installera\nfyrfärgsikonen är gjord för standard Workbenchfärger och åttafärgsversionen är gjord för Magic-WB !")
+;	(SET #choose-icon-help		"Om du inte har installerat Magic-WB tidigare, välj fyrfärgsikonen.\nOm du har installerat Magic-WB, välj åttafärgersikonen, den ser bättre ut.")
+	(SET #choose-icon			"Var vänlig välj vilken ikon du vill installera !")
+	(SET #choose-icon-help		"The standart version is for a 4 coulour wb.\nThe MagicWB and Iconographics versions require at least 8 colours.\nThe NewIcon versions require the newicon software.")
+; CHANGE
+	(SET #choose-keypath		"Var vänlig välj var nyckelfilen skall sparas !")
+	(SET #choose-fontpath		"Var vänlig välj var typsnitten (fonts) skall installeras !")
+	(SET #choose-path-help		"Du kan välja vilken som helst av dessa ställen ! SoundFX kommer att söka på alla.")
+	(SET #choose-instmode		"SoundFX är redan installerat ! Vad vill du göra ?")
+	(SET #choose-instmode-help	"I backup-mod kommer den gamla lådan att döpas om till SFX_old.\nI update-mod kommer de redan installerade filerna skrivas över.")
+; NEW
+	(SET #copykey-fail			"Copying of the keyfile failed !")
+; NEW
+	(SET #exit-messy			"\n\nSoundFX har installerats klart.\nVar god läs dokumentationen för att lära dig hur man arbetar med programmet.")
+	(SET #orderform				"Orderform.svenska.txt")
+	(SET #catalog				"svenska")
+	(SET #readme				"ReadMe#?")
+))
+
+(IF (= @LANGUAGE "suomi")
+(
+	(SET #bad-kick				"SoundFX vaatii toimiakseen vähintään käyttöjärjestelmäversion 3.0 !")
+	(SET #bad-installer			"SoundFX:n asentamiseen tarvitaan vähintään Installer-asennusohjelman versio 43.0 !\nLöydät asennusohjelman uusimman version Aminet:stä hakemistosta 'util/misc/'.")
+	(SET #welcome-messy1		"\n\nTervetuloa SoundFX:n asennukseen !\nTämä komentotiedosto asentaa kaikki SoundFX:n tarvitsemat tiedostot kovalevylle.")
+	(SET #welcome-messy2		"Asennuksen aikana tehdyt valinnat talletetaan.\nTalletettuja valintoja käytetään oletusvalintoina kun asennus suoritetaan toisen kerran. Asennusohjelma sivuuttaa pysähtymättä 'Aloittelija' ja 'Kokenut' tilassa kaikki ne valinnat, joiden oletusarvo on talletettu.\nJos haluat määrittää asennusvalinnat uudelleen, suorita asennus 'Asiantuntija' tilassa.")
+	(SET #choose-dest			"SoundFX tarvitsee kovalevytilaa vähintää 3.0 MB.\nOhjelmistolle luodaan hakemisto 'SFX' valitsemaasi hakemistoon.\nValitse kohdehakemisto.")
+	(SET #choose-dest-help		"Tämän toiminnon avulla valitaan hakemisto, jonne SoundFX asennetaan.")
+	(SET #copy-loader			"lataajien kopiointi ...")
+	(SET #copy-operators		"äänenkäsittelijöiden kopiointi ...")
+	(SET #copy-player			"toistimien kopiointi ...")
+	(SET #copy-rexx				"arexx-makrojen kopiointi ...")
+	(SET #copy-saver			"tallentajien kopiointi ...")
+	(SET #copy-executable		"ohjelmatiedoston kopiointi ...")
+	(SET #copy-fonts			"kirjasimien kopiointi ...")
+	(SET #copy-libs				"kirjastojen kopiointi ...")
+	(SET #copy-envelopes		"verhokäyrien kopiointi ...")
+	(SET #copy-presets			"esiasetusten kopiointi ...")
+	(SET #copy-workshop			"työpajatiedostojen kopiointi ...")
+	(SET #copy-icons			"ikonien kopiointi ...")
+	(SET #copy-gfx				"grafiikan kopiointi ...")
+	(SET #copy-text				"tekstien kopiointi ...")
+	(SET #copy-guides			"ohjeiden kopiointi ...")
+	(SET #copy-keyfile			"avaintiedoston kopiointi ...")
+	(SET #copy-catalogs			"sanastojen kopiointi ...")
+	(SET #copy-help				"Asiaan kuuluvat tiedostot kopioidaan kovalevylle.")
+	(SET #choose-icon			"Valitse asennettava ikonisto !")
+	(SET #choose-icon-help		"Perusikoneita käytetään 4-värisessä Workbench:ssä.\nMagicWB ja Iconographics ikonit vaativat vähintään 8 väriä.\nNewIcon ikonit vaativat newicon-ohjelmiston.")
+	(SET #choose-keypath		"Valitse hakemisto, johon avaintiedosto asennetaan !")
+	(SET #choose-fontpath		"Valitse hakemisto, johon kirjasimet asennetaan !")
+	(SET #choose-path-help		"Voit valita minkä tahansa polun, sillä SoundFX tutkii niistä jokaisen.")
+	(SET #choose-instmode		"SoundFX on jo asennettu ! Mitä tehdään ?")
+	(SET #choose-instmode-help	"Varmistustilassa vanha hakemisto saa nimen 'SFX_old' (vanhoja tiedostoja ei menetetä).\nPäivitystilassa kirjoitetaan asennettujen tiedostojen päälle (vanhat tiedostot menetetään).")
+	(SET #copykey-fail			"Avaintiedoston kopiointi ei onnistunut !")
+	(SET #exit-messy			"\n\nSoundFX on nyt asennettu.\nOhjelman toiminnot on selitetty käyttöohjeessa. Lue se !")
+	(SET #orderform				"Tilauslomake.txt")
+	(SET #catalog				"suomi")
+	(SET #readme				"ReadMe#?")
+))
+
+; check kick version ----------------------------------------------------------------------------------------
+
+(SET #vernum (GETVERSION))
+(SET #ver (/ #vernum 65536))
+(IF (< #ver 39)
+	(ABORT #bad-kick)
+)
+
+; check installer version -----------------------------------------------------------------------------------
+
+(SET #vernum @INSTALLER-VERSION)
+(SET #ver (/ #vernum 65536))
+(IF (< #ver 43)
+	(ABORT #bad-installer)
+)
+
+; los geht`s ------------------------------------------------------------------------------------------------
+
+(COMPLETE 0)
+(MESSAGE #welcome-messy1)
+(MESSAGE #welcome-messy2)
+
+; mal sehn was für Drives da sind ---------------------------------------------------------------------------
+
+(IF (= (EXISTS "music:" (NOREQ)) 2) (SET @DEFAULT-DEST "music:"))
+(IF (= (EXISTS "sound:" (NOREQ)) 2)	(SET @DEFAULT-DEST "sound:"))
+(IF (= (EXISTS "audio:" (NOREQ)) 2) (SET @DEFAULT-DEST "audio:"))
+
+; vielleicht hat er es ja auch schon mal installiert --------------------------------------------------------
+
+(RUN "MAKEDIR ENV:Installer")								; we need those directorys anyway
+(RUN "MAKEDIR ENV:Installer/Programs")
+(RUN "MAKEDIR ENVARC:Installer")
+(RUN "MAKEDIR ENVARC:Installer/Programs")
+
+(SET #lastdest (GETENV "SFXPATH"))							; cleanup very old envvar
+(IF (> (STRLEN #lastdest) 0)
+(
+	(RUN "COPY ENV:SFXPath ENV:Installer/Programs/SFXPath")
+	(RUN "COPY ENV:Installer/Programs/SFXPath ENVARC:Installer/Programs/SFXPath")
+	(RUN "DELETE ENV:SFXPath ENVARC:SFXPath FORCE QUIET")
+))
+(SET #lastdest (GETENV "Installer/Programs/SFXPath"))		; cleanup old envvar
+(IF (> (STRLEN #lastdest) 0)
+(
+	(P_PUTTAG "path" #lastdest)
+	(RUN "COPY ENV:Installer/Programs/sfx.cfg ENVARC:Installer/Programs/sfx.cfg")
+	(RUN "DELETE ENV:Installer/Programs/SFXPath ENVARC:Installer/Programs/SFXPath FORCE QUIET")
+))
+
+(SET #lastdest (P_GETTAG "path"))
+(IF (= (STRLEN #lastdest) 0)										; check if env-var exists
+(
+	(SET #lastdest											; no, use default
+		(ASKDIR
+			(PROMPT #choose-dest)
+			(HELP #choose-dest-help)
+			(DEFAULT @DEFAULT-DEST)
+		)
+	)
+)
+(
+	(SET #lastdest											; yes
+		(ASKDIR
+			(PROMPT #choose-dest)
+			(HELP #choose-dest-help)
+			(DEFAULT #lastdest)
+		)
+	)
+))
+(P_PUTTAG "path" #lastdest)
+
+; falls nicht vorhanden, Verzeichnis anlegen ----------------------------------------------------------------
+
+(COMPLETE 2)
+(SET #drawer-dest #lastdest)
+(SET @DEFAULT-DEST (TACKON #lastdest "SFX"))
+(SET #sfx-dest @DEFAULT-DEST)
+(IF (= (EXISTS #sfx-dest) 0)									; check if drawer exists
+	(MAKEDIR #sfx-dest (INFOS))									; no, create one
+	(															; yes, check whats there
+		(IF (= (EXISTS (TACKON #sfx-dest "_loaders" )) 2)		; is sfx-bin already installed
+			(SET #bin-ex 1)
+			(SET #bin-ex 0)
+		)
+		(IF (= (EXISTS (TACKON #sfx-dest "Guides")) 2)			; is sfx-doc already installed
+			(SET #doc-ex 1)
+			(SET #doc-ex 0)
+		)
+		(IF (= (EXISTS (TACKON #sfx-dest "Workshop")) 2)			; is sfx-data already installed
+			(SET #data-ex 1)
+			(SET #data-ex 0)
+		)
+		(SET #key-ex 0)
+		(IF (= (EXISTS "devs:keyfiles/sfx.key") 1)					; si there already a key installed
+			(SET #key-ex 1)
+		)
+		(IF (= (EXISTS (CAT #sfx-dest "/sfx.key")) 1)
+			(SET #key-ex 2)
+		)
+		(IF (= (EXISTS (CAT #sfx-dest "/Keyfiles/sfx.key")) 1)
+			(SET #key-ex 3)
+		)
+		(IF (= (+ (+ #bin-ex #doc-ex) #data-ex) 3)					; all three already installed
+		(
+			(SET #instmode (P_GETTAG "instmode"))					; get last-time choice
+			(IF (OR (= @user-level 2) (AND (= @user-level 1) ((= (STRLEN #instmode) 0))))	; requerry ?
+			(
+				(IF ((= (STRLEN #instmode) 0)) (SET #instmode 0))
+				(SET #instmode											; yes, backup or update ?
+					(ASKCHOICE
+						(PROMPT #choose-#instmode)
+						(HELP #choose-#instmode-help)
+						(CHOICES
+							"Backup old installation"
+							"Update old installation"
+						)
+						(DEFAULT #instmode)
+					)
+				)
+				(P_PUTTAG "instmode" #instmode)
+			))
+			(IF (= #instmode 0)										; backup
+			(
+				(SET #sfxsub-dest (CAT #sfx-dest "_old"))
+				(IF (= (EXISTS #sfxsub-dest) 2)							; delete old backup
+					(RUN (CAT "DELETE " #sfxsub-dest " ALL QUIET FORCE"))
+				)
+				(RENAME #sfx-dest #sfxsub-dest)
+				(RENAME (CAT #sfx-dest ".info") (CAT #sfxsub-dest ".info"))
+;				(COPYFILES
+;					(SOURCE #sfx-dest)
+;					(DEST #sfxsub-dest)
+;					(ALL)
+;					(INFOS)
+;				)
+;				(RUN (CAT "DELETE " #sfx-dest "/#?.db QUIET FORCE"))		; delete old database files
+			))
+		))
+	)
+)
+
+; now querry all choices ------------------------------------------------------------------------------------
+
+;(IF (= (EXISTS "sfx-bin") 2)
+;(
+;))
+
+(IF (= (EXISTS "sfx-data") 2)
+(
+	(SET #fontpath (P_GETTAG "fontpath"))					; get last-time choice
+	(IF (OR (= @user-level 2) (AND (= @user-level 1) ((= (STRLEN #fontpath) 0))))	; requerry ?
+	(
+		(IF ((= (STRLEN #fontpath) 0)) (SET #fontpath 1))
+		(SET #fontpath
+			(ASKCHOICE
+				(PROMPT #choose-#fontpath)
+				(HELP #choose-path-help)
+				(CHOICES
+					"FONTS:"
+					"Progdir:fonts/"
+				)
+				(DEFAULT #fontpath)
+			)
+		)
+		(P_PUTTAG "fontpath" #fontpath)
+	))
+
+	(SET #iconset (P_GETTAG "iconset"))					; get last-time choice
+	(IF (OR (= @user-level 2) (AND (= @user-level 1) ((= (STRLEN #iconset) 0))))	; requerry ?
+	(
+		(IF ((= (STRLEN #iconset) 0)) (SET #iconset 1))
+		(SET #iconset
+			(ASKCHOICE
+				(PROMPT #choose-icon)
+				(HELP #choose-icon-help)
+				(CHOICES
+					"Standart"
+					"Magic WB"
+					"NewIcons"
+					"AristIcons (NewIcons)"
+					"Iconographics"
+				)
+				(DEFAULT #iconset)
+			)
+		)
+		(P_PUTTAG "iconset" #iconset)
+	))
+
+	(IF (= (EXISTS "SoundFX:" (NOREQ)) 2)
+	(
+		(SET #keypath (P_GETTAG "keypath"))					; get last-time choice
+		(IF (OR (= @user-level 2) (AND (= @user-level 1) ((= (STRLEN #keypath) 0))))		; requerry ?
+		(
+			(IF ((= (STRLEN #keypath) 0)) (SET #keypath 0))
+			(SET #keypath
+				(ASKCHOICE
+					(PROMPT #choose-#keypath)
+					(HELP #choose-path-help)
+					(CHOICES
+						"DEVS:keyfiles/"
+						"Progdir:keyfiles/"
+						"Progdir:"
+					)
+					(DEFAULT #keypath)
+				)
+			)
+			(P_PUTTAG "keypath" #keypath)
+		))
+	))
+))
+
+;(IF (= (EXISTS "sfx-doc") 2)
+;(
+;))
+
+(RUN "COPY ENV:Installer/Programs/sfx.cfg ENVARC:Installer/Programs/sfx.cfg")		; make cfg persistent
+
+; SFX-bin begin ---------------------------------------------------------------------------------------------
+
+(IF (= (EXISTS "sfx-bin") 2)
+(
+
+; Loader ----------------------------------------------------------------------------------------------------
+(COMPLETE 5)
+(SET #sfxsub-dest (TACKON #sfx-dest "_loaders"))
+(IF (= (EXISTS #sfxsub-dest) 0)
+	(MAKEDIR #sfxsub-dest)
+	(RUN (CAT "DELETE " #sfxsub-dest "/#?.(sfxmod|guide|modinfo) ALL QUIET FORCE"))
+)
+(COPYFILES
+	(PROMPT #copy-loader)
+	(HELP #copy-help)
+	(SOURCE "sfx-bin/_loaders/")
+	(DEST #sfxsub-dest)
+	(ALL)
+)
+
+; Operators -------------------------------------------------------------------------------------------------
+(COMPLETE 8)
+(SET #sfxsub-dest (TACKON #sfx-dest "_operators"))
+(IF (= (EXISTS #sfxsub-dest) 0)
+	(MAKEDIR #sfxsub-dest)
+	(RUN (CAT "DELETE " #sfxsub-dest "/#?.(sfxmod|guide|modinfo) ALL QUIET FORCE"))
+)
+(COPYFILES
+	(PROMPT #copy-operators)
+	(HELP #copy-help)
+	(SOURCE "sfx-bin/_operators/")
+	(DEST #sfxsub-dest)
+	(ALL)
+)
+
+; Player ----------------------------------------------------------------------------------------------------
+(COMPLETE 15)
+(SET #sfxsub-dest (TACKON #sfx-dest "_players"))
+(IF (= (EXISTS #sfxsub-dest) 0)
+	(MAKEDIR #sfxsub-dest)
+	(RUN (CAT "DELETE " #sfxsub-dest "/#?.(sfxmod|guide|modinfo) ALL QUIET FORCE"))
+)
+(COPYFILES
+	(PROMPT #copy-player)
+	(HELP #copy-help)
+	(SOURCE "sfx-bin/_players/")
+	(DEST #sfxsub-dest)
+	(ALL)
+)
+
+; Saver -----------------------------------------------------------------------------------------------------
+(COMPLETE 17)
+(SET #sfxsub-dest (TACKON #sfx-dest "_savers"))
+(IF (= (EXISTS #sfxsub-dest) 0)
+	(MAKEDIR #sfxsub-dest)
+	(RUN (CAT "DELETE " #sfxsub-dest "/#?.(sfxmod|guide|modinfo) ALL QUIET FORCE"))
+)
+(COPYFILES
+	(PROMPT #copy-saver)
+	(HELP #copy-help)
+	(SOURCE "sfx-bin/_savers/")
+	(DEST #sfxsub-dest)
+	(ALL)
+)
+
+; SFX -------------------------------------------------------------------------------------------------------
+(COMPLETE 19)
+(COPYFILES
+	(PROMPT #copy-executable)
+	(HELP #copy-help)
+	(SOURCE "sfx-bin/sfx")
+	(DEST #sfx-dest)
+	(NEWNAME "SoundFX")
+)
+(COMPLETE 23)
+(SET #sfxsub-dest (TACKON #sfx-dest "libs"))
+(IF (= (EXISTS #sfxsub-dest) 0)
+	(MAKEDIR #sfxsub-dest)
+)
+(COPYFILES
+	(PROMPT #copy-executable)
+	(HELP #copy-help)
+	(SOURCE "sfx-bin/sfxsupport.library")
+	(DEST #sfxsub-dest)
+)
+
+))
+
+; SFX-bin ende ----------------------------------------------------------------------------------------------
+
+; SFX-data begin --------------------------------------------------------------------------------------------
+
+(IF (= (EXISTS "sfx-data") 2)
+(
+
+; Fonts kopieren --------------------------------------------------------------------------------------------
+(COMPLETE 25)
+(IF (= #fontpath 0)
+(
+	(SET #sfxsub-dest "FONTS:")
+))
+(IF (= #fontpath 1)
+(
+	(SET #sfxsub-dest (TACKON #sfx-dest "fonts"))
+	(IF (= (EXISTS #sfxsub-dest) 0)
+		(MAKEDIR #sfxsub-dest)
+	)
+))
+(COPYFILES
+	(PROMPT #copy-fonts)
+	(HELP #copy-help)
+	(SOURCE "sfx-data/fonts/")
+	(DEST #sfxsub-dest)
+	(ALL)
+)
+
+; Libs kopieren ---------------------------------------------------------------------------------------------
+(COMPLETE 26)
+(COPYLIB
+	(PROMPT #copy-libs)
+	(HELP #copy-help)
+	(SOURCE "sfx-data/Libs/amigaguide.library")
+	(DEST "LIBS:")
+)
+(COPYLIB
+	(PROMPT #copy-libs)
+	(HELP #copy-help)
+	(SOURCE "sfx-data/Libs/unitconv.library")
+	(DEST "LIBS:")
+)
+
+; Envelopes -------------------------------------------------------------------------------------------------
+(COMPLETE 29)
+(SET #sfxsub-dest (TACKON #sfx-dest "Envelopes"))
+(IF (= (EXISTS #sfxsub-dest) 0)
+	(MAKEDIR #sfxsub-dest)
+)
+(COPYFILES
+	(PROMPT #copy-envelopes)
+	(HELP #copy-help)
+	(SOURCE "sfx-data/Envelopes/")
+	(DEST #sfxsub-dest)
+	(ALL)
+)
+
+; Module Data (.modinfo, .presets ) -------------------------------------------------------------------------
+(COMPLETE 31)
+(COPYFILES
+	(PROMPT #copy-presets)
+	(HELP #copy-help)
+	(SOURCE "sfx-data/")
+	(PATTERN "_#?")
+	(DEST #sfx-dest)
+)
+
+; Workshop-Scripte ------------------------------------------------------------------------------------------
+(COMPLETE 38)
+(SET #sfxsub-dest (TACKON #sfx-dest "Workshop"))
+(IF (= (EXISTS #sfxsub-dest) 0)
+	(MAKEDIR #sfxsub-dest)
+)
+(COPYFILES
+	(PROMPT #copy-workshop)
+	(HELP #copy-help)
+	(SOURCE "sfx-data/Workshop/")
+	(DEST #sfxsub-dest)
+	(ALL)
+)
+
+; Delete Old Files ------------------------------------------------------------------------------------------
+
+(COMPLETE 40)
+(SET #sfxsub-dest (TACKON #sfx-dest "Synths"))
+(IF (= (EXISTS #sfxsub-dest) 1)
+	(RUN (CAT "DELETE " #sfxsub-dest " ALL QUIET FORCE"))
+)
+(COMPLETE 41)
+(SET #sfxsub-dest (TACKON #sfx-dest "EqShps"))
+(IF (= (EXISTS #sfxsub-dest) 1)
+	(RUN (CAT "DELETE " #sfxsub-dest " ALL QUIET FORCE"))
+)
+
+; Icon ------------------------------------------------------------------------------------------------------
+(COMPLETE 42)
+(SET #sfxsub-dest (TACKON #sfx-dest "Guides"))
+(IF (= #iconset 0)
+	(SET #icon-dest "sfx-data/icons_std")
+)
+(IF (= #iconset 1)
+	(SET #icon-dest "sfx-data/icons_mwb")
+)
+(IF (= #iconset 2)
+	(SET #icon-dest "sfx-data/icons_ni")
+)
+(IF (= #iconset 3)
+	(SET #icon-dest "sfx-data/icons_arist")
+)
+(IF (= #iconset 4)
+	(SET #icon-dest "sfx-data/icons_icgfx")
+)
+
+(COPYFILES
+	(PROMPT #copy-icons)
+	(HELP #copy-help)
+	(SOURCE (TACKON #icon-dest "SoundFX.info"))
+	(DEST #sfx-dest)
+)
+(COPYFILES
+	(PROMPT #copy-icons)
+	(HELP #copy-help)
+	(SOURCE (TACKON #icon-dest "Guides.info"))
+	(DEST #sfx-dest)
+)
+(COPYFILES
+	(PROMPT #copy-icons)
+	(HELP #copy-help)
+	(SOURCE (TACKON #icon-dest "SFX.guide.info"))
+	(DEST #sfxsub-dest)
+)
+(COPYFILES
+	(PROMPT #copy-icons)
+	(HELP #copy-help)
+	(SOURCE (TACKON #icon-dest "Form.info"))
+	(DEST #sfx-dest)
+	(NEWNAME (CAT #orderform ".info"))
+)
+(COPYFILES
+	(PROMPT #copy-icons)
+	(HELP #copy-help)
+	(SOURCE (TACKON #icon-dest "SoundDir.info"))
+	(DEST #drawer-dest)
+	(NEWNAME "sfx.info")
+)
+
+; GFX -------------------------------------------------------------------------------------------------------
+(COMPLETE 47)
+(SET #sfxsub-dest (TACKON #sfx-dest "Data"))
+(IF (= (EXISTS #sfxsub-dest) 0)
+	(MAKEDIR #sfxsub-dest)
+)
+(COPYFILES
+	(PROMPT #copy-gfx)
+	(HELP #copy-help)
+	(SOURCE "sfx-data/Data/")
+	(DEST #sfxsub-dest)
+	(ALL)
+)
+
+; Keyfile kopieren ------------------------------------------------------------------------------------------
+
+(COMPLETE 51)
+(IF (= #keypath 0)
+(
+	(SET #sfxsub-dest "DEVS:keyfiles")
+	(IF (= (EXISTS #sfxsub-dest) 0) (MAKEDIR #sfxsub-dest (INFOS)) )
+))
+(IF (= #keypath 1)
+(
+	(SET #sfxsub-dest (TACKON #sfx-dest "keyfiles"))
+	(IF (= (EXISTS #sfxsub-dest) 0) (MAKEDIR #sfxsub-dest) )
+))
+(IF (= #keypath 2)
+(
+	(SET #sfxsub-dest #sfx-dest)
+))
+(COMPLETE 53)
+
+(IF (OR (= #key-ex 0)((= (EXISTS "SoundFX:SFX.newkey" (NOREQ)) 1)))									; nein -> checken, ob Disk im Laufwerk ist
+(
+	(IF (= (EXISTS "SoundFX:" (NOREQ)) 2)
+	(
+		(IF (= (EXISTS "SoundFX:SFX.newkey") 1)
+			(SET #keyname "SoundFX:sfx.newkey")
+			(SET #keyname "SoundFX:sfx.key")
+		)
+		(SET #copykey 1)
+		(COPYFILES							; versuche Key von der Disk zu kopieren
+			(PROMPT #copy-keyfile)
+			(HELP #copy-help)
+			(SOURCE #keyname)
+			(DEST #sfxsub-dest)
+		    (NEWNAME "sfx.key")
+			(OPTIONAL "nofail")
+		)
+		(TRAP 4 (IF (<> @IOERR 0)(SET #copykey 0)))		; testen ob's geklappt hat
+
+		(IF (= #copykey 0)
+		(
+		  (SET #copykey 1)
+		  (COPYFILES						; mit 1. Kopie nochmal versuchen
+			(PROMPT #copy-keyfile)
+			(HELP #copy-help)
+		    (SOURCE (CAT #keyname "_1"))
+			(DEST #sfxsub-dest)
+		    (NEWNAME "sfx.key")
+		    (OPTIONAL "nofail")
+		  )
+		  (TRAP 4 (IF (<> @IOERR 0)(SET #copykey 0)))	; testen ob's geklappt hat
+		))
+		(IF (= #copykey 0)
+		(
+		  (SET #copykey 1)
+		  (COPYFILES						; mit 2. Kopie nochmal versuchen
+			(PROMPT #copy-keyfile)
+			(HELP #copy-help)
+		    (SOURCE (CAT #keyname "_2"))
+			(DEST #sfxsub-dest)
+		    (NEWNAME "sfx.key")
+		    (OPTIONAL "nofail")
+		  )
+		  (TRAP 4 (IF (<> @IOERR 0)(SET #copykey 0)))	; testen ob's geklappt hat
+		))
+		(IF (= #copykey 0)
+		(
+		  (SET #copykey 1)
+		  (COPYFILES						; mit 3. Kopie nochmal versuchen
+			(PROMPT #copy-keyfile)
+			(HELP #copy-help)
+		    (SOURCE (CAT #keyname "_3"))
+			(DEST #sfxsub-dest)
+		    (NEWNAME "sfx.key")
+		    (OPTIONAL "nofail")
+		  )
+		  (TRAP 4 (IF (<> @IOERR 0)(SET #copykey 0)))	; testen ob's geklappt hat
+		))
+		(IF (= #copykey 0)
+			(MESSAGE #copykey-fail)
+		)
+	))
+))
+(IF (= #instmode 0)							; we're in backup mode
+(
+	(IF (= #key-ex 2)							; copy key from backup
+	(
+		(COPYFILES
+			(PROMPT #copy-keyfile)
+			(HELP #copy-help)
+		    (SOURCE (CAT #sfx-dest "_old/sfx.key"))
+			(DEST #sfxsub-dest)
+		)
+	))
+	(IF (= #key-ex 3)							; copy key from backup
+	(
+		(COPYFILES
+			(PROMPT #copy-keyfile)
+			(HELP #copy-help)
+		    (SOURCE (CAT #sfx-dest "_old/Keyfiles/sfx.key"))
+			(DEST #sfxsub-dest)
+		)
+	))
+))
+
+))
+
+; SFX-data ende ---------------------------------------------------------------------------------------------
+
+; SFX-doc begin ---------------------------------------------------------------------------------------------
+
+(IF (= (EXISTS "sfx-doc") 2)
+(
+
+; Guide -----------------------------------------------------------------------------------------------------
+
+(COMPLETE 55)
+(COPYFILES
+	(PROMPT #copy-text)
+	(HELP #copy-help)
+	(SOURCE "sfx-doc/")
+	(FILES)
+	(PATTERN #readme)
+	(DEST #sfx-dest)
+)
+(COPYFILES
+	(PROMPT #copy-text)
+	(HELP #copy-help)
+	(SOURCE "sfx-doc/")
+	(FILES)
+	(PATTERN #orderform)
+	(DEST #sfx-dest)
+)
+(COMPLETE 58)
+(SET #sfxsub-dest (TACKON #sfx-dest "Guides"))
+(IF (= (EXISTS #sfxsub-dest) 0)
+	(MAKEDIR #sfxsub-dest)
+)
+(COPYFILES
+	(PROMPT #copy-guides)
+	(HELP #copy-help)
+	(SOURCE "sfx-doc/Guides/")
+	(FILES)
+	(PATTERN "#?.guide")
+	(DEST #sfxsub-dest)
+)
+
+(COMPLETE 62)
+(SET #sfxsub-dest (TACKON #sfx-dest "Guides/Workshop"))
+(IF (= (EXISTS #sfxsub-dest) 0)
+	(MAKEDIR #sfxsub-dest)
+)
+(COPYFILES
+	(PROMPT #copy-guides)
+	(HELP #copy-help)
+	(SOURCE "sfx-doc/Guides/Workshop/")
+	(FILES)
+	(PATTERN "#?.rexx")
+	(DEST #sfxsub-dest)
+)
+
+(COMPLETE 66)
+(SET #sfxsub-dest (TACKON #sfx-dest "_loaders"))
+(IF (= (EXISTS #sfxsub-dest) 0)
+	(MAKEDIR #sfxsub-dest)
+)
+(COPYFILES
+	(PROMPT #copy-guides)
+	(HELP #copy-help)
+	(SOURCE "sfx-doc/_loaders/")
+	(DEST #sfxsub-dest)
+	(ALL)
+)
+
+(COMPLETE 72)
+(SET #sfxsub-dest (TACKON #sfx-dest "_operators"))
+(IF (= (EXISTS #sfxsub-dest) 0)
+	(MAKEDIR #sfxsub-dest)
+)
+(COPYFILES
+	(PROMPT #copy-guides)
+	(HELP #copy-help)
+	(SOURCE "sfx-doc/_operators/")
+	(DEST #sfxsub-dest)
+	(ALL)
+)
+
+(COMPLETE 82)
+(SET #sfxsub-dest (TACKON #sfx-dest "_players"))
+(IF (= (EXISTS #sfxsub-dest) 0)
+	(MAKEDIR #sfxsub-dest)
+)
+(COPYFILES
+	(PROMPT #copy-guides)
+	(HELP #copy-help)
+	(SOURCE "sfx-doc/_players/")
+	(DEST #sfxsub-dest)
+	(ALL)
+)
+
+(COMPLETE 85)
+(SET #sfxsub-dest (TACKON #sfx-dest "_rexx"))
+(IF (= (EXISTS #sfxsub-dest) 0)
+	(MAKEDIR #sfxsub-dest)
+)
+(COPYFILES
+	(PROMPT #copy-guides)
+	(HELP #copy-help)
+	(SOURCE "sfx-doc/_rexx/")
+	(DEST #sfxsub-dest)
+	(ALL)
+)
+
+(COMPLETE 90)
+(SET #sfxsub-dest (TACKON #sfx-dest "_savers"))
+(IF (= (EXISTS #sfxsub-dest) 0)
+	(MAKEDIR #sfxsub-dest)
+)
+(COPYFILES
+	(PROMPT #copy-guides)
+	(HELP #copy-help)
+	(SOURCE "sfx-doc/_savers/")
+	(DEST #sfxsub-dest)
+	(ALL)
+)
+
+(COMPLETE 95)
+(SET #sfxsub-dest (TACKON #sfx-dest "Catalogs"))
+(IF (= (EXISTS #sfxsub-dest) 0)
+	(MAKEDIR #sfxsub-dest)
+)
+(SET #sfxsub-dest (TACKON #sfxsub-dest #catalog))
+(IF (= (EXISTS #sfxsub-dest) 0)
+	(MAKEDIR #sfxsub-dest)
+)
+(IF (= (EXISTS (CAT "sfx-doc/Catalogs/" #catalog "/SoundFX.catalog")) 1)
+	(COPYFILES										; copy only, if there is a catalog
+		(PROMPT #copy-catalogs)						; else use the builtin-language instead
+		(HELP #copy-help)
+		(SOURCE (CAT "sfx-doc/Catalogs/" #catalog "/SoundFX.catalog"))
+		(DEST #sfxsub-dest)
+	)
+)
+
+))
+
+; SFX-doc ende ----------------------------------------------------------------------------------------------
+
+; Fertig ----------------------------------------------------------------------------------------------------
+(COMPLETE 100)
+(EXIT #exit-messy)
+; Install-SFX Ende ------------------------------------------------------------------------------------------

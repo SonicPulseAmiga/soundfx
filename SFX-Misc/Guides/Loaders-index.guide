@@ -1,0 +1,39 @@
+@database SFX
+
+@Remark (C) Copyright 1993-1996 Stefan Kost
+@Remark All Rights Reserved
+@Remark $VER: Loaders-Index.guide (--.--.--)
+@Remark AmigaGuide-OnLine-Hilfe für SoundFX
+
+@master /guides/sfx.guide
+@index /guides/sfx-index.guide/index
+
+@node main "Loaders-Index"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Loaders-Index
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+@{" General Information " link Loaders.guide/main }
+@{" CDDA-Direct         " link /_Loaders/CDDA-Direct.guide/main }		reads audiodata directly from CDs
+@{" Clipboard           " link /_Loaders/Clipboard.guide/main }		Dataexchange of IFF-Files via Clipboard
+@{" DataTypes           " link /_Loaders/DataTypes.guide/main }		AMIGA OS DataTypes Loader
+@{" FutureSound         " link /_Loaders/FutureSound.guide/main }		8-bit Fileformat
+@{" IFF-16SV            " link /_Loaders/IFF-16SV.guide/main }		16-bit IFF-Fileformat
+@{" IFF-8SVX            " link /_Loaders/IFF-8SVX.guide/main }		Amiga-Fileformat
+@{" IFF-AIFC            " link /_Loaders/IFF-AIFC.guide/main }		Apple-Fileformat
+@{" IFF-AIFF            " link /_Loaders/IFF-AIFF.guide/main }		Apple-Fileformat
+@{" IFF-MAUD            " link /_Loaders/IFF-MAUD.guide/main }		MacroSystem Audiodata
+@{" MPEG                " link /_Loaders/MPEG.guide/main }		MPEG Audio Files
+@{" Maestro             " link /_Loaders/Maestro.guide/main }		MacroSystems Maestro Board Files
+@{" RAW                 " link /_Loaders/RAW.guide/main }		Unformated Files
+@{" RIFF-WAV            " link /_Loaders/RIFF-WAV.guide/main }		PC-Windows-Fileformat
+@{" SDS-File            " link /_Loaders/SDS-File.guide/main }		Midi Sample Dump Standart
+@{" SND-AU              " link /_Loaders/SND-AU.guide/main }		SUN/NEXT-Fileformat
+@{" Studio16            " link /_Loaders/Studio16.guide/main }		16-bit Mono Fileformat (Studio16 Software)
+@{" TX16W               " link /_Loaders/TX16W.guide/main }		12-bit Mono Fileformat (Yamaha TX16W-Sampler)
+@{" Universal           " link /_Loaders/Universal.guide/main }		Universal, AutodetectionLoader
+@{" VOC                 " link /_Loaders/VOC.guide/main }		PC-SoundBlaster-Fileformat
+
+@endnode

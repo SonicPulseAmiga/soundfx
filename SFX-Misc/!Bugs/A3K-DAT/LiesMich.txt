@@ -1,0 +1,24 @@
+Hi Stefan,
+
+ich bins Christian Lehr, der mit dem Yamaha A3000 Sampler.
+Ich schick dir mal nen paar Samples, also:
+
+PIANO_A     ;   Original A3000 SDS-Dump Sample   -> läßt sich per Sysex wieder in den A3000 zurück dumpen
+PIANO_B     ;    ist der PIANO_A Sample im SFX geladen und dort als SDS-File gespeichert  -> läßt sich nicht wieder in den A3000 dumpen
+
+HHDrum
+HHSnare      ;   zwei weitere original A3000 SDS- MIdi Dump Samples, wie piano_a
+
+PERC_R       
+PERC_T       ;   sind zwei Original im A3000 abgespeicherte Samples, im A3000 Format, die
+                 Erweiterung 008 und 010 hat der Sampler beim Speichern selber angehängt,
+				zusätzlich hat er noch die Dateien YAMAHA.SYM , A3000_SY.002 , SMP_2651.011 und SMP_0214.009 drauf gespeichert
+
+Nochmal mein Anliegen. Ich möchte den PIANO_B Sample (Piano_A im SFX laden, bearbeiten und als SDS-File sichern)
+wieder an den A3000 zurückdumpen können. Noch eins und zwar, warum ich dir die 2 Original A3000 Samples
+( Perc_R und Perc_T )  + Anhängsel geschickt hab. Wäre es möglich einen Loader und Saver für dieses
+A3000 Format, im SFX einzurichten. Wäre echt gut wenn es klappt. Wenn noch einige Fragen da sind oder
+nicht alle Dateien bei dir angekommen sind dann  bin ich unter folgender Nummer zu erreichen: 0177 5255206,
+kurz melden reicht auch aus, ich ruf dann auch gleich zurück, wegen der Handy-Gebühren.
+
+MfG Christian

@@ -1,0 +1,101 @@
+From - Thu Sep 27 15:27:16 2001
+X-UIDL: 361df5b5000037cc
+X-Mozilla-Status: 0015
+X-Mozilla-Status2: 00000000
+Received: from MAIL.HTWK-Leipzig.DE (hera.rz.htwk-leipzig.de [141.57.1.8])
+	by imn.htwk-leipzig.de (8.9.1/8.9.1) with ESMTP id PAA00186
+	for <kost@imn.htwk-leipzig.de>; Fri, 14 Sep 2001 15:01:44 +0200 (MET DST)
+Received: from n23.groups.yahoo.com (n23.groups.yahoo.com [216.115.96.73])
+	by MAIL.HTWK-Leipzig.DE (8.11.3/8.11.3) with SMTP id f8ED5ZM15132
+	for <kost@imn.htwk-leipzig.de>; Fri, 14 Sep 2001 15:05:36 +0200
+Received: from [10.1.4.52] by ck.egroups.com with NNFMP; 14 Sep 2001 13:02:56 -0000
+Received: (EGP: mail-7_3_2_2); 14 Sep 2001 13:02:55 -0000
+Received: (qmail 38132 invoked from network); 14 Sep 2001 12:20:14 -0000
+Received: from unknown (10.1.10.27)
+  by m8.onelist.org with QMQP; 14 Sep 2001 12:20:14 -0000
+Received: from unknown (HELO david.siemens.de) (192.35.17.14)
+  by mta2 with SMTP; 14 Sep 2001 12:20:09 -0000
+Received: from mail2.siemens.de (mail2.siemens.de [139.25.208.11])
+	by david.siemens.de (8.11.6/8.11.6) with ESMTP id f8ECK7W06153
+	for <soundfx-users@yahoogroups.com>; Fri, 14 Sep 2001 14:20:07 +0200 (MET DST)
+Received: from mustang.mchm.siemens.de (mustang.mchm.siemens.de [139.23.227.14])
+	by mail2.siemens.de (8.11.6/8.11.6) with ESMTP id f8ECK6020608
+	for <soundfx-users@yahoogroups.com>; Fri, 14 Sep 2001 14:20:06 +0200 (MET DST)
+Received: from wilde.hl.siemens.de (wilde.hl.siemens.de [172.29.164.208])
+	by mustang.mchm.siemens.de (8.9.3/8.9.3) with ESMTP id OAA27154
+	for <soundfx-users@yahoogroups.com>; Fri, 14 Sep 2001 14:20:06 +0200 (MET DST)
+Received: from storm.hl.siemens.de (baenisch@storm.hl.siemens.de [172.29.164.49])
+	by wilde.hl.siemens.de (8.8.5/8.8.5) with ESMTP id OAA13897
+	for <soundfx-users@yahoogroups.com>; Fri, 14 Sep 2001 14:19:36 +0200 (MEST)
+Received: (from baenisch@localhost)
+	by storm.hl.siemens.de (8.8.5/8.8.5) id OAA16554
+	for soundfx-users@yahoogroups.com; Fri, 14 Sep 2001 14:19:35 +0200 (MET DST)
+X-eGroups-Return: sentto-3879093-5-1000472576-kost=imn.htwk-leipzig.de@returns.onelist.com
+X-Sender: andreas.baenisch@hl.siemens.de
+X-Apparently-To: soundfx-users@yahoogroups.com
+Message-Id: <200109141219.OAA16554@storm.hl.siemens.de>
+To: soundfx-users@yahoogroups.com
+Content-MD5: LqK9dDKAxX3VDkABs31zbA==
+From: Andreas Baenisch <andreas.baenisch@hl.siemens.de>
+MIME-Version: 1.0
+Mailing-List: list soundfx-users@yahoogroups.com; contact soundfx-users-owner@yahoogroups.com
+Delivered-To: mailing list soundfx-users@yahoogroups.com
+Precedence: bulk
+List-Unsubscribe: <mailto:soundfx-users-unsubscribe@yahoogroups.com>
+Date: Fri, 14 Sep 2001 14:19:35 +0200 (MET DST)
+Reply-To: soundfx-users@yahoogroups.com
+Subject: Re: [soundfx-users] Re: Batchmode not working :(
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Length: 1459
+Status:  O
+
+Hi Michael
+
+> it sounds like you never got it working so far, and it also leaves the
+
+Jepp, that's true
+
+> possibility you just made a mistake feeding it with the right clicks.
+
+Perhaps ...
+
+> Please describe click-by-click what you do when it fails to work.
+
+I'll try :)
+
+Select Batchmode from the Projectsmenu
+Selecting Loader in the Batchmode-Window
+Selecting Saver in the Batchmode-Window
+
+Cause I don't want to to process the files with filters ...
+I add no actionitem
+
+Then I press OK and SFX asks for a source-file drawer
+I select a drawer with mp3 files only (extension .mp3)
+Then SFX asks for a destinationfolder and after selcting
+one it opens some kind of status window which is closed 
+FTL. I tried to have a look at the batchmode log in t:
+but there is not much of useful information in it. It simply
+states that the Batchmode has started and ended.
+So far so bad :(
+
+Greetings
+
+Andi
+
+------------------------ Yahoo! Groups Sponsor ---------------------~-->
+Do you need to encrypt all your online transactions? Secure corporate intranets? Authenticate your Web sites? Whatever
+security your site needs, you'll find the perfect solution here!
+http://us.click.yahoo.com/wOMkGD/Q56CAA/yigFAA/mjFolB/TM
+---------------------------------------------------------------------~->
+
+To unsubscribe from this group, send an email to:
+soundfx-users-unsubscribe@yahoogroups.com
+
+ 
+
+Your use of Yahoo! Groups is subject to http://docs.yahoo.com/info/terms/ 
+
+
+

@@ -1,0 +1,2 @@
+copy sfxsupport.library /sfx/libs
+;copy sfxsupport.library /sfxadapter/libs

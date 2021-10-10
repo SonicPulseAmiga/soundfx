@@ -1,0 +1,1212 @@
+@database configio-library.guide
+@rem Source: configio-library.c
+@rem Generated with RoboDoc v3.0k (Aug  2 1998)
+@rem RoboDoc is copyright 1994-1998 by Maverick Software Development
+@node Main configio-library.guide
+@{jcenter}
+@{fg highlight}@{b}TABLE OF CONTENTS@{ub}@{fg text}
+
+@{"configio/--background--             " Link "--background--"}
+@{"configio/CfgIO_DeleteConfig         " Link "CfgIO_DeleteConfig"}
+@{"configio/CfgIO_DeleteItem           " Link "CfgIO_DeleteItem"}
+@{"configio/CfgIO_DeleteSection        " Link "CfgIO_DeleteSection"}
+@{"configio/CfgIO_GetSubItem           " Link "CfgIO_GetSubItem"}
+@{"configio/CfgIO_MatchString          " Link "CfgIO_MatchString"}
+@{"configio/CfgIO_NewConfig            " Link "CfgIO_NewConfig"}
+@{"configio/CfgIO_ReadBool             " Link "CfgIO_ReadBool"}
+@{"configio/CfgIO_ReadConfig           " Link "CfgIO_ReadConfig"}
+@{"configio/CfgIO_ReadFloat            " Link "CfgIO_ReadFloat"}
+@{"configio/CfgIO_ReadSignedInteger    " Link "CfgIO_ReadSignedInteger"}
+@{"configio/CfgIO_ReadString           " Link "CfgIO_ReadString"}
+@{"configio/CfgIO_ReadUnsignedInteger  " Link "CfgIO_ReadUnsignedInteger"}
+@{"configio/CfgIO_RemConfig            " Link "CfgIO_RemConfig"}
+@{"configio/CfgIO_WriteBool            " Link "CfgIO_WriteBool"}
+@{"configio/CfgIO_WriteConfig          " Link "CfgIO_WriteConfig"}
+@{"configio/CfgIO_WriteFloat           " Link "CfgIO_WriteFloat"}
+@{"configio/CfgIO_WriteSignedInteger   " Link "CfgIO_WriteSignedInteger"}
+@{"configio/CfgIO_WriteString          " Link "CfgIO_WriteString"}
+@{"configio/CfgIO_WriteUnsignedInteger " Link "CfgIO_WriteUnsignedInteger"}
+@{"configio/cfgio-config.c             " Link "cfgio-config.c"}
+@{"configio/cfgio-config.h             " Link "cfgio-config.h"}
+@{"configio/cfgio-includes.h           " Link "cfgio-includes.h"}
+@{"configio/cfgio-itembool.c           " Link "cfgio-itembool.c"}
+@{"configio/cfgio-itembool.h           " Link "cfgio-itembool.h"}
+@{"configio/cfgio-itemfloat.c          " Link "cfgio-itemfloat.c"}
+@{"configio/cfgio-itemfloat.h          " Link "cfgio-itemfloat.h"}
+@{"configio/cfgio-itemsignedinteger.c  " Link "cfgio-itemsignedinteger.c"}
+@{"configio/cfgio-itemsignedinteger.h  " Link "cfgio-itemsignedinteger.h"}
+@{"configio/cfgio-itemstring.c         " Link "cfgio-itemstring.c"}
+@{"configio/cfgio-itemstring.h         " Link "cfgio-itemstring.h"}
+@{"configio/cfgio-itemunsignedinteger.c" Link "cfgio-itemunsignedinteger.c"}
+@{"configio/cfgio-itemunsignedinteger.h" Link "cfgio-itemunsignedinteger.h"}
+@{"configio/cfgio-main.c               " Link "cfgio-main.c"}
+@{"configio/cfgio-main.h               " Link "cfgio-main.h"}
+@{"configio/cfgio-tools.c              " Link "cfgio-tools.c"}
+@{"configio/cfgio-tools.h              " Link "cfgio-tools.h"}
+@{jleft}
+@endnode
+@Node "--background--" "configio/--background--"
+@{fg shine}configio/--background--@{fg text}
+
+@{b}PURPOSE@{ub}
+   The aim is to provide a library to comfortably handle ascii-configuration
+   files. These PC .ini style files have the advantage of being quite unsensi-
+   tive to chnges in configuration settings.
+   This library cares about all managment related things and offers an easy to
+   use API to maintain your program settings.
+
+@{b}USAGE@{ub}
+   APTR           cfg=NULL;
+   struct Library *ConfigIOBase=NULL;
+
+   ...
+
+   if(!(ConfigIOBase=OpenLibrary(ConfigIOName,ConfigIOVersion))) { <Error> }
+   if(!(cfg=@{"CfgIO_NewConfig" Link "CfgIO_NewConfig"}(<ProjectName>,<ProjectVersionStr>))) { <Error> }
+
+   ...
+
+   @{"CfgIO_ReadConfig" Link "CfgIO_ReadConfig"}(cfg,fname); 
+   strcpy(strparam,@{"CfgIO_ReadString" Link "CfgIO_ReadString"}(cfg,"General","Label","X-Axis"));
+
+   ...
+
+   @{"CfgIO_WriteString" Link "CfgIO_WriteString"}(cfg,"General","Label",strparam);
+   @{"CfgIO_WriteConfig" Link "CfgIO_WriteConfig"}(cfg,fname);
+
+   ...
+
+   if(cfg)          @{"CfgIO_RemConfig" Link "CfgIO_RemConfig"}(cfg);
+   if(ConfigIOBase) CloseLibrary(ConfigIOBase);
+
+
+@endnode
+@Node "CfgIO_DeleteConfig" "configio/CfgIO_DeleteConfig"
+@{fg shine}configio/CfgIO_DeleteConfig@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}CfgIO_DeleteConfig@{ub}
+@{ub}
+@{b}SYNOPSIS@{ub}
+    ret=@{b}CfgIO_DeleteConfig@{ub}(cfg)
+                           a0
+    LONG @{b}CfgIO_DeleteConfig@{ub}(APTR);
+
+@{b}FUNCTION@{ub}
+
+
+@{b}INPUTS@{ub}
+    cfg - delete which config
+
+@{b}RESULT@{ub}
+    ret - TRUE for success
+
+@{b}EXAMPLE@{ub}
+
+
+@{b}NOTES@{ub}
+
+
+@{b}BUGS@{ub}
+@{fg shine}
+@{fg text}
+@{b}SEE ALSO@{ub}
+    @{"CfgIO_DeleteItem" Link "CfgIO_DeleteItem"},@{"CfgIO_DeleteSection" Link "CfgIO_DeleteSection"}
+
+@endnode
+@Node "CfgIO_DeleteItem" "configio/CfgIO_DeleteItem"
+@{fg shine}configio/CfgIO_DeleteItem@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}CfgIO_DeleteItem@{ub} -- removes item and therewith resets it to default
+@{ub}
+@{b}SYNOPSIS@{ub}
+    ret=@{b}CfgIO_DeleteItem@{ub}(cfg,section,itemname)
+                         a0  a1      a2
+    LONG @{b}CfgIO_DeleteItem@{ub}(APTR,STRPTR,STRPTR);
+
+@{b}FUNCTION@{ub}
+
+
+@{b}INPUTS@{ub}
+    cfg - delete in which config
+    section - delete in which section
+    itemname - delete which item
+
+@{b}RESULT@{ub}
+    ret - TRUE for success
+
+@{b}EXAMPLE@{ub}
+
+
+@{b}NOTES@{ub}
+
+
+@{b}BUGS@{ub}
+@{fg shine}
+@{fg text}
+@{b}SEE ALSO@{ub}
+    @{"CfgIO_DeleteSection" Link "CfgIO_DeleteSection"},@{"CfgIO_DeleteConfig" Link "CfgIO_DeleteConfig"}
+
+@endnode
+@Node "CfgIO_DeleteSection" "configio/CfgIO_DeleteSection"
+@{fg shine}configio/CfgIO_DeleteSection@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}CfgIO_DeleteSection@{ub} -- removes section and therewith resets it to default
+@{ub}
+@{b}SYNOPSIS@{ub}
+    ret=@{b}CfgIO_DeleteSection@{ub}(cfg,section)
+                            a0  a1
+    LONG @{b}CfgIO_DeleteSection@{ub}(APTR,STRPTR);
+
+@{b}FUNCTION@{ub}
+    
+
+@{b}INPUTS@{ub}
+    cfg - delete in which config
+    section - delete which section
+
+@{b}RESULT@{ub}
+    ret - TRUE for success
+
+@{b}EXAMPLE@{ub}
+
+
+@{b}NOTES@{ub}
+
+
+@{b}BUGS@{ub}
+@{fg shine}
+@{fg text}
+@{b}SEE ALSO@{ub}
+    @{"CfgIO_DeleteItem" Link "CfgIO_DeleteItem"},@{"CfgIO_DeleteConfig" Link "CfgIO_DeleteConfig"}
+
+@endnode
+@Node "CfgIO_GetSubItem" "configio/CfgIO_GetSubItem"
+@{fg shine}configio/CfgIO_GetSubItem@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}CfgIO_GetSubItem@{ub} -- helper for processing comma delimited lists
+@{ub}
+@{b}SYNOPSIS@{ub}
+    ret=@{b}CfgIO_GetSubItem@{ub}(data,cont,delimiter)
+                         a0   a1   d0
+    STRPTR @{b}CfgIO_GetSubItem@{ub}(STRPTR,STRPTR *,TEXT)
+
+@{b}FUNCTION@{ub}
+
+
+@{b}INPUTS@{ub}
+
+
+@{b}RESULT@{ub}
+
+
+@{b}EXAMPLE@{ub}
+
+
+@{b}NOTES@{ub}
+
+
+@{b}BUGS@{ub}
+@{fg shine}
+@{fg text}
+@{b}SEE ALSO@{ub}
+
+
+@endnode
+@Node "CfgIO_MatchString" "configio/CfgIO_MatchString"
+@{fg shine}configio/CfgIO_MatchString@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}CfgIO_MatchString@{ub} -- helper for storing active list enries
+@{ub}
+@{b}SYNOPSIS@{ub}
+    ret=@{b}CfgIO_MatchString@{ub}(str,strlist)
+                          a0  a1
+    ULONG @{b}CfgIO_MatchString@{ub}(STRPTR data,STRPTR *);
+
+@{b}FUNCTION@{ub}
+    This function return the index of the string <str> in the string array
+    <strlist>. This function is helpful, when e.g. storing choices of cycle-
+    gadgets. Instead of storing the index, store the value (text). This makes
+    the stored value independent from order. So if you add a new entry to your
+    cycle-gadget, nothing changes here.
+
+@{b}INPUTS@{ub}
+    str - the str to search for
+    strlist - the string-array to search in
+
+@{b}RESULT@{ub}
+    ret - index of <str> in <strlist>
+
+@{b}EXAMPLE@{ub}
+    option=@{b}CfgIO_MatchString@{ub}(
+                        @{"CfgIO_ReadString" Link "CfgIO_ReadString"} (cfg,"Miscellaneous"   ,"Option"       ,OptionLabels[0]),OptionLabels);
+
+@{b}NOTES@{ub}
+
+
+@{b}BUGS@{ub}
+@{fg shine}
+@{fg text}
+@{b}SEE ALSO@{ub}
+    @{"CfgIO_ReadString" Link "CfgIO_ReadString"}
+
+@endnode
+@Node "CfgIO_NewConfig" "configio/CfgIO_NewConfig"
+@{fg shine}configio/CfgIO_NewConfig@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}CfgIO_NewConfig@{ub} -- generates the config, but does not read anything
+@{ub}
+@{b}SYNOPSIS@{ub}
+    cfg=@{b}CfgIO_NewConfig@{ub}(appname,appver)
+                        a0      a1
+    APTR @{b}CfgIO_NewConfig@{ub}(STRPTR,STRPTR);
+
+@{b}FUNCTION@{ub}
+    
+
+@{b}INPUTS@{ub}
+    appname - the name of the application, used to identify the config
+    appver - the applications version string (for the version command to work)
+
+@{b}RESULT@{ub}
+    cfg - a handle used in all other subsequent calls
+
+@{b}EXAMPLE@{ub}
+    cfg=@{b}CfgIO_NewConfig@{ub}("SoundFX",verstag);
+
+@{b}NOTES@{ub}
+
+
+@{b}BUGS@{ub}
+@{fg shine}
+@{fg text}
+@{b}SEE ALSO@{ub}
+    @{"CfgIO_RemConfig" Link "CfgIO_RemConfig"}
+
+@endnode
+@Node "CfgIO_ReadBool" "configio/CfgIO_ReadBool"
+@{fg shine}configio/CfgIO_ReadBool@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}CfgIO_ReadBool@{ub} -- read a boolean value from config storage
+@{ub}
+@{b}SYNOPSIS@{ub}
+    val=@{b}CfgIO_ReadBool@{ub}(cfg,section,itemname,def)
+                       a0  a1      a2       d0
+    BOOL @{"CfgIO_WriteBool" Link "CfgIO_WriteBool"}(APTR,STRPTR,STRPTR,BOOL)
+
+@{b}FUNCTION@{ub}
+
+
+@{b}INPUTS@{ub}
+    cfg - the config to write to
+    section - the section the item should be placed into
+    itemname - the name of the item, which should be associated with the data
+    def - defaultvalue, used when section/item not found
+
+@{b}RESULT@{ub}
+    val - the value of the item beeing read
+
+@{b}EXAMPLE@{ub}
+         boolBackups=@{b}CfgIO_ReadBool@{ub}(cfg,"Options","Backups",TRUE);
+
+@{b}NOTES@{ub}
+
+
+@{b}BUGS@{ub}
+@{fg shine}
+@{fg text}
+@{b}SEE ALSO@{ub}
+    @{"CfgIO_WriteBool" Link "CfgIO_WriteBool"}
+
+@endnode
+@Node "CfgIO_ReadConfig" "configio/CfgIO_ReadConfig"
+@{fg shine}configio/CfgIO_ReadConfig@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}CfgIO_ReadConfig@{ub} -- reads the config from disk
+@{ub}
+@{b}SYNOPSIS@{ub}
+    ret=@{b}CfgIO_ReadConfig@{ub}(cfg,filename)
+                         a0  a1
+    LONG @{b}CfgIO_ReadConfig@{ub}(APTR,STRPTR);
+
+@{b}FUNCTION@{ub}
+
+
+@{b}INPUTS@{ub}
+    cfg - which config to read
+    filename - the name to read from
+
+@{b}RESULT@{ub}
+    ret - TRUE for success
+
+@{b}EXAMPLE@{ub}
+    @{b}CfgIO_ReadConfig@{ub}(cfg,"env:sfx.prefs");
+
+@{b}NOTES@{ub}
+
+
+@{b}BUGS@{ub}
+@{fg shine}
+@{fg text}
+@{b}SEE ALSO@{ub}
+    @{"CfgIO_WriteConfig" Link "CfgIO_WriteConfig"}
+
+@endnode
+@Node "CfgIO_ReadFloat" "configio/CfgIO_ReadFloat"
+@{fg shine}configio/CfgIO_ReadFloat@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}CfgIO_ReadFloat@{ub} -- read a floating point value from config storage
+@{ub}
+@{b}SYNOPSIS@{ub}
+    val=@{b}CfgIO_ReadFloat@{ub}(cfg,section,itemname,def)
+                        a0  a1      a2       d0
+    double @{b}CfgIO_ReadFloat@{ub}(APTR,STRPTR,STRPTR,double*)
+
+@{b}FUNCTION@{ub}
+
+
+@{b}INPUTS@{ub}
+    cfg - the config to write to
+    section - the section the item should be placed into
+    itemname - the name of the item, which should be associated with the data
+    def - address od double-preccision defaultvalue, used when section/item
+          not found
+
+@{b}RESULT@{ub}
+    val - the value of the item beeing read
+
+@{b}EXAMPLE@{ub}
+         dblFactor=@{b}CfgIO_ReadFloat@{ub}(cfg,"Options","Backups",1.975312468);
+
+@{b}NOTES@{ub}
+
+
+@{b}BUGS@{ub}
+@{fg shine}
+@{fg text}
+@{b}SEE ALSO@{ub}
+    @{"CfgIO_WriteFloat" Link "CfgIO_WriteFloat"}
+
+@endnode
+@Node "CfgIO_ReadSignedInteger" "configio/CfgIO_ReadSignedInteger"
+@{fg shine}configio/CfgIO_ReadSignedInteger@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}CfgIO_ReadSignedInteger@{ub} -- read a signed integer value from config storage
+@{ub}
+@{b}SYNOPSIS@{ub}
+    val=@{b}CfgIO_ReadSignedInteger@{ub}(cfg,section,itemname,def)
+                                a0  a1      a2       d0
+    LONG @{"CfgIO_WriteSignedInteger" Link "CfgIO_WriteSignedInteger"}(APTR,STRPTR,STRPTR,LONG)
+
+@{b}FUNCTION@{ub}
+
+
+@{b}INPUTS@{ub}
+    cfg - the config to write to
+    section - the section the item should be placed into
+    itemname - the name of the item, which should be associated with the data
+    def - defaultvalue, used when section/item not found
+
+@{b}RESULT@{ub}
+    val - the value of the item beeing read
+
+@{b}EXAMPLE@{ub}
+         longItem=@{b}CfgIO_ReadSignedInteger@{ub}(cfg,"Collection","NumberOfItems",0);
+
+@{b}NOTES@{ub}
+
+
+@{b}BUGS@{ub}
+@{fg shine}
+@{fg text}
+@{b}SEE ALSO@{ub}
+    @{"CfgIO_WriteSignedInteger" Link "CfgIO_WriteSignedInteger"}
+
+@endnode
+@Node "CfgIO_ReadString" "configio/CfgIO_ReadString"
+@{fg shine}configio/CfgIO_ReadString@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}CfgIO_ReadString@{ub} -- read a string from config storage
+@{ub}
+@{b}SYNOPSIS@{ub}
+    val=@{b}CfgIO_ReadString@{ub}(cfg,section,itemname,def)
+                       a0  a1      a2       d0
+    STRPTR @{"CfgIO_WriteString" Link "CfgIO_WriteString"}(APTR,STRPTR,STRPTR,STRPTR)
+
+@{b}FUNCTION@{ub}
+
+
+@{b}INPUTS@{ub}
+    cfg - the config to write to
+    section - the section the item should be placed into
+    itemname - the name of the item, which should be associated with the data
+    def - defaultvalue, used when section/item not found
+
+@{b}RESULT@{ub}
+    val - the value of the item beeing read
+
+@{b}EXAMPLE@{ub}
+         strcpy(strFullName,@{b}CfgIO_ReadString@{ub}(cfg,"Address","Name","Mr Smith");
+
+@{b}NOTES@{ub}
+
+
+@{b}BUGS@{ub}
+@{fg shine}
+@{fg text}
+@{b}SEE ALSO@{ub}
+    @{"CfgIO_WriteString" Link "CfgIO_WriteString"}
+
+@endnode
+@Node "CfgIO_ReadUnsignedInteger" "configio/CfgIO_ReadUnsignedInteger"
+@{fg shine}configio/CfgIO_ReadUnsignedInteger@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}CfgIO_ReadUnsignedInteger@{ub} -- read a unsigned integer value from config storage
+@{ub}
+@{b}SYNOPSIS@{ub}
+    val=@{b}CfgIO_ReadUnsignedInteger@{ub}(cfg,section,itemname,def)
+                                  a0  a1      a2       d0
+    ULONG @{"CfgIO_WriteUnsignedInteger" Link "CfgIO_WriteUnsignedInteger"}(APTR,STRPTR,STRPTR,ULONG)
+
+@{b}FUNCTION@{ub}
+
+
+@{b}INPUTS@{ub}
+    cfg - the config to write to
+    section - the section the item should be placed into
+    itemname - the name of the item, which should be associated with the data
+    def - defaultvalue, used when section/item not found
+
+@{b}RESULT@{ub}
+    val - the value of the item beeing read
+
+@{b}EXAMPLE@{ub}
+         longItem=@{b}CfgIO_ReadUnsignedInteger@{ub}(cfg,"Collection","NumberOfItems",0);
+
+@{b}NOTES@{ub}
+
+
+@{b}BUGS@{ub}
+@{fg shine}
+@{fg text}
+@{b}SEE ALSO@{ub}
+    @{"CfgIO_WriteUnsignedInteger" Link "CfgIO_WriteUnsignedInteger"}
+
+@endnode
+@Node "CfgIO_RemConfig" "configio/CfgIO_RemConfig"
+@{fg shine}configio/CfgIO_RemConfig@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}CfgIO_RemConfig@{ub} -- close the config, but does not write it
+@{ub}
+@{b}SYNOPSIS@{ub}
+    ret=@{b}CfgIO_RemConfig@{ub}(cfg)
+                        a0
+    LONG @{b}CfgIO_RemConfig@{ub}(APTR);
+
+@{b}FUNCTION@{ub}
+
+
+@{b}INPUTS@{ub}
+    cfg - the config to close
+
+@{b}RESULT@{ub}
+    ret - TRUE for success
+
+@{b}EXAMPLE@{ub}
+    @{b}CfgIO_RemConfig@{ub}(cfg);
+
+@{b}NOTES@{ub}
+
+
+@{b}BUGS@{ub}
+@{fg shine}
+@{fg text}
+@{b}SEE ALSO@{ub}
+    @{"CfgIO_NewConfig" Link "CfgIO_NewConfig"}
+
+@endnode
+@Node "CfgIO_WriteBool" "configio/CfgIO_WriteBool"
+@{fg shine}configio/CfgIO_WriteBool@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}CfgIO_WriteBool@{ub} -- write a boolean value to config storage
+@{ub}
+@{b}SYNOPSIS@{ub}
+    res=@{b}CfgIO_WriteBool@{ub}(cfg,section,itemname,data)
+                        a0  a1      a2       d0
+    LONG @{b}CfgIO_WriteBool@{ub}(APTR,STRPTR,STRPTR,BOOL)
+
+@{b}FUNCTION@{ub}
+
+
+@{b}INPUTS@{ub}
+    cfg - the config to write to
+    section - the section the item should be placed into
+    itemname - the name of the item, which should be associated with the data
+    data - the datavalue itself
+
+@{b}RESULT@{ub}
+    ret - TRUE for success
+
+@{b}EXAMPLE@{ub}
+         @{b}CfgIO_WriteBool@{ub}(cfg,"Options","Backups",boolBackups);
+
+@{b}NOTES@{ub}
+
+
+@{b}BUGS@{ub}
+@{fg shine}
+@{fg text}
+@{b}SEE ALSO@{ub}
+    @{"CfgIO_ReadBool" Link "CfgIO_ReadBool"}
+
+@endnode
+@Node "CfgIO_WriteConfig" "configio/CfgIO_WriteConfig"
+@{fg shine}configio/CfgIO_WriteConfig@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}CfgIO_WriteConfig@{ub} -- writes the config to disk
+@{ub}
+@{b}SYNOPSIS@{ub}
+    ret=@{b}CfgIO_WriteConfig@{ub}(cfg,filename)
+                          a0  a1
+    LONG @{b}CfgIO_WriteConfig@{ub}(APTR,STRPTR);
+
+@{b}FUNCTION@{ub}
+
+
+@{b}INPUTS@{ub}
+    cfg - which config to write
+    filename - the name to write to
+
+@{b}RESULT@{ub}
+    ret - TRUE for success
+
+@{b}EXAMPLE@{ub}
+    @{b}CfgIO_WriteConfig@{ub}(cfg,"env:sfx.prefs");
+
+@{b}NOTES@{ub}
+
+
+@{b}BUGS@{ub}
+@{fg shine}
+@{fg text}
+@{b}SEE ALSO@{ub}
+    @{"CfgIO_ReadConfig" Link "CfgIO_ReadConfig"}
+
+@endnode
+@Node "CfgIO_WriteFloat" "configio/CfgIO_WriteFloat"
+@{fg shine}configio/CfgIO_WriteFloat@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}CfgIO_WriteFloat@{ub} -- write a floating point value to config storage
+@{ub}
+@{b}SYNOPSIS@{ub}
+    res=@{b}CfgIO_WriteFloat@{ub}(cfg,section,itemname,data)
+                         a0  a1      a2       a3
+    LONG @{b}CfgIO_WriteFloat@{ub}(APTR,STRPTR,STRPTR,double*)
+
+@{b}FUNCTION@{ub}
+
+
+@{b}INPUTS@{ub}
+    cfg - the config to write to
+    section - the section the item should be placed into
+    itemname - the name of the item, which should be associated with the data
+    data - the address of a double-preccision datavalue 
+
+@{b}RESULT@{ub}
+    ret - TRUE for success
+
+@{b}EXAMPLE@{ub}
+         @{b}CfgIO_WriteFloat@{ub}(cfg,"Options","Backups",&dblFactor);
+
+@{b}NOTES@{ub}
+
+
+@{b}BUGS@{ub}
+@{fg shine}
+@{fg text}
+@{b}SEE ALSO@{ub}
+    @{"CfgIO_ReadFloat" Link "CfgIO_ReadFloat"}
+
+@endnode
+@Node "CfgIO_WriteSignedInteger" "configio/CfgIO_WriteSignedInteger"
+@{fg shine}configio/CfgIO_WriteSignedInteger@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}CfgIO_WriteSignedInteger@{ub} -- write a signed integer value to config storage
+@{ub}
+@{b}SYNOPSIS@{ub}
+    res=@{b}CfgIO_WriteSignedInteger@{ub}(cfg,section,itemname,data)
+                                 a0  a1      a2       d0
+    LONG @{b}CfgIO_WriteSignedInteger@{ub}(APTR,STRPTR,STRPTR,LONG)
+
+@{b}FUNCTION@{ub}
+
+
+@{b}INPUTS@{ub}
+    cfg - the config to write to
+    section - the section the item should be placed into
+    itemname - the name of the item, which should be associated with the data
+    data - the datavalue itself
+
+@{b}RESULT@{ub}
+    ret - TRUE for success
+
+@{b}EXAMPLE@{ub}
+         @{b}CfgIO_WriteSignedInteger@{ub}(cfg,"Collection","NumberOfItems",longItems);
+
+@{b}NOTES@{ub}
+
+
+@{b}BUGS@{ub}
+@{fg shine}
+@{fg text}
+@{b}SEE ALSO@{ub}
+    @{"CfgIO_ReadSignedInteger" Link "CfgIO_ReadSignedInteger"}
+
+@endnode
+@Node "CfgIO_WriteString" "configio/CfgIO_WriteString"
+@{fg shine}configio/CfgIO_WriteString@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}CfgIO_WriteString@{ub} -- write a string to config storage
+@{ub}
+@{b}SYNOPSIS@{ub}
+    res=@{b}CfgIO_WriteString@{ub}(cfg,section,itemname,data)
+                        a0  a1      a2       d0
+    LONG @{b}CfgIO_WriteString@{ub}(APTR,STRPTR,STRPTR,STRPTR)
+
+@{b}FUNCTION@{ub}
+
+
+@{b}INPUTS@{ub}
+    cfg - the config to write to
+    section - the section the item should be placed into
+    itemname - the name of the item, which should be associated with the data
+    data - the datavalue itself
+
+@{b}RESULT@{ub}
+    ret - TRUE for success
+
+@{b}EXAMPLE@{ub}
+         @{b}CfgIO_WriteString@{ub}(cfg,"Address","Name",strFullName);
+
+@{b}NOTES@{ub}
+
+
+@{b}BUGS@{ub}
+@{fg shine}
+@{fg text}
+@{b}SEE ALSO@{ub}
+    @{"CfgIO_ReadString" Link "CfgIO_ReadString"}
+
+@endnode
+@Node "CfgIO_WriteUnsignedInteger" "configio/CfgIO_WriteUnsignedInteger"
+@{fg shine}configio/CfgIO_WriteUnsignedInteger@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}CfgIO_WriteUnsignedInteger@{ub} -- write a unsigned integer value to config storage
+@{ub}
+@{b}SYNOPSIS@{ub}
+    res=@{b}CfgIO_WriteUnsignedInteger@{ub}(cfg,section,itemname,data)
+                                 a0  a1      a2       d0
+    LONG @{b}CfgIO_WriteUnsignedInteger@{ub}(APTR,STRPTR,STRPTR,ULONG)
+
+@{b}FUNCTION@{ub}
+
+
+@{b}INPUTS@{ub}
+    cfg - the config to write to
+    section - the section the item should be placed into
+    itemname - the name of the item, which should be associated with the data
+    data - the datavalue itself
+
+@{b}RESULT@{ub}
+    ret - TRUE for success
+
+@{b}EXAMPLE@{ub}
+         @{b}CfgIO_WriteUnsignedInteger@{ub}(cfg,"Collection","NumberOfItems",longItems);
+
+@{b}NOTES@{ub}
+
+
+@{b}BUGS@{ub}
+@{fg shine}
+@{fg text}
+@{b}SEE ALSO@{ub}
+    @{"CfgIO_ReadUnsignedInteger" Link "CfgIO_ReadUnsignedInteger"}
+
+@endnode
+@Node "cfgio-config.c" "configio/cfgio-config.c"
+@{fg shine}configio/cfgio-config.c@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}cfgio-config.c@{ub}
+@{ub}
+@{b}COPYRIGHT@{ub}
+    $VER: @{b}cfgio-config.c@{ub} 1.10 (02.06.99) © by Stefan Kost 1998-1999
+
+@{b}FUNCTION@{ub}
+    config operations - definitions
+
+@{b}AUTHOR@{ub}
+@{i}    Stefan Kost
+@{ui}
+@{b}CREATION DATE@{ub}
+    20.Aug.1998
+
+@{b}MODIFICATION HISTORY@{ub}
+    02.Jun.1999 V 1.10  most recent version
+    25.Aug.1998 V 1.00  first version
+    20.Aug.1998 V 0.00  initial version
+
+@{b}NOTES@{ub}
+
+
+@endnode
+@Node "cfgio-config.h" "configio/cfgio-config.h"
+@{fg shine}configio/cfgio-config.h@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}cfgio-config.h@{ub}
+@{ub}
+@{b}COPYRIGHT@{ub}
+    $VER: @{b}cfgio-config.h@{ub} 1.10 (02.06.99) © by Stefan Kost 1998-1999
+
+@{b}FUNCTION@{ub}
+    config operations - declarations
+
+@{b}AUTHOR@{ub}
+@{i}    Stefan Kost
+@{ui}
+@{b}CREATION DATE@{ub}
+    21.Aug.1998
+
+@{b}MODIFICATION HISTORY@{ub}
+    02.Jun.1999 V 1.10  most recent version
+    21.Aug.1998 V 0.00  most recent version
+    21.Aug.1998 V 0.00  initial version
+
+@{b}NOTES@{ub}
+
+
+@endnode
+@Node "cfgio-includes.h" "configio/cfgio-includes.h"
+@{fg shine}configio/cfgio-includes.h@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}cfgio-includes.h@{ub}
+@{ub}
+@{b}COPYRIGHT@{ub}
+    $VER: @{b}cfgio-includes.h@{ub} 1.10 (02.06.99) © by Stefan Kost 1998-1999
+
+@{b}FUNCTION@{ub}
+    main include file
+
+@{b}AUTHOR@{ub}
+@{i}    Stefan Kost
+@{ui}
+@{b}CREATION DATE@{ub}
+    20.Aug.1998
+
+@{b}MODIFICATION HISTORY@{ub}
+    02.Jun.1999 V 1.10  most recent version
+    21.Aug.1998 V 1.00  most recent version
+    21.Aug.1998 V 0.00  most recent version
+    20.Aug.1998 V 0.00  initial version
+
+@{b}NOTES@{ub}
+
+
+@endnode
+@Node "cfgio-itembool.c" "configio/cfgio-itembool.c"
+@{fg shine}configio/cfgio-itembool.c@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}cfgio-itembool.c@{ub}
+@{ub}
+@{b}COPYRIGHT@{ub}
+    $VER: @{b}cfgio-itembool.c@{ub} 1.10 (02.06.99) © by Stefan Kost 1998-1999
+
+@{b}FUNCTION@{ub}
+
+
+@{b}AUTHOR@{ub}
+@{i}    Stefan Kost
+@{ui}
+@{b}CREATION DATE@{ub}
+    21.Aug.1998
+
+@{b}MODIFICATION HISTORY@{ub}
+    02.Jun.1999 V 1.10  most recent version
+    21.Aug.1998 V 1.00  initial version
+
+@{b}NOTES@{ub}
+
+
+@endnode
+@Node "cfgio-itembool.h" "configio/cfgio-itembool.h"
+@{fg shine}configio/cfgio-itembool.h@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}cfgio-itembool.h@{ub}
+@{ub}
+@{b}COPYRIGHT@{ub}
+    $VER: @{b}cfgio-itembool.h@{ub} 1.10 (02.06.99) © by Stefan Kost 1998-1999
+
+@{b}FUNCTION@{ub}
+    boolean items - declarations
+
+@{b}AUTHOR@{ub}
+@{i}    Stefan Kost
+@{ui}
+@{b}CREATION DATE@{ub}
+    21.Aug.1998
+
+@{b}MODIFICATION HISTORY@{ub}
+    02.Jun.1999 V 1.10  most recent version
+    21.Aug.1998 V 1.00  most recent version
+    21.Aug.1998 V 0.00  initial version
+
+@{b}NOTES@{ub}
+
+
+@endnode
+@Node "cfgio-itemfloat.c" "configio/cfgio-itemfloat.c"
+@{fg shine}configio/cfgio-itemfloat.c@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}cfgio-itemfloat.c@{ub}
+@{ub}
+@{b}COPYRIGHT@{ub}
+    $VER: @{b}cfgio-itemfloat.c@{ub} 1.10 (02.06.99) © by Stefan Kost 1998-1999
+
+@{b}FUNCTION@{ub}
+    floatingpoint (single precission only) items - definitions
+
+@{b}AUTHOR@{ub}
+@{i}    Stefan Kost
+@{ui}
+@{b}CREATION DATE@{ub}
+    21.Aug.1998
+
+@{b}MODIFICATION HISTORY@{ub}
+    02.Jun.1999 V 1.10  most recent version
+                           * now getting pointer to fp value
+    21.Aug.1998 V 1.00  initial version
+
+@{b}NOTES@{ub}
+
+
+@endnode
+@Node "cfgio-itemfloat.h" "configio/cfgio-itemfloat.h"
+@{fg shine}configio/cfgio-itemfloat.h@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}cfgio-itemfloat.h@{ub}
+@{ub}
+@{b}COPYRIGHT@{ub}
+    $VER: @{b}cfgio-itemfloat.h@{ub} 1.10 (02.06.99) © by Stefan Kost 1998-1999
+
+@{b}FUNCTION@{ub}
+    floatingpoint (single precission only) items - declarations
+
+@{b}AUTHOR@{ub}
+@{i}    Stefan Kost
+@{ui}
+@{b}CREATION DATE@{ub}
+    21.Aug.1998
+
+@{b}MODIFICATION HISTORY@{ub}
+    02.Jun.1999 V 1.10  most recent version
+    21.Aug.1998 V 1.00  most recent version
+    21.Aug.1998 V 1.00  initial version
+
+@{b}NOTES@{ub}
+
+
+@endnode
+@Node "cfgio-itemsignedinteger.c" "configio/cfgio-itemsignedinteger.c"
+@{fg shine}configio/cfgio-itemsignedinteger.c@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}cfgio-itemsignedinteger.c@{ub}
+@{ub}
+@{b}COPYRIGHT@{ub}
+    $VER: @{b}cfgio-itemsignedinteger.c@{ub} 1.10 (02.06.99) © by Stefan Kost 1998-1999
+
+@{b}FUNCTION@{ub}
+    signed integer items - definitions
+
+@{b}AUTHOR@{ub}
+@{i}    Stefan Kost
+@{ui}
+@{b}CREATION DATE@{ub}
+    21.Aug.1998
+
+@{b}MODIFICATION HISTORY@{ub}
+    02.Jun.1999 V 1.10  most recent version
+    21.Aug.1998 V 1.00  initial version
+
+@{b}NOTES@{ub}
+
+
+@endnode
+@Node "cfgio-itemsignedinteger.h" "configio/cfgio-itemsignedinteger.h"
+@{fg shine}configio/cfgio-itemsignedinteger.h@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}cfgio-itemsignedinteger.h@{ub}
+@{ub}
+@{b}COPYRIGHT@{ub}
+    $VER: @{b}cfgio-itemsignedinteger.h@{ub} 1.10 (02.06.99) © by Stefan Kost 1998-1999
+
+@{b}FUNCTION@{ub}
+    signed integer items - declarations
+
+@{b}AUTHOR@{ub}
+@{i}    Stefan Kost
+@{ui}
+@{b}CREATION DATE@{ub}
+    21.Aug.1998
+
+@{b}MODIFICATION HISTORY@{ub}
+    02.Jun.1999 V 1.10  most recent version
+    21.Aug.1998 V 1.00  most recent version
+    21.Aug.1998 V 1.00  initial version
+
+@{b}NOTES@{ub}
+
+
+@endnode
+@Node "cfgio-itemstring.c" "configio/cfgio-itemstring.c"
+@{fg shine}configio/cfgio-itemstring.c@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}cfgio-itemstring.c@{ub}
+@{ub}
+@{b}COPYRIGHT@{ub}
+    $VER: @{b}cfgio-itemstring.c@{ub} 1.10 (02.06.99) © by Stefan Kost 1998-1999
+
+@{b}FUNCTION@{ub}
+    string items - definitions
+
+@{b}AUTHOR@{ub}
+@{i}    Stefan Kost
+@{ui}
+@{b}CREATION DATE@{ub}
+    21.Aug.1998
+
+@{b}MODIFICATION HISTORY@{ub}
+    02.Jun.1999 V 1.10  most recent version
+    26.Aug.1998 V 1.00  first version
+    21.Aug.1998 V 0.00  initial version
+
+@{b}NOTES@{ub}
+
+
+@endnode
+@Node "cfgio-itemstring.h" "configio/cfgio-itemstring.h"
+@{fg shine}configio/cfgio-itemstring.h@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}cfgio-itemstring.h@{ub}
+@{ub}
+@{b}COPYRIGHT@{ub}
+    $VER: @{b}cfgio-itemstring.h@{ub} 1.10 (02.06.99) © by Stefan Kost 1998-1999
+
+@{b}FUNCTION@{ub}
+    string items - declarations
+
+@{b}AUTHOR@{ub}
+@{i}    Stefan Kost
+@{ui}
+@{b}CREATION DATE@{ub}
+    21.Aug.1998
+
+@{b}MODIFICATION HISTORY@{ub}
+    02.Jun.1999 V 1.10  most recent version
+    21.Aug.1998 V 1.00  most recent version
+    21.Aug.1998 V 0.00  initial version
+
+@{b}NOTES@{ub}
+
+
+@endnode
+@Node "cfgio-itemunsignedinteger.c" "configio/cfgio-itemunsignedinteger.c"
+@{fg shine}configio/cfgio-itemunsignedinteger.c@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}cfgio-itemunsignedinteger.c@{ub}
+@{ub}
+@{b}COPYRIGHT@{ub}
+    $VER: @{b}cfgio-itemunsignedinteger.c@{ub} 1.10 (02.06.99) © by Stefan Kost 1998-1999
+
+@{b}FUNCTION@{ub}
+    unsigned integer items - definitions
+
+@{b}AUTHOR@{ub}
+@{i}    Stefan Kost
+@{ui}
+@{b}CREATION DATE@{ub}
+    21.Aug.1998
+
+@{b}MODIFICATION HISTORY@{ub}
+    02.Jun.1999 V 1.10  most recent version
+    21.Aug.1998 V 1.00  initial version
+
+@{b}NOTES@{ub}
+
+
+@endnode
+@Node "cfgio-itemunsignedinteger.h" "configio/cfgio-itemunsignedinteger.h"
+@{fg shine}configio/cfgio-itemunsignedinteger.h@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}cfgio-itemunsignedinteger.h@{ub}
+@{ub}
+@{b}COPYRIGHT@{ub}
+    $VER: @{b}cfgio-itemunsignedinteger.h@{ub} 1.10 (02.06.99) © by Stefan Kost 1998-1999
+
+@{b}FUNCTION@{ub}
+    unsigned integer items - declarations
+
+@{b}AUTHOR@{ub}
+@{i}    Stefan Kost
+@{ui}
+@{b}CREATION DATE@{ub}
+    21.Aug.1998
+
+@{b}MODIFICATION HISTORY@{ub}
+    02.Jun.1999 V 1.10  most recent version
+    21.Aug.1998 V 1.00  most recent version
+    21.Aug.1998 V 1.00  initial version
+
+@{b}NOTES@{ub}
+
+
+@endnode
+@Node "cfgio-main.c" "configio/cfgio-main.c"
+@{fg shine}configio/cfgio-main.c@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}cfgio-main.c@{ub}
+@{ub}
+@{b}COPYRIGHT@{ub}
+    $VER: @{b}cfgio-main.c@{ub} 1.10 (02.06.99) © by Stefan Kost 1998-1999
+
+@{b}FUNCTION@{ub}
+    init & done routines - definitions
+
+@{b}AUTHOR@{ub}
+@{i}    Stefan Kost
+@{ui}
+@{b}CREATION DATE@{ub}
+    20.Aug.1998
+
+@{b}MODIFICATION HISTORY@{ub}
+    02.Jun.1999 V 1.10  most recent version
+    21.Aug.1998 V 1.00  first version
+    20.Aug.1998 V 0.00  initial version
+
+@{b}NOTES@{ub}
+
+
+@endnode
+@Node "cfgio-main.h" "configio/cfgio-main.h"
+@{fg shine}configio/cfgio-main.h@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}cfgio-main.h@{ub}
+@{ub}
+@{b}COPYRIGHT@{ub}
+    $VER: @{b}cfgio-main.h@{ub} 1.10 (02.06.99) © by Stefan Kost 1998-1999
+
+@{b}FUNCTION@{ub}
+    init & done routines - declarations
+
+@{b}AUTHOR@{ub}
+@{i}    Stefan Kost
+@{ui}
+@{b}CREATION DATE@{ub}
+    20.Aug.1998
+
+@{b}MODIFICATION HISTORY@{ub}
+    02.Jun.1999 V 1.10  most recent version
+    21.Aug.1998 V 1.00  first version
+    20.Aug.1998 V 0.00  initial version
+
+@{b}NOTES@{ub}
+
+
+@endnode
+@Node "cfgio-tools.c" "configio/cfgio-tools.c"
+@{fg shine}configio/cfgio-tools.c@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}cfgio-tools.c@{ub}
+@{ub}
+@{b}COPYRIGHT@{ub}
+    $VER: @{b}cfgio-tools.c@{ub} 1.10 (02.06.99) © by Stefan Kost 1998-1999
+
+@{b}FUNCTION@{ub}
+    tool routines - definitions
+
+@{b}AUTHOR@{ub}
+@{i}    Stefan Kost                 sk              kost\@imn.htwk-leipzig.de
+@{ui}
+@{b}CREATION DATE@{ub}
+    21.Aug.1998
+
+@{b}MODIFICATION HISTORY@{ub}
+    02.Jun.1999 V 1.10  most recent version
+                           * added @{"CfgIO_MatchString" Link "CfgIO_MatchString"}
+    29.Aug.1998 V 1.00  first version
+    21.Aug.1998 V 0.00  initial version
+
+@{b}NOTES@{ub}
+
+
+@endnode
+@Node "cfgio-tools.h" "configio/cfgio-tools.h"
+@{fg shine}configio/cfgio-tools.h@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}cfgio-tools.h@{ub}
+@{ub}
+@{b}COPYRIGHT@{ub}
+    $VER: @{b}cfgio-tools.h@{ub} 1.10 (02.06.99) © by Stefan Kost 1998-1999
+
+@{b}FUNCTION@{ub}
+    tool routines - declarations
+
+@{b}AUTHOR@{ub}
+@{i}    Stefan Kost
+@{ui}
+@{b}CREATION DATE@{ub}
+    21.Aug.1998
+
+@{b}MODIFICATION HISTORY@{ub}
+    02.Jun.1999 V 1.10  most recent version
+    21.Aug.1998 V 1.00  most recent version
+    21.Aug.1998 V 0.00  initial version
+
+@{b}NOTES@{ub}
+
+
+@endnode
+

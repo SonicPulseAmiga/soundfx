@@ -1,0 +1,3 @@
+List >t:upd_lo ~(_#?) DIRS LFORMAT "updsfxmod.up1 %f %s" SORT=NAME
+Execute t:upd_lo
+Delete >NIL: t:upd_lo

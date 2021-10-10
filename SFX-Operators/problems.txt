@@ -1,0 +1,82 @@
+* API Problems (-*- mode:outline -*-)
+------------------------------------------------------------
+					I/O offset	variable I/O Buffers	use of secondary buffer		reversed sample access	multiple sample access
+#ChannelJoin#
+#ChannelSplit#
+(Convolve)												[x]
+(Detune)			[x]			[x]
+#Duplicate#																									[x]
+(Filter-FIRMutate)										[x]
+(PitchShift)		[x]
+(Resample)			[x]			[x]
+Reverse																				[x]
+(SampleJoin)					[x]
+(SampleSplit)					[x]
+(Smear)				[x]
+(Swap)				[x]
+
+Usage problems
+------------------------------------------------------------
+Middle
+	multiple passes (analyse,process)
+Shorten
+	multiple passes (analyse,process)
+
+
+Problems
+------------------------------------------------------------
+I/O offset
+	bei Ausleseraten>1.0 muss Ringbuffer vorgefüllt sein
+	nach Effekt muss Rest rausgeschrieben werden
+
+variable I/O Buffers
+	Idea 1
+		Loop
+			wenn source-daten leer -> read
+			Effekt
+			wenn zieldaten voll -> schreiben
+	
+		Effekt
+			solange noch source-daten && zielpuffer nicht voll
+	Idea 2
+		big Buffer (2*blen) (as a ringbuffer)
+		read :
+			|  blen  ||  blen  |
+			########::::::::::::
+			########**********::
+			##################::
+			wenn verfügbare_daten<=blen dann blen_block_daten_lesen
+		write :
+			|  blen  ||  blen  |
+			##################::
+			########**********::
+			########::::::::::::
+			wenn fertige_daten>=blen  dann blen_block_daten_schreiben
+	
+		old :
+			for(srcsa->seg=dstsa->seg=0;((srcsa->seg<srcsa->seganz) && (instance->curlen<rm_len));srcsa->seg++,dstsa->seg++) {
+				instance->sbuf=(SAMPLE *)srcsa->buffer1;SARead(srcsa,srcsa->blen);
+				instance->dbuf=(SAMPLE *)dstsa->buffer1;
+				process((SFXCoreInstance *)instance,blen);
+				SAWrite(dstsa,dstsa->blen);
+			}
+		new :
+			running=TRUE;
+			srcsa->seg=dstsa->seg=0;
+			while(running) {
+				if(__data_to_read__) { instance->sbuf=(SAMPLE *)srcsa->buffer1;SARead(srcsa,srcsa->blen);srcsa->seg++; }
+				instance->dbuf=(SAMPLE *)dstsa->buffer1;
+				process((SFXCoreInstance *)instance,blen);
+				if(__data_to_write__) { SAWrite(dstsa,dstsa->blen);dstsa->seg++ }
+				if(srcsa->seg>=srcsa->seganz) running=FALSE;
+				if(instance->curlen>=instance->slen) running=FALSE;
+			}
+
+use of secondary buffer
+	only support in memory buffers at the moment and directly access data
+
+
+Bugs
+------------------------------------------------------------
+Reverse, Swap
+	block i/o

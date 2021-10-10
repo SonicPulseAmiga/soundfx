@@ -1,0 +1,10 @@
+FROM LIB:c.o "toolbar.o"
+TO "toolbar"
+LIB lib:debug.lib lib:debugtools881.lib LIB:scm881nb.lib
+    LIB:scnb.lib LIB:amiga.lib
+ADDSYM
+SMALLCODE
+BATCH
+VERBOSE
+DEFINE @__chkabort=@__dummy
+

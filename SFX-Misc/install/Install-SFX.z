@@ -1,0 +1,965 @@
+; check kick version ----------------------------------------------------------------------------------------
+
+(SET #vernum (GETVERSION))
+(SET #ver_amigaos (/ #vernum 65536))
+(IF (< #ver_amigaos 39)
+	(ABORT #bad-kick)
+)
+
+; check installer version -----------------------------------------------------------------------------------
+
+(SET #vernum @INSTALLER-VERSION)
+(SET #ver_installer (/ #vernum 65536))
+(IF (< #ver_installer 43)
+	(ABORT #bad-installer)
+)
+
+; los geht`s ------------------------------------------------------------------------------------------------
+
+(COMPLETE 0)
+(MESSAGE #welcome-messy1)
+(MESSAGE #welcome-messy2)
+
+; init var's ------------------------------------------------------------------------------------------------
+
+(SET #keypath 0)
+(SET #bin-ex 0)
+(SET #doc-ex 0)
+(SET #data-ex 0)
+(SET #key-ex 0)
+(SET #instmode 1)
+(SET #pathdocnr 0)
+(SET #pathbinnr 0)
+
+; mal sehn was für Drives da sind ---------------------------------------------------------------------------
+
+(IF (= (EXISTS "music:" (NOREQ)) 2) (SET @DEFAULT-DEST "music:"))
+(IF (= (EXISTS "sound:" (NOREQ)) 2)	(SET @DEFAULT-DEST "sound:"))
+(IF (= (EXISTS "audio:" (NOREQ)) 2) (SET @DEFAULT-DEST "audio:"))
+
+; vielleicht hat er es ja auch schon mal installiert --------------------------------------------------------
+															; we need those directorys
+(IF (= (EXISTS "ENV:Installer") 0)							; check if drawer exists
+	(MAKEDIR "ENV:Installer" (SAFE))
+)
+(IF (= (EXISTS "ENV:Installer/Programs") 0)					; check if drawer exists
+	(MAKEDIR "ENV:Installer/Programs" (SAFE))
+)
+(IF (= (EXISTS "ENVARC:Installer") 0)						; check if drawer exists
+	(MAKEDIR "ENVARC:Installer" (SAFE))
+)
+(IF (= (EXISTS "ENVARC:Installer/Programs") 0)				; check if drawer exists
+	(MAKEDIR "ENVARC:Installer/Programs" (SAFE))
+)
+
+(SET #lastdest (GETENV "SFXPATH"))							; cleanup very old envvar,
+(IF (> (STRLEN #lastdest) 0)
+(
+	(COPYFILES (SOURCE "ENV:SFXPath") (DEST "ENV:Installer/Programs/SFXPath") (OPTIONAL NOFAIL) (SAFE))
+	(COPYFILES (SOURCE "ENV:Installer/Programs/SFXPath") (DEST "ENVARC:Installer/Programs/SFXPath") (OPTIONAL NOFAIL) (SAFE))
+	(DELETE "ENV:SFXPath" (OPTIONAL FORCE) (SAFE))
+	(DELETE "ENVARC:SFXPath" (OPTIONAL FORCE) (SAFE))
+))
+(SET #lastdest (GETENV "Installer/Programs/SFXPath"))		; cleanup old envvar
+(IF (> (STRLEN #lastdest) 0)
+(
+	(P_PUTTAG "path" #lastdest)
+	(COPYFILES (SOURCE "ENV:Installer/Programs/SFXPath") (DEST "ENVARC:Installer/Programs/SFXPath") (OPTIONAL NOFAIL) (SAFE))
+	(DELETE "ENV:Installer/Programs/SFXPath" (OPTIONAL FORCE) (SAFE))
+	(DELETE "ENVARC:Installer/Programs/SFXPath" (OPTIONAL FORCE) (SAFE))
+))
+
+(SET #lastdest (P_GETTAG "path"))
+(IF (= (STRLEN #lastdest) 0)								; check if env-var exists
+(															; no, use default
+	(SET #lastdest
+		(ASKDIR
+			(PROMPT #choose-dest)
+			(HELP #choose-dest-help)
+			(DEFAULT @DEFAULT-DEST)
+		)
+	)
+)
+(															; yes
+	(IF (= (EXISTS #lastdest (NOREQ)) 0)						; check if drawer exists
+	(															; no
+		(SET #lastdest
+			(ASKDIR
+				(PROMPT #choose-dest)
+				(HELP #choose-dest-help)
+				(DEFAULT @DEFAULT-DEST)
+			)
+		)
+	)
+	(															; yes
+		(SET #lastdest
+			(ASKDIR
+				(PROMPT #choose-dest)
+				(HELP #choose-dest-help)
+				(DEFAULT #lastdest)
+			)
+		)
+	))
+))
+(P_PUTTAG "path" #lastdest)
+
+; falls nicht vorhanden, Verzeichnis anlegen ----------------------------------------------------------------
+
+(COMPLETE 2)
+(SET #drawer-dest #lastdest)
+(SET @DEFAULT-DEST (TACKON #lastdest "SFX"))
+(SET #sfx-dest @DEFAULT-DEST)
+(IF (= (EXISTS #sfx-dest) 0)									; check if drawer exists
+	(MAKEDIR #sfx-dest (INFOS))									; no, create one
+	(															; yes, check what's already there
+		(SET #bin-ver (P_GETTAG "bin-ver"))
+		(IF (> (STRLEN #bin-ver) 0)								; is sfx-bin already installed ?
+			(IF (= #bin-ver #cur-ver)							; is it the current release ?
+				(SET #bin-ex 2)
+				(SET #bin-ex 1)
+			)
+			(SET #bin-ex 0)
+		)
+		(SET #doc-ver (P_GETTAG "doc-ver"))
+		(IF (> (STRLEN #doc-ver) 0)								; is sfx-doc already installed ?
+			(IF (= #doc-ver #cur-ver)							; is it the current release ?
+				(SET #doc-ex 2)
+				(SET #doc-ex 1)
+			)
+			(SET #doc-ex 0)
+		)
+		(SET #data-ver (P_GETTAG "data-ver"))
+		(IF (> (STRLEN #data-ver) 0)							; is sfx-data already installed ?
+			(IF (= #data-ver #cur-ver)							; is it the current release ?
+				(SET #data-ex 2)
+				(SET #data-ex 1)
+			)
+			(SET #data-ex 0)
+		)
+		(SET #goodies-ver (P_GETTAG "goodies-ver"))
+		(IF (> (STRLEN #goodies-ver) 0)							; is sfx-goodies already installed ?
+			(IF (= #goodies-ver #cur-ver)							; is it the current release ?
+				(SET #goodies-ex 2)
+				(SET #goodies-ex 1)
+			)
+			(SET #goodies-ex 0)
+		)
+		(SET #key-ex 0)
+		(IF (= (EXISTS "devs:keyfiles/sfx.key") 1)				; is there already a key installed
+			(SET #key-ex 1)
+		)
+		(IF (= (EXISTS (CAT #sfx-dest "/sfx.key")) 1)
+			(SET #key-ex 2)
+		)
+		(IF (= (EXISTS (CAT #sfx-dest "/Keyfiles/sfx.key")) 1)
+			(SET #key-ex 3)
+		)
+		(SET #instsum (OR (OR #bin-ex #doc-ex) #data-ex))
+		(IF (= #instsum 1)												; an old version detected
+		(
+			(SET #instmode (P_GETTAG "instmode"))						; get last-time choice
+			(IF (OR (= @user-level 2) (AND (= @user-level 1) ((= (STRLEN #instmode) 0))))	; requerry ?
+			(
+				(IF ((= (STRLEN #instmode) 0)) (SET #instmode 0))
+				(SET #instmode											; yes, backup or update ?
+					(ASKCHOICE
+						(PROMPT #choose-instmode)
+						(HELP #choose-instmode-help)
+						(CHOICES
+							"Backup old installation"
+							"Update old installation"
+						)
+						(DEFAULT #instmode)
+					)
+				)
+				(P_PUTTAG "instmode" #instmode)
+			))
+			(IF (= #instmode 0)											; backup
+			(
+				(SET #sfxsub-dest (CAT #sfx-dest "_old"))
+				(IF (= (EXISTS #sfxsub-dest) 2)							; delete old backup
+					(RUN (CAT "DELETE " #sfxsub-dest " ALL QUIET FORCE"))
+				)
+				(RENAME #sfx-dest #sfxsub-dest)
+				(RENAME (CAT #sfx-dest ".info") (CAT #sfxsub-dest ".info"))
+;				(COPYFILES
+;					(SOURCE #sfx-dest)
+;					(DEST #sfxsub-dest)
+;					(ALL)
+;					(INFOS)
+;				)
+;				(RUN (CAT "DELETE " #sfx-dest "/#?.db QUIET FORCE"))	; delete old database files
+			))
+		))
+;		(IF (= #instsum 2)												; a complete current version detected
+;		(
+;			aks wheter to reinstall components
+;		))
+	)
+)
+
+(COPYFILES																; make cfg persistent
+	(SOURCE "ENV:Installer/Programs/sfx.cfg")
+	(DEST "ENVARC:Installer/Programs/")
+	(NOGAUGE)
+	(OPTIONAL NOFAIL)
+)
+
+; set defaults ----------------------------------------------------------------------------------------------
+
+(SET #fontpath 1)
+(SET #iconset 1)
+(SET #keypath 0)
+
+; now querry all choices ------------------------------------------------------------------------------------
+
+;(IF (= (EXISTS "sfx-bin") 2)
+;(
+;))
+
+(IF (AND (= (EXISTS "sfx-data") 2) (< #data-ex 2))
+(
+	(SET #fontpath (P_GETTAG "fontpath"))					; get last-time choice
+	(IF (OR (= @user-level 2) (AND (= @user-level 1) ((= (STRLEN #fontpath) 0))))	; requerry ?
+	(
+		(IF ((= (STRLEN #fontpath) 0)) (SET #fontpath 1))
+		(SET #fontpath
+			(ASKCHOICE
+				(PROMPT #choose-fontpath)
+				(HELP #choose-path-help)
+				(CHOICES
+					"FONTS:"
+					"Progdir:Fonts/"
+				)
+				(DEFAULT #fontpath)
+			)
+		)
+		(P_PUTTAG "fontpath" #fontpath)
+	))
+
+	(SET #iconset (P_GETTAG "iconset"))					; get last-time choice
+	(IF (OR (= @user-level 2) (AND (= @user-level 1) ((= (STRLEN #iconset) 0))))	; requerry ?
+	(
+		(IF ((= (STRLEN #iconset) 0)) (SET #iconset 1))
+		(SET #iconset
+			(ASKCHOICE
+				(PROMPT #choose-icon)
+				(HELP #choose-icon-help)
+				(CHOICES
+					"Standart"
+					"Magic WB"
+					"NewIcons"
+					"AristIcons (NewIcons)"
+					"Iconographics"
+					"GlowIcons (>=OS3.5)"
+				)
+				(DEFAULT #iconset)
+			)
+		)
+		(P_PUTTAG "iconset" #iconset)
+	))
+
+	(IF (= (EXISTS "SoundFX:sfx.key" (NOREQ)) 1)
+	(
+		(SET #keypath (P_GETTAG "keypath"))					; get last-time choice
+		(IF (OR (= @user-level 2) (AND (= @user-level 1) ((= (STRLEN #keypath) 0))))		; requerry ?
+		(
+			(IF ((= (STRLEN #keypath) 0)) (SET #keypath 0))
+			(SET #keypath
+				(ASKCHOICE
+					(PROMPT #choose-keypath)
+					(HELP #choose-path-help)
+					(CHOICES
+						"DEVS:keyfiles/"
+						"Progdir:keyfiles/"
+						"Progdir:"
+					)
+					(DEFAULT #keypath)
+				)
+			)
+			(P_PUTTAG "keypath" #keypath)
+		))
+	))
+))
+
+(IF (= (EXISTS "sfx-doc") 2)
+(
+	(SET #pathdoc "sfx-doc")
+)
+(
+	(SET #pathdocnr (P_GETTAG "language"))					; get last-time choice
+	(IF (OR (= @user-level 2) (AND (= @user-level 1) ((= (STRLEN #pathdocnr) 0))))	; requerry ?
+	(
+		(IF ((= (STRLEN #pathdocnr) 0)) (SET #pathdocnr 0))
+		(SET #pathdocnr
+			(ASKCHOICE
+				(PROMPT #choose-language)
+				(HELP #choose-language-help)
+				(CHOICES
+					"deutsch"
+					"english"
+				)
+				(DEFAULT #pathdocnr)
+			)
+		)
+		(P_PUTTAG "language" #pathdocnr)
+	))
+	(IF (= #pathdocnr 0)
+	  (SET #pathdoc "sfx-doc_ger")
+	)
+	(IF (= #pathdocnr 1)
+	  (SET #pathdoc "sfx-doc_eng")
+	)
+))
+(IF (> (STRLEN #pathdoc) 0)
+(
+	(SET #docfiles (P_GETTAG "docfiles"))					; get last-time choice
+	(IF (OR (= @user-level 2) (AND (= @user-level 1) ((= (STRLEN #docfiles) 0))))	; requerry ?
+	(
+		(IF ((= (STRLEN #docfiles) 0)) (SET #docfiles 12))
+		(SET #docfiles
+			(ASKOPTIONS
+				(PROMPT #choose-docfiles)
+				(HELP #choose-docfiles-help)
+				(CHOICES
+					"a4.ps"
+					"letter.ps"
+					"a4.pdf"
+					"letter.pdf"
+				)
+				(DEFAULT #docfiles)
+			)
+		)
+		(P_PUTTAG "docfiles" #docfiles)
+	))
+)
+)
+
+
+(IF (= (EXISTS "sfx-bin") 2)
+(
+	(SET #pathbin "sfx-bin")
+)
+(
+	(SET #pathbinnr (P_GETTAG "binary"))					; get last-time choice
+	(IF (OR (= @user-level 2) (AND (= @user-level 1) ((= (STRLEN #pathbinnr) 0))))	; requerry ?
+	(
+		(IF ((= (STRLEN #pathbinnr) 0)) (SET #pathbinnr 0))
+		(SET #pathbinnr
+			(ASKCHOICE
+				(PROMPT #choose-binary)
+				(HELP #choose-binary-help)
+				(CHOICES
+					"68000"
+					"68020"
+					"68020+FPU"
+					"68030"
+					"68030+FPU"
+					"68040+FPU"
+					"68060+FPU"
+				)
+				(DEFAULT #pathbinnr)
+			)
+		)
+		(P_PUTTAG "binary" #pathbinnr)
+	))
+	(IF (= #pathbinnr 0)
+	  (SET #pathbin "sfx-bin_00")
+	)
+	(IF (= #pathbinnr 1)
+	  (SET #pathbin "sfx-bin_20")
+	)
+	(IF (= #pathbinnr 2)
+	  (SET #pathbin "sfx-bin_20m")
+	)
+	(IF (= #pathbinnr 3)
+	  (SET #pathbin "sfx-bin_30")
+	)
+	(IF (= #pathbinnr 4)
+	  (SET #pathbin "sfx-bin_30m")
+	)
+	(IF (= #pathbinnr 5)
+	  (SET #pathbin "sfx-bin_40m")
+	)
+	(IF (= #pathbinnr 6)
+	  (SET #pathbin "sfx-bin_60m")
+	)
+))
+
+; now test if everything else is available ------------------------------------------------------------------
+
+(SET #vernum (GETVERSION "libs:openurl.library"))
+(SET #ver_openurl (/ #vernum 65536))
+(SET #rev_openurl (- #vernum (* #ver_openurl 65536) ))
+(IF (< #ver_openurl 3)
+(
+	MESSAGE #requires-openurl
+))
+
+(SET #vernum (GETVERSION "libs:popupmenu.library"))
+(SET #ver_popupmenu (/ #vernum 65536))
+(SET #rev_popupmenu (- #vernum (* #ver_popupmenu 65536) ))
+(IF (< #ver_popupmenu 9)
+(
+	MESSAGE #requires-popupmenu
+))
+
+(SET #vernum (GETVERSION "libs:identify.library"))
+(SET #ver_identify (/ #vernum 65536))
+(SET #rev_identify (- #vernum (* #ver_identify 65536) ))
+(IF (< #ver_identify 13)
+(
+	MESSAGE #requires-identify
+))
+
+(COPYFILES (SOURCE "ENV:Installer/Programs/sfx.cfg") (DEST "ENVARC:Installer/Programs/") (NOGAUGE) (OPTIONAL NOFAIL))		; make cfg persistent
+
+; SFX-bin begin ---------------------------------------------------------------------------------------------
+
+(IF (AND (= (EXISTS #pathbin) 2) (< #bin-ex 2))
+(
+
+; Loader ----------------------------------------------------------------------------------------------------
+(COMPLETE 5)
+(COPYFILES
+	(PROMPT #copy-loader)
+	(HELP #copy-help)
+	(SOURCE #pathbin)
+	(PATTERN "_loaders")
+	(DEST #sfx-dest)
+)
+
+; Operators -------------------------------------------------------------------------------------------------
+(COMPLETE 8)
+(COPYFILES
+	(PROMPT #copy-operators)
+	(HELP #copy-help)
+	(SOURCE #pathbin)
+	(PATTERN "_operators")
+	(DEST #sfx-dest)
+)
+
+; Player ----------------------------------------------------------------------------------------------------
+(COMPLETE 15)
+(COPYFILES
+	(PROMPT #copy-player)
+	(HELP #copy-help)
+	(SOURCE #pathbin)
+	(PATTERN "_players")
+	(DEST #sfx-dest)
+)
+
+; Saver -----------------------------------------------------------------------------------------------------
+(COMPLETE 17)
+(COPYFILES
+	(PROMPT #copy-saver)
+	(HELP #copy-help)
+	(SOURCE #pathbin)
+	(PATTERN "_savers")
+	(DEST #sfx-dest)
+)
+
+; SFX -------------------------------------------------------------------------------------------------------
+(COMPLETE 19)
+(COPYFILES
+	(PROMPT #copy-executable)
+	(HELP #copy-help)
+	(SOURCE (CAT #pathbin "/sfx"))
+	(DEST #sfx-dest)
+	(NEWNAME "SoundFX")
+)
+(COMPLETE 24)
+(COPYFILES
+	(PROMPT #copy-executable)
+	(HELP #copy-help)
+	(SOURCE #pathbin)
+	(PATTERN "Libs")
+	(DEST #sfx-dest)
+)
+))
+
+; SFX-bin ende ----------------------------------------------------------------------------------------------
+
+; SFX-doc begin ---------------------------------------------------------------------------------------------
+
+(IF (AND (= (EXISTS #pathdoc) 2) (< #doc-ex 2))
+(
+
+; html/pdf/ps -----------------------------------------------------------------------------------------------
+
+(COMPLETE 25)
+(COPYFILES
+	(PROMPT #copy-text)
+	(HELP #copy-help)
+	(SOURCE #pathdoc)
+	(PATTERN #readme)
+	(DEST #sfx-dest)
+)
+(COPYFILES
+	(PROMPT #copy-text)
+	(HELP #copy-help)
+	(SOURCE #pathdoc)
+	(PATTERN #orderform)
+	(DEST #sfx-dest)
+)
+(COPYFILES
+	(PROMPT #copy-text)
+	(HELP #copy-help)
+	(SOURCE #pathdoc)
+	(PATTERN "History.txt")
+	(DEST #sfx-dest)
+)
+(COMPLETE 28)
+(IF (= (BITAND #docfiles 1) 1)
+	(COPYFILES
+		(PROMPT #copy-text)
+		(HELP #copy-help)
+		(SOURCE (TACKON #pathdoc "sfx-a4.ps"))
+		(DEST #sfx-dest)
+	)
+)
+(IF (= (BITAND #docfiles 2) 2)
+	(COPYFILES
+		(PROMPT #copy-text)
+		(HELP #copy-help)
+		(SOURCE (TACKON #pathdoc "sfx-letter.ps"))
+		(DEST #sfx-dest)
+	)
+)
+(COMPLETE 34)
+(IF (= (BITAND #docfiles 4) 4)
+	(COPYFILES
+		(PROMPT #copy-text)
+		(HELP #copy-help)
+		(SOURCE (TACKON #pathdoc "sfx-a4.pdf"))
+		(DEST #sfx-dest)
+	)
+)
+(IF (= (BITAND #docfiles 8) 8)
+	(COPYFILES
+		(PROMPT #copy-text)
+		(HELP #copy-help)
+		(SOURCE (TACKON #pathdoc "sfx-letter.pdf"))
+		(DEST #sfx-dest)
+	)
+)
+(COMPLETE 40)
+(COPYFILES
+	(PROMPT #copy-guides)
+	(HELP #copy-help)
+	(SOURCE #pathdoc)
+	(PATTERN "html")
+	(DEST #sfx-dest)
+)
+
+(COMPLETE 45)
+(SET #sfxsub-dest (TACKON #sfx-dest "Catalogs"))
+(IF (= (EXISTS #sfxsub-dest) 0)
+	(MAKEDIR #sfxsub-dest)
+)
+(SET #sfxsub-dest (TACKON #sfxsub-dest #catalog))
+(IF (= (EXISTS #sfxsub-dest) 0)
+	(MAKEDIR #sfxsub-dest)
+)
+(IF (= (EXISTS (CAT "sfx-doc/Catalogs/" #catalog "/SoundFX.catalog")) 1)
+	(COPYFILES										; copy only, if there is a catalog
+		(PROMPT #copy-catalogs)						; else use the builtin-language instead
+		(HELP #copy-help)
+		(SOURCE (CAT #pathdoc "/Catalogs/" #catalog "/SoundFX.catalog"))
+		(DEST #sfxsub-dest)
+	)
+)
+(IF (= (EXISTS (CAT "sfx-doc/Catalogs/" #catalog "/Tips.catalog")) 1)
+	(COPYFILES										; copy only, if there is a catalog
+		(PROMPT #copy-catalogs)						; else use the builtin-language instead
+		(HELP #copy-help)
+		(SOURCE (CAT #pathdoc "/Catalogs/" #catalog "/Tips.catalog"))
+		(DEST #sfxsub-dest)
+	)
+)
+
+))
+
+; SFX-doc ende ----------------------------------------------------------------------------------------------
+
+; SFX-data begin --------------------------------------------------------------------------------------------
+
+(IF (AND (= (EXISTS "sfx-data") 2) (< #data-ex 2))
+(
+
+; Fonts kopieren --------------------------------------------------------------------------------------------
+(COMPLETE 52)
+
+(IF (= #fontpath 0)
+
+  (SET #sfxsub-dest "FONTS:")
+)
+(IF (= #fontpath 1)
+(
+	(SET #sfxsub-dest (TACKON #sfx-dest "Fonts"))
+	(IF (= (EXISTS #sfxsub-dest) 0)
+		(MAKEDIR #sfxsub-dest)
+	)
+))
+(COPYFILES
+	(PROMPT #copy-fonts)
+	(HELP #copy-help)
+	(SOURCE "sfx-data/Fonts/")
+	(DEST #sfxsub-dest)
+	(ALL)
+)
+
+(COMPLETE 54)
+
+(SET #vernum (GETVERSION "libs:ttf.library"))
+(SET #ver_ttf (/ #vernum 65536))
+(SET #rev_ttf (- #vernum (* #ver_ttf 65536) ))
+(IF (> #rev_ttf 8)									; check if libs:ttf.library exists
+(														; yes
+	(RUN (CAT "ttfinstall >NIL: " #sfxsub-dest "ButtonGlyphs.ttf " #sfxsub-dest))
+))
+
+; Libs kopieren ---------------------------------------------------------------------------------------------
+(COMPLETE 56)
+(COPYLIB
+	(PROMPT #copy-libs)
+	(HELP #copy-help)
+	(SOURCE "sfx-data/Libs/configio.library")
+	(DEST "LIBS:")
+)
+(COPYLIB
+	(PROMPT #copy-libs)
+	(HELP #copy-help)
+	(SOURCE "sfx-data/Libs/listtools.library")
+	(DEST "LIBS:")
+)
+(COPYLIB
+	(PROMPT #copy-libs)
+	(HELP #copy-help)
+	(SOURCE "sfx-data/Libs/unitconv.library")
+	(DEST "LIBS:")
+)
+; visual prefs titlebar.image
+(COPYFILES
+	(PROMPT #copy-libs)
+	(HELP #copy-help)
+	(SOURCE "sfx-data")
+	(PATTERN "Classes")
+	(DEST #sfx-dest)
+)
+
+; Tools kopieren ---------------------------------------------------------------------------------------------
+(COMPLETE 60)
+(COPYFILES
+	(PROMPT #copy-executable)
+	(HELP #copy-help)
+	(SOURCE "sfx-data/ShowTip")
+	(DEST #sfx-dest)
+)
+
+; Module Data (.modinfo, .presets ) -------------------------------------------------------------------------
+(COMPLETE 61)
+(COPYFILES
+	(PROMPT #copy-presets)
+	(HELP #copy-help)
+	(SOURCE "sfx-data/")
+	(PATTERN "_#?")
+	(DEST #sfx-dest)
+)
+
+; Delete Old Files ------------------------------------------------------------------------------------------
+
+(COMPLETE 65)
+(SET #sfxsub-dest (TACKON #sfx-dest "Synths"))
+(IF (= (EXISTS #sfxsub-dest) 1)
+	(DELETE #sfxsub-dest (ALL) (OPTIONAL FORCE))
+)
+(COMPLETE 66)
+(SET #sfxsub-dest (TACKON #sfx-dest "EqShps"))
+(IF (= (EXISTS #sfxsub-dest) 1)
+	(DELETE #sfxsub-dest (ALL) (OPTIONAL FORCE))
+)
+
+; Icon ------------------------------------------------------------------------------------------------------
+
+(COMPLETE 68)
+(IF (= #iconset 0)
+	(SET #icon-dest "sfx-data/icons_std")
+)
+(IF (= #iconset 1)
+	(SET #icon-dest "sfx-data/icons_mwb")
+)
+(IF (= #iconset 2)
+	(SET #icon-dest "sfx-data/icons_ni")
+)
+(IF (= #iconset 3)
+	(SET #icon-dest "sfx-data/icons_arist")
+)
+(IF (= #iconset 4)
+	(SET #icon-dest "sfx-data/icons_icgfx")
+)
+(IF (= #iconset 5)
+	(SET #icon-dest "sfx-data/icons_gi")
+)
+
+(COPYFILES
+	(PROMPT #copy-icons)
+	(HELP #copy-help)
+	(SOURCE (TACKON #icon-dest "SoundFX.info"))
+	(DEST #sfx-dest)
+)
+(COPYFILES
+	(PROMPT #copy-icons)
+	(HELP #copy-help)
+	(SOURCE (TACKON #icon-dest "html.info"))
+	(DEST #sfx-dest)
+)
+(COPYFILES
+	(PROMPT #copy-icons)
+	(HELP #copy-help)
+	(SOURCE (TACKON #icon-dest "Form.info"))
+	(DEST #sfx-dest)
+	(NEWNAME (CAT #orderform ".info"))
+)
+(IF (= (EXISTS (TACKON #sfx-dest "SFX-a4.ps")) 1)
+	(COPYFILES
+		(PROMPT #copy-icons)
+		(HELP #copy-help)
+		(SOURCE (TACKON #icon-dest "SFX.ps.info"))
+		(DEST #sfx-dest)
+		(NEWNAME "SFX-a4.ps.info")
+	)
+)
+(IF (= (EXISTS (TACKON #sfx-dest "SFX-letter.ps")) 1)
+	(COPYFILES
+		(PROMPT #copy-icons)
+		(HELP #copy-help)
+		(SOURCE (TACKON #icon-dest "SFX.ps.info"))
+		(DEST #sfx-dest)
+		(NEWNAME "SFX-letter.ps.info")
+	)
+)
+(IF (= (EXISTS (TACKON #sfx-dest "SFX-a4.pdf")) 1)
+	(COPYFILES
+		(PROMPT #copy-icons)
+		(HELP #copy-help)
+		(SOURCE (TACKON #icon-dest "SFX.pdf.info"))
+		(DEST #sfx-dest)
+		(NEWNAME "SFX-a4.pdf.info")
+	)
+)
+(IF (= (EXISTS (TACKON #sfx-dest "SFX-letter.pdf")) 1)
+	(COPYFILES
+		(PROMPT #copy-icons)
+		(HELP #copy-help)
+		(SOURCE (TACKON #icon-dest "SFX.pdf.info"))
+		(DEST #sfx-dest)
+		(NEWNAME "SFX-letter.pdf.info")
+	)
+)
+(COPYFILES
+	(PROMPT #copy-icons)
+	(HELP #copy-help)
+	(SOURCE (TACKON #icon-dest "SoundDir.info"))
+	(DEST #drawer-dest)
+	(NEWNAME "sfx.info")
+)
+(SET #sfxsub-dest (TACKON #sfx-dest "html"))
+(IF (= (EXISTS #sfxsub-dest) 2)
+	(COPYFILES
+		(PROMPT #copy-icons)
+		(HELP #copy-help)
+		(SOURCE (TACKON #icon-dest "index.html.info"))
+		(DEST #sfxsub-dest)
+	)
+)
+(SET #sfxsub-dest (TACKON #sfx-dest "ReadMe.first"))
+(IF (= (EXISTS #sfxsub-dest) 1)
+	(COPYFILES
+		(PROMPT #copy-icons)
+		(HELP #copy-help)
+		(SOURCE (TACKON #icon-dest "Form.info"))
+		(DEST #sfx-dest)
+		(NEWNAME "ReadMe.first.info")
+	)
+)
+(SET #sfxsub-dest (TACKON #sfx-dest "LiesMich.zuerst"))
+(IF (= (EXISTS #sfxsub-dest) 1)
+	(COPYFILES
+		(PROMPT #copy-icons)
+		(HELP #copy-help)
+		(SOURCE (TACKON #icon-dest "Form.info"))
+		(DEST #sfx-dest)
+		(NEWNAME "LiesMich.zuerst.info")
+	)
+)
+(COPYFILES
+	(PROMPT #copy-icons)
+	(HELP #copy-help)
+	(SOURCE (TACKON #icon-dest "Form.info"))
+	(DEST #sfx-dest)
+	(NEWNAME "History.txt.info")
+)
+
+; GFX (splash image, showtip image, mouse pointers) ---------------------------------------------------------
+
+(COMPLETE 70)
+(COPYFILES
+	(PROMPT #copy-gfx)
+	(HELP #copy-help)
+	(SOURCE "sfx-data/")
+	(PATTERN "Data")
+	(DEST #sfx-dest)
+)
+
+; Keyfile kopieren ------------------------------------------------------------------------------------------
+
+(COMPLETE 75)
+(IF (= #keypath 0)
+(
+	(SET #sfxsub-dest "DEVS:keyfiles")
+	(IF (= (EXISTS #sfxsub-dest) 0) (MAKEDIR #sfxsub-dest (INFOS)) )
+))
+(IF (= #keypath 1)
+(
+	(SET #sfxsub-dest (TACKON #sfx-dest "keyfiles"))
+	(IF (= (EXISTS #sfxsub-dest) 0) (MAKEDIR #sfxsub-dest) )
+))
+(IF (= #keypath 2)
+(
+	(SET #sfxsub-dest #sfx-dest)
+))
+(COMPLETE 78)
+
+(IF (OR (= #key-ex 0)((= (EXISTS "SoundFX:SFX.newkey" (NOREQ)) 1)))									; nein -> checken, ob Disk im Laufwerk ist
+(
+	(IF (= (EXISTS "SoundFX:" (NOREQ)) 2)
+	(
+		(IF (= (EXISTS "SoundFX:SFX.newkey") 1)
+			(SET #keyname "SoundFX:sfx.newkey")
+			(SET #keyname "SoundFX:sfx.key")
+		)
+		(SET #copykey 1)
+		(COPYFILES							; versuche Key von der Disk zu kopieren
+			(PROMPT #copy-keyfile)
+			(HELP #copy-help)
+			(SOURCE #keyname)
+			(DEST #sfxsub-dest)
+		    (NEWNAME "sfx.key")
+			(OPTIONAL "nofail")
+		)
+		(TRAP 4 (IF (<> @IOERR 0)(SET #copykey 0)))		; testen ob's geklappt hat
+
+		(IF (= #copykey 0)
+		(
+		  (SET #copykey 1)
+		  (COPYFILES						; mit 1. Kopie nochmal versuchen
+			(PROMPT #copy-keyfile)
+			(HELP #copy-help)
+		    (SOURCE (CAT #keyname "_1"))
+			(DEST #sfxsub-dest)
+		    (NEWNAME "sfx.key")
+		    (OPTIONAL "nofail")
+		  )
+		  (TRAP 4 (IF (<> @IOERR 0)(SET #copykey 0)))	; testen ob's geklappt hat
+		))
+		(IF (= #copykey 0)
+		(
+		  (SET #copykey 1)
+		  (COPYFILES						; mit 2. Kopie nochmal versuchen
+			(PROMPT #copy-keyfile)
+			(HELP #copy-help)
+		    (SOURCE (CAT #keyname "_2"))
+			(DEST #sfxsub-dest)
+		    (NEWNAME "sfx.key")
+		    (OPTIONAL "nofail")
+		  )
+		  (TRAP 4 (IF (<> @IOERR 0)(SET #copykey 0)))	; testen ob's geklappt hat
+		))
+		(IF (= #copykey 0)
+		(
+		  (SET #copykey 1)
+		  (COPYFILES						; mit 3. Kopie nochmal versuchen
+			(PROMPT #copy-keyfile)
+			(HELP #copy-help)
+		    (SOURCE (CAT #keyname "_3"))
+			(DEST #sfxsub-dest)
+		    (NEWNAME "sfx.key")
+		    (OPTIONAL "nofail")
+		  )
+		  (TRAP 4 (IF (<> @IOERR 0)(SET #copykey 0)))	; testen ob's geklappt hat
+		))
+		(IF (= #copykey 0)
+			(MESSAGE #copykey-fail)
+		)
+	))
+))
+(IF (= #instmode 0)							; we're in backup mode
+(
+	(IF (= #key-ex 2)							; copy key from backup
+	(
+		(COPYFILES
+			(PROMPT #copy-keyfile)
+			(HELP #copy-help)
+		    (SOURCE (CAT #sfx-dest "_old/sfx.key"))
+			(DEST #sfxsub-dest)
+		)
+	))
+	(IF (= #key-ex 3)							; copy key from backup
+	(
+		(COPYFILES
+			(PROMPT #copy-keyfile)
+			(HELP #copy-help)
+		    (SOURCE (CAT #sfx-dest "_old/Keyfiles/sfx.key"))
+			(DEST #sfxsub-dest)
+		)
+	))
+))
+
+; Prefs -> Config -------------------------------------------------------------------------------------------
+
+(COMPLETE 82)
+(IF (AND (= (EXISTS "envarc:sfx.prefs") 1) (= (EXISTS "envarc:sfx.cfg") 0))
+(
+	(RUN "sfx-data/data/cp <>NIL:")
+))
+
+))
+
+; SFX-data ende ---------------------------------------------------------------------------------------------
+
+; SFX-goodies begin -----------------------------------------------------------------------------------------
+
+(IF (AND (= (EXISTS "sfx-goodies") 2) (< #goodies-ex 2))
+(
+
+; Goodies ---------------------------------------------------------------------------------------------------
+
+(COMPLETE 97)
+(COPYFILES
+	(PROMPT #copy-goodies)
+	(HELP #copy-help)
+	(SOURCE "sfx-goodies/")
+	(DEST #sfx-dest)
+	(ALL)
+)
+
+))
+
+; SFX-goodies ende ------------------------------------------------------------------------------------------
+
+; Fertig ----------------------------------------------------------------------------------------------------
+
+;(SET #vernum (GETVERSION "workbench.library" (RESIDENT)))
+;(SET #ver (/ #vernum 65536))
+;(IF (> #ver 43)
+;(
+;	(RUN (CAT "sys:rexxc/rx \"address WORKBENCH;WINDOW '" #sfx-dest "' OPEN;MENU INVOKE WINDOW.SHOW.ONLYICONS;MENU INVOKE WINDOW.CLEANUPBY.COLUMN;MENU INVOKE WINDOW.RESIZETOFIT;MENU INVOKE WINDOW.SNAPSHOT.ALL\""))
+;))
+(IF (> #ver_installer 43)
+	(OPENWBOBJECT #sfx-dest)
+)
+
+(COMPLETE 100)
+(EXIT #exit-messy)
+; Install-SFX ende ------------------------------------------------------------------------------------------

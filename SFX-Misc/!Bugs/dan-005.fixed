@@ -1,0 +1,10 @@
+Clipboard saving
+
+Samples are not saved correctly to the clipboard! Try saving
+a sample (no matter which unit you choose) and then load it
+back - your sample will miss its beginning and will have some
+crappy data appended at its end.
+
+The "result" of this bug is dependent on whether you save the
+sample as IFF 8SVX or 16SV. In the latter case the sample's
+frequency will be crippled, too.

@@ -1,0 +1,72 @@
+From - Fri Jul 27 13:38:00 2001
+Received: from brama.imn.htwk-leipzig.de (brama [141.57.8.39])
+	by imn.htwk-leipzig.de (8.9.1/8.9.1) with ESMTP id FAA07504
+	for <kost@imn.htwk-leipzig.de>; Thu, 26 Jul 2001 05:28:24 +0200 (MET DST)
+Received: by brama.imn.htwk-leipzig.de (8.9.1/8.9.1) id FAA23867
+	for soundfx-list; Thu, 26 Jul 2001 05:05:51 +0200 (MET DST)
+Received: from mailgate3.cinetic.de (mailgate3.cinetic.de [212.227.116.80])
+	by brama.imn.htwk-leipzig.de (8.9.1/8.9.1) with ESMTP id FAA23863
+	for <soundfx@brama.imn.htwk-leipzig.de>; Thu, 26 Jul 2001 05:05:48 +0200 (MET DST)
+Received: from smtp.web.de (smtp01.web.de [194.45.170.210])
+	by mailgate3.cinetic.de (8.11.2/8.11.2/SuSE Linux 8.11.0-0.4) with SMTP id f6Q3T0612544
+	for <soundfx@brama.imn.htwk-leipzig.de>; Thu, 26 Jul 2001 05:29:00 +0200
+Received: from web.de by smtp.web.de with smtp
+	(freemail 4.2.2.2 #11) id m15Pbpb-007o9aC; Thu, 26 Jul 2001 05:28 +0200
+X-Authentication-Warning: brama.imn.htwk-leipzig.de: majordomo set sender to owner-soundfx@brama.imn.htwk-leipzig.de using -f
+From: Michael - <Ieh-meyl@web.de>
+To: soundfx@brama.imn.htwk-leipzig.de
+Date: Thu, 26 Jul 2001 05:33:27 +0100
+Message-ID: <yam8607.1376.1152604480@smtp.web.de>
+X-Mailer: YAM 2.3 [060] AmigaOS E-Mail Client (c) 1995-2000 by Marcel Beck  http://www.yam.ch/
+Subject: Loading CPU percentage almost fixed/Blah
+MIME-Version: 1.0
+Content-Transfer-Encoding: binary
+Sender: owner-soundfx@brama.imn.htwk-leipzig.de
+Precedence: bulk
+Reply-To: soundfx@brama.imn.htwk-leipzig.de
+Content-Type: text/plain; charset=iso-8859-1
+Content-Length: 1768
+Status:   
+X-Mozilla-Status: 8001
+X-Mozilla-Status2: 00000000
+X-UIDL: 361df5b50000362b
+
+Hi.
+
+1.To those that care, you may remember that mail with the png files about
+  low CPU usage of SFX.  I found the cause for this was the "virtual 
+  memory" menu setting "blocksize" (for HD buffering). Putting this general
+  setting there was misleading, and the default(?) value there, 4k, was 
+  way too low. Increasing it made the HD accessing speed, together with the
+  CPU usage, increase by 500 percent. 
+  A small drawback remains-values above 64k don't work properly when loading 
+  samples.
+
+2.I would like a "flush all windows" option affecting all samples with opened 
+  window, leaving all boxified samples untouched.
+
+3.The suggestion of flushing and deleting source files may be obsolete 
+  with SFX using separate in and out directories, if it ever will. 
+
+4.I today tried to batch process a heap of files that had specific necessary 
+  names, and got a heap of 150 files with cluttered names from old processing
+  sessions. Yes, I should have known but "Oh no!" (there is a nice Oh no! by 
+  Tim Allen, home improvement, on the net). I had to redo the same batch by hand. 
+  Stefan,  please remove this naming shit, and make SFX using the names it gets 
+  from the file names on HD.
+  In case of saving, especially batch saving, I suggest choices of 1.HD source
+  name with HD source suffix, 2. with custom suffix, 3. with soundformat suffix,
+  4. HD source name with or 5. without the processing-added "00", "01", "000".
+  Btw., I know good comfort means higher effort for the coder of a program.
+
+Regards,
+
+Michael
+
+
+
+
+
+___________________________________________________________________________
+SoundFX Mailinglist                       soundfx@brama.imn.htwk-leipzig.de
+Subscribe/Unsubscribe/Help              majordomo@brama.imn.htwk-leipzig.de

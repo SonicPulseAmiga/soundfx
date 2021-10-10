@@ -1,0 +1,57 @@
+From - Fri Jun  8 11:49:42 2001
+Received: from thlhp.rz.htwk-leipzig.de (thlhp [141.57.1.1])
+	by imn.htwk-leipzig.de (8.9.1/8.9.1) with ESMTP id MAA03377
+	for <kost@imn.htwk-leipzig.de>; Tue, 5 Jun 2001 12:50:00 +0200 (MET DST)
+Received: from ns0.enterprise.net (ns0.enterprise.net [213.137.2.163])
+	by thlhp.rz.htwk-leipzig.de (8.8.8/8.8.8) with ESMTP id MAA32526
+	for <kost@imn.htwk-leipzig.de>; Tue, 5 Jun 2001 12:50:29 +0200
+Received: from enterprise.net (cmax01-020.enterprise.net [212.161.113.20])
+	by ns0.enterprise.net (8.10.2+Sun/8.10.2) with SMTP id f55Agpo01505
+	for <kost@imn.htwk-leipzig.de>; Tue, 5 Jun 2001 11:42:51 +0100 (BST)
+From: Don Cox <doncox@enterprise.net>
+To: Stefan Kost <kost@imn.htwk-leipzig.de>
+Date: Tue, 05 Jun 2001 10:51:48 +0000
+Message-ID: <yam8556.2447.158093472@smtp.enterprise.net>
+In-Reply-To: <3B1CA290.1A1E62EA@imn.htwk-leipzig.de>
+X-Mailer: YAM 2.2 [040] AmigaOS E-Mail Client (c) 1995-2000 by Marcel Beck  http://www.yam.ch
+Subject: Re: Review
+MIME-Version: 1.0
+Content-Type: text/plain
+Content-Length: 1073
+Status:   
+X-Mozilla-Status: 8011
+X-Mozilla-Status2: 00000000
+X-UIDL: 361df5b50000348f
+
+On 05-Jun-01, Stefan Kost wrote:
+
+>> If you loop it, the whole sample is played the second (and later)
+>> times. But the first time, "Hi this is a" is missing.
+>> 
+>> Not every time, but about 3 times out of 4.
+> I know about this, but stragly I can't get my hands on any machine
+> where this happens. I've got another soundcard now (the repluse),
+> maybee this gives me a greater variety for tests.
+
+Testing again, it loses the beginning of the range, but plays for the
+full time, so you hear sound from after the end of the range.
+
+I don't believe the sound card has anything to do with it as I have had
+the same result with both Paula and Prelude.
+
+I recently changed from Cyberstorm Mk II 68040 to 68060, and that made
+no difference.  
+
+IIRC it was doing it under OS 3.1 as well as now under 3.9, but it did
+start with a particular upgrade of SFX, about 2 years ago.
+
+Changing from a CGFX display to AGA made no diference.
+
+I'll mention this bug in the review but not make a big thing of it.
+(Although it is quite annoying.)
+
+Regards
+-- 
+Don Cox
+doncox@enterprise.net
+

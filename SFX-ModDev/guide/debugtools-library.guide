@@ -1,0 +1,1449 @@
+@database debugtools-library.guide
+@rem Source: debugtools-library.c
+@rem Generated with RoboDoc v3.0k (Aug  2 1998)
+@rem RoboDoc is copyright 1994-1998 by Maverick Software Development
+@node Main debugtools-library.guide
+@{jcenter}
+@{fg highlight}@{b}TABLE OF CONTENTS@{ub}@{fg text}
+
+@{"[1.20]                                      " Link "[1.20]"}
+@{"debugtools.library/DT_AddCtrlFlowTask       " Link "DT_AddCtrlFlowTask"}
+@{"debugtools.library/DT_AddResEntry           " Link "DT_AddResEntry"}
+@{"debugtools.library/DT_BoundChk              " Link "DT_BoundChk"}
+@{"debugtools.library/DT_BoundChkIX            " Link "DT_BoundChkIX"}
+@{"debugtools.library/DT_BreakPoint            " Link "DT_BreakPoint"}
+@{"debugtools.library/DT_CheckVersion          " Link "DT_CheckVersion"}
+@{"debugtools.library/DT_ConnectGui            " Link "DT_ConnectGui"}
+@{"debugtools.library/DT_CurFile               " Link "DT_CurFile"}
+@{"debugtools.library/DT_CurFunc               " Link "DT_CurFunc"}
+@{"debugtools.library/DT_CurLine               " Link "DT_CurLine"}
+@{"debugtools.library/DT_EnterLevel            " Link "DT_EnterLevel"}
+@{"debugtools.library/DT_ExistsResEntry        " Link "DT_ExistsResEntry"}
+@{"debugtools.library/DT_FailReq               " Link "DT_FailReq"}
+@{"debugtools.library/DT_GetAttr               " Link "DT_GetAttr"}
+@{"debugtools.library/DT_GetAttrsA             " Link "DT_GetAttrsA"}
+@{"debugtools.library/DT_IsValidDouble         " Link "DT_IsValidDouble"}
+@{"debugtools.library/DT_IsValidFloat          " Link "DT_IsValidFloat"}
+@{"debugtools.library/DT_IsValidPointer        " Link "DT_IsValidPointer"}
+@{"debugtools.library/DT_IsValidPointerN0      " Link "DT_IsValidPointerN0"}
+@{"debugtools.library/DT_IsValidString         " Link "DT_IsValidString"}
+@{"debugtools.library/DT_LastFile              " Link "DT_LastFile"}
+@{"debugtools.library/DT_LastFunc              " Link "DT_LastFunc"}
+@{"debugtools.library/DT_LastLine              " Link "DT_LastLine"}
+@{"debugtools.library/DT_LeaveLevel            " Link "DT_LeaveLevel"}
+@{"debugtools.library/DT_LoadConfig            " Link "DT_LoadConfig"}
+@{"debugtools.library/DT_Output                " Link "DT_Output"}
+@{"debugtools.library/DT_RemCtrlFlowTask       " Link "DT_RemCtrlFlowTask"}
+@{"debugtools.library/DT_RemResEntry           " Link "DT_RemResEntry"}
+@{"debugtools.library/DT_ResetOutput           " Link "DT_ResetOutput"}
+@{"debugtools.library/DT_SaveConfig            " Link "DT_SaveConfig"}
+@{"debugtools.library/DT_SendRexxCmd           " Link "DT_SendRexxCmd"}
+@{"debugtools.library/DT_SetAttr               " Link "DT_SetAttr"}
+@{"debugtools.library/DT_SetAttrsA             " Link "DT_SetAttrsA"}
+@{"debugtools.library/DT_StackCheck            " Link "DT_StackCheck"}
+@{"debugtools.library/FreeResource_dos_library " Link "FreeResource_dos_library"}
+@{"debugtools.library/FreeResource_exec_library" Link "FreeResource_exec_library"}
+@{"debugtools.library/FreeResource_stdc_library" Link "FreeResource_stdc_library"}
+@{"debugtools.library/__UserLibCleanup         " Link "__UserLibCleanup"}
+@{"debugtools.library/__UserLibInit            " Link "__UserLibInit"}
+@{"debugtools.library/lib-assert.c             " Link "lib-assert.c"}
+@{"debugtools.library/lib-breakpoint.c         " Link "lib-breakpoint.c"}
+@{"debugtools.library/lib-configio.c           " Link "lib-configio.c"}
+@{"debugtools.library/lib-ctrlflow.c           " Link "lib-ctrlflow.c"}
+@{"debugtools.library/lib-dtgui.c              " Link "lib-dtgui.c"}
+@{"debugtools.library/lib-failreq.c            " Link "lib-failreq.c"}
+@{"debugtools.library/lib-main.c               " Link "lib-main.c"}
+@{"debugtools.library/lib-memcheck.c           " Link "lib-memcheck.c"}
+@{"debugtools.library/lib-output.c             " Link "lib-output.c"}
+@{"debugtools.library/lib-restrack.c           " Link "lib-restrack.c"}
+@{"debugtools.library/lib-stack.c              " Link "lib-stack.c"}
+@{jleft}
+@endnode
+@Node "[1.20]" "[1.20]"
+@{fg shine}[1.20]@{fg text}
+
+@{b}NAME@{ub}
+@{b}    lib-sendrexx.c
+@{ub}
+@{b}COPYRIGHT@{ub}
+    $VER: lib-sendrexx.c 1.20 (24.02.99) © by Stefan Kost 1999-1999
+
+@{b}FUNCTION@{ub}
+    send rexx commands 
+
+@{b}AUTHOR@{ub}
+@{i}    Stefan Kost                 sk              kost\@imn.htwk-leipzig.de
+@{ui}
+@{b}CREATION DATE@{ub}
+    24.Feb.1999
+
+@{b}MODIFICATION HISTORY@{ub}
+    24.Feb.1999 V 1.20  most recent version
+    24.Feb.1999 V 1.20  initial version
+
+@{b}NOTES@{ub}
+
+
+@endnode
+@Node "DT_AddCtrlFlowTask" "debugtools.library/DT_AddCtrlFlowTask"
+@{fg shine}debugtools.library/DT_AddCtrlFlowTask@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}DT_AddCtrlFlowTask@{ub} -- add new process to dt-system
+@{ub}
+@{b}SYNOPSIS@{ub}
+    @{b}DT_AddCtrlFlowTask@{ub}()
+
+    void @{b}DT_AddCtrlFlowTask@{ub}(void);
+
+@{b}FUNCTION@{ub}
+    Adds a process to internal linked list of tasks to watch.
+
+@{b}SEE ALSO@{ub}
+    @{"DT_RemCtrlFlowTask" Link "DT_RemCtrlFlowTask"}()
+
+@endnode
+@Node "DT_AddResEntry" "debugtools.library/DT_AddResEntry"
+@{fg shine}debugtools.library/DT_AddResEntry@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}DT_AddResEntry@{ub} -- add a resource to the tracking list
+@{ub}
+@{b}SYNOPSIS@{ub}
+    @{b}DT_AddResEntry@{ub}(res,res2,size,type,file,line)
+                   a0  a1   d0   d1   a2   d2
+    void @{b}DT_AddResEntry@{ub}(APTR,APTR,ULONG,ULONG,STRPTR,ULONG)
+
+@{b}FUNCTION@{ub}
+    Adds one resource node to the resource-tracking list.
+
+@{b}INPUTS@{ub}
+    res - the resource pointer
+    res2 - a secondary resource pointer
+    size - the size of the resource in memory
+    type - the resource id
+    file - the source file name
+    line - the source file linenumber
+
+@{b}EXAMPLE@{ub}
+    @{b}DT_AddResEntry@{ub}(mem,0L,byteSize,RES_MEM,file,line);
+    @{b}DT_AddResEntry@{ub}(0L,FindTask(NULL),sig,RES_SIGNAL,file,line);
+
+@{b}NOTES@{ub}
+    Each resource entry must be unique. Use e.g. FindTask(NULL) like in the
+    second example to make it unique.
+
+@{b}SEE ALSO@{ub}
+    @{"DT_RemResEntry" Link "DT_RemResEntry"}(),@{"DT_ExistsResEntry" Link "DT_ExistsResEntry"}()
+
+@endnode
+@Node "DT_BoundChk" "debugtools.library/DT_BoundChk"
+@{fg shine}debugtools.library/DT_BoundChk@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}DT_BoundChk@{ub} -- checks memory accesses
+@{ub}
+@{b}SYNOPSIS@{ub}
+    res=@{b}DT_BoundChk@{ub}(base,index,length,amode,size,file,line)
+                    a0   a1    d0     d1    d2   a2   d3
+    UBYTE @{"DT_BoundChkIX" Link "DT_BoundChkIX"}(APTR,APTR,ULONG,UBYTE,UBYTE,STRPTR,ULONG)
+
+@{b}FUNCTION@{ub}
+    Checks if accesses to memory are within valid bounds.
+
+@{b}INPUTS@{ub}
+    base - basis address
+    index - address to access
+    length - length of array
+    amode - access mode
+      DT_BoundChk_Read
+      DT_BoundChk_Write
+    size - size of one element
+    file - the source file name
+    line - the source file linenumber
+
+@{b}RESULT@{ub}
+    res - 1 if access is valid, 0 if not
+
+@{b}EXAMPLE@{ub}
+    if(@{b}DT_BoundChk@{ub}(vector,vecptr.VECTOR_ELEMS,DT_BoundChk_Read,sizeof(float),__FILE__,__LINE__)) val=*(vecptr++);
+
+@{b}SEE ALSO@{ub}
+    @{"DT_BoundChkIX" Link "DT_BoundChkIX"}()
+
+@endnode
+@Node "DT_BoundChkIX" "debugtools.library/DT_BoundChkIX"
+@{fg shine}debugtools.library/DT_BoundChkIX@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}DT_BoundChkIX@{ub} -- checks array accesses
+@{ub}
+@{b}SYNOPSIS@{ub}
+    res=@{b}DT_BoundChkIX@{ub}(base,index,length,amode,size,file,line)
+                      a0   d0    d1     d2    d3   a1   d4
+    UBYTE @{b}DT_BoundChkIX@{ub}(APTR,LONG,ULONG,UBYTE,UBYTE,STRPTR,ULONG)
+
+@{b}FUNCTION@{ub}
+    Checks if accesses to an array are within valid bounds.
+
+@{b}INPUTS@{ub}
+    base - basis address
+    index - index to access
+    length - length of array
+    amode - access mode
+      DT_BoundChk_Read
+      DT_BoundChk_Write
+    size - size of one element
+    file - the source file name
+    line - the source file linenumber
+
+@{b}RESULT@{ub}
+    res - 1 if access is valid, 0 if not
+
+@{b}EXAMPLE@{ub}
+    if(@{b}DT_BoundChkIX@{ub}(vector,i.VECTOR_ELEMS,DT_BoundChk_Read,sizeof(float),__FILE__,__LINE__)) val=vector[i];
+
+@{b}SEE ALSO@{ub}
+    @{"DT_BoundChk" Link "DT_BoundChk"}()
+
+@endnode
+@Node "DT_BreakPoint" "debugtools.library/DT_BreakPoint"
+@{fg shine}debugtools.library/DT_BreakPoint@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}DT_BreakPoint@{ub}
+@{ub}
+@{b}SYNOPSIS@{ub}
+    @{b}DT_BreakPoint@{ub}(str,file,line)
+                  a0  a1   d0
+    void @{b}DT_BreakPoint@{ub}(STRPTR,STRPTR,ULONG);
+
+@{b}FUNCTION@{ub}
+    Opens a request with a text-message and breakpoint location and suspending
+    the process until the "Continue"-button is pressed.
+
+@{b}INPUTS@{ub}
+    str - message to show in breakpoint request
+    file - source code file
+    line - source code line
+
+@{b}EXAMPLE@{ub}
+    @{b}DT_BreakPoint@{ub}("before critical Section",__FILE__,__LINE__);
+
+@endnode
+@Node "DT_CheckVersion" "debugtools.library/DT_CheckVersion"
+@{fg shine}debugtools.library/DT_CheckVersion@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}DT_CheckVersion@{ub}
+@{ub}
+@{b}SYNOPSIS@{ub}
+    res=@{b}DT_CheckVersion@{ub}(version,verreq,libbase,line,*verused,*func,*file)
+                        d0      d1     d2      d3   a0       a1    a2 
+    UBYTE @{b}DT_CheckVersion@{ub}(ULONG,ULONG,ULONG,ULONG,ULONG *,STRPTR,STRPTR);
+
+@{b}FUNCTION@{ub}
+    Checks if a function is available in a specific library version and if the
+    library has been opened before (successfully).
+    Futhermore it keeps track of which is the highest version number requested.
+    When closing the library a report is generated, containing the version
+    opened and the version required.
+
+@{b}INPUTS@{ub}
+    version - the min-version the function is available
+    verreq - the version with which the library has been opened
+    libbase - the library base
+    line - the source file linenumber
+    verused - a pointer to a ULONG which helds the maximum version requested
+    func - a pointer to the function name
+    file - the source file name
+
+@{b}RESULT@{ub}
+   res - 0 if it is not available or not callable, 1 otherwise
+
+@{b}EXAMPLE@{ub}
+    if(@{b}DT_CheckVersion@{ub}(OS_VER_1_3,execver,SysBase,__LINE__,&execmaxver,"ObtainSemaphoreList",__FILE__)) ObtainSemaphoreList(...);
+
+@{b}SEE ALSO@{ub}
+
+
+@endnode
+@Node "DT_ConnectGui" "debugtools.library/DT_ConnectGui"
+@{fg shine}debugtools.library/DT_ConnectGui@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}DT_ConnectGui@{ub} -- like gui & library by a shared memory structure 
+@{ub}
+@{b}SYNOPSIS@{ub}
+    @{b}DT_ConnectGui@{ub}(rt)
+                  a0
+    void @{b}DT_ConnectGui@{ub}(struct __dtruntime **);
+
+@{b}FUNCTION@{ub}
+    Connects the shared memory structure to a FrontEnd.
+
+@{b}INPUTS@{ub}
+    rt - pointer to a pointer to the shared memory structure
+
+@{b}NOTES@{ub}
+    The called must follow the rules when accessing the structure.
+
+@{b}TODO@{ub}
+    More semaphore protections when accessing the structure.
+
+@{b}SEE ALSO@{ub}
+@endnode
+@Node "DT_CurFile" "debugtools.library/DT_CurFile"
+@{fg shine}debugtools.library/DT_CurFile@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}DT_CurFile@{ub} -- get current source file name
+@{ub}
+@{b}SYNOPSIS@{ub}
+    res=@{b}DT_CurFile@{ub}()
+
+    STRPTR @{b}DT_CurFile@{ub}(void);
+
+@{b}FUNCTION@{ub}
+    Returns the name of the sourcefile the current code comes from.
+
+@{b}RESULT@{ub}
+    res - pointer to a string containing the name
+
+@{b}SEE ALSO@{ub}
+    @{"DT_CurFunc" Link "DT_CurFunc"}(),@{"DT_CurLine" Link "DT_CurLine"}(),@{"DT_LastFile" Link "DT_LastFile"}(),@{"DT_LastFunc" Link "DT_LastFunc"}(),@{"DT_LastLine" Link "DT_LastLine"}()
+
+@endnode
+@Node "DT_CurFunc" "debugtools.library/DT_CurFunc"
+@{fg shine}debugtools.library/DT_CurFunc@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}DT_CurFunc@{ub} -- get current function name
+@{ub}
+@{b}SYNOPSIS@{ub}
+    res=@{b}DT_CurFunc@{ub}()
+
+    STRPTR @{b}DT_CurFunc@{ub}(void);
+
+@{b}FUNCTION@{ub}
+    Returns the name of the function currently running.
+
+@{b}RESULT@{ub}
+    res - pointer to a string containing the function-name
+
+@{b}SEE ALSO@{ub}
+    @{"DT_CurFile" Link "DT_CurFile"}(),@{"DT_CurLine" Link "DT_CurLine"}(),@{"DT_LastFile" Link "DT_LastFile"}(),@{"DT_LastFunc" Link "DT_LastFunc"}(),@{"DT_LastLine" Link "DT_LastLine"}()
+
+@endnode
+@Node "DT_CurLine" "debugtools.library/DT_CurLine"
+@{fg shine}debugtools.library/DT_CurLine@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}DT_CurLine@{ub} -- get current source file line number
+@{ub}
+@{b}SYNOPSIS@{ub}
+    res=@{b}DT_CurLine@{ub}()
+
+    ULONG @{b}DT_CurLine@{ub}(void);
+
+@{b}FUNCTION@{ub}
+    Returns the line number the current function starts..
+
+@{b}RESULT@{ub}
+    res - line number
+
+@{b}SEE ALSO@{ub}
+    @{"DT_CurFile" Link "DT_CurFile"}(),@{"DT_CurFunc" Link "DT_CurFunc"}(),@{"DT_LastFile" Link "DT_LastFile"}(),@{"DT_LastFunc" Link "DT_LastFunc"}(),@{"DT_LastLine" Link "DT_LastLine"}()
+
+@endnode
+@Node "DT_EnterLevel" "debugtools.library/DT_EnterLevel"
+@{fg shine}debugtools.library/DT_EnterLevel@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}DT_EnterLevel@{ub} -- step down one call-level
+@{ub}
+@{b}SYNOPSIS@{ub}
+    @{b}DT_EnterLevel@{ub}(where)
+                  a0
+    void @{b}DT_EnterLevel@{ub}(STRPTR);
+
+@{b}FUNCTION@{ub}
+    Adds one node to the end of the controlflowlist and does stackchecking
+    as well.
+    Prints a debug message like "<level> <func> beg", where <level> is the
+    depth of function calls and <func> is the function name.
+
+@{b}INPUTS@{ub}
+    where - string containing "<file>\\<func>\\<line>" 
+
+@{b}NOTES@{ub}
+    Is automatically called by the replaced profilersystem.
+
+@{b}SEE ALSO@{ub}
+    @{"DT_LeaveLevel" Link "DT_LeaveLevel"}(),debugtools.lib/@{"_PROLOG" Link "debugtools-lib.html/_PROLOG"}(),debugtools.lib/@{"_EPILOG" Link "debugtools-lib.html/_EPILOG"}()
+
+@endnode
+@Node "DT_ExistsResEntry" "debugtools.library/DT_ExistsResEntry"
+@{fg shine}debugtools.library/DT_ExistsResEntry@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}DT_ExistsResEntry@{ub} -- checks if a resource is tracked
+@{ub}
+@{b}SYNOPSIS@{ub}
+    ret=@{b}DT_ExistsResEntry@{ub}(res,res2,type)
+                          a0  a1   d0
+    UBYTE @{b}DT_ExistsResEntry@{ub}(APTR,APTR,ULONG);
+
+@{b}FUNCTION@{ub}
+    Scans the resource list if a resource exists.
+
+@{b}INPUTS@{ub}
+    res - pointer to resource
+    res2 - a secondary resource pointer
+    type - the resource id
+
+@{b}RESULT@{ub}
+    ret - 1 if found, 0 else
+
+@{b}NOTES@{ub}
+    This is rarely needed.
+
+@{b}SEE ALSO@{ub}
+    AddResEntry(),RemResEntry()
+
+@endnode
+@Node "DT_FailReq" "debugtools.library/DT_FailReq"
+@{fg shine}debugtools.library/DT_FailReq@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}DT_FailReq@{ub} -- opens a ressource alocation fail requester
+@{ub}
+@{b}SYNOPSIS@{ub}
+    res=@{b}DT_FailReq@{ub}(str,file,line)
+                   a0  a1   d0
+    UBYTE @{b}DT_FailReq@{ub}(STRPTR,STRPTR,ULONG);
+
+@{b}FUNCTION@{ub}
+    Opens a request-window containing information about the function call,
+    asking the user, if the ressource allocation should be executed or if a
+    fail should be simmulated.
+
+@{b}INPUTS@{ub}
+    str - the message which is displayed in the request
+    file - the source fiel name
+    line - the source file linenumber
+
+@{b}RESULT@{ub}
+    res - is 0 if allocation should fail, 1 if it should be tried
+
+@endnode
+@Node "DT_GetAttr" "debugtools.library/DT_GetAttr"
+@{fg shine}debugtools.library/DT_GetAttr@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}DT_GetAttr@{ub} -- get one attribute
+@{ub}
+@{b}SYNOPSIS@{ub}
+    res=@{b}DT_GetAttr@{ub}(tag)
+                   d0
+    ULONG @{b}DT_GetAttr@{ub}(ULONG);
+
+@{b}FUNCTION@{ub}
+    Gets one attribute from the dt-system.
+
+@{b}INPUTS@{ub}
+    tag - the tag value; supported are
+      DTA_Report - the report type
+        DTV_Report_Off
+        DTV_Report_Calls
+        DTV_Report_Fails
+      DTA_FailReq - the fail requester status
+        DTV_FailReq_Off
+        DTV_FailReq_On 
+      DTA_AutoBreaks - the kind of AutoBreaks
+        DTV_AutoBreaks_Off      
+        DTV_AutoBreaks_Enter
+        DTV_AutoBreaks_Leave
+        DTV_AutoBreaks_Both     
+
+@{b}RESULT@{ub}
+    res - one of the values shown above
+
+@{b}EXAMPLE@{ub}
+    if(@{b}DT_GetAttr@{ub}(DTA_FailReq)==DTV_FailReq_On) ...
+
+@{b}SEE ALSO@{ub}
+    @{"DT_SetAttrsA" Link "DT_SetAttrsA"}(),@{"DT_GetAttrsA" Link "DT_GetAttrsA"}(),@{"DT_SetAttr" Link "DT_SetAttr"}()
+
+@endnode
+@Node "DT_GetAttrsA" "debugtools.library/DT_GetAttrsA"
+@{fg shine}debugtools.library/DT_GetAttrsA@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}DT_GetAttrsA@{ub} -- gets options
+@{ub}
+@{b}SYNOPSIS@{ub}
+    @{b}DT_GetAttrsA@{ub}(tags)
+                 a0
+    void @{b}DT_GetAttrsA@{ub}(struct TagItem *):
+
+@{b}FUNCTION@{ub}
+    Gets options from dt-system. See @{"DT_GetAttr" Link "DT_GetAttr"}() for tag descriptions.
+
+@{b}INPUTS@{ub}
+    tags - a pointer to a tagitem array
+
+@{b}NOTES@{ub}
+    All ti_Data fields have to be pointers, because the results are stored
+    into them.
+
+@{b}SEE ALSO@{ub}
+    @{"DT_SetAttrsA" Link "DT_SetAttrsA"}(),@{"DT_SetAttr" Link "DT_SetAttr"}(),@{"DT_GetAttr" Link "DT_GetAttr"}()
+
+@endnode
+@Node "DT_IsValidDouble" "debugtools.library/DT_IsValidDouble"
+@{fg shine}debugtools.library/DT_IsValidDouble@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}DT_IsValidDouble@{ub} -- is valid 64-bit IEEEE value
+@{ub}
+@{b}SYNOPSIS@{ub}
+    res=@{b}DT_IsValidDouble@{ub}(x ,funcname,parname,file,line)
+                         a0 a1       a2      a3   d0
+    UBYTE @{b}DT_IsValidDouble@{ub}(double *,STRPTR,STRPTR,STRPTR,ULONG);
+
+@{b}FUNCTION@{ub}
+    Checks if a number is in valid 64-bit IEEEE format and if it is a valid
+    number.
+
+@{b}INPUTS@{ub}
+    x - a pointer to a double-variable to check
+    funcname - the function name in which it is used
+    parname - the parameter/variable name
+    file - the source file name
+    line - the source file linenumber
+
+@{b}RESULT@{ub}
+    res - 0 in case it is no valid number and 1 if it is
+
+@{b}EXAMPLE@{ub}
+    if(@{b}DT_IsValidDouble@{ub}(&x,"sin","1.par",__FILE__,__LINE__)) y=sin(x);
+
+@{b}SEE ALSO@{ub}
+    @{"DT_IsValidFloat" Link "DT_IsValidFloat"}()
+
+@endnode
+@Node "DT_IsValidFloat" "debugtools.library/DT_IsValidFloat"
+@{fg shine}debugtools.library/DT_IsValidFloat@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}DT_IsValidFloat@{ub} -- is valid 32-bit IEEEE value
+@{ub}
+@{b}SYNOPSIS@{ub}
+    res=@{b}DT_IsValidFloat@{ub}(x ,funcname,parname,file,line)
+                        a0 a1       a2      a3   d0
+    UBYTE @{b}DT_IsValidFloat@{ub}(double *,STRPTR,STRPTR,STRPTR,ULONG);
+
+@{b}FUNCTION@{ub}
+    Checks if a number is in valid 32-bit IEEEE format and if it is a valid
+     number.
+
+@{b}INPUTS@{ub}
+    x - a pointer to a float-variable to check
+    funcname - the function name in which it is used
+    parname - the parameter/variable name
+    file - the source file name
+    line - the source file linenumber
+
+@{b}RESULT@{ub}
+    res - 0 in case it is no valid number and 1 if it is
+
+@{b}EXAMPLE@{ub}
+    if(@{b}DT_IsValidFloat@{ub}(&x,"sin","1.par",__FILE__,__LINE__)) y=sin(x);
+
+@{b}SEE ALSO@{ub}
+    @{"DT_IsValidDouble" Link "DT_IsValidDouble"}()
+
+@endnode
+@Node "DT_IsValidPointer" "debugtools.library/DT_IsValidPointer"
+@{fg shine}debugtools.library/DT_IsValidPointer@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}DT_IsValidPointer@{ub} -- is valid pointer (null-ptr is allowed)
+@{ub}
+@{b}SYNOPSIS@{ub}
+    res=@{b}DT_IsValidPointer@{ub}(x ,funcname,parname,file,line,align)
+                          a0 a1       a2      a3   d0   d1
+    UBYTE @{b}DT_IsValidPointer@{ub}(APTR,STRPTR,STRPTR,STRPTR,ULONG,ULONG);
+
+@{b}FUNCTION@{ub}
+    Checks if a pointer is valid. This includes
+      * does it point to an existing memory address
+      * is it initialized to some meaningful address 
+      * isn't it marked as invalid
+      * isn't it the result of an unsaved register
+      * doesn't it point to memory never allocated
+      * doesn't it point to memory already freed
+      * doesn't it point to uninitialized stackspace
+      * doesn't it point to low memory
+
+@{b}INPUTS@{ub}
+    x - a pointer to check
+    funcname - the function name in which it is used
+    parname - the parameter/variable name
+    file - the source file name
+    line - the source file linenumber
+    align - the required memory alignment (currently disabled)
+
+@{b}RESULT@{ub}
+    res - 0 in case it is not valid 1 if it seems to be
+
+@{b}EXAMPLE@{ub}
+    if(@{b}DT_IsValidPointer@{ub}(&x,"free","1.par",__FILE__,__LINE__)) ...
+
+@{b}SEE ALSO@{ub}
+    @{"DT_IsValidPointerN0" Link "DT_IsValidPointerN0"}()
+
+@endnode
+@Node "DT_IsValidPointerN0" "debugtools.library/DT_IsValidPointerN0"
+@{fg shine}debugtools.library/DT_IsValidPointerN0@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}DT_IsValidPointerN0@{ub} -- is valid pointer (null-ptr is not allowed)
+@{ub}
+@{b}SYNOPSIS@{ub}
+    res=@{b}DT_IsValidPointerN0@{ub}(x ,funcname,parname,file,line,align)
+                            a0 a1       a2      a3   d0   d1
+    UBYTE @{b}DT_IsValidPointerN0@{ub}(APTR,STRPTR,STRPTR,STRPTR,ULONG,ULONG);
+
+@{b}FUNCTION@{ub}
+    Checks if a pointer is valid. This includes
+      * does it point to an existing memory address
+      * is it initialized to some meaningful address
+      * isn't it NULL
+      * isn't it marked as invalid
+      * isn't it the result of an unsaved register
+      * doesn't it point to memory never allocated
+      * doesn't it point to memory already freed
+      * doesn't it point to uninitialized stackspace
+      * doesn't it point to low memory
+
+@{b}INPUTS@{ub}
+    x - a pointer to check
+    funcname - the function name in which it is used
+    parname - the parameter/variable name
+    file - the source file name
+    line - the source file linenumber
+    align - the required memory alignment (currently disabled)
+
+@{b}RESULT@{ub}
+    res - 0 in case it is not valid 1 if it seems to be
+
+@{b}EXAMPLE@{ub}
+    if(@{b}DT_IsValidPointerN0@{ub}(&x,"free","1.par",__FILE__,__LINE__)) ...
+
+@{b}SEE ALSO@{ub}
+    @{b}DT_IsValidPointerN0@{ub}()
+
+@endnode
+@Node "DT_IsValidString" "debugtools.library/DT_IsValidString"
+@{fg shine}debugtools.library/DT_IsValidString@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}DT_IsValidString@{ub} -- is a string valid
+@{ub}
+@{b}SYNOPSIS@{ub}
+    res=@{b}DT_IsValidString@{ub}(x ,funcname,parname,file,line,maxlength)
+                         a0 a1       a2      a3   d0   d1
+    UBYTE @{b}DT_IsValidString@{ub}(APTR,STRPTR,STRPTR,STRPTR,ULONG,ULONG)
+
+@{b}FUNCTION@{ub}
+    Checks if a string is valid. This includes
+      * does it contain anything
+      * it it terminated
+      * does it contains control characters
+      * does it contain non 7-bit characters (only warning)
+      * does it contain characters unused on the AMIGA
+
+@{b}INPUTS@{ub}
+    x - a pointer to a string to check
+    funcname - the function name in which it is used
+    parname - the parameter/variable name
+    file - the source file name
+    line - the source file linenumber
+    maxlength - the maximum length to check
+
+@{b}RESULT@{ub}
+    res - 0 in case it is not valid 1 if it seems to be
+
+@{b}EXAMPLE@{ub}
+    if(@{b}DT_IsValidString@{ub}(str,"strcpy","2.par",__FILE__,__LINE__)) ...
+
+@{b}TODO@{ub}
+    A version of this function which gets a string of valid characters, is
+    maybe more useful.
+
+@{b}SEE ALSO@{ub}
+
+
+@endnode
+@Node "DT_LastFile" "debugtools.library/DT_LastFile"
+@{fg shine}debugtools.library/DT_LastFile@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}DT_LastFile@{ub} -- get last source file name
+@{ub}
+@{b}SYNOPSIS@{ub}
+    res=@{b}DT_LastFile@{ub}()
+
+    ULONG @{b}DT_LastFile@{ub}(void);
+
+@{b}FUNCTION@{ub}
+    Returns the name of the sourcefile the current code has been called from.
+
+@{b}RESULT@{ub}
+    res - pointer to a string containing the name
+
+@{b}SEE ALSO@{ub}
+    @{"DT_CurFile" Link "DT_CurFile"}(),@{"DT_CurFunc" Link "DT_CurFunc"}(),@{"DT_CurLine" Link "DT_CurLine"}(),@{"DT_LastFunc" Link "DT_LastFunc"}(),@{"DT_LastLine" Link "DT_LastLine"}()
+
+@endnode
+@Node "DT_LastFunc" "debugtools.library/DT_LastFunc"
+@{fg shine}debugtools.library/DT_LastFunc@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}DT_LastFunc@{ub} -- get last function name
+@{ub}
+@{b}SYNOPSIS@{ub}
+    res=@{b}DT_LastFunc@{ub}()
+
+    STRPTR @{b}DT_LastFunc@{ub}(void);
+
+@{b}FUNCTION@{ub}
+    Returns the name of the function the current one has been called from.
+
+@{b}RESULT@{ub}
+    res - pointer to a string containing the function-name
+
+@{b}SEE ALSO@{ub}
+    @{"DT_CurFile" Link "DT_CurFile"}(),@{"DT_CurFunc" Link "DT_CurFunc"}(),@{"DT_CurLine" Link "DT_CurLine"}(),@{"DT_LastFile" Link "DT_LastFile"}(),@{"DT_LastLine" Link "DT_LastLine"}()
+
+@endnode
+@Node "DT_LastLine" "debugtools.library/DT_LastLine"
+@{fg shine}debugtools.library/DT_LastLine@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}DT_LastLine@{ub} -- get last source file line number
+@{ub}
+@{b}SYNOPSIS@{ub}
+    res=@{b}DT_LastLine@{ub}()
+
+    ULONG @{b}DT_LastLine@{ub}(void);
+
+@{b}FUNCTION@{ub}
+    Returns the line number the previous function in call-history starts.
+
+@{b}RESULT@{ub}
+    res - line number
+
+@{b}SEE ALSO@{ub}
+    @{"DT_CurFile" Link "DT_CurFile"}(),@{"DT_CurFunc" Link "DT_CurFunc"}(),@{"DT_CurLine" Link "DT_CurLine"}(),@{"DT_LastFile" Link "DT_LastFile"}(),@{"DT_LastFunc" Link "DT_LastFunc"}()
+
+@endnode
+@Node "DT_LeaveLevel" "debugtools.library/DT_LeaveLevel"
+@{fg shine}debugtools.library/DT_LeaveLevel@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}DT_LeaveLevel@{ub} -- step up one call-level
+@{ub}
+@{b}SYNOPSIS@{ub}
+    @{b}DT_LeaveLevel@{ub}(where)
+                  a0
+    void @{b}DT_LeaveLevel@{ub}(STRPTR);
+
+@{b}FUNCTION@{ub}
+    Removes one node form the end of the controlflowlist and does stackchecking
+    as well.
+    Prints a debug message like "<level> <func> end", where <level> is the
+    depth of function calls and <func> is the function name.
+
+@{b}INPUTS@{ub}
+    where - string containing "<file>\\<func>\\<line>" 
+
+@{b}NOTES@{ub}
+    Is automatically called by the replaced profilersystem.
+
+@{b}SEE ALSO@{ub}
+    @{"DT_EnterLevel" Link "DT_EnterLevel"}(),debugtools.lib/@{"_PROLOG" Link "debugtools-lib.html/_PROLOG"}(),debugtools.lib/@{"_EPILOG" Link "debugtools-lib.html/_EPILOG"}()
+
+@endnode
+@Node "DT_LoadConfig" "debugtools.library/DT_LoadConfig"
+@{fg shine}debugtools.library/DT_LoadConfig@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}DT_LoadConfig@{ub}
+@{ub}
+@{b}SYNOPSIS@{ub}
+    @{b}DT_LoadConfig@{ub}(fname)
+                  a0
+    @{b}DT_LoadConfig@{ub}(STRPTR);
+
+@{b}FUNCTION@{ub}
+    Loads saved settings.
+
+@{b}INPUTS@{ub}
+    fname - config file name with full path
+
+@{b}EXAMPLE@{ub}
+    @{b}DT_LoadConfig@{ub}("ENV:dt.prefs");
+
+@{b}NOTES@{ub}
+    Not implemented yet.
+
+@{b}SEE ALSO@{ub}
+    @{"DT_SaveConfig" Link "DT_SaveConfig"}()
+
+@endnode
+@Node "DT_Output" "debugtools.library/DT_Output"
+@{fg shine}debugtools.library/DT_Output@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}DT_Output@{ub} -- sends output into selected channels
+@{ub}
+@{b}SYNOPSIS@{ub}
+    @{b}DT_Output@{ub}(str,file,line,mode)
+              a0  a1    d0   d1
+    void @{b}DT_Output@{ub}(STRPTR,STRPTR,ULONG,UBYTE);
+
+@{b}FUNCTION@{ub}
+    Sends the supplied message into the selected debug-channels, after adding
+    fields like file, line, process, date, time and ANSI-sequences.
+
+@{b}INPUTS@{ub}
+    str - the message to print
+    file - the source file name
+    line - the source file linenumber
+    mode - formating modes
+      DTV_OutputMode_Msg - it is just a message
+      DTV_OutputMode_Err - it is an error
+      DTV_OutputMode_Stamped - it will be extended by additional fields
+      DTV_OutputMode_Plain - it will be printed as it is
+
+@{b}EXAMPLE@{ub}
+    @{b}DT_Output@{ub}("\\tResource freed",__FILE__,__LINE__,DTV_OutputMode_Msg|DTV_OutputMode_Plain);
+
+@{b}SEE ALSO@{ub}
+    @{"DT_ResetOutput" Link "DT_ResetOutput"}()
+
+@endnode
+@Node "DT_RemCtrlFlowTask" "debugtools.library/DT_RemCtrlFlowTask"
+@{fg shine}debugtools.library/DT_RemCtrlFlowTask@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}DT_RemCtrlFlowTask@{ub} -- remove process from dt-system
+@{ub}
+@{b}SYNOPSIS@{ub}
+    @{b}DT_RemCtrlFlowTask@{ub}()
+
+    void @{b}DT_RemCtrlFlowTask@{ub}(void);
+
+@{b}FUNCTION@{ub}
+    Removes a process to internal linked list of tasks to watch.
+
+@{b}SEE ALSO@{ub}
+    @{"DT_AddCtrlFlowTask" Link "DT_AddCtrlFlowTask"}()
+
+@endnode
+@Node "DT_RemResEntry" "debugtools.library/DT_RemResEntry"
+@{fg shine}debugtools.library/DT_RemResEntry@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}DT_RemResEntry@{ub} -- removes a resource node
+@{ub}
+@{b}SYNOPSIS@{ub}
+    ret=@{b}DT_RemResEntry@{ub}(res,res2,size,type,file,line)
+                       a0  a1   d0   d1   a2   d2
+    UBYTE @{b}DT_RemResEntry@{ub}(APTR,APTR,ULONG,ULONG,STRPTR,ULONG);
+
+@{b}FUNCTION@{ub}
+    Removes an entry from the resource list.
+
+@{b}INPUTS@{ub}
+    res - the resource pointer
+    res2 - a secondary resource pointer
+    size - the size of the resource in memory
+    type - the resource id
+    file - the source file name
+    line - the source file linenumber
+
+@{b}RESULT@{ub}
+    ret - 1 if resource was found, 0 if not
+
+@{b}EXAMPLE@{ub}
+    if(@{b}DT_RemResEntry@{ub}(mem,0L,byteSize,RES_MEM,file,line)) FreeMem(mem,byteSize);
+
+@{b}SEE ALSO@{ub}
+    AddResEntry(),@{"DT_ExistsResEntry" Link "DT_ExistsResEntry"}()
+
+@endnode
+@Node "DT_ResetOutput" "debugtools.library/DT_ResetOutput"
+@{fg shine}debugtools.library/DT_ResetOutput@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}DT_ResetOutput@{ub} -- resets (clears) output channels
+@{ub}
+@{b}SYNOPSIS@{ub}
+    @{b}DT_ResetOutput@{ub}()
+
+    void @{b}DT_ResetOutput@{ub}(void);
+
+@{b}FUNCTION@{ub}
+    Clears all active (selected) channels
+
+@{b}SEE ALSO@{ub}
+    @{"DT_Output" Link "DT_Output"}()
+
+@endnode
+@Node "DT_SaveConfig" "debugtools.library/DT_SaveConfig"
+@{fg shine}debugtools.library/DT_SaveConfig@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}DT_SaveConfig@{ub}
+@{ub}
+@{b}SYNOPSIS@{ub}
+    @{b}DT_SaveConfig@{ub}(fname)
+                  a0
+    @{b}DT_SaveConfig@{ub}(STRPTR);
+
+@{b}FUNCTION@{ub}
+    Saves settings.
+
+@{b}INPUTS@{ub}
+    fname - config file name with full path
+
+@{b}EXAMPLE@{ub}
+    @{b}DT_SaveConfig@{ub}("ENV:dt.prefs");
+
+@{b}NOTES@{ub}
+    Not implemented yet.
+
+@{b}SEE ALSO@{ub}
+    @{"DT_LoadConfig" Link "DT_LoadConfig"}()
+
+@endnode
+@Node "DT_SendRexxCmd" "debugtools.library/DT_SendRexxCmd"
+@{fg shine}debugtools.library/DT_SendRexxCmd@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}DT_SendRexxCmd@{ub} -- sends a rexx command to a port
+@{ub}
+@{b}SYNOPSIS@{ub}
+    @{b}DT_SendRexxCmd@{ub}(port,cmd)
+                   a0   a1
+    void @{b}DT_SendRexxCmd@{ub}(REG(STRPTR,STRPTR);
+
+@{b}FUNCTION@{ub}
+    Sends the supplied comand out to the port and waits until executions is finished..
+
+@{b}INPUTS@{ub}
+    port - the port to contact
+    cmd  - the command to send
+
+@{b}EXAMPLE@{ub}
+    @{b}DT_SendRexxCmd@{ub}("PPAINT","Draw Line 10 10 20 20");
+
+@{b}SEE ALSO@{ub}
+
+
+@endnode
+@Node "DT_SetAttr" "debugtools.library/DT_SetAttr"
+@{fg shine}debugtools.library/DT_SetAttr@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}DT_SetAttr@{ub} -- set one attribute
+@{ub}
+@{b}SYNOPSIS@{ub}
+    @{b}DT_SetAttr@{ub}(tag,data)
+               d0  d1
+    void @{b}DT_SetAttr@{ub}(ULONG,ULONG);
+
+@{b}FUNCTION@{ub}
+    Sets one attribute for the dt-system.
+
+@{b}INPUTS@{ub}
+    tag - the tag value; supported are
+      DTA_Report - the report type
+        DTV_Report_Off
+        DTV_Report_Calls
+        DTV_Report_Fails
+      DTA_FailReq - the fail requester status
+        DTV_FailReq_Off
+        DTV_FailReq_On 
+      DTA_AutoBreaks - the kind of AutoBreaks
+        DTV_AutoBreaks_Off      
+        DTV_AutoBreaks_Enter
+        DTV_AutoBreaks_Leave
+        DTV_AutoBreaks_Both     
+    data - the data item (like shown above)
+
+@{b}EXAMPLE@{ub}
+    @{b}DT_SetAttr@{ub}(DTA_Report,DTV_Report_Calls);
+
+@{b}SEE ALSO@{ub}
+    @{"DT_SetAttrsA" Link "DT_SetAttrsA"}(),@{"DT_GetAttrsA" Link "DT_GetAttrsA"}(),@{"DT_GetAttr" Link "DT_GetAttr"}()
+
+@endnode
+@Node "DT_SetAttrsA" "debugtools.library/DT_SetAttrsA"
+@{fg shine}debugtools.library/DT_SetAttrsA@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}DT_SetAttrsA@{ub} -- sets options
+@{ub}
+@{b}SYNOPSIS@{ub}
+    @{b}DT_SetAttrsA@{ub}(tags)
+                 a0
+    void @{b}DT_SetAttrsA@{ub}(struct TagItem *);
+
+@{b}FUNCTION@{ub}
+    Sets options for dt-system. See @{"DT_SetAttr" Link "DT_SetAttr"}() for tag descriptions.
+
+@{b}INPUTS@{ub}
+    tags - a pointer to a tagitem array
+
+@{b}SEE ALSO@{ub}
+    @{"DT_GetAttrsA" Link "DT_GetAttrsA"}(),@{"DT_SetAttr" Link "DT_SetAttr"}(),@{"DT_GetAttr" Link "DT_GetAttr"}()
+
+@endnode
+@Node "DT_StackCheck" "debugtools.library/DT_StackCheck"
+@{fg shine}debugtools.library/DT_StackCheck@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}DT_StackCheck@{ub} -- tests stack bounds & invalidates unused stackspace
+@{ub}
+@{b}SYNOPSIS@{ub}
+    @{b}DT_StackCheck@{ub}(sublist,file,line)
+                  a0      a1   d0
+    void @{b}DT_StackCheck@{ub}(struct __dtCtrlFlowList *,STRPTR,ULONG);
+
+@{b}FUNCTION@{ub}
+    Tests stackbounds to signal stack overflows and invalidates unused stack-
+    space to find error cause by uninitialized variables.
+
+@{b}INPUTS@{ub}
+    sublist - the controlflownode of the task or NULL
+    file - the source file name
+    line - the source file linenumber
+
+@endnode
+@Node "FreeResource_dos_library" "debugtools.library/FreeResource_dos_library"
+@{fg shine}debugtools.library/FreeResource_dos_library@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}FreeResource_dos_library@{ub} -- frees dos resources
+@{ub}
+@{b}SYNOPSIS@{ub}
+    res=@{b}FreeResource_dos_library@{ub}(resnode)
+
+    UBYTE @{b}FreeResource_dos_library@{ub}(struct __dtResEntry *);
+
+@{b}FUNCTION@{ub}
+    Frees an dos resource.
+
+@{b}INPUTS@{ub}
+    resnode - pointer to a resource node
+
+@{b}RESULT@{ub}
+    res - 0 if unknown resource id, else 1
+
+@{b}SEE ALSO@{ub}
+    @{"DT_RemResEntry" Link "DT_RemResEntry"}(),DoneResTrack()
+
+@endnode
+@Node "FreeResource_exec_library" "debugtools.library/FreeResource_exec_library"
+@{fg shine}debugtools.library/FreeResource_exec_library@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}FreeResource_exec_library@{ub} -- frees exec resources
+@{ub}
+@{b}SYNOPSIS@{ub}
+    res=@{b}FreeResource_exec_library@{ub}(resnode)
+
+    UBYTE @{b}FreeResource_exec_library@{ub}(struct __dtResEntry *);
+
+@{b}FUNCTION@{ub}
+    Frees an exec resource.
+
+@{b}INPUTS@{ub}
+    resnode - pointer to a resource node
+
+@{b}RESULT@{ub}
+    res - 0 if unknown resource id, else 1
+
+@{b}SEE ALSO@{ub}
+    @{"DT_RemResEntry" Link "DT_RemResEntry"}(),DoneResTrack()
+
+@endnode
+@Node "FreeResource_stdc_library" "debugtools.library/FreeResource_stdc_library"
+@{fg shine}debugtools.library/FreeResource_stdc_library@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}FreeResource_stdc_library@{ub} -- frees standard c resources
+@{ub}
+@{b}SYNOPSIS@{ub}
+    res=@{b}FreeResource_stdc_library@{ub}(resnode)
+
+    UBYTE @{b}FreeResource_stdc_library@{ub}(struct __dtResEntry *);
+
+@{b}FUNCTION@{ub}
+    Frees an standard c resource.
+
+@{b}INPUTS@{ub}
+    resnode - pointer to a resource node
+
+@{b}RESULT@{ub}
+    res - 0 if unknown resource id, else 1
+
+@{b}SEE ALSO@{ub}
+    @{"DT_RemResEntry" Link "DT_RemResEntry"}(),DoneResTrack()
+
+@endnode
+@Node "__UserLibCleanup" "debugtools.library/__UserLibCleanup"
+@{fg shine}debugtools.library/__UserLibCleanup@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}__UserLibCleanup@{ub} -- library destructor
+@{ub}
+@{b}SYNOPSIS@{ub}
+    @{b}__UserLibCleanup@{ub}(DebugToolsBase)
+                     a6
+    void @{b}__UserLibCleanup@{ub}(struct Library *);
+
+@{b}FUNCTION@{ub}
+    Cleans up after library use.
+
+@{b}INPUTS@{ub}
+    DebugToolsBase - our own library base
+
+@{b}NOTES@{ub}
+    This funtions is called by the library startup-code
+
+@{b}SEE ALSO@{ub}
+    @{"__UserLibInit" Link "__UserLibInit"}()
+
+@endnode
+@Node "__UserLibInit" "debugtools.library/__UserLibInit"
+@{fg shine}debugtools.library/__UserLibInit@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}__UserLibInit@{ub} -- library constructor
+@{ub}
+@{b}SYNOPSIS@{ub}
+    res=@{b}__UserLibInit@{ub}(DebugToolsBase)
+                      a6
+    int @{b}__UserLibInit@{ub}(struct Library);
+
+@{b}FUNCTION@{ub}
+    Initialises the library use.
+
+@{b}INPUTS@{ub}
+    DebugToolsBase - our own library base
+
+@{b}RESULT@{ub}
+    res - 0 if everything went right, 1 for some failure
+
+@{b}NOTES@{ub}
+    This funtions is called by the library startup-code
+
+@{b}SEE ALSO@{ub}
+    @{"__UserLibCleanup" Link "__UserLibCleanup"}()
+
+@endnode
+@Node "lib-assert.c" "debugtools.library/lib-assert.c"
+@{fg shine}debugtools.library/lib-assert.c@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}lib-assert.c@{ub}
+@{ub}
+@{b}COPYRIGHT@{ub}
+    $VER: @{b}lib-assert.c@{ub} 1.20 (02.08.98) © by Stefan Kost 1998-1998
+
+@{b}FUNCTION@{ub}
+    assertion and datatype verification routines
+
+@{b}AUTHOR@{ub}
+@{i}    Stefan Kost
+@{ui}
+@{b}CREATION DATE@{ub}
+    05.Mär.1998
+
+@{b}MODIFICATION HISTORY@{ub}
+    02.Aug.1998 V 1.20  first release
+    12.Apr.1998 V 1.00  added version checking
+    27.Mär.1998 V 0.30  added string verification
+    05.Mär.1998 V 0.20  initial version
+
+@{b}NOTES@{ub}
+
+
+@endnode
+@Node "lib-breakpoint.c" "debugtools.library/lib-breakpoint.c"
+@{fg shine}debugtools.library/lib-breakpoint.c@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}lib-breakpoint.c@{ub}
+@{ub}
+@{b}COPYRIGHT@{ub}
+    $VER: @{b}lib-breakpoint.c@{ub} 1.20 (02.08.98) © by Stefan Kost 1998-1998
+
+@{b}FUNCTION@{ub}
+    breakpoint requesters
+
+@{b}AUTHOR@{ub}
+@{i}    Stefan Kost
+@{ui}
+@{b}CREATION DATE@{ub}
+    12.Mai.1998
+
+@{b}MODIFICATION HISTORY@{ub}
+    02.Aug.1998 V 1.20  first release
+    02.Apr.1998 V 0.70  initial version
+
+@{b}NOTES@{ub}
+
+
+@endnode
+@Node "lib-configio.c" "debugtools.library/lib-configio.c"
+@{fg shine}debugtools.library/lib-configio.c@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}lib-configio.c@{ub}
+@{ub}
+@{b}COPYRIGHT@{ub}
+    $VER: @{b}lib-configio.c@{ub} 1.20 (02.08.98) © by Stefan Kost 1998-1998
+
+@{b}FUNCTION@{ub}
+    configuration load & save routines
+
+@{b}AUTHOR@{ub}
+@{i}    Stefan Kost
+@{ui}
+@{b}CREATION DATE@{ub}
+    29.Mai.1998
+
+@{b}MODIFICATION HISTORY@{ub}
+    02.Aug.1998 V 1.20  first release
+    29.Mai.1998 V 1.00  initial version
+
+@{b}NOTES@{ub}
+
+
+@endnode
+@Node "lib-ctrlflow.c" "debugtools.library/lib-ctrlflow.c"
+@{fg shine}debugtools.library/lib-ctrlflow.c@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}lib-ctrlflow.c@{ub}
+@{ub}
+@{b}COPYRIGHT@{ub}
+    $VER: @{b}lib-ctrlflow.c@{ub} 1.20 (02.08.98) © by Stefan Kost 1998-1998
+
+@{b}FUNCTION@{ub}
+    controlflow tracking routines
+
+@{b}AUTHOR@{ub}
+@{i}    Stefan Kost
+@{ui}
+@{b}CREATION DATE@{ub}
+    20.Mar.1998
+
+@{b}MODIFICATION HISTORY@{ub}
+    02.Aug.1998 V 1.20  first release
+    20.Mar.1998 V 0.20  initial version
+
+@{b}NOTES@{ub}
+
+
+@endnode
+@Node "lib-dtgui.c" "debugtools.library/lib-dtgui.c"
+@{fg shine}debugtools.library/lib-dtgui.c@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}lib-dtgui.c@{ub}
+@{ub}
+@{b}COPYRIGHT@{ub}
+    $VER: @{b}lib-dtgui.c@{ub} 1.20 (02.08.98) © by Stefan Kost 1998-1998
+
+@{b}FUNCTION@{ub}
+    routines used by dt-gui
+
+@{b}AUTHOR@{ub}
+@{i}    Stefan Kost
+@{ui}
+@{b}CREATION DATE@{ub}
+    08.Apr.1998
+
+@{b}MODIFICATION HISTORY@{ub}
+    02.Aug.1998 V 1.20  first release
+    08.Apr.1998 V 0.80  initial version
+
+@{b}NOTES@{ub}
+
+
+@endnode
+@Node "lib-failreq.c" "debugtools.library/lib-failreq.c"
+@{fg shine}debugtools.library/lib-failreq.c@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}lib-failreq.c@{ub}
+@{ub}
+@{b}COPYRIGHT@{ub}
+    $VER: @{b}lib-failreq.c@{ub} 1.20 (02.08.98) © by Stefan Kost 1998-1998
+
+@{b}FUNCTION@{ub}
+    requester for simulating ressource fails
+
+@{b}AUTHOR@{ub}
+@{i}    Stefan Kost
+@{ui}
+@{b}CREATION DATE@{ub}
+    21.Jul.1998
+
+@{b}MODIFICATION HISTORY@{ub}
+    02.Aug.1998 V 1.20  first release
+    03.Mai.1998 V 1.00  initial version
+
+@{b}NOTES@{ub}
+
+
+@endnode
+@Node "lib-main.c" "debugtools.library/lib-main.c"
+@{fg shine}debugtools.library/lib-main.c@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}lib-main.c@{ub}
+@{ub}
+@{b}COPYRIGHT@{ub}
+    $VER: @{b}lib-main.c@{ub} 1.20 (02.08.98) © by Stefan Kost 1998-1998
+
+@{b}FUNCTION@{ub}
+    library basis routines
+
+@{b}AUTHOR@{ub}
+@{i}    Stefan Kost
+@{ui}
+@{b}CREATION DATE@{ub}
+    26.Feb.1998
+
+@{b}MODIFICATION HISTORY@{ub}
+    02.Aug.1998 V 1.20  first release
+    26.Feb.1998 V 0.10  initial version
+
+@{b}NOTES@{ub}
+
+
+@endnode
+@Node "lib-memcheck.c" "debugtools.library/lib-memcheck.c"
+@{fg shine}debugtools.library/lib-memcheck.c@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}lib-memcheck.c@{ub}
+@{ub}
+@{b}COPYRIGHT@{ub}
+    $VER: @{b}lib-memcheck.c@{ub} 1.20 (02.08.98) © by Stefan Kost 1998-1998
+
+@{b}FUNCTION@{ub}
+    memory protection routines
+
+@{b}AUTHOR@{ub}
+@{i}    Stefan Kost
+@{ui}
+@{b}CREATION DATE@{ub}
+    28.Mar.1998
+
+@{b}MODIFICATION HISTORY@{ub}
+    02.Aug.1998 V 1.20  first release
+    28.Mar.1998 V 0.40  initial version
+
+@{b}NOTES@{ub}
+
+
+@endnode
+@Node "lib-output.c" "debugtools.library/lib-output.c"
+@{fg shine}debugtools.library/lib-output.c@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}lib-output.c@{ub}
+@{ub}
+@{b}COPYRIGHT@{ub}
+    $VER: @{b}lib-output.c@{ub} 1.20 (24.02.99) © by Stefan Kost 1998-1999
+
+@{b}FUNCTION@{ub}
+    debug output routines
+
+@{b}AUTHOR@{ub}
+@{i}    Stefan Kost
+@{ui}
+@{b}CREATION DATE@{ub}
+    08.Mar.1998
+
+@{b}MODIFICATION HISTORY@{ub}
+    24.Feb.1999 V 1.20  first release
+    08.Mar.1998 V 0.20  initial version
+
+@{b}NOTES@{ub}
+
+
+@endnode
+@Node "lib-restrack.c" "debugtools.library/lib-restrack.c"
+@{fg shine}debugtools.library/lib-restrack.c@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}lib-restrack.c@{ub}
+@{ub}
+@{b}COPYRIGHT@{ub}
+    $VER: @{b}lib-restrack.c@{ub} 1.20 (02.08.98) © by Stefan Kost 1998-1998
+
+@{b}FUNCTION@{ub}
+    resource tracking routines
+
+@{b}AUTHOR@{ub}
+@{i}    Stefan Kost
+@{ui}
+@{b}CREATION DATE@{ub}
+    12.Mar.1998
+
+@{b}MODIFICATION HISTORY@{ub}
+    02.Aug.1998 V 1.20  first release
+    12.Mar.1998 V 0.20  initial version
+
+@{b}NOTES@{ub}
+
+
+@endnode
+@Node "lib-stack.c" "debugtools.library/lib-stack.c"
+@{fg shine}debugtools.library/lib-stack.c@{fg text}
+
+@{b}NAME@{ub}
+@{b}    @{b}lib-stack.c@{ub}
+@{ub}
+@{b}COPYRIGHT@{ub}
+    $VER: @{b}lib-stack.c@{ub} 1.20 (02.08.98) © by Stefan Kost 1998-1998
+
+@{b}FUNCTION@{ub}
+    stack-checking routines
+
+@{b}AUTHOR@{ub}
+@{i}    Stefan Kost
+@{ui}
+@{b}CREATION DATE@{ub}
+    15.Apr.1998
+
+@{b}MODIFICATION HISTORY@{ub}
+    02.Aug.1998 V 1.20  first release
+    15.Apr.1998 V 1.00  initial version
+
+@{b}NOTES@{ub}
+
+
+@endnode
+

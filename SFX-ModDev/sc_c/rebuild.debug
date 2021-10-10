@@ -1,0 +1,14 @@
+.key PREFIX/A,DIR/A,NAME/A
+.bra {
+.ket }
+
+; $VER: Rebuild.Up1 1.0 (08.02.98)
+
+cd {DIR}{NAME}
+build.debug
+if not exists {NAME}.o
+	echo >>t:report_{PREFIX} "compilation of {NAME} failed*N"
+else
+	updlib
+endif
+cd /

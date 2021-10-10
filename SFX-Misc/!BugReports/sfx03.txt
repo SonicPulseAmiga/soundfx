@@ -1,0 +1,60 @@
+From - Tue Aug 18 13:22:54 1998
+Received: from arbi.Informatik.Uni-Oldenburg.DE (arbi.Informatik.Uni-Oldenburg.DE [134.106.1.7])
+	by imn.htwk-leipzig.de (8.9.1/8.9.1) with SMTP id JAA04110
+	for <kost@imn.htwk-leipzig.de>; Fri, 14 Aug 1998 09:19:08 +0200 (MET DST)
+Received: by arbi.Informatik.Uni-Oldenburg.DE (Smail3.1.29.1)
+	id <m0z7EAO-0005bKC>; Fri, 14 Aug 98 09:20 CES
+Received: by diamant.Informatik.Uni-Oldenburg.DE (Smail3.1.29.1)
+	id <m0z7EAL-000V16C>; Fri, 14 Aug 98 09:20 MET DST
+Received: by bruessel.Informatik.Uni-Oldenburg.DE (Smail3.1.29.1)
+	id <m0z7EAL-0002YJC>; Fri, 14 Aug 98 09:20 MET DST
+Date: Fri, 14 Aug 1998 09:20:49 +0200 (MET DST)
+X-Aliased: From 
+    =?ISO-8859-1?Q?Winfried_Kr=FCger?= <winnie@bruessel.Informatik.Uni-Oldenburg.DE>
+From: "Winfried Krueger" <Winfried.Krueger@informatik.uni-oldenburg.de>
+To: Stefan Kost <kost@imn.htwk-leipzig.de>
+Subject: Re: SoundFX V3.70
+In-Reply-To: <35D2B2DB.D1435D5B@imn.htwk-leipzig.de>
+Message-ID: <Pine.ULT.3.96.980814082640.16399A-100000@bruessel.Informatik.Uni-Oldenburg.DE>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-MIME-Autoconverted: from QUOTED-PRINTABLE to 8bit by imn.htwk-leipzig.de id JAA04110
+Content-Type: TEXT/PLAIN; charset=ISO-8859-1
+Content-Length: 1031
+Status:   
+X-Mozilla-Status: 8011
+
+On Thu, 13 Aug 1998, Stefan Kost wrote:
+
+> > 3. Die Umschaltung der Sampledarstellung von Linien auf irgendwas anderes
+> > zeigt keine Wirkung.
+> >
+
+Das habe ich gestern nochmal geprüft, die Umschaltung der Darstellungsart
+zeigt tatsächlich keine Wirkung, weder bei den bereits geladenen/erzeugten
+Samples, noch bei solchen, die hinterher geladen werden.
+
+> 
+> Weist du, Doku zu schreiben und das dann auch noch in zwei sprachen ist das
+> nervigste an der ganzen sache. Ich wer
+> 
+Hier hat Dein Editor wohl etwas verschluckt?
+
+> > >
+> > >
+> 
+> Leider kann ich da zur Zeit nicht gross helfen.Falls du irgendwelche Informationen
+> uebers DeCrackeln im Internet findest oder hast, dann sende sie mir bitte. Das ist
+> die groesste Hilfe ueberhaupt.
+
+Ich habe gestern schonmal etwas recherchiert, es scheint allerdings nicht
+einfach, etwas zu finden. Ich bleibe aber am Ball...
+> 
+> 
+Gruß,
+Winfried
+
+---
+Mail: Winfried.Krueger@Informatik.Uni-Oldenburg.DE
+Real: Winfried Krüger, FB4/VWLII u. Statistik, Uni Oldenburg, D-26111 Oldenburg
+

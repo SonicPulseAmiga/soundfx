@@ -1,0 +1,108 @@
+X-UIDL: 3fbd36310001395e
+X-Mozilla-Status: 0001
+X-Mozilla-Status2: 00000000
+Received: from n6.grp.scd.yahoo.com (n6.grp.scd.yahoo.com [66.218.66.90])
+	by imn.htwk-leipzig.de (8.12.9/8.12.9) with SMTP id i2HEJk5S005152
+	for <kost@imn.htwk-leipzig.de>; Wed, 17 Mar 2004 15:19:47 +0100 (MET)
+X-eGroups-Return: sentto-3879093-1461-1079533265-kost=imn.htwk-leipzig.de@returns.groups.yahoo.com
+Received: from [66.218.66.94] by n6.grp.scd.yahoo.com with NNFMP; 17 Mar 2004 14:21:06 -0000
+X-Sender: cieffeeditingvideo@tiscalinet.it
+X-Apparently-To: soundfx-users@yahoogroups.com
+Received: (qmail 72688 invoked from network); 17 Mar 2004 14:21:02 -0000
+Received: from unknown (66.218.66.167)
+  by m1.grp.scd.yahoo.com with QMQP; 17 Mar 2004 14:21:02 -0000
+Received: from unknown (HELO vsmtp3.tin.it) (212.216.176.143)
+  by mta6.grp.scd.yahoo.com with SMTP; 17 Mar 2004 14:21:01 -0000
+Received: from tin.it (80.183.22.158) by vsmtp3.tin.it (7.0.019)
+        id 402CD18F00638056 for soundfx-users@yahoogroups.com; Wed, 17 Mar 2004 15:21:00 +0100
+To: SFX user <soundfx-users@yahoogroups.com>
+Message-ID: <yam9572.2720.127384800@mail.tin.it>
+X-Mailer: YAM 2.4 [040] AmigaOS E-mail Client (c) 2000-2003 by YAM Open Source Team - http://www.yam.ch/
+X-eGroups-Remote-IP: 212.216.176.143
+From: Franco Coccini <cieffeeditingvideo@tiscalinet.it>
+X-Yahoo-Profile: cieffeeditingvideo
+MIME-Version: 1.0
+Mailing-List: list soundfx-users@yahoogroups.com; contact soundfx-users-owner@yahoogroups.com
+Delivered-To: mailing list soundfx-users@yahoogroups.com
+Precedence: bulk
+List-Unsubscribe: <mailto:soundfx-users-unsubscribe@yahoogroups.com>
+Date: Wed, 17 Mar 2004 15:20:54 +0100
+Subject: [soundfx-users] Enforcers Hits
+Reply-To: soundfx-users@yahoogroups.com
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 2188
+Status:  O
+
+Hi Stefan,
+
+i have some problems here with the lastbeta.
+
+at the startup:
+
+Enforcer Hit!  Bad Program!
+
+17-Mar-04  14:39:58
+WORD-READ from 083A3CF0                        PC: 00FB95C2
+USP:  0799804C SR: 0000 SW: 0541  (U0)(-)(-)  TCB: 07985060
+Data: 00000000 083A3CF0 00000800 00024000 00640064 00000003 00480048 01ED3B17
+Addr: 07B4EC9A 083A3CF0 07B4EC9A 00000000 0723E0C4 07B4EC64 07003A5C --------
+----> 07B4EC9A - "FONTS:ButtonGlyphMedium/12"  Hunk 0000 Offset 0000003A
+----> 07B4EC9A - "FONTS:ButtonGlyphMedium/12"  Hunk 0000 Offset 0000003A
+----> 07B4EC64 - "FONTS:ButtonGlyphMedium/12"  Hunk 0000 Offset 00000004
+Stck: 0727C1B8 07B2B6C1 00000000 0797FAAD 0723E0C4 0723E0C4 0727C258 000C0000
+Stck: 07998480 07B2B8BC 07B2B6AC 0723E0C4 07B2B6AC 0723E0C4 464F4E54 533A4275
+----> 0727C1B8 - "LIBS:diskfont.library"  Hunk 0000 Offset 00001650
+----> 0797FAAD - "SoundFX"  Hunk 0002 Offset 00005C75
+----> 0727C258 - "LIBS:diskfont.library"  Hunk 0000 Offset 000016F0
+PC-8: 001A4441 33410006 D2405341 3341000A 4CDF1C3C 4E752009 2228000E 673A2241
+PC *: 0C514E1B 6632B1E9 0004662C 70014E75 00000000 00FB95E2 00FB95EE 00000000
+Name: "SoundFX"  
+ 
+
+Then with the RepulseGold card, the recorded sample has only 1 channel (the left) and it
+is played like should be at half freq rate.
+
+Tomorrow, i'll try other tests.
+
+Ciao
+
+PS- all works perfectly, with SFX 4.3.38 (68040)
+
+<tsb>
+
+                                                             BITPLANE 
+                                              The new italian Amiga magazine
+                                                      http://www.bitplane.it
+
+<tsb>
+
+Coccini Franco
+
+mailto: cieffeeditingvideo@tiscalinet.it
+web: http://space.virgilio.it/cieffeeditingvideo@tin.it
+          
+A4000/040- 30mhz- 24 fast + 2 chip
+OS 3.9-TbcPlus- Genlock Electrocraft
+Genesis+AmiTCP 4.3-CV64-Picasso96
+Repulse Gold - XSurf 2 - Alice ADSL
+
+<tsb>
+
+
+
+
+ 
+Yahoo! Groups Links
+
+<*> To visit your group on the web, go to:
+     http://groups.yahoo.com/group/soundfx-users/
+
+<*> To unsubscribe from this group, send an email to:
+     soundfx-users-unsubscribe@yahoogroups.com
+
+<*> Your use of Yahoo! Groups is subject to:
+     http://docs.yahoo.com/info/terms/
+ 
+
+

@@ -1,0 +1,173 @@
+<html>
+	<head><title>SoundFX : 2.2.1 RAW_L</title></head>
+	<body bgcolor="#EEEEEE" leftmargin="5" rightmargin="5" topmargin="5" text="#000000" link="#2040FF" vlink="#0020E0" alink="#FFFFFF">
+	<a name="#000"></a>
+	<table border="0" width="100%" cellpadding="3" cellspacing="1" bgcolor="#000000"><tr bgcolor="#FFFFFF"><td>
+		<table border="0" width="100%" cellpadding="0" cellspacing="0"><tr>
+			<td align="left"><font size="-1">
+		[<a href="../node__.__.__.html">SoundFX</a>]
+			[<a href="../node02.__.__.html">Modules</a>]
+				[<a href="../node02.02.__.html">Loader</a>]
+			</font></td>
+			<td align="right" valign="center">
+				<a href="../node02.02.01/Maestro_L.html">
+				<img src="../../_img/a_le.gif" width="13" height="13" border="0" alt="[prev]"></a>
+				<img src="../../_img/space.gif" width="2">
+				<a href="../node02.02.01/RIFF-WAV_L.html">
+				<img src="../../_img/a_ri.gif" width="13" height="13" border="0" alt="[next]"></a>
+			</td>
+		</tr></table>
+	</td></tr></table>
+	<br>
+		<!-- Contents -->
+	<a name="#001"></a>
+<table border="0" width="100%" cellpadding="3" cellspacing="1" bgcolor="#000000">
+	<tr bgcolor="#DDDDDD"><td>
+		<table border="0" width="100%" cellpadding="0" cellspacing="0"><tr>
+			<td align="left">
+				<b>RAW_L</b>
+			</td>
+			<td align="right">
+				<a href="#000">
+				<img src="../../_img/a_up.gif" width="13" height="13" border="0" alt="[up]"></a>
+				<img src="../../_img/space.gif" width="2">
+				<a href="#002">
+				<img src="../../_img/a_do.gif" width="13" height="13" border="0" alt="[down]"></a>
+			</td>
+		</tr></table>
+	</td></tr>
+	<tr bgcolor="#FFFFFF"><td>
+		<table border="0" width="100%" cellpadding="5" cellspacing="0"><tr><td>
+Loads RAW Samples.
+<table border="0" cellspacing="1" cellpadding="2" width="100%>
+<tr bgcolor="#BBBBBB"><td>Loops      </td><td>no</td></tr>
+<tr bgcolor="#AAAAAA"><td>Channels   </td><td>yes (mono/stereo/quadro)</td></tr>
+<tr bgcolor="#BBBBBB"><td>Compression</td><td>yes (PCM-8,PCM-16,PCM-24,PCM-32,A-LAW,µ-LAW)</td></tr>
+</table>
+A RAW sample realy isn't a . It's 'raw' sound data. This is an advantage
+in one way as it's easy to handle. The downside is that no other information
+but the sample itself is saved (no loop points,bit resolution...).
+<b>SoundFX</b> at least trys to scans the sample for sign-type, bit-resolution and
+endian-type (16 bit).<br>
+As a new feature since version 3.70, you can program the RAW-loader by yourself.
+If you work often with e.g. data from audio-cd's, then name those files "<name>.cdda".
+To program the loader, you set all parameters in the left half of the RAW-loader :
+<table border="0">
+<tr><td>Type</td><td>=PCM16</td></tr>
+<tr><td>Endian</td><td>=no</td></tr>
+<tr><td>Sign</td><td>=signed</td></tr>
+<tr><td>Channel</td><td>=mono/stereo interleaved</td></tr>
+<tr><td>SRate</td><td>=44100</td></tr>
+<tr><td>Offs</td><td>=0</td></tr>
+</table>
+Save this as "cdda.cfg". No click on Add (on the right half) to create a new
+type (the CheckFileTypes has to be selected on for this). Enter ".cdda" into
+the field which contains "extension/header". Now click on that popup-symbol
+and select the "cdda.cfg". Everytime a files end on ".cdda" the settings from
+"cdda.cfg" are used now.
+If you want to check the file contents and not the ending, use a "#" instead
+of a "." as the first char (e.g. "#ALAW").
+		</td></tr></table>
+	</td></tr>
+</table>
+<br>
+	<a name="#002"></a>
+<table border="0" width="100%" cellpadding="3" cellspacing="1" bgcolor="#000000">
+	<tr bgcolor="#DDDDDD"><td>
+		<table border="0" width="100%" cellpadding="0" cellspacing="0"><tr>
+			<td align="left">
+				<b>Parameter</b>
+			</td>
+			<td align="right">
+				<a href="#001">
+				<img src="../../_img/a_up.gif" width="13" height="13" border="0" alt="[up]"></a>
+				<img src="../../_img/space.gif" width="2">
+				<a href="#003">
+				<img src="../../_img/a_do.gif" width="13" height="13" border="0" alt="[down]"></a>
+			</td>
+		</tr></table>
+	</td></tr>
+	<tr bgcolor="#FFFFFF"><td>
+		<table border="0" width="100%" cellpadding="5" cellspacing="0"><tr><td>
+<table border="0" cellspacing="1" cellpadding="2" width="100%"><tr bgcolor="#BBBBBB"><td align="right" valign="top"><nobr>Type</nobr></td><td align="left">type of compression
+<ul>
+<li>PCM8 : not compressed 8bit</li>
+<li>PCM16 : not compressed 16bit</li>
+<li>PCM24 : not compressed 24bit</li>
+<li>PCM32 : not compressed 32bit</li>
+<li>µ-Law : µ-Law (14:8) compressed 14bit</li>
+<li>µ-Law Inv : µ-Law (14:8) compressed 14bit, with inverted bits (ISDN-Master)</li>
+<li>A-Law : A-Law (14:8) compressed 14bit</li>
+<li>A-Law Inv : A-Law (14:8) compressed 14bit, with inverted bits (ISDN-Master)</li>
+</td></tr>
+<tr bgcolor="#AAAAAA"><td align="right" valign="top"><nobr>Endian</nobr></td><td align="left"></ul>
+should SFX convert endians. Intel-proecessor based systems store 16 bit data inverted, this oprions fixes that.
+</td></tr>
+<tr bgcolor="#BBBBBB"><td align="right" valign="top"><nobr>Sign</nobr></td><td align="left">load the Sample as a signed or unsigned sample.
+<ul>
+<li>signed : Amiga, Sgi</li>
+<li>unsigned : Mac, Atari, PC</li>
+</td></tr>
+<tr bgcolor="#AAAAAA"><td align="right" valign="top"><nobr>Channel</nobr></td><td align="left"></ul>
+with how many channels is the sample stored and in which way.
+</td></tr>
+<tr bgcolor="#BBBBBB"><td align="right" valign="top"><nobr>SRate</nobr></td><td align="left">which samplingrate should be used
+</td></tr>
+<tr bgcolor="#AAAAAA"><td align="right" valign="top"><nobr>Offs</nobr></td><td align="left">how many bytes should be skiped in the begin (to skip a header of known length).
+</td></tr>
+<tr bgcolor="#BBBBBB"><td align="right" valign="top"><nobr>Check File Type</nobr></td><td align="left">should SFX check the file extension and investigate the data statistically
+to find out the  and adjust the loading parameter accordingly.
+</td></tr>
+</table>
+		</td></tr></table>
+	</td></tr>
+</table>
+<br>
+	<a name="#003"></a>
+<table border="0" width="100%" cellpadding="3" cellspacing="1" bgcolor="#000000">
+	<tr bgcolor="#DDDDDD"><td>
+		<table border="0" width="100%" cellpadding="0" cellspacing="0"><tr>
+			<td align="left">
+				<b>Notes</b>
+			</td>
+			<td align="right">
+				<a href="#002">
+				<img src="../../_img/a_up.gif" width="13" height="13" border="0" alt="[up]"></a>
+				<img src="../../_img/space.gif" width="2">
+				<a href="#004">
+				<img src="../../_img/a_do.gif" width="13" height="13" border="0" alt="[down]"></a>
+			</td>
+		</tr></table>
+	</td></tr>
+	<tr bgcolor="#FFFFFF"><td>
+		<table border="0" width="100%" cellpadding="5" cellspacing="0"><tr><td>
+The offs parameter is <b>not</b> for seeking into the sample, although it can be used that way.
+For 16bit sample you need to take care, that you only skip an even number of bytes then.
+		</td></tr></table>
+	</td></tr>
+</table>
+<br>
+	<a name="#004"></a>
+	<table border="0" width="100%" cellpadding="3" cellspacing="1" bgcolor="#000000"><tr bgcolor="#FFFFFF"><td>
+		<table border="0" width="100%" cellpadding="0" cellspacing="0"><tr>
+			<td align="left"><font size="-1">
+		[<a href="../node__.__.__.html">SoundFX</a>]
+			[<a href="../node02.__.__.html">Modules</a>]
+				[<a href="../node02.02.__.html">Loader</a>]
+			</font></td>
+			<td align="right" valign="center">
+				<a href="../node02.02.01/Maestro_L.html">
+				<img src="../../_img/a_le.gif" width="13" height="13" border="0" alt="[prev]"></a>
+				<img src="../../_img/space.gif" width="2">
+				<a href="../node02.02.01/RIFF-WAV_L.html">
+				<img src="../../_img/a_ri.gif" width="13" height="13" border="0" alt="[next]"></a>
+			</td>
+		</tr></table>
+	</td></tr></table>
+	<br>
+	<table border="0" width="100%" cellpadding="3" cellspacing="1" bgcolor="#000000"><tr bgcolor="#FFFFFF"><td align="center"><font size="-1">
+		&copy; by <a href="mailto:soundfx@sonicpulse.de">Stefan Kost</a> 1993-2004
+		<a href="http://www.sonicpulse.de" target="_new">www.sonicpulse.de</a>
+	</font></td></tr></table>
+	</body>
+</html>

@@ -1,0 +1,11 @@
+10
+Du kan zooma in och ut i samplingar med tangenterna "<" och ">".
+Samplingsinställningarna låter dig ändra linjalernas enheter.
+Läs i kapitel '2.1 Operators', avdelning 'Common'.
+I operatorerna kan du ofta skriva in negativa värden också (t.ex. negativ återkoppling).
+I fördröjningsbaserade operatorer kan du skriva in fördröjningen som en not (C-3), som gör fördröjningen till en resonator vid hög återkoppling.
+Du kan använda mellanslagstangenten för att starta och stoppa uppspelning.
+Om du behöver mer utrymme på skärmen kan du gömma samplingar du inte använder.
+Du kan skapa bra stereoeffekter genom att ta en mono-källa och applicera samma effekter med något ändrade parametrar och slå samman kanalerna.
+Jag rekommenderar MagicMenu, cdxSizer, MCP och VisualPrefs för ett mera attraktivt GUI.
+Jag rekommenderar att du installerar "popupmenu.library". Då har SoundFX kontextkänsliga menyer när du trycker på mittenknappen i ett samplingsfönster.

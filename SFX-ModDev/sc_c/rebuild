@@ -1,0 +1,14 @@
+.key PREFIX/A,TYP/A
+.bra {
+.ket }
+
+; $VER Rebuild 1.0 (08.02.98)
+
+echo [32m»» remaking all modules ...[31m
+
+if exists t:report_{PREFIX}
+	delete t:report_{PREFIX}
+endif
+List >t:build_{PREFIX} ~(_#?) DIRS LFORMAT "rebuild.{TYP} {PREFIX} %f %s" SORT=NAME
+Execute t:build_{PREFIX}
+Delete >NIL: t:build_{PREFIX}

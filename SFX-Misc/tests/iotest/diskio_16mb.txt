@@ -1,0 +1,83 @@
+Quantum ProDrive 240LPS + AFS
+-----------------------------
+
+blksize blkanz  | AnsiLevel2    AnsiLevel1    DosLevel1
+                | Write  Read   Write Read    Write Read
+----------------+-----------------------------------------
+   4096    4096 | 116 s   15 s   18 s   15 s   17 s   14 s 
+   8192    2048 |  64 s   10 s   13 s   11 s   12 s   10 s 
+  16384    1024 |  34 s   10 s    8 s    8 s   10 s    8 s 
+  32768     512 |  21 s    9 s    8 s    9 s    9 s    9 s 
+  65536     256 |  16 s    8 s    7 s    8 s    8 s    8 s 
+ 131072     128 |  12 s    9 s   10 s    8 s    7 s    7 s 
+ 262144      64 |  10 s    8 s    8 s    8 s   12 s    8 s
+
+Fujitsu M10xxSAU + AFS
+----------------------
+
+blksize blkanz  | AnsiLevel2    AnsiLevel1    DosLevel1
+                | Write  Read   Write Read    Write Read
+----------------+-----------------------------------------
+   4096    4096 |  62 s    9 s   52 s   10 s   53 s    8 s 
+   8192    2048 |  53 s    7 s   28 s    5 s   28 s    5 s 
+  16384    1024 |  31 s    7 s   17 s    6 s   57 s   41 s 
+  32768     512 |  55 s   38 s   14 s    8 s   14 s    8 s 
+  65536     256 |  12 s    5 s    9 s    6 s    8 s    5 s 
+ 131072     128 |   8 s    6 s   11 s    7 s    8 s    6 s 
+ 262144      64 |   8 s    5 s    6 s    5 s    6 s    5 s 
+
+IBM Nightfire + DynamiCache + FFS
+---------------------------------
+
+blksize blkanz  | AnsiLevel2    AnsiLevel1    DosLevel1
+                | Write  Read   Write Read    Write Read
+----------------+-----------------------------------------
+   4096    4096 |  74 s    3 s   39 s    3 s   39 s    3 s
+   8192    2048 |  41 s    2 s   25 s    2 s   24 s    3 s
+  16384    1024 |  26 s    2 s   17 s    2 s   17 s    2 s
+  32768     512 |  17 s    2 s   14 s    1 s   13 s    2 s
+  65536     256 |  13 s    1 s   11 s    2 s   11 s    2 s
+ 131072     128 |  11 s    2 s   10 s    2 s   10 s    2 s
+ 262144      64 |  10 s    1 s    9 s    2 s    9 s    2 s
+
+Quantum 105LPS + DynamiCache + FFS
+----------------------------------
+
+blksize blkanz  | AnsiLevel2    AnsiLevel1    DosLevel1
+                | Write  Read   Write Read    Write Read
+----------------+-----------------------------------------
+   4096    4096 | 161 s    3 s   92 s    3 s   92 s    3 s
+   8192    2048 |  97 s    2 s   63 s    3 s   63 s    3 s
+  16384    1024 |  65 s    3 s   49 s    2 s   50 s    2 s
+  32768     512 |  49 s    2 s   41 s    2 s   41 s    2 s
+  65536     256 |  42 s    2 s   37 s    2 s   37 s    2 s
+ 131072     128 |  37 s    2 s   35 s    2 s   34 s    2 s
+ 262144      64 |  36 s    2 s   35 s    1 s   35 s    2 s
+
+IBM Nightfire + FFS
+-------------------
+
+blksize blkanz  | AnsiLevel2    AnsiLevel1    DosLevel1
+                | Write  Read   Write Read    Write Read
+----------------+-----------------------------------------
+   4096    4096 |  73 s    8 s   39 s    8 s   40 s    8 s
+   8192    2048 |  41 s    6 s   25 s    5 s   25 s    6 s
+  16384    1024 |  25 s    5 s   16 s    5 s   17 s    4 s
+  32768     512 |  17 s    4 s   13 s    4 s   13 s    4 s
+  65536     256 |  13 s    3 s   11 s    3 s   11 s    3 s
+ 131072     128 |   9 s    3 s    8 s    3 s    8 s    3 s
+ 262144      64 |   9 s    3 s    7 s    3 s    8 s    3 s
+
+Quantum ProDrive 105LPS + FFS
+-----------------------------
+
+blksize blkanz  | AnsiLevel2    AnsiLevel1    DosLevel1
+                | Write  Read   Write Read    Write Read
+----------------+-----------------------------------------
+   4096    4096 | 160 s   24 s   93 s   25 s   93 s   25 s
+   8192    2048 |  97 s   20 s   63 s   20 s   63 s   20 s
+  16384    1024 |  65 s   19 s   49 s   19 s   48 s   19 s
+  32768     512 |  49 s   22 s   42 s   22 s   41 s   22 s
+  65536     256 |  41 s   20 s   37 s   19 s   37 s   19 s
+ 131072     128 |  36 s   17 s   35 s   17 s   34 s   17 s
+ 262144      64 |  34 s   17 s   33 s   18 s   34 s   18 s

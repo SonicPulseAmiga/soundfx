@@ -1,0 +1,80 @@
+Hello Stefan!
+
+> here is your keyfile again. Just for cases like this, I keep them
+> all.
+Oh great, thanks. You're a wonder (I've been always been saying
+that...).
+
+
+> About the catalogs. I meant to include the tips as separate files.
+> I just would like to include them in the archive, so that the
+> translators can translate them as well.
+Oh I see. Sorry, I forgot to bring them with me today (I still don't
+have internet at home and have to go to the univarsity computer lab).
+Will send them next time.
+
+
+> About the requester, have a look at ReqAttack.
+OK I will. I've just downloaded the archive.
+
+
+> Now to the bugs.
+> Number one - ChannelJoin I'll check that in a minute.
+> Number two - just open sample prefs and change the length
+> (e.g add 1000) voila!
+Yes but this adds workspace at the end only. Have a look at
+SoundProbe: it offers adding space at the beginning, at the end, and
+before a selected range. Much more functionality, and still very easy
+to implement.
+
+
+> I don't want to include this into the fx, as e.g. for the Hall-FX
+> it is quite difficult to know before how long the result will be.
+I thought this would be tricky with FX, that's why I recommended
+doing it via the "Add Workspace" menu item. Think about it once more,
+please... (at least, this could be a feature for V4.3...)
+
+
+And now some new bugs.
+
+---
+
+1. Loader & Saver prefs menu delay
+
+I'll lead you to the bug in steps so that you can follow easily:
+a/ Run SFX.
+b/ Select a loader that has prefs (eg. CDDA, RAW, MPEG) and open the
+prefs-window. Press RMB and look at the menu. No problem here.
+c/ Do the same with a saver prefs-window. Again, no problem - the
+menu is displayed correctly.
+d/ Now load or generate a sample and repeat steps b/ and c/. Still
+everything's fine.
+e/ PLAY the sample...
+f/ ...and repeat steps b/ and c/. You'll see the bug - the menu
+appears after a 3-4 second delay.
+
+==> not happening here
+
+The operator-window menus are displayed correctly.
+The bug was there already in V4.1.
+
+
+2. MPEG prefs
+
+There's a misspelled heading in the MPEG prefs-window. Too many
+"&"-signs.
+The bug was there already in V4.1.
+
+==> fixed
+
+---
+
+BTW, do you know of the Music-DSP source code archive at
+www.musicdsp.org/? If not you should definitely have a look at it.
+I believe you could get some inspiration there.
+
+Regards,
+DAN
+
+______________________________________________________________________
+Nejenom anglicko-cesky slovnik: http://slovnik.seznam.cz

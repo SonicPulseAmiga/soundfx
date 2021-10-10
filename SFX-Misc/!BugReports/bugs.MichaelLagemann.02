@@ -1,0 +1,45 @@
+From - Fri Jul 20 12:09:11 2001
+Received: from thlhp.rz.htwk-leipzig.de (thlhp [141.57.1.1])
+	by imn.htwk-leipzig.de (8.9.1/8.9.1) with ESMTP id QAA14448
+	for <kost@imn.htwk-leipzig.de>; Tue, 17 Jul 2001 16:51:51 +0200 (MET DST)
+Received: from mx0.gmx.net (mx0.gmx.net [213.165.64.100])
+	by thlhp.rz.htwk-leipzig.de (8.8.8/8.8.8) with SMTP id QAA29050
+	for <kost@imn.htwk-leipzig.de>; Tue, 17 Jul 2001 16:52:52 +0200
+Received: (qmail 31220 invoked by alias); 17 Jul 2001 14:51:21 -0000
+Received: (qmail 31197 invoked by uid 0); 17 Jul 2001 14:51:21 -0000
+Received: from mailgate3.cinetic.de (212.227.116.80)
+  by mx0.gmx.net (mx005-rz3) with SMTP; 17 Jul 2001 14:51:21 -0000
+Received: from smtp.web.de (smtp01.web.de [194.45.170.210])
+	by mailgate3.cinetic.de (8.11.2/8.11.2/SuSE Linux 8.11.0-0.4) with SMTP id f6HEpLg04005
+	for <st_kost@gmx.net>; Tue, 17 Jul 2001 16:51:21 +0200
+Received: from web.de by smtp.web.de with smtp
+	(freemail 4.2.2.2 #11) id m15MWC0-007oJPC; Tue, 17 Jul 2001 16:51 +0200
+Delivered-To: GMX delivery to st_kost@gmx.net
+From: - <Ieh-meyl@web.de>
+To: st_kost@gmx.net
+Date: Tue, 17 Jul 2001 16:55:31 +0100
+Message-ID: <yam8598.1568.1148704328@smtp.web.de>
+X-Mailer: YAM 2.3 [060] AmigaOS E-Mail Client (c) 1995-2000 by Marcel Beck  http://www.yam.ch/
+Subject: SFX Fehlerreport-blockierte =?iso-8859-1?Q?Oberfl=E4che?=
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-Resent-By: Forwarder <forwarder@gmx.net>
+X-Resent-For: st_kost@gmx.net
+X-Resent-To: kost@imn.htwk-leipzig.de
+Content-Type: text/plain; charset=iso-8859-1
+Content-Length: 293
+Status:   
+X-Mozilla-Status: 8001
+X-Mozilla-Status2: 00000000
+X-UIDL: 361df5b5000035f3
+
+Hallo Stefan,
+noch eine kleine Sache zu SFX 4.1 060:
+Wenn ich (per Paula 14cbit) ein Sample abspiele, und, während dieses noch
+läuft, das Kartonsymbol zum ikonifizieren benutze, wird die Oberfläche des 
+Programms weitgehend blockiert. Wonach ein Reset angesagt ist.
+
+Denne,
+
+Michael Lagemann
+

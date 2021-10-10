@@ -1,0 +1,4 @@
+- Ab und zu bleiben beim Start von SFX sämtliche Fenster (Arexx, OP´s,
+  etc.) leer. SFX stürzt dann auch in 98% aller Fälle ab, sobald ich
+  irgendeine beliebige Funktion (z.B. Laden) aufrufe.
+  Starte ich den Rechner neu, klappt´s meistens.

@@ -1,0 +1,26 @@
+This file contains any messages produced by compilers while
+running configure, to aid debugging if configure makes a mistake.
+
+configure:581: checking for a BSD compatible install
+configure:634: checking whether build environment is sane
+configure:691: checking whether make sets ${MAKE}
+configure:737: checking for working aclocal
+configure:750: checking for working autoconf
+configure:763: checking for working automake
+configure:776: checking for working autoheader
+configure:789: checking for working makeinfo
+configure:809: checking for gcc
+configure:1017: checking whether the C compiler (gcc  ) works
+configure:1033: gcc -o conftest    conftest.c  1>&5
+configure:1059: checking whether the C compiler (gcc  ) is a cross-compiler
+configure:1064: checking whether we are using GNU C
+configure:1092: checking whether gcc accepts -g
+configure:1149: checking how to run the C preprocessor
+configure:1229: checking for ANSI C header files
+configure:1334: checking for working const
+configure:1410: checking for vprintf
+configure:1517: checking for strerror
+configure:1517: checking for stricmp
+configure:1517: checking for strnicmp
+configure:1517: checking for strcasecmp
+configure:1517: checking for strncasecmp

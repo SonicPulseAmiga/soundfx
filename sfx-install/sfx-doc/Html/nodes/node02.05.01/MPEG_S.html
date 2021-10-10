@@ -1,0 +1,160 @@
+<html>
+	<head><title>SoundFX : 2.5.1 MPEG_S</title></head>
+	<body bgcolor="#EEEEEE" leftmargin="5" rightmargin="5" topmargin="5" text="#000000" link="#2040FF" vlink="#0020E0" alink="#FFFFFF">
+	<a name="#000"></a>
+	<table border="0" width="100%" cellpadding="3" cellspacing="1" bgcolor="#000000"><tr bgcolor="#FFFFFF"><td>
+		<table border="0" width="100%" cellpadding="0" cellspacing="0"><tr>
+			<td align="left"><font size="-1">
+		[<a href="../node__.__.__.html">SoundFX</a>]
+			[<a href="../node02.__.__.html">Module</a>]
+				[<a href="../node02.05.__.html">Saver</a>]
+			</font></td>
+			<td align="right" valign="center">
+				<a href="../node02.05.01/IFF-MAUD_S.html">
+				<img src="../../_img/a_le.gif" width="13" height="13" border="0" alt="[prev]"></a>
+				<img src="../../_img/space.gif" width="2">
+				<a href="../node02.05.01/RAW_S.html">
+				<img src="../../_img/a_ri.gif" width="13" height="13" border="0" alt="[next]"></a>
+			</td>
+		</tr></table>
+	</td></tr></table>
+	<br>
+		<!-- Contents -->
+	<a name="#001"></a>
+<table border="0" width="100%" cellpadding="3" cellspacing="1" bgcolor="#000000">
+	<tr bgcolor="#DDDDDD"><td>
+		<table border="0" width="100%" cellpadding="0" cellspacing="0"><tr>
+			<td align="left">
+				<b>MPEG_S</b>
+			</td>
+			<td align="right">
+				<a href="#000">
+				<img src="../../_img/a_up.gif" width="13" height="13" border="0" alt="[up]"></a>
+				<img src="../../_img/space.gif" width="2">
+				<a href="#002">
+				<img src="../../_img/a_do.gif" width="13" height="13" border="0" alt="[down]"></a>
+			</td>
+		</tr></table>
+	</td></tr>
+	<tr bgcolor="#FFFFFF"><td>
+		<table border="0" width="100%" cellpadding="5" cellspacing="0"><tr><td>
+Speichert hochkomprimierte MPEG Samples.
+<table border="0" cellspacing="1" cellpadding="2" width="100%>
+<tr bgcolor="#BBBBBB"><td>Loops      </td><td>nein</td></tr>
+<tr bgcolor="#AAAAAA"><td>Kanäle     </td><td>ja (mono/stereo)</td></tr>
+<tr bgcolor="#BBBBBB"><td>Kompression</td><td>ja</td></tr>
+</table>
+Wegen der hohen Kompression, kann das Abspeichern eine Weile dauern. Es
+ist empfehlenswert mindestens einen 68060'er für soetwas zu besitzen.<br>
+Dieses Modul benutzt externe Encoder (separate Programme).
+Deshalb habe ich versucht es möglichst konfigurierbar zu halten.
+		</td></tr></table>
+	</td></tr>
+</table>
+<br>
+	<a name="#002"></a>
+<table border="0" width="100%" cellpadding="3" cellspacing="1" bgcolor="#000000">
+	<tr bgcolor="#DDDDDD"><td>
+		<table border="0" width="100%" cellpadding="0" cellspacing="0"><tr>
+			<td align="left">
+				<b>Parameter</b>
+			</td>
+			<td align="right">
+				<a href="#001">
+				<img src="../../_img/a_up.gif" width="13" height="13" border="0" alt="[up]"></a>
+				<img src="../../_img/space.gif" width="2">
+				<a href="#003">
+				<img src="../../_img/a_do.gif" width="13" height="13" border="0" alt="[down]"></a>
+			</td>
+		</tr></table>
+	</td></tr>
+	<tr bgcolor="#FFFFFF"><td>
+		<table border="0" width="100%" cellpadding="5" cellspacing="0"><tr><td>
+<table border="0" cellspacing="1" cellpadding="2" width="100%"><tr bgcolor="#BBBBBB"><td align="right" valign="top"><nobr>Encoder</nobr></td><td align="left">Wählen sie die Programmdatei des zu verwendenten Encoders. Es wurden bisher
+der mitgeliferte 8Hz, sowie Pegase, Lame und Ncoder getestet.
+</td></tr>
+<tr bgcolor="#AAAAAA"><td align="right" valign="top"><nobr>Parameter</nobr></td><td align="left">Dies ist die Parameter Vorlage, die dem Encoder auf der Kommandozeile übergeben wird
+(der Encoder wird als Hintergrundprozess gestartet und vom <b>SoundFX</b> mit Daten versorgt).
+Folgende Platzhalter sind hier derzeit erlaubt :
+<ul>
+<li>%b : die Bitrate</li>
+<li>%c : der Parameterstring für Mono/Stereodateien (siehe unten)</li>
+<li>%i : der Name der Eingangsdatei</li>
+<li>%o : der Name der Ergebnisdatei</li>
+<li>%r0 : die Samplingrate in Hz</li>
+<li>%r1 : die Samplingrate in kHz (zur Zeit nur 32, 44.1, 48)</li>
+</td></tr>
+<tr bgcolor="#BBBBBB"><td align="right" valign="top"><nobr>MonoStr</nobr></td><td align="left"></ul>
+Der Parameter für Monodateien welcher oben in Verbindung mit "%c" genutzt wird.
+</td></tr>
+<tr bgcolor="#AAAAAA"><td align="right" valign="top"><nobr>StereoStr</nobr></td><td align="left">Der Parameter für Stereodateien welcher oben in Verbindung mit "%c" genutzt wird.
+</td></tr>
+<tr bgcolor="#BBBBBB"><td align="right" valign="top"><nobr>Wave</nobr></td><td align="left">Hiermit geben sie an, in welchem Format die Sampledaten dem Encoder übergeben
+werden sollen.
+<ul>
+<li>CDDA</li>
+<li>RIFF-WAV</li>
+</td></tr>
+<tr bgcolor="#AAAAAA"><td align="right" valign="top"><nobr>BitRate</nobr></td><td align="left"></ul>
+Stärke der Kompression. Gibt an, wieviele Bits pro Sekunde erlaubt sind.
+Je niedriger der Wert ist, desto niedriger ist die Qualität.
+</td></tr>
+<tr bgcolor="#BBBBBB"><td align="right" valign="top"><nobr>Pipe</nobr></td><td align="left">Wenn sie Probleme mit dem pipe: Gerät haben, konnen sie auch eine Pipe
+wie apipe: oder awnpipe: einsetzen.
+</td></tr>
+</table>
+		</td></tr></table>
+	</td></tr>
+</table>
+<br>
+	<a name="#003"></a>
+<table border="0" width="100%" cellpadding="3" cellspacing="1" bgcolor="#000000">
+	<tr bgcolor="#DDDDDD"><td>
+		<table border="0" width="100%" cellpadding="0" cellspacing="0"><tr>
+			<td align="left">
+				<b>Hinweise</b>
+			</td>
+			<td align="right">
+				<a href="#002">
+				<img src="../../_img/a_up.gif" width="13" height="13" border="0" alt="[up]"></a>
+				<img src="../../_img/space.gif" width="2">
+				<a href="#004">
+				<img src="../../_img/a_do.gif" width="13" height="13" border="0" alt="[down]"></a>
+			</td>
+		</tr></table>
+	</td></tr>
+	<tr bgcolor="#FFFFFF"><td>
+		<table border="0" width="100%" cellpadding="5" cellspacing="0"><tr><td>
+Es werden presets für die gängigen Encoder mitgeliefert. Es ist jedoch noch
+notwendig, das sie die Pfade der entsprechenden Encoder anpassen oder
+die Programme in das sfx/_savers Verzeichnis unter dem entspechenden namen kopieren.<br>
+Wenn sie Anpassungen für weitere Encoder erstellen möchten, empehle ich sich
+die beliegenden Prests anzusehen.
+		</td></tr></table>
+	</td></tr>
+</table>
+<br>
+	<a name="#004"></a>
+	<table border="0" width="100%" cellpadding="3" cellspacing="1" bgcolor="#000000"><tr bgcolor="#FFFFFF"><td>
+		<table border="0" width="100%" cellpadding="0" cellspacing="0"><tr>
+			<td align="left"><font size="-1">
+		[<a href="../node__.__.__.html">SoundFX</a>]
+			[<a href="../node02.__.__.html">Module</a>]
+				[<a href="../node02.05.__.html">Saver</a>]
+			</font></td>
+			<td align="right" valign="center">
+				<a href="../node02.05.01/IFF-MAUD_S.html">
+				<img src="../../_img/a_le.gif" width="13" height="13" border="0" alt="[prev]"></a>
+				<img src="../../_img/space.gif" width="2">
+				<a href="../node02.05.01/RAW_S.html">
+				<img src="../../_img/a_ri.gif" width="13" height="13" border="0" alt="[next]"></a>
+			</td>
+		</tr></table>
+	</td></tr></table>
+	<br>
+	<table border="0" width="100%" cellpadding="3" cellspacing="1" bgcolor="#000000"><tr bgcolor="#FFFFFF"><td align="center"><font size="-1">
+		&copy; by <a href="mailto:soundfx@sonicpulse.de">Stefan Kost</a> 1993-2004
+		<a href="http://www.sonicpulse.de" target="_new">www.sonicpulse.de</a>
+	</font></td></tr></table>
+	</body>
+</html>

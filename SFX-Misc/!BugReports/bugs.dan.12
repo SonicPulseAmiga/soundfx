@@ -1,0 +1,68 @@
+From - Mon Mar 11 16:48:49 2002
+X-UIDL: 361df5b500004375
+X-Mozilla-Status: 0000
+X-Mozilla-Status2: 00000000
+Received: from n34.groups.yahoo.com (n34.groups.yahoo.com [216.115.96.84])
+	by imn.htwk-leipzig.de (8.9.1/8.9.1) with SMTP id RAA05478
+	for <kost@imn.htwk-leipzig.de>; Fri, 8 Mar 2002 17:58:56 +0100 (MET)
+Received: from [216.115.97.188] by n34.groups.yahoo.com with NNFMP; 08 Mar 2002 17:02:45 -0000
+Received: (EGP: unknown); 8 Mar 2002 17:02:43 -0000
+Received: (qmail 81446 invoked from network); 8 Mar 2002 17:02:39 -0000
+Received: from unknown (216.115.97.171)
+  by m2.grp.snv.yahoo.com with QMQP; 8 Mar 2002 17:02:39 -0000
+Received: from unknown (HELO n8.groups.yahoo.com) (216.115.96.58)
+  by mta3.grp.snv.yahoo.com with SMTP; 8 Mar 2002 17:02:39 -0000
+Received: from [216.115.96.142] by n8.groups.yahoo.com with NNFMP; 08 Mar 2002 17:02:08 -0000
+X-eGroups-Return: sentto-3879093-125-1015606965-kost=imn.htwk-leipzig.de@returns.groups.yahoo.com
+X-Sender: jedlicka@phil.muni.cz
+X-Apparently-To: soundfx-users@yahoogroups.com
+To: soundfx-users@yahoogroups.com
+Message-ID: <a6aqqe+rjus@eGroups.com>
+User-Agent: eGroups-EW/0.82
+X-Mailer: Yahoo Groups Message Poster
+From: "trixie_vct" <jedlicka@phil.muni.cz>
+X-Originating-IP: 62.245.96.12
+X-Yahoo-Profile: trixie_vct
+MIME-Version: 1.0
+Mailing-List: list soundfx-users@yahoogroups.com; contact soundfx-users-owner@yahoogroups.com
+Delivered-To: mailing list soundfx-users@yahoogroups.com
+Precedence: bulk
+List-Unsubscribe: <mailto:soundfx-users-unsubscribe@yahoogroups.com>
+Date: Fri, 08 Mar 2002 17:02:05 -0000
+Subject: [soundfx-users] Cut-twice bug
+Reply-To: soundfx-users@yahoogroups.com
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Length: 862
+Status:  O
+
+Hello everyone!
+
+Try this: load a sample, then cut a portion, and then cut another 
+portion. On my system, after the second cut the sample disappears 
+from the list of buffers, yet the sample-window remains open on the 
+screen. SFX now assumes that there is no sample loaded.
+
+Stefan, should I report the beta's bugs via BugTracker too, or is the 
+tracker meant only for bugs found in the final release?
+
+Regs,
+DAN
+
+
+
+------------------------ Yahoo! Groups Sponsor ---------------------~-->
+Access Your PC from Anywhere
+It's Easy. It's Fun. - Free Download.
+http://us.click.yahoo.com/V8IZpD/7XkDAA/yigFAA/mjFolB/TM
+---------------------------------------------------------------------~->
+
+To unsubscribe from this group, send an email to:
+soundfx-users-unsubscribe@yahoogroups.com
+
+ 
+
+Your use of Yahoo! Groups is subject to http://docs.yahoo.com/info/terms/ 
+
+
+

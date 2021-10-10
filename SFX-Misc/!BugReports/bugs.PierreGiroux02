@@ -1,0 +1,91 @@
+X-UIDL: 3f8791b30000eb5c
+X-Mozilla-Status: 0000
+X-Mozilla-Status2: 00000000
+Received: from n20.grp.scd.yahoo.com (n20.grp.scd.yahoo.com [66.218.66.76])
+	by imn.htwk-leipzig.de (8.9.1/8.9.1) with SMTP id XAA12021
+	for <kost@imn.htwk-leipzig.de>; Tue, 14 Oct 2003 23:20:11 +0200 (MET DST)
+Received: from [66.218.67.196] by n20.grp.scd.yahoo.com with NNFMP; 14 Oct 2003 21:19:42 -0000
+Received: (qmail 23942 invoked from network); 14 Oct 2003 21:19:41 -0000
+Received: from unknown (66.218.66.167)
+  by m3.grp.scd.yahoo.com with QMQP; 14 Oct 2003 21:19:41 -0000
+Received: from unknown (HELO VL-MO-MR001.ip.videotron.ca) (24.201.245.36)
+  by mta6.grp.scd.yahoo.com with SMTP; 14 Oct 2003 21:19:41 -0000
+Received: from relais.videotron.ca ([24.200.134.26])
+ by VL-MO-MR001.ip.videotron.ca
+ (iPlanet Messaging Server 5.2 HotFix 1.16 (built May 14 2003))
+ with SMTP id <0HMR00AT2N8SVM@VL-MO-MR001.ip.videotron.ca> for
+ soundfx-users@yahoogroups.com; Tue, 14 Oct 2003 17:19:40 -0400 (EDT)
+X-eGroups-Return: sentto-3879093-1210-1066166382-kost=imn.htwk-leipzig.de@returns.groups.yahoo.com
+X-Sender: pierregiroux@videotron.ca
+X-Apparently-To: soundfx-users@yahoogroups.com
+In-reply-to: <3F8BDA37.5080504@imn.htwk-leipzig.de>
+To: soundfx-users@yahoogroups.com
+Message-id: <yam9417.2463.160482704@relais.videotron.ca>
+X-Mailer: YAM 2.4p1 [060] AmigaOS E-mail Client (c) 2000-2003 by YAM Open
+ Source Team - http://www.yam.ch/
+From: Pierre Giroux <pierregiroux@videotron.ca>
+X-Yahoo-Profile: powertowerca
+MIME-Version: 1.0
+Mailing-List: list soundfx-users@yahoogroups.com; contact soundfx-users-owner@yahoogroups.com
+Delivered-To: mailing list soundfx-users@yahoogroups.com
+Precedence: bulk
+List-Unsubscribe: <mailto:soundfx-users-unsubscribe@yahoogroups.com>
+Date: Tue, 14 Oct 2003 17:21:49 -0400
+Subject: [soundfx-users] Re: Wave file corrupted
+Reply-To: soundfx-users@yahoogroups.com
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=ISO-8859-1
+Content-Length: 1245
+Status:  O
+
+Salut Stefan,
+
+Le 14/10/2003, Stefan Kost a écrit:
+
+> Hi Pierre,
+
+> I'll try this at home. Can anyone else confirm this?
+
+I'm using the latest beta version, today I tryed with the CUT function and I
+had the same problem, SoundFX even freeze completely after showing the error
+that the file is incorrect.
+
+I can't beleive that nobody saw this problem unless they never use CUT and
+ERASE or the problem is only on my system.
+
+When I played a file saved with SoundFX using Play16 I had this message:
+
+
+Play16'020 1.8 (11.09.97) by Thomas Wenzel
+Not for commercial use
+
+Loading "msg02.WAV".
+
+Error! Premature end of file! (201328 bytes missing)
+
+
+Thank you.
+
+
+Bye!
+-- 
+Pierre Giroux
+
+
+
+------------------------ Yahoo! Groups Sponsor ---------------------~-->
+Buy Ink Cartridges or Refill Kits for your HP, Epson, Canon or Lexmark
+Printer at MyInks.com. Free s/h on orders $50 or more to the US & Canada.
+http://www.c1tracking.com/l.asp?cid=5511
+http://us.click.yahoo.com/mOAaAA/3exGAA/qnsNAA/mjFolB/TM
+---------------------------------------------------------------------~->
+
+To unsubscribe from this group, send an email to:
+soundfx-users-unsubscribe@yahoogroups.com
+
+ 
+
+Your use of Yahoo! Groups is subject to http://docs.yahoo.com/info/terms/ 
+
+
+

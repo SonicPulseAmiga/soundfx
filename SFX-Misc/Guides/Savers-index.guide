@@ -1,0 +1,35 @@
+@database SFX
+
+@Remark (C) Copyright 1993-1996 Stefan Kost
+@Remark All Rights Reserved
+@Remark $VER: Savers-Index.guide (--.--.--)
+@Remark AmigaGuide-OnLine-Hilfe für SoundFX
+
+@master /guides/sfx.guide
+@index /guides/sfx-index.guide/index
+
+@node main "Savers-Index"
+@{b}@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Savers-Index
+@{fg shine}_________________________________________________________________________________
+@{fg text}¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯@{ub}
+
+@{" General Information " link Savers.guide/main }
+@{" Clipboard           " link /_Savers/Clipboard.guide/main }		Dataexchange of IFF-Files via Clipboard
+@{" FutureSound         " link /_Savers/FutureSound.guide/main }		8-bit Fileformat
+@{" IFF-16SV            " link /_Savers/IFF-16SV.guide/main }		16-bit IFF-Fileformat
+@{" IFF-8SVX            " link /_Savers/IFF-8SVX.guide/main }		Amiga-Fileformat
+@{" IFF-AIFC            " link /_Savers/IFF-AIFC.guide/main }		Apple-Fileformat
+@{" IFF-AIFF            " link /_Savers/IFF-AIFF.guide/main }		Apple-Fileformat
+@{" IFF-MAUD            " link /_Savers/IFF-MAUD.guide/main }		MacroSystem Audiodata
+@{" MPEG                " link /_Savers/MPEG.guide/main }		highly compressed files
+@{" RAW                 " link /_Savers/RAW.guide/main }		Unformated Files
+@{" RIFF-WAV            " link /_Savers/RIFF-WAV.guide/main }		PC-Windows-Fileformat
+@{" SDS-File            " link /_Savers/SDS-File.guide/main }		Midi Sample Dump Standart
+@{" SND-AU              " link /_Savers/SND-AU.guide/main }		SUN/NEXT-Fileformat
+@{" Studio16            " link /_Savers/Studio16.guide/main }		Studio16-Fileformat
+@{" TX16W               " link /_Savers/TX16W.guide/main }		12-bit Mono Fileformat (Yamaha TX16W-Sampler)
+@{" VOC                 " link /_Savers/VOC.guide/main }		PC-SoundBlaster-Fileformat
+
+@endnode

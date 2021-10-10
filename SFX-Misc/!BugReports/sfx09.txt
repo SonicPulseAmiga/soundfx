@@ -1,0 +1,27 @@
+From - Thu Sep  3 11:47:27 1998
+Received: from mail.uva.nl (mail1.remote.uva.nl [145.18.29.15])
+	by imn.htwk-leipzig.de (8.9.1/8.9.1) with ESMTP id OAA09769
+	for <kost@imn.htwk-leipzig.de>; Mon, 31 Aug 1998 14:15:15 +0200 (MET DST)
+Received: from RE-243-067.ic-public.uva.nl (re-243-67.ic-public.uva.nl [145.18.243.67]) by mail.uva.nl (8.8.3/8.7.1) with SMTP id OAA07491 for <kost@imn.htwk-leipzig.de>; Mon, 31 Aug 1998 14:13:07 +0200 (MET DST)
+Message-Id: <1.5.4.32.19980831121400.0066a7e4@mail.uva.nl>
+X-Sender: 9613234@mail.uva.nl
+X-Mailer: Windows Eudora Light Version 1.5.4 (32)
+Mime-Version: 1.0
+Date: Mon, 31 Aug 1998 14:14:00 +0200
+To: kost <kost@imn.htwk-leipzig.de>
+From: Thijs van der Vossen <T.Vossen@mail.uva.nl>
+Subject: bug? while loading aiff/wav 16bit sample
+Content-Type: text/plain; charset="us-ascii"
+Content-Length: 390
+Status:   
+X-Mozilla-Status: 8001
+
+I have downloaded the latest version of sfx (030, no fpu) and when I try to
+load a 20kb 'whitenoise' sample saved in either aiff or wav format from
+Octamed SoundStudio I get a software failure from sfx.
+
+|         Thijs van der Vossen - T.Vossen@mail.uva.nl
+|   o-o   http://huizen.dds.nl/~tvdv/
+|    -    Theatergroep Blikschade Homepage
+|         Author of SyX Amiga MIDI SysEx Utility 
+

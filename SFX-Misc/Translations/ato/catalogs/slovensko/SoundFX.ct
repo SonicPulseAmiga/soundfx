@@ -1,0 +1,1029 @@
+; This Catalog Translation ".ct" file has been written using
+; ReCatIt 2.50 (09.14.97) - By Fabio Rotondo
+;
+## version $VER: SoundFX.catalog 1.0 (06.04.2002)
+## codeset 0
+## language slovensko
+;
+errOpenFile
+Ne morem odpreti datoteke: %s!
+;Can't open file : %s !
+;
+errOpenLibrary
+Ne morem odpreti knji¾nice: %s!
+;Can't open library : %s !
+;
+errOpenScreen
+Ne morem odpreti zaslona!
+;Can't open screen !
+;
+errOpenWindow
+Ne morem odpreti okna!
+;Can't open window !
+;
+errAllocateMemory
+Ne morem zavzeti pomnilnika!
+;Can't allocate memory !
+;
+errAllocateFileRequest
+Ne morem zavzeti datoteènega zahtevka!
+;Can't allocate file request !
+;
+errAllocateFontRequest
+Ne morem zavzeti zahtevka za izbiro pisave!
+;Can't allocate font request !
+;
+errAllocateScrmdRequest
+Ne morem zavzeti zahtevka za izbiro zaslonskega naèina!
+;Can't allocate screenmode request !
+;
+errAllocateAudioRequest
+Ne morem zavzeti zahtevka za izbiro zvoènega naèina!
+;Can't allocate audiomode request !
+;
+errAllocateSignal
+Ne morem zavzeti signala!
+;Can't allocate signal !
+;
+errCreateContext
+Ne morem ustvariti konteksta !
+;Can't create context !
+;
+errCreateGadgets
+Ne morem ustvariti orodij!
+;Can't create gadgets !
+;
+errCreateMenus
+Ne morem ustvariti menijev!
+;Can't create menus !
+;
+errLayoutMenus
+Ne morem prikazati menijev!
+;Can't layout menus !
+;
+errCreatePort
+Ne morem ustvariti vrat!
+;Can't create port !
+;
+errVisitorWindows
+Ne morem zapreti zaslona!\n\
+Zaprite prosim najprej gostujoèa okna!
+;Can't close screen !\n\
+;Please close visitor-windows first !
+;
+errMakeScreenPublic
+Zaslona ne morem naretiti javnega!
+;Can't make screen public !
+;
+errCloseSample
+Ne morem zapreti tega vzorca, ker je ¹e v uporabi!
+;Can't close that sample yet, it's still in use !
+;
+errEmptyClip
+Izrez je prazen!
+;Clip is empty !
+;
+errAccessFile
+Ne morem dostopiti do %s!
+;Can't access %s !
+;
+errAddAppIcon
+Ne morem dodati aplikone!
+;Can't add AppIcon !
+;
+errAddSampleBuffer
+Ne morem dodati vzorènega medpomnilnika!
+;Can't add samplebuffer !
+;
+errGetVisualInfo
+Ne morem pridobiti informacij o prikazu!
+;Can't get visual info !
+;
+errAllocateAudio
+Ne morem zavzeti zvoène strojne opreme!
+;Can't allocate audio hardware !
+;
+errNoAHI
+Ni sistema AHI ali pa je zvoèni naèin neveljaven!
+;No AHI System or invalid AudioMode !
+;
+errFail
+Izvr¹itev %s je bila neuspe¹na !
+;Execution of %s failed !
+;
+errSampleAttributes
+Ne morem pridobiti lastnosti vzorca!
+;Can't get sample attributes !
+;
+errSampleObject
+Ne morem pridobiti vzorènega objekta!
+;Can't get sample object !
+;
+errReadData
+Ne morem prebrati podatkov!
+;Can't read data !
+;
+errWriteData
+Ne morem zapisati podatkov!
+;Can't write data !
+;
+errWrongFiletype
+To ni datoteka vrste %s!
+;This isn't a %s file !
+;
+errUnsupportedSubtype
+Ne morem prebrati te datoteke vrste %s!
+;Can't read this %s file !
+;
+errWrongDatafile
+To ni prava podatkovna datoteka!
+;This is not the right data file !
+;
+errNoSampleRate
+Vzorec nima podane hitrosti vzorèenja, SoundFX jo bo nastavil na privzeto vrednost!
+;Sample has no sampling rate, SoundFX sets it to default !
+;
+errSampleToLong
+Ne morem shraniti celotnega vzorca!
+;Can't save the whole wave !
+;
+errDamagedFormat
+Ta vzorec ni shranjen pravilno!\n\
+Svetujem vam, da ga shranite ¹e enkrat.
+;This sample isn't saved correctly !\n\
+;I advice you to save the sample again.
+;
+errSourceMono
+Vir mora biti enokanalni vzorec!
+;Source must be a mono sample !
+;
+errSourceStrereo
+Vir mora biti dvokanalni vzorec!
+;Source must be a stereo sample !
+;
+errSourceQuadro
+Vir mora biti ¹tirikanalni vzorec!
+;Source must be a quadro sample !
+;
+errSourceStereoQuadro
+Vir mora biti dvokanalni ali ¹tirikanalni vzorec!
+;Source must be a stereo or quadro sample !
+;
+errNotImplemented
+Ta funkcija ¹e ni izvedena!
+;This function is not implemented yet !
+;
+errNoVMemYet
+Ta operacija ¹e ne podpira vzorcev iz enot!
+;This operation doesn't supports device-samples yet !
+;
+msgUnregVersionStart
+To je neregistriran izvod programa SoundFX!\n\
+Onemogoèeno je shranjevanje va¹ega dela in uporaba vmesnika ARexx!\n\
+Za dodatne informacije poglejte v priroènik!
+;This is an unregistered version of SoundFX !\n\
+;Saving of your work and using ARexx-Port is disabled !\n\
+;See guide for further informations !
+;
+msgUnregVersionEnd
+Uporabljali ste neregistriran izvod programa SoundFX!
+;You have used an unregistered version of SoundFX !
+;
+msgDemoNoSave
+Povedal sem vam ¾e, da v preizkusnem izvodu ne morete shraniti va¹ih vzorcev!
+;I have already told you that you can't save your samples in the demo-version !
+;
+msgDemoNoARexx
+Povedal sem vam ¾e, da v preizkusnem izvodu ne morete uporabljati vmesnika ARexx!
+;I have already told you that you can't use the arexx-port in the demo-version !
+;
+msgInstIncomplete
+Izgleda, da je namestitev nepopolna!\n\
+Namestite prosim vedno tudi arhive sfx-bin_???, sfx-doc_??? in sfx-data.\n\
+Èe enega izpustite, lahko namestitev postane nestabilna!
+;Installations seems to be incomplete !\n\
+;Please always install the sfx-bin_???, sfx-doc_??? and sfx-data archives.\n\
+;Leaving one out may lead to an instable installation !
+;
+msgSetPlayerOpts
+Nastavljam mo¾nosti predvajalnika...
+;Setting player options ...
+;
+msgSetDefaultGlobals
+Nastavljam globalne mo¾nosti...
+;Setting global options ...
+;
+msgSetLocalTexts
+Nastavljam lokalna besedila...
+;Setting local texts ...
+;
+msgScanOperators
+Pregledujem operatorje...
+;Scanning operators ...
+;
+msgScanLoaders
+Pregledujem nalagalnike...
+;Scanning loaders ...
+;
+msgScanPlayers
+Pregledujem predvajalnike...
+;Scanning playerrs ...
+;
+msgScanSavers
+Pregledujem shanjevalnike...
+;Scanning savers ...
+;
+msgScanRexxmacros
+Pregledujem makroje ARexx...
+;Scanning rexxmacross ...
+;
+msgBuildHelp
+Izgrajujem vsebino sprotne pomoèi...
+;Building on-line-help contents ...
+;
+msgCreatePorts
+Ustvarjam vmesnike...
+;Create ports ...
+;
+msgInitGUI
+Pripravljam grafièni vmesnik...
+;Initialising GUI ...
+;
+msgProgress
+Delam na %s[%d]
+;Working on %s[%d]
+;
+msgProgressLoad
+Nalagam[%d]
+;Loading[%d]
+;
+msgProgressSave
+Shranjujem[%d]
+;Saving[%d]
+;
+msgNoChannelSelected
+izbran ni noben kanal
+;no channel selected
+;
+reqFileExists
+Datoteka ¾e obstaja!\n\
+Kaj naj naredim?
+;File already exists !\n\
+;What should I do ?
+;
+reqReallyQuit
+Ali res ¾elite konèati ?
+;Do you really want to quit ?
+;
+reqRunAgain
+SoundFX je ¾e pognan!\nNaj ga po¾enem ¹e enkrat?
+;SoundFX is already running !\nShould I start it again ?
+;
+reqRemoveAll
+Ali res ¾elite odstraniti vse vzorce?
+;Do you really want to remove all samples ?
+;
+reqRemoveHidden
+Ali res ¾elite odstraniti vse skrite vzorce?
+;Do you really want to remove all hidden samples ?
+;
+reqRemoveShown
+Ali res ¾elite odstraniti vse prikazane vzorce ?
+;Do you really want to remove all shown samples ?
+;
+reqCloseSample
+Ali res ¾elite zapreti ta vzorec?
+;Do you really want to close this sample ?
+;
+reqRemEntry
+Ali res ¾elite izbrisati ta vnos ?
+;Do you really want to delete this entry ?
+;
+strSoundFXMessage
+Sporoèilo SoundFX
+;SoundFX-Message
+;
+strSoundFXRequest
+Zahtevek SoundFX
+;SoundFX-Request
+;
+strLoad
+Izberite vzorec, ki ga ¾elite nalo¾iti
+;Load
+;
+strSaveAs
+Poimenujte vzorec, ki ga ¾elite shraniti
+;Save as
+;
+strSelectFont
+Izberite pisavo
+;Select a font
+;
+strSelectScrMd
+Izberite zaslonski naèin
+;Select a screenmode
+;
+strSelectAudioMd
+Izberite zvoèni naèin
+;Select an audiomode
+;
+strSelectPreset
+Izberite datoteko s prednastavitvami, ki jo ¾elite nalo¾iti
+;Select a preset
+;
+strSelectSmpPath
+Izberite privzeto pot za vzorce
+;Select the default sample path
+;
+strSelectVMemPath
+Izberite pot za datoteke navideznega pomnilnika
+;Select the path for virtual memory files
+;
+strSelectLogPath
+Izberite pot do zapisnika
+;Select the logfile path
+;
+strSelectBuffer
+Izberite medpomnilnik
+;Select a buffer
+;
+strSelectFrequency
+Izberite frekvenco
+;Select a frequency
+;
+strSelectWinFunc
+Izberite funkcijo okna
+;Select a window function
+;
+strSmpOptions
+Mo¾nosti vzorca
+;Sample options
+;
+strSelectEntry
+Izberite vnos
+;Select an entry
+;
+strOkay
+V redu
+;Okay
+;
+strCancel
+Preklièi
+;Cancel
+;
+strReplace
+Nadomesti
+;Replace
+;
+strNewName
+Novo ime
+;New Name
+;
+strYes
+Da
+;Yes
+;
+strNo
+Ne
+;No
+;
+strHelp
+Pomoè
+;Help
+;
+strRecord
+Snemanje
+;Record
+;
+strPlayerOptions
+Mo¾nosti predvajalnika: %s
+;Playeroptions : %s
+;
+strReady
+Pripravljen
+;Ready
+;
+menProject
+Projekt
+;Project
+;
+menPrjNew
+Nov...
+;New ...
+;
+menPrjLoad
+Nalo¾i...
+;Load ...
+;
+menPrjSave
+Shrani...
+;Save ...
+;
+menPrjFlush
+Izplakni
+;Flush
+;
+menPrjFlushAll
+Izplakni vse...
+;Flush All ...
+;
+menPrjFlushHidden
+Izplakni skrite...
+;Flush Hidden ...
+;
+menPrjFlushShown
+Izplakni prikazane...
+;Flush Shown ...
+;
+menPrjRunOperator
+Izvr¹i...
+;Execute ...
+;
+menPrjRunRexx
+Po¾eni skript Rexx ...
+;Run Rexx ...
+;
+menPrjPlayAll
+Predvajaj vse
+;Play All
+;
+menPrjPlayRange
+Predvajaj obmoèje
+;Play Range
+;
+menPrjStop
+Ustavi
+;Stop
+;
+menPrjBatchProc
+Izvedi nad mno¾ico...
+;Batch Processor ...
+;
+menPrjInfo
+Informacije...
+;Information ...
+;
+menPrjQuit
+Konèaj...
+;Quit ...
+;
+menEdit
+Urejanje
+;Edit
+;
+menEditCut
+Odre¾i
+;Cut
+;
+menEditCutBeg
+Odre¾i od zaèetka
+;Cut to beginning
+;
+menEditCutEnd
+Odre¾i do konca
+;Cut to end
+;
+menEditCopy
+Kopiraj
+;Copy
+;
+menEditCopyBeg
+Kopiraj od zaèetka
+;Copy to beginning
+;
+menEditCopyEnd
+Kopiraj do konca
+;Copy to end
+;
+menEditGrab
+Zgrabi
+;Grab
+;
+menEditGrabBeg
+Zgrabi od zaèetka
+;Grab to beginning
+;
+menEditGrabEnd
+Zgrabi do konca
+;Grab to end
+;
+menEditPaste
+Prilepi
+;Paste
+;
+menEditPasteBeg
+Prilepi na zaèetek
+;Paste at beginning
+;
+menEditPasteEnd
+Prilepi na konec
+;Paste at end
+;
+menEditErase
+Izbri¹i
+;Erase
+;
+menEditEraseBeg
+Izbri¹i od zaèetka
+;Erase to beginning
+;
+menEditEraseEnd
+Izbri¹i do konca
+;Erase to end
+;
+menEditZero
+Iznièi
+;Zero
+;
+menEditZeroBeg
+Iznièi od zaèetka
+;Zero to beginning
+;
+menEditZeroEnd
+Iznièi do konca
+;Zero to end
+;
+menEditOverwrite
+Prepi¹i
+;Overwrite
+;
+menEditOverwriteBeg
+Prepi¹i na zaèetku
+;Overwrite at beginning
+;
+menEditExchangeMarkAndClip
+Zamenjaj oznaèeno in izrez
+;Exchange mark and clip
+;
+menEditReplaceMarkByClip
+Nadomesti oznaèeno z izrezom
+;Replace mark by clip
+;
+menRange
+Obmoèje
+;Range
+;
+menRangeMark2Loop
+Nastavi zanko kot oznaèeno
+;set loop like mark
+;
+menRangeLoop2Mark
+Nastavi oznako kot je zanka
+;set mark like loop
+;
+menRangeZoom2Loop
+Nastavi zanko kot je poveèava
+;set loop like zoom
+;
+menRangeZoom2Mark
+Nastavi oznako kot je poveèava
+;set mark like zoom
+;
+menRangeMarkOff
+Izkljuèi oznako
+;switch mark off
+;
+menRangeMarkAll
+Oznaèi vse
+;mark all
+;
+menZoom
+Poveèava
+;Zoom
+;
+menZoomIn
+Poveèaj
+;Zoom in
+;
+menZoomOut
+Zmanj¹aj
+;Zoom out
+;
+menZoomPixel
+1 toèka = 1 vzorec
+;1 Pixel = 1 Sample
+;
+menZoomFull
+Pomanj¹aj do konca
+;Zoom all way out
+;
+menCleanup
+Poèisti
+;Cleanup
+;
+menClCur
+Trenutno
+;current
+;
+menClAll
+Vse
+;all
+;
+menClAllNorm
+Vse normalne
+;all normal
+;
+menClAllZoom
+vse poveèane
+;all zoomed
+;
+menHelp
+Pomoè
+;Help
+;
+menHelpContents
+Vsebina...
+;Contents ...
+;
+menHelpIndex
+Indeks...
+;Index ...
+;
+menHelpWorkshop
+Delavnica...
+;Workshop ...
+;
+menHelpOnline
+http://www.sonicpulse.de
+;http://www.sonicpulse.de
+;
+menHelpMail
+mailto:soundfx@sonicpulse.de
+;mailto:soundfx@sonicpulse.de
+;
+menHelpShowTips
+Ob zagonu prika¾i namige
+;Show tips on startup
+;
+menPrefs
+Nastavitve
+;Prefs
+;
+menPrefsGUI
+Grafièni vmesnik...
+;GUI ...
+;
+menPrefsSample
+Vzorec...
+;Sample ...
+;
+menPrefsVMem
+Navidezni pomnilnik...
+;Virtual memory ...
+;
+menPrefsMisc
+Razno...
+;Miscellaneous ...
+;
+menPrefsUse
+Uporabi
+;Use
+;
+menPrefsSave
+Shrani
+;Save
+;
+menPrefsLoad
+Nalo¾i
+;Load
+;
+menPrefsRestoreUsed
+Nalo¾i nazadnje shranjene
+;Load last used
+;
+menPrefsRestoreSaved
+Nalo¾i nazadnje shranjene
+;Load last saved
+;
+menPrefsDefault
+Ponastavi na privzete vrednosti
+;Reset to defaults
+;
+menUtilities
+Pripomoèki
+;Utilities
+;
+menUtSwapEnd
+Obrni ureditev bitov
+;Swap byte order
+;
+menUtSwapSign
+Zamenjaj predznak
+;Swap sign
+;
+menUtInterleave
+Prepleti kanale
+;Interleave channels
+;
+menUtDeInterleave
+Razpleti kanale
+;De-interleave channels
+;
+menStart
+Zaèetek
+;Start
+;
+menAbout
+Vizitka...
+;About ...
+;
+menCtxDrawMode
+Naèin prikaza
+;Drawmode
+;
+menCtxLoop
+Zanka
+;Loop
+;
+menCtxChannels
+Kanali
+;Channels
+;
+menCtxHide
+Skrij
+;Hide
+;
+tbbLoaderChoice
+Izberi nalagalnik...
+;choose loader ...
+;
+tbbLoaderOptions
+MO¾nosti nalagalnika...
+;loader options ...
+;
+tbbLoadFile
+Nalo¾i datoteko...
+;load file ...
+;
+tbbSaverChoice
+Izberi shranjevalnik...
+;choose saver ...
+;
+tbbSaverOptions
+Mo¾nosti shranjevalnika...
+;saver options ...
+;
+tbbSaveFile
+Shrani datoteko...
+;save file ...
+;
+tbbOperatorChoice
+Izberi operator...
+;choose operator ...
+;
+tbbRunOperator
+Po¾eni operator...
+;run operator ...
+;
+tbbArexxMacroChoice
+Izberi makro ARexx...
+;choose arexx macro ...
+;
+tbbRunArexxMacro
+Po¾eni makro ARexx...
+;run arexx macro
+;
+tbbPlayerChoice
+Izberi zvoèni modul...
+;choose audio module ...
+;
+tbbPlayerOptions
+Mo¾nosti zvoènega modula...
+;audio module options ...
+;
+tbbPlayAll
+Predvajaj vse
+;play all
+;
+tbbPlayRange
+Predvajaj obmoèje
+;play range
+;
+tbbStopPlaying
+Ustavi predvajanje
+;stop playing
+;
+tbbRecord
+Snemaj...
+;record ...
+;
+tbbBufferChoice
+Izberi vzorec...
+;choose sample ...
+;
+tbbBufferOptions
+Mo¾nosti vzorca...
+;sample options ...
+;
+tbbHideShow
+Skrij/prika¾i vzorec
+;hide/show sample
+;
+tbbCutMen
+Variacije za rezanje obmoèja
+;variations for cuting an area
+;
+tbbCopyMen
+Variacije za kopiranje obmoèja
+;variations for copying an area
+;
+tbbPasteMen
+Variacije za lepljenje obmoèja
+;variations for pasting an area
+;
+tbbEraseMen
+Variacije za brisanje obmoèja
+;variations for erasing an area
+;
+tbbGrabMen
+Variacije za grabljenje obmoèja
+;variations for grabbing an area
+;
+tbbZeroMen
+Variacije za nièenje obmoèja
+;variations for zeroing an area
+;
+tbbOverwrMen
+Variacije za prepisovanje obmoèja
+;variations for overwriting an area
+;
+tbbZoomMode
+Naèin poveèave
+;zoom mode
+;
+tbbZoomIn
+Poveèaj
+;zoom in
+;
+tbbZoomOut
+Zmanj¹aj
+;zoom out
+;
+tbbZoomEq
+Poveèava 1:1
+;zoom 1:1
+;
+tbbZoomOutFull
+Zmanj¹aj do konca
+;zoom out full
+;
+tbbRangeMode
+Naèin obmoèja
+;range mode
+;
+tbbLockLength
+Zakleni dol¾ino obmoèja
+;lock range length
+;
+tbbChBegEnd
+Levo in dol / desno in gor
+;left & down / right & up
+;
+tbbMoveBeg
+Premakni na zaèetek
+;move to beginning
+;
+tbbMoveLeftF
+Premakni hitro v levo
+;move left fast
+;
+tbbMoveLeftS
+Premakni poèasi v levo
+;move left slow
+;
+tbbMoveLeftN
+Premakni na naslednje levi prehod èez niè
+;move to next left zero-crossing
+;
+tbbMoveRightN
+Premakni na naslednje desni prehod èez niè
+;move to next right zero-crossing
+;
+tbbMoveRightS
+Premakni poèasi v desno
+;move right slow
+;
+tbbMoveRightF
+Premakni hitro v desno
+;move right fast
+;
+tbbMoveEnd
+Premakni na konec
+;move to end
+;
+tbbMoveTop
+Premakni na vrh
+;move to top
+;
+tbbMoveUpF
+Premakni hitro gor
+;move up fast
+;
+tbbMoveUpS
+Premakni poèasi gor
+;move up slow
+;
+tbbMoveUpP
+Premakni na zgornji vrh
+;move to upper peak
+;
+tbbMoveDownP
+Premakni na spodnji vrh
+;move to lower peak
+;
+tbbMoveDownS
+Premakni poèasi dol
+;move down slow
+;
+tbbMoveDownF
+Premakni hitro dol
+;move to down fast
+;
+tbbMoveBottom
+Premakni na konec
+;move to end
+;
+tbbCut
+Izre¾i obmoèje
+;cut area
+;
+tbbCutB
+Izre¾i od zaèetka
+;cut to beginning
+;
+tbbCutE
+Izre¾i do konca
+;cut to end
+;
+tbbCopy
+Kopiraj obmoèje
+;copy area
+;
+tbbCopyB
+Kopiraj od za¾etek
+;copy to beginning
+;
+tbbCopyE
+Kopiraj do konca
+;copy to end
+;
+tbbPaste
+Prilepi obmoèje
+;paste area
+;
+tbbPasteB
+Prilepi na zaèetek
+;paste at beginning
+;
+tbbPasteE
+Prilepi na konec
+;paste at end
+;
+tbbErase
+Izbri¹i obmoèje
+;erase area
+;
+tbbEraseB
+Izbri¹i od zaèetka
+;erase to beginning
+;
+tbbEraseE
+Izbri¹i do konca
+;erase to end
+;
+tbbGrab
+Zgrabi obmoèje
+;grab area
+;
+tbbGrabB
+Zgrabi od zaèetka
+;grab to beginning
+;
+tbbGrabE
+Zgrabi do konca
+;grab to end
+;
+tbbZero
+Iznièi obmoèje
+;zero area
+;
+tbbZeroB
+Iznièi od zaèetka
+;zero to beginning
+;
+tbbZeroE
+Iznièi do konca
+;zero to end
+;
+tbbOverwr
+Prepi¹i obmoèje
+;overwrite area
+;
+tbbOverwrB
+Prepi¹i na zaèetku
+;overwrite at beginning
+;
+urlHome
+http://www.sonicpulse.de/eng/p_sfx.html
+;http://www.sonicpulse.de/eng/p_sfx.html
+;

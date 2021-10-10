@@ -1,0 +1,136 @@
+Subject:
+Re: VisualPrefs (latest), KinCon Arrows misplaced, wrong window-border width
+From:
+tanti@intercom.it (Massimo Tantignone)
+Date:
+Mon, 10 Sep 2001 01:51:23 +0200 (CEST)
+To:
+kost@imn.htwk-leipzig.de (Stefan Kost)
+X-UIDL:
+361df5b50000379c
+X-Mozilla-Status:
+0011
+X-Mozilla-Status2:
+00000000
+Received:
+from MAIL.HTWK-Leipzig.DE (hera.rz.htwk-leipzig.de [141.57.1.8]) by imn.htwk-leipzig.de (8.9.1/8.9.1) with ESMTP id BAA00837 for <kost@imn.htwk-leipzig.de>; Mon, 10 Sep 2001 01:49:31 +0200 (MET DST)
+Received:
+from deimos.intercom.it (deimos.intercom.it [195.72.192.2]) by MAIL.HTWK-Leipzig.DE (8.11.3/8.11.3) with ESMTP id f89NrC615866 for <kost@imn.htwk-leipzig.de>; Mon, 10 Sep 2001 01:53:12 +0200
+Received:
+from it (amigaws.dial.intercom.it [195.72.207.232]) by deimos.intercom.it (Postfix) with SMTP id CFF6841E72 for <kost@imn.htwk-leipzig.de>; Mon, 10 Sep 2001 01:51:23 +0200 (CEST)
+In-Reply-To:
+<3B8B9100.5090007@imn.htwk-leipzig.de>
+Message-ID:
+<4697.8652T1340T2858@intercom.it>
+MIME-Version:
+1.0
+Content-transfer-encoding:
+7bit
+X-Mailer:
+THOR 2.22 (Amiga;TCP/IP)
+Lines:
+94
+Content-Type:
+text/plain; charset=us-ascii
+Content-Length:
+4653
+Status:
+O
+
+Hello Stefan Kost, on date 28-Aug-01 13:39:28 you wrote:
+
+Sorry for the delay, I was on vacation...
+
+ SK> I am registered VP-user and developer myself. I noticed the following
+ SK> things.
+ SK> 1. After I have updated to the last version the arrows in KingCon windows
+ SK> are shifted (to down left).
+
+Indeed (sigh)... release 1.5k (with this and other fixes) will be on Aminet
+soon, however there's already a quick fix for this which you can download:
+
+  http://www.intercom.it/~amigaws/Download/VP15jFix.lha
+
+The archive contains executables for all CPUs, just pick the one you want
+to use and copy/rename it as needed.
+
+By the way, you can also work around the bug by setting your sizing gadget's
+width to 18 or more (but I don't think you'd want to do this...  [;)] 
+
+SK> 2. When I read the
+ SK> a: width from a window and subtract the left and right border or
+ SK> b: read the gzz-width and set this as inner-width for reopening
+ SK> the window,the new window is 3 pixels wider than before. It does
+ SK> not happen, wehn VP is switched off.
+
+This is unfortunately due to a bug in Intuition, which can't handle window
+sizing gadgets narrower than 18 pixels. Namely, Intuition thinks that at
+window opening the right window border can't be narrower than 18 pixels:
+so, when using the WA_InnerWidth tag, the initial window size is calculated
+(by Intuition) as if the right window border were 18 pixels wide, even if
+it's actually narrower than that. In fact, the right window border is even
+drawn by Intuition with a width of 18 pixels, but VisualPrefs resizes it
+immediately thereafter (both on-screen, and in the Window structure).
+Therefore, the actual window's inner width ends up being a bit larger than
+requested - exactly by (18 - sizing_gadget_width) pixels.
+
+Ultimately, this means that the inner width you read back is *not* the same
+you specified at OpenWindowTagList() time. Since you're using a sizing
+gadget which is 15 pixels wide, the difference is indeed (18 - 15) == 3.
+
+You can easily work around this problem by applying a simple transformation
+to the right border size once you've read it from the Window structure:
+
+  right_border_size = MAX(right_border_size,18);
+
+and using this bounded value in your calculations. Similarly, if you read
+Window.GZZWidth, you could adjust it this way:
+
+  gzz_width -= ((right_border_size < 18)? (18 - right_border_size): 0);
+
+All this, of course, only in your code section where you read the window
+size in order to use it later for reopening the window; everywhere else
+you shouldn't need to apply these adjustments.
+
+Again, note that this problem only arises when using a sizing gadget less
+than 18 pixels wide; everything works correctly (no adjustments needed) if
+the gadget's width is equal or greater than 18.
+
+It is my hope that this bug will be fixed in the next version of Intuition
+(I'll certainly report it...), so it might be a good idea to check the
+intuition.library version number before using the above workaround (or,
+even better, make it an user-configurable option).
+
+ SK> And now one big wish. Could you implements kind of object-oriented pens :
+ SK> 1. solid
+ SK> 2. dithered (two-color pattern)
+ SK> 3. gradient (dithered multicolor gradients, with free direction)
+ SK> 4. image
+ SK> 5. function (lighten, darken, blur, ...)
+ SK> And the use these 'pens' fow drawing the various parts of the gui. This
+ SK> would make birdie obsolete and add a lot of new possibillities for
+ SK> themeing. If you do this please allow different 'pens' for e.g.
+ SK> window-titlebar and window-borders (ideally seperate pens for almost
+ SK> everything).
+
+This is a great idea, but unfortunately it can't be done with the current
+Intuition. The problem is that only the VisualPrefs custom pens could
+fully support these new features, while the standard system pens would still
+be used "the old way" by many parts of the GUI (since there's still a large
+amount of code in intuition.library that VisualPrefs can't replace). This
+would make for an inconsistent behavior in both the GUI itself and the GUI
+preferences editor.
+
+I'll try to push the intuition.library development (as much as a beta-tester
+can do  [:-)] into that direction when the time will come, though. And of
+course, this idea could still be applied locally in some GUI items, although
+due to my constant lack of spare time, I fear this won't happen very soon :-/
+
+Anyway, thanks for the suggestion! It's now in my "to do" list.
+
+Kind regards,
+                                   Massimo Tantignone (tanti@intercom.it)
+                                     [http://www.intercom.it/~amigaws]
+
+
+

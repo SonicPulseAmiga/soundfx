@@ -1,0 +1,55 @@
+From - Fri Jun  8 11:54:45 2001
+Received: from thlhp.rz.htwk-leipzig.de (thlhp [141.57.1.1])
+	by imn.htwk-leipzig.de (8.9.1/8.9.1) with ESMTP id PAA07299
+	for <kost@imn.htwk-leipzig.de>; Tue, 5 Jun 2001 15:55:53 +0200 (MET DST)
+Received: from ns0.enterprise.net (ns0.enterprise.net [213.137.2.163])
+	by thlhp.rz.htwk-leipzig.de (8.8.8/8.8.8) with ESMTP id PAA27370
+	for <kost@imn.htwk-leipzig.de>; Tue, 5 Jun 2001 15:56:22 +0200
+Received: from enterprise.net (cmax05-010.enterprise.net [212.161.115.10])
+	by ns0.enterprise.net (8.10.2+Sun/8.10.2) with SMTP id f55Dmfo12475
+	for <kost@imn.htwk-leipzig.de>; Tue, 5 Jun 2001 14:48:41 +0100 (BST)
+From: Don Cox <doncox@enterprise.net>
+To: Stefan Kost <kost@imn.htwk-leipzig.de>
+Date: Tue, 05 Jun 2001 13:23:19 +0000
+Message-ID: <yam8556.963.158093472@smtp.enterprise.net>
+In-Reply-To: <3B1CA290.1A1E62EA@imn.htwk-leipzig.de>
+X-Mailer: YAM 2.2 [040] AmigaOS E-Mail Client (c) 1995-2000 by Marcel Beck  http://www.yam.ch
+Subject: Re: Review
+MIME-Version: 1.0
+Content-Type: text/plain
+Content-Length: 1038
+Status:   
+X-Mozilla-Status: 8013
+X-Mozilla-Status2: 00000000
+X-UIDL: 361df5b500003496
+
+Hello Stefan
+
+One of the great features is in Analyse 2D, where you can measure the
+pitch of an instrument sample. For example to C-3
+
+But I find the display is very crowded at the bottom, while there is
+usually very little audio above 2kHz.  So it would be nice in this
+operator to have an option to display only up to XX kHz, expanding the
+scale to fill the window with this range.  Then it would be easier to
+measure the pitch accurately.
+
+The grid showing octaves is very nice. 
+
+Now, having found out what note a sample is, we need an option in Pitch
+Shift to enter the current note on a keyboard display, and the desired
+note also on a keyboard display.  That would be more useful in many
+cases than a "Pitch Shift Factor".  Of course all it gives is a friendly
+way to calculate the factor, but friendly helps.
+
+
+Another thing that would make the program more friendly is a Cancel
+button in each operator window. Closing the window has the same effect,
+but is not so good ergonomically.
+
+
+Regards
+-- 
+Don Cox
+doncox@enterprise.net
+

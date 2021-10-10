@@ -1,0 +1,4 @@
+Also, some file atributes of the 3,82,1 installation were preventing
+deletion of files, but this might be on my machine only, as i use a
+ery old filemanager (AmigUtil) that acts strange sometimes, on those
+protection bits. 
